@@ -8,15 +8,18 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int TreeSprite = 0;
+    public const int Tree = 0;
+    public const int TreeSprite = 1;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
+        "Tree",
         "TreeSprite"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.TreeSpriteComponent)
     };
 }

@@ -1,5 +1,4 @@
 ﻿using Entitas;
-using UnityEngine;
 
 namespace Code.ECS.Systems
 {
@@ -9,6 +8,10 @@ namespace Code.ECS.Systems
 
 		public SpawnTreeSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => Debug.Log("Заспавнилось дерево");
+		public void Initialize()
+		{
+			var entity = _contexts.game.CreateEntity();
+			entity.isTree = true;
+		}
 	}
 }
