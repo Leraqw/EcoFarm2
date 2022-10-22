@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Unity
 {
-	public class EntitasDirector : MonoBehaviour
+	public class UnityToEntitasAdapter : MonoBehaviour
 	{
 		private AllSystems _systems;
 
