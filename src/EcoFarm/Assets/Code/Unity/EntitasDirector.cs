@@ -7,7 +7,7 @@ namespace Code.Unity
 	{
 		private AllSystems _systems;
 
-		private void Awake() => _systems = new AllSystems(Contexts.sharedInstance);
+		private void Awake() => _systems = AllSystems.Create();
 
 		private void Start() => _systems.Initialize();
 
