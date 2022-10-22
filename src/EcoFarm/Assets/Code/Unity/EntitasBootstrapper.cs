@@ -7,14 +7,13 @@ namespace Code.Unity
 	{
 		private AllSystems _systems;
 
-		private void Start()
+		private void Awake()
 		{
 			var contexts = Contexts.sharedInstance;
-
 			_systems = new AllSystems(contexts);
-
-			_systems.Initialize();
 		}
+
+		private void Start() => _systems.Initialize();
 
 		private void Update() => _systems.Tick();
 
