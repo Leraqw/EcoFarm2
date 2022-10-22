@@ -7,7 +7,7 @@ namespace Code.ECS.Features
 		private AllSystems(Contexts contexts)
 			: base(nameof(AllSystems))
 		{
-			Add(new GreeterSystem(contexts));
+			Add(new SpawnTreeSystem(contexts));
 		}
 
 		public static AllSystems Create() => new(Contexts.sharedInstance);

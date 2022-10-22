@@ -1,0 +1,4 @@
+﻿namespace Code.ECS.Components
+{
+	
+}
