@@ -3,19 +3,15 @@ using UnityEngine;
 
 namespace Code.Unity
 {
-	public class EntitasBootstrapper : MonoBehaviour
+	public class EntitasDirector : MonoBehaviour
 	{
 		private AllSystems _systems;
 
-		private void Awake()
-		{
-			var contexts = Contexts.sharedInstance;
-			_systems = new AllSystems(contexts);
-		}
+		private void Awake() => _systems = AllSystems.Create();
 
 		private void Start() => _systems.Initialize();
 
-		private void Update() => _systems.Tick();
+		private void Update() => _systems.OnUpdate();
 
 		private void OnDestroy() => _systems.TearDown();
 	}

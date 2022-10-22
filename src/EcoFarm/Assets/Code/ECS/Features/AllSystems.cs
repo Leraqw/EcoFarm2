@@ -2,10 +2,12 @@
 {
 	public sealed class AllSystems : Feature
 	{
-		public AllSystems(Contexts contexts)
+		private AllSystems(Contexts contexts)
 			: base(nameof(AllSystems)) { }
 
-		public void Tick()
+		public static AllSystems Create() => new(Contexts.sharedInstance);
+
+		public void OnUpdate()
 		{
 			Execute();
 			Cleanup();
