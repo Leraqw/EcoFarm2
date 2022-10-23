@@ -8,21 +8,21 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int RequireResource = 0;
-    public const int Resource = 1;
+    public const int GameObject = 0;
+    public const int RequireGameObject = 1;
     public const int Tree = 2;
 
     public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-        "RequireResource",
-        "Resource",
+        "GameObject",
+        "RequireGameObject",
         "Tree"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.RequireResourceComponent),
-        typeof(Code.ECS.Components.ResourceComponent),
+        typeof(Code.ECS.Components.GameObjectComponent),
+        typeof(Code.ECS.Components.RequireGameObjectComponent),
         typeof(Code.ECS.Components.TreeComponent)
     };
 }
