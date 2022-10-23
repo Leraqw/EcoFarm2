@@ -8,6 +8,8 @@ namespace Code.ECS.Features
 		public AllSystems(Contexts contexts, IAllServices services)
 			: base(nameof(AllSystems))
 		{
+			Add(new ServicesRegistrationSystems(contexts, services));
+
 			Add(new SpawnTreeSystem(contexts));
 		}
 
