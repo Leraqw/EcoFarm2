@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Systems;
+using Code.ECS.Systems.View;
 using Code.Services.Interfaces;
 
 namespace Code.ECS.Features
@@ -11,6 +12,7 @@ namespace Code.ECS.Features
 			Add(new ServicesRegistrationSystems(contexts, services));
 
 			Add(new SpawnTreeSystem(contexts));
+			Add(new LoadViewForEntitySystem(contexts));
 		}
 
 		public void OnUpdate()
