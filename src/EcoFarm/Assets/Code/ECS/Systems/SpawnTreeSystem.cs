@@ -12,7 +12,7 @@ namespace Code.ECS.Systems
 		{
 			var entity = _contexts.game.CreateEntity();
 			entity.isTree = true;
-			entity.AddRequireGameObject("Trees/Prefabs/Tree");
+			entity.AddRequireView("Trees/Prefabs/Tree");
 		}
 	}
 }
