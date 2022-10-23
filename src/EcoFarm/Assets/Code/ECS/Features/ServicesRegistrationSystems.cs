@@ -11,7 +11,7 @@ namespace Code.ECS.Features
 		{
 			var servicesContext = contexts.services;
 
-			Register<IResourcesLoadService>(services, servicesContext.ReplaceResourcesLoadService);
+			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
 		}
 		
 		private void Register<T>(T service, Action<T> replaceService)

@@ -5,10 +5,10 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityAllResources : IAllServices
 	{
-		private readonly IResourcesLoadService _resourceLoader;
+		private readonly IResourcesService _resourceLoader;
 
-		public UnityAllResources() => _resourceLoader = new UnityResourceLoadService();
+		public UnityAllResources() => _resourceLoader = new UnityResourceService();
 
-		GameObject IResourcesLoadService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
+		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 	}
 }

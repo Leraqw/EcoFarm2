@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class ServicesComponentsLookup {
 
-    public const int ResourcesLoadService = 0;
+    public const int ResourcesService = 0;
 
     public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-        "ResourcesLoadService"
+        "ResourcesService"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.ResourcesLoadService)
+        typeof(Code.ECS.Components.ResourcesService)
     };
 }

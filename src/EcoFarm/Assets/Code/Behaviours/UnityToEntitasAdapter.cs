@@ -2,7 +2,7 @@
 using Code.Services.UnityImplementations;
 using UnityEngine;
 
-namespace Code.Unity
+namespace Code.Behaviours
 {
 	public class UnityToEntitasAdapter : MonoBehaviour
 	{

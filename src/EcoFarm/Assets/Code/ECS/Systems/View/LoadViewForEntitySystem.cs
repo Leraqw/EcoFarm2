@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.View
 			: base(contexts.game)
 			=> _services = contexts.services;
 
-		private IResourcesLoadService Resources => _services.resourcesLoadService.Value;
+		private IResourcesService Resources => _services.resourcesService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.RequireView);

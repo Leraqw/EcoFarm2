@@ -2,7 +2,7 @@
 
 namespace Code.Services.Interfaces
 {
-	public interface IResourcesLoadService : IService
+	public interface IResourcesService : IService
 	{
 		GameObject LoadGameObject(string path);
 	}

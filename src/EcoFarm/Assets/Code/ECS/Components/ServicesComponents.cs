@@ -4,5 +4,5 @@ using Entitas.CodeGeneration.Attributes;
 
 namespace Code.ECS.Components
 {
-	[Services] [Unique] public sealed class ResourcesLoadService : ValueComponent<IResourcesLoadService> { }
+	[Services] [Unique] public sealed class ResourcesService : ValueComponent<IResourcesService> { }
 }
