@@ -1,16 +1,19 @@
 ﻿using Code.ECS.Systems;
+using Code.ECS.Systems.View;
+using Code.Services.Interfaces;
 
 namespace Code.ECS.Features
 {
 	public sealed class AllSystems : Feature
 	{
-		private AllSystems(Contexts contexts)
+		public AllSystems(Contexts contexts, IAllServices services)
 			: base(nameof(AllSystems))
 		{
-			Add(new GreeterSystem(contexts));
-		}
+			Add(new ServicesRegistrationSystems(contexts, services));
 
-		public static AllSystems Create() => new(Contexts.sharedInstance);
+			Add(new SpawnTreeSystem(contexts));
+			Add(new LoadViewForEntitySystem(contexts));
+		}
 
 		public void OnUpdate()
 		{
