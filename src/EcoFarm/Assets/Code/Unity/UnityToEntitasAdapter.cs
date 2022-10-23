@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Features;
+using Code.Services.UnityImplementations;
 using UnityEngine;
 
 namespace Code.Unity
@@ -7,7 +8,7 @@ namespace Code.Unity
 	{
 		private AllSystems _systems;
 
-		private void Awake() => _systems = AllSystems.Create();
+		private void Awake() => _systems = new AllSystems(Contexts.sharedInstance, new UnityAllResources());
 
 		private void Start() => _systems.Initialize();
 

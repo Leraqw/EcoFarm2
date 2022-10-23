@@ -6,23 +6,17 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class GameComponentsLookup {
+public static class ServicesComponentsLookup {
 
-    public const int GameObject = 0;
-    public const int RequireGameObject = 1;
-    public const int Tree = 2;
+    public const int ResourcesLoadService = 0;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-        "GameObject",
-        "RequireGameObject",
-        "Tree"
+        "ResourcesLoadService"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.GameObjectComponent),
-        typeof(Code.ECS.Components.RequireGameObjectComponent),
-        typeof(Code.ECS.Components.TreeComponent)
+        typeof(Code.ECS.Components.ResourcesLoadService)
     };
 }
