@@ -1,16 +1,15 @@
 ﻿using Code.ECS.Systems;
+using Code.Services.Interfaces;
 
 namespace Code.ECS.Features
 {
 	public sealed class AllSystems : Feature
 	{
-		private AllSystems(Contexts contexts)
+		public AllSystems(Contexts contexts, IAllServices services)
 			: base(nameof(AllSystems))
 		{
 			Add(new SpawnTreeSystem(contexts));
 		}
-
-		public static AllSystems Create() => new(Contexts.sharedInstance);
 
 		public void OnUpdate()
 		{
