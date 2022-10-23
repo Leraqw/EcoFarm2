@@ -9,10 +9,7 @@ namespace Code.ECS.Systems.Services
 		private readonly Action<TService> _register;
 
 		public RegisterServiceSystem(TService service, Action<TService> register)
-		{
-			_service = service;
-			_register = register;
-		}
+			=> (_service, _register) = (service, register);
 
 		public void Initialize() => _register.Invoke(_service);
 	}
