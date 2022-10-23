@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Code.ECS.Systems.View
 {
@@ -12,9 +14,7 @@ namespace Code.ECS.Systems.View
 
 		public LoadViewForEntitySystem(Contexts contexts)
 			: base(contexts.game)
-		{
-			_services = contexts.services;
-		}
+			=> _services = contexts.services;
 
 		private IResourcesLoadService Resources => _services.resourcesLoadService.Value;
 
@@ -25,13 +25,12 @@ namespace Code.ECS.Systems.View
 			=> entity.hasView == false;
 
 		protected override void Execute(List<GameEntity> entites)
-		{
-			foreach (var prefab in entites.Select(LoadPrefab))
-			{
-				Object.Instantiate(prefab);
-			}
-		}
+			=> entites
+			   .Select(LoadPrefab)
+			   .ForEach(Instantiate);
 
 		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
+		
+		private void Instantiate(GameObject prefab) => Object.Instantiate(prefab);
 	}
 }
