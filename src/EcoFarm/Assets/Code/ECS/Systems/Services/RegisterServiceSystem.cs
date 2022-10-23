@@ -1,5 +1,4 @@
 ﻿using System;
-using Code.Services.Interfaces;
 using Entitas;
 
 namespace Code.ECS.Systems.Services
