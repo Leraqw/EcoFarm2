@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Code.Utils.Extensions;
+using Entitas;
 
 namespace Code.ECS.Systems
 {
@@ -9,10 +10,8 @@ namespace Code.ECS.Systems
 		public SpawnTreeSystem(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
-		{
-			var entity = _contexts.game.CreateEntity();
-			entity.isTree = true;
-			entity.AddRequireView("Trees/Prefabs/Tree");
-		}
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.isTree = true)
+			            .AddRequireView("Trees/Prefabs/Tree");
 	}
 }
