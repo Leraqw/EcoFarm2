@@ -7,8 +7,8 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityAllServices : IAllServices
 	{
-		private readonly IResourcesService _resourceLoader;
 		private readonly ISceneObjectsService _sceneObjects;
+		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
 
 		public UnityAllServices(ISceneObjectsService sceneObjectsService)
