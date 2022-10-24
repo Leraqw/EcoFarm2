@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Code.Services.Interfaces;
-using Code.Utils.Extensions;
+using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Code.ECS.Systems.View
 {
@@ -25,12 +23,12 @@ namespace Code.ECS.Systems.View
 			=> entity.hasView == false;
 
 		protected override void Execute(List<GameEntity> entites)
-			=> entites
-			   .Select(LoadPrefab)
-			   .ForEach(Instantiate);
+			=> entites.ForEach(InstantiateView);
+
+		private void InstantiateView(GameEntity e) => e.AddView(Instantiate(e));
+
+		private GameObject Instantiate(GameEntity e) => GameObjectUtils.Instantiate(LoadPrefab(e), e.SpawnPosition);
 
 		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
-		
-		private void Instantiate(GameObject prefab) => Object.Instantiate(prefab);
 	}
 }

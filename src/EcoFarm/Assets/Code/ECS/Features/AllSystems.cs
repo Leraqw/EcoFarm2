@@ -6,9 +6,10 @@ namespace Code.ECS.Features
 {
 	public sealed class AllSystems : Feature
 	{
-		public AllSystems(Contexts contexts, IAllServices services)
+		public AllSystems(IAllServices services)
 			: base(nameof(AllSystems))
 		{
+			var contexts = Contexts.sharedInstance;
 			Add(new ServicesRegistrationSystems(contexts, services));
 
 			Add(new SpawnTreeSystem(contexts));
