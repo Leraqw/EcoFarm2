@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Code.Data
 {
-	public class Storage<T>
+	public class UnityJsonStorage<T>
 	{
 		private readonly string _path;
 
-		public Storage()
+		public UnityJsonStorage()
 		{
 			var directory = $"{Application.persistentDataPath}/Data/";
 			_path = directory + $"{typeof(T).Name}.json";
@@ -17,7 +17,7 @@ namespace Code.Data
 		
 		public void Save(T data)
 		{
-			var json = JsonUtility.ToJson(data, true);
+			var json = JsonUtility.ToJson(data, prettyPrint: true);
 			File.WriteAllText(_path, json);
 		}
 		

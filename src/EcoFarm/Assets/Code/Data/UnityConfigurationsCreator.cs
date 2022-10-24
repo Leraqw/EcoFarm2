@@ -11,7 +11,7 @@ namespace Code.Data
 		public static void CreateConfiguration()
 		{
 			var config = new Config(TreesCount);
-			var storage = new Storage<Config>();
+			var storage = new UnityJsonStorage<Config>();
 			
 			storage.Save(config);
 
