@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace Code.Services.UnityImplementations
 {
-	public class UnityAllResources : IAllServices
+	public class UnityAllServices : IAllServices
 	{
 		private readonly IResourcesService _resourceLoader;
 		private readonly ISceneObjectsService _sceneObjects;
 		private readonly IStorageService _storage;
 
-		public UnityAllResources(ISceneObjectsService sceneObjectsService)
+		public UnityAllServices(ISceneObjectsService sceneObjectsService)
 		{
 			_sceneObjects = sceneObjectsService;
 
