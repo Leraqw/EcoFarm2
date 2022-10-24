@@ -19,10 +19,9 @@ namespace Code.ECS.Systems
 			=> SceneObjectsService
 			   .TreeSpawnPositions
 			   .Skip(ConfigService.TreesCount)
-			   .Select((t) => t.position)
 			   .ForEach(SpawnPlug);
 
-		private void SpawnPlug(Vector3 position)
+		private void SpawnPlug(Vector2 position)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddRequireView("Environment/Trees Beds/Prefabs/Tree Bed Plug"))
 			            .Do((e) => e.AddSpawnPosition(position));

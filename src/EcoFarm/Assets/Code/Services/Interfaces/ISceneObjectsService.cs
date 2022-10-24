@@ -5,6 +5,6 @@ namespace Code.Services.Interfaces
 {
 	public interface ISceneObjectsService
 	{
-		List<Transform> TreeSpawnPositions { get; }
+		IEnumerable<Vector2> TreeSpawnPositions { get; }
 	}
 }

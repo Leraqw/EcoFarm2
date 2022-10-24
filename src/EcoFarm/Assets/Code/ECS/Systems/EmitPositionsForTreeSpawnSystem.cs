@@ -19,10 +19,9 @@ namespace Code.ECS.Systems
 			=> SceneObjectsService
 			   .TreeSpawnPositions
 			   .Take(ConfigService.TreesCount)
-			   .Select((t) => t.position)
 			   .ForEach(RequireTreeOn);
 
-		private void RequireTreeOn(Vector3 position)
+		private void RequireTreeOn(Vector2 position)
 			=> _contexts.game.CreateEntity()
 			            .AddRequireTreeOnPosition(position);
 	}

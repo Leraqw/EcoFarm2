@@ -23,7 +23,7 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
-		List<Transform> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
+		IEnumerable<Vector2> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
 
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
