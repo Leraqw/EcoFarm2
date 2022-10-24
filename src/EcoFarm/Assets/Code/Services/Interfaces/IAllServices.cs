@@ -1,4 +1,4 @@
 ﻿namespace Code.Services.Interfaces
 {
-	public interface IAllServices : IResourcesService, ISceneObjectsService { }
+	public interface IAllServices : IResourcesService, ISceneObjectsService, IStorageService { }
 }
