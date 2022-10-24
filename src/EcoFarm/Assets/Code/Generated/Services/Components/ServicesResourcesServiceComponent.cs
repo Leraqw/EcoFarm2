@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity resourcesServiceEntity { get { return GetGroup(ServicesMatcher.ResourcesService).GetSingleEntity(); } }
-    public Code.ECS.Components.ResourcesService resourcesService { get { return resourcesServiceEntity.resourcesService; } }
+    public Code.ECS.Components.ResourcesServiceComponent resourcesService { get { return resourcesServiceEntity.resourcesService; } }
     public bool hasResourcesService { get { return resourcesServiceEntity != null; } }
 
     public ServicesEntity SetResourcesService(Code.Services.Interfaces.IResourcesService newValue) {
         if (hasResourcesService) {
-            throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with Code.ECS.Components.ResourcesService!",
+            throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with Code.ECS.Components.ResourcesServiceComponent!",
                 "You should check if the context already has a resourcesServiceEntity before setting it or use context.ReplaceResourcesService().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ECS.Components.ResourcesService resourcesService { get { return (Code.ECS.Components.ResourcesService)GetComponent(ServicesComponentsLookup.ResourcesService); } }
+    public Code.ECS.Components.ResourcesServiceComponent resourcesService { get { return (Code.ECS.Components.ResourcesServiceComponent)GetComponent(ServicesComponentsLookup.ResourcesService); } }
     public bool hasResourcesService { get { return HasComponent(ServicesComponentsLookup.ResourcesService); } }
 
     public void AddResourcesService(Code.Services.Interfaces.IResourcesService newValue) {
         var index = ServicesComponentsLookup.ResourcesService;
-        var component = (Code.ECS.Components.ResourcesService)CreateComponent(index, typeof(Code.ECS.Components.ResourcesService));
+        var component = (Code.ECS.Components.ResourcesServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.ResourcesServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceResourcesService(Code.Services.Interfaces.IResourcesService newValue) {
         var index = ServicesComponentsLookup.ResourcesService;
-        var component = (Code.ECS.Components.ResourcesService)CreateComponent(index, typeof(Code.ECS.Components.ResourcesService));
+        var component = (Code.ECS.Components.ResourcesServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.ResourcesServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

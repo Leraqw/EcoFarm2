@@ -12,8 +12,9 @@ namespace Code.ECS.Features
 			var servicesContext = contexts.services;
 
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
+			Register<ISceneObjectsService>(services, servicesContext.ReplaceSceneObjectsService);
 		}
-		
+
 		private void Register<T>(T service, Action<T> replaceService)
 			=> Add(new RegisterServiceSystem<T>(service, replaceService));
 	}

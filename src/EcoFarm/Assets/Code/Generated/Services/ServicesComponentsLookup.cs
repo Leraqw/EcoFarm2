@@ -9,14 +9,17 @@
 public static class ServicesComponentsLookup {
 
     public const int ResourcesService = 0;
+    public const int SceneObjectsService = 1;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-        "ResourcesService"
+        "ResourcesService",
+        "SceneObjectsService"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.ResourcesService)
+        typeof(Code.ECS.Components.ResourcesServiceComponent),
+        typeof(Code.ECS.Components.SceneObjectsServiceComponent)
     };
 }
