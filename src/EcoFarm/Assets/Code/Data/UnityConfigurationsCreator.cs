@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Code.Data
@@ -20,31 +18,6 @@ namespace Code.Data
 			var loaded = storage.Load();
 			
 			Debug.Log("loaded.TreesCount = " + loaded.TreesCount);
-		}
-	}
-
-	public class Storage<T>
-	{
-		private readonly string _path;
-
-		public Storage()
-		{
-			var directory = $"{Application.persistentDataPath}/Data/";
-			_path = directory + $"{typeof(T).Name}.json";
-			
-			Directory.CreateDirectory(directory);
-		}
-		
-		public void Save(T data)
-		{
-			var json = JsonUtility.ToJson(data, true);
-			File.WriteAllText(_path, json);
-		}
-		
-		public T Load()
-		{
-			var json = File.ReadAllText(_path);
-			return JsonUtility.FromJson<T>(json);
 		}
 	}
 }
