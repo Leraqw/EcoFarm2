@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces;
+﻿using System.Linq;
+using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Code.ECS.Systems
 
 		public SpawnTreeSystem(Contexts contexts) => _contexts = contexts;
 
-		private Vector2 TreeSpawnPosition => SceneObjectsService.DebugTreeSpawnPosition.position;
+		private Vector2 TreeSpawnPosition => SceneObjectsService.TreeSpawnPositions.First().position;
 		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
 
 		public void Initialize()
