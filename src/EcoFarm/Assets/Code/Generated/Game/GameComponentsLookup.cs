@@ -8,14 +8,16 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int RequireView = 0;
-    public const int SpawnPosition = 1;
-    public const int Tree = 2;
-    public const int View = 3;
+    public const int RequireTreeOnPosition = 0;
+    public const int RequireView = 1;
+    public const int SpawnPosition = 2;
+    public const int Tree = 3;
+    public const int View = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
         "Tree",
@@ -23,6 +25,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.TreeComponent),

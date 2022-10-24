@@ -12,7 +12,8 @@ namespace Code.ECS.Features
 			var contexts = Contexts.sharedInstance;
 			Add(new ServicesRegistrationSystems(contexts, services));
 
-			Add(new SpawnTreesSystem(contexts));
+			Add(new EmitPositionsForTreeSpawnSystem(contexts));
+			Add(new SpawnTreeSystem(contexts));
 			Add(new LoadViewForEntitySystem(contexts));
 		}
 
