@@ -3,7 +3,5 @@
 	public interface IConfigService : IService
 	{
 		int TreesCount { get; }
-		
-		IConfigService Default { get; }
 	}
 }

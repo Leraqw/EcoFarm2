@@ -3,12 +3,12 @@ using Code.Services.Interfaces;
 
 namespace Code.Services.UnityImplementations
 {
-	public class UnityConfigService : Config, IConfigService
+	public class UnityConfigService : IConfigService
 	{
-		public new int TreesCount => base.TreesCount;
-		public new IConfigService Default => new UnityConfigService(TreesCount);
+		private readonly Config _config;
 
-		public UnityConfigService(int treesCount)
-			: base(treesCount) { }
+		public UnityConfigService(IStorage storageService) => _config = storageService.Load(Config.Default);
+
+		public int TreesCount => _config.TreesCount;
 	}
 }
