@@ -15,8 +15,7 @@ namespace Code.Data
 			
 			storage.Save(config);
 
-			var loaded = storage.Load();
-			
+			var loaded = storage.Load(Config.Default);
 			Debug.Log("loaded.TreesCount = " + loaded.TreesCount);
 		}
 	}

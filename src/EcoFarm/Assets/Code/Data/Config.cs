@@ -11,5 +11,7 @@ namespace Code.Data
 		{
 			TreesCount = treesCount;
 		}
+
+		public static Config Default => new(0);
 	}
 }

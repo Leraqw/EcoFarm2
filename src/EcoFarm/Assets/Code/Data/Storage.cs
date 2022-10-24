@@ -21,7 +21,17 @@ namespace Code.Data
 			File.WriteAllText(_path, json);
 		}
 		
-		public T Load()
+		public T Load(T defaultValue)
+		{
+			if (File.Exists(_path) == false)
+			{
+				Save(defaultValue);
+			}
+
+			return LoadInner();
+		}
+
+		private T LoadInner()
 		{
 			var json = File.ReadAllText(_path);
 			return JsonUtility.FromJson<T>(json);
