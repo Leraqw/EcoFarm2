@@ -1,23 +1,27 @@
-﻿using Code.Services.Interfaces;
+﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
 using Entitas;
-using UnityEngine;
 
 namespace Code.ECS.Systems
 {
-	public sealed class SpawnTreeSystem : IInitializeSystem
+	public sealed class SpawnTreeSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		public SpawnTreeSystem(Contexts contexts)
+			: base(contexts.game) { }
 
-		public SpawnTreeSystem(Contexts contexts) => _contexts = contexts;
+		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+			=> context.CreateCollector(GameMatcher.RequireTreeOnPosition);
 
-		private Vector2 TreeSpawnPosition => SceneObjectsService.DebugTreeSpawnPosition.position;
-		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
+		protected override bool Filter(GameEntity entity)
+			=> entity.hasRequireTreeOnPosition;
 
-		public void Initialize()
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.isTree = true)
-			            .Do((e) => e.AddRequireView("Trees/Prefabs/Tree"))
-			            .Do((e) => e.AddSpawnPosition(TreeSpawnPosition));
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
+
+		private static void Spawn(GameEntity entry)
+			=> entry
+			   .Do((e) => e.isTree = true)
+			   .Do((e) => e.AddRequireView("Trees/Prefabs/Tree"))
+			   .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
+			   .Do((e) => e.RemoveRequireTreeOnPosition());
 	}
 }

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Code.Services.Interfaces
 {
 	public interface ISceneObjectsService
 	{
-		Transform DebugTreeSpawnPosition { get; }
+		List<Transform> TreeSpawnPositions { get; }
 	}
 }
