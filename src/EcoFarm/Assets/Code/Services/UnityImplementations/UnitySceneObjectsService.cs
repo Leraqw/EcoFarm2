@@ -1,7 +1,7 @@
 ﻿using Code.Services.Interfaces;
 using UnityEngine;
 
-namespace Code.Unity
+namespace Code.Services.UnityImplementations
 {
 	public class UnitySceneObjectsService : MonoBehaviour, ISceneObjectsService
 	{
