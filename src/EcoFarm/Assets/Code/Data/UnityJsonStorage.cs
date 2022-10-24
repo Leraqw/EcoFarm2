@@ -3,38 +3,40 @@ using UnityEngine;
 
 namespace Code.Data
 {
-	public class UnityJsonStorage<T>
+	public class UnityJsonStorage : IStorage
 	{
-		private readonly string _path;
-
-		public UnityJsonStorage()
-		{
-			var directory = $"{Application.persistentDataPath}/Data/";
-			_path = directory + $"{typeof(T).Name}.json";
-			
-			Directory.CreateDirectory(directory);
-		}
-		
-		public void Save(T data)
+		public void Save<T>(T data)
 		{
 			var json = JsonUtility.ToJson(data, prettyPrint: true);
-			File.WriteAllText(_path, json);
+			File.WriteAllText(GetPath<T>(), json);
 		}
-		
-		public T Load(T defaultValue)
+
+		public T Load<T>(T defaultValue)
 		{
-			if (File.Exists(_path) == false)
+			if (File.Exists(GetPath<T>()) == false)
 			{
 				Save(defaultValue);
 			}
 
-			return LoadInner();
+			return LoadInner<T>();
 		}
 
-		private T LoadInner()
+		private T LoadInner<T>()
 		{
-			var json = File.ReadAllText(_path);
+			var json = File.ReadAllText(GetPath<T>());
 			return JsonUtility.FromJson<T>(json);
+		}
+
+		public string GetPath<T>()
+		{
+			var directory = $"{Application.persistentDataPath}/Data/";
+
+			if (Directory.Exists(directory) == false)
+			{
+				Directory.CreateDirectory(directory);
+			}
+
+			return directory + $"{typeof(T).Name}.json";
 		}
 	}
 }
