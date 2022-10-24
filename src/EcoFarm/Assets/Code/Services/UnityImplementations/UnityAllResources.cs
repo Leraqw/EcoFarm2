@@ -11,17 +11,18 @@ namespace Code.Services.UnityImplementations
 		private readonly ISceneObjectsService _sceneObjects;
 		private readonly IStorageService _storage;
 
-		public UnityAllResources(ISceneObjectsService sceneObjectsService, IStorageService storage)
+		public UnityAllResources(ISceneObjectsService sceneObjectsService)
 		{
-			_resourceLoader = new UnityResourceService();
 			_sceneObjects = sceneObjectsService;
-			_storage = storage;
+
+			_resourceLoader = new UnityResourceService();
+			_storage = new UnityStorageService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
 		List<Transform> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
-		
+
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
 		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);

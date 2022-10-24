@@ -14,11 +14,11 @@ namespace Code.ECS.Systems
 		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
+		private IStorageService StorageService => _contexts.services.storageService.Value;
 
 		public void Initialize()
 		{
-			var storage = new UnityJsonStorage();
-			var config = storage.Load(Config.Default);
+			var config = StorageService.Load(Config.Default);
 
 			SceneObjectsService
 				.TreeSpawnPositions

@@ -13,6 +13,7 @@ namespace Code.ECS.Features
 
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
 			Register<ISceneObjectsService>(services, servicesContext.ReplaceSceneObjectsService);
+			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
