@@ -10,6 +10,7 @@ namespace Code.Services.UnityImplementations
 		private readonly ISceneObjectsService _sceneObjects;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
+		private readonly IConfigService _config;
 
 		public UnityAllServices(ISceneObjectsService sceneObjectsService)
 		{
@@ -17,6 +18,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
+			_config = new UnityConfigService(_storage);
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
@@ -28,5 +30,7 @@ namespace Code.Services.UnityImplementations
 		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
+
+		int IConfigService.TreesCount => _config.TreesCount;
 	}
 }

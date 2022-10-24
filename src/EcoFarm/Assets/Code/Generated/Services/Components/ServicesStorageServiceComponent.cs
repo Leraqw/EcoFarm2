@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetStorageService(Code.Services.Interfaces.IStorageService newValue) {
         if (hasStorageService) {
-            throw new Entitas.EntitasException("Could not set StorageService!\n" + this + " already has an entity with Code.ECS.Components.StorageServiceComponent!",
+            throw new Entitas.EntitasException("Could not set StorageService!\n" + this + " already has an entity with Code.ECS.Components.ConfigServiceComponent!",
                 "You should check if the context already has a storageServiceEntity before setting it or use context.ReplaceStorageService().");
         }
         var entity = CreateEntity();
