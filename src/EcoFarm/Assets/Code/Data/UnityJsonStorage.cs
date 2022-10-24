@@ -21,13 +21,15 @@ namespace Code.Data
 			return LoadInner<T>();
 		}
 
-		private T LoadInner<T>()
+		public void Delete<T>() => File.Delete(GetPath<T>());
+
+		private static T LoadInner<T>()
 		{
 			var json = File.ReadAllText(GetPath<T>());
 			return JsonUtility.FromJson<T>(json);
 		}
 
-		public string GetPath<T>()
+		private static string GetPath<T>()
 		{
 			var directory = $"{Application.persistentDataPath}/Data/";
 

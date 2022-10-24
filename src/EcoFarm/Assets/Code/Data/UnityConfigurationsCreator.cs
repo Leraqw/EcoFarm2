@@ -7,16 +7,21 @@ namespace Code.Data
 	{
 		private const int TreesCount = 5;
 
-		[MenuItem("Tools/Eco-Farm/Create Config with 5 trees")]
-		public static void CreateConfiguration()
-		{
-			var config = new Config(TreesCount);
-			IStorage storage = new UnityJsonStorage();
-			
-			storage.Save(config);
+		private static readonly Config Config;
+		private static readonly IStorage Storage;
 
-			var loaded = storage.Load(Config.Default);
-			Debug.Log("loaded.TreesCount = " + loaded.TreesCount);
+		static UnityConfigurationsCreator()
+		{
+			Config = new Config(TreesCount);
+			Storage = new UnityJsonStorage();
 		}
+
+		[MenuItem("Tools/Eco-Farm/Create Config with 5 trees")]
+		public static void CreateConfig() => Storage.Save(Config);
+
+		[MenuItem("Tools/Eco-Farm/Load config")]
+		public static void LoadConfig() => Debug.Log("loaded.TreesCount = " + Storage.Load(Config.Default).TreesCount);
+
+		[MenuItem("Tools/Eco-Farm/Delete")] public static void DeleteConfig() => Storage.Delete<Config>();
 	}
 }
