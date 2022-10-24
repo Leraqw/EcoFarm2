@@ -5,5 +5,5 @@ using Entitas.CodeGeneration.Attributes;
 namespace Code.ECS.Components
 {
 	[Services] [Unique] public sealed class ResourcesServiceComponent : ValueComponent<IResourcesService> { }
-	[Services] [Unique] public sealed class SceneObjectsServiceServiceComponent : ValueComponent<ISceneObjectsService> { }
+	[Services] [Unique] public sealed class SceneObjectsServiceComponent : ValueComponent<ISceneObjectsService> { }
 }
