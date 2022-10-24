@@ -14,6 +14,7 @@ namespace Code.ECS.Features
 
 			Add(new EmitPositionsForTreeSpawnSystem(contexts));
 			Add(new SpawnTreeSystem(contexts));
+			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new LoadViewForEntitySystem(contexts));
 		}
 
