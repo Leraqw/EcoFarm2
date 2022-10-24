@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces;
+﻿using System.Collections.Generic;
+using Code.Services.Interfaces;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -17,6 +18,6 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
-		Transform ISceneObjectsService.DebugTreeSpawnPosition => _sceneObjects.DebugTreeSpawnPosition;
+		List<Transform> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
 	}
 }

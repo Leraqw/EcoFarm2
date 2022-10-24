@@ -834,7 +834,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneObjects:
-    _debugTreeSpawnPosition: {fileID: 1765480801}
+    _treesSpawnPositions:
+    - {fileID: 1869800063}
+    - {fileID: 1580402410}
+    - {fileID: 2025117195}
+    - {fileID: 1297739}
+    - {fileID: 791913731}
+    - {fileID: 2010968209}
+    - {fileID: 2048831295}
+    - {fileID: 444709401}
+    - {fileID: 1765480801}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
