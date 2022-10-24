@@ -1,5 +1,7 @@
-﻿using Code.Utils.Extensions;
+﻿using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 using Entitas;
+using UnityEngine;
 
 namespace Code.ECS.Systems
 {
@@ -9,9 +11,13 @@ namespace Code.ECS.Systems
 
 		public SpawnTreeSystem(Contexts contexts) => _contexts = contexts;
 
+		private Vector2 TreeSpawnPosition => SceneObjectsService.DebugTreeSpawnPosition.position;
+		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
+
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isTree = true)
-			            .AddRequireView("Trees/Prefabs/Tree");
+			            .Do((e) => e.AddRequireView("Trees/Prefabs/Tree"))
+			            .Do((e) => e.AddSpawnPosition(TreeSpawnPosition));
 	}
 }
