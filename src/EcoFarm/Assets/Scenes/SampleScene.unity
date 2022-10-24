@@ -368,51 +368,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8658976622203491511, guid: dac71c5bc573f924687205c11c853151, type: 3}
   m_PrefabInstance: {fileID: 2011417616}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &928499022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 928499023}
-  - component: {fileID: 928499024}
-  m_Layer: 0
-  m_Name: Scene Configuration
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &928499023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928499022}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2046617353}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &928499024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928499022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347f1a48557647fb919c8acb29578ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _debugTreeSpawnPosition: {fileID: 1869800063}
 --- !u!1 &1316697551
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046617353}
   - component: {fileID: 2046617354}
+  - component: {fileID: 2046617355}
   m_Layer: 0
   m_Name: Entitas Adapter
   m_TagString: Untagged
@@ -848,8 +804,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 928499023}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -865,7 +820,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8324fea98ab4df99ff59315d044590a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneObjectsService: {fileID: 928499024}
+  _dependencies: {fileID: 2046617355}
+--- !u!114 &2046617355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046617352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94572e144c04440821a7bdc4888c1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneObjects:
+    _debugTreeSpawnPosition: {fileID: 1869800063}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0

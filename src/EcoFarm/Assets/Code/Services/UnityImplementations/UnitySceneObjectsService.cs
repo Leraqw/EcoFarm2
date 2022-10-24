@@ -1,9 +1,11 @@
-﻿using Code.Services.Interfaces;
+﻿using System;
+using Code.Services.Interfaces;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
 {
-	public class UnitySceneObjectsService : MonoBehaviour, ISceneObjectsService
+	[Serializable]
+	public class UnitySceneObjectsService : ISceneObjectsService
 	{
 		[SerializeField] private Transform _debugTreeSpawnPosition;
 		

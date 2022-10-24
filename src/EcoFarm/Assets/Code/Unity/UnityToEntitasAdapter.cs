@@ -7,17 +7,16 @@ namespace Code.Unity
 {
 	public class UnityToEntitasAdapter : MonoBehaviour
 	{
-		[SerializeField] private UnitySceneObjectsService _sceneObjectsService;
+		[SerializeField] private UnityDependencies _dependencies;
 
 		private AllSystems _systems;
 
-		private void Awake()
+		private void Start()
 		{
-			IAllServices resources = new UnityAllResources(_sceneObjectsService);
+			IAllServices resources = new UnityAllResources(_dependencies.SceneObjects);
 			_systems = new AllSystems(resources);
+			_systems.Initialize();
 		}
-
-		private void Start() => _systems.Initialize();
 
 		private void Update() => _systems.OnUpdate();
 
