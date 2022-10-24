@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneObjects:
-    _debugTreeSpawnPosition: {fileID: 1869800063}
+    _debugTreeSpawnPosition: {fileID: 791913731}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
