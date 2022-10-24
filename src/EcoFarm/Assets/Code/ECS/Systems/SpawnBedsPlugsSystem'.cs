@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace Code.ECS.Systems
 {
-	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
+	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
+		public SpawnBedsPlugsSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
 		private IConfigService ConfigService => _contexts.services.configService.Value;
@@ -18,11 +18,12 @@ namespace Code.ECS.Systems
 		public void Initialize()
 			=> SceneObjectsService
 			   .TreeSpawnPositions
-			   .Take(ConfigService.TreesCount)
-			   .ForEach(RequireTreeOn);
+			   .Skip(ConfigService.TreesCount)
+			   .ForEach(SpawnPlug);
 
-		private void RequireTreeOn(Vector2 position)
+		private void SpawnPlug(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .AddRequireTreeOnPosition(position);
+			            .Do((e) => e.AddRequireView("Environment/Trees Beds/Prefabs/Tree Bed Plug"))
+			            .Do((e) => e.AddSpawnPosition(position));
 	}
 }

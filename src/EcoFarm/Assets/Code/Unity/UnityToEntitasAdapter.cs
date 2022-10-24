@@ -13,7 +13,7 @@ namespace Code.Unity
 
 		private void Start()
 		{
-			IAllServices resources = new UnityAllResources(_dependencies.SceneObjects);
+			IAllServices resources = new UnityAllServices(_dependencies.SceneObjects);
 			_systems = new AllSystems(resources);
 			_systems.Initialize();
 		}
