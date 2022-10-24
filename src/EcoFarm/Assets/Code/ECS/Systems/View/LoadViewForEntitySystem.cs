@@ -23,13 +23,12 @@ namespace Code.ECS.Systems.View
 			=> entity.hasView == false;
 
 		protected override void Execute(List<GameEntity> entites)
-			=> entites.ForEach(Instantiate);
+			=> entites.ForEach(InstantiateView);
 
-		private void Instantiate(GameEntity e) => GameObjectUtils.Instantiate(LoadPrefab(e), GetSpawnPosition(e));
+		private void InstantiateView(GameEntity e) => e.AddView(Instantiate(e));
+
+		private GameObject Instantiate(GameEntity e) => GameObjectUtils.Instantiate(LoadPrefab(e), e.SpawnPosition);
 
 		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
-
-		private static Vector2 GetSpawnPosition(GameEntity e)
-			=> e.hasSpawnPosition ? e.spawnPosition.Value : Vector3.zero;
 	}
 }
