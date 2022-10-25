@@ -12,8 +12,21 @@ namespace Code.Data.DataBase
 			connection.Open();
 
 			using var command = connection.CreateCommand();
-			command.CommandText = "CREATE TABLE IF NOT EXISTS Tree "
-			                      + "(TreeID INT, damage INT);";
+
+			command.ExecuteNonQuery(CreateTableTree());
+		}
+
+		private static string CreateTableTree()
+			=> "CREATE TABLE IF NOT EXISTS Tree "
+			   + "(TreeID INTEGER NOT NULL, "
+			   + "PRIMARY KEY(TreeID AUTOINCREMENT));";
+	}
+
+	public static class SqliteCommandExtensions
+	{
+		public static void ExecuteNonQuery(this SqliteCommand command, string query)
+		{
+			command.CommandText = query;
 			command.ExecuteNonQuery();
 		}
 	}
