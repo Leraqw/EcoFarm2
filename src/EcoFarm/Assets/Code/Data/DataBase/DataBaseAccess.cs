@@ -12,13 +12,7 @@ namespace Code.Data.DataBase
 			connection.Open();
 
 			using var command = connection.CreateCommand();
-
-			command.ExecuteNonQuery(CreateTableTree());
+			command.ExecuteNonQuery(Queries.CreateTableTree);
 		}
-
-		private static string CreateTableTree()
-			=> "CREATE TABLE IF NOT EXISTS Tree "
-			   + "(TreeID INTEGER NOT NULL, "
-			   + "PRIMARY KEY(TreeID AUTOINCREMENT));";
 	}
 }

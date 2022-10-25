@@ -1,5 +1,4 @@
-﻿using Code.Data;
-using Code.Data.Config;
+﻿using Code.Data.Config;
 
 namespace Code.Services.Interfaces
 {
