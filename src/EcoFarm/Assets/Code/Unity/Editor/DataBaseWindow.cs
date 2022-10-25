@@ -1,10 +1,18 @@
-﻿using UnityEditor;
+﻿using Code.Data.DataBase;
+using UnityEditor;
 using UnityEngine;
 
 namespace Code.Unity.Editor
 {
 	public class DataBaseWindow : EditorWindow
 	{
+		private DataBaseAccess _dataBase;
+
+		public DataBaseWindow()
+		{
+			_dataBase = new DataBaseAccess();
+		}
+		
 		[MenuItem("Tools/DataBase")]
 		private static void ShowWindow()
 		{
