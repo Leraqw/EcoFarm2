@@ -1,12 +1,18 @@
-﻿namespace Code.Data.DataBase
+﻿using System.IO;
+using Mono.Data.Sqlite;
+
+namespace Code.Data.DataBase
 {
 	public class DataBaseAccess
 	{
-		private const string DBName = "URI=file:EcoFarm.db";
+		private const string DataBaseName = "URI=file:EcoFarm.db";
 
 		public void CreateDataBase()
 		{
-			// TODO: Create database if it doesn't exist
+			if (File.Exists("EcoFarm.db") == false)
+			{
+				SqliteConnection.CreateFile(DataBaseName);
+			}
 		}
 	}
 }
