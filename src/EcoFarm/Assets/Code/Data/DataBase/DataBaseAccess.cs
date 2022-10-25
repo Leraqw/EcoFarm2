@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Mono.Data.Sqlite;
+﻿using Mono.Data.Sqlite;
 
 namespace Code.Data.DataBase
 {
@@ -9,10 +8,13 @@ namespace Code.Data.DataBase
 
 		public void CreateDataBase()
 		{
-			if (File.Exists("EcoFarm.db") == false)
-			{
-				SqliteConnection.CreateFile(DataBaseName);
-			}
+			using var connection = new SqliteConnection(DataBaseName);
+			connection.Open();
+
+			using var command = connection.CreateCommand();
+			command.CommandText = "CREATE TABLE IF NOT EXISTS Tree "
+			                      + "(TreeID INT, damage INT);";
+			command.ExecuteNonQuery();
 		}
 	}
 }

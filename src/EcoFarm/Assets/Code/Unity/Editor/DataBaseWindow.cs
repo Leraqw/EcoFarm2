@@ -25,7 +25,7 @@ namespace Code.Unity.Editor
 		{
 			if (GUILayout.Button("Create DataBase"))
 			{
-				Debug.Log("U clicked on Create DataBase");
+				_dataBase.CreateDataBase();
 			}
 		}
 	}
