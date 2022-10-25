@@ -21,13 +21,4 @@ namespace Code.Data.DataBase
 			   + "(TreeID INTEGER NOT NULL, "
 			   + "PRIMARY KEY(TreeID AUTOINCREMENT));";
 	}
-
-	public static class SqliteCommandExtensions
-	{
-		public static void ExecuteNonQuery(this SqliteCommand command, string query)
-		{
-			command.CommandText = query;
-			command.ExecuteNonQuery();
-		}
-	}
 }
