@@ -23,6 +23,14 @@ namespace Code.Unity.Editor
 
 		private void OnGUI()
 		{
+			if (GUILayout.Button("DisplayData"))
+			{
+				_dataBase.DisplayData();
+			}
+		}
+
+		private void OnCreateDataBaseButton()
+		{
 			if (GUILayout.Button("Create DataBase"))
 			{
 				_dataBase.CreateDataBase();
