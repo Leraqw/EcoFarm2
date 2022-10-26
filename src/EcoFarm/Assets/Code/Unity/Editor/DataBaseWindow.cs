@@ -25,7 +25,7 @@ namespace Code.Unity.Editor
 		{
 			if (GUILayout.Button("DisplayData"))
 			{
-				_dataBase.DisplayData();
+				Debug.Log("DisplayData");
 			}
 		}
 	}
