@@ -13,12 +13,12 @@ namespace Code.ECS.Systems
 		public SpawnBedsPlugsSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
-		private IConfigService ConfigService => _contexts.services.configService.Value;
+		private IDataBaseService DataBaseService => _contexts.services.dataBaseService.Value;
 
 		public void Initialize()
 			=> SceneObjectsService
 			   .TreeSpawnPositions
-			   .Skip(ConfigService.TreesCount)
+			   .Skip(DataBaseService.TreesCount)
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)

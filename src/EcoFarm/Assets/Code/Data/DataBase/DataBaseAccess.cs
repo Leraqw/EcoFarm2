@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.ObjectModel;
-using System.Data;
-using System.Data.Common;
-using System.Security.Cryptography;
+﻿using System.Data;
 using Mono.Data.Sqlite;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code.Data.DataBase

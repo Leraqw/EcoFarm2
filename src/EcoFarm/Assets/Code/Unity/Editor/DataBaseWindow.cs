@@ -28,13 +28,5 @@ namespace Code.Unity.Editor
 				_dataBase.DisplayData();
 			}
 		}
-
-		private void OnCreateDataBaseButton()
-		{
-			if (GUILayout.Button("Create DataBase"))
-			{
-				_dataBase.CreateDataBase();
-			}
-		}
 	}
 }

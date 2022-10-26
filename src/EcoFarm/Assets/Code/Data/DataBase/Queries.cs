@@ -12,5 +12,7 @@ namespace Code.Data.DataBase
 			   + "(LevelID INTEGER NOT NULL, "
 			   + "PRIMARY KEY(TreeID AUTOINCREMENT));";
 		
+		public static string SelectTreesQuantity
+			=> "SELECT Quantity FROM DevelopmentObjectsOnLevelStart;";
 	}
 }
