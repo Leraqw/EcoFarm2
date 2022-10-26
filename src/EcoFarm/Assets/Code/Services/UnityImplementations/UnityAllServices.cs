@@ -18,7 +18,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_dataBase = new UnityDataBaseService(_storage);
+			_dataBase = new UnityDataBaseService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);

@@ -1,14 +1,14 @@
-﻿using Code.Data.Config;
+﻿using Code.Data.DataBase;
 using Code.Services.Interfaces;
 
 namespace Code.Services.UnityImplementations
 {
 	public class UnityDataBaseService : IDataBaseService
 	{
-		private readonly Config _config;
+		private readonly DataBaseAccess _dataBase;
 
-		public UnityDataBaseService(IStorage storageService) => _config = storageService.Load(Config.Default);
+		public UnityDataBaseService() => _dataBase = new DataBaseAccess();
 
-		public int TreesCount => _config.TreesCount;
+		public int TreesCount => _dataBase.TreesCount;
 	}
 }
