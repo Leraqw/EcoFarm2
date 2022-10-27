@@ -12,5 +12,10 @@ namespace Code.Utils.Extensions.Entitas
 			@this.AddView(gameObject);
 			@this.RemoveRequireView();
 		}
+
+		public static Vector3 GetLocalScale(this GameEntity @this) => @this.view.Value.transform.localScale;
+
+		public static void SetLocalScale(this GameEntity @this, Vector3 value)
+			=> @this.view.Value.transform.localScale = value;
 	}
 }
