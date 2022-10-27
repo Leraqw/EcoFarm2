@@ -19,7 +19,7 @@ public static class GameComponentsLookup {
     public static readonly string[] componentNames = {
         "RequireTreeOnPosition",
         "RequireView",
-        "SpawnPosition",
+        "SpawnPositionOnce",
         "Tree",
         "View"
     };

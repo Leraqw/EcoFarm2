@@ -9,10 +9,14 @@ namespace Code.ECS.Systems.View
 	public sealed class LoadViewForEntitySystem : ReactiveSystem<GameEntity>
 	{
 		private readonly ServicesContext _services;
+		private readonly Transform _viewRoot;
 
 		public LoadViewForEntitySystem(Contexts contexts)
 			: base(contexts.game)
-			=> _services = contexts.services;
+		{
+			_services = contexts.services;
+			_viewRoot = new GameObject("Ui Root").transform;
+		}
 
 		private IResourcesService Resources => _services.resourcesService.Value;
 
@@ -25,9 +29,10 @@ namespace Code.ECS.Systems.View
 		protected override void Execute(List<GameEntity> entites)
 			=> entites.ForEach(InstantiateView);
 
-		private void InstantiateView(GameEntity e) => e.AddView(Instantiate(e));
+		private void InstantiateView(GameEntity e) => e.PerformRequiredView(Instantiate(e));
 
-		private GameObject Instantiate(GameEntity e) => GameObjectUtils.Instantiate(LoadPrefab(e), e.SpawnPosition);
+		private GameObject Instantiate(GameEntity e) 
+			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.SpawnPositionOnce, _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
 	}
