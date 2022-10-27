@@ -24,6 +24,7 @@ namespace Code.ECS.Systems.Tree
 			   .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
 			   .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
 			   .Do((e) => e.isHasFruit = true)
-			   .Do((e) => e.RemoveRequireTreeOnPosition());
+			   .Do((e) => e.RemoveRequireTreeOnPosition())
+			   .Do((e) => e.AddDebugName("Tree"));
 	}
 }
