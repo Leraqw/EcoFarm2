@@ -3,7 +3,7 @@ using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Product.Fruit.Growing
 {
 	public sealed class GrowingSystem : IExecuteSystem
 	{

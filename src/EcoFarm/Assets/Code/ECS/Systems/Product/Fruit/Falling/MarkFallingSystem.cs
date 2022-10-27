@@ -5,7 +5,7 @@ using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
 
-namespace Code.ECS.Systems.Product.Fruit.FruitStates
+namespace Code.ECS.Systems.Product.Fruit.Falling
 {
 	public sealed class MarkFallingSystem : ReactiveSystem<GameEntity>
 	{

@@ -2,7 +2,7 @@
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Product.Fruit.Growing
 {
 	public sealed class CheckGrowthUpSystem : IExecuteSystem
 	{
