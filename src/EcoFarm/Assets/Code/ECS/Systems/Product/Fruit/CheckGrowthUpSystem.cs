@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Utils.Extensions;
+﻿using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 
