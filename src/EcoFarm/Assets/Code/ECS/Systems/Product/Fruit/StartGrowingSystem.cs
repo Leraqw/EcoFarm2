@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.Product.Fruit
@@ -9,7 +10,7 @@ namespace Code.ECS.Systems.Product.Fruit
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.Growing, GameMatcher.View));
+			=> context.CreateCollectorAllOf(GameMatcher.Growing, GameMatcher.View);
 
 		protected override bool Filter(GameEntity entity) => true;
 

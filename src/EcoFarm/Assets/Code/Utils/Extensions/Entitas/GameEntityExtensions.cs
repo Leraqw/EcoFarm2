@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Utils.Extensions.Generated
+namespace Code.Utils.Extensions.Entitas
 {
 	public static class GameEntityExtensions
 	{
