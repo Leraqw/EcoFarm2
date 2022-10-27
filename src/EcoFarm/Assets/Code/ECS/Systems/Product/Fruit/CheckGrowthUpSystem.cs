@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using System;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 
@@ -8,7 +9,8 @@ namespace Code.ECS.Systems.Product.Fruit
 	{
 		private readonly IGroup<GameEntity> _entities;
 
-		public CheckGrowthUpSystem(Contexts contexts) => _entities = contexts.game.GetGroup(GameMatcher.Growing);
+		public CheckGrowthUpSystem(Contexts contexts)
+			=> _entities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Growing, GameMatcher.View));
 
 		public void Execute() => _entities.ForEach(Check);
 
