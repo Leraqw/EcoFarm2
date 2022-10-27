@@ -6,11 +6,11 @@ using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
-	public sealed class FruitSpawnSystem : ReactiveSystem<GameEntity>
+	public sealed class SpawnFruitSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public FruitSpawnSystem(Contexts contexts)
+		public SpawnFruitSystem(Contexts contexts)
 			: base(contexts.game)
 			=> _contexts = contexts;
 

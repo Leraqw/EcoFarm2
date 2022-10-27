@@ -11,7 +11,7 @@ namespace Code.Utils.Common
 			: base(startValue, endValue)
 			=> _direction = endValue.Compare(startValue);
 
-		public override bool IsContains(Vector3 value) 
+		public override bool IsContains(Vector3 value)
 			=> value.IsGreater(StartValue) && value.IsLess(EndValue);
 
 		public Vector3 Next(Vector3 current, float step) => current + CalculateScaledStep(step);
