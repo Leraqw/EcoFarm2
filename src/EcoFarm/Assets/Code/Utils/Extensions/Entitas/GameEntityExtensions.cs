@@ -19,6 +19,6 @@ namespace Code.Utils.Extensions.Entitas
 			=> @this.view.Value.transform.localScale = value;
 		
 		public static Vector3 GetActualPosition(this GameEntity @this)
-			=> @this.hasView ? @this.view.Value.transform.position : Vector3.zero;
+			=> @this.hasView ? @this.view.Value.transform.localPosition : Vector3.zero;
 	}
 }
