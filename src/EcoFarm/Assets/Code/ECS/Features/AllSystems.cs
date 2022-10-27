@@ -28,7 +28,10 @@ namespace Code.ECS.Features
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
 			Add(new WaitAfterGrowingSystem(contexts));
+			
 			Add(new MarkFallingSystem(contexts));
+			Add(new FallingSystem(contexts));
+			Add(new CheckFellUpSystem(contexts));
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));

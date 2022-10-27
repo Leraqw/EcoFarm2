@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Common;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
@@ -19,12 +21,16 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Mark);
 
-		private static void Mark(GameEntity entity) => entity.AddFalling(CreateTreeHeightInterval(entity));
+		private static void Mark(GameEntity entity)
+			=> entity
+			   .Do((e) => e.AddFalling(CreateTreeHeightInterval(entity)))
+			   .Do((e) => e.isDurationUp = false)
+			   .Do((e) => e.AddDuration(FallTime));
 
 		private static Vector3Interval CreateTreeHeightInterval(GameEntity entity)
 			=> new(entity.GetActualPosition(), PositionWithoutTreeHeight(entity));
 
-		private static Vector3 PositionWithoutTreeHeight(GameEntity entity) 
+		private static Vector3 PositionWithoutTreeHeight(GameEntity entity)
 			=> entity.GetActualPosition() - (Vector3)SpawnHeight;
 	}
 }
