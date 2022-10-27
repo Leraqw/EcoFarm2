@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Code.Utils.Extensions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code.Utils.Common
@@ -9,7 +11,7 @@ namespace Code.Utils.Common
 
 		public Vector3Interval(Vector3 startValue, Vector3 endValue)
 			: base(startValue, endValue)
-			=> _direction = Comparer<Vector3>.Default.Compare(endValue, startValue);
+			=> _direction = endValue.Compare(startValue);
 
 		public Vector3 Next(Vector3 current, float step) => current + CalculateScaledStep(step);
 

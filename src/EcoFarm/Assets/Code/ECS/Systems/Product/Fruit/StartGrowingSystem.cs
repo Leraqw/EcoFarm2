@@ -21,10 +21,13 @@ namespace Code.ECS.Systems.Product.Fruit
 		
 		protected override void Execute(List<GameEntity> entites)
 		{
-			foreach (var entity in _contexts.game.GetEntities(GameMatcher.Growing))
+			foreach (var entity in entites)
 			{
-				entity.view.Value.transform.localScale = entity.growing.Value.StartValue;
+				SetScaleToStartValue(entity);
 			}
 		}
+
+		private static void SetScaleToStartValue(GameEntity entity) 
+			=> entity.view.Value.transform.localScale = entity.growing.Value.StartValue;
 	}
 }
