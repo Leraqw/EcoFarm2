@@ -18,5 +18,9 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class GrowingComponent : ValueComponent<Vector3Interval> { }
 
+	[Game] public sealed class DurationComponent : ValueComponent<float> { }
+
+	[Game] public sealed class DurationUpComponent : FlagComponent { }
+
 	[Game] public sealed class DebugNameComponent : ValueComponent<string> { }
 }

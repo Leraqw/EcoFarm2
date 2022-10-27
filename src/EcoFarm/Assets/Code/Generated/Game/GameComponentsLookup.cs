@@ -9,18 +9,22 @@
 public static class GameComponentsLookup {
 
     public const int DebugName = 0;
-    public const int Growing = 1;
-    public const int HasFruit = 2;
-    public const int RequireTreeOnPosition = 3;
-    public const int RequireView = 4;
-    public const int SpawnPosition = 5;
-    public const int Tree = 6;
-    public const int View = 7;
+    public const int Duration = 1;
+    public const int DurationUp = 2;
+    public const int Growing = 3;
+    public const int HasFruit = 4;
+    public const int RequireTreeOnPosition = 5;
+    public const int RequireView = 6;
+    public const int SpawnPosition = 7;
+    public const int Tree = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "DebugName",
+        "Duration",
+        "DurationUp",
         "Growing",
         "HasFruit",
         "RequireTreeOnPosition",
@@ -32,6 +36,8 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ECS.Components.DebugNameComponent),
+        typeof(Code.ECS.Components.DurationComponent),
+        typeof(Code.ECS.Components.DurationUpComponent),
         typeof(Code.ECS.Components.GrowingComponent),
         typeof(Code.ECS.Components.HasFruitComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
