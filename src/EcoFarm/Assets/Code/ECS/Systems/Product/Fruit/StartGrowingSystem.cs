@@ -5,29 +5,18 @@ namespace Code.ECS.Systems.Product.Fruit
 {
 	public sealed class StartGrowingSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
-
 		public StartGrowingSystem(Contexts contexts)
-			: base(contexts.game)
-		{
-			_contexts = contexts;
-		}
+			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.View, GameMatcher.View));
 
 		protected override bool Filter(GameEntity entity)
 			=> true;
-		
-		protected override void Execute(List<GameEntity> entites)
-		{
-			foreach (var entity in entites)
-			{
-				SetScaleToStartValue(entity);
-			}
-		}
 
-		private static void SetScaleToStartValue(GameEntity entity) 
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SetScaleToStartValue);
+
+		private static void SetScaleToStartValue(GameEntity entity)
 			=> entity.view.Value.transform.localScale = entity.growing.Value.StartValue;
 	}
 }
