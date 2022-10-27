@@ -11,5 +11,7 @@ namespace Code.Utils.Extensions
 		
 		public static bool IsLess(this Vector3 @this, Vector3 other)
 			=> @this.x < other.x || @this.y < other.y || @this.z < other.z;
+		
+		public static float Avg(this Vector3 @this) => (@this.x + @this.y + @this.z) / 3;
 	}
 }
