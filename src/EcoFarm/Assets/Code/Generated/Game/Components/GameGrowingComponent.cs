@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.ECS.Components.GrowingComponent growing { get { return (Code.ECS.Components.GrowingComponent)GetComponent(GameComponentsLookup.Growing); } }
     public bool hasGrowing { get { return HasComponent(GameComponentsLookup.Growing); } }
 
-    public void AddGrowing(Code.Utils.Common.Interval<UnityEngine.Vector3> newValue) {
+    public void AddGrowing(Code.Utils.Common.Vector3Interval newValue) {
         var index = GameComponentsLookup.Growing;
         var component = (Code.ECS.Components.GrowingComponent)CreateComponent(index, typeof(Code.ECS.Components.GrowingComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceGrowing(Code.Utils.Common.Interval<UnityEngine.Vector3> newValue) {
+    public void ReplaceGrowing(Code.Utils.Common.Vector3Interval newValue) {
         var index = GameComponentsLookup.Growing;
         var component = (Code.ECS.Components.GrowingComponent)CreateComponent(index, typeof(Code.ECS.Components.GrowingComponent));
         component.Value = newValue;

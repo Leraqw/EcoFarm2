@@ -16,5 +16,5 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class HasFruitComponent : FlagComponent { }
 
-	[Game] public sealed class GrowingComponent : ValueComponent<Interval<Vector3>> { }
+	[Game] public sealed class GrowingComponent : ValueComponent<Vector3Interval> { }
 }

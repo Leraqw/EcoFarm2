@@ -9,12 +9,11 @@ namespace Code.Utils.Common
 			StartValue = startValue;
 			EndValue = endValue;
 		}
-		
+
 		public T StartValue { get; }
 		public T EndValue { get; }
-		
-		public bool IsContains(T value) 
-			=> Comparer<T>.Default.Compare(value, StartValue) >= 0 
-			   && Comparer<T>.Default.Compare(value, EndValue) <= 0;
+
+		public bool IsContains(T value) => Comparer<T>.Default.Compare(value, StartValue) >= 0
+		                                   && Comparer<T>.Default.Compare(value, EndValue) <= 0;
 	}
 }

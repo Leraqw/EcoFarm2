@@ -14,10 +14,10 @@ namespace Code.ECS.Systems.Product.Fruit
 		}
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.Growing);
+			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.View, GameMatcher.View));
 
 		protected override bool Filter(GameEntity entity)
-			=> entity.hasView;
+			=> true;
 		
 		protected override void Execute(List<GameEntity> entites)
 		{

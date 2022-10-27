@@ -29,7 +29,7 @@ namespace Code.ECS.Systems.Product.Fruit
 
 			fruit.AddSpawnPosition(position + Vector2.up); // TODO: spawn on top of the tree
 			fruit.AddRequireView(ResourcePath.ApplePrefab);
-			fruit.AddGrowing(new Interval<Vector3>(Vector3.zero, Vector3.one));
+			fruit.AddGrowing(new Vector3Interval(Vector3.zero, Vector3.one));
 		}
 	}
 }
