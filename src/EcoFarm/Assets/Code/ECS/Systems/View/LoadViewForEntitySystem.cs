@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Code.GeneratedCustomParts;
 using Code.Services.Interfaces;
+using Code.Utils.Extensions.Generated;
 using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
