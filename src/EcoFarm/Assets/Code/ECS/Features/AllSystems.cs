@@ -25,11 +25,14 @@ namespace Code.ECS.Features
 
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
+			Add(new WaitAfterGrowingSystem(contexts));
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
 
 			Add(new CheckGrowthUpSystem(contexts));
+			
+			Add(new GameCleanupSystems(contexts));
 		}
 
 		public void OnUpdate()

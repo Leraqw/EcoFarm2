@@ -1,5 +1,7 @@
 ﻿using Code.Utils.ComponentsTemplates;
+using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code.ECS.Components
 {
@@ -15,7 +17,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class DurationComponent : ValueComponent<float> { }
 
-	[Game] public sealed class DurationUpComponent : FlagComponent { }
+	[Cleanup(RemoveComponent)] [Game] public sealed class DurationUpComponent : FlagComponent { }
 
 	[Game] public sealed class DebugNameComponent : ValueComponent<string> { }
 }

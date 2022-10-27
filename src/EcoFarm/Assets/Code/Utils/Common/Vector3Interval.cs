@@ -11,6 +11,8 @@ namespace Code.Utils.Common
 			: base(startValue, endValue)
 			=> _direction = endValue.Compare(startValue);
 
+		public Vector3 Different => EndValue - StartValue;
+
 		public override bool IsContains(Vector3 value)
 			=> value.IsGreater(StartValue) && value.IsLess(EndValue);
 
