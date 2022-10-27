@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.View
 			: base(contexts.game)
 		{
 			_services = contexts.services;
-			_viewRoot = new GameObject("Ui Root").transform;
+			_viewRoot = new GameObject("View Root").transform;
 		}
 
 		private IResourcesService Resources => _services.resourcesService.Value;
