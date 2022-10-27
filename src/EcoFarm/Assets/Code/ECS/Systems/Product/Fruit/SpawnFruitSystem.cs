@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Common;
+using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants;
@@ -14,6 +15,8 @@ namespace Code.ECS.Systems.Product.Fruit
 			: base(contexts.game)
 			=> _contexts = contexts;
 
+		private GameEntity NewEntity => _contexts.game.CreateEntity();
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.HasFruit);
 
@@ -22,15 +25,13 @@ namespace Code.ECS.Systems.Product.Fruit
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SpawnFruitFor);
 
-		private void SpawnFruitFor(GameEntity tree)
-		{
-			var position = tree.spawnPosition.Value;
-			var fruit = _contexts.game.CreateEntity();
+		private void SpawnFruitFor(GameEntity tree) => Spawn(NewEntity, tree.spawnPosition);
 
-			fruit.AddSpawnPosition(position + Vector2.up); // TODO: spawn on top of the tree
-			fruit.AddRequireView(ResourcePath.ApplePrefab);
-			fruit.AddGrowing(new Vector3Interval(Vector3.zero, Vector3.one));
-			fruit.AddDebugName("Fruit");
-		}
+		private static void Spawn(GameEntity fruit, Vector2 position)
+			=> fruit
+			   .Do((e) => e.AddSpawnPosition(position + Vector2.up)) // TODO: spawn on top of the tree
+			   .Do((e) => e.AddRequireView(ResourcePath.ApplePrefab))
+			   .Do((e) => e.AddGrowing(new Vector3Interval(Vector3.zero, Vector3.one)))
+			   .Do((e) => e.AddDebugName("Fruit"));
 	}
 }
