@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.FruitComponent fruitComponent = new Code.ECS.Components.FruitComponent();
+    static readonly Code.ECS.Components.HasFruitComponent hasFruitComponent = new Code.ECS.Components.HasFruitComponent();
 
-    public bool hasFruit {
-        get { return HasComponent(GameComponentsLookup.Fruit); }
+    public bool isHasFruit {
+        get { return HasComponent(GameComponentsLookup.HasFruit); }
         set {
-            if (value != hasFruit) {
-                var index = GameComponentsLookup.Fruit;
+            if (value != isHasFruit) {
+                var index = GameComponentsLookup.HasFruit;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : fruitComponent;
+                            : hasFruitComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherFruit;
+    static Entitas.IMatcher<GameEntity> _matcherHasFruit;
 
-    public static Entitas.IMatcher<GameEntity> Fruit {
+    public static Entitas.IMatcher<GameEntity> HasFruit {
         get {
-            if (_matcherFruit == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Fruit);
+            if (_matcherHasFruit == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.HasFruit);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherFruit = matcher;
+                _matcherHasFruit = matcher;
             }
 
-            return _matcherFruit;
+            return _matcherHasFruit;
         }
     }
 }

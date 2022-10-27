@@ -1,5 +1,4 @@
 ﻿using Code.Utils.ComponentsTemplates;
-using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
 namespace Code.ECS.Components
@@ -14,5 +13,5 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class TreeComponent : FlagComponent { }
 
-	[FlagPrefix("has")] [Game] public sealed class FruitComponent : FlagComponent { }
+	[Game] public sealed class HasFruitComponent : FlagComponent { }
 }

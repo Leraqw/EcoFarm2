@@ -33,7 +33,7 @@ namespace Code.ECS.Systems.View
 		private void InstantiateView(GameEntity e) => e.PerformRequiredView(Instantiate(e));
 
 		private GameObject Instantiate(GameEntity e)
-			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.PopSpawnPosition(), _viewRoot);
+			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
 	}

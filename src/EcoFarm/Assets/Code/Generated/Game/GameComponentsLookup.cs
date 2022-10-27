@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Fruit = 0;
+    public const int HasFruit = 0;
     public const int RequireTreeOnPosition = 1;
     public const int RequireView = 2;
     public const int SpawnPosition = 3;
@@ -18,7 +18,7 @@ public static class GameComponentsLookup {
     public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "Fruit",
+        "HasFruit",
         "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
@@ -27,7 +27,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.FruitComponent),
+        typeof(Code.ECS.Components.HasFruitComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
