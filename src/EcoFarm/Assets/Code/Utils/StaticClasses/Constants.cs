@@ -1,4 +1,6 @@
-﻿namespace Code.Utils.StaticClasses
+﻿using UnityEngine;
+
+namespace Code.Utils.StaticClasses
 {
 	public static class Constants
 	{
@@ -16,6 +18,7 @@
 				public const float GrowingTime = 1f;
 				public const float BeforeGrowingTime = 1f;
 				public const float AfterGrowingTime = 1f;
+				public static readonly Vector2 SpawnHeight = Vector2.up;
 			}
 		}
 	}

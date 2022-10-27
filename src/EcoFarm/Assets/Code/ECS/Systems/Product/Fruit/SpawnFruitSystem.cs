@@ -25,7 +25,7 @@ namespace Code.ECS.Systems.Product.Fruit
 
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddSpawnPosition(position + Vector2.up)) // TODO: spawn on top of the tree
+			            .Do((e) => e.AddSpawnPosition(position + Constants.Balance.Fruit.SpawnHeight))
 			            .Do((e) => e.isFruitRequire = true)
 			            .Do((e) => e.AddDuration(Constants.Balance.Fruit.BeforeGrowingTime))
 			            .Do((e) => e.AddDebugName("Fruit"));

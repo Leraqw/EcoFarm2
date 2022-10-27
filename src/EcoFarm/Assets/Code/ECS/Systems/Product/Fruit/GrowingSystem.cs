@@ -17,9 +17,10 @@ namespace Code.ECS.Systems.Product.Fruit
 		private static void Grow(GameEntity entity) => entity.SetLocalScale(GetNextScale(entity));
 
 		private static Vector3 GetNextScale(GameEntity entity)
-			=> entity.growing.Value.Next(entity.GetLocalScale(), GetStep(entity));
+			=> entity.growing.Value.Next(entity.GetLocalScale(), GetScaledStep(entity));
 
-		private static float GetStep(GameEntity entity) 
-			=> entity.growing.Value.Different.Avg() / entity.duration * Time.deltaTime;
+		private static float GetScaledStep(GameEntity entity) => GetStep(entity) * Time.deltaTime;
+
+		private static float GetStep(GameEntity entity) => entity.growing.Value.Different.Avg() / entity.duration;
 	}
 }
