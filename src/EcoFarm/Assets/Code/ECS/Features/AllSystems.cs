@@ -17,7 +17,9 @@ namespace Code.ECS.Features
 			Add(new SpawnTreeSystem(contexts));
 			Add(new FruitSpawnSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
+			
 			Add(new LoadViewForEntitySystem(contexts));
+			Add(new StartGrowingSystem(contexts));
 		}
 
 		public void OnUpdate()
