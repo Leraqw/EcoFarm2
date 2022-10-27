@@ -1,4 +1,5 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using Code.Utils.Common;
+using Code.Utils.ComponentsTemplates;
 using UnityEngine;
 
 namespace Code.ECS.Components
@@ -14,4 +15,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class TreeComponent : FlagComponent { }
 
 	[Game] public sealed class HasFruitComponent : FlagComponent { }
+
+	[Game] public sealed class GrowingComponent : ValueComponent<Interval<Vector3>> { }
 }

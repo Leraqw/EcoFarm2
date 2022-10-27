@@ -15,7 +15,7 @@ namespace Code.ECS.Features
 
 			Add(new EmitPositionsForTreeSpawnSystem(contexts));
 			Add(new SpawnTreeSystem(contexts));
-			Add(new FruitSpawnerSystem(contexts));
+			Add(new FruitSpawnSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new LoadViewForEntitySystem(contexts));
 		}

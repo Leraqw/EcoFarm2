@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Common;
 using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
-	public sealed class FruitSpawnerSystem : ReactiveSystem<GameEntity>
+	public sealed class FruitSpawnSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public FruitSpawnerSystem(Contexts contexts)
+		public FruitSpawnSystem(Contexts contexts)
 			: base(contexts.game)
 			=> _contexts = contexts;
 
@@ -28,6 +29,7 @@ namespace Code.ECS.Systems.Product.Fruit
 
 			fruit.AddSpawnPosition(position + Vector2.up); // TODO: spawn on top of the tree
 			fruit.AddRequireView(ResourcePath.ApplePrefab);
+			fruit.AddGrowing(new Interval<Vector3>(Vector3.zero, Vector3.one));
 		}
 	}
 }
