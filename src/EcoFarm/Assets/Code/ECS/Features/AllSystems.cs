@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.Product.Fruit;
+﻿using Code.ECS.Systems.Common;
+using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
 using Code.Services.Interfaces;
@@ -22,6 +23,10 @@ namespace Code.ECS.Features
 			Add(new StartGrowingSystem(contexts));
 			
 			Add(new GrowingSystem(contexts));
+			
+			Add(new DurationSystem(contexts));
+			Add(new CheckDurationUpSystem(contexts));
+			
 			Add(new CheckGrowthUpSystem(contexts));
 		}
 

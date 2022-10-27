@@ -1,6 +1,7 @@
 ﻿using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Common
 {
@@ -9,13 +10,13 @@ namespace Code.ECS.Systems.Common
 		private readonly IGroup<GameEntity> _entities;
 
 		public CheckDurationUpSystem(Contexts contexts)
-			=> _entities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Duration).NoneOf(GameMatcher.DurationUp));
+			=> _entities = contexts.game.GetGroup(AllOf(Duration).NoneOf(DurationUp));
 
 		public void Execute() => _entities.ForEach(Check);
 
-		private static void Check(GameEntity entity) => entity.Do(SetDurationUp, IsDurationUp);
+		private static void Check(GameEntity entity) => entity.Do(SetDurationUp, DurationIsUp);
 
-		private static bool IsDurationUp(GameEntity entity) => entity.duration <= 0;
+		private static bool DurationIsUp(GameEntity entity) => entity.duration <= 0;
 
 		private static void SetDurationUp(GameEntity entity)
 			=> entity
