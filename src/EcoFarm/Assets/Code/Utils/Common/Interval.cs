@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Code.Utils.Common
+﻿namespace Code.Utils.Common
 {
-	public class Interval<T>
+	public abstract class Interval<T>
 	{
 		public Interval(T startValue, T endValue)
 		{
@@ -13,7 +11,6 @@ namespace Code.Utils.Common
 		public T StartValue { get; }
 		public T EndValue { get; }
 
-		public bool IsContains(T value) => Comparer<T>.Default.Compare(value, StartValue) >= 0
-		                                   && Comparer<T>.Default.Compare(value, EndValue) <= 0;
+		public abstract bool IsContains(T value);
 	}
 }

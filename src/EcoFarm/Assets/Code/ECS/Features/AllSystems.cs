@@ -20,6 +20,8 @@ namespace Code.ECS.Features
 			
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new StartGrowingSystem(contexts));
+			
+			Add(new GrowingSystem(contexts));
 		}
 
 		public void OnUpdate()
