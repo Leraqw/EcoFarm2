@@ -4,13 +4,13 @@ using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems
+namespace Code.ECS.Systems.Tree
 {
-	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
+	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public SpawnBedsPlugsSystem(Contexts contexts) => _contexts = contexts;
+		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
 		private IDataBaseService DataBaseService => _contexts.services.dataBaseService.Value;
@@ -18,12 +18,11 @@ namespace Code.ECS.Systems
 		public void Initialize()
 			=> SceneObjectsService
 			   .TreeSpawnPositions
-			   .Skip(DataBaseService.TreesCount)
-			   .ForEach(SpawnPlug);
+			   .Take(DataBaseService.TreesCount)
+			   .ForEach(RequireTreeOn);
 
-		private void SpawnPlug(Vector2 position)
+		private void RequireTreeOn(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddRequireView("Environment/Trees Beds/Prefabs/Tree Bed Plug"))
-			            .Do((e) => e.AddSpawnPosition(position));
+			            .AddRequireTreeOnPosition(position);
 	}
 }

@@ -3,7 +3,7 @@ using Code.Utils.Extensions;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 
-namespace Code.ECS.Systems
+namespace Code.ECS.Systems.Tree
 {
 	public sealed class SpawnTreeSystem : ReactiveSystem<GameEntity>
 	{

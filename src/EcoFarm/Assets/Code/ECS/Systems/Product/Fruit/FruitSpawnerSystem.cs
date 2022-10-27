@@ -3,7 +3,7 @@ using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants;
 
-namespace Code.ECS.Systems
+namespace Code.ECS.Systems.Product.Fruit
 {
 	public sealed class FruitSpawnerSystem : ReactiveSystem<GameEntity>
 	{
