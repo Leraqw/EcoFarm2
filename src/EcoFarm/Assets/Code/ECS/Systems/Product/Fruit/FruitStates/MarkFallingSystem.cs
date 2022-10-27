@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollectorAllOf(GameMatcher.WillFall, GameMatcher.DurationUp);
 
-		protected override bool Filter(GameEntity entity) => entity.hasView && entity.isWillFall;
+		protected override bool Filter(GameEntity entity) => entity.isWillFall && entity.hasView;
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Mark);
 
