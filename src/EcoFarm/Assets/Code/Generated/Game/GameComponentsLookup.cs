@@ -11,39 +11,51 @@ public static class GameComponentsLookup {
     public const int DebugName = 0;
     public const int Duration = 1;
     public const int DurationUp = 2;
-    public const int Growing = 3;
-    public const int HasFruit = 4;
-    public const int RequireTreeOnPosition = 5;
-    public const int RequireView = 6;
-    public const int SpawnPosition = 7;
-    public const int Tree = 8;
-    public const int View = 9;
+    public const int Falling = 3;
+    public const int Fell = 4;
+    public const int FruitRequire = 5;
+    public const int Growing = 6;
+    public const int Growth = 7;
+    public const int HasFruit = 8;
+    public const int RequireTreeOnPosition = 9;
+    public const int RequireView = 10;
+    public const int SpawnPosition = 11;
+    public const int View = 12;
+    public const int WillFall = 13;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "DebugName",
         "Duration",
         "DurationUp",
+        "Falling",
+        "Fell",
+        "FruitRequire",
         "Growing",
+        "Growth",
         "HasFruit",
         "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
-        "Tree",
-        "View"
+        "View",
+        "WillFall"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ECS.Components.DebugNameComponent),
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),
+        typeof(Code.ECS.Components.FallingComponent),
+        typeof(Code.ECS.Components.FellComponent),
+        typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.GrowingComponent),
+        typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.HasFruitComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
-        typeof(Code.ECS.Components.TreeComponent),
-        typeof(Code.ECS.Components.ViewComponent)
+        typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.ECS.Components.WillFallComponent)
     };
 }

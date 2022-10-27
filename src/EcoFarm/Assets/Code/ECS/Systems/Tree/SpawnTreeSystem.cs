@@ -20,7 +20,6 @@ namespace Code.ECS.Systems.Tree
 
 		private static void Spawn(GameEntity entry)
 			=> entry
-			   .Do((e) => e.isTree = true)
 			   .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
 			   .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
 			   .Do((e) => e.isHasFruit = true)

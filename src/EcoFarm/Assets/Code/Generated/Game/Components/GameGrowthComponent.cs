@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.TreeComponent treeComponent = new Code.ECS.Components.TreeComponent();
+    static readonly Code.ECS.Components.GrowthComponent growthComponent = new Code.ECS.Components.GrowthComponent();
 
-    public bool isTree {
-        get { return HasComponent(GameComponentsLookup.Tree); }
+    public bool isGrowth {
+        get { return HasComponent(GameComponentsLookup.Growth); }
         set {
-            if (value != isTree) {
-                var index = GameComponentsLookup.Tree;
+            if (value != isGrowth) {
+                var index = GameComponentsLookup.Growth;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : treeComponent;
+                            : growthComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTree;
+    static Entitas.IMatcher<GameEntity> _matcherGrowth;
 
-    public static Entitas.IMatcher<GameEntity> Tree {
+    public static Entitas.IMatcher<GameEntity> Growth {
         get {
-            if (_matcherTree == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Tree);
+            if (_matcherGrowth == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Growth);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherTree = matcher;
+                _matcherGrowth = matcher;
             }
 
-            return _matcherTree;
+            return _matcherGrowth;
         }
     }
 }
