@@ -9,7 +9,7 @@ namespace Code.ECS.Systems.Product.Fruit
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.View, GameMatcher.View));
+			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.Growing, GameMatcher.View));
 
 		protected override bool Filter(GameEntity entity)
 			=> true;
