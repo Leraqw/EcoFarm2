@@ -1,4 +1,5 @@
 ﻿using Code.Utils.Extensions.Entitas;
+using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ namespace Code.ECS.Systems.Product.Fruit
 {
 	public sealed class GrowingSystem : IExecuteSystem
 	{
-		private const float Step = 0.1f;
 		private readonly IGroup<GameEntity> _entities;
 
 		public GrowingSystem(Contexts contexts)
@@ -17,6 +17,6 @@ namespace Code.ECS.Systems.Product.Fruit
 		private static void Grow(GameEntity entity) => entity.SetLocalScale(GetNextScale(entity));
 
 		private static Vector3 GetNextScale(GameEntity entity)
-			=> entity.growing.Value.Next(entity.GetLocalScale(), Step);
+			=> entity.growing.Value.Next(entity.GetLocalScale(), Constants.Balance.Fruit.GrowingSpeed);
 	}
 }

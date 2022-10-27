@@ -22,6 +22,7 @@ namespace Code.ECS.Features
 			Add(new StartGrowingSystem(contexts));
 			
 			Add(new GrowingSystem(contexts));
+			Add(new IsGrowthSystem(contexts));
 		}
 
 		public void OnUpdate()
