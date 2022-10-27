@@ -31,6 +31,7 @@ namespace Code.ECS.Features
 			Add(new CheckDurationUpSystem(contexts));
 
 			Add(new CheckGrowthUpSystem(contexts));
+			Add(new MarkFallingSystem(contexts));
 			
 			Add(new GameCleanupSystems(contexts));
 		}
