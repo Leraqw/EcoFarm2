@@ -2,7 +2,6 @@
 using Code.Utils.Common;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
