@@ -17,5 +17,8 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void SetLocalScale(this GameEntity @this, Vector3 value)
 			=> @this.view.Value.transform.localScale = value;
+		
+		public static Vector3 GetActualPosition(this GameEntity @this)
+			=> @this.hasView ? @this.view.Value.transform.position : Vector3.zero;
 	}
 }

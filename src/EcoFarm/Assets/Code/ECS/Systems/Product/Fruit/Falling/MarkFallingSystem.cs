@@ -19,11 +19,12 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Mark);
 
-		private static void Mark(GameEntity entity)
-		{
-			var startPosition = entity.view.Value.transform.position;
-			var endPosition = startPosition - (Vector3)SpawnHeight;
-			entity.AddFalling(new Vector3Interval(startPosition, endPosition));
-		}
+		private static void Mark(GameEntity entity) => entity.AddFalling(CreateTreeHeightInterval(entity));
+
+		private static Vector3Interval CreateTreeHeightInterval(GameEntity entity)
+			=> new(entity.GetActualPosition(), PositionWithoutTreeHeight(entity));
+
+		private static Vector3 PositionWithoutTreeHeight(GameEntity entity) 
+			=> entity.GetActualPosition() - (Vector3)SpawnHeight;
 	}
 }
