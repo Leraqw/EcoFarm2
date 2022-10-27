@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems
 {
@@ -20,7 +21,7 @@ namespace Code.ECS.Systems
 		private static void Spawn(GameEntity entry)
 			=> entry
 			   .Do((e) => e.isTree = true)
-			   .Do((e) => e.AddRequireView("Trees/Prefabs/Tree"))
+			   .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
 			   .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
 			   .Do((e) => e.RemoveRequireTreeOnPosition());
 	}
