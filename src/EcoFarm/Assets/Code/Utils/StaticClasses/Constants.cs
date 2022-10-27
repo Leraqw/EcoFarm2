@@ -14,6 +14,7 @@
 			public static class Fruit
 			{
 				public const float GrowingSpeed = 0.01f;
+				public const float BeforeGrowingTime = 1f;
 			}
 		}
 	}

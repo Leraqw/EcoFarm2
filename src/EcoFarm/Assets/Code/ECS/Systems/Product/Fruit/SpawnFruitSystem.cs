@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Common;
 using Code.Utils.Extensions;
+using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
@@ -27,8 +26,8 @@ namespace Code.ECS.Systems.Product.Fruit
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddSpawnPosition(position + Vector2.up)) // TODO: spawn on top of the tree
-			            .Do((e) => e.AddRequireView(ResourcePath.ApplePrefab))
-			            .Do((e) => e.AddGrowing(new Vector3Interval(Vector3.zero, Vector3.one)))
+			            .Do((e) => e.isFruitRequire = true)
+			            .Do((e) => e.AddDuration(Constants.Balance.Fruit.BeforeGrowingTime))
 			            .Do((e) => e.AddDebugName("Fruit"));
 	}
 }

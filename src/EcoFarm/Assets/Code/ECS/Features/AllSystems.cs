@@ -1,5 +1,6 @@
 ﻿using Code.ECS.Systems.Common;
 using Code.ECS.Systems.Product.Fruit;
+using Code.ECS.Systems.Product.Fruit.FruitStates;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
 using Code.Services.Interfaces;
@@ -18,15 +19,16 @@ namespace Code.ECS.Features
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
-			
+
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new StartGrowingSystem(contexts));
-			
+
+			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
-			
+
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
-			
+
 			Add(new CheckGrowthUpSystem(contexts));
 		}
 
