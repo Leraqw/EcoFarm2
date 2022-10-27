@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Code.Data
+namespace Code.Data.Config
 {
 	public class UnityJsonStorage : IStorage
 	{

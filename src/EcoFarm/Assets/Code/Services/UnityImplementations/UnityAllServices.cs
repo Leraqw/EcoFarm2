@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Code.Data;
+using Code.Data.Config;
 using Code.Services.Interfaces;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace Code.Services.UnityImplementations
 		private readonly ISceneObjectsService _sceneObjects;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
-		private readonly IConfigService _config;
+		private readonly IDataBaseService _dataBase;
 
 		public UnityAllServices(ISceneObjectsService sceneObjectsService)
 		{
@@ -18,7 +18,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_config = new UnityConfigService(_storage);
+			_dataBase = new UnityDataBaseService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
@@ -31,6 +31,6 @@ namespace Code.Services.UnityImplementations
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
-		int IConfigService.TreesCount => _config.TreesCount;
+		int IDataBaseService.TreesCount => _dataBase.TreesCount;
 	}
 }

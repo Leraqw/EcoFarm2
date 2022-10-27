@@ -1,6 +1,6 @@
 ﻿namespace Code.Services.Interfaces
 {
-	public interface IConfigService : IService
+	public interface IDataBaseService : IService
 	{
 		int TreesCount { get; }
 	}
