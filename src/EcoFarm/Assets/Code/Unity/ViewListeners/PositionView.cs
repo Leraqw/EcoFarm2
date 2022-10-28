@@ -10,6 +10,6 @@ namespace Code.Unity.ViewListeners
 
 		protected override void UpdateValue(GameEntity entity) => OnPosition(entity, entity.position.Value);
 
-		public void OnPosition(GameEntity entity, Vector3 value) => transform.position = value;
+		public void OnPosition(GameEntity entity, Vector2 value) => transform.position = value;
 	}
 }
