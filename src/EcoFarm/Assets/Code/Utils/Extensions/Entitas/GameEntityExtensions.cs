@@ -15,11 +15,12 @@ namespace Code.Utils.Extensions.Entitas
 			@this.RemoveRequireView();
 		}
 
-		public static Vector3 GetLocalScale(this GameEntity @this) => @this.view.Value.transform.localScale;
-
 		public static Vector3 GetActualPosition(this GameEntity @this)
 			=> @this.hasPosition ? @this.position.Value
 				: @this.hasView ? @this.view.Value.transform.position
 				: Vector3.zero;
+
+		public static void IncreaseProportionalScale(this GameEntity @this, float value) 
+			=> @this.ReplaceProportionalScale(@this.proportionalScale.Value + value);
 	}
 }

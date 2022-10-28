@@ -14,7 +14,7 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 
 		public void Execute() => _entities.ForEach(Grow);
 
-		private static void Grow(GameEntity entity) => entity.proportionalScale.Value += GetNextScale(entity);
+		private static void Grow(GameEntity entity) => entity.IncreaseProportionalScale(GetNextScale(entity));
 
 		private static float GetNextScale(GameEntity entity)
 			=> CalculateStep(entity) * Time.deltaTime;
