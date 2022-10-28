@@ -20,12 +20,13 @@ public static class GameComponentsLookup {
     public const int Position = 9;
     public const int RequireTreeOnPosition = 10;
     public const int RequireView = 11;
-    public const int SpawnPosition = 12;
-    public const int View = 13;
-    public const int WillFall = 14;
-    public const int PositionListener = 15;
+    public const int RequireViewOfType = 12;
+    public const int SpawnPosition = 13;
+    public const int View = 14;
+    public const int WillFall = 15;
+    public const int PositionListener = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "DebugName",
@@ -40,6 +41,7 @@ public static class GameComponentsLookup {
         "Position",
         "RequireTreeOnPosition",
         "RequireView",
+        "RequireViewOfType",
         "SpawnPosition",
         "View",
         "WillFall",
@@ -59,6 +61,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
+        typeof(Code.ECS.Components.RequireViewOfTypeComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.WillFallComponent),

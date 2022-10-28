@@ -1,4 +1,5 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using System;
+using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
@@ -7,6 +8,8 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 namespace Code.ECS.Components
 {
 	[Game] public sealed class RequireViewComponent : ValueComponent<string> { }
+
+	[Game] public sealed class RequireViewOfTypeComponent : ValueComponent<Type> { }
 
 	[Game] public sealed class ViewComponent : ValueComponent<GameObject> { }
 
