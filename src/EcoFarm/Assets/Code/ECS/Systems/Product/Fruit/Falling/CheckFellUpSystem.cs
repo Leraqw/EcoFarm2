@@ -1,6 +1,9 @@
 ﻿using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using Code.Utils.StaticClasses;
 using Entitas;
+using UnityEngine;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Falling
 {
@@ -9,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private readonly IGroup<GameEntity> _entities;
 
 		public CheckFellUpSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(GameMatcher.Falling, GameMatcher.View);
+			=> _entities = contexts.GetGroupAllOf(TargetPosition, Position);
 
 		public void Execute() => _entities.ForEach(Check);
 
@@ -17,11 +20,11 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		private static void RemoveFalling(GameEntity entity)
 		{
-			entity.RemoveFalling();
+			entity.RemoveTargetPosition();
 			entity.isFell = true;
 		}
 
 		private static bool IsFell(GameEntity entity)
-			=> entity.falling.Value.IsContains(entity.GetActualPosition()) == false;
+			=> Vector2.Distance(entity.position.Value, entity.targetPosition.Value) <= Constants.Tolerance;
 	}
 }

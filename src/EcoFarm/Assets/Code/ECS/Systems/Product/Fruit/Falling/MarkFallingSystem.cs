@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Common;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -22,15 +21,12 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		private static void Mark(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddFalling(CreateTreeHeightInterval(entity)))
+			   .Do((e) => e.AddTargetPosition(PositionWithoutTreeHeight(entity)))
 			   .Do((e) => e.isWillFall = false)
-			   .Do((e) => e.isDurationUp = false)
+			   .Do((e) => e.isDurationUp = false) // TODO: remove this line
 			   .Do((e) => e.AddDuration(FallTime));
 
-		private static Vector3Interval CreateTreeHeightInterval(GameEntity entity)
-			=> new(entity.GetActualPosition(), PositionWithoutTreeHeight(entity));
-
-		private static Vector3 PositionWithoutTreeHeight(GameEntity entity)
-			=> entity.GetActualPosition() - (Vector3)SpawnHeight;
+		private static Vector2 PositionWithoutTreeHeight(GameEntity entity)
+			=> entity.GetActualPosition() - SpawnHeight;
 	}
 }

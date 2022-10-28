@@ -1,7 +1,7 @@
-﻿using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+﻿using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Falling
 {
@@ -10,17 +10,17 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private readonly IGroup<GameEntity> _entities;
 
 		public FallingSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(GameMatcher.Falling, GameMatcher.Position, GameMatcher.Duration);
+			=> _entities = contexts.GetGroupAllOf(TargetPosition, Position, Duration);
 
 		public void Execute() => _entities.ForEach(Fall);
 
-		private static void Fall(GameEntity entity) => entity.ReplacePosition(GetNextPosition(entity));
+		private static void Fall(GameEntity entity) => entity.IncreasePosition(GetNextPosition(entity));
 
-		private static Vector3 GetNextPosition(GameEntity entity)
-			=> entity.falling.Value.Next(entity.position.Value, GetScaledStep(entity));
+		private static Vector2 GetNextPosition(GameEntity entity) => CalculateStep(entity) * Time.deltaTime;
 
-		private static float GetScaledStep(GameEntity entity) => GetStep(entity) * Time.deltaTime;
+		private static Vector2 CalculateStep(GameEntity entity) => PositionsDifference(entity) / entity.duration;
 
-		private static float GetStep(GameEntity entity) => entity.falling.Value.Different.Avg() / entity.duration.Value;
+		private static Vector2 PositionsDifference(GameEntity entity)
+			=> entity.targetPosition.Value - entity.position.Value;
 	}
 }
