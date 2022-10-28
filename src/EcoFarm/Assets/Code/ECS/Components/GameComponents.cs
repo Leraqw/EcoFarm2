@@ -26,4 +26,10 @@ namespace Code.ECS.Components
 	[Cleanup(RemoveComponent)] [Game] public sealed class DurationUpComponent : FlagComponent { }
 
 	[Game] public sealed class DebugNameComponent : ValueComponent<string> { }
+
+	[Event(Self)] [Game] public sealed class ProportionalScaleComponent : ValueComponent<float> { }
+
+	[Game] public sealed class InitialScaleComponent : ValueComponent<float> { }
+
+	[Game] public sealed class TargetScaleComponent : ValueComponent<float> { }
 }
