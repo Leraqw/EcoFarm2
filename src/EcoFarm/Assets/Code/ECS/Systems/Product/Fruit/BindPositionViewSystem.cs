@@ -22,8 +22,7 @@ namespace Code.ECS.Systems.Product.Fruit
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(AddListener);
 
 		private static void AddListener(GameEntity entity)
-			=> entity
-				.Do((e) => e.GetViewComponent<PositionView>().Register(e))
-				.Do((e) => e.RemoveRequireViewOfType());
+			=> entity.Do((e) => e.GetViewComponent<PositionView>().Register(e))
+			         .Do((e) => e.RemoveRequireViewOfType());
 	}
 }

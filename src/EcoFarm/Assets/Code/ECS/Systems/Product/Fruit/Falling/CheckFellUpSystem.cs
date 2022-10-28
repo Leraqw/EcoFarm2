@@ -13,15 +13,15 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		public void Execute() => _entities.ForEach(Check);
 
-		private void Check(GameEntity entity) => entity.Do(RemoveFalling, @if: IsFell);
+		private static void Check(GameEntity entity) => entity.Do(RemoveFalling, @if: IsFell);
 
-		private void RemoveFalling(GameEntity entity)
+		private static void RemoveFalling(GameEntity entity)
 		{
 			entity.RemoveFalling();
 			entity.isFell = true;
 		}
 
-		private bool IsFell(GameEntity entity)
+		private static bool IsFell(GameEntity entity)
 			=> entity.falling.Value.IsContains(entity.GetActualPosition()) == false;
 	}
 }
