@@ -6,7 +6,9 @@ namespace Code.Utils.Extensions.Entitas
 	public static class GameEntityExtensions
 	{
 		public static Vector2 GetActualSpawnPosition(this GameEntity @this)
-			=> @this.hasSpawnPosition ? @this.spawnPosition.Value : Vector3.zero;
+			=> @this.hasSpawnPosition ? @this.spawnPosition.Value
+				: @this.hasPosition ? @this.position.Value
+				: Vector2.zero;
 
 		public static void PerformRequiredView(this GameEntity @this, GameObject gameObject)
 		{
@@ -18,12 +20,11 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void SetLocalScale(this GameEntity @this, Vector3 value)
 			=> @this.view.Value.transform.localScale = value;
-		
+
 		public static Vector3 GetActualPosition(this GameEntity @this)
 			=> @this.hasView ? @this.view.Value.transform.localPosition : Vector3.zero;
 
 		public static T GetViewComponent<T>(this GameEntity @this)
 			=> @this.view.Value.GetComponent<T>() ?? throw new NullReferenceException();
-
 	}
 }

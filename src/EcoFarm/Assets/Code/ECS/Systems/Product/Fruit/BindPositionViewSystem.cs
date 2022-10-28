@@ -14,7 +14,9 @@ namespace Code.ECS.Systems.Product.Fruit
 			=> context.CreateCollectorAllOf(GameMatcher.View, GameMatcher.RequireViewOfType, GameMatcher.Position);
 
 		protected override bool Filter(GameEntity entity)
-			=> entity.requireViewOfType.Value == typeof(PositionView);
+			=> entity.hasPosition
+			   && entity.hasPositionListener == false
+			   && entity.requireViewOfType.Value == typeof(PositionView);
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(AddListener);
 
