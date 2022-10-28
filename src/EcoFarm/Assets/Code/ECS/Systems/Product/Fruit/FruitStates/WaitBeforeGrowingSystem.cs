@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Unity.ViewListeners;
 using Code.Utils.Common;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
@@ -23,6 +24,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 		private static void NextState(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddRequireView(ResourcePath.ApplePrefab))
+			   .Do((e) => e.AddRequireViewOfType(typeof(PositionView)))
 			   .Do((e) => e.AddGrowing(new Vector3Interval(Vector3.zero, Vector3.one)))
 			   .Do((e) => e.AddDuration(Balance.Fruit.GrowingTime))
 			   .Do((e) => e.isFruitRequire = false);

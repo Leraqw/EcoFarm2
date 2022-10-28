@@ -21,6 +21,8 @@ namespace Code.ECS.Features
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
+			
+			Add(new BindPositionViewSystem(contexts));
 
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new StartGrowingSystem(contexts));
@@ -39,6 +41,7 @@ namespace Code.ECS.Features
 			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new GameCleanupSystems(contexts));
+			Add(new GameEventSystems(contexts));
 		}
 
 		public void OnUpdate()
