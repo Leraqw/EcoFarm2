@@ -17,7 +17,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private static void Fall(GameEntity entity) => entity.ReplacePosition(GetNextPosition(entity));
 
 		private static Vector3 GetNextPosition(GameEntity entity)
-			=> entity.falling.Value.Next(entity.position, GetScaledStep(entity));
+			=> entity.falling.Value.Next(entity.position.Value, GetScaledStep(entity));
 
 		private static float GetScaledStep(GameEntity entity) => GetStep(entity) * Time.deltaTime;
 

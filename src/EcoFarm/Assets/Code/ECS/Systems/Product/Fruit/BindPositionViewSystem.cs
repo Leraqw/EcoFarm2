@@ -23,7 +23,7 @@ namespace Code.ECS.Systems.Product.Fruit
 
 		private static void AddListener(GameEntity entity)
 			=> entity
-				.Do((e) => e.AddPositionListener(e.GetViewComponent<PositionView>()))
+				.Do((e) => e.GetViewComponent<PositionView>().Register(e))
 				.Do((e) => e.RemoveRequireViewOfType());
 	}
 }
