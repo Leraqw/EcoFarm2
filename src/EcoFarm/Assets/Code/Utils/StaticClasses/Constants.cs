@@ -20,7 +20,10 @@ namespace Code.Utils.StaticClasses
 				public const float AfterGrowingTime = 1f;
 				public const float FallTime = 1f;
 				public static readonly Vector2 SpawnHeight = Vector2.up;
+				public const int FruitFullSize = 1;
 			}
 		}
+
+		public const float Tolerance = 0.01f;
 	}
 }

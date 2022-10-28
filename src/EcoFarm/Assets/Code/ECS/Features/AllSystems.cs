@@ -25,7 +25,6 @@ namespace Code.ECS.Features
 			Add(new BindViewsSystem(contexts));
 
 			Add(new LoadViewForEntitySystem(contexts));
-			Add(new StartGrowingSystem(contexts));
 
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));

@@ -3,7 +3,7 @@ using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using Entitas;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.View
 {
 	public sealed class BindViewsSystem : ReactiveSystem<GameEntity>
 	{
