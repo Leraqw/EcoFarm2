@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -20,5 +21,9 @@ namespace Code.Utils.Extensions.Entitas
 		
 		public static Vector3 GetActualPosition(this GameEntity @this)
 			=> @this.hasView ? @this.view.Value.transform.localPosition : Vector3.zero;
+
+		public static T GetViewComponent<T>(this GameEntity @this)
+			=> @this.view.Value.GetComponent<T>() ?? throw new NullReferenceException();
+
 	}
 }
