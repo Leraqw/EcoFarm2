@@ -13,16 +13,14 @@ namespace Code.ECS.Systems.Product.Fruit
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.View);
 
-		protected override bool Filter(GameEntity entity)
-			=> true;
+		protected override bool Filter(GameEntity entity) => entity.hasView;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(AddListener);
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(RegisterListeners);
 
-		private static void AddListener(GameEntity entity)
-		{
-			var listeners = entity.view.Value.GetComponents<BaseViewListener>();
+		private static void RegisterListeners(GameEntity entity)
+			=> GetListeners(entity).ForEach((l) => l.Register(entity));
 
-			listeners.ForEach((l) => l.Register(entity));
-		}
+		private static IEnumerable<BaseViewListener> GetListeners(GameEntity entity)
+			=> entity.view.Value.GetComponents<BaseViewListener>();
 	}
 }
