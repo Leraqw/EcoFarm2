@@ -1,14 +1,14 @@
-﻿using Code.Utils.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Unity.ViewListeners
 {
-	public class PositionView : MonoBehaviour, IPositionListener
+	public class PositionView : BaseViewListener, IPositionListener
 	{
-		public void Register(GameEntity entity) => entity.Do((e) => e.AddPositionListener(this))
-		                                                 .Do(UpdatePosition, @if: (e) => e.hasPosition);
+		protected override void AddListener(GameEntity entity) => entity.AddPositionListener(this);
 
-		private void UpdatePosition(GameEntity entity) => OnPosition(entity, entity.position.Value);
+		protected override bool HasComponent(GameEntity entity) => entity.hasPosition;
+
+		protected override void UpdateValue(GameEntity entity) => OnPosition(entity, entity.position.Value);
 
 		public void OnPosition(GameEntity entity, Vector3 value) => transform.position = value;
 	}
