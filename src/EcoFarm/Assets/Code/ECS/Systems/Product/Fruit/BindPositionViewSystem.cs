@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Unity.ViewListeners;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 
@@ -21,6 +22,8 @@ namespace Code.ECS.Systems.Product.Fruit
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(AddListener);
 
 		private static void AddListener(GameEntity entity)
-			=> entity.AddPositionListener(entity.GetViewComponent<PositionView>());
+			=> entity
+				.Do((e) => e.AddPositionListener(e.GetViewComponent<PositionView>()))
+				.Do((e) => e.RemoveRequireViewOfType());
 	}
 }

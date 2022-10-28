@@ -23,6 +23,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private static void Mark(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddFalling(CreateTreeHeightInterval(entity)))
+			   .Do((e) => e.isWillFall = false)
 			   .Do((e) => e.isDurationUp = false)
 			   .Do((e) => e.AddDuration(FallTime));
 
