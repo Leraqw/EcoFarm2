@@ -1,6 +1,6 @@
 ﻿using Mono.Data.Sqlite;
 
-namespace Code.Data.DataBase
+namespace Code.Utils.Extensions.DataBase
 {
 	public static class SqliteCommandExtensions
 	{

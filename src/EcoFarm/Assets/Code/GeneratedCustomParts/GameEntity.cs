@@ -1,17 +1,5 @@
-﻿// ReSharper disable CheckNamespace - namespace частей parital классов должен сопадать
-using UnityEngine;
-
+﻿// ReSharper disable CheckNamespace - parts of classes suppose to de in same namespace as original class
 public sealed partial class GameEntity
 {
-	public override string ToString() => isTree ? "Tree" : base.ToString();
-
-	public Vector2 SpawnPosition
-	{
-		get
-		{
-			Vector2 value = hasSpawnPosition ? spawnPosition.Value : Vector3.zero;
-			RemoveSpawnPosition();
-			return value;
-		}
-	}
+	public override string ToString() => hasDebugName ? debugName.Value : base.ToString();
 }

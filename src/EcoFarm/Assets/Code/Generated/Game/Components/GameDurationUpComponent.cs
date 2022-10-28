@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.TreeComponent treeComponent = new Code.ECS.Components.TreeComponent();
+    static readonly Code.ECS.Components.DurationUpComponent durationUpComponent = new Code.ECS.Components.DurationUpComponent();
 
-    public bool isTree {
-        get { return HasComponent(GameComponentsLookup.Tree); }
+    public bool isDurationUp {
+        get { return HasComponent(GameComponentsLookup.DurationUp); }
         set {
-            if (value != isTree) {
-                var index = GameComponentsLookup.Tree;
+            if (value != isDurationUp) {
+                var index = GameComponentsLookup.DurationUp;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : treeComponent;
+                            : durationUpComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTree;
+    static Entitas.IMatcher<GameEntity> _matcherDurationUp;
 
-    public static Entitas.IMatcher<GameEntity> Tree {
+    public static Entitas.IMatcher<GameEntity> DurationUp {
         get {
-            if (_matcherTree == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Tree);
+            if (_matcherDurationUp == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DurationUp);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherTree = matcher;
+                _matcherDurationUp = matcher;
             }
 
-            return _matcherTree;
+            return _matcherDurationUp;
         }
     }
 }

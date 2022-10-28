@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Utils.Extensions.DataBase;
 using Mono.Data.Sqlite;
 
 namespace Code.Data.DataBase

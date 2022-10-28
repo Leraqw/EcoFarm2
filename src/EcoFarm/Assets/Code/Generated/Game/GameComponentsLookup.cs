@@ -8,27 +8,66 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int RequireTreeOnPosition = 0;
-    public const int RequireView = 1;
-    public const int SpawnPosition = 2;
-    public const int Tree = 3;
-    public const int View = 4;
+    public const int DebugName = 0;
+    public const int Duration = 1;
+    public const int DurationUp = 2;
+    public const int Fell = 3;
+    public const int FruitRequire = 4;
+    public const int Growth = 5;
+    public const int HasFruit = 6;
+    public const int Position = 7;
+    public const int ProportionalScale = 8;
+    public const int RequireTreeOnPosition = 9;
+    public const int RequireView = 10;
+    public const int SpawnPosition = 11;
+    public const int TargetPosition = 12;
+    public const int TargetScale = 13;
+    public const int View = 14;
+    public const int WillFall = 15;
+    public const int PositionListener = 16;
+    public const int ProportionalScaleListener = 17;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
+        "DebugName",
+        "Duration",
+        "DurationUp",
+        "Fell",
+        "FruitRequire",
+        "Growth",
+        "HasFruit",
+        "Position",
+        "ProportionalScale",
         "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
-        "Tree",
-        "View"
+        "TargetPosition",
+        "TargetScale",
+        "View",
+        "WillFall",
+        "PositionListener",
+        "ProportionalScaleListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.DebugNameComponent),
+        typeof(Code.ECS.Components.DurationComponent),
+        typeof(Code.ECS.Components.DurationUpComponent),
+        typeof(Code.ECS.Components.FellComponent),
+        typeof(Code.ECS.Components.FruitRequireComponent),
+        typeof(Code.ECS.Components.GrowthComponent),
+        typeof(Code.ECS.Components.HasFruitComponent),
+        typeof(Code.ECS.Components.PositionComponent),
+        typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
-        typeof(Code.ECS.Components.TreeComponent),
-        typeof(Code.ECS.Components.ViewComponent)
+        typeof(Code.ECS.Components.TargetPositionComponent),
+        typeof(Code.ECS.Components.TargetScaleComponent),
+        typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.ECS.Components.WillFallComponent),
+        typeof(PositionListenerComponent),
+        typeof(ProportionalScaleListenerComponent)
     };
 }
