@@ -27,4 +27,6 @@ namespace Code.ECS.Components
 	[Event(Self)] [Game] public sealed class ProportionalScaleComponent : ValueComponent<float> { }
 
 	[Game] public sealed class TargetScaleComponent : ValueComponent<float> { }
+
+	[Game] public sealed class TargetPositionComponent : ValueComponent<Vector2> { }
 }
