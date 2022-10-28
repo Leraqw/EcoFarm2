@@ -25,9 +25,10 @@ namespace Code.ECS.Systems.Product.Fruit
 
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddDebugName("Fruit"))
 			            .Do((e) => e.AddPosition(position + Constants.Balance.Fruit.SpawnHeight))
+			            .Do((e) => e.AddProportionalScale(0))
 			            .Do((e) => e.isFruitRequire = true)
-			            .Do((e) => e.AddDuration(Constants.Balance.Fruit.BeforeGrowingTime))
-			            .Do((e) => e.AddDebugName("Fruit"));
+			            .Do((e) => e.AddDuration(Constants.Balance.Fruit.BeforeGrowingTime));
 	}
 }

@@ -1,6 +1,9 @@
 ﻿using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
+using UnityEngine;
+using static Code.Utils.StaticClasses.Constants;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Growing
 {
@@ -9,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		private readonly IGroup<GameEntity> _entities;
 
 		public CheckGrowthUpSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(GameMatcher.Growing, GameMatcher.View);
+			=> _entities = contexts.GetGroupAllOf(ProportionalScale, TargetScale);
 
 		public void Execute() => _entities.ForEach(Check);
 
@@ -17,10 +20,10 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 
 		private static void RemoveGrowing(GameEntity entity)
 			=> entity
-			   .Do((e) => e.RemoveGrowing())
+			   .Do((e) => e.RemoveTargetScale())
 			   .Do((e) => e.isGrowth = true);
 
 		private static bool IsGrowth(GameEntity entity)
-			=> entity.growing.Value.IsContains(entity.GetLocalScale()) == false;
+			=> Mathf.Abs(entity.proportionalScale.Value - entity.targetScale.Value) <= Tolerance;
 	}
 }

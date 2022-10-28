@@ -19,8 +19,7 @@ namespace Code.ECS.Systems.Common
 		private static bool DurationIsUp(GameEntity entity) => entity.duration <= 0;
 
 		private static void SetDurationUp(GameEntity entity)
-			=> entity
-			   .Do((e) => e.isDurationUp = true)
-			   .Do((e) => e.RemoveDuration());
+			=> entity.Do((e) => e.isDurationUp = true)
+			         .Do((e) => e.RemoveDuration());
 	}
 }

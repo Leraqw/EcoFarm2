@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -16,17 +15,12 @@ namespace Code.Utils.Extensions.Entitas
 			@this.RemoveRequireView();
 		}
 
-		public static Vector3 GetLocalScale(this GameEntity @this) => @this.view.Value.transform.localScale;
-
-		public static void SetLocalScale(this GameEntity @this, Vector3 value)
-			=> @this.view.Value.transform.localScale = value;
-
 		public static Vector3 GetActualPosition(this GameEntity @this)
 			=> @this.hasPosition ? @this.position.Value
 				: @this.hasView ? @this.view.Value.transform.position
 				: Vector3.zero;
 
-		public static T GetViewComponent<T>(this GameEntity @this)
-			=> @this.view.Value.GetComponent<T>() ?? throw new NullReferenceException();
+		public static void IncreaseProportionalScale(this GameEntity @this, float value) 
+			=> @this.ReplaceProportionalScale(@this.proportionalScale.Value + value);
 	}
 }

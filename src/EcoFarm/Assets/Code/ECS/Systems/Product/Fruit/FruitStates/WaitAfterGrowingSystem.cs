@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 
@@ -11,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.Growth);
+			=> context.CreateCollectorAllOf(GameMatcher.Growth, GameMatcher.DurationUp);
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -20,7 +21,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 		private static void NextState(GameEntity entity)
 			=> entity
 			   .Do((e) => e.isGrowth = false)
-			   .Do((e) => e.ReplaceDuration(Balance.Fruit.AfterGrowingTime))
+			   .Do((e) => e.AddDuration(Balance.Fruit.AfterGrowingTime))
 			   .Do((e) => e.isWillFall = true);
 	}
 }

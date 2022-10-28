@@ -1,7 +1,7 @@
-﻿using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+﻿using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Growing
 {
@@ -10,17 +10,18 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		private readonly IGroup<GameEntity> _entities;
 
 		public GrowingSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(GameMatcher.Growing, GameMatcher.View, GameMatcher.Duration);
+			=> _entities = contexts.GetGroupAllOf(TargetScale, ProportionalScale, Duration);
 
 		public void Execute() => _entities.ForEach(Grow);
 
-		private static void Grow(GameEntity entity) => entity.SetLocalScale(GetNextScale(entity));
+		private static void Grow(GameEntity entity) => entity.IncreaseProportionalScale(GetNextScale(entity));
 
-		private static Vector3 GetNextScale(GameEntity entity)
-			=> entity.growing.Value.Next(entity.GetLocalScale(), GetScaledStep(entity));
+		private static float GetNextScale(GameEntity entity)
+			=> CalculateStep(entity) * Time.deltaTime;
 
-		private static float GetScaledStep(GameEntity entity) => GetStep(entity) * Time.deltaTime;
+		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration;
 
-		private static float GetStep(GameEntity entity) => entity.growing.Value.Different.Avg() / entity.duration;
+		private static float ScalesDifference(GameEntity entity) 
+			=> entity.targetScale - entity.proportionalScale;
 	}
 }

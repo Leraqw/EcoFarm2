@@ -24,8 +24,7 @@ namespace Code.ECS.Systems.View
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.RequireView);
 
-		protected override bool Filter(GameEntity entity)
-			=> entity.hasView == false;
+		protected override bool Filter(GameEntity entity) => entity.hasView == false;
 
 		protected override void Execute(List<GameEntity> entites)
 			=> entites.ForEach(InstantiateView);

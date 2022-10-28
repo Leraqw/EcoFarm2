@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Utils.ComponentsTemplates;
+﻿using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
@@ -8,8 +7,6 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 namespace Code.ECS.Components
 {
 	[Game] public sealed class RequireViewComponent : ValueComponent<string> { }
-
-	[Game] public sealed class RequireViewOfTypeComponent : ValueComponent<Type> { }
 
 	[Game] public sealed class ViewComponent : ValueComponent<GameObject> { }
 
@@ -26,4 +23,8 @@ namespace Code.ECS.Components
 	[Cleanup(RemoveComponent)] [Game] public sealed class DurationUpComponent : FlagComponent { }
 
 	[Game] public sealed class DebugNameComponent : ValueComponent<string> { }
+
+	[Event(Self)] [Game] public sealed class ProportionalScaleComponent : ValueComponent<float> { }
+
+	[Game] public sealed class TargetScaleComponent : ValueComponent<float> { }
 }
