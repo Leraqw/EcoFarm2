@@ -26,7 +26,5 @@ namespace Code.ECS.Components
 
 	[Event(Self)] [Game] public sealed class ProportionalScaleComponent : ValueComponent<float> { }
 
-	[Game] public sealed class InitialScaleComponent : ValueComponent<float> { }
-
 	[Game] public sealed class TargetScaleComponent : ValueComponent<float> { }
 }
