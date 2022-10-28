@@ -22,9 +22,8 @@ namespace Code.ECS.Features
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			
-			Add(new BindViewsSystem(contexts));
-
 			Add(new LoadViewForEntitySystem(contexts));
+			Add(new BindViewsSystem(contexts));
 
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
