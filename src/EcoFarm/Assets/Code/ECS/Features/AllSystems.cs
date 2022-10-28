@@ -41,6 +41,7 @@ namespace Code.ECS.Features
 			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new GameCleanupSystems(contexts));
+			Add(new GameEventSystems(contexts));
 		}
 
 		public void OnUpdate()
