@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Code.Unity.ViewListeners;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -16,14 +17,11 @@ namespace Code.ECS.Systems.Product.Fruit
 		protected override bool Filter(GameEntity entity)
 			=> entity.requireViewOfType.Value == typeof(PositionView);
 
-		protected override void Execute(List<GameEntity> entites)
-		{
-			foreach (var entity in entites)
-			{
-				var view = entity.view.Value;
-				var positionView = view.GetComponent<PositionView>();
-				positionView.RegisterListener(entity);
-			}
-		}
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(AddListener);
+
+		private static void AddListener(GameEntity entity) => entity.AddPositionListener(GetViewComponent(entity));
+
+		private static PositionView GetViewComponent(GameEntity entity)
+			=> entity.view.Value.GetComponent<PositionView>() ?? throw new NullReferenceException();
 	}
 }
