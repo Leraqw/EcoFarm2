@@ -22,15 +22,14 @@ public static class GameComponentsLookup {
     public const int ProportionalScale = 11;
     public const int RequireTreeOnPosition = 12;
     public const int RequireView = 13;
-    public const int RequireViewOfType = 14;
-    public const int SpawnPosition = 15;
-    public const int TargetScale = 16;
-    public const int View = 17;
-    public const int WillFall = 18;
-    public const int PositionListener = 19;
-    public const int ProportionalScaleListener = 20;
+    public const int SpawnPosition = 14;
+    public const int TargetScale = 15;
+    public const int View = 16;
+    public const int WillFall = 17;
+    public const int PositionListener = 18;
+    public const int ProportionalScaleListener = 19;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "DebugName",
@@ -47,7 +46,6 @@ public static class GameComponentsLookup {
         "ProportionalScale",
         "RequireTreeOnPosition",
         "RequireView",
-        "RequireViewOfType",
         "SpawnPosition",
         "TargetScale",
         "View",
@@ -71,7 +69,6 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
-        typeof(Code.ECS.Components.RequireViewOfTypeComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.ViewComponent),
