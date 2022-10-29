@@ -8,37 +8,41 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Collected = 0;
-    public const int DebugName = 1;
-    public const int Duration = 2;
-    public const int DurationUp = 3;
-    public const int Fell = 4;
-    public const int FruitRequire = 5;
-    public const int Growth = 6;
-    public const int HasFruit = 7;
-    public const int MouseClick = 8;
-    public const int Pickable = 9;
-    public const int Picked = 10;
-    public const int Position = 11;
-    public const int ProportionalScale = 12;
-    public const int RequireTreeOnPosition = 13;
-    public const int RequireView = 14;
-    public const int SpawnPosition = 15;
-    public const int TargetPosition = 16;
-    public const int TargetScale = 17;
-    public const int View = 18;
-    public const int WillFall = 19;
-    public const int PositionListener = 20;
-    public const int ProportionalScaleListener = 21;
+    public const int AttachedTo = 0;
+    public const int Collected = 1;
+    public const int DebugName = 2;
+    public const int Duration = 3;
+    public const int DurationUp = 4;
+    public const int Fell = 5;
+    public const int FruitDetached = 6;
+    public const int FruitRequire = 7;
+    public const int Growth = 8;
+    public const int HasFruit = 9;
+    public const int MouseClick = 10;
+    public const int Pickable = 11;
+    public const int Picked = 12;
+    public const int Position = 13;
+    public const int ProportionalScale = 14;
+    public const int RequireTreeOnPosition = 15;
+    public const int RequireView = 16;
+    public const int SpawnPosition = 17;
+    public const int TargetPosition = 18;
+    public const int TargetScale = 19;
+    public const int View = 20;
+    public const int WillFall = 21;
+    public const int PositionListener = 22;
+    public const int ProportionalScaleListener = 23;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
+        "AttachedTo",
         "Collected",
         "DebugName",
         "Duration",
         "DurationUp",
         "Fell",
+        "FruitDetached",
         "FruitRequire",
         "Growth",
         "HasFruit",
@@ -59,11 +63,13 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.AttachedToComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),
         typeof(Code.ECS.Components.FellComponent),
+        typeof(Code.ECS.Components.FruitDetachedComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.HasFruitComponent),
