@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions;
 using Entitas;
 
 namespace Code.ECS.Systems.Input
@@ -13,8 +14,11 @@ namespace Code.ECS.Systems.Input
 
 		protected override bool Filter(GameEntity entity) => entity.mouseClick.Value.isPickable;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsPicked);
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkClickedEntity);
 
-		private static void MarkAsPicked(GameEntity click) => click.mouseClick.Value.isPicked = true;
+		private static void MarkClickedEntity(GameEntity click) => MarkAsPicked(click.mouseClick.Value);
+
+		private static void MarkAsPicked(GameEntity entity) => entity.Do((e) => e.isPicked = true)
+		                                                             .Do((e) => e.isPickable = false);
 	}
 }
