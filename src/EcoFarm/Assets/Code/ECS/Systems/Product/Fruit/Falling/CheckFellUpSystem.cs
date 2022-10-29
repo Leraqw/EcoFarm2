@@ -18,11 +18,8 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		private static void Check(GameEntity entity) => entity.Do(RemoveFalling, @if: IsFell);
 
-		private static void RemoveFalling(GameEntity entity)
-		{
-			entity.RemoveTargetPosition();
-			entity.isFell = true;
-		}
+		private static void RemoveFalling(GameEntity entity) => entity.Do((e) => e.RemoveTargetPosition())
+		                                                              .Do((e) => e.isFell = true);
 
 		private static bool IsFell(GameEntity entity)
 			=> Vector2.Distance(entity.position.Value, entity.targetPosition.Value) <= Constants.Tolerance;
