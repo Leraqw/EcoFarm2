@@ -15,6 +15,6 @@ namespace Code.ECS.Systems.Input
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsPicked);
 
-		private static void MarkAsPicked(GameEntity entity) => entity.isPicked = true;
+		private static void MarkAsPicked(GameEntity click) => click.mouseClick.Value.isPicked = true;
 	}
 }
