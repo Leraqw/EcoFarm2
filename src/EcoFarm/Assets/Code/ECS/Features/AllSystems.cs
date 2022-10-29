@@ -5,6 +5,7 @@ using Code.ECS.Systems.Product.Fruit.FruitStates;
 using Code.ECS.Systems.Product.Fruit.Growing;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
+using Code.ECS.Systems.Warehouse;
 using Code.Services.Interfaces;
 
 namespace Code.ECS.Features
@@ -21,6 +22,7 @@ namespace Code.ECS.Features
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
+			Add(new SpawnWarehouseSystem(contexts));
 			
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));

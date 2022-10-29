@@ -876,6 +876,7 @@ MonoBehaviour:
     - {fileID: 2048831295}
     - {fileID: 444709401}
     - {fileID: 1765480801}
+    _warehouseSpawnPosition: {fileID: 1876006552}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
