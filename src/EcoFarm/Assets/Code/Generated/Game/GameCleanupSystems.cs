@@ -10,6 +10,6 @@ public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
         Add(new RemoveDurationUpGameSystem(contexts));
-        Add(new DestroyOnMouseClickGameSystem(contexts));
+        Add(new DestroyMouseClickGameSystem(contexts));
     }
 }

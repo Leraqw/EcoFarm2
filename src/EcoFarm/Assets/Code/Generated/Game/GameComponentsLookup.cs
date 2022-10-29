@@ -15,20 +15,22 @@ public static class GameComponentsLookup {
     public const int FruitRequire = 4;
     public const int Growth = 5;
     public const int HasFruit = 6;
-    public const int OnMouseClick = 7;
-    public const int Position = 8;
-    public const int ProportionalScale = 9;
-    public const int RequireTreeOnPosition = 10;
-    public const int RequireView = 11;
-    public const int SpawnPosition = 12;
-    public const int TargetPosition = 13;
-    public const int TargetScale = 14;
-    public const int View = 15;
-    public const int WillFall = 16;
-    public const int PositionListener = 17;
-    public const int ProportionalScaleListener = 18;
+    public const int MouseClick = 7;
+    public const int Pickable = 8;
+    public const int Picked = 9;
+    public const int Position = 10;
+    public const int ProportionalScale = 11;
+    public const int RequireTreeOnPosition = 12;
+    public const int RequireView = 13;
+    public const int SpawnPosition = 14;
+    public const int TargetPosition = 15;
+    public const int TargetScale = 16;
+    public const int View = 17;
+    public const int WillFall = 18;
+    public const int PositionListener = 19;
+    public const int ProportionalScaleListener = 20;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "DebugName",
@@ -38,7 +40,9 @@ public static class GameComponentsLookup {
         "FruitRequire",
         "Growth",
         "HasFruit",
-        "OnMouseClick",
+        "MouseClick",
+        "Pickable",
+        "Picked",
         "Position",
         "ProportionalScale",
         "RequireTreeOnPosition",
@@ -60,7 +64,9 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.HasFruitComponent),
-        typeof(Code.ECS.Components.OnMouseClickComponent),
+        typeof(Code.ECS.Components.MouseClickComponent),
+        typeof(Code.ECS.Components.PickableComponent),
+        typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),

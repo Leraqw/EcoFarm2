@@ -12,7 +12,7 @@ namespace Code.Unity.Receivers
 
 		public void OnMouseDown()
 			=> Context.CreateEntity()
-			          .Do((e) => e.AddOnMouseClick(_viewListener.Entity))
+			          .Do((e) => e.AddMouseClick(_viewListener.Entity))
 			          .Do((e) => e.AddDebugName("OnMouseClick"));
 	}
 }

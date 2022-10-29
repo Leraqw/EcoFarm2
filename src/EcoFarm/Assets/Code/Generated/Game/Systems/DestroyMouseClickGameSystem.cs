@@ -9,13 +9,13 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class DestroyOnMouseClickGameSystem : ICleanupSystem {
+public sealed class DestroyMouseClickGameSystem : ICleanupSystem {
 
     readonly IGroup<GameEntity> _group;
     readonly List<GameEntity> _buffer = new List<GameEntity>();
 
-    public DestroyOnMouseClickGameSystem(Contexts contexts) {
-        _group = contexts.game.GetGroup(GameMatcher.OnMouseClick);
+    public DestroyMouseClickGameSystem(Contexts contexts) {
+        _group = contexts.game.GetGroup(GameMatcher.MouseClick);
     }
 
     public void Cleanup() {
