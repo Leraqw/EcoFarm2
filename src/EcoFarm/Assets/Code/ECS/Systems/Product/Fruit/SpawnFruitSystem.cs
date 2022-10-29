@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Code.ECS.Systems.Product.Fruit
 			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.HasFruit);
+			=> context.CreateCollectorAllOf(GameMatcher.HasFruit, GameMatcher.SpawnPosition);
 
 		protected override bool Filter(GameEntity entity) => true;
 

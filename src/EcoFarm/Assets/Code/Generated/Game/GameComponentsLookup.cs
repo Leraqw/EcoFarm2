@@ -15,19 +15,20 @@ public static class GameComponentsLookup {
     public const int FruitRequire = 4;
     public const int Growth = 5;
     public const int HasFruit = 6;
-    public const int Position = 7;
-    public const int ProportionalScale = 8;
-    public const int RequireTreeOnPosition = 9;
-    public const int RequireView = 10;
-    public const int SpawnPosition = 11;
-    public const int TargetPosition = 12;
-    public const int TargetScale = 13;
-    public const int View = 14;
-    public const int WillFall = 15;
-    public const int PositionListener = 16;
-    public const int ProportionalScaleListener = 17;
+    public const int OnMouseClick = 7;
+    public const int Position = 8;
+    public const int ProportionalScale = 9;
+    public const int RequireTreeOnPosition = 10;
+    public const int RequireView = 11;
+    public const int SpawnPosition = 12;
+    public const int TargetPosition = 13;
+    public const int TargetScale = 14;
+    public const int View = 15;
+    public const int WillFall = 16;
+    public const int PositionListener = 17;
+    public const int ProportionalScaleListener = 18;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "DebugName",
@@ -37,6 +38,7 @@ public static class GameComponentsLookup {
         "FruitRequire",
         "Growth",
         "HasFruit",
+        "OnMouseClick",
         "Position",
         "ProportionalScale",
         "RequireTreeOnPosition",
@@ -58,6 +60,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.HasFruitComponent),
+        typeof(Code.ECS.Components.OnMouseClickComponent),
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
