@@ -26,7 +26,7 @@ namespace Code.ECS.Features
 			Add(new SpawnWarehouseSystem(contexts));
 			
 			Add(new OnMouseClickSystem(contexts));
-			Add(new PickupToWarehouseSystem(contexts));
+			Add(new CollectToWarehouseSystem(contexts));
 			
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));

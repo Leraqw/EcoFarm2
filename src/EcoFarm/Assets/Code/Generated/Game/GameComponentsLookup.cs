@@ -8,31 +8,33 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int DebugName = 0;
-    public const int Duration = 1;
-    public const int DurationUp = 2;
-    public const int Fell = 3;
-    public const int FruitRequire = 4;
-    public const int Growth = 5;
-    public const int HasFruit = 6;
-    public const int MouseClick = 7;
-    public const int Pickable = 8;
-    public const int Picked = 9;
-    public const int Position = 10;
-    public const int ProportionalScale = 11;
-    public const int RequireTreeOnPosition = 12;
-    public const int RequireView = 13;
-    public const int SpawnPosition = 14;
-    public const int TargetPosition = 15;
-    public const int TargetScale = 16;
-    public const int View = 17;
-    public const int WillFall = 18;
-    public const int PositionListener = 19;
-    public const int ProportionalScaleListener = 20;
+    public const int Collected = 0;
+    public const int DebugName = 1;
+    public const int Duration = 2;
+    public const int DurationUp = 3;
+    public const int Fell = 4;
+    public const int FruitRequire = 5;
+    public const int Growth = 6;
+    public const int HasFruit = 7;
+    public const int MouseClick = 8;
+    public const int Pickable = 9;
+    public const int Picked = 10;
+    public const int Position = 11;
+    public const int ProportionalScale = 12;
+    public const int RequireTreeOnPosition = 13;
+    public const int RequireView = 14;
+    public const int SpawnPosition = 15;
+    public const int TargetPosition = 16;
+    public const int TargetScale = 17;
+    public const int View = 18;
+    public const int WillFall = 19;
+    public const int PositionListener = 20;
+    public const int ProportionalScaleListener = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
+        "Collected",
         "DebugName",
         "Duration",
         "DurationUp",
@@ -57,6 +59,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),

@@ -7,11 +7,11 @@ using static Code.Utils.StaticClasses.Constants.Balance.Warehouse;
 
 namespace Code.ECS.Systems.Input
 {
-	public sealed class PickupToWarehouseSystem : ReactiveSystem<GameEntity>
+	public sealed class CollectToWarehouseSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public PickupToWarehouseSystem(Contexts contexts)
+		public CollectToWarehouseSystem(Contexts contexts)
 			: base(contexts.game)
 			=> _contexts = contexts;
 
@@ -20,11 +20,12 @@ namespace Code.ECS.Systems.Input
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollectorAllOf(GameMatcher.Picked, GameMatcher.Position);
 
-		protected override bool Filter(GameEntity entity) => entity.hasTargetPosition == false;
+		protected override bool Filter(GameEntity entity) => entity.isCollected == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(StartMoving);
 
-		private void StartMoving(GameEntity entity) => entity.Do((e) => e.AddTargetPosition(WarehousePosition))
+		private void StartMoving(GameEntity entity) => entity.Do((e) => e.isCollected = true)
+		                                                     .Do((e) => e.AddTargetPosition(WarehousePosition))
 		                                                     .Do((e) => e.AddDuration(PickupDuration));
 	}
 }
