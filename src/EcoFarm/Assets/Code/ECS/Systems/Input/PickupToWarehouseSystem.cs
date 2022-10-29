@@ -20,7 +20,7 @@ namespace Code.ECS.Systems.Input
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollectorAllOf(GameMatcher.Picked, GameMatcher.Position);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasTargetPosition == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(StartMoving);
 
