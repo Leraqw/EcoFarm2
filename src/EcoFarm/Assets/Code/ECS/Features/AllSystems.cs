@@ -1,10 +1,12 @@
 ﻿using Code.ECS.Systems.Common;
+using Code.ECS.Systems.Input;
 using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Product.Fruit.Falling;
 using Code.ECS.Systems.Product.Fruit.FruitStates;
 using Code.ECS.Systems.Product.Fruit.Growing;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
+using Code.ECS.Systems.Warehouse;
 using Code.Services.Interfaces;
 
 namespace Code.ECS.Features
@@ -21,6 +23,10 @@ namespace Code.ECS.Features
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
+			Add(new SpawnWarehouseSystem(contexts));
+			
+			Add(new OnMouseClickSystem(contexts));
+			Add(new CollectToWarehouseSystem(contexts));
 			
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));
@@ -32,6 +38,7 @@ namespace Code.ECS.Features
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
 			Add(new CheckFellUpSystem(contexts));
+			Add(new MarkFellFruitAsPickableSystem(contexts));
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));

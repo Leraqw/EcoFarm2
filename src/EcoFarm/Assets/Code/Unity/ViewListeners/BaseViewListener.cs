@@ -5,7 +5,13 @@ namespace Code.Unity.ViewListeners
 {
 	public abstract class BaseViewListener : MonoBehaviour
 	{
-		public void Register(GameEntity entity) => entity.Do(AddListener).Do(UpdateValue, @if: HasComponent);
+		public GameEntity Entity { get; private set; }
+
+		public void Register(GameEntity entity)
+			=> entity
+			   .Do((e) => Entity = e)
+			   .Do(AddListener)
+			   .Do(UpdateValue, @if: HasComponent);
 
 		protected abstract void AddListener(GameEntity entity);
 
