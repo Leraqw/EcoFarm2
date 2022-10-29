@@ -10,7 +10,10 @@ namespace Code.Services.UnityImplementations
 	public class UnitySceneObjectsService : ISceneObjectsService
 	{
 		[SerializeField] private List<Transform> _treesSpawnPositions;
+		[SerializeField] private Transform _warehouseSpawnPosition;
+		
 
 		public IEnumerable<Vector2> TreeSpawnPositions => _treesSpawnPositions.Select((t) => (Vector2)t.position);
+		public Vector2 WarehouseSpawnPosition => _warehouseSpawnPosition.position;
 	}
 }

@@ -25,6 +25,8 @@ namespace Code.Services.UnityImplementations
 
 		IEnumerable<Vector2> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
 
+		public Vector2 WarehouseSpawnPosition => _sceneObjects.WarehouseSpawnPosition;
+
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
 		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);
