@@ -11,15 +11,14 @@ namespace Code.ECS.Systems.Product.Fruit
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Fell, AttachedTo));
+			=> context.CreateCollector(AllOf(Collected, AttachedTo));
 
 		protected override bool Filter(GameEntity entity) => entity.hasAttachedTo;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Detach);
 
 		private static void Detach(GameEntity entity)
-			=> entity
-			   .Do((e) => e.attachedTo.Value.isHasFruit = false)
-			   .Do((e) => e.RemoveAttachedTo());
+			=> entity.Do((e) => e.attachedTo.Value.isHasFruit = false)
+			         .Do((e) => e.RemoveAttachedTo());
 	}
 }

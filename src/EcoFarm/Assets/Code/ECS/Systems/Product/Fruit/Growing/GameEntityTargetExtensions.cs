@@ -7,11 +7,14 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		public static void OnTargetScaleReached(this GameEntity @this)
 			=> @this.Do((e) => e.RemoveTargetScale())
 			        .Do((e) => e.isGrowth = true)
-			        .Do((e) => e.duration.Value = 0);
+			        .SafetyResetDuration();
 
 		public static void OnTargetPositionReached(this GameEntity @this)
 			=> @this.Do((e) => e.RemoveTargetPosition())
 			        .Do((e) => e.isFell = true)
-			        .Do((e) => e.duration.Value = 0);
+			        .SafetyResetDuration();
+
+		private static void SafetyResetDuration(this GameEntity @this)
+			=> @this.Do((e) => e.duration.Value = 0, @if: (e) => e.hasDuration);
 	}
 }
