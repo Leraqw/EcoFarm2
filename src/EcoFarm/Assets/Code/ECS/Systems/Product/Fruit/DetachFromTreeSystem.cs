@@ -20,7 +20,6 @@ namespace Code.ECS.Systems.Product.Fruit
 		private static void Detach(GameEntity entity)
 			=> entity
 			   .Do((e) => e.attachedTo.Value.isHasFruit = false)
-			   .Do((e) => e.attachedTo.Value.RemoveAttachedFruit())
 			   .Do((e) => e.RemoveAttachedTo());
 	}
 }

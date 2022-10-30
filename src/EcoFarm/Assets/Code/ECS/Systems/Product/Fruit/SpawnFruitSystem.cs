@@ -27,7 +27,6 @@ namespace Code.ECS.Systems.Product.Fruit
 			            .Do((e) => e.AddDebugName("Fruit"))
 			            .Do((e) => e.AddAttachedTo(tree))
 			            .Do((e) => e.attachedTo.Value.isHasFruit = true)
-			            .Do((e) => e.attachedTo.Value.AddAttachedFruit(e))
 			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
 			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
