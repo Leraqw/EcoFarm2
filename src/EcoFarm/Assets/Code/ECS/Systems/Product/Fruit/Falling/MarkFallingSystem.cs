@@ -23,7 +23,6 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 			=> entity
 			   .Do((e) => e.AddTargetPosition(PositionWithoutTreeHeight(entity)))
 			   .Do((e) => e.isWillFall = false)
-			   .Do((e) => e.isDurationUp = false) // TODO: remove this line
 			   .Do((e) => e.AddDuration(FallTime));
 
 		private static Vector2 PositionWithoutTreeHeight(GameEntity entity)
