@@ -16,14 +16,14 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		public void Execute() => _entities.ForEach(Check);
 
-		private static void Check(GameEntity entity) => entity.Do(RemoveFalling, @if: IsFell);
+		private static void Check(GameEntity entity) => entity.Do(MarkAsFell, @if: IsFell);
 
-		private static void RemoveFalling(GameEntity entity) => entity.Do((e) => e.RemoveTargetPosition())
+		private static void MarkAsFell(GameEntity entity) => entity.Do((e) => e.RemoveTargetPosition())
 		                                                              .Do((e) => e.isFell = true)
 		                                                              .Do(DetachFromTree);
 
-		private static void DetachFromTree(GameEntity entity) 
-			=> entity.Do((e) => e.attachedTo.Value.isFruitDetached = true)
+		private static void DetachFromTree(GameEntity entity)
+			=> entity.Do((e) => e.attachedTo.Value.isHasFruit = false)
 			         .Do((e) => e.RemoveAttachedTo());
 
 		private static bool IsFell(GameEntity entity)

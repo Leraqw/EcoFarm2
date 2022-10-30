@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.FruitDetachedComponent fruitDetachedComponent = new Code.ECS.Components.FruitDetachedComponent();
+    static readonly Code.ECS.Components.FruitfulComponent fruitfulComponent = new Code.ECS.Components.FruitfulComponent();
 
-    public bool isFruitDetached {
-        get { return HasComponent(GameComponentsLookup.FruitDetached); }
+    public bool isFruitful {
+        get { return HasComponent(GameComponentsLookup.Fruitful); }
         set {
-            if (value != isFruitDetached) {
-                var index = GameComponentsLookup.FruitDetached;
+            if (value != isFruitful) {
+                var index = GameComponentsLookup.Fruitful;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : fruitDetachedComponent;
+                            : fruitfulComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherFruitDetached;
+    static Entitas.IMatcher<GameEntity> _matcherFruitful;
 
-    public static Entitas.IMatcher<GameEntity> FruitDetached {
+    public static Entitas.IMatcher<GameEntity> Fruitful {
         get {
-            if (_matcherFruitDetached == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.FruitDetached);
+            if (_matcherFruitful == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Fruitful);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherFruitDetached = matcher;
+                _matcherFruitful = matcher;
             }
 
-            return _matcherFruitDetached;
+            return _matcherFruitful;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.FruitRequire, GameMatcher.DurationUp);
+			=> context.CreateCollector(GameMatcher.FruitRequire, GameMatcher.DurationUp);
 
 		protected override bool Filter(GameEntity entity) => entity.isFruitRequire;
 
@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 		private static void NextState(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddRequireView(ResourcePath.ApplePrefab))
-			   .Do((e) => e.AddTargetScale(Balance.Fruit.FruitFullSize))
+			   .Do((e) => e.AddTargetScale(Balance.Fruit.FullScale))
 			   .Do((e) => e.AddDuration(Balance.Fruit.GrowingTime))
 			   .Do((e) => e.isFruitRequire = false);
 	}

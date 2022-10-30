@@ -3,6 +3,7 @@ using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
@@ -15,7 +16,7 @@ namespace Code.ECS.Systems.Product.Fruit
 			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.HasFruit, GameMatcher.SpawnPosition);
+			=> context.CreateCollector(Fruitful, AnyOf(SpawnPosition, Position));
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -25,8 +26,8 @@ namespace Code.ECS.Systems.Product.Fruit
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Fruit"))
 			            .Do((e) => e.AddAttachedTo(tree))
-			            .Do((e) => e.AddPosition(tree.spawnPosition + SpawnHeight))
-			            .Do((e) => e.AddProportionalScale(0))
+			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
+			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
 			            .Do((e) => e.AddDuration(BeforeGrowingTime));
 	}

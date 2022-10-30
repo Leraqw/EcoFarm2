@@ -13,7 +13,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.WillFall, GameMatcher.DurationUp);
+			=> context.CreateCollector(GameMatcher.WillFall, GameMatcher.DurationUp);
 
 		protected override bool Filter(GameEntity entity) => entity.isWillFall && entity.hasView;
 

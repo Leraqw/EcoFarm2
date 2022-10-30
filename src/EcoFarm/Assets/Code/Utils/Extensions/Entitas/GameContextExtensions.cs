@@ -4,8 +4,8 @@ namespace Code.Utils.Extensions.Entitas
 {
 	public static class GameContextExtensions
 	{
-		public static ICollector<GameEntity> CreateCollectorAllOf
+		public static ICollector<GameEntity> CreateCollector
 			(this IContext<GameEntity> context, params IMatcher<GameEntity>[] matchers)
-			=> context.CreateCollector(Matcher<GameEntity>.AllOf(matchers));
+			=> CollectorContextExtension.CreateCollector(context, Matcher<GameEntity>.AllOf(matchers));
 	}
 }

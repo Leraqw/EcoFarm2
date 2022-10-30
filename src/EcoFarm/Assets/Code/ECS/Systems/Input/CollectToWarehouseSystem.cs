@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Input
 		private Vector2 WarehousePosition => _contexts.services.sceneObjectsService.Value.WarehouseSpawnPosition;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.Picked, GameMatcher.Position);
+			=> context.CreateCollector(GameMatcher.Picked, GameMatcher.Position);
 
 		protected override bool Filter(GameEntity entity) => entity.isCollected == false;
 
