@@ -8,6 +8,7 @@ using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
 using Code.ECS.Systems.Warehouse;
 using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 
 namespace Code.ECS.Features
 {
@@ -34,25 +35,28 @@ namespace Code.ECS.Features
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
 			Add(new WaitAfterGrowingSystem(contexts));
+			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
 			Add(new CheckFellUpSystem(contexts));
+			Add(new DetachFromTreeSystem(contexts));
 			Add(new MarkFellFruitAsPickableSystem(contexts));
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
+			
+			Add(new RemoveTargetsOnTimeUpSystem(contexts));
 
-			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new GameCleanupSystems(contexts));
 			Add(new GameEventSystems(contexts));
 		}
 
-		public void OnUpdate()
-		{
-			Execute();
-			Cleanup();
-		}
+		public void OnUpdate() => this.Do(Execute).Do(Cleanup);
+		
+		private static void Execute(AllSystems @this) => @this.Execute();
+
+		private static void Cleanup(AllSystems @this) => @this.Cleanup();
 	}
 }

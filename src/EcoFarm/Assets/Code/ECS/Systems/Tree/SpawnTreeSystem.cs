@@ -19,11 +19,10 @@ namespace Code.ECS.Systems.Tree
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
 		private static void Spawn(GameEntity entry)
-			=> entry
-			   .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
-			   .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
-			   .Do((e) => e.isHasFruit = true)
-			   .Do((e) => e.RemoveRequireTreeOnPosition())
-			   .Do((e) => e.AddDebugName("Tree"));
+			=> entry.Do((e) => e.AddDebugName("Tree"))
+			        .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
+			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
+			        .Do((e) => e.isFruitful = true)
+			        .Do((e) => e.RemoveRequireTreeOnPosition());
 	}
 }

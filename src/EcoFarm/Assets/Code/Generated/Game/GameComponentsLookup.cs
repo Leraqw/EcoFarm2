@@ -8,37 +8,43 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Collected = 0;
-    public const int DebugName = 1;
-    public const int Duration = 2;
-    public const int DurationUp = 3;
-    public const int Fell = 4;
-    public const int FruitRequire = 5;
-    public const int Growth = 6;
-    public const int HasFruit = 7;
-    public const int MouseClick = 8;
-    public const int Pickable = 9;
-    public const int Picked = 10;
-    public const int Position = 11;
-    public const int ProportionalScale = 12;
-    public const int RequireTreeOnPosition = 13;
-    public const int RequireView = 14;
-    public const int SpawnPosition = 15;
-    public const int TargetPosition = 16;
-    public const int TargetScale = 17;
-    public const int View = 18;
-    public const int WillFall = 19;
-    public const int PositionListener = 20;
-    public const int ProportionalScaleListener = 21;
+    public const int AttachedFruit = 0;
+    public const int AttachedTo = 1;
+    public const int Collected = 2;
+    public const int DebugName = 3;
+    public const int Duration = 4;
+    public const int DurationUp = 5;
+    public const int Fell = 6;
+    public const int Fruitful = 7;
+    public const int FruitRequire = 8;
+    public const int Growth = 9;
+    public const int HasFruit = 10;
+    public const int MouseClick = 11;
+    public const int Pickable = 12;
+    public const int Picked = 13;
+    public const int Position = 14;
+    public const int ProportionalScale = 15;
+    public const int RequireTreeOnPosition = 16;
+    public const int RequireView = 17;
+    public const int SpawnPosition = 18;
+    public const int TargetPosition = 19;
+    public const int TargetScale = 20;
+    public const int View = 21;
+    public const int WillFall = 22;
+    public const int PositionListener = 23;
+    public const int ProportionalScaleListener = 24;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
+        "AttachedFruit",
+        "AttachedTo",
         "Collected",
         "DebugName",
         "Duration",
         "DurationUp",
         "Fell",
+        "Fruitful",
         "FruitRequire",
         "Growth",
         "HasFruit",
@@ -59,11 +65,14 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.AttachedFruitComponent),
+        typeof(Code.ECS.Components.AttachedToComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),
         typeof(Code.ECS.Components.FellComponent),
+        typeof(Code.ECS.Components.FruitfulComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.HasFruitComponent),

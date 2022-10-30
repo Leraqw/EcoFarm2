@@ -17,4 +17,6 @@ namespace Code.ECS.Components
 	[Cleanup(RemoveComponent)] [Game] public sealed class PickedComponent : FlagComponent { }
 
 	[Game] public sealed class CollectedComponent : FlagComponent { }
+
+	[Game] public sealed class AttachedToComponent : ValueComponent<GameEntity> { }
 }

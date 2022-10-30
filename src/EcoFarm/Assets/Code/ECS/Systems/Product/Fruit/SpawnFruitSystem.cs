@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
 using Entitas;
-using UnityEngine;
+using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
@@ -12,24 +12,23 @@ namespace Code.ECS.Systems.Product.Fruit
 		private readonly Contexts _contexts;
 
 		public SpawnFruitSystem(Contexts contexts)
-			: base(contexts.game)
-			=> _contexts = contexts;
+			: base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.HasFruit, GameMatcher.SpawnPosition);
+			=> context.CreateCollector(AllOf(Fruitful).AnyOf(SpawnPosition, Position).NoneOf(HasFruit));
 
 		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SpawnFruitFor);
 
-		private void SpawnFruitFor(GameEntity tree) => Spawn(tree.spawnPosition);
-
-		private void Spawn(Vector2 position)
+		private void SpawnFruitFor(GameEntity tree)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Fruit"))
-			            .Do((e) => e.AddPosition(position + Constants.Balance.Fruit.SpawnHeight))
-			            .Do((e) => e.AddProportionalScale(0))
+			            .Do((e) => e.AddAttachedTo(tree))
+			            .Do((e) => e.attachedTo.Value.isHasFruit = true)
+			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
+			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
-			            .Do((e) => e.AddDuration(Constants.Balance.Fruit.BeforeGrowingTime));
+			            .Do((e) => e.AddDuration(BeforeGrowingTime));
 	}
 }

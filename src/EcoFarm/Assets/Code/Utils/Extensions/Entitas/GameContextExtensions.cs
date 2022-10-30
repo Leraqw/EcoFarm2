@@ -6,6 +6,6 @@ namespace Code.Utils.Extensions.Entitas
 	{
 		public static ICollector<GameEntity> CreateCollectorAllOf
 			(this IContext<GameEntity> context, params IMatcher<GameEntity>[] matchers)
-			=> context.CreateCollector(Matcher<GameEntity>.AllOf(matchers));
+			=> CollectorContextExtension.CreateCollector(context, Matcher<GameEntity>.AllOf(matchers));
 	}
 }

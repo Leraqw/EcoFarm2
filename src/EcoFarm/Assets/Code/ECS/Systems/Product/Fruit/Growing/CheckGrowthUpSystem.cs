@@ -19,9 +19,7 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		private static void Check(GameEntity entity) => entity.Do(RemoveGrowing, @if: IsGrowth);
 
 		private static void RemoveGrowing(GameEntity entity)
-			=> entity
-			   .Do((e) => e.RemoveTargetScale())
-			   .Do((e) => e.isGrowth = true);
+			=> entity.OnTargetScaleReached();
 
 		private static bool IsGrowth(GameEntity entity)
 			=> Mathf.Abs(entity.proportionalScale.Value - entity.targetScale.Value) <= Tolerance;

@@ -17,8 +17,9 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static Vector2 GetActualPosition(this GameEntity @this)
 			=> @this.hasPosition ? @this.position.Value
+				: @this.hasSpawnPosition ? @this.spawnPosition.Value
 				: @this.hasView ? @this.view.Value.transform.position
-				: Vector3.zero;
+				: Vector2.zero;
 
 		public static void IncreaseProportionalScale(this GameEntity @this, float value) 
 			=> @this.ReplaceProportionalScale(@this.proportionalScale.Value + value);

@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.View
 		private IResourcesService Resources => _services.resourcesService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.RequireView);
+			=> CollectorContextExtension.CreateCollector(context, GameMatcher.RequireView);
 
 		protected override bool Filter(GameEntity entity) => entity.hasView == false;
 
