@@ -12,11 +12,10 @@ namespace Code.ECS.Systems.Product.Fruit
 		private readonly Contexts _contexts;
 
 		public SpawnFruitSystem(Contexts contexts)
-			: base(contexts.game)
-			=> _contexts = contexts;
+			: base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
+			=> context.CreateCollector(AllOf(Fruitful).AnyOf(SpawnPosition, Position).NoneOf(HasFruit));
 
 		protected override bool Filter(GameEntity entity) => true;
 
