@@ -10,7 +10,7 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		private readonly IGroup<GameEntity> _entities;
 
 		public GrowingSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(TargetScale, ProportionalScale, Duration);
+			=> _entities = contexts.game.GetGroup(AllOf(TargetScale, ProportionalScale, Duration));
 
 		public void Execute() => _entities.ForEach(Grow);
 

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.FruitStates
 {
@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.Growth, GameMatcher.DurationUp);
+			=> context.CreateCollector(AllOf(Growth, DurationUp));
 
 		protected override bool Filter(GameEntity entity) => true;
 

@@ -10,7 +10,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private readonly IGroup<GameEntity> _entities;
 
 		public FallingSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(TargetPosition, Position, Duration);
+			=> _entities = contexts.game.GetGroup(AllOf(TargetPosition, Position, Duration));
 
 		public void Execute() => _entities.ForEach(Fall);
 

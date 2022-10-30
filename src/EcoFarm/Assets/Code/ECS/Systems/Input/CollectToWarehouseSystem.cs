@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants.Balance.Warehouse;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.Input
 {
@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Input
 		private Vector2 WarehousePosition => _contexts.services.sceneObjectsService.Value.WarehouseSpawnPosition;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollectorAllOf(GameMatcher.Picked, GameMatcher.Position);
+			=> context.CreateCollector(AllOf(Picked, Position));
 
 		protected override bool Filter(GameEntity entity) => entity.isCollected == false;
 

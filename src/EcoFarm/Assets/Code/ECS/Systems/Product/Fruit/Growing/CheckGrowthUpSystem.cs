@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.Growing
 		private readonly IGroup<GameEntity> _entities;
 
 		public CheckGrowthUpSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(ProportionalScale, TargetScale);
+			=> _entities = contexts.game.GetGroup(AllOf(ProportionalScale, TargetScale));
 
 		public void Execute() => _entities.ForEach(Check);
 
