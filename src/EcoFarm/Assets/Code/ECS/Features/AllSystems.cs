@@ -44,6 +44,8 @@ namespace Code.ECS.Features
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
+			
+			Add(new RemoveTargetsOnTimeUpSystem(contexts));
 
 			Add(new CheckGrowthUpSystem(contexts));
 			
