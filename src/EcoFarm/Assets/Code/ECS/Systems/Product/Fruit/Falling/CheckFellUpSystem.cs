@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private readonly IGroup<GameEntity> _entities;
 
 		public CheckFellUpSystem(Contexts contexts)
-			=> _entities = contexts.GetGroupAllOf(TargetPosition, Position);
+			=> _entities = contexts.game.GetGroup(AllOf(TargetPosition, Position));
 
 		public void Execute() => _entities.ForEach(Check);
 
