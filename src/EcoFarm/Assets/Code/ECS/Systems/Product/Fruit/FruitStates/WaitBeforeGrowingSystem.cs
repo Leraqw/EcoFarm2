@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Product.Fruit.FruitStates
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.FruitRequire, GameMatcher.DurationUp);
+			=> context.CreateCollectorAllOf(GameMatcher.FruitRequire, GameMatcher.DurationUp);
 
 		protected override bool Filter(GameEntity entity) => entity.isFruitRequire;
 

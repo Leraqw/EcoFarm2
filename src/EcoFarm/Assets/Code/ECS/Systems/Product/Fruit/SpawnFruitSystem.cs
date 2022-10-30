@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Product.Fruit
 			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(Fruitful, AnyOf(SpawnPosition, Position));
+			=> context.CreateCollector(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
 
 		protected override bool Filter(GameEntity entity) => true;
 
