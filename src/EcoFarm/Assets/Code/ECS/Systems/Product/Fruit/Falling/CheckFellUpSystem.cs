@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using Code.ECS.Systems.Product.Fruit.Growing;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Code.Utils.StaticClasses;
 using Entitas;
@@ -18,8 +19,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		private static void Check(GameEntity entity) => entity.Do(MarkAsFell, @if: IsFell);
 
-		private static void MarkAsFell(GameEntity entity) => entity.Do((e) => e.RemoveTargetPosition())
-		                                                           .Do((e) => e.isFell = true);
+		private static void MarkAsFell(GameEntity entity) => entity.OnTargetPositionReached();
 		private static bool IsFell(GameEntity entity)
 			=> Vector2.Distance(entity.position.Value, entity.targetPosition.Value) <= Constants.Tolerance;
 	}

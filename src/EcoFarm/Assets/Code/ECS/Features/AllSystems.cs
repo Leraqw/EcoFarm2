@@ -35,6 +35,7 @@ namespace Code.ECS.Features
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
 			Add(new WaitAfterGrowingSystem(contexts));
+			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
@@ -47,7 +48,6 @@ namespace Code.ECS.Features
 			
 			Add(new RemoveTargetsOnTimeUpSystem(contexts));
 
-			Add(new CheckGrowthUpSystem(contexts));
 			
 			Add(new GameCleanupSystems(contexts));
 			Add(new GameEventSystems(contexts));

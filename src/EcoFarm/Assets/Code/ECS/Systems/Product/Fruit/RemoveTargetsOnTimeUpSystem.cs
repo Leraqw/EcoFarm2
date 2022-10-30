@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using Code.ECS.Systems.Product.Fruit.Growing;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
@@ -15,7 +16,11 @@ namespace Code.ECS.Systems.Product.Fruit
 		public void Execute() => _entities.ForEach(Remove);
 
 		private static void Remove(GameEntity entity)
-			=> entity.Do((e) => e.RemoveTargetPosition(), @if: (e) => e.hasTargetPosition)
-			         .Do((e) => e.RemoveTargetScale(), @if: (e) => e.hasTargetScale);
+			=> entity.Do(ReachPosition, @if: (e) => e.hasTargetPosition)
+			         .Do(ReachScale, @if: (e) => e.hasTargetScale);
+
+		private static void ReachPosition(GameEntity entity) => entity.OnTargetPositionReached();
+
+		private static void ReachScale(GameEntity entity) => entity.OnTargetScaleReached();
 	}
 }
