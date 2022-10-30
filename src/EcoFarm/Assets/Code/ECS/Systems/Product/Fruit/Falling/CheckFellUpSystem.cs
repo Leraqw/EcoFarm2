@@ -19,13 +19,7 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 		private static void Check(GameEntity entity) => entity.Do(MarkAsFell, @if: IsFell);
 
 		private static void MarkAsFell(GameEntity entity) => entity.Do((e) => e.RemoveTargetPosition())
-		                                                              .Do((e) => e.isFell = true)
-		                                                              .Do(DetachFromTree);
-
-		private static void DetachFromTree(GameEntity entity)
-			=> entity.Do((e) => e.attachedTo.Value.isHasFruit = false)
-			         .Do((e) => e.RemoveAttachedTo());
-
+		                                                           .Do((e) => e.isFell = true);
 		private static bool IsFell(GameEntity entity)
 			=> Vector2.Distance(entity.position.Value, entity.targetPosition.Value) <= Constants.Tolerance;
 	}

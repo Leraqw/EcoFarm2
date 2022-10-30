@@ -38,6 +38,7 @@ namespace Code.ECS.Features
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
 			Add(new CheckFellUpSystem(contexts));
+			Add(new DetachFromTreeSystem(contexts));
 			Add(new MarkFellFruitAsPickableSystem(contexts));
 
 			Add(new DurationSystem(contexts));
