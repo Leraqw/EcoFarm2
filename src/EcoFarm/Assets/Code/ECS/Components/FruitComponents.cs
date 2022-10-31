@@ -18,5 +18,5 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class CollectedComponent : FlagComponent { }
 
-	[Game] public sealed class AttachedToComponent : ValueComponent<GameEntity> { }
+	[Game] public sealed class AttachedToComponent : IndexComponent<int> { }
 }

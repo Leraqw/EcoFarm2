@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.ECS.Components.AttachedToComponent attachedTo { get { return (Code.ECS.Components.AttachedToComponent)GetComponent(GameComponentsLookup.AttachedTo); } }
     public bool hasAttachedTo { get { return HasComponent(GameComponentsLookup.AttachedTo); } }
 
-    public void AddAttachedTo(GameEntity newValue) {
+    public void AddAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
         var component = (Code.ECS.Components.AttachedToComponent)CreateComponent(index, typeof(Code.ECS.Components.AttachedToComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceAttachedTo(GameEntity newValue) {
+    public void ReplaceAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
         var component = (Code.ECS.Components.AttachedToComponent)CreateComponent(index, typeof(Code.ECS.Components.AttachedToComponent));
         component.Value = newValue;
