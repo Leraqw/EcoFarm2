@@ -23,6 +23,7 @@ namespace Code.ECS.Features
 			Add(new ServicesRegistrationSystems(contexts, services));
 
 			Add(new InitializeInventorySystem(contexts));
+			Add(new CreateInventoryItemsSystem(contexts));
 
 			Add(new EmitPositionsForTreeSpawnSystem(contexts));
 			Add(new SpawnTreeSystem(contexts));

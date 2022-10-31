@@ -12,8 +12,8 @@ namespace Code.ECS.Systems.Inventory
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Inventory"))
+			            .Do((e) => e.AddAttachTarget(e.creationIndex))
 			            .Do((e) => e.isInventory = true)
-			            .Do((e) => e.AddCoinsCount(0))
-			            .Do((e) => e.AddInventoryItem(("Apples", 0)));
+			            .Do((e) => e.AddCoinsCount(0));
 	}
 }
