@@ -1,34 +1,38 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Product
 {
-	public sealed class SpawnFruitSystem : ReactiveSystem<GameEntity>
+	public sealed class SpawnFruitSystem : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly IGroup<GameEntity> _entities;
 
 		public SpawnFruitSystem(Contexts contexts)
-			: base(contexts.game) => _contexts = contexts;
+		{
+			_contexts = contexts;
+			_entities = contexts.game.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
+		}
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Fruitful).AnyOf(SpawnPosition, Position).NoneOf(HasFruit));
-
-		protected override bool Filter(GameEntity entity) => true;
-
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SpawnFruitFor);
+		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
 
 		private void SpawnFruitFor(GameEntity tree)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Fruit"))
-			            .Do((e) => e.AddAttachedTo(tree))
-			            .Do((e) => e.attachedTo.Value.isHasFruit = true)
+			            .Do((e) => e.AddAttachedTo(tree.attachTarget))
 			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
 			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
 			            .Do((e) => e.AddDuration(BeforeGrowingTime));
+
+		private bool IsHasNotFruits(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
+
+		private IEnumerable<GameEntity> GetAttachedFruits(GameEntity entity) 
+			=> _contexts.game.GetEntitiesWithAttachedTo(entity.attachTarget);
 	}
 }

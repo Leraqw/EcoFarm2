@@ -17,8 +17,6 @@ namespace Code.ECS.Systems.Product.Fruit
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Detach);
 
-		private static void Detach(GameEntity entity)
-			=> entity.Do((e) => e.attachedTo.Value.isHasFruit = false)
-			         .Do((e) => e.RemoveAttachedTo());
+		private static void Detach(GameEntity entity) => entity.Do((e) => e.RemoveAttachedTo());
 	}
 }
