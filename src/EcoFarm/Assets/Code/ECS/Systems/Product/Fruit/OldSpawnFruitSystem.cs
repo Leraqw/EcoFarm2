@@ -7,11 +7,11 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit
 {
-	public sealed class SpawnFruitSystem : ReactiveSystem<GameEntity>
+	public sealed class OldSpawnFruitSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public SpawnFruitSystem(Contexts contexts)
+		public OldSpawnFruitSystem(Contexts contexts)
 			: base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
