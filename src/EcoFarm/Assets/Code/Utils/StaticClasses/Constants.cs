@@ -31,5 +31,10 @@ namespace Code.Utils.StaticClasses
 		}
 
 		public const float Tolerance = 0.01f;
+
+		public static class Temp
+		{
+			public const int AppleID = 1;
+		}
 	}
 }

@@ -4,6 +4,7 @@ using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
+using static Code.Utils.StaticClasses.Constants.Temp;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product
@@ -24,6 +25,7 @@ namespace Code.ECS.Systems.Product
 		private void SpawnFruitFor(GameEntity tree)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Fruit"))
+			            .Do((e) => e.AddFruitTypeId(AppleID))
 			            .Do((e) => e.AddAttachedTo(tree.attachTarget))
 			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
 			            .Do((e) => e.AddProportionalScale(InitialScale))

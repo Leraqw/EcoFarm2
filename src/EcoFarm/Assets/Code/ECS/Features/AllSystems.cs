@@ -30,10 +30,11 @@ namespace Code.ECS.Features
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));
-			
+
 			Add(new OnMouseClickSystem(contexts));
 			Add(new CollectToWarehouseSystem(contexts));
-			
+			Add(new CollectedToInventorySystem(contexts));
+
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));
 
@@ -41,7 +42,7 @@ namespace Code.ECS.Features
 			Add(new GrowingSystem(contexts));
 			Add(new WaitAfterGrowingSystem(contexts));
 			Add(new CheckGrowthUpSystem(contexts));
-			
+
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
 			Add(new CheckFellUpSystem(contexts));
@@ -50,16 +51,15 @@ namespace Code.ECS.Features
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
-			
+
 			Add(new RemoveTargetsOnTimeUpSystem(contexts));
 
-			
 			Add(new GameCleanupSystems(contexts));
 			Add(new GameEventSystems(contexts));
 		}
 
 		public void OnUpdate() => this.Do(Execute).Do(Cleanup);
-		
+
 		private static void Execute(AllSystems @this) => @this.Execute();
 
 		private static void Cleanup(AllSystems @this) => @this.Cleanup();

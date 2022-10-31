@@ -18,25 +18,26 @@ public static class GameComponentsLookup {
     public const int Fell = 7;
     public const int Fruitful = 8;
     public const int FruitRequire = 9;
-    public const int Growth = 10;
-    public const int Inventory = 11;
-    public const int InventoryItem = 12;
-    public const int MouseClick = 13;
-    public const int Pickable = 14;
-    public const int Picked = 15;
-    public const int Position = 16;
-    public const int ProportionalScale = 17;
-    public const int RequireTreeOnPosition = 18;
-    public const int RequireView = 19;
-    public const int SpawnPosition = 20;
-    public const int TargetPosition = 21;
-    public const int TargetScale = 22;
-    public const int View = 23;
-    public const int WillFall = 24;
-    public const int PositionListener = 25;
-    public const int ProportionalScaleListener = 26;
+    public const int FruitTypeId = 10;
+    public const int Growth = 11;
+    public const int Inventory = 12;
+    public const int InventoryItem = 13;
+    public const int MouseClick = 14;
+    public const int Pickable = 15;
+    public const int Picked = 16;
+    public const int Position = 17;
+    public const int ProportionalScale = 18;
+    public const int RequireTreeOnPosition = 19;
+    public const int RequireView = 20;
+    public const int SpawnPosition = 21;
+    public const int TargetPosition = 22;
+    public const int TargetScale = 23;
+    public const int View = 24;
+    public const int WillFall = 25;
+    public const int PositionListener = 26;
+    public const int ProportionalScaleListener = 27;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
         "AttachedTo",
@@ -49,6 +50,7 @@ public static class GameComponentsLookup {
         "Fell",
         "Fruitful",
         "FruitRequire",
+        "FruitTypeId",
         "Growth",
         "Inventory",
         "InventoryItem",
@@ -79,6 +81,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FellComponent),
         typeof(Code.ECS.Components.FruitfulComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
+        typeof(Code.ECS.Components.FruitTypeIdComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
