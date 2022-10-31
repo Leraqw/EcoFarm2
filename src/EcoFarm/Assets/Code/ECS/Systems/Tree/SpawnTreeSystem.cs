@@ -13,8 +13,7 @@ namespace Code.ECS.Systems.Tree
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.RequireTreeOnPosition);
 
-		protected override bool Filter(GameEntity entity)
-			=> entity.hasRequireTreeOnPosition;
+		protected override bool Filter(GameEntity entity) => entity.hasRequireTreeOnPosition;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 

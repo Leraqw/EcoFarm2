@@ -19,12 +19,7 @@ namespace Code.ECS.Systems.Product
 			_entities = contexts.game.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
 		}
 
-		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: Filter);
-
-		private bool Filter(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
-
-		private IEnumerable<GameEntity> GetAttachedFruits(GameEntity entity) 
-			=> _contexts.game.GetEntitiesWithAttachedTo(entity.attachTarget);
+		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
 
 		private void SpawnFruitFor(GameEntity tree)
 			=> _contexts.game.CreateEntity()
@@ -34,5 +29,10 @@ namespace Code.ECS.Systems.Product
 			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
 			            .Do((e) => e.AddDuration(BeforeGrowingTime));
+
+		private bool IsHasNotFruits(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
+
+		private IEnumerable<GameEntity> GetAttachedFruits(GameEntity entity) 
+			=> _contexts.game.GetEntitiesWithAttachedTo(entity.attachTarget);
 	}
 }
