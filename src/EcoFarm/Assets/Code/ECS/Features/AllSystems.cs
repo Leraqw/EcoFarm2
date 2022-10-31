@@ -1,5 +1,6 @@
 ﻿using Code.ECS.Systems.Common;
 using Code.ECS.Systems.Input;
+using Code.ECS.Systems.Inventory;
 using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Product.Fruit.Falling;
@@ -20,6 +21,8 @@ namespace Code.ECS.Features
 		{
 			var contexts = Contexts.sharedInstance;
 			Add(new ServicesRegistrationSystems(contexts, services));
+
+			Add(new InitializeInventorySystem(contexts));
 
 			Add(new EmitPositionsForTreeSpawnSystem(contexts));
 			Add(new SpawnTreeSystem(contexts));
