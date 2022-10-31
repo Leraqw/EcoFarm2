@@ -4,6 +4,7 @@
 	{
 		public static void CreateInventoryItem(this GameContext @this, string name, int count)
 			=> @this.CreateEntity()
+			        .Do((e) => e.AddDebugName($"Item: {name} ({count})"))
 			        .Do((e) => e.AddInventoryItem((name, count)))
 			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachTarget));
 	}
