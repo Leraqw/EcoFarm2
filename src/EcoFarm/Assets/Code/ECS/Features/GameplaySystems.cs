@@ -1,14 +1,11 @@
 ﻿using Code.ECS.Systems.Common;
 using Code.ECS.Systems.Input;
 using Code.ECS.Systems.Inventory;
-using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Product.Fruit.Cooldown;
 using Code.ECS.Systems.Product.Fruit.Falling;
 using Code.ECS.Systems.Product.Fruit.Growing;
-using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.View;
-using Code.ECS.Systems.Warehouse;
 
 namespace Code.ECS.Features
 {
@@ -17,14 +14,7 @@ namespace Code.ECS.Features
 		public GameplaySystems(Contexts contexts)
 			: base(nameof(GameplaySystems))
 		{
-			Add(new CreateInventorySystem(contexts));
-			Add(new CreateInventoryItemsSystem(contexts));
-
-			Add(new EmitPositionsForTreeSpawnSystem(contexts));
-			Add(new SpawnTreeSystem(contexts));
-			Add(new SpawnFruitSystem(contexts));
-			Add(new SpawnBedsPlugsSystem(contexts));
-			Add(new SpawnWarehouseSystem(contexts));
+			Add(new InitializationSystems(contexts));
 
 			Add(new OnMouseClickSystem(contexts));
 			Add(new CollectToWarehouseSystem(contexts));
