@@ -22,7 +22,7 @@ namespace Code.ECS.Features
 			var contexts = Contexts.sharedInstance;
 			Add(new ServicesRegistrationSystems(contexts, services));
 
-			Add(new InitializeInventorySystem(contexts));
+			Add(new CreateInventorySystem(contexts));
 			Add(new CreateInventoryItemsSystem(contexts));
 
 			Add(new EmitPositionsForTreeSpawnSystem(contexts));
