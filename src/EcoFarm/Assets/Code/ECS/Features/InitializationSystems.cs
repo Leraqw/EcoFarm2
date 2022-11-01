@@ -1,5 +1,4 @@
-﻿using Code.ECS.Systems.Inventory;
-using Code.ECS.Systems.Product;
+﻿using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.Warehouse;
 
@@ -12,8 +11,7 @@ namespace Code.ECS.Features
 		{
 			Add(new DataBaseLoadSystems(contexts));
 			
-			Add(new CreateInventorySystem(contexts));
-			Add(new CreateInventoryItemsSystem(contexts));
+			Add(new InventoryInitializationSystems(contexts));
 
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
