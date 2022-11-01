@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory
@@ -12,9 +12,7 @@ namespace Code.ECS.Systems.Inventory
 		public CollectedToInventorySystem(Contexts contexts)
 			: base(contexts.game) => _context = contexts.game;
 
-		private IEnumerable<GameEntity> InventoryItems => _context.GetEntitiesWithAttachedTo(InventoryIndex);
-
-		private AttachTargetComponent InventoryIndex => _context.inventoryEntity.attachTarget;
+		private IEnumerable<GameEntity> InventoryItems => _context.GetInventoryItems();
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Collected);

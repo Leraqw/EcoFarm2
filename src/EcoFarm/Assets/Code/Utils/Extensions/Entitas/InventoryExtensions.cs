@@ -1,4 +1,5 @@
-﻿using static Code.Utils.StaticClasses.Constants.Temp;
+﻿using System.Collections.Generic;
+using static Code.Utils.StaticClasses.Constants.Temp;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -10,5 +11,8 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddFruitTypeId(AppleID))
 			        .Do((e) => e.AddInventoryItem((name, count)))
 			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachTarget));
+		
+		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this) 
+			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachTarget);
 	}
 }
