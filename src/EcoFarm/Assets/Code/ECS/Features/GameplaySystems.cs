@@ -16,9 +16,7 @@ namespace Code.ECS.Features
 		{
 			Add(new InitializationSystems(contexts));
 
-			Add(new OnMouseClickSystem(contexts));
-			Add(new CollectToWarehouseSystem(contexts));
-			Add(new CollectedToInventorySystem(contexts));
+			Add(new CollectingSystems(contexts));
 
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));
