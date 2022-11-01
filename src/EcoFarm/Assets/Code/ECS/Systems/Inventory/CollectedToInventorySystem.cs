@@ -28,7 +28,7 @@ namespace Code.ECS.Systems.Inventory
 
 		private static void IncreaseCount(GameEntity entity) => entity.inventoryItem.Value.Count++;
 
-		private static bool HasSameFruitType(GameEntity item, GameEntity entity) 
-			=> item.fruitTypeId == entity.fruitTypeId;
+		private static bool HasSameFruitType(GameEntity item, GameEntity entity)
+			=> item.fruitTypeId.Value == entity.fruitTypeId.Value;
 	}
 }
