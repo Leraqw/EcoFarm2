@@ -10,10 +10,11 @@ namespace Code.ECS.Features
 		public InitializationSystems(Contexts contexts)
 			: base(nameof(InitializationSystems))
 		{
+			Add(new DataBaseLoadSystems(contexts));
+			
 			Add(new CreateInventorySystem(contexts));
 			Add(new CreateInventoryItemsSystem(contexts));
 
-			Add(new EmitPositionsForTreeSpawnSystem(contexts));
 			Add(new SpawnTreeSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
