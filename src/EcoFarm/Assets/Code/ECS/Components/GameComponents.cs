@@ -1,5 +1,6 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
+using Packages.Code.Ecs.Components.Workflow;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
@@ -25,4 +26,8 @@ namespace Code.ECS.Components
 	[Game] public sealed class TargetScaleComponent : ValueComponent<float> { }
 
 	[Game] public sealed class TargetPositionComponent : ValueComponent<Vector2> { }
+
+	[Game] public sealed class AttachableIndexComponent : PrimaryComponent<int> { }
+
+	[Game] public sealed class AttachedToComponent : IndexComponent<int> { }
 }
