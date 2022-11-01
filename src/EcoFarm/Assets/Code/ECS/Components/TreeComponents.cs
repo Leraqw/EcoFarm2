@@ -8,5 +8,5 @@ namespace Code.ECS.Components
 	
 	[Game] public sealed class FruitfulComponent : FlagComponent { }
 
-	[Game] public sealed class AttachTargetComponent : PrimaryComponent<int> { }
+	[Game] public sealed class AttachableIndexComponent : PrimaryComponent<int> { }
 }

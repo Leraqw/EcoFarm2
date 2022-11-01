@@ -60,31 +60,31 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string AttachableIndex = "AttachableIndex";
     public const string AttachedTo = "AttachedTo";
-    public const string AttachTarget = "AttachTarget";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
+            AttachableIndex,
+            game.GetGroup(GameMatcher.AttachableIndex),
+            (e, c) => ((Code.ECS.Components.AttachableIndexComponent)c).Value));
+
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             AttachedTo,
             game.GetGroup(GameMatcher.AttachedTo),
             (e, c) => ((Code.ECS.Components.AttachedToComponent)c).Value));
-
-        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
-            AttachTarget,
-            game.GetGroup(GameMatcher.AttachTarget),
-            (e, c) => ((Code.ECS.Components.AttachTargetComponent)c).Value));
     }
 }
 
 public static class ContextsExtensions {
 
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithAttachedTo(this GameContext context, int Value) {
-        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.AttachedTo)).GetEntities(Value);
+    public static GameEntity GetEntityWithAttachableIndex(this GameContext context, int Value) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.AttachableIndex)).GetEntity(Value);
     }
 
-    public static GameEntity GetEntityWithAttachTarget(this GameContext context, int Value) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.AttachTarget)).GetEntity(Value);
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithAttachedTo(this GameContext context, int Value) {
+        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.AttachedTo)).GetEntities(Value);
     }
 }
 //------------------------------------------------------------------------------

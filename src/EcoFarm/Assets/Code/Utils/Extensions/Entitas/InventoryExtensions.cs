@@ -10,9 +10,9 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddDebugName($"Item: {name} ({count})"))
 			        .Do((e) => e.AddFruitTypeId(AppleID))
 			        .Do((e) => e.AddInventoryItem((name, count)))
-			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachTarget));
+			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachableIndex));
 		
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this) 
-			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachTarget);
+			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex);
 	}
 }

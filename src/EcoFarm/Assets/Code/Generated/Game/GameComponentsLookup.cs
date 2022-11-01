@@ -8,8 +8,8 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int AttachedTo = 0;
-    public const int AttachTarget = 1;
+    public const int AttachableIndex = 0;
+    public const int AttachedTo = 1;
     public const int CoinsCount = 2;
     public const int Collected = 3;
     public const int DebugName = 4;
@@ -40,8 +40,8 @@ public static class GameComponentsLookup {
     public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
+        "AttachableIndex",
         "AttachedTo",
-        "AttachTarget",
         "CoinsCount",
         "Collected",
         "DebugName",
@@ -71,8 +71,8 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.AttachableIndexComponent),
         typeof(Code.ECS.Components.AttachedToComponent),
-        typeof(Code.ECS.Components.AttachTargetComponent),
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),

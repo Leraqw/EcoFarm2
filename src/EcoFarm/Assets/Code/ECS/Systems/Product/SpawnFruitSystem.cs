@@ -26,7 +26,7 @@ namespace Code.ECS.Systems.Product
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Fruit"))
 			            .Do((e) => e.AddFruitTypeId(AppleID))
-			            .Do((e) => e.AddAttachedTo(tree.attachTarget))
+			            .Do((e) => e.AddAttachedTo(tree.attachableIndex))
 			            .Do((e) => e.AddPosition(tree.GetActualPosition() + SpawnHeight))
 			            .Do((e) => e.AddProportionalScale(InitialScale))
 			            .Do((e) => e.isFruitRequire = true)
@@ -35,6 +35,6 @@ namespace Code.ECS.Systems.Product
 		private bool IsHasNotFruits(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
 
 		private IEnumerable<GameEntity> GetAttachedFruits(GameEntity entity) 
-			=> _contexts.game.GetEntitiesWithAttachedTo(entity.attachTarget);
+			=> _contexts.game.GetEntitiesWithAttachedTo(entity.attachableIndex);
 	}
 }
