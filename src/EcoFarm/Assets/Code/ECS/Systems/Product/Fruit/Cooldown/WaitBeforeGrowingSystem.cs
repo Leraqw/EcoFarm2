@@ -4,7 +4,7 @@ using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit.FruitStates
+namespace Code.ECS.Systems.Product.Fruit.Cooldown
 {
 	public sealed class WaitBeforeGrowingSystem : ReactiveSystem<GameEntity>
 	{

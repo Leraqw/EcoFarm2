@@ -4,5 +4,5 @@ using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code.ECS.Components
 {
-	[Cleanup(DestroyEntity)] [Game] public sealed class MouseClickComponent : ValueComponent<GameEntity> { }
+	[Game] [Cleanup(DestroyEntity)] public sealed class MouseClickComponent : ValueComponent<GameEntity> { }
 }

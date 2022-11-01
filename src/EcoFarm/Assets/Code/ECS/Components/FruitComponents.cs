@@ -14,9 +14,9 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class PickableComponent : FlagComponent { }
 
-	[Cleanup(RemoveComponent)] [Game] public sealed class PickedComponent : FlagComponent { }
+	[Game] [Cleanup(RemoveComponent)] public sealed class PickedComponent : FlagComponent { }
 
 	[Game] public sealed class CollectedComponent : FlagComponent { }
 
-	[Game] public sealed class AttachedToComponent : IndexComponent<int> { }
+	[Game] public sealed class FruitTypeIdComponent : ValueComponent<int> { }
 }

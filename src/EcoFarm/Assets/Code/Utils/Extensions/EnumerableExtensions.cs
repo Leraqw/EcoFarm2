@@ -12,5 +12,16 @@ namespace Code.Utils.Extensions
 				@do(item);
 			}
 		}
+		
+		public static void ForEach<T>(this IEnumerable<T> @this, Action<T> @do, Func<T, bool> @if)
+		{
+			foreach (var item in @this)
+			{
+				if (@if(item))
+				{
+					@do(item);
+				}
+			}
+		}
 	}
 }
