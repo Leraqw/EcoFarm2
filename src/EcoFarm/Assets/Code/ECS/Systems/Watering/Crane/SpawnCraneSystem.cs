@@ -3,7 +3,7 @@ using Code.Utils.Extensions;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 
-namespace Code.ECS.Systems.Crane
+namespace Code.ECS.Systems.Watering.Crane
 {
 	public sealed class SpawnCraneSystem : IInitializeSystem
 	{
