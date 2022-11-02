@@ -11,7 +11,7 @@ namespace Code.Unity.Receivers
 		private static GameContext Context => Contexts.sharedInstance.game;
 
 		public void OnMouseDrag()
-			=> Entity.ReplacePosition(Input.mousePosition);
+			=> Entity.ReplacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
 	}
 }
