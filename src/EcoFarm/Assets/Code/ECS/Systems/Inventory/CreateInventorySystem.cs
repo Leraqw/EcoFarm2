@@ -3,11 +3,11 @@ using Entitas;
 
 namespace Code.ECS.Systems.Inventory
 {
-	public sealed class InitializeInventorySystem : IInitializeSystem
+	public sealed class CreateInventorySystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public InitializeInventorySystem(Contexts contexts) => _contexts = contexts;
+		public CreateInventorySystem(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
