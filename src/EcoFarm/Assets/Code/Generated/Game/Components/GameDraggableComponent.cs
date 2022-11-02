@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DragebleComponent dragebleComponent = new Code.ECS.Components.DragebleComponent();
+    static readonly Code.ECS.Components.DraggableComponent draggableComponent = new Code.ECS.Components.DraggableComponent();
 
-    public bool isDrageble {
-        get { return HasComponent(GameComponentsLookup.Drageble); }
+    public bool isDraggable {
+        get { return HasComponent(GameComponentsLookup.Draggable); }
         set {
-            if (value != isDrageble) {
-                var index = GameComponentsLookup.Drageble;
+            if (value != isDraggable) {
+                var index = GameComponentsLookup.Draggable;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : dragebleComponent;
+                            : draggableComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDrageble;
+    static Entitas.IMatcher<GameEntity> _matcherDraggable;
 
-    public static Entitas.IMatcher<GameEntity> Drageble {
+    public static Entitas.IMatcher<GameEntity> Draggable {
         get {
-            if (_matcherDrageble == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Drageble);
+            if (_matcherDraggable == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Draggable);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDrageble = matcher;
+                _matcherDraggable = matcher;
             }
 
-            return _matcherDrageble;
+            return _matcherDraggable;
         }
     }
 }

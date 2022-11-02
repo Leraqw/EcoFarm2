@@ -13,7 +13,7 @@ public static class GameComponentsLookup {
     public const int CoinsCount = 2;
     public const int Collected = 3;
     public const int DebugName = 4;
-    public const int Drageble = 5;
+    public const int Draggable = 5;
     public const int Dragging = 6;
     public const int DraggingEnd = 7;
     public const int DraggingStart = 8;
@@ -49,7 +49,7 @@ public static class GameComponentsLookup {
         "CoinsCount",
         "Collected",
         "DebugName",
-        "Drageble",
+        "Draggable",
         "Dragging",
         "DraggingEnd",
         "DraggingStart",
@@ -84,7 +84,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),
-        typeof(Code.ECS.Components.DragebleComponent),
+        typeof(Code.ECS.Components.DraggableComponent),
         typeof(Code.ECS.Components.DraggingComponent),
         typeof(Code.ECS.Components.DraggingEndComponent),
         typeof(Code.ECS.Components.DraggingStartComponent),
