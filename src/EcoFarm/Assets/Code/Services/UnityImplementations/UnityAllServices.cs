@@ -11,6 +11,7 @@ namespace Code.Services.UnityImplementations
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
 		private readonly IDataBaseService _dataBase;
+		private readonly ICameraService _camera;
 
 		public UnityAllServices(ISpawnPointsService spawnPointsService)
 		{
@@ -19,6 +20,7 @@ namespace Code.Services.UnityImplementations
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
 			_dataBase = new UnityDataBaseService();
+			_camera = new UnityCameraService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
@@ -38,5 +40,6 @@ namespace Code.Services.UnityImplementations
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
 		int IDataBaseService.TreesCount => _dataBase.TreesCount;
+		public Vector2 ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
 	}
 }

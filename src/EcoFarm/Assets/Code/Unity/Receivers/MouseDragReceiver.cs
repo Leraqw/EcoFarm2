@@ -8,10 +8,13 @@ namespace Code.Unity.Receivers
 		[SerializeField] private BaseViewListener _viewListener;
 
 		private GameEntity Entity => _viewListener.Entity;
-		private static GameContext Context => Contexts.sharedInstance.game;
 
 		public void OnMouseDrag()
-			=> Entity.ReplacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
+		{
+			if (Camera.main != null)
+			{
+				Entity.ReplacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+			}
+		}
 	}
 }
