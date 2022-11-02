@@ -11,6 +11,7 @@ namespace Code.ECS.Features
 			Add(new OnMouseClickSystem(contexts));
 			Add(new CollectToWarehouseSystem(contexts));
 			Add(new CollectedToInventorySystem(contexts));
+			Add(new SyncItemValueWithDebugSystem(contexts));
 		}
 	}
 }

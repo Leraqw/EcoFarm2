@@ -6,6 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.ECS.Components.ComplexComponentTypes;
+
 public partial class GameEntity {
 
     public Code.ECS.Components.DebugNameComponent debugName { get { return (Code.ECS.Components.DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
