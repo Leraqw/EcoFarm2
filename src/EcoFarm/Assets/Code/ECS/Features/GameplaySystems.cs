@@ -1,6 +1,5 @@
 ﻿using Code.ECS.Systems.Common;
 using Code.ECS.Systems.Product.Fruit;
-using Code.ECS.Systems.Product.Fruit.Falling;
 
 namespace Code.ECS.Features
 {
@@ -17,11 +16,7 @@ namespace Code.ECS.Features
 
 			Add(new GrowingSystems(contexts));
 
-			Add(new MarkFallingSystem(contexts));
-			Add(new FallingSystem(contexts));
-			Add(new CheckFellUpSystem(contexts));
-			Add(new DetachFromTreeSystem(contexts));
-			Add(new MarkFellFruitAsPickableSystem(contexts));
+			Add(new FallingSystems(contexts));
 
 			Add(new DurationSystem(contexts));
 			Add(new CheckDurationUpSystem(contexts));
