@@ -1,5 +1,4 @@
 ﻿using Code.Unity.ViewListeners;
-using Code.Utils.Extensions;
 using UnityEngine;
 
 namespace Code.Unity.Receivers
@@ -8,11 +7,6 @@ namespace Code.Unity.Receivers
 	{
 		[SerializeField] private BaseViewListener _viewListener;
 
-		private static GameContext Context => Contexts.sharedInstance.game;
-
-		public void OnMouseDown()
-			=> Context.CreateEntity()
-			          .Do((e) => e.AddMouseClick(_viewListener.Entity))
-			          .Do((e) => e.AddDebugName("OnMouseClick"));
+		public void OnMouseDown() => _viewListener.Entity.isMouseDown = true;
 	}
 }

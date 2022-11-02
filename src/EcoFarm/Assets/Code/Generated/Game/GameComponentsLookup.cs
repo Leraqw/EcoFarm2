@@ -27,21 +27,23 @@ public static class GameComponentsLookup {
     public const int Inventory = 16;
     public const int InventoryItem = 17;
     public const int MouseClick = 18;
-    public const int Pickable = 19;
-    public const int Picked = 20;
-    public const int Position = 21;
-    public const int ProportionalScale = 22;
-    public const int RequireTreeOnPosition = 23;
-    public const int RequireView = 24;
-    public const int SpawnPosition = 25;
-    public const int TargetPosition = 26;
-    public const int TargetScale = 27;
-    public const int View = 28;
-    public const int WillFall = 29;
-    public const int PositionListener = 30;
-    public const int ProportionalScaleListener = 31;
+    public const int MouseDown = 19;
+    public const int MouseUp = 20;
+    public const int Pickable = 21;
+    public const int Picked = 22;
+    public const int Position = 23;
+    public const int ProportionalScale = 24;
+    public const int RequireTreeOnPosition = 25;
+    public const int RequireView = 26;
+    public const int SpawnPosition = 27;
+    public const int TargetPosition = 28;
+    public const int TargetScale = 29;
+    public const int View = 30;
+    public const int WillFall = 31;
+    public const int PositionListener = 32;
+    public const int ProportionalScaleListener = 33;
 
-    public const int TotalComponents = 32;
+    public const int TotalComponents = 34;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -63,6 +65,8 @@ public static class GameComponentsLookup {
         "Inventory",
         "InventoryItem",
         "MouseClick",
+        "MouseDown",
+        "MouseUp",
         "Pickable",
         "Picked",
         "Position",
@@ -98,6 +102,8 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
         typeof(Code.ECS.Components.MouseClickComponent),
+        typeof(Code.ECS.Components.MouseDownComponent),
+        typeof(Code.ECS.Components.MouseUpComponent),
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),

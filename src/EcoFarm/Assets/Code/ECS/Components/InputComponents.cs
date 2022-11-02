@@ -7,6 +7,10 @@ namespace Code.ECS.Components
 {
 	[Game] [Cleanup(DestroyEntity)] public sealed class MouseClickComponent : ValueComponent<GameEntity> { }
 
+	[Game] [Cleanup(RemoveComponent)] public sealed class MouseDownComponent : FlagComponent { }
+	
+	[Game] [Cleanup(RemoveComponent)] public sealed class MouseUpComponent : FlagComponent { }
+
 	[Game] public sealed class DraggableComponent : FlagComponent { }
 
 	[Game] public sealed class DraggingComponent : FlagComponent { }

@@ -8,7 +8,7 @@ namespace Code.ECS.Features
 		public CollectingSystems(Contexts contexts)
 			: base(nameof(CollectingSystems))
 		{
-			Add(new OnMouseClickSystem(contexts));
+			Add(new ClickAtPickableSystem(contexts));
 			Add(new CollectToWarehouseSystem(contexts));
 			Add(new CollectedToInventorySystem(contexts));
 		}
