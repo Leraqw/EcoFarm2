@@ -10,12 +10,12 @@ namespace Code.ECS.Systems.Warehouse
 
 		public SpawnWarehouseSystem(Contexts contexts) => _contexts = contexts;
 
-		private ISceneObjectsService SceneObjectsService => _contexts.services.sceneObjectsService.Value;
+		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Warehouse"))
 			            .Do((e) => e.AddRequireView("Environment/Warehouse/Prefabs/Warehouse"))
-			            .Do((e) => e.AddSpawnPosition(SceneObjectsService.WarehouseSpawnPosition));
+			            .Do((e) => e.AddSpawnPosition(SpawnPointsService.Warehouse));
 	}
 }

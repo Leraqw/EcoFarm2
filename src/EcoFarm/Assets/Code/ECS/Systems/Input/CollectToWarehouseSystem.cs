@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.Input
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private Vector2 WarehousePosition => _contexts.services.sceneObjectsService.Value.WarehouseSpawnPosition;
+		private Vector2 WarehousePosition => _contexts.services.sceneObjectsService.Value.Warehouse;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Picked, Position));

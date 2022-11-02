@@ -7,14 +7,14 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityAllServices : IAllServices
 	{
-		private readonly ISceneObjectsService _sceneObjects;
+		private readonly ISpawnPointsService _spawnPoints;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
 		private readonly IDataBaseService _dataBase;
 
-		public UnityAllServices(ISceneObjectsService sceneObjectsService)
+		public UnityAllServices(ISpawnPointsService spawnPointsService)
 		{
-			_sceneObjects = sceneObjectsService;
+			_spawnPoints = spawnPointsService;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
@@ -23,11 +23,11 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
-		IEnumerable<Vector2> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
+		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
-		public Vector2 WarehouseSpawnPosition => _sceneObjects.WarehouseSpawnPosition;
+		public Vector2 Warehouse => _spawnPoints.Warehouse;
 		
-		public Vector2 CraneSpawnPosition => _sceneObjects.CraneSpawnPosition;
+		public Vector2 Crane => _spawnPoints.Crane;
 
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 

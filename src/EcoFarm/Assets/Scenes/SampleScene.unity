@@ -897,8 +897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94572e144c04440821a7bdc4888c1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneObjects:
-    _treesSpawnPositions:
+  _spawnPoints:
+    _trees:
     - {fileID: 1869800063}
     - {fileID: 1580402410}
     - {fileID: 2025117195}
@@ -908,7 +908,8 @@ MonoBehaviour:
     - {fileID: 2048831295}
     - {fileID: 444709401}
     - {fileID: 1765480801}
-    _warehouseSpawnPosition: {fileID: 1876006552}
+    _warehouse: {fileID: 1876006552}
+    _crane: {fileID: 1296622495}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0

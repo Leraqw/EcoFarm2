@@ -18,7 +18,7 @@ public static class ServicesComponentsLookup {
     public static readonly string[] componentNames = {
         "DataBaseService",
         "ResourcesService",
-        "SceneObjectsService",
+        "SpawnPointsService",
         "StorageService"
     };
 
