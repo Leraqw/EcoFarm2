@@ -12,11 +12,11 @@ namespace Code.ECS.Systems.Input
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.MouseClick);
 
-		protected override bool Filter(GameEntity entity) => entity.mouseClick.Value.isPickable;
+		protected override bool Filter(GameEntity click) => click.mouseClick.Value.isPickable;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkClickedEntity);
 
-		private static void MarkClickedEntity(GameEntity click) => MarkAsPicked(click.mouseClick.Value);
+		private static void MarkClickedEntity(GameEntity click) => MarkAsPicked(click.mouseClick);
 
 		private static void MarkAsPicked(GameEntity entity) => entity.Do((e) => e.isPicked = true)
 		                                                             .Do((e) => e.isPickable = false);
