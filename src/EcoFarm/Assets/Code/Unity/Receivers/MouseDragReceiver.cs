@@ -7,10 +7,11 @@ namespace Code.Unity.Receivers
 	{
 		[SerializeField] private BaseViewListener _viewListener;
 
+		private GameEntity Entity => _viewListener.Entity;
 		private static GameContext Context => Contexts.sharedInstance.game;
 
 		public void OnMouseDrag()
-			=> Debug.Log("Mouse Drag");
+			=> Entity.ReplacePosition(Input.mousePosition);
 
 	}
 }
