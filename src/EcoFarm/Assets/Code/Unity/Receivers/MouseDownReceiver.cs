@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Unity.Receivers
 {
-	public class MouseClickReceiver : MonoBehaviour
+	public class MouseDownReceiver : MonoBehaviour
 	{
 		[SerializeField] private BaseViewListener _viewListener;
 

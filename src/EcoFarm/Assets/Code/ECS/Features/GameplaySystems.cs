@@ -1,6 +1,4 @@
-﻿using Entitas;
-
-namespace Code.ECS.Features
+﻿namespace Code.ECS.Features
 {
 	public sealed class GameplaySystems : Feature
 	{
