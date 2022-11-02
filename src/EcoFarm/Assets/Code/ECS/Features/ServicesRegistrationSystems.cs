@@ -15,6 +15,7 @@ namespace Code.ECS.Features
 			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
 			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
 			Register<IDataBaseService>(services, servicesContext.ReplaceDataBaseService);
+			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
