@@ -1,6 +1,7 @@
 ﻿using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems.Warehouse
 {
@@ -15,7 +16,7 @@ namespace Code.ECS.Systems.Warehouse
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Warehouse"))
-			            .Do((e) => e.AddRequireView("Environment/Warehouse/Prefabs/Warehouse"))
+			            .Do((e) => e.AddRequireView(ResourcePath.Warehouse))
 			            .Do((e) => e.AddSpawnPosition(SpawnPointsService.Warehouse));
 	}
 }

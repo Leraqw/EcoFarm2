@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.Product;
+﻿using Code.ECS.Systems.Crane;
+using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.Warehouse;
 
@@ -17,6 +18,7 @@ namespace Code.ECS.Features
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));
+			Add(new SpawnCraneSystem(contexts));
 		}
 	}
 }
