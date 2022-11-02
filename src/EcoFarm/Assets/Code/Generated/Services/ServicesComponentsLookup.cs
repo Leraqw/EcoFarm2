@@ -8,14 +8,16 @@
 //------------------------------------------------------------------------------
 public static class ServicesComponentsLookup {
 
-    public const int DataBaseService = 0;
-    public const int ResourcesService = 1;
-    public const int SceneObjectsService = 2;
-    public const int StorageService = 3;
+    public const int CameraService = 0;
+    public const int DataBaseService = 1;
+    public const int ResourcesService = 2;
+    public const int SceneObjectsService = 3;
+    public const int StorageService = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "CameraService",
         "DataBaseService",
         "ResourcesService",
         "SceneObjectsService",
@@ -23,6 +25,7 @@ public static class ServicesComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.CameraServiceComponent),
         typeof(Code.ECS.Components.DataBaseServiceComponent),
         typeof(Code.ECS.Components.ResourcesServiceComponent),
         typeof(Code.ECS.Components.SceneObjectsServiceComponent),

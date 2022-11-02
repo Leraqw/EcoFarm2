@@ -11,4 +11,6 @@ namespace Code.ECS.Components
 	[Services] [Unique] public sealed class StorageServiceComponent : ValueComponent<IStorageService> { }
 	
 	[Services] [Unique] public sealed class DataBaseServiceComponent : ValueComponent<IDataBaseService> { }
+	
+	[Services] [Unique] public sealed class CameraServiceComponent : ValueComponent<ICameraService> { }
 }
