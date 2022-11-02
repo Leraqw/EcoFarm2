@@ -1,6 +1,4 @@
-﻿using Entitas;
-
-namespace Code.ECS.Features
+﻿namespace Code.ECS.Features
 {
 	public sealed class GameplaySystems : Feature
 	{
@@ -10,13 +8,9 @@ namespace Code.ECS.Features
 			Add(new InitializationSystems(contexts));
 
 			Add(new CollectingSystems(contexts));
-
 			Add(new ViewSystems(contexts));
-
 			Add(new GrowingSystems(contexts));
-
 			Add(new FallingSystems(contexts));
-
 			Add(new DurationSystems(contexts));
 
 			Add(new CleanupSystems(contexts));
