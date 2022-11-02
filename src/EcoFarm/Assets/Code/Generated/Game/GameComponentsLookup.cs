@@ -13,34 +13,35 @@ public static class GameComponentsLookup {
     public const int CoinsCount = 2;
     public const int Collected = 3;
     public const int DebugName = 4;
-    public const int Dragging = 5;
-    public const int DraggingEnd = 6;
-    public const int DraggingStart = 7;
-    public const int Duration = 8;
-    public const int DurationUp = 9;
-    public const int Fell = 10;
-    public const int Fruitful = 11;
-    public const int FruitRequire = 12;
-    public const int FruitTypeId = 13;
-    public const int Growth = 14;
-    public const int Inventory = 15;
-    public const int InventoryItem = 16;
-    public const int MouseClick = 17;
-    public const int Pickable = 18;
-    public const int Picked = 19;
-    public const int Position = 20;
-    public const int ProportionalScale = 21;
-    public const int RequireTreeOnPosition = 22;
-    public const int RequireView = 23;
-    public const int SpawnPosition = 24;
-    public const int TargetPosition = 25;
-    public const int TargetScale = 26;
-    public const int View = 27;
-    public const int WillFall = 28;
-    public const int PositionListener = 29;
-    public const int ProportionalScaleListener = 30;
+    public const int Drageble = 5;
+    public const int Dragging = 6;
+    public const int DraggingEnd = 7;
+    public const int DraggingStart = 8;
+    public const int Duration = 9;
+    public const int DurationUp = 10;
+    public const int Fell = 11;
+    public const int Fruitful = 12;
+    public const int FruitRequire = 13;
+    public const int FruitTypeId = 14;
+    public const int Growth = 15;
+    public const int Inventory = 16;
+    public const int InventoryItem = 17;
+    public const int MouseClick = 18;
+    public const int Pickable = 19;
+    public const int Picked = 20;
+    public const int Position = 21;
+    public const int ProportionalScale = 22;
+    public const int RequireTreeOnPosition = 23;
+    public const int RequireView = 24;
+    public const int SpawnPosition = 25;
+    public const int TargetPosition = 26;
+    public const int TargetScale = 27;
+    public const int View = 28;
+    public const int WillFall = 29;
+    public const int PositionListener = 30;
+    public const int ProportionalScaleListener = 31;
 
-    public const int TotalComponents = 31;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -48,6 +49,7 @@ public static class GameComponentsLookup {
         "CoinsCount",
         "Collected",
         "DebugName",
+        "Drageble",
         "Dragging",
         "DraggingEnd",
         "DraggingStart",
@@ -82,6 +84,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.DebugNameComponent),
+        typeof(Code.ECS.Components.DragebleComponent),
         typeof(Code.ECS.Components.DraggingComponent),
         typeof(Code.ECS.Components.DraggingEndComponent),
         typeof(Code.ECS.Components.DraggingStartComponent),
