@@ -17,14 +17,14 @@ namespace Code.ECS.Systems.Inventory
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Collected);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasFruitTypeId;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseEachCounter);
 
 		private void IncreaseEachCounter(GameEntity entity)
 			=> InventoryItems.ForEach(IncreaseCount, @if: (item) => HasSameFruitType(item, entity));
 
-		private static void IncreaseCount(GameEntity entity) => entity.inventoryItem.Value.Count++;
+		private static void IncreaseCount(GameEntity inventory) => inventory.inventoryItem.Value.Count++;
 
 		private static bool HasSameFruitType(GameEntity item, GameEntity entity)
 			=> item.fruitTypeId.Value == entity.fruitTypeId.Value;
