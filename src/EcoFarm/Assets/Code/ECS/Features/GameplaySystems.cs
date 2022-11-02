@@ -1,8 +1,6 @@
 ﻿using Code.ECS.Systems.Common;
 using Code.ECS.Systems.Product.Fruit;
-using Code.ECS.Systems.Product.Fruit.Cooldown;
 using Code.ECS.Systems.Product.Fruit.Falling;
-using Code.ECS.Systems.Product.Fruit.Growing;
 
 namespace Code.ECS.Features
 {
@@ -17,10 +15,7 @@ namespace Code.ECS.Features
 
 			Add(new ViewSystems(contexts));
 
-			Add(new WaitBeforeGrowingSystem(contexts));
-			Add(new GrowingSystem(contexts));
-			Add(new WaitAfterGrowingSystem(contexts));
-			Add(new CheckGrowthUpSystem(contexts));
+			Add(new GrowingSystems(contexts));
 
 			Add(new MarkFallingSystem(contexts));
 			Add(new FallingSystem(contexts));
