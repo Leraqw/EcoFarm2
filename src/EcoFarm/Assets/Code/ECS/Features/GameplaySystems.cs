@@ -1,11 +1,8 @@
 ﻿using Code.ECS.Systems.Common;
-using Code.ECS.Systems.Input;
-using Code.ECS.Systems.Inventory;
 using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Product.Fruit.Cooldown;
 using Code.ECS.Systems.Product.Fruit.Falling;
 using Code.ECS.Systems.Product.Fruit.Growing;
-using Code.ECS.Systems.View;
 
 namespace Code.ECS.Features
 {
@@ -18,8 +15,7 @@ namespace Code.ECS.Features
 
 			Add(new CollectingSystems(contexts));
 
-			Add(new LoadViewForEntitySystem(contexts));
-			Add(new BindViewsSystem(contexts));
+			Add(new ViewSystems(contexts));
 
 			Add(new WaitBeforeGrowingSystem(contexts));
 			Add(new GrowingSystem(contexts));
