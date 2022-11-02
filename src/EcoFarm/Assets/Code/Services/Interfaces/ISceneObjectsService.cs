@@ -7,5 +7,6 @@ namespace Code.Services.Interfaces
 	{
 		IEnumerable<Vector2> TreeSpawnPositions { get; }
 		Vector2 WarehouseSpawnPosition { get; }
+		Vector2 CraneSpawnPosition { get; }
 	}
 }
