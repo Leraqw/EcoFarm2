@@ -1,5 +1,4 @@
-﻿using Code.ECS.Systems.Common;
-using Code.ECS.Systems.Product.Fruit;
+﻿using Code.ECS.Systems.Product.Fruit;
 
 namespace Code.ECS.Features
 {
@@ -18,8 +17,7 @@ namespace Code.ECS.Features
 
 			Add(new FallingSystems(contexts));
 
-			Add(new DurationSystem(contexts));
-			Add(new CheckDurationUpSystem(contexts));
+			Add(new DurationSystems(contexts));
 
 			Add(new RemoveTargetsOnTimeUpSystem(contexts));
 		}
