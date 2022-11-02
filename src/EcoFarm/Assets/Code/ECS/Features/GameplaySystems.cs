@@ -7,6 +7,7 @@
 		{
 			Add(new InitializationSystems(contexts));
 
+			Add(new InputSystems(contexts));
 			Add(new CollectingSystems(contexts));
 			Add(new ViewSystems(contexts));
 			Add(new GrowingSystems(contexts));

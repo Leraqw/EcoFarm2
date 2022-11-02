@@ -2,6 +2,7 @@
 using Code.Utils.Extensions;
 using Entitas;
 
+using static GameMatcher;
 namespace Code.ECS.Systems.Input
 {
 	public sealed class ClickAtPickableSystem : ReactiveSystem<GameEntity>
@@ -10,9 +11,9 @@ namespace Code.ECS.Systems.Input
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.MouseDown);
+			=> context.CreateCollector(AllOf(MouseDown, Pickable));
 
-		protected override bool Filter(GameEntity entity) => entity.isPickable;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkPicked);
 
