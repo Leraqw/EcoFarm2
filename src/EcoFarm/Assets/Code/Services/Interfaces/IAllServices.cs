@@ -5,5 +5,6 @@
 		  ISpawnPointsService,
 		  IStorageService,
 		  IDataBaseService,
-		  ICameraService { }
+		  ICameraService,
+		  IInputService{ }
 }

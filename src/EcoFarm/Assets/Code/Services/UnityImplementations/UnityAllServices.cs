@@ -12,6 +12,7 @@ namespace Code.Services.UnityImplementations
 		private readonly IStorageService _storage;
 		private readonly IDataBaseService _dataBase;
 		private readonly ICameraService _camera;
+		private readonly IInputService _input;
 
 		public UnityAllServices(ISpawnPointsService spawnPointsService)
 		{
@@ -21,6 +22,7 @@ namespace Code.Services.UnityImplementations
 			_storage = new UnityStorageService();
 			_dataBase = new UnityDataBaseService();
 			_camera = new UnityCameraService();
+			_input = new UnityInputService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
@@ -41,5 +43,6 @@ namespace Code.Services.UnityImplementations
 
 		int IDataBaseService.TreesCount => _dataBase.TreesCount;
 		public Vector2 ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
+		public Vector2 MousePosition => _input.MousePosition;
 	}
 }
