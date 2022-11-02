@@ -11,6 +11,7 @@ namespace Code.Utils.StaticClasses
 			public const string BedPlugPrefab = "Environment/Trees Beds/Prefabs/Tree Bed Plug";
 			public const string Warehouse = "Environment/Warehouse/Prefabs/Warehouse";
 			public const string Crane = "Environment/Crane/Prefabs/Crane";
+			public const string Bucket = "Environment/Bucket/Prefabs/Bucket";
 		}
 
 		public static class Balance

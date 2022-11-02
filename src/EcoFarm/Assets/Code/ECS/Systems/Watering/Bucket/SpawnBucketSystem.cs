@@ -1,7 +1,7 @@
 ﻿using Code.Services.Interfaces;
 using Code.Utils.Extensions;
-using Code.Utils.StaticClasses;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.ECS.Systems.Watering.Bucket
 {
@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
-			            // .Do((e) => e.AddRequireView(Constants.ResourcePath.Bucket))
+			            .Do((e) => e.AddRequireView(ResourcePath.Bucket))
 			            // .Do((e) => e.AddPosition(SpawnPointsService.Bucket))
 			            ;
 	}
