@@ -9,7 +9,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class DraggableComponent : FlagComponent { }
 
-	[Game] public sealed class DraggingComponent : ValueComponent<Vector2> { }
+	[Game] public sealed class DraggingComponent : FlagComponent { }
 
 	[Game] public sealed class DraggingStartComponent : ValueComponent<Vector2> { }
 	

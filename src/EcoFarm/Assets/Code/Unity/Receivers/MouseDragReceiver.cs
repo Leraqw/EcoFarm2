@@ -9,12 +9,6 @@ namespace Code.Unity.Receivers
 
 		private GameEntity Entity => _viewListener.Entity;
 
-		public void OnMouseDrag()
-		{
-			if (Camera.main != null)
-			{
-				Entity.ReplacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-			}
-		}
+		public void OnMouseDrag() => Entity.isDragging = true;
 	}
 }

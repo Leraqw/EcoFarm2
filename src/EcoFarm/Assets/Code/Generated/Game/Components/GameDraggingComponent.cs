@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DraggingComponent dragging { get { return (Code.ECS.Components.DraggingComponent)GetComponent(GameComponentsLookup.Dragging); } }
-    public bool hasDragging { get { return HasComponent(GameComponentsLookup.Dragging); } }
+    static readonly Code.ECS.Components.DraggingComponent draggingComponent = new Code.ECS.Components.DraggingComponent();
 
-    public void AddDragging(UnityEngine.Vector2 newValue) {
-        var index = GameComponentsLookup.Dragging;
-        var component = (Code.ECS.Components.DraggingComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingComponent));
-        component.Value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isDragging {
+        get { return HasComponent(GameComponentsLookup.Dragging); }
+        set {
+            if (value != isDragging) {
+                var index = GameComponentsLookup.Dragging;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : draggingComponent;
 
-    public void ReplaceDragging(UnityEngine.Vector2 newValue) {
-        var index = GameComponentsLookup.Dragging;
-        var component = (Code.ECS.Components.DraggingComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingComponent));
-        component.Value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveDragging() {
-        RemoveComponent(GameComponentsLookup.Dragging);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 
