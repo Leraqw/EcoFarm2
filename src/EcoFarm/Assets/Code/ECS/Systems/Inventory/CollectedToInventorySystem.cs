@@ -24,7 +24,11 @@ namespace Code.ECS.Systems.Inventory
 		private void IncreaseEachCounter(GameEntity entity)
 			=> InventoryItems.ForEach(IncreaseCount, @if: (item) => HasSameFruitType(item, entity));
 
-		private static void IncreaseCount(GameEntity entity) => entity.inventoryItem.Value.Count++;
+		private static void IncreaseCount(GameEntity entity)
+		{
+			entity.inventoryItem.Value.Count++;
+			entity.ReplaceInventoryItem(entity.inventoryItem.Value);
+		}
 
 		private static bool HasSameFruitType(GameEntity item, GameEntity entity)
 			=> item.fruitTypeId.Value == entity.fruitTypeId.Value;
