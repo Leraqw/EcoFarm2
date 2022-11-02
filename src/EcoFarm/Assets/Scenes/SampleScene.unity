@@ -943,6 +943,7 @@ MonoBehaviour:
     - {fileID: 1765480801}
     _warehouse: {fileID: 1876006552}
     _crane: {fileID: 1296622495}
+    _bucket: {fileID: 2139132646}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0

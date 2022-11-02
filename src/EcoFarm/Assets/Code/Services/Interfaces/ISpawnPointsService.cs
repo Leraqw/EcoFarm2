@@ -8,5 +8,6 @@ namespace Code.Services.Interfaces
 		IEnumerable<Vector2> Trees { get; }
 		Vector2 Warehouse { get; }
 		Vector2 Crane { get; }
+		Vector2 Bucket { get; }
 	}
 }

@@ -26,8 +26,10 @@ namespace Code.Services.UnityImplementations
 		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
 		public Vector2 Warehouse => _spawnPoints.Warehouse;
-		
+
 		public Vector2 Crane => _spawnPoints.Crane;
+
+		public Vector2 Bucket => _spawnPoints.Bucket;
 
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
