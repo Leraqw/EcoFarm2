@@ -1,4 +1,4 @@
-﻿using Code.ECS.Systems.Product.Fruit;
+﻿using Entitas;
 
 namespace Code.ECS.Features
 {
@@ -19,7 +19,7 @@ namespace Code.ECS.Features
 
 			Add(new DurationSystems(contexts));
 
-			Add(new RemoveTargetsOnTimeUpSystem(contexts));
+			Add(new CleanupSystems(contexts));
 		}
 	}
 }
