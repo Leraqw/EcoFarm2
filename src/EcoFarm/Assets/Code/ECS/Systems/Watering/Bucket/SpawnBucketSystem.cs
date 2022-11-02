@@ -18,6 +18,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 			            .Do((e) => e.AddDebugName("Bucket"))
 			            .Do((e) => e.AddRequireView(ResourcePath.Bucket))
 			            .Do((e) => e.isDraggable = true)
-			            .Do((e) => e.AddPosition(SpawnPointsService.Bucket));
+			            .Do((e) => e.AddPosition(SpawnPointsService.Bucket))
+			            .Do((e) => e.AddSpawnPosition(e.position));
 	}
 }
