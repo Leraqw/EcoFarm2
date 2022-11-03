@@ -20,31 +20,34 @@ public static class GameComponentsLookup {
     public const int Duration = 9;
     public const int DurationUp = 10;
     public const int Fell = 11;
-    public const int Fruitful = 12;
-    public const int FruitRequire = 13;
-    public const int FruitTypeId = 14;
-    public const int Growth = 15;
-    public const int Inventory = 16;
-    public const int InventoryItem = 17;
-    public const int MouseClick = 18;
-    public const int MouseDown = 19;
-    public const int MouseUp = 20;
-    public const int Pickable = 21;
-    public const int Picked = 22;
-    public const int Position = 23;
-    public const int ProportionalScale = 24;
-    public const int RequireTreeOnPosition = 25;
-    public const int RequireView = 26;
-    public const int SpawnPosition = 27;
-    public const int TargetPosition = 28;
-    public const int TargetScale = 29;
-    public const int Tree = 30;
-    public const int View = 31;
-    public const int WillFall = 32;
-    public const int PositionListener = 33;
-    public const int ProportionalScaleListener = 34;
+    public const int Filled = 12;
+    public const int Fruitful = 13;
+    public const int FruitRequire = 14;
+    public const int FruitTypeId = 15;
+    public const int Growth = 16;
+    public const int Inventory = 17;
+    public const int InventoryItem = 18;
+    public const int MouseClick = 19;
+    public const int MouseDown = 20;
+    public const int MouseUp = 21;
+    public const int Pickable = 22;
+    public const int Picked = 23;
+    public const int Position = 24;
+    public const int ProportionalScale = 25;
+    public const int Radius = 26;
+    public const int RequireTreeOnPosition = 27;
+    public const int RequireView = 28;
+    public const int SpawnPosition = 29;
+    public const int TargetPosition = 30;
+    public const int TargetScale = 31;
+    public const int Tree = 32;
+    public const int View = 33;
+    public const int Watered = 34;
+    public const int WillFall = 35;
+    public const int PositionListener = 36;
+    public const int ProportionalScaleListener = 37;
 
-    public const int TotalComponents = 35;
+    public const int TotalComponents = 38;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -59,6 +62,7 @@ public static class GameComponentsLookup {
         "Duration",
         "DurationUp",
         "Fell",
+        "Filled",
         "Fruitful",
         "FruitRequire",
         "FruitTypeId",
@@ -72,6 +76,7 @@ public static class GameComponentsLookup {
         "Picked",
         "Position",
         "ProportionalScale",
+        "Radius",
         "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
@@ -79,6 +84,7 @@ public static class GameComponentsLookup {
         "TargetScale",
         "Tree",
         "View",
+        "Watered",
         "WillFall",
         "PositionListener",
         "ProportionalScaleListener"
@@ -97,6 +103,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),
         typeof(Code.ECS.Components.FellComponent),
+        typeof(Code.ECS.Components.FilledComponent),
         typeof(Code.ECS.Components.FruitfulComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.FruitTypeIdComponent),
@@ -110,6 +117,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
+        typeof(Code.ECS.Components.RadiusComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
@@ -117,6 +125,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.ECS.Components.WateredComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent)
