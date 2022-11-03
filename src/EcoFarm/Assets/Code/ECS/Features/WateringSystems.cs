@@ -11,8 +11,8 @@ namespace Code.ECS.Features
 		{
 			Add(new PourWaterSystem(contexts));
 			Add(new WaterNearTreeSystem(contexts));
-			Add(new ClickOnCraneSystem(contexts));
 			Add(new OnTreeWateredSystem(contexts));
+			Add(new ClickOnCraneSystem(contexts));
 		}
 	}
 }
