@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants.Balance.Tree;
 
 namespace Code.ECS.Systems.Watering.Tree
 {
@@ -16,6 +17,6 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseWatering);
 
-		private static void IncreaseWatering(GameEntity entity) => entity.UpdateWatering(with: (w) => w + 1);
+		private static void IncreaseWatering(GameEntity entity) => entity.UpdateWatering(with: (w) => w + WateringStep);
 	}
 }

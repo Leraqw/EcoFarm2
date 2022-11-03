@@ -42,6 +42,7 @@ namespace Code.Utils.StaticClasses
 				public const int MinWatering = 0;
 				public const int MaxWatering = 8;
 				public const int InitialWatering = 3;
+				public const int WateringStep = 1;
 			}
 		}
 
