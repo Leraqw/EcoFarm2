@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetSceneObjectsService(Code.Services.Interfaces.ISpawnPointsService newValue) {
         if (hasSceneObjectsService) {
-            throw new Entitas.EntitasException("Could not set SpawnPointsService!\n" + this + " already has an entity with Code.ECS.Components.SceneObjectsServiceComponent!",
+            throw new Entitas.EntitasException("Could not set SceneObjectsService!\n" + this + " already has an entity with Code.ECS.Components.SceneObjectsServiceComponent!",
                 "You should check if the context already has a sceneObjectsServiceEntity before setting it or use context.ReplaceSceneObjectsService().");
         }
         var entity = CreateEntity();

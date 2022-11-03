@@ -31,6 +31,11 @@ namespace Code.Utils.StaticClasses
 			{
 				public const float PickupDuration = 0.5f;
 			}
+
+			public static class Bucket
+			{
+				public const float Radius = 5f;
+			}
 		}
 
 		public const float Tolerance = 0.01f;
