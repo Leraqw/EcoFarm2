@@ -45,11 +45,13 @@ public static class GameComponentsLookup {
     public const int Tree = 34;
     public const int View = 35;
     public const int Watered = 36;
-    public const int WillFall = 37;
-    public const int PositionListener = 38;
-    public const int ProportionalScaleListener = 39;
+    public const int Watering = 37;
+    public const int WillFall = 38;
+    public const int PositionListener = 39;
+    public const int ProportionalScaleListener = 40;
+    public const int WateringListener = 41;
 
-    public const int TotalComponents = 40;
+    public const int TotalComponents = 42;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -89,9 +91,11 @@ public static class GameComponentsLookup {
         "Tree",
         "View",
         "Watered",
+        "Watering",
         "WillFall",
         "PositionListener",
-        "ProportionalScaleListener"
+        "ProportionalScaleListener",
+        "WateringListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -132,8 +136,10 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.WateredComponent),
+        typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(PositionListenerComponent),
-        typeof(ProportionalScaleListenerComponent)
+        typeof(ProportionalScaleListenerComponent),
+        typeof(WateringListenerComponent)
     };
 }

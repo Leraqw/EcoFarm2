@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DebugNameComponent debugName { get { return (Code.ECS.Components.DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
-    public bool hasDebugName { get { return HasComponent(GameComponentsLookup.DebugName); } }
+    public Code.ECS.Components.WateringComponent watering { get { return (Code.ECS.Components.WateringComponent)GetComponent(GameComponentsLookup.Watering); } }
+    public bool hasWatering { get { return HasComponent(GameComponentsLookup.Watering); } }
 
-    public void AddDebugName(string newValue) {
-        var index = GameComponentsLookup.DebugName;
-        var component = (Code.ECS.Components.DebugNameComponent)CreateComponent(index, typeof(Code.ECS.Components.DebugNameComponent));
+    public void AddWatering(int newValue) {
+        var index = GameComponentsLookup.Watering;
+        var component = (Code.ECS.Components.WateringComponent)CreateComponent(index, typeof(Code.ECS.Components.WateringComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDebugName(string newValue) {
-        var index = GameComponentsLookup.DebugName;
-        var component = (Code.ECS.Components.DebugNameComponent)CreateComponent(index, typeof(Code.ECS.Components.DebugNameComponent));
+    public void ReplaceWatering(int newValue) {
+        var index = GameComponentsLookup.Watering;
+        var component = (Code.ECS.Components.WateringComponent)CreateComponent(index, typeof(Code.ECS.Components.WateringComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveDebugName() {
-        RemoveComponent(GameComponentsLookup.DebugName);
+    public void RemoveWatering() {
+        RemoveComponent(GameComponentsLookup.Watering);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDebugName;
+    static Entitas.IMatcher<GameEntity> _matcherWatering;
 
-    public static Entitas.IMatcher<GameEntity> DebugName {
+    public static Entitas.IMatcher<GameEntity> Watering {
         get {
-            if (_matcherDebugName == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DebugName);
+            if (_matcherWatering == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Watering);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDebugName = matcher;
+                _matcherWatering = matcher;
             }
 
-            return _matcherDebugName;
+            return _matcherWatering;
         }
     }
 }
