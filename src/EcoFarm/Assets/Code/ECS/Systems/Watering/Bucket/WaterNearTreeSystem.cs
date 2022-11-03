@@ -25,7 +25,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		private static void WaterTree(GameEntity tree) => tree.isWatered = true;
 
-		private static bool IsNear(GameEntity tree, GameEntity bucket) 
-			=> Vector2.Distance(bucket.position, tree.position) <= bucket.radius;
+		private static bool IsNear(GameEntity tree, GameEntity bucket)
+			=> Vector2.Distance(bucket.GetActualPosition(), tree.GetActualPosition()) <= bucket.radius;
 	}
 }
