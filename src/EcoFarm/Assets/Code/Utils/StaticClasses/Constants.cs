@@ -34,7 +34,7 @@ namespace Code.Utils.StaticClasses
 
 			public static class Bucket
 			{
-				public const float Radius = 5f;
+				public const float Radius = 1f;
 			}
 
 			public static class Tree
