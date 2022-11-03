@@ -17,6 +17,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
+			            .Do((e) => e.isBucket = true)
 			            .Do((e) => e.AddRequireView(ResourcePath.Bucket))
 			            .Do((e) => e.AddRadius(Radius))
 			            .Do((e) => e.isDraggable = true)

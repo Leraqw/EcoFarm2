@@ -10,49 +10,51 @@ public static class GameComponentsLookup {
 
     public const int AttachableIndex = 0;
     public const int AttachedTo = 1;
-    public const int CoinsCount = 2;
-    public const int Collected = 3;
-    public const int Crane = 4;
-    public const int DebugName = 5;
-    public const int Draggable = 6;
-    public const int Dragging = 7;
-    public const int DraggingEnd = 8;
-    public const int DraggingStart = 9;
-    public const int Duration = 10;
-    public const int DurationUp = 11;
-    public const int Fell = 12;
-    public const int Filled = 13;
-    public const int Fruitful = 14;
-    public const int FruitRequire = 15;
-    public const int FruitTypeId = 16;
-    public const int Growth = 17;
-    public const int Inventory = 18;
-    public const int InventoryItem = 19;
-    public const int MouseClick = 20;
-    public const int MouseDown = 21;
-    public const int MouseUp = 22;
-    public const int Pickable = 23;
-    public const int Picked = 24;
-    public const int Position = 25;
-    public const int ProportionalScale = 26;
-    public const int Radius = 27;
-    public const int RequireTreeOnPosition = 28;
-    public const int RequireView = 29;
-    public const int SpawnPosition = 30;
-    public const int TargetPosition = 31;
-    public const int TargetScale = 32;
-    public const int Tree = 33;
-    public const int View = 34;
-    public const int Watered = 35;
-    public const int WillFall = 36;
-    public const int PositionListener = 37;
-    public const int ProportionalScaleListener = 38;
+    public const int Bucket = 2;
+    public const int CoinsCount = 3;
+    public const int Collected = 4;
+    public const int Crane = 5;
+    public const int DebugName = 6;
+    public const int Draggable = 7;
+    public const int Dragging = 8;
+    public const int DraggingEnd = 9;
+    public const int DraggingStart = 10;
+    public const int Duration = 11;
+    public const int DurationUp = 12;
+    public const int Fell = 13;
+    public const int Filled = 14;
+    public const int Fruitful = 15;
+    public const int FruitRequire = 16;
+    public const int FruitTypeId = 17;
+    public const int Growth = 18;
+    public const int Inventory = 19;
+    public const int InventoryItem = 20;
+    public const int MouseClick = 21;
+    public const int MouseDown = 22;
+    public const int MouseUp = 23;
+    public const int Pickable = 24;
+    public const int Picked = 25;
+    public const int Position = 26;
+    public const int ProportionalScale = 27;
+    public const int Radius = 28;
+    public const int RequireTreeOnPosition = 29;
+    public const int RequireView = 30;
+    public const int SpawnPosition = 31;
+    public const int TargetPosition = 32;
+    public const int TargetScale = 33;
+    public const int Tree = 34;
+    public const int View = 35;
+    public const int Watered = 36;
+    public const int WillFall = 37;
+    public const int PositionListener = 38;
+    public const int ProportionalScaleListener = 39;
 
-    public const int TotalComponents = 39;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
         "AttachedTo",
+        "Bucket",
         "CoinsCount",
         "Collected",
         "Crane",
@@ -95,6 +97,7 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ECS.Components.AttachableIndexComponent),
         typeof(Code.ECS.Components.AttachedToComponent),
+        typeof(Code.ECS.Components.BucketComponent),
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),
         typeof(Code.ECS.Components.CraneComponent),
