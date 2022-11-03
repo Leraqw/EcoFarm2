@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
@@ -16,19 +17,15 @@ namespace Code.ECS.Systems.Watering.Bucket
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(MouseUp, Filled));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasRadius;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(WaterTrees);
 
-		private void WaterTrees(GameEntity bucket)
-		{
-			foreach (var tree in _trees)
-			{
-				if (Vector2.Distance(bucket.position, tree.position) <= bucket.radius)
-				{
-					tree.isWatered = true;
-				}
-			}
-		}
+		private void WaterTrees(GameEntity bucket) => _trees.ForEach(WaterTree, @if: (t) => IsNear(t, bucket));
+
+		private static void WaterTree(GameEntity tree) => tree.isWatered = true;
+
+		private static bool IsNear(GameEntity tree, GameEntity bucket) 
+			=> Vector2.Distance(bucket.position, tree.position) <= bucket.radius;
 	}
 }
