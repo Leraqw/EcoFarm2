@@ -1,6 +1,5 @@
 ﻿using Code.ECS.Systems.Common.DragAndDrop;
 using Code.ECS.Systems.Input;
-using Code.ECS.Systems.Watering.Bucket;
 
 namespace Code.ECS.Features
 {
@@ -12,10 +11,6 @@ namespace Code.ECS.Features
 			Add(new DraggingSystem(contexts));
 			Add(new ReleaseAtDraggableSystem(contexts));
 			Add(new ReturnReleasedDraggableToInitialPositionSystem(contexts));
-			
-			// Watering
-			Add(new PourWaterSystem(contexts));
-			Add(new WaterNearTreeSystem(contexts));
 		}
 	}
 }
