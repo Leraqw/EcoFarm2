@@ -1,5 +1,6 @@
 ﻿using Code.ECS.Systems.Watering.Bucket;
 using Code.ECS.Systems.Watering.Crane;
+using Code.ECS.Systems.Watering.Tree;
 
 namespace Code.ECS.Features
 {
@@ -11,6 +12,7 @@ namespace Code.ECS.Features
 			Add(new PourWaterSystem(contexts));
 			Add(new WaterNearTreeSystem(contexts));
 			Add(new ClickOnCraneSystem(contexts));
+			Add(new OnTreeWateredSystem(contexts));
 		}
 	}
 }
