@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 6687253352846075921}
   - component: {fileID: 2891331041841960214}
   m_Layer: 0
-  m_Name: Droplets Bar
+  m_Name: Watering Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2780487101928381432}
   - component: {fileID: 629808724059325155}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
