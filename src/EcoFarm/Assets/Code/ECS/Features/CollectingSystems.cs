@@ -10,6 +10,7 @@ namespace Code.ECS.Features
 		{
 			Add(new PickedToWarehouseSystem(contexts));
 			Add(new CollectedToInventorySystem(contexts));
+			Add(new SyncItemValueWithDebugSystem(contexts));
 		}
 	}
 }
