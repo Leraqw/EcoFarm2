@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants.Balance.Tree;
 
 namespace Code.ECS.Systems.Watering.Tree
 {
@@ -16,6 +17,6 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(PostInitialize);
 
-		private void PostInitialize(GameEntity tree) => tree.Do((e) => e.AddWatering(6)); // TODO: move to config
+		private static void PostInitialize(GameEntity tree) => tree.Do((e) => e.AddWatering(InitialWatering));
 	}
 }
