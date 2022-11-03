@@ -14,8 +14,8 @@ namespace Code.ECS.Features
 			Add(new ReturnReleasedDraggableToInitialPositionSystem(contexts));
 			
 			// Watering
-			Add(new WaterNearTreeSystem(contexts));
 			Add(new PourWaterSystem(contexts));
+			Add(new WaterNearTreeSystem(contexts));
 		}
 	}
 }

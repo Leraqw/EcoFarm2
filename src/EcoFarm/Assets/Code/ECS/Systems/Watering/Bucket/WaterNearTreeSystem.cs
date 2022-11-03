@@ -15,9 +15,9 @@ namespace Code.ECS.Systems.Watering.Bucket
 			=> _trees = contexts.game.GetGroup(GameMatcher.Tree);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(MouseUp, Filled));
+			=> context.CreateCollector(Filled.Removed());
 
-		protected override bool Filter(GameEntity entity) => entity.hasRadius;
+		protected override bool Filter(GameEntity entity) => entity.hasRadius && entity.hasPosition;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(WaterTrees);
 

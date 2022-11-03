@@ -16,6 +16,6 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(PourOut);
 
-		private void PourOut(GameEntity entity) => entity.isFilled = false;
+		private static void PourOut(GameEntity entity) => entity.isFilled = false;
 	}
 }
