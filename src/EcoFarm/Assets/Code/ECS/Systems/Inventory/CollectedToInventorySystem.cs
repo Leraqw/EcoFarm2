@@ -17,7 +17,7 @@ namespace Code.ECS.Systems.Inventory
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Collected);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasFruitTypeId;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseEachCounter);
 

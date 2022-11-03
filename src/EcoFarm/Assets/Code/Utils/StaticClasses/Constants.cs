@@ -9,6 +9,9 @@ namespace Code.Utils.StaticClasses
 			public const string ApplePrefab = "Products/Fruits/Prefabs/Apple";
 			public const string TreePrefab = "Trees/Prefabs/Tree";
 			public const string BedPlugPrefab = "Environment/Trees Beds/Prefabs/Tree Bed Plug";
+			public const string Warehouse = "Environment/Warehouse/Prefabs/Warehouse";
+			public const string Crane = "Environment/Crane/Prefabs/Crane";
+			public const string Bucket = "Environment/Bucket/Prefabs/Bucket";
 		}
 
 		public static class Balance
@@ -27,6 +30,11 @@ namespace Code.Utils.StaticClasses
 			public static class Warehouse
 			{
 				public const float PickupDuration = 0.5f;
+			}
+
+			public static class Bucket
+			{
+				public const float Radius = 5f;
 			}
 		}
 

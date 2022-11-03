@@ -12,9 +12,11 @@ namespace Code.ECS.Features
 			var servicesContext = contexts.services;
 
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
-			Register<ISceneObjectsService>(services, servicesContext.ReplaceSceneObjectsService);
+			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
 			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
 			Register<IDataBaseService>(services, servicesContext.ReplaceDataBaseService);
+			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
+			Register<IInputService>(services, servicesContext.ReplaceInputService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

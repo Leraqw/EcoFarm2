@@ -7,10 +7,13 @@
 		{
 			Add(new InitializationSystems(contexts));
 
+			Add(new InputSystems(contexts));
 			Add(new CollectingSystems(contexts));
+			Add(new DraggingSystems(contexts));
 			Add(new ViewSystems(contexts));
 			Add(new GrowingSystems(contexts));
 			Add(new FallingSystems(contexts));
+			Add(new WateringSystems(contexts));
 			Add(new DurationSystems(contexts));
 
 			Add(new CleanupSystems(contexts));

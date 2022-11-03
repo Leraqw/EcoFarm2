@@ -6,8 +6,8 @@ namespace Code.Unity
 {
 	public class UnityDependencies : MonoBehaviour
 	{
-		[SerializeField] private UnitySceneObjectsService _sceneObjects;
+		[SerializeField] private UnitySpawnPointsService _spawnPoints;
 
-		public ISceneObjectsService SceneObjects => _sceneObjects;
+		public ISpawnPointsService SpawnPoints => _spawnPoints;
 	}
 }

@@ -7,25 +7,33 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityAllServices : IAllServices
 	{
-		private readonly ISceneObjectsService _sceneObjects;
+		private readonly ISpawnPointsService _spawnPoints;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
 		private readonly IDataBaseService _dataBase;
+		private readonly ICameraService _camera;
+		private readonly IInputService _input;
 
-		public UnityAllServices(ISceneObjectsService sceneObjectsService)
+		public UnityAllServices(ISpawnPointsService spawnPointsService)
 		{
-			_sceneObjects = sceneObjectsService;
+			_spawnPoints = spawnPointsService;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
 			_dataBase = new UnityDataBaseService();
+			_camera = new UnityCameraService();
+			_input = new UnityInputService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
-		IEnumerable<Vector2> ISceneObjectsService.TreeSpawnPositions => _sceneObjects.TreeSpawnPositions;
+		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
-		public Vector2 WarehouseSpawnPosition => _sceneObjects.WarehouseSpawnPosition;
+		public Vector2 Warehouse => _spawnPoints.Warehouse;
+
+		public Vector2 Crane => _spawnPoints.Crane;
+
+		public Vector2 Bucket => _spawnPoints.Bucket;
 
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
@@ -34,5 +42,7 @@ namespace Code.Services.UnityImplementations
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
 		int IDataBaseService.TreesCount => _dataBase.TreesCount;
+		public Vector2 ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
+		public Vector2 MousePosition => _input.MousePosition;
 	}
 }

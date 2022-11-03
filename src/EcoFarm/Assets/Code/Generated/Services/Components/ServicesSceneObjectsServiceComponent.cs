@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.ECS.Components.SceneObjectsServiceComponent sceneObjectsService { get { return sceneObjectsServiceEntity.sceneObjectsService; } }
     public bool hasSceneObjectsService { get { return sceneObjectsServiceEntity != null; } }
 
-    public ServicesEntity SetSceneObjectsService(Code.Services.Interfaces.ISceneObjectsService newValue) {
+    public ServicesEntity SetSceneObjectsService(Code.Services.Interfaces.ISpawnPointsService newValue) {
         if (hasSceneObjectsService) {
             throw new Entitas.EntitasException("Could not set SceneObjectsService!\n" + this + " already has an entity with Code.ECS.Components.SceneObjectsServiceComponent!",
                 "You should check if the context already has a sceneObjectsServiceEntity before setting it or use context.ReplaceSceneObjectsService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceSceneObjectsService(Code.Services.Interfaces.ISceneObjectsService newValue) {
+    public void ReplaceSceneObjectsService(Code.Services.Interfaces.ISpawnPointsService newValue) {
         var entity = sceneObjectsServiceEntity;
         if (entity == null) {
             entity = SetSceneObjectsService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.ECS.Components.SceneObjectsServiceComponent sceneObjectsService { get { return (Code.ECS.Components.SceneObjectsServiceComponent)GetComponent(ServicesComponentsLookup.SceneObjectsService); } }
     public bool hasSceneObjectsService { get { return HasComponent(ServicesComponentsLookup.SceneObjectsService); } }
 
-    public void AddSceneObjectsService(Code.Services.Interfaces.ISceneObjectsService newValue) {
+    public void AddSceneObjectsService(Code.Services.Interfaces.ISpawnPointsService newValue) {
         var index = ServicesComponentsLookup.SceneObjectsService;
         var component = (Code.ECS.Components.SceneObjectsServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.SceneObjectsServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSceneObjectsService(Code.Services.Interfaces.ISceneObjectsService newValue) {
+    public void ReplaceSceneObjectsService(Code.Services.Interfaces.ISpawnPointsService newValue) {
         var index = ServicesComponentsLookup.SceneObjectsService;
         var component = (Code.ECS.Components.SceneObjectsServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.SceneObjectsServiceComponent));
         component.Value = newValue;
