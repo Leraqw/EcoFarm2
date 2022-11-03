@@ -22,14 +22,9 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		private void WaterTrees(GameEntity bucket)
 		{
-			var bucketPosition = bucket.position.Value;
-			var bucketRadius = bucket.radius.Value;
-
 			foreach (var tree in _trees)
 			{
-				var treePosition = tree.position.Value;
-
-				if (Vector2.Distance(bucketPosition, treePosition) <= bucketRadius)
+				if (Vector2.Distance(bucket.position, tree.position) <= bucket.radius)
 				{
 					tree.isWatered = true;
 				}
