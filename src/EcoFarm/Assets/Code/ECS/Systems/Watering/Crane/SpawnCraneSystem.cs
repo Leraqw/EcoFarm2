@@ -16,6 +16,7 @@ namespace Code.ECS.Systems.Watering.Crane
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Crane"))
+			            .Do((e) => e.isCrane = true)
 			            .Do((e) => e.AddRequireView(ResourcePath.Crane))
 			            .Do((e) => e.AddPosition(SpawnPointsService.Crane));
 	}
