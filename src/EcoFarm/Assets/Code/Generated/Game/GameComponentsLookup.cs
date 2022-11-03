@@ -38,12 +38,13 @@ public static class GameComponentsLookup {
     public const int SpawnPosition = 27;
     public const int TargetPosition = 28;
     public const int TargetScale = 29;
-    public const int View = 30;
-    public const int WillFall = 31;
-    public const int PositionListener = 32;
-    public const int ProportionalScaleListener = 33;
+    public const int Tree = 30;
+    public const int View = 31;
+    public const int WillFall = 32;
+    public const int PositionListener = 33;
+    public const int ProportionalScaleListener = 34;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 35;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -76,6 +77,7 @@ public static class GameComponentsLookup {
         "SpawnPosition",
         "TargetPosition",
         "TargetScale",
+        "Tree",
         "View",
         "WillFall",
         "PositionListener",
@@ -113,6 +115,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
+        typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(PositionListenerComponent),
