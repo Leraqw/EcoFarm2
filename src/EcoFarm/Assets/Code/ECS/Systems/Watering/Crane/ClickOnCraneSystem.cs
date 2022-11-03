@@ -14,7 +14,7 @@ namespace Code.ECS.Systems.Watering.Crane
 			=> _buckets = contexts.game.GetGroup(GameMatcher.Bucket);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(MouseUp, GameMatcher.Crane));
+			=> context.CreateCollector(AllOf(MouseDown, GameMatcher.Crane));
 
 		protected override bool Filter(GameEntity entity) => true;
 
