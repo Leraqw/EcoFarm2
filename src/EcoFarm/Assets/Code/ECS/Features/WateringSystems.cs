@@ -15,6 +15,7 @@ namespace Code.ECS.Features
 			Add(new OnTreeWateredSystem(contexts));
 			Add(new ClickOnCraneSystem(contexts));
 			Add(new SpawnDroughtTimerSystem(contexts));
+			Add(new ResetDroughtTimerSystem(contexts));
 		}
 	}
 }
