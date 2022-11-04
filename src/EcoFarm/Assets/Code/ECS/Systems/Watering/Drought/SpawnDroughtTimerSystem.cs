@@ -1,6 +1,6 @@
 ﻿using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Balance.Watering;
 
 namespace Code.ECS.Systems.Watering.Drought
 {
@@ -14,6 +14,6 @@ namespace Code.ECS.Systems.Watering.Drought
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("DroughtTimer"))
 			            .Do((e) => e.isDroughtTimer = true)
-			            .Do((e) => e.AddDuration(DroughtDuration));
+			            .ResetDroughtTimer();
 	}
 }
