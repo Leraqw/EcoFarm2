@@ -30,4 +30,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class AttachableIndexComponent : PrimaryComponent<int> { }
 
 	[Game] public sealed class AttachedToComponent : IndexComponent<int> { }
+
+	[Game] public sealed class DroughtTimerComponent : FlagComponent { }
 }

@@ -3,6 +3,7 @@ using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.Warehouse;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.ECS.Systems.Watering.Crane;
+using Code.ECS.Systems.Watering.Tree;
 
 namespace Code.ECS.Features
 {
@@ -16,6 +17,7 @@ namespace Code.ECS.Features
 			Add(new InventoryInitializationSystems(contexts));
 
 			Add(new SpawnTreeSystem(contexts));
+			Add(new TreePostInitializationSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));

@@ -10,7 +10,7 @@ namespace Code.ECS.Features
 		{
 			Add(new DraggingSystem(contexts));
 			Add(new ReleaseAtDraggableSystem(contexts));
-			Add(new ReturnReleasedDraggableToInitialPositionSystem(contexts));
+			Add(new ReturnDraggableToInitialSystem(contexts));
 		}
 	}
 }

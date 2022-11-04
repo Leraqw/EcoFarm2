@@ -19,13 +19,13 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		protected override bool Filter(GameEntity entity) => entity.hasRadius && entity.hasPosition;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(WaterTrees);
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(WaterNearTrees);
 
-		private void WaterTrees(GameEntity bucket) => _trees.ForEach(WaterTree, @if: (t) => IsNear(t, bucket));
+		private void WaterNearTrees(GameEntity bucket) => _trees.ForEach(WaterTree, @if: (t) => IsNear(t, bucket));
 
 		private static void WaterTree(GameEntity tree) => tree.isWatered = true;
 
 		private static bool IsNear(GameEntity tree, GameEntity bucket)
-			=> Vector2.Distance(bucket.GetActualPosition(), tree.GetActualPosition()) <= bucket.radius;
+			=> Vector2.Distance(bucket.position, tree.spawnPosition) <= bucket.radius;
 	}
 }
