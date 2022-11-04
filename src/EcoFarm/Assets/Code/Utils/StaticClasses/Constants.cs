@@ -47,7 +47,7 @@ namespace Code.Utils.StaticClasses
 
 			public static class Watering
 			{
-				public const float DroughtDuration = 1f;
+				public const float DroughtDuration = 10f;
 			}
 		}
 
