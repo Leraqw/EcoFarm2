@@ -11,9 +11,9 @@ namespace Code.ECS.Systems.Watering.Drought
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(DroughtTimer));
+			=> context.CreateCollector(AllOf(DroughtTimer, DurationUp));
 
-		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Reset);
 
