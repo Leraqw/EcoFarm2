@@ -32,4 +32,8 @@ namespace Code.ECS.Components
 	[Game] public sealed class AttachedToComponent : IndexComponent<int> { }
 
 	[Game] public sealed class DroughtTimerComponent : FlagComponent { }
+
+	[Game] public sealed class RequireSpriteComponent : ValueComponent<string> { }
+	
+	[Game] [Event(Self)] public sealed class SpriteComponent : ValueComponent<Sprite> { }
 }

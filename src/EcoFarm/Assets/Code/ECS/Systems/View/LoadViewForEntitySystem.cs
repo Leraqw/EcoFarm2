@@ -4,6 +4,7 @@ using Code.Utils.Extensions.Entitas;
 using Code.Utils.StaticClasses;
 using Entitas;
 using UnityEngine;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.View
 {
@@ -22,7 +23,7 @@ namespace Code.ECS.Systems.View
 		private IResourcesService Resources => _services.resourcesService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> CollectorContextExtension.CreateCollector(context, GameMatcher.RequireView);
+			=> context.CreateCollector(RequireView);
 
 		protected override bool Filter(GameEntity entity) => entity.hasView == false;
 

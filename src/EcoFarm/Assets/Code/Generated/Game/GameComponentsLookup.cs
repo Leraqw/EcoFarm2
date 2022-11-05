@@ -38,21 +38,24 @@ public static class GameComponentsLookup {
     public const int Position = 27;
     public const int ProportionalScale = 28;
     public const int Radius = 29;
-    public const int RequireTreeOnPosition = 30;
-    public const int RequireView = 31;
-    public const int SpawnPosition = 32;
-    public const int TargetPosition = 33;
-    public const int TargetScale = 34;
-    public const int Tree = 35;
-    public const int View = 36;
-    public const int Watered = 37;
-    public const int Watering = 38;
-    public const int WillFall = 39;
-    public const int PositionListener = 40;
-    public const int ProportionalScaleListener = 41;
-    public const int WateringListener = 42;
+    public const int RequireSprite = 30;
+    public const int RequireTreeOnPosition = 31;
+    public const int RequireView = 32;
+    public const int SpawnPosition = 33;
+    public const int Sprite = 34;
+    public const int TargetPosition = 35;
+    public const int TargetScale = 36;
+    public const int Tree = 37;
+    public const int View = 38;
+    public const int Watered = 39;
+    public const int Watering = 40;
+    public const int WillFall = 41;
+    public const int PositionListener = 42;
+    public const int ProportionalScaleListener = 43;
+    public const int SpriteListener = 44;
+    public const int WateringListener = 45;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 46;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -85,9 +88,11 @@ public static class GameComponentsLookup {
         "Position",
         "ProportionalScale",
         "Radius",
+        "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
         "SpawnPosition",
+        "Sprite",
         "TargetPosition",
         "TargetScale",
         "Tree",
@@ -97,6 +102,7 @@ public static class GameComponentsLookup {
         "WillFall",
         "PositionListener",
         "ProportionalScaleListener",
+        "SpriteListener",
         "WateringListener"
     };
 
@@ -131,9 +137,11 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
+        typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
+        typeof(Code.ECS.Components.SpriteComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.TreeComponent),
@@ -143,6 +151,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent),
+        typeof(SpriteListenerComponent),
         typeof(WateringListenerComponent)
     };
 }

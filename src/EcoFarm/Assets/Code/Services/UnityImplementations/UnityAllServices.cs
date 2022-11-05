@@ -27,13 +27,15 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
+		Sprite IResourcesService.LoadSprite(string path) => _resourceLoader.LoadSprite(path);
+
 		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
-		public Vector2 Warehouse => _spawnPoints.Warehouse;
+		Vector2 ISpawnPointsService.Warehouse => _spawnPoints.Warehouse;
 
-		public Vector2 Crane => _spawnPoints.Crane;
+		Vector2 ISpawnPointsService.Crane => _spawnPoints.Crane;
 
-		public Vector2 Bucket => _spawnPoints.Bucket;
+		Vector2 ISpawnPointsService.Bucket => _spawnPoints.Bucket;
 
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
@@ -42,7 +44,9 @@ namespace Code.Services.UnityImplementations
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
 		int IDataBaseService.TreesCount => _dataBase.TreesCount;
-		public Vector2 ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
-		public Vector2 MousePosition => _input.MousePosition;
+
+		Vector2 ICameraService.ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
+
+		Vector2 IInputService.MousePosition => _input.MousePosition;
 	}
 }

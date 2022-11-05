@@ -1,8 +1,8 @@
 ﻿using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants;
 using static Code.Utils.StaticClasses.Constants.Balance.Bucket;
+using static Code.Utils.StaticClasses.Constants.ResourcePath;
 
 namespace Code.ECS.Systems.Watering.Bucket
 {
@@ -18,7 +18,8 @@ namespace Code.ECS.Systems.Watering.Bucket
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
 			            .Do((e) => e.isBucket = true)
-			            .Do((e) => e.AddRequireView(ResourcePath.Bucket))
+			            .Do((e) => e.AddRequireView(Prefab.Bucket))
+			            .Do((e) => e.AddRequireSprite(Sprite.Bucket.Filled))
 			            .Do((e) => e.AddRadius(Radius))
 			            .Do((e) => e.isDraggable = true)
 			            .Do((e) => e.isFilled = true)

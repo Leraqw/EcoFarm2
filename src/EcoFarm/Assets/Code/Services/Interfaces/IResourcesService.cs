@@ -5,5 +5,6 @@ namespace Code.Services.Interfaces
 	public interface IResourcesService : IService
 	{
 		GameObject LoadGameObject(string path);
+		Sprite LoadSprite(string path);
 	}
 }

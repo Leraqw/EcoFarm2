@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants;
+using static Code.Utils.StaticClasses.Constants.ResourcePath;
 
 namespace Code.ECS.Systems.Tree
 {
@@ -20,7 +20,7 @@ namespace Code.ECS.Systems.Tree
 		private static void Spawn(GameEntity entry)
 			=> entry.Do((e) => e.AddDebugName("Tree"))
 			        .Do((e) => e.AddAttachableIndex(e.creationIndex))
-			        .Do((e) => e.AddRequireView(ResourcePath.TreePrefab))
+			        .Do((e) => e.AddRequireView(Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
 			        .Do((e) => e.isTree = true)
 			        .Do((e) => e.isFruitful = true)

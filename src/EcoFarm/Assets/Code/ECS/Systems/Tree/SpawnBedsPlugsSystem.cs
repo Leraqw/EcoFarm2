@@ -3,7 +3,7 @@ using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants;
+using static Code.Utils.StaticClasses.Constants.ResourcePath.Prefab;
 
 namespace Code.ECS.Systems.Tree
 {
@@ -24,7 +24,7 @@ namespace Code.ECS.Systems.Tree
 
 		private void SpawnPlug(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddRequireView(ResourcePath.BedPlugPrefab))
+			            .Do((e) => e.AddRequireView(BedPlug))
 			            .Do((e) => e.AddSpawnPosition(position))
 			            .Do((e) => e.AddDebugName("BedPlug"));
 	}
