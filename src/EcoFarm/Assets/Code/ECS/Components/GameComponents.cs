@@ -33,7 +33,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class DroughtTimerComponent : FlagComponent { }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class RequireSpriteComponent : ValueComponent<string> { }
+	[Game] public sealed class RequireSpriteComponent : ValueComponent<string> { }
 	
 	[Game] [Event(Self)] public sealed class SpriteComponent : ValueComponent<Sprite> { }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 using Entitas;
 using static GameMatcher;
 
@@ -22,7 +23,8 @@ namespace Code.ECS.Systems.View
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Load);
 
-		private void Load(GameEntity entity) 
-			=> entity.ReplaceSprite(ResourcesService.LoadSprite(entity.requireSprite.Value));
+		private void Load(GameEntity entity)
+			=> entity.Do((e) => e.ReplaceSprite(ResourcesService.LoadSprite(entity.requireSprite.Value)))
+			         .Do((e) => e.RemoveRequireSprite());
 	}
 }
