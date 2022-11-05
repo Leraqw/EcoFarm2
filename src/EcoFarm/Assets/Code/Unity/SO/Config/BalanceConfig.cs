@@ -10,8 +10,11 @@ namespace Code.Unity.SO.Config
 	public class BalanceConfig : IBalanceConfig
 	{
 		[SerializeField] private WateringConfig _wateringConfig;
+		[SerializeField] private TreeConfig _tree;
 
 		public IWateringConfig Watering => _wateringConfig;
+
+		public ITreeConfig Tree => _tree;
 
 		public static class FruitConfig
 		{
@@ -32,14 +35,6 @@ namespace Code.Unity.SO.Config
 		public static class BucketConfig
 		{
 			public const float Radius = 1f;
-		}
-
-		public static class TreeConfig
-		{
-			public const int MinWatering = 0;
-			public const int MaxWatering = 8;
-			public const int InitialWatering = 3;
-			public const int WateringStep = 1;
 		}
 	}
 }
