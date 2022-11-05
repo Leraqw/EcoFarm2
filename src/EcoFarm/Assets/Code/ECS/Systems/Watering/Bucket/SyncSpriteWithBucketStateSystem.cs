@@ -13,11 +13,10 @@ namespace Code.ECS.Systems.Watering.Bucket
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(Filled.AddedOrRemoved());
 
-		protected override bool Filter(GameEntity entity)
-			=> entity.hasSprite && entity.hasRequireSprite == false;
+		protected override bool Filter(GameEntity entity) => entity.hasSprite && entity.hasRequireSprite == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
-		private static void Sync(GameEntity entity) => entity.ReplaceRequireSprite(entity.GetActualBucketSprite());
+		private static void Sync(GameEntity entity) => entity.AddRequireSprite(entity.GetActualBucketSprite());
 	}
 }

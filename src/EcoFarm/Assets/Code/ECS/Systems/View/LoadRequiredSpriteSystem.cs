@@ -18,11 +18,11 @@ namespace Code.ECS.Systems.View
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(RequireSprite);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasRequireSprite;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Load);
 
 		private void Load(GameEntity entity) 
-			=> entity.AddSprite(ResourcesService.LoadSprite(entity.requireSprite.Value));
+			=> entity.ReplaceSprite(ResourcesService.LoadSprite(entity.requireSprite.Value));
 	}
 }
