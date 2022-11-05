@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.BalanceConfigs;
+using Code.Unity.SO.Config.BalanceConfigs;
 using UnityEngine;
 
 namespace Code.Unity.SO.Config
@@ -40,11 +41,5 @@ namespace Code.Unity.SO.Config
 			public const int InitialWatering = 3;
 			public const int WateringStep = 1;
 		}
-	}
-
-	[Serializable]
-	public class WateringConfig : IWateringConfig
-	{
-		[field: SerializeField] public float DroughtDuration { get; private set; } = 10f;
 	}
 }
