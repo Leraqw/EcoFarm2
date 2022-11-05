@@ -1,4 +1,5 @@
 ﻿using System;
+using static Code.Utils.StaticClasses.Constants.ResourcePath;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -9,5 +10,8 @@ namespace Code.Utils.Extensions.Entitas
 			entity.ReplaceWatering(with(entity.watering.Value));
 			return entity;
 		}
+		
+		public static string GetActualBucketSprite(this GameEntity entity) 
+			=> entity.isFilled ? Sprite.Bucket.Filled : Sprite.Bucket.Empty;
 	}
 }

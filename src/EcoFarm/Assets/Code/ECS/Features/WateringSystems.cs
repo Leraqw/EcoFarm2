@@ -14,11 +14,11 @@ namespace Code.ECS.Features
 			Add(new WaterNearTreeSystem(contexts));
 			Add(new OnTreeWateredSystem(contexts));
 			Add(new ClickOnCraneSystem(contexts));
-			
+
 			Add(new SpawnDroughtTimerSystem(contexts));
 			Add(new DroughtTreeSystem(contexts));
 			Add(new ResetDroughtTimerSystem(contexts));
-			
+			Add(new SyncSpriteWithBucketStateSystem(contexts));
 		}
 	}
 }
