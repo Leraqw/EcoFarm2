@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Configuration
   m_EditorClassIdentifier: 
   _balanceConfig:
-    <DroughtDuration>k__BackingField: 10
+    _wateringConfig:
+      <DroughtDuration>k__BackingField: 10
+    _tree:
+      <MinWatering>k__BackingField: 0
+      <MaxWatering>k__BackingField: 8
+      <InitialWatering>k__BackingField: 3
+      <WateringStep>k__BackingField: 1

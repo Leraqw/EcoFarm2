@@ -5,10 +5,16 @@ namespace Code.Utils.Extensions.Entitas
 {
 	public static class WateringExtensions
 	{
-		public static GameEntity UpdateWatering(this GameEntity entity, Func<int, int> with)
+		public static GameEntity IncreaseWatering(this GameEntity @this, int value)
+			=> @this.UpdateWatering((w) => w + value);
+		
+		public static GameEntity DecreaseWatering(this GameEntity @this, int value)
+			=> @this.UpdateWatering((w) => w - value);
+
+		public static GameEntity UpdateWatering(this GameEntity @this, Func<int, int> with)
 		{
-			entity.ReplaceWatering(with(entity.watering.Value));
-			return entity;
+			@this.ReplaceWatering(with(@this.watering.Value));
+			return @this;
 		}
 		
 		public static string GetActualBucketSprite(this GameEntity entity) 

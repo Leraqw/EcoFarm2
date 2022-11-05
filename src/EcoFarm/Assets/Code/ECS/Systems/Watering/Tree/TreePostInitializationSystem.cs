@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
+using Code.Services.Interfaces.Config.BalanceConfigs;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Balance.Tree;
 
 namespace Code.ECS.Systems.Watering.Tree
 {
 	public sealed class TreePostInitializationSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public TreePostInitializationSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
+
+		private ITreeConfig Configuration => _contexts.services.configurationService.Value.Balance.Tree;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Tree);
@@ -17,6 +21,6 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(PostInitialize);
 
-		private static void PostInitialize(GameEntity tree) => tree.Do((e) => e.AddWatering(InitialWatering));
+		private void PostInitialize(GameEntity tree) => tree.AddWatering(Configuration.InitialWatering);
 	}
 }

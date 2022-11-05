@@ -50,15 +50,7 @@ namespace Code.Utils.StaticClasses
 			{
 				public const float Radius = 1f;
 			}
-
-			public static class Tree
-			{
-				public const int MinWatering = 0;
-				public const int MaxWatering = 8;
-				public const int InitialWatering = 3;
-				public const int WateringStep = 1;
-			}
-
+			
 			public static class Watering
 			{
 				public const float DroughtDuration = 10f;
