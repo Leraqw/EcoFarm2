@@ -2,6 +2,7 @@
 using Code.Utils.Extensions;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
+using static Code.Utils.StaticClasses.Constants.ResourcePath.Prefab;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Cooldown
@@ -20,7 +21,7 @@ namespace Code.ECS.Systems.Product.Fruit.Cooldown
 
 		private static void NextState(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddRequireView(ResourcePath.ApplePrefab))
+			   .Do((e) => e.AddRequireView(Apple))
 			   .Do((e) => e.AddTargetScale(Balance.Fruit.FullScale))
 			   .Do((e) => e.AddDuration(Balance.Fruit.GrowingTime))
 			   .Do((e) => e.isFruitRequire = false);
