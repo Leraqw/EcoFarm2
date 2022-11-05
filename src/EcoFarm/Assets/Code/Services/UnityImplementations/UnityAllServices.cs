@@ -26,6 +26,7 @@ namespace Code.Services.UnityImplementations
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
+		public Sprite LoadSprite(string path) => _resourceLoader.LoadSprite(path);
 
 		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
