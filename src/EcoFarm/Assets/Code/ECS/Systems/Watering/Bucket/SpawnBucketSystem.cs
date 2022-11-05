@@ -14,6 +14,8 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
+		private IResourcesService ResourcesService => _contexts.services.resourcesService.Value;
+
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
@@ -23,6 +25,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 			            .Do((e) => e.isDraggable = true)
 			            .Do((e) => e.isFilled = true)
 			            .Do((e) => e.AddPosition(SpawnPointsService.Bucket))
-			            .Do((e) => e.AddSpawnPosition(e.position));
+			            .Do((e) => e.AddSpawnPosition(e.position))
+			            .Do((e) => e.AddSprite(ResourcesService.LoadSprite(Sprite.Bucket.Filled)));
 	}
 }
