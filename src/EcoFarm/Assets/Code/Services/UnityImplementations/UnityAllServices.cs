@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Data.Config;
 using Code.Services.Interfaces;
+using Code.Services.Interfaces.Config;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -13,6 +14,7 @@ namespace Code.Services.UnityImplementations
 		private readonly IDataBaseService _dataBase;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
+		private readonly IConfigurationService _configuration;
 
 		public UnityAllServices(ISpawnPointsService spawnPointsService)
 		{
@@ -48,5 +50,7 @@ namespace Code.Services.UnityImplementations
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
 
 		Vector2 IInputService.MousePosition => _input.MousePosition;
+
+		IBalanceConfig IConfigurationService.Balance => _configuration.Balance;
 	}
 }

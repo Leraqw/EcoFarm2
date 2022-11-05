@@ -1,4 +1,6 @@
-﻿namespace Code.Services.Interfaces
+﻿using Code.Services.Interfaces.Config;
+
+namespace Code.Services.Interfaces
 {
 	public interface IAllServices
 		: IResourcesService,
@@ -6,5 +8,6 @@
 		  IStorageService,
 		  IDataBaseService,
 		  ICameraService,
-		  IInputService{ }
+		  IInputService,
+		  IConfigurationService { }
 }
