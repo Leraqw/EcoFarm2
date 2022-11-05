@@ -9,6 +9,7 @@ namespace Code.ECS.Features
 		{
 			Add(new LoadViewForEntitySystem(contexts));
 			Add(new BindViewsSystem(contexts));
+			Add(new LoadRequiredSpriteSystem(contexts));
 		}
 	}
 }
