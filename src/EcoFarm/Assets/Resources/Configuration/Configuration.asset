@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e813cf00434f6c94334e78fc7472e0, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
-  <Test>k__BackingField:
-    _droughtDuration: 0
   _balanceConfig:
-    _droughtDuration: 0
+    <DroughtDuration>k__BackingField: 10
