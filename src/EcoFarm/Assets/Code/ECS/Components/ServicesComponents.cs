@@ -1,4 +1,5 @@
 ﻿using Code.Services.Interfaces;
+using Code.Services.Interfaces.Config;
 using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 
@@ -15,4 +16,6 @@ namespace Code.ECS.Components
 	[Services] [Unique] public sealed class CameraServiceComponent : ValueComponent<ICameraService> { }
 	
 	[Services] [Unique] public sealed class InputServiceComponent : ValueComponent<IInputService> { }
+	
+	[Services] [Unique] public sealed class ConfigurationServiceComponent : ValueComponent<IConfigurationService> { }
 }
