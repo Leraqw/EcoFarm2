@@ -1,7 +1,9 @@
-﻿namespace Code.Services.Interfaces.Config
+﻿using Code.Services.Interfaces.Config.BalanceConfigs;
+
+namespace Code.Services.Interfaces.Config
 {
 	public interface IBalanceConfig
 	{
-		float DroughtDuration { get; }
+		IWateringConfig Watering { get; }
 	}
 }
