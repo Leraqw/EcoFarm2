@@ -17,6 +17,15 @@ namespace Code.Utils.StaticClasses
 				public const string Crane = "Environment/Crane/Prefabs/Crane";
 				public const string Bucket = "Environment/Bucket/Prefabs/Bucket";
 			}
+
+			public static class Sprite
+			{
+				public static class Bucket
+				{
+					public const string Empty = "Environment/Bucket/Art/BucketEmpty";
+					public const string Filled = "Environment/Bucket/Art/BucketFilled";
+				}
+			}
 		}
 
 		public static class Balance
