@@ -2,6 +2,7 @@
 using Code.Data.Config;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
+using Code.Unity;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -16,9 +17,10 @@ namespace Code.Services.UnityImplementations
 		private readonly IInputService _input;
 		private readonly IConfigurationService _configuration;
 
-		public UnityAllServices(ISpawnPointsService spawnPointsService)
+		public UnityAllServices(UnityDependencies dependencies)
 		{
-			_spawnPoints = spawnPointsService;
+			_spawnPoints = dependencies.SpawnPoints;
+			_configuration = dependencies.Configuration;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();

@@ -1,5 +1,4 @@
-﻿using Code.Services.Interfaces;
-using Code.Services.Interfaces.Config;
+﻿using Code.Services.Interfaces.Config;
 using UnityEngine;
 
 namespace Code.Unity.SO.Config
