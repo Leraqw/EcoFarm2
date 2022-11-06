@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Interfaces.Config.BalanceConfigs;
 using Entitas;
 
@@ -12,7 +13,7 @@ namespace Code.ECS.Systems.Watering.Tree
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private ITreeConfig Configuration => _contexts.services.configurationService.Value.Balance.Tree;
+		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Tree);

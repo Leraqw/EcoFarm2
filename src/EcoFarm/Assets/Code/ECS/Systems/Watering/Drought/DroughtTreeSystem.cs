@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -18,7 +19,7 @@ namespace Code.ECS.Systems.Watering.Drought
 			_trees = contexts.game.GetGroup(AllOf(GameMatcher.Tree, GameMatcher.Watering));
 		}
 
-		private ITreeConfig Configuration => _contexts.services.configurationService.Value.Balance.Tree;
+		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(DroughtTimer, DurationUp));

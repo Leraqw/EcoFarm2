@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces.Config;
+﻿using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config;
 using static Contexts;
 
 namespace Code.Utils.Extensions.Entitas
@@ -8,6 +9,6 @@ namespace Code.Utils.Extensions.Entitas
 		public static GameEntity ResetDroughtTimer(this GameEntity @this)
 			=> @this.Do((e) => e.AddDuration(Configuration.Balance.Watering.DroughtDuration));
 
-		private static IConfigurationService Configuration => sharedInstance.services.configurationService.Value;
+		private static IConfigurationService Configuration => sharedInstance.GetConfiguration();
 	}
 }

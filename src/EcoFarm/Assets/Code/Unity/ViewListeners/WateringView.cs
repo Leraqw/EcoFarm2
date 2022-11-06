@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces.Config.BalanceConfigs;
+﻿using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
 using UnityEngine.UI;
 using static Contexts;
@@ -9,7 +10,7 @@ namespace Code.Unity.ViewListeners
 	{
 		[SerializeField] private Slider _slider;
 
-		private static ITreeConfig ConfigTree => sharedInstance.services.configurationService.Value.Balance.Tree;
+		private static ITreeConfig ConfigTree => sharedInstance.GetConfiguration().Balance.Tree;
 		
 		protected override void AddListener(GameEntity entity) => entity.AddWateringListener(this);
 
