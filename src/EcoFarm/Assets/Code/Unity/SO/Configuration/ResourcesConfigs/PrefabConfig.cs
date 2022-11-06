@@ -1,14 +1,17 @@
-﻿using Code.Services.Interfaces.Config.ResourcesConfigs;
+﻿using System;
+using Code.Services.Interfaces.Config.ResourcesConfigs;
+using UnityEngine;
 
 namespace Code.Unity.SO.Configuration.ResourcesConfigs
 {
+	[Serializable]
 	public class PrefabConfig : IPrefabConfig
 	{
-		public string Apple     { get; } = "Products/Fruits/Prefabs/Apple";
-		public string Tree      { get; } = "Trees/Prefabs/Tree";
-		public string BedPlug   { get; } = "Environment/Trees Beds/Prefabs/Tree Bed Plug";
-		public string Warehouse { get; } = "Environment/Warehouse/Prefabs/Warehouse";
-		public string Crane     { get; } = "Environment/Crane/Prefabs/Crane";
-		public string Bucket    { get; } = "Environment/Bucket/Prefabs/Bucket";
+		[field: SerializeField] public string Apple     { get; private set;} = "Products/Fruits/Prefabs/Apple";
+		[field: SerializeField] public string Tree      { get; private set;} = "Trees/Prefabs/Tree";
+		[field: SerializeField] public string BedPlug   { get; private set;} = "Environment/Trees Beds/Prefabs/Tree Bed Plug";
+		[field: SerializeField] public string Warehouse { get; private set;} = "Environment/Warehouse/Prefabs/Warehouse";
+		[field: SerializeField] public string Crane     { get; private set;} = "Environment/Crane/Prefabs/Crane";
+		[field: SerializeField] public string Bucket    { get; private set;} = "Environment/Bucket/Prefabs/Bucket";
 	}
 }
