@@ -32,3 +32,17 @@ MonoBehaviour:
       <SpawnHeight>k__BackingField: {x: 0, y: 1}
       <InitialScale>k__BackingField: 0
       <FullScale>k__BackingField: 1
+  _common:
+    <Tolerance>k__BackingField: 0.01
+  _resource:
+    _prefab:
+      <Apple>k__BackingField: Products/Fruits/Prefabs/Apple
+      <Tree>k__BackingField: Trees/Prefabs/Tree
+      <BedPlug>k__BackingField: Environment/Trees Beds/Prefabs/Tree Bed Plug
+      <Warehouse>k__BackingField: Environment/Warehouse/Prefabs/Warehouse
+      <Crane>k__BackingField: Environment/Crane/Prefabs/Crane
+      <Bucket>k__BackingField: Environment/Bucket/Prefabs/Bucket
+    _sprite:
+      _bucket:
+        <Empty>k__BackingField: Environment/Bucket/Art/BucketEmpty
+        <Filled>k__BackingField: Environment/Bucket/Art/BucketFilled
