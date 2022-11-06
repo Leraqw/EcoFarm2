@@ -1,17 +1,23 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants.Balance.Fruit;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Falling
 {
 	public sealed class MarkFallingSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public MarkFallingSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
+
+		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(WillFall, DurationUp));
@@ -20,12 +26,12 @@ namespace Code.ECS.Systems.Product.Fruit.Falling
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Mark);
 
-		private static void Mark(GameEntity entity)
-			=> entity.Do((e) => e.AddTargetPosition(PositionWithoutTreeHeight(entity)))
+		private void Mark(GameEntity entity)
+			=> entity.Do((e) => e.AddTargetPosition(OnGroundPosition(entity)))
 			         .Do((e) => e.isWillFall = false)
-			         .Do((e) => e.AddDuration(FallTime));
+			         .Do((e) => e.AddDuration(FruitConfig.FallTime));
 
-		private static Vector2 PositionWithoutTreeHeight(GameEntity entity)
-			=> entity.GetActualPosition() - SpawnHeight;
+		private Vector2 OnGroundPosition(GameEntity entity)
+			=> entity.GetActualPosition() - FruitConfig.SpawnHeight;
 	}
 }
