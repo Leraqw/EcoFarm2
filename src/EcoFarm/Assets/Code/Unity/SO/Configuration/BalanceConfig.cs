@@ -19,18 +19,7 @@ namespace Code.Unity.SO.Configuration
 		public ITreeConfig Tree => _tree;
 
 		public IBucketConfig Bucket => _bucket;
-		
-		public IWarehouseConfig Warehouse => _warehouse;
 
-		public static class FruitConfig
-		{
-			public const float GrowingTime = 0.5f;
-			public const float BeforeGrowingTime = 1f;
-			public const float AfterGrowingTime = 0.5f;
-			public const float FallTime = 0.25f;
-			public static readonly Vector2 SpawnHeight = Vector2.up;
-			public const float InitialScale = 0;
-			public const float FullScale = 1;
-		}
+		public IWarehouseConfig Warehouse => _warehouse;
 	}
 }
