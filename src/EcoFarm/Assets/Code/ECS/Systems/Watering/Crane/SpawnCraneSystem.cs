@@ -1,7 +1,8 @@
-﻿using Code.Services.Interfaces;
+﻿using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces;
+using Code.Services.Interfaces.Config;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.ResourcePath;
 
 namespace Code.ECS.Systems.Watering.Crane
 {
@@ -13,11 +14,13 @@ namespace Code.ECS.Systems.Watering.Crane
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
+		private IResourcePathConfig ResourcePath => _contexts.GetConfiguration().ResourcePath;
+
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Crane"))
 			            .Do((e) => e.isCrane = true)
-			            .Do((e) => e.AddRequireView(Prefab.Crane))
+			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.Crane))
 			            .Do((e) => e.AddPosition(SpawnPointsService.Crane));
 	}
 }

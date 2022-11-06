@@ -1,5 +1,7 @@
 ﻿using System;
-using static Code.Utils.StaticClasses.Constants.ResourcePath;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config;
+using Code.Unity.SO.Configuration;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -19,5 +21,9 @@ namespace Code.Utils.Extensions.Entitas
 		
 		public static string GetActualBucketSprite(this GameEntity entity) 
 			=> entity.isFilled ? Sprite.Bucket.Filled : Sprite.Bucket.Empty;
+
+		private static ISpriteConfig Sprite => Configuration.ResourcePath.Sprite;
+
+		private static IConfigurationService Configuration => Contexts.sharedInstance.GetConfiguration();
 	}
 }
