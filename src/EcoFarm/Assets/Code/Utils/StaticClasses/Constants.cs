@@ -45,16 +45,6 @@ namespace Code.Utils.StaticClasses
 			{
 				public const float PickupDuration = 0.5f;
 			}
-
-			public static class Bucket
-			{
-				public const float Radius = 1f;
-			}
-			
-			public static class Watering
-			{
-				public const float DroughtDuration = 10f;
-			}
 		}
 
 		public static class Temp
