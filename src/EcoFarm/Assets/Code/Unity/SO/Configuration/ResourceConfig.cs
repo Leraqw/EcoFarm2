@@ -10,19 +10,10 @@ namespace Code.Unity.SO.Configuration
 	public class ResourceConfig : IResourcePathConfig
 	{
 		[SerializeField] private PrefabConfig _prefab;
+		[SerializeField] private SpriteConfig _sprite;
 
 		public IPrefabConfig Prefab => _prefab;
 
-
-		[Serializable]
-		public class SpriteConfig
-		{
-			[Serializable]
-			public class Bucket
-			{
-				public string Empty  { get; } = "Environment/Bucket/Art/BucketEmpty";
-				public string Filled { get; } = "Environment/Bucket/Art/BucketFilled";
-			}
-		}
+		public ISpriteConfig Sprite => _sprite;
 	}
 }
