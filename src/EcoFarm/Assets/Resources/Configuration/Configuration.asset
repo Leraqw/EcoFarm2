@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e813cf00434f6c94334e78fc7472e0, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
-  _balanceConfig:
+  _balance:
     _watering:
       <DroughtDuration>k__BackingField: 10
     _tree:
@@ -24,3 +24,11 @@ MonoBehaviour:
       <Radius>k__BackingField: 2
     _warehouse:
       <PickupDuration>k__BackingField: 0.5
+    _fruit:
+      <GrowingTime>k__BackingField: 0.5
+      <BeforeGrowingTime>k__BackingField: 1
+      <AfterGrowingTime>k__BackingField: 0.5
+      <FallTime>k__BackingField: 0.25
+      <SpawnHeight>k__BackingField: {x: 0, y: 1}
+      <InitialScale>k__BackingField: 0
+      <FullScale>k__BackingField: 1

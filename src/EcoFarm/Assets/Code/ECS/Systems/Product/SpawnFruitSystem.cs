@@ -14,14 +14,16 @@ namespace Code.ECS.Systems.Product
 	{
 		private readonly GameContext _context;
 		private readonly IGroup<GameEntity> _entities;
-		private readonly IFruitConfig _fruitConfig;
+		private readonly Contexts _contexts;
 
 		public SpawnFruitSystem(Contexts contexts)
 		{
-			_fruitConfig = contexts.GetConfiguration().Balance.Fruit;
+			_contexts = contexts;
 			_context = contexts.game;
 			_entities = _context.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
 		}
+
+		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
 
 		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
 
@@ -30,10 +32,10 @@ namespace Code.ECS.Systems.Product
 			           .Do((e) => e.AddDebugName("Fruit"))
 			           .Do((e) => e.AddFruitTypeId(AppleID))
 			           .Do((e) => e.AddAttachedTo(tree.attachableIndex))
-			           .Do((e) => e.AddPosition(tree.GetActualPosition() + _fruitConfig.SpawnHeight))
-			           .Do((e) => e.AddProportionalScale(_fruitConfig.InitialScale))
+			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
+			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
-			           .Do((e) => e.AddDuration(_fruitConfig.BeforeGrowingTime));
+			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime));
 
 		private bool IsHasNotFruits(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
 
