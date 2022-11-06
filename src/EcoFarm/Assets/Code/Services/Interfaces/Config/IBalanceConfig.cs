@@ -7,5 +7,7 @@ namespace Code.Services.Interfaces.Config
 		IWateringConfig Watering { get; }
 		
 		ITreeConfig Tree { get; }
+		
+		IBucketConfig Bucket { get; }
 	}
 }

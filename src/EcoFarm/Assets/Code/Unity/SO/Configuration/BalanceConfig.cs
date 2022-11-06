@@ -3,18 +3,22 @@ using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Unity.SO.Configuration.BalanceConfigs;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.Unity.SO.Configuration
 {
 	[Serializable]
 	public class BalanceConfig : IBalanceConfig
 	{
-		[SerializeField] private WateringConfig _wateringConfig;
+		[FormerlySerializedAs("_wateringConfig")] [SerializeField] private WateringConfig _watering;
 		[SerializeField] private TreeConfig _tree;
+		[SerializeField] private BucketConfig _bucket;
 
-		public IWateringConfig Watering => _wateringConfig;
+		public IWateringConfig Watering => _watering;
 
 		public ITreeConfig Tree => _tree;
+
+		public IBucketConfig Bucket => _bucket;
 
 		public static class FruitConfig
 		{
@@ -30,11 +34,6 @@ namespace Code.Unity.SO.Configuration
 		public static class WarehouseConfig
 		{
 			public const float PickupDuration = 0.5f;
-		}
-
-		public static class BucketConfig
-		{
-			public const float Radius = 1f;
 		}
 	}
 }
