@@ -22,3 +22,5 @@ MonoBehaviour:
       <WateringStep>k__BackingField: 1
     _bucket:
       <Radius>k__BackingField: 2
+    _warehouse:
+      <PickupDuration>k__BackingField: 0.5
