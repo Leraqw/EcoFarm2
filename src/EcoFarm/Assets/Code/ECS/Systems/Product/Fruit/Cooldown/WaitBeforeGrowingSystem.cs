@@ -1,16 +1,21 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants;
-using static Code.Utils.StaticClasses.Constants.ResourcePath.Prefab;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Cooldown
 {
 	public sealed class WaitBeforeGrowingSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public WaitBeforeGrowingSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
+
+		private IConfigurationService Configuration => _contexts.GetConfiguration();
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(FruitRequire, DurationUp));
@@ -19,11 +24,11 @@ namespace Code.ECS.Systems.Product.Fruit.Cooldown
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(NextState);
 
-		private static void NextState(GameEntity entity)
+		private void NextState(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddRequireView(Apple))
-			   .Do((e) => e.AddTargetScale(Balance.Fruit.FullScale))
-			   .Do((e) => e.AddDuration(Balance.Fruit.GrowingTime))
+			   .Do((e) => e.AddRequireView(Configuration.ResourcePath.Prefab.Apple))
+			   .Do((e) => e.AddTargetScale(Configuration.Balance.Fruit.FullScale))
+			   .Do((e) => e.AddDuration(Configuration.Balance.Fruit.GrowingTime))
 			   .Do((e) => e.isFruitRequire = false);
 	}
 }

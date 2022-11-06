@@ -1,13 +1,12 @@
-﻿using Code.Services.Interfaces;
-using Code.Services.UnityImplementations;
+﻿using Code.Services.UnityImplementations;
+using Code.Unity.SO.Configuration;
 using UnityEngine;
 
 namespace Code.Unity
 {
 	public class UnityDependencies : MonoBehaviour
 	{
-		[SerializeField] private UnitySpawnPointsService _spawnPoints;
-
-		public ISpawnPointsService SpawnPoints => _spawnPoints;
+		[field: SerializeField] public UnitySpawnPointsService SpawnPoints { get; private set; }
+		[field: SerializeField] public UnityConfiguration UnityConfiguration { get; private set; }
 	}
 }

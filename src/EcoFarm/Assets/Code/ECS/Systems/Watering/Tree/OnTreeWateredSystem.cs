@@ -1,14 +1,20 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Balance.Tree;
 
 namespace Code.ECS.Systems.Watering.Tree
 {
 	public sealed class OnTreeWateredSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public OnTreeWateredSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
+
+		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Watered);
@@ -17,6 +23,6 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseWatering);
 
-		private static void IncreaseWatering(GameEntity entity) => entity.UpdateWatering(with: (w) => w + WateringStep);
+		private void IncreaseWatering(GameEntity entity) => entity.IncreaseWatering(Configuration.WateringStep);
 	}
 }

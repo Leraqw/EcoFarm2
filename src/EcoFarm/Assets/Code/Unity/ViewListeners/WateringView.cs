@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config.BalanceConfigs;
+using UnityEngine;
 using UnityEngine.UI;
-using static Code.Utils.StaticClasses.Constants.Balance.Tree;
+using static Contexts;
 
 namespace Code.Unity.ViewListeners
 {
@@ -8,14 +10,16 @@ namespace Code.Unity.ViewListeners
 	{
 		[SerializeField] private Slider _slider;
 
+		private static ITreeConfig ConfigTree => sharedInstance.GetConfiguration().Balance.Tree;
+		
 		protected override void AddListener(GameEntity entity) => entity.AddWateringListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasWatering;
 
 		protected override void UpdateValue(GameEntity entity)
 		{
-			_slider.minValue = MinWatering;
-			_slider.maxValue = MaxWatering;
+			_slider.minValue = ConfigTree.MinWatering;
+			_slider.maxValue = ConfigTree.MaxWatering;
 			OnWatering(entity, entity.watering.Value);
 		}
 

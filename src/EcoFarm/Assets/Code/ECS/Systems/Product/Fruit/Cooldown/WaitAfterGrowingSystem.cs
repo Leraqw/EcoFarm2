@@ -1,15 +1,21 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product.Fruit.Cooldown
 {
 	public sealed class WaitAfterGrowingSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public WaitAfterGrowingSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
+
+		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Growth, DurationUp));
@@ -18,10 +24,10 @@ namespace Code.ECS.Systems.Product.Fruit.Cooldown
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(NextState);
 
-		private static void NextState(GameEntity entity)
+		private void NextState(GameEntity entity)
 			=> entity
 			   .Do((e) => e.isGrowth = false)
-			   .Do((e) => e.AddDuration(Balance.Fruit.AfterGrowingTime))
+			   .Do((e) => e.AddDuration(FruitConfig.AfterGrowingTime))
 			   .Do((e) => e.isWillFall = true);
 	}
 }

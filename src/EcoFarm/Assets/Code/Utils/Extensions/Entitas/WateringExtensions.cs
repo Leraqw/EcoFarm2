@@ -1,17 +1,29 @@
 ﻿using System;
-using static Code.Utils.StaticClasses.Constants.ResourcePath;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Interfaces.Config;
+using Code.Unity.SO.Configuration;
 
 namespace Code.Utils.Extensions.Entitas
 {
 	public static class WateringExtensions
 	{
-		public static GameEntity UpdateWatering(this GameEntity entity, Func<int, int> with)
+		public static GameEntity IncreaseWatering(this GameEntity @this, int value)
+			=> @this.UpdateWatering((w) => w + value);
+		
+		public static GameEntity DecreaseWatering(this GameEntity @this, int value)
+			=> @this.UpdateWatering((w) => w - value);
+
+		public static GameEntity UpdateWatering(this GameEntity @this, Func<int, int> with)
 		{
-			entity.ReplaceWatering(with(entity.watering.Value));
-			return entity;
+			@this.ReplaceWatering(with(@this.watering.Value));
+			return @this;
 		}
 		
 		public static string GetActualBucketSprite(this GameEntity entity) 
 			=> entity.isFilled ? Sprite.Bucket.Filled : Sprite.Bucket.Empty;
+
+		private static ISpriteConfig Sprite => Configuration.ResourcePath.Sprite;
+
+		private static IConfigurationService Configuration => Contexts.sharedInstance.GetConfiguration();
 	}
 }

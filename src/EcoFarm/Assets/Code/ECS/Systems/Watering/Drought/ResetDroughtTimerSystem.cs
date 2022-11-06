@@ -17,6 +17,6 @@ namespace Code.ECS.Systems.Watering.Drought
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Reset);
 
-		private static void Reset(GameEntity entity) => entity.ResetDroughtTimer();
+		private void Reset(GameEntity entity) => entity.ResetDroughtTimer();
 	}
 }
