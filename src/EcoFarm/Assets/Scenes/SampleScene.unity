@@ -944,7 +944,7 @@ MonoBehaviour:
     _warehouse: {fileID: 1876006552}
     _crane: {fileID: 1296622495}
     _bucket: {fileID: 2139132646}
-  <Configuration>k__BackingField: {fileID: 11400000, guid: bb6676675781472428718a7ac4bf9844, type: 2}
+  <UnityConfiguration>k__BackingField: {fileID: 11400000, guid: bb6676675781472428718a7ac4bf9844, type: 2}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
