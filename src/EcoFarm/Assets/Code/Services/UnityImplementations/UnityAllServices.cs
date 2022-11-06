@@ -20,7 +20,7 @@ namespace Code.Services.UnityImplementations
 		public UnityAllServices(UnityDependencies dependencies)
 		{
 			_spawnPoints = dependencies.SpawnPoints;
-			_configuration = dependencies.Configuration;
+			_configuration = dependencies.UnityConfiguration;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();

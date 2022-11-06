@@ -1,10 +1,10 @@
 ﻿using System;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.BalanceConfigs;
-using Code.Unity.SO.Config.BalanceConfigs;
+using Code.Unity.SO.Configuration.BalanceConfigs;
 using UnityEngine;
 
-namespace Code.Unity.SO.Config
+namespace Code.Unity.SO.Configuration
 {
 	[Serializable]
 	public class BalanceConfig : IBalanceConfig

@@ -2,7 +2,7 @@
 using Code.Services.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
 
-namespace Code.Unity.SO.Config.BalanceConfigs
+namespace Code.Unity.SO.Configuration.BalanceConfigs
 {
 	[Serializable]
 	public class TreeConfig : ITreeConfig

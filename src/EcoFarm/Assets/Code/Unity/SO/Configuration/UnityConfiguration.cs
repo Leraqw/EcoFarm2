@@ -1,10 +1,10 @@
 ﻿using Code.Services.Interfaces.Config;
 using UnityEngine;
 
-namespace Code.Unity.SO.Config
+namespace Code.Unity.SO.Configuration
 {
 	[CreateAssetMenu(fileName = "Configuration", menuName = "ScriptableObject/Configuration")]
-	public class Configuration : ScriptableObject, IConfigurationService
+	public class UnityConfiguration : ScriptableObject, IConfigurationService
 	{
 		[SerializeField] private BalanceConfig _balanceConfig;
 
