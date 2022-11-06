@@ -12,12 +12,15 @@ namespace Code.Unity.SO.Configuration
 		[SerializeField] private WateringConfig _watering;
 		[SerializeField] private TreeConfig _tree;
 		[SerializeField] private BucketConfig _bucket;
+		[SerializeField] private WarehouseConfig _warehouse;
 
 		public IWateringConfig Watering => _watering;
 
 		public ITreeConfig Tree => _tree;
 
 		public IBucketConfig Bucket => _bucket;
+		
+		public IWarehouseConfig Warehouse => _warehouse;
 
 		public static class FruitConfig
 		{
@@ -28,11 +31,6 @@ namespace Code.Unity.SO.Configuration
 			public static readonly Vector2 SpawnHeight = Vector2.up;
 			public const float InitialScale = 0;
 			public const float FullScale = 1;
-		}
-
-		public static class WarehouseConfig
-		{
-			public const float PickupDuration = 0.5f;
 		}
 	}
 }

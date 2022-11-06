@@ -40,11 +40,6 @@ namespace Code.Utils.StaticClasses
 				public const float InitialScale = 0;
 				public const float FullScale = 1;
 			}
-
-			public static class Warehouse
-			{
-				public const float PickupDuration = 0.5f;
-			}
 		}
 
 		public static class Temp

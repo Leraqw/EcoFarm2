@@ -9,5 +9,7 @@ namespace Code.Services.Interfaces.Config
 		ITreeConfig Tree { get; }
 		
 		IBucketConfig Bucket { get; }
+		
+		IWarehouseConfig Warehouse { get; }
 	}
 }
