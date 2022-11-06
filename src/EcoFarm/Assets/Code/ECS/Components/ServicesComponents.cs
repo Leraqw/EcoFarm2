@@ -18,4 +18,6 @@ namespace Code.ECS.Components
 	[Services] [Unique] public sealed class InputServiceComponent : ValueComponent<IInputService> { }
 	
 	[Services] [Unique] public sealed class ConfigurationServiceComponent : ValueComponent<IConfigurationService> { }
+	
+	[Services] [Unique] public sealed class UiServiceComponent : ValueComponent<IUiService> { }
 }

@@ -1,5 +1,4 @@
 ﻿using Code.Services.Interfaces.Config;
-using Code.Unity;
 
 namespace Code.Services.Interfaces
 {
