@@ -21,7 +21,7 @@ MonoBehaviour:
       <InitialWatering>k__BackingField: 3
       <WateringStep>k__BackingField: 1
     _bucket:
-      <Radius>k__BackingField: 2
+      <Radius>k__BackingField: 1
     _warehouse:
       <PickupDuration>k__BackingField: 0.5
     _fruit:
