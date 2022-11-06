@@ -49,7 +49,7 @@ namespace Code.Services.UnityImplementations
 
 		int IDataBaseService.TreesCount => _dataBase.TreesCount;
 
-		Vector2 ICameraService.ScreenToWorldPoint(Vector2 screenPosition) => _camera.ScreenToWorldPoint(screenPosition);
+		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 
 		Vector2 IInputService.MousePosition => _input.MousePosition;
 
