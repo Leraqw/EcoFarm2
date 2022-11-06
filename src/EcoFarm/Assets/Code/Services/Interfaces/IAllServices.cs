@@ -1,4 +1,5 @@
 ﻿using Code.Services.Interfaces.Config;
+using Code.Unity;
 
 namespace Code.Services.Interfaces
 {
@@ -9,5 +10,6 @@ namespace Code.Services.Interfaces
 		  IDataBaseService,
 		  ICameraService,
 		  IInputService,
-		  IConfigurationService { }
+		  IConfigurationService,
+		  IUiService { }
 }

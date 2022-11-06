@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory
@@ -9,6 +10,7 @@ namespace Code.ECS.Systems.Inventory
 
 		public CreateInventoryItemsSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => _contexts.game.CreateInventoryItem("Apple", 0);
+		public void Initialize() => _contexts.game.CreateInventoryItem("Apple", 0)
+		                                     .Do((e) => e.AddView(_contexts.services.uiService.AppleView));
 	}
 }

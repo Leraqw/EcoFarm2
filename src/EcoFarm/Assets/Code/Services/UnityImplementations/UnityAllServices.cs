@@ -16,11 +16,13 @@ namespace Code.Services.UnityImplementations
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly IConfigurationService _configuration;
+		private readonly IUiService _uiService;
 
 		public UnityAllServices(UnityDependencies dependencies)
 		{
 			_spawnPoints = dependencies.SpawnPoints;
 			_configuration = dependencies.UnityConfiguration;
+			_uiService = dependencies.UiService;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
