@@ -5,5 +5,7 @@
 		IBalanceConfig Balance { get; }
 		
 		ICommonConfig Common { get; }
+		
+		IResourcePathConfig ResourcePath { get; }
 	}
 }

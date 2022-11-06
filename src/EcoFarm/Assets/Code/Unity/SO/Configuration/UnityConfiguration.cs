@@ -8,9 +8,12 @@ namespace Code.Unity.SO.Configuration
 	{
 		[SerializeField] private BalanceConfig _balance;
 		[SerializeField] private CommonConfig _common;
+		[SerializeField] private ResourceConfig _resource;
 
 		public IBalanceConfig Balance => _balance;
 
 		public ICommonConfig Common => _common;
+
+		public IResourcePathConfig ResourcePath => _resource;
 	}
 }

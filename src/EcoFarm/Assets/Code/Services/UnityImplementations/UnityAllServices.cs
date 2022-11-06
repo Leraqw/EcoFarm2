@@ -56,5 +56,7 @@ namespace Code.Services.UnityImplementations
 		IBalanceConfig IConfigurationService.Balance => _configuration.Balance;
 
 		ICommonConfig IConfigurationService.Common => _configuration.Common;
+
+		public IResourcePathConfig ResourcePath => _configuration.ResourcePath;
 	}
 }
