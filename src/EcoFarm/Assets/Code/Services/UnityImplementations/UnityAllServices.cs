@@ -54,5 +54,7 @@ namespace Code.Services.UnityImplementations
 		Vector2 IInputService.MousePosition => _input.MousePosition;
 
 		IBalanceConfig IConfigurationService.Balance => _configuration.Balance;
+
+		ICommonConfig IConfigurationService.Common => _configuration.Common;
 	}
 }
