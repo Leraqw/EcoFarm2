@@ -50,12 +50,13 @@ public static class GameComponentsLookup {
     public const int Watered = 39;
     public const int Watering = 40;
     public const int WillFall = 41;
-    public const int PositionListener = 42;
-    public const int ProportionalScaleListener = 43;
-    public const int SpriteListener = 44;
-    public const int WateringListener = 45;
+    public const int InventoryItemListener = 42;
+    public const int PositionListener = 43;
+    public const int ProportionalScaleListener = 44;
+    public const int SpriteListener = 45;
+    public const int WateringListener = 46;
 
-    public const int TotalComponents = 46;
+    public const int TotalComponents = 47;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -100,6 +101,7 @@ public static class GameComponentsLookup {
         "Watered",
         "Watering",
         "WillFall",
+        "InventoryItemListener",
         "PositionListener",
         "ProportionalScaleListener",
         "SpriteListener",
@@ -149,6 +151,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateredComponent),
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),
+        typeof(InventoryItemListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent),
         typeof(SpriteListenerComponent),
