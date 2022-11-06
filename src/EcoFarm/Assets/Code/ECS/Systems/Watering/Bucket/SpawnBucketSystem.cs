@@ -1,7 +1,6 @@
 ﻿using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Balance.Bucket;
 using static Code.Utils.StaticClasses.Constants.ResourcePath;
 
 namespace Code.ECS.Systems.Watering.Bucket
@@ -20,7 +19,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 			            .Do((e) => e.isBucket = true)
 			            .Do((e) => e.AddRequireView(Prefab.Bucket))
 			            .Do((e) => e.AddRequireSprite(Sprite.Bucket.Filled))
-			            .Do((e) => e.AddRadius(Radius))
+			            .Do((e) => e.AddRadius(_contexts.GetConfiguration().Balance.Bucket.Radius))
 			            .Do((e) => e.isDraggable = true)
 			            .Do((e) => e.isFilled = true)
 			            .Do((e) => e.AddPosition(SpawnPointsService.Bucket))
