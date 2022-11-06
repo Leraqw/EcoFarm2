@@ -2,8 +2,6 @@
 {
 	public static class Constants
 	{
-		public const float Tolerance = 0.01f;
-
 		public static class ResourcePath
 		{
 			public static class Prefab
