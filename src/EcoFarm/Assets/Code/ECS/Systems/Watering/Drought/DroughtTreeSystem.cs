@@ -28,6 +28,6 @@ namespace Code.ECS.Systems.Watering.Drought
 
 		protected override void Execute(List<GameEntity> entites) => _trees.ForEach(Drought);
 
-		private void Drought(GameEntity tree) => tree.DecreaseWatering(Configuration.WateringStep);
+		private void Drought(GameEntity tree) => tree.DecreaseWatering(Configuration.DroughtStep);
 	}
 }
