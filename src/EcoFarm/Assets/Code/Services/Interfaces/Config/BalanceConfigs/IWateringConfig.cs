@@ -3,5 +3,6 @@
 	public interface IWateringConfig
 	{
 		float DroughtDuration { get; }
+		int   WateringStep    { get; }
 	}
 }
