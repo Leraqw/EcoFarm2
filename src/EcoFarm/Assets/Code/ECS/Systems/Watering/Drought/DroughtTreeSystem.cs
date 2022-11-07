@@ -19,7 +19,7 @@ namespace Code.ECS.Systems.Watering.Drought
 			_trees = contexts.game.GetGroup(AllOf(GameMatcher.Tree, GameMatcher.Watering));
 		}
 
-		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
+		private IWateringConfig Configuration => _contexts.GetConfiguration().Balance.Watering;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(DroughtTimer, DurationUp));
@@ -28,6 +28,6 @@ namespace Code.ECS.Systems.Watering.Drought
 
 		protected override void Execute(List<GameEntity> entites) => _trees.ForEach(Drought);
 
-		private void Drought(GameEntity tree) => tree.DecreaseWatering(Configuration.WateringStep);
+		private void Drought(GameEntity tree) => tree.DecreaseWatering(Configuration.DroughtStep);
 	}
 }

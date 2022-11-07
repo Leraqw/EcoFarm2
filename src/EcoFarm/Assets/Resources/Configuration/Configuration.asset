@@ -15,13 +15,14 @@ MonoBehaviour:
   _balance:
     _watering:
       <DroughtDuration>k__BackingField: 10
+      <DroughtStep>k__BackingField: 1
+      <WateringStep>k__BackingField: 2
     _tree:
       <MinWatering>k__BackingField: 0
       <MaxWatering>k__BackingField: 8
       <InitialWatering>k__BackingField: 3
-      <WateringStep>k__BackingField: 1
     _bucket:
-      <Radius>k__BackingField: 1
+      <Radius>k__BackingField: 2
     _warehouse:
       <PickupDuration>k__BackingField: 0.5
     _fruit:

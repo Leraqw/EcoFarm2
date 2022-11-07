@@ -14,7 +14,7 @@ namespace Code.ECS.Systems.Watering.Tree
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
+		private IWateringConfig Configuration => _contexts.GetConfiguration().Balance.Watering;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Watered);
