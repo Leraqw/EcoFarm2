@@ -13,7 +13,6 @@ namespace Code.Unity.ViewListeners.UI
 
 		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem);
 
-		public void OnInventoryItem(GameEntity entity, Item value) 
-			=> _text.text = entity.inventoryItem.Value.Count.ToString();
+		public void OnInventoryItem(GameEntity entity, Item value) => _text.text = value.Count.ToString();
 	}
 }
