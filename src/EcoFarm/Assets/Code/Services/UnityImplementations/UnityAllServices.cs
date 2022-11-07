@@ -16,11 +16,13 @@ namespace Code.Services.UnityImplementations
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly IConfigurationService _configuration;
+		private readonly IUiService _ui;
 
 		public UnityAllServices(UnityDependencies dependencies)
 		{
 			_spawnPoints = dependencies.SpawnPoints;
 			_configuration = dependencies.UnityConfiguration;
+			_ui = dependencies.UiService;
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
@@ -58,5 +60,7 @@ namespace Code.Services.UnityImplementations
 		ICommonConfig IConfigurationService.Common => _configuration.Common;
 
 		public IResourcePathConfig ResourcePath => _configuration.ResourcePath;
+
+		public GameObject AppleView => _ui.AppleView;
 	}
 }

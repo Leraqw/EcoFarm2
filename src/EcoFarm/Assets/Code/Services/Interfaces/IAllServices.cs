@@ -9,5 +9,6 @@ namespace Code.Services.Interfaces
 		  IDataBaseService,
 		  ICameraService,
 		  IInputService,
-		  IConfigurationService { }
+		  IConfigurationService,
+		  IUiService { }
 }
