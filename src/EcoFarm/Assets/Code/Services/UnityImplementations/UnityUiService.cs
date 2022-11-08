@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Services.Interfaces;
+using Code.Unity.Containers;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -13,6 +14,6 @@ namespace Code.Services.UnityImplementations
 
 		[field: SerializeField] public GameObject CoinsView  { get; private set; }
 		[field: SerializeField] public GameObject AppleView  { get; private set; }
-		[field: SerializeField] public GameObject SellWindow { get; private set; }
+		[field: SerializeField] public ClosableWindow SellWindow { get; private set; }
 	}
 }

@@ -3,6 +3,7 @@ using Code.Data.Config;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Unity;
+using Code.Unity.Containers;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -65,8 +66,6 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IUiService.AppleView => _ui.AppleView;
 
-		GameObject IUiService.SellWindow => _ui.SellWindow;
-
-		IButtonsCollection IUiService.Buttons => _ui.Buttons;
+		ClosableWindow IUiService.SellWindow => _ui.SellWindow;
 	}
 }

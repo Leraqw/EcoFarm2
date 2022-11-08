@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Unity.Containers;
+using UnityEngine;
 
 namespace Code.Services.Interfaces
 {
@@ -6,7 +7,6 @@ namespace Code.Services.Interfaces
 	{
 		GameObject         CoinsView  { get; }
 		GameObject         AppleView  { get; }
-		GameObject         SellWindow { get; }
-		IButtonsCollection Buttons    { get; }
+		ClosableWindow     SellWindow { get; }
 	}
 }
