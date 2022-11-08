@@ -9,5 +9,5 @@ namespace Code.ECS.Components
 
 	[Game] [Event(Self)] public sealed class InventoryItemComponent : ValueComponent<Item> { }
 
-	[Game] public sealed class CoinsCountComponent : ValueComponent<int> { }
+	[Game] [Event(Self)] public sealed class CoinsCountComponent : ValueComponent<int> { }
 }
