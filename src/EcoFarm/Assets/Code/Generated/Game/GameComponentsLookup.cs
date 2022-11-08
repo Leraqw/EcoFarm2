@@ -44,25 +44,29 @@ public static class GameComponentsLookup {
     public const int RequireTreeOnPosition = 33;
     public const int RequireView = 34;
     public const int SellWindow = 35;
-    public const int SpawnPosition = 36;
-    public const int Sprite = 37;
-    public const int TargetActivity = 38;
-    public const int TargetPosition = 39;
-    public const int TargetScale = 40;
-    public const int Tree = 41;
-    public const int View = 42;
-    public const int Watered = 43;
-    public const int Watering = 44;
-    public const int WillFall = 45;
-    public const int CoinsCountListener = 46;
-    public const int EnabledListener = 47;
-    public const int InventoryItemListener = 48;
-    public const int PositionListener = 49;
-    public const int ProportionalScaleListener = 50;
-    public const int SpriteListener = 51;
-    public const int WateringListener = 52;
+    public const int SliderMaxValue = 36;
+    public const int SliderValue = 37;
+    public const int SpawnPosition = 38;
+    public const int Sprite = 39;
+    public const int TargetActivity = 40;
+    public const int TargetPosition = 41;
+    public const int TargetScale = 42;
+    public const int Tree = 43;
+    public const int View = 44;
+    public const int Watered = 45;
+    public const int Watering = 46;
+    public const int WillFall = 47;
+    public const int CoinsCountListener = 48;
+    public const int EnabledListener = 49;
+    public const int InventoryItemListener = 50;
+    public const int PositionListener = 51;
+    public const int ProportionalScaleListener = 52;
+    public const int SliderMaxValueListener = 53;
+    public const int SliderValueListener = 54;
+    public const int SpriteListener = 55;
+    public const int WateringListener = 56;
 
-    public const int TotalComponents = 53;
+    public const int TotalComponents = 57;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -101,6 +105,8 @@ public static class GameComponentsLookup {
         "RequireTreeOnPosition",
         "RequireView",
         "SellWindow",
+        "SliderMaxValue",
+        "SliderValue",
         "SpawnPosition",
         "Sprite",
         "TargetActivity",
@@ -116,6 +122,8 @@ public static class GameComponentsLookup {
         "InventoryItemListener",
         "PositionListener",
         "ProportionalScaleListener",
+        "SliderMaxValueListener",
+        "SliderValueListener",
         "SpriteListener",
         "WateringListener"
     };
@@ -157,6 +165,8 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SellWindowComponent),
+        typeof(Code.ECS.Components.SliderMaxValueComponent),
+        typeof(Code.ECS.Components.SliderValueComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
         typeof(Code.ECS.Components.TargetActivityComponent),
@@ -172,6 +182,8 @@ public static class GameComponentsLookup {
         typeof(InventoryItemListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent),
+        typeof(SliderMaxValueListenerComponent),
+        typeof(SliderValueListenerComponent),
         typeof(SpriteListenerComponent),
         typeof(WateringListenerComponent)
     };

@@ -12,4 +12,8 @@ namespace Code.ECS.Components
 	[Game] public sealed class SellWindowComponent : FlagComponent { }
 
 	[Game] public sealed class TargetActivityComponent : ValueComponent<bool> { }
+
+	[Game] [Event(Self)] public sealed class SliderMaxValueComponent : ValueComponent<float> { }
+
+	[Game] [Event(Self)] public sealed class SliderValueComponent : ValueComponent<float> { }
 }
