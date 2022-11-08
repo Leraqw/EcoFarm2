@@ -30,42 +30,39 @@ public static class GameComponentsLookup {
     public const int FruitRequire = 19;
     public const int FruitTypeId = 20;
     public const int Growth = 21;
-    public const int HideOnInvoke = 22;
-    public const int Inventory = 23;
-    public const int InventoryItem = 24;
-    public const int MouseClick = 25;
-    public const int MouseDown = 26;
-    public const int MouseUp = 27;
-    public const int Pickable = 28;
-    public const int Picked = 29;
-    public const int Position = 30;
-    public const int ProcessedObject = 31;
-    public const int ProportionalScale = 32;
-    public const int Radius = 33;
-    public const int RequireSprite = 34;
-    public const int RequireTreeOnPosition = 35;
-    public const int RequireView = 36;
-    public const int SellWindow = 37;
-    public const int ShowOnInvoke = 38;
-    public const int SpawnPosition = 39;
-    public const int Sprite = 40;
-    public const int TargetActivity = 41;
-    public const int TargetPosition = 42;
-    public const int TargetScale = 43;
-    public const int Tree = 44;
-    public const int View = 45;
-    public const int Watered = 46;
-    public const int Watering = 47;
-    public const int WillFall = 48;
-    public const int CoinsCountListener = 49;
-    public const int EnabledListener = 50;
-    public const int InventoryItemListener = 51;
-    public const int PositionListener = 52;
-    public const int ProportionalScaleListener = 53;
-    public const int SpriteListener = 54;
-    public const int WateringListener = 55;
+    public const int Inventory = 22;
+    public const int InventoryItem = 23;
+    public const int MouseClick = 24;
+    public const int MouseDown = 25;
+    public const int MouseUp = 26;
+    public const int Pickable = 27;
+    public const int Picked = 28;
+    public const int Position = 29;
+    public const int ProportionalScale = 30;
+    public const int Radius = 31;
+    public const int RequireSprite = 32;
+    public const int RequireTreeOnPosition = 33;
+    public const int RequireView = 34;
+    public const int SellWindow = 35;
+    public const int SpawnPosition = 36;
+    public const int Sprite = 37;
+    public const int TargetActivity = 38;
+    public const int TargetPosition = 39;
+    public const int TargetScale = 40;
+    public const int Tree = 41;
+    public const int View = 42;
+    public const int Watered = 43;
+    public const int Watering = 44;
+    public const int WillFall = 45;
+    public const int CoinsCountListener = 46;
+    public const int EnabledListener = 47;
+    public const int InventoryItemListener = 48;
+    public const int PositionListener = 49;
+    public const int ProportionalScaleListener = 50;
+    public const int SpriteListener = 51;
+    public const int WateringListener = 52;
 
-    public const int TotalComponents = 56;
+    public const int TotalComponents = 53;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -90,7 +87,6 @@ public static class GameComponentsLookup {
         "FruitRequire",
         "FruitTypeId",
         "Growth",
-        "HideOnInvoke",
         "Inventory",
         "InventoryItem",
         "MouseClick",
@@ -99,14 +95,12 @@ public static class GameComponentsLookup {
         "Pickable",
         "Picked",
         "Position",
-        "ProcessedObject",
         "ProportionalScale",
         "Radius",
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
         "SellWindow",
-        "ShowOnInvoke",
         "SpawnPosition",
         "Sprite",
         "TargetActivity",
@@ -149,7 +143,6 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.FruitTypeIdComponent),
         typeof(Code.ECS.Components.GrowthComponent),
-        typeof(Code.ECS.Components.HideOnInvokeComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
         typeof(Code.ECS.Components.MouseClickComponent),
@@ -158,14 +151,12 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
-        typeof(Code.ECS.Components.ProcessedObjectComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
         typeof(Code.ECS.Components.SellWindowComponent),
-        typeof(Code.ECS.Components.ShowOnInvokeComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
         typeof(Code.ECS.Components.TargetActivityComponent),

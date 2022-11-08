@@ -25,7 +25,6 @@ namespace Code.ECS.Systems.UI
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("ButtonSell"))
 			            .Do((e) => e.AddAttachedTo(window.attachableIndex))
-			            .Do((e) => e.isShowOnInvoke = true)
 			            .Do((e) => e.AddView(UI.Buttons.Sell));
 	}
 }

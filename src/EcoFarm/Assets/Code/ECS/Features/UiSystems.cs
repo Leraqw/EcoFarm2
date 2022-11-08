@@ -9,7 +9,6 @@ namespace Code.ECS.Features
 		{
 			Add(new InitializeSellWindowSystem(contexts));
 			Add(new InitializeSellButtonSystem(contexts));
-			Add(new OnSellButtonClickSystem(contexts));
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 		}
 	}
