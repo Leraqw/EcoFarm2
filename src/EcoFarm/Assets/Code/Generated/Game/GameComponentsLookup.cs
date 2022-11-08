@@ -104,7 +104,7 @@ public static class GameComponentsLookup {
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
-        "SellWindow",
+        "SellWindowSell",
         "SliderMaxValue",
         "SliderValue",
         "SpawnPosition",

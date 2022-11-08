@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.UI
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("SellWindow"))
 			            .Do((e) => e.AddEnabled(false))
-			            .Do((e) => e.AddView(UI.SellWindow.gameObject))
+			            .Do((e) => e.AddView(UI.SellWindowSell.gameObject))
 			            .Do((e) => e.AddAttachableIndex(e.creationIndex));
 	}
 }

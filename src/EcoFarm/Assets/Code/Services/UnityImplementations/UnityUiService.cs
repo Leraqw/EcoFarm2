@@ -14,6 +14,6 @@ namespace Code.Services.UnityImplementations
 
 		[field: SerializeField] public GameObject CoinsView  { get; private set; }
 		[field: SerializeField] public GameObject AppleView  { get; private set; }
-		[field: SerializeField] public ClosableWindow SellWindow { get; private set; }
+		[field: SerializeField] public WindowSell SellWindowSell { get; private set; }
 	}
 }
