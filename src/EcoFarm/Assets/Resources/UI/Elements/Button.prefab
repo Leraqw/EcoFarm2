@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 2787566651835839761}
   - component: {fileID: 2787566651835839774}
   - component: {fileID: 2787566651835839775}
-  - component: {fileID: 7474781787425763452}
-  - component: {fileID: 249992597257009193}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -124,32 +122,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7474781787425763452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2787566651835839773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d574392eea14fad90f6b1045fc7d7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &249992597257009193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2787566651835839773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a16625876c4a9fb96702e524ae0277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 2787566651835839775}
-  _viewListener: {fileID: 7474781787425763452}
 --- !u!1001 &811576768988696405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +216,14 @@ PrefabInstance:
     - target: {fileID: 3309057057493930793, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309057057493930794, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309057057493930794, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
