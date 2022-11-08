@@ -39,31 +39,33 @@ public static class GameComponentsLookup {
     public const int Pickable = 28;
     public const int Picked = 29;
     public const int Position = 30;
-    public const int ProportionalScale = 31;
-    public const int Radius = 32;
-    public const int RequireSprite = 33;
-    public const int RequireTreeOnPosition = 34;
-    public const int RequireView = 35;
-    public const int SellWindow = 36;
-    public const int ShowOnInvoke = 37;
-    public const int SpawnPosition = 38;
-    public const int Sprite = 39;
-    public const int TargetPosition = 40;
-    public const int TargetScale = 41;
-    public const int Tree = 42;
-    public const int View = 43;
-    public const int Watered = 44;
-    public const int Watering = 45;
-    public const int WillFall = 46;
-    public const int CoinsCountListener = 47;
-    public const int EnabledListener = 48;
-    public const int InventoryItemListener = 49;
-    public const int PositionListener = 50;
-    public const int ProportionalScaleListener = 51;
-    public const int SpriteListener = 52;
-    public const int WateringListener = 53;
+    public const int ProcessedObject = 31;
+    public const int ProportionalScale = 32;
+    public const int Radius = 33;
+    public const int RequireSprite = 34;
+    public const int RequireTreeOnPosition = 35;
+    public const int RequireView = 36;
+    public const int SellWindow = 37;
+    public const int ShowOnInvoke = 38;
+    public const int SpawnPosition = 39;
+    public const int Sprite = 40;
+    public const int TargetActivity = 41;
+    public const int TargetPosition = 42;
+    public const int TargetScale = 43;
+    public const int Tree = 44;
+    public const int View = 45;
+    public const int Watered = 46;
+    public const int Watering = 47;
+    public const int WillFall = 48;
+    public const int CoinsCountListener = 49;
+    public const int EnabledListener = 50;
+    public const int InventoryItemListener = 51;
+    public const int PositionListener = 52;
+    public const int ProportionalScaleListener = 53;
+    public const int SpriteListener = 54;
+    public const int WateringListener = 55;
 
-    public const int TotalComponents = 54;
+    public const int TotalComponents = 56;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -97,6 +99,7 @@ public static class GameComponentsLookup {
         "Pickable",
         "Picked",
         "Position",
+        "ProcessedObject",
         "ProportionalScale",
         "Radius",
         "RequireSprite",
@@ -106,6 +109,7 @@ public static class GameComponentsLookup {
         "ShowOnInvoke",
         "SpawnPosition",
         "Sprite",
+        "TargetActivity",
         "TargetPosition",
         "TargetScale",
         "Tree",
@@ -154,6 +158,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
+        typeof(Code.ECS.Components.ProcessedObjectComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
@@ -163,6 +168,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.ShowOnInvokeComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
+        typeof(Code.ECS.Components.TargetActivityComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.TreeComponent),
