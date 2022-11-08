@@ -59,8 +59,9 @@ namespace Code.Services.UnityImplementations
 
 		ICommonConfig IConfigurationService.Common => _configuration.Common;
 
-		public IResourcePathConfig ResourcePath => _configuration.ResourcePath;
+		IResourcePathConfig IConfigurationService.ResourcePath => _configuration.ResourcePath;
 
-		public GameObject AppleView => _ui.AppleView;
+		GameObject IUiService.CoinsView => _ui.CoinsView;
+		GameObject IUiService.AppleView => _ui.AppleView;
 	}
 }
