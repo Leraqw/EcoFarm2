@@ -1,8 +1,6 @@
 ﻿using System.Linq;
-using Code.ECS.Components.ComplexComponentTypes;
 using Code.Services.Interfaces;
 using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.UI
@@ -15,16 +13,13 @@ namespace Code.ECS.Systems.UI
 
 		private IUiService UI => _contexts.services.uiService.Value;
 
-		private Item FirstInventoryItem => _contexts.game.GetInventoryItems().First().inventoryItem.Value;
+		private GameEntity SellWindow => _contexts.game.GetEntities(GameMatcher.SellWindow).First();
 
-		public void Initialize()
-		{
-			_contexts.game.CreateEntity()
-			         .Do((e) => e.AddDebugName("Slider"))
-			         .Do((e) => e.AddView(UI.WindowSell.CountToSellSlider.gameObject))
-			         .Do((e) => e.AddSliderValue(0))
-			         .Do((e) => e.AddSliderMaxValue(0))
-				;
-		}
+		public void Initialize() => _contexts.game.CreateEntity()
+		                                     .Do((e) => e.AddDebugName("Slider"))
+		                                     .Do((e) => e.AddView(UI.WindowSell.CountToSellSlider.gameObject))
+		                                     .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
+		                                     .Do((e) => e.AddSliderValue(0))
+		                                     .Do((e) => e.AddSliderMaxValue(0));
 	}
 }
