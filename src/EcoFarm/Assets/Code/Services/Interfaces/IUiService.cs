@@ -7,6 +7,6 @@ namespace Code.Services.Interfaces
 	{
 		GameObject         CoinsView  { get; }
 		GameObject         AppleView  { get; }
-		WindowSell     SellWindowSell { get; }
+		WindowSell     WindowSell { get; }
 	}
 }

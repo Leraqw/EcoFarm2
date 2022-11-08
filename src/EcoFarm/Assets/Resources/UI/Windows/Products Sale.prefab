@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ae7e966c26448da93b61a1ef51bac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ButtonClose>k__BackingField: {fileID: 4542579868057464810}
+  <CountToSellSlider>k__BackingField: {fileID: 4542579868877592188}
 --- !u!1001 &348190630826418286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,6 +252,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4314300945401722381, guid: 774bbcd86b6226541a7e79998465f774, type: 3}
   m_PrefabInstance: {fileID: 348190630826418286}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4542579868877592188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4314300945401722386, guid: 774bbcd86b6226541a7e79998465f774, type: 3}
+  m_PrefabInstance: {fileID: 348190630826418286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &489873950996882632
 PrefabInstance:
   m_ObjectHideFlags: 0

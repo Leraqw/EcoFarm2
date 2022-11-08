@@ -66,6 +66,6 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IUiService.AppleView => _ui.AppleView;
 
-		WindowSell IUiService.SellWindowSell => _ui.SellWindowSell;
+		WindowSell IUiService.WindowSell => _ui.WindowSell;
 	}
 }
