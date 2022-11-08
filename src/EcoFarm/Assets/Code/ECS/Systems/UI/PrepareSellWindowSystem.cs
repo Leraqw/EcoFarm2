@@ -30,14 +30,15 @@ namespace Code.ECS.Systems.UI
 			var sliders = _contexts.game
 			                       .GetEntitiesWithAttachedTo(window.attachableIndex)
 			                       .Where(IsSlider);
-			
+
 			sliders.ForEach(ActualizeValue);
-			
+
+			window.isPreparationInProcess = false;
 			window.isPrepared = true;
 		}
 
 		private void ActualizeValue(GameEntity entity) => entity.sliderMaxValue.Value = FirstInventoryItem.Count;
 
-		private bool IsSlider(GameEntity e) => e.hasSliderValue && e.hasSliderMaxValue;
+		private bool IsSlider(GameEntity e) => e.hasSliderMaxValue;
 	}
 }

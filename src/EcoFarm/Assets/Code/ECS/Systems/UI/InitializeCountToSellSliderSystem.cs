@@ -15,11 +15,12 @@ namespace Code.ECS.Systems.UI
 
 		private GameEntity SellWindow => _contexts.game.GetEntities(GameMatcher.SellWindow).First();
 
-		public void Initialize() => _contexts.game.CreateEntity()
-		                                     .Do((e) => e.AddDebugName("Slider"))
-		                                     .Do((e) => e.AddView(UI.WindowSell.CountToSellSlider.gameObject))
-		                                     .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
-		                                     .Do((e) => e.AddSliderValue(0))
-		                                     .Do((e) => e.AddSliderMaxValue(0));
+		public void Initialize()
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddDebugName("Slider"))
+			            .Do((e) => e.AddView(UI.WindowSell.CountToSellSlider.gameObject))
+			            .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
+			            .Do((e) => e.AddSliderValue(0))
+			            .Do((e) => e.AddSliderMaxValue(0));
 	}
 }
