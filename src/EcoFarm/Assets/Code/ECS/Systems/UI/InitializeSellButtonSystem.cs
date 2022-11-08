@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
@@ -16,6 +17,8 @@ namespace Code.ECS.Systems.UI
 			_windows = _contexts.game.GetGroup(AllOf(SellWindow, AttachableIndex));
 		}
 
+		private IUiService UI => _contexts.services.uiService.Value;
+
 		public void Initialize() => _windows.ForEach(Bind);
 
 		private void Bind(GameEntity window)
@@ -23,6 +26,6 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.AddDebugName("ButtonSell"))
 			            .Do((e) => e.AddAttachedTo(window.attachableIndex))
 			            .Do((e) => e.isShowOnInvoke = true)
-			            .Do((e) => e.AddView(_contexts.services.uiService.Value.Buttons.Sell));
+			            .Do((e) => e.AddView(UI.Buttons.Sell));
 	}
 }
