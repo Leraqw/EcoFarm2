@@ -61,6 +61,7 @@ namespace Code.Services.UnityImplementations
 
 		public IResourcePathConfig ResourcePath => _configuration.ResourcePath;
 
+		public GameObject CoinsView => _ui.CoinsView;
 		public GameObject AppleView => _ui.AppleView;
 	}
 }
