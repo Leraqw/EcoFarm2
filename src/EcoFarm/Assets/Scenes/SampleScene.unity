@@ -1576,11 +1576,6 @@ Transform:
   m_Father: {fileID: 230805173}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1877000529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4542579869774672509, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-  m_PrefabInstance: {fileID: 4542579867969041196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1877000530 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4542579869774672510, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
@@ -1591,10 +1586,21 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4542579869774672511, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
   m_PrefabInstance: {fileID: 4542579867969041196}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877000529}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d574392eea14fad90f6b1045fc7d7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1877000532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985782351144795685, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
+  m_PrefabInstance: {fileID: 4542579867969041196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae7e966c26448da93b61a1ef51bac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2010968208
@@ -1856,7 +1862,7 @@ MonoBehaviour:
       <Sell>k__BackingField: {fileID: 1605429770}
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
-    <SellWindow>k__BackingField: {fileID: 1877000529}
+    <SellWindow>k__BackingField: {fileID: 1877000532}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
