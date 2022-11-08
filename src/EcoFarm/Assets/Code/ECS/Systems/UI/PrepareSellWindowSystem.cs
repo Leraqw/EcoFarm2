@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.UI
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PreparationInProcess, SellWindow));
 
-		protected override bool Filter(GameEntity entity) => entity.isPrepared == false;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Prepare);
 
@@ -34,10 +34,9 @@ namespace Code.ECS.Systems.UI
 			sliders.ForEach(ActualizeValue);
 
 			window.isPreparationInProcess = false;
-			window.isPrepared = true;
 		}
 
-		private void ActualizeValue(GameEntity entity) => entity.sliderMaxValue.Value = FirstInventoryItem.Count;
+		private void ActualizeValue(GameEntity entity) => entity.ReplaceSliderMaxValue(FirstInventoryItem.Count);
 
 		private bool IsSlider(GameEntity e) => e.hasSliderMaxValue;
 	}
