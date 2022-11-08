@@ -11,6 +11,7 @@ namespace Code.ECS.Features
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 			Add(new PrepareSellWindowSystem(contexts));
+			Add(new EnablePreparedWindow(contexts));
 		}
 	}
 }
