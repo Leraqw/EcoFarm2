@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 893405805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387d6db4bac848b5be1e3afa7d20ba6e, type: 3}
+  m_Script: {fileID: 11500000, guid: f77aff7cdf094b1d913e7e1de97c95e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 573984393}
@@ -2400,6 +2400,7 @@ MonoBehaviour:
     _bucket: {fileID: 2139132646}
   <UnityConfiguration>k__BackingField: {fileID: 11400000, guid: bb6676675781472428718a7ac4bf9844, type: 2}
   <UiService>k__BackingField:
+    <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
 --- !u!1001 &2048831294
 PrefabInstance:

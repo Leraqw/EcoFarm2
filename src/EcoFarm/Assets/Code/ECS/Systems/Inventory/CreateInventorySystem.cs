@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using Code.Services.Interfaces;
+using Code.Utils.Extensions;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory
@@ -9,11 +10,14 @@ namespace Code.ECS.Systems.Inventory
 
 		public CreateInventorySystem(Contexts contexts) => _contexts = contexts;
 
+		private IUiService UIService => _contexts.services.uiService.Value;
+
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Inventory"))
 			            .Do((e) => e.AddAttachableIndex(e.creationIndex))
 			            .Do((e) => e.isInventory = true)
-			            .Do((e) => e.AddCoinsCount(0));
+			            .Do((e) => e.AddCoinsCount(0))
+			            .Do((e) => e.AddView(UIService.CoinsView));
 	}
 }
