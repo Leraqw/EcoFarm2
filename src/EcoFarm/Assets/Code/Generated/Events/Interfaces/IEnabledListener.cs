@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IEnabledListener {
-    void OnEnabled(GameEntity entity);
+    void OnEnabled(GameEntity entity, bool value);
 }

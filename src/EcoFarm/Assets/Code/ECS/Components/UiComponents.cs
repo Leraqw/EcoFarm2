@@ -4,5 +4,5 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.ECS.Components
 {
-	[Game] [Event(Self)] public sealed class EnabledComponent : FlagComponent { }
+	[Game] [Event(Self)] public sealed class EnabledComponent : ValueComponent<bool> { }
 }

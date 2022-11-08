@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.EnabledComponent enabledComponent = new Code.ECS.Components.EnabledComponent();
+    public Code.ECS.Components.EnabledComponent enabled { get { return (Code.ECS.Components.EnabledComponent)GetComponent(GameComponentsLookup.Enabled); } }
+    public bool hasEnabled { get { return HasComponent(GameComponentsLookup.Enabled); } }
 
-    public bool isEnabled {
-        get { return HasComponent(GameComponentsLookup.Enabled); }
-        set {
-            if (value != isEnabled) {
-                var index = GameComponentsLookup.Enabled;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : enabledComponent;
+    public void AddEnabled(bool newValue) {
+        var index = GameComponentsLookup.Enabled;
+        var component = (Code.ECS.Components.EnabledComponent)CreateComponent(index, typeof(Code.ECS.Components.EnabledComponent));
+        component.Value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceEnabled(bool newValue) {
+        var index = GameComponentsLookup.Enabled;
+        var component = (Code.ECS.Components.EnabledComponent)CreateComponent(index, typeof(Code.ECS.Components.EnabledComponent));
+        component.Value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveEnabled() {
+        RemoveComponent(GameComponentsLookup.Enabled);
     }
 }
 

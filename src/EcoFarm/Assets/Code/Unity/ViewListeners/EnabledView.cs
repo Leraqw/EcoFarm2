@@ -5,10 +5,10 @@ namespace Code.Unity.ViewListeners
 	{
 		protected override void AddListener(GameEntity entity) => entity.AddEnabledListener(this);
 
-		protected override bool HasComponent(GameEntity entity) => true;
+		protected override bool HasComponent(GameEntity entity) => entity.hasEnabled;
 
-		protected override void UpdateValue(GameEntity entity) => OnEnabled(entity);
+		protected override void UpdateValue(GameEntity entity) => OnEnabled(entity, entity.isEnabled);
 
-		public void OnEnabled(GameEntity entity) => enabled = entity.isEnabled;
+		public void OnEnabled(GameEntity entity, bool value) => gameObject.SetActive(value);
 	}
 }

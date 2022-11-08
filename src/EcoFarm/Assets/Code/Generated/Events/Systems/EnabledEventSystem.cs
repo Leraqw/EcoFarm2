@@ -21,16 +21,16 @@ public sealed class EnabledEventSystem : Entitas.ReactiveSystem<GameEntity> {
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.isEnabled && entity.hasEnabledListener;
+        return entity.hasEnabled && entity.hasEnabledListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.enabled;
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.enabledListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnEnabled(e);
+                listener.OnEnabled(e, component.Value);
             }
         }
     }
