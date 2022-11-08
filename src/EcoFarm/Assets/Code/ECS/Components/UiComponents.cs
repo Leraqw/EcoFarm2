@@ -10,4 +10,8 @@ namespace Code.ECS.Components
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : FlagComponent { }
 
 	[Game] public sealed class SellWindowComponent : FlagComponent { }
+
+	[Game] public sealed class ShowOnInvokeComponent : FlagComponent { }
+	
+	[Game] public sealed class HideOnInvokeComponent : FlagComponent { }
 }

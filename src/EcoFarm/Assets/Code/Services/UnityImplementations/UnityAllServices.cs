@@ -61,8 +61,12 @@ namespace Code.Services.UnityImplementations
 
 		IResourcePathConfig IConfigurationService.ResourcePath => _configuration.ResourcePath;
 
-		GameObject IUiService.CoinsView  => _ui.CoinsView;
-		GameObject IUiService.AppleView  => _ui.AppleView;
+		GameObject IUiService.CoinsView => _ui.CoinsView;
+
+		GameObject IUiService.AppleView => _ui.AppleView;
+
 		GameObject IUiService.SellWindow => _ui.SellWindow;
+
+		IButtonsCollection IUiService.Buttons => _ui.Buttons;
 	}
 }
