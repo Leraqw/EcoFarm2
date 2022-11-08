@@ -8,6 +8,5 @@ namespace Code.Services.Interfaces
 		GameObject         CoinsView  { get; }
 		GameObject         AppleView  { get; }
 		ClosableWindow     SellWindow { get; }
-		IButtonsCollection Buttons    { get; }
 	}
 }
