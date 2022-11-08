@@ -38,35 +38,38 @@ public static class GameComponentsLookup {
     public const int Pickable = 27;
     public const int Picked = 28;
     public const int Position = 29;
-    public const int ProportionalScale = 30;
-    public const int Radius = 31;
-    public const int RequireSprite = 32;
-    public const int RequireTreeOnPosition = 33;
-    public const int RequireView = 34;
-    public const int SellWindow = 35;
-    public const int SliderMaxValue = 36;
-    public const int SliderValue = 37;
-    public const int SpawnPosition = 38;
-    public const int Sprite = 39;
-    public const int TargetActivity = 40;
-    public const int TargetPosition = 41;
-    public const int TargetScale = 42;
-    public const int Tree = 43;
-    public const int View = 44;
-    public const int Watered = 45;
-    public const int Watering = 46;
-    public const int WillFall = 47;
-    public const int CoinsCountListener = 48;
-    public const int EnabledListener = 49;
-    public const int InventoryItemListener = 50;
-    public const int PositionListener = 51;
-    public const int ProportionalScaleListener = 52;
-    public const int SliderMaxValueListener = 53;
-    public const int SliderValueListener = 54;
-    public const int SpriteListener = 55;
-    public const int WateringListener = 56;
+    public const int PreparationInProcess = 30;
+    public const int Prepared = 31;
+    public const int ProportionalScale = 32;
+    public const int Radius = 33;
+    public const int RequirePreparation = 34;
+    public const int RequireSprite = 35;
+    public const int RequireTreeOnPosition = 36;
+    public const int RequireView = 37;
+    public const int SellWindow = 38;
+    public const int SliderMaxValue = 39;
+    public const int SliderValue = 40;
+    public const int SpawnPosition = 41;
+    public const int Sprite = 42;
+    public const int TargetActivity = 43;
+    public const int TargetPosition = 44;
+    public const int TargetScale = 45;
+    public const int Tree = 46;
+    public const int View = 47;
+    public const int Watered = 48;
+    public const int Watering = 49;
+    public const int WillFall = 50;
+    public const int CoinsCountListener = 51;
+    public const int EnabledListener = 52;
+    public const int InventoryItemListener = 53;
+    public const int PositionListener = 54;
+    public const int ProportionalScaleListener = 55;
+    public const int SliderMaxValueListener = 56;
+    public const int SliderValueListener = 57;
+    public const int SpriteListener = 58;
+    public const int WateringListener = 59;
 
-    public const int TotalComponents = 57;
+    public const int TotalComponents = 60;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -99,12 +102,15 @@ public static class GameComponentsLookup {
         "Pickable",
         "Picked",
         "Position",
+        "PreparationInProcess",
+        "Prepared",
         "ProportionalScale",
         "Radius",
+        "RequirePreparation",
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
-        "WindowSell",
+        "SellWindow",
         "SliderMaxValue",
         "SliderValue",
         "SpawnPosition",
@@ -159,8 +165,11 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
+        typeof(Code.ECS.Components.PreparationInProcessComponent),
+        typeof(Code.ECS.Components.PreparedComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
+        typeof(Code.ECS.Components.RequirePreparationComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),

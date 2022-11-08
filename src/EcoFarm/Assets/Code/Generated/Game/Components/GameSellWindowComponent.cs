@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.SellWindowComponent sellWindowComponent = new Code.ECS.Components.SellWindowComponent();
+    public Code.ECS.Components.SellWindowComponent sellWindow { get { return (Code.ECS.Components.SellWindowComponent)GetComponent(GameComponentsLookup.SellWindow); } }
+    public bool hasSellWindow { get { return HasComponent(GameComponentsLookup.SellWindow); } }
 
-    public bool isSellWindow {
-        get { return HasComponent(GameComponentsLookup.SellWindow); }
-        set {
-            if (value != isSellWindow) {
-                var index = GameComponentsLookup.SellWindow;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : sellWindowComponent;
+    public void AddSellWindow(Code.Unity.Containers.WindowSell newValue) {
+        var index = GameComponentsLookup.SellWindow;
+        var component = (Code.ECS.Components.SellWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.SellWindowComponent));
+        component.Value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceSellWindow(Code.Unity.Containers.WindowSell newValue) {
+        var index = GameComponentsLookup.SellWindow;
+        var component = (Code.ECS.Components.SellWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.SellWindowComponent));
+        component.Value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveSellWindow() {
+        RemoveComponent(GameComponentsLookup.SellWindow);
     }
 }
 

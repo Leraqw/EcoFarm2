@@ -20,8 +20,20 @@ namespace Code.ECS.Systems.UI
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Toggle);
 
 		private void Toggle(GameEntity button)
-			=> GetWindowForButton(button)
-				.ReplaceEnabled(button.targetActivity);
+		{
+			var activity = button.targetActivity;
+			var window = GetWindowForButton(button);
+
+			if (activity == true
+			    && window.isRequirePreparation)
+			{
+				window.isRequirePreparation = false;
+				window.isPreparationInProcess = true;
+				return;
+			}
+
+			window.ReplaceEnabled(activity);
+		}
 
 		private GameEntity GetWindowForButton(GameEntity button)
 			=> _contexts.game.GetEntityWithAttachableIndex(button.attachedTo);

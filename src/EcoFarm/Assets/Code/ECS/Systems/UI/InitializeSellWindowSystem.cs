@@ -17,6 +17,8 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.AddDebugName("SellWindow"))
 			            .Do((e) => e.AddEnabled(false))
 			            .Do((e) => e.AddView(UI.WindowSell.gameObject))
-			            .Do((e) => e.AddAttachableIndex(e.creationIndex));
+			            .Do((e) => e.AddSellWindow(UI.WindowSell))
+			            .Do((e) => e.AddAttachableIndex(e.creationIndex))
+			            .Do((e) => e.isRequirePreparation = true);
 	}
 }
