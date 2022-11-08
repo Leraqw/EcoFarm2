@@ -43,24 +43,25 @@ public static class GameComponentsLookup {
     public const int RequireSprite = 32;
     public const int RequireTreeOnPosition = 33;
     public const int RequireView = 34;
-    public const int SpawnPosition = 35;
-    public const int Sprite = 36;
-    public const int TargetPosition = 37;
-    public const int TargetScale = 38;
-    public const int Tree = 39;
-    public const int View = 40;
-    public const int Watered = 41;
-    public const int Watering = 42;
-    public const int WillFall = 43;
-    public const int CoinsCountListener = 44;
-    public const int EnabledListener = 45;
-    public const int InventoryItemListener = 46;
-    public const int PositionListener = 47;
-    public const int ProportionalScaleListener = 48;
-    public const int SpriteListener = 49;
-    public const int WateringListener = 50;
+    public const int SellWindow = 35;
+    public const int SpawnPosition = 36;
+    public const int Sprite = 37;
+    public const int TargetPosition = 38;
+    public const int TargetScale = 39;
+    public const int Tree = 40;
+    public const int View = 41;
+    public const int Watered = 42;
+    public const int Watering = 43;
+    public const int WillFall = 44;
+    public const int CoinsCountListener = 45;
+    public const int EnabledListener = 46;
+    public const int InventoryItemListener = 47;
+    public const int PositionListener = 48;
+    public const int ProportionalScaleListener = 49;
+    public const int SpriteListener = 50;
+    public const int WateringListener = 51;
 
-    public const int TotalComponents = 51;
+    public const int TotalComponents = 52;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -98,6 +99,7 @@ public static class GameComponentsLookup {
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
+        "SellWindow",
         "SpawnPosition",
         "Sprite",
         "TargetPosition",
@@ -152,6 +154,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
+        typeof(Code.ECS.Components.SellWindowComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),

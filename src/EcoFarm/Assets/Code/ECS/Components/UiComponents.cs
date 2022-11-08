@@ -8,4 +8,6 @@ namespace Code.ECS.Components
 	[Game] [Event(Self)] public sealed class EnabledComponent : ValueComponent<bool> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : FlagComponent { }
+
+	[Game] public sealed class SellWindowComponent : FlagComponent { }
 }
