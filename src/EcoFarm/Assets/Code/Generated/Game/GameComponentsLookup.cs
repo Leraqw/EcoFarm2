@@ -22,42 +22,44 @@ public static class GameComponentsLookup {
     public const int DroughtTimer = 11;
     public const int Duration = 12;
     public const int DurationUp = 13;
-    public const int Fell = 14;
-    public const int Filled = 15;
-    public const int Fruitful = 16;
-    public const int FruitRequire = 17;
-    public const int FruitTypeId = 18;
-    public const int Growth = 19;
-    public const int Inventory = 20;
-    public const int InventoryItem = 21;
-    public const int MouseClick = 22;
-    public const int MouseDown = 23;
-    public const int MouseUp = 24;
-    public const int Pickable = 25;
-    public const int Picked = 26;
-    public const int Position = 27;
-    public const int ProportionalScale = 28;
-    public const int Radius = 29;
-    public const int RequireSprite = 30;
-    public const int RequireTreeOnPosition = 31;
-    public const int RequireView = 32;
-    public const int SpawnPosition = 33;
-    public const int Sprite = 34;
-    public const int TargetPosition = 35;
-    public const int TargetScale = 36;
-    public const int Tree = 37;
-    public const int View = 38;
-    public const int Watered = 39;
-    public const int Watering = 40;
-    public const int WillFall = 41;
-    public const int CoinsCountListener = 42;
-    public const int InventoryItemListener = 43;
-    public const int PositionListener = 44;
-    public const int ProportionalScaleListener = 45;
-    public const int SpriteListener = 46;
-    public const int WateringListener = 47;
+    public const int Enabled = 14;
+    public const int Fell = 15;
+    public const int Filled = 16;
+    public const int Fruitful = 17;
+    public const int FruitRequire = 18;
+    public const int FruitTypeId = 19;
+    public const int Growth = 20;
+    public const int Inventory = 21;
+    public const int InventoryItem = 22;
+    public const int MouseClick = 23;
+    public const int MouseDown = 24;
+    public const int MouseUp = 25;
+    public const int Pickable = 26;
+    public const int Picked = 27;
+    public const int Position = 28;
+    public const int ProportionalScale = 29;
+    public const int Radius = 30;
+    public const int RequireSprite = 31;
+    public const int RequireTreeOnPosition = 32;
+    public const int RequireView = 33;
+    public const int SpawnPosition = 34;
+    public const int Sprite = 35;
+    public const int TargetPosition = 36;
+    public const int TargetScale = 37;
+    public const int Tree = 38;
+    public const int View = 39;
+    public const int Watered = 40;
+    public const int Watering = 41;
+    public const int WillFall = 42;
+    public const int CoinsCountListener = 43;
+    public const int EnabledListener = 44;
+    public const int InventoryItemListener = 45;
+    public const int PositionListener = 46;
+    public const int ProportionalScaleListener = 47;
+    public const int SpriteListener = 48;
+    public const int WateringListener = 49;
 
-    public const int TotalComponents = 48;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -74,6 +76,7 @@ public static class GameComponentsLookup {
         "DroughtTimer",
         "Duration",
         "DurationUp",
+        "Enabled",
         "Fell",
         "Filled",
         "Fruitful",
@@ -103,6 +106,7 @@ public static class GameComponentsLookup {
         "Watering",
         "WillFall",
         "CoinsCountListener",
+        "EnabledListener",
         "InventoryItemListener",
         "PositionListener",
         "ProportionalScaleListener",
@@ -125,6 +129,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.DroughtTimerComponent),
         typeof(Code.ECS.Components.DurationComponent),
         typeof(Code.ECS.Components.DurationUpComponent),
+        typeof(Code.ECS.Components.EnabledComponent),
         typeof(Code.ECS.Components.FellComponent),
         typeof(Code.ECS.Components.FilledComponent),
         typeof(Code.ECS.Components.FruitfulComponent),
@@ -154,6 +159,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(CoinsCountListenerComponent),
+        typeof(EnabledListenerComponent),
         typeof(InventoryItemListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent),
