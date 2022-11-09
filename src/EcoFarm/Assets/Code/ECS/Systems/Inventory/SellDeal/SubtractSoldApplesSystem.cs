@@ -3,6 +3,7 @@ using Code.ECS.Components;
 using Entitas;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Inventory.SellDeal
@@ -32,7 +33,7 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 			=> InventoryItems.ForEach((item) => Subtract(item, deal), @if: (item) => HasSameFruitType(item, deal));
 
 		private bool HasSameFruitType(GameEntity item, GameEntity deal)
-			=> item.fruitTypeId == deal.fruitTypeId;
+			=> item.fruitTypeId.Value == deal.fruitTypeId.Value;
 
 		private void Subtract(GameEntity item, GameEntity deal)
 			=> item.UpdateInventoryItemCount((c) => c - deal.count);
