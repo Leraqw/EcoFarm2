@@ -7,7 +7,9 @@ namespace Code.ECS.Features
 		public InventorySystems(Contexts contexts)
 			: base(nameof(InventorySystems))
 		{
+			Add(new SubtractSoldApplesSystem(contexts));
 			Add(new MakeSellDealSystem(contexts));
+			// TODO: Add DeactivateDealSystem
 		}
 	}
 }

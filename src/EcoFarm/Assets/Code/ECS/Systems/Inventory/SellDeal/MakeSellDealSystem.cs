@@ -29,8 +29,7 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Make);
 
 		private void Make(GameEntity deal)
-			=> deal.Do(IncreaseCoinsCount)
-			       .Do((e) => e.RemoveCount());
+			=> deal.Do(IncreaseCoinsCount);
 
 		private void IncreaseCoinsCount(GameEntity deal)
 			=> Inventory.IncreaseCoinsCount(deal.count * Balance.Deal.CoinsPerApple);
