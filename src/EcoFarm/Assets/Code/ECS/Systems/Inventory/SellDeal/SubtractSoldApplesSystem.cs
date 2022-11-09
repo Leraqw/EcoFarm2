@@ -3,7 +3,6 @@ using Code.ECS.Components;
 using Entitas;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using UnityEngine;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Inventory.SellDeal
