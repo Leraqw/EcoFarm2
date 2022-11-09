@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Systems.Inventory;
+using Code.ECS.Systems.Inventory.SellDeal;
 
 namespace Code.ECS.Features
 {
@@ -9,6 +10,7 @@ namespace Code.ECS.Features
 		{
 			Add(new CreateInventorySystem(contexts));
 			Add(new CreateInventoryItemsSystem(contexts));
+			Add(new InitializeSellDealSystem(contexts));
 		}
 	}
 }

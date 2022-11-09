@@ -3,6 +3,7 @@ using Code.Data.Config;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Unity;
+using Code.Unity.Containers;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -59,8 +60,12 @@ namespace Code.Services.UnityImplementations
 
 		ICommonConfig IConfigurationService.Common => _configuration.Common;
 
-		public IResourcePathConfig ResourcePath => _configuration.ResourcePath;
+		IResourcePathConfig IConfigurationService.ResourcePath => _configuration.ResourcePath;
 
-		public GameObject AppleView => _ui.AppleView;
+		GameObject IUiService.CoinsView => _ui.CoinsView;
+
+		GameObject IUiService.AppleView => _ui.AppleView;
+
+		WindowSell IUiService.WindowSell => _ui.WindowSell;
 	}
 }

@@ -14,6 +14,7 @@ namespace Code.Unity.SO.Configuration
 		[SerializeField] private BucketConfig _bucket;
 		[SerializeField] private WarehouseConfig _warehouse;
 		[SerializeField] private FruitConfig _fruit;
+		[SerializeField] private DealConfig _deal;
 
 		public IWateringConfig Watering => _watering;
 
@@ -24,5 +25,7 @@ namespace Code.Unity.SO.Configuration
 		public IWarehouseConfig Warehouse => _warehouse;
 
 		public IFruitConfig Fruit => _fruit;
+
+		public IDealConfig Deal => _deal;
 	}
 }

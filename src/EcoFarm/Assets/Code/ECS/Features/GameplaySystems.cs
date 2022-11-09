@@ -5,6 +5,7 @@
 		public GameplaySystems(Contexts contexts)
 			: base(nameof(GameplaySystems))
 		{
+			Add(new UiSystems(contexts));
 			Add(new InitializationSystems(contexts));
 
 			Add(new InputSystems(contexts));
@@ -15,6 +16,7 @@
 			Add(new FallingSystems(contexts));
 			Add(new WateringSystems(contexts));
 			Add(new DurationSystems(contexts));
+			Add(new InventorySystems(contexts));
 
 			Add(new CleanupSystems(contexts));
 		}

@@ -23,12 +23,18 @@ namespace Code.Utils.Extensions.Entitas
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this) 
 			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex);
 
-		public static void UpdateCount(this GameEntity @this, Func<int, int> with)
+		public static void UpdateInventoryItemCount(this GameEntity @this, Func<int, int> with)
 		{
 			var item = @this.inventoryItem.Value;
 			item.Count = with(item.Count);
 			@this.ReplaceInventoryItem(item);
 			@this.SetActualDebugName();
 		}
+		
+		public static void IncreaseCoinsCount(this GameEntity @this, int value)
+			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
+		
+		public static bool HasSameFruitType(this GameEntity @this, GameEntity other) 
+			=> @this.fruitTypeId.Value == other.fruitTypeId.Value;
 	}
 }

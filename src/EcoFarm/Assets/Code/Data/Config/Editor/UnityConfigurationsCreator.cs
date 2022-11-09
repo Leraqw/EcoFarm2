@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Code.Data.Config
+namespace Code.Data.Config.Editor
 {
 	public static class UnityConfigurationsCreator
 	{
