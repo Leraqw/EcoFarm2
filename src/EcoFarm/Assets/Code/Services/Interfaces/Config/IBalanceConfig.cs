@@ -13,5 +13,11 @@ namespace Code.Services.Interfaces.Config
 		IWarehouseConfig Warehouse { get; }
 		
 		IFruitConfig Fruit { get; }
+		IDealConfig       Deal  { get; }
+	}
+
+	public interface IDealConfig
+	{
+		int SellPrice { get; }
 	}
 }
