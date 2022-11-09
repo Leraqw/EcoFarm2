@@ -23,4 +23,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class PreparationInProcessComponent : FlagComponent { }
 
 	[Game] public sealed class PreparedComponent : FlagComponent { }
+
+	[Game] [Event(Self)] public sealed class TextComponent : ValueComponent<string> { }
 }

@@ -54,22 +54,24 @@ public static class GameComponentsLookup {
     public const int TargetActivity = 43;
     public const int TargetPosition = 44;
     public const int TargetScale = 45;
-    public const int Tree = 46;
-    public const int View = 47;
-    public const int Watered = 48;
-    public const int Watering = 49;
-    public const int WillFall = 50;
-    public const int CoinsCountListener = 51;
-    public const int EnabledListener = 52;
-    public const int InventoryItemListener = 53;
-    public const int PositionListener = 54;
-    public const int ProportionalScaleListener = 55;
-    public const int SliderMaxValueListener = 56;
-    public const int SliderValueListener = 57;
-    public const int SpriteListener = 58;
-    public const int WateringListener = 59;
+    public const int Text = 46;
+    public const int Tree = 47;
+    public const int View = 48;
+    public const int Watered = 49;
+    public const int Watering = 50;
+    public const int WillFall = 51;
+    public const int CoinsCountListener = 52;
+    public const int EnabledListener = 53;
+    public const int InventoryItemListener = 54;
+    public const int PositionListener = 55;
+    public const int ProportionalScaleListener = 56;
+    public const int SliderMaxValueListener = 57;
+    public const int SliderValueListener = 58;
+    public const int SpriteListener = 59;
+    public const int TextListener = 60;
+    public const int WateringListener = 61;
 
-    public const int TotalComponents = 60;
+    public const int TotalComponents = 62;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -118,6 +120,7 @@ public static class GameComponentsLookup {
         "TargetActivity",
         "TargetPosition",
         "TargetScale",
+        "Text",
         "Tree",
         "View",
         "Watered",
@@ -131,6 +134,7 @@ public static class GameComponentsLookup {
         "SliderMaxValueListener",
         "SliderValueListener",
         "SpriteListener",
+        "TextListener",
         "WateringListener"
     };
 
@@ -181,6 +185,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TargetActivityComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
+        typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.WateredComponent),
@@ -194,6 +199,7 @@ public static class GameComponentsLookup {
         typeof(SliderMaxValueListenerComponent),
         typeof(SliderValueListenerComponent),
         typeof(SpriteListenerComponent),
+        typeof(TextListenerComponent),
         typeof(WateringListenerComponent)
     };
 }
