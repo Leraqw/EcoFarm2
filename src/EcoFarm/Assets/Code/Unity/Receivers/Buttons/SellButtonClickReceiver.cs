@@ -7,6 +7,6 @@ namespace Code.Unity.Receivers.Buttons
 	{
 		[SerializeField] private SliderValueView _slider;
 
-		protected override void OnButtonClick() => Context.sellDealEntity.ReplaceCount(_slider.Value);
+		protected override void OnButtonClick() => Context.sellDealEntity.AddCount(_slider.Value);
 	}
 }
