@@ -33,6 +33,8 @@ MonoBehaviour:
       <SpawnHeight>k__BackingField: {x: 0, y: 1}
       <InitialScale>k__BackingField: 0
       <FullScale>k__BackingField: 1
+    _deal:
+      <CoinsPerApple>k__BackingField: 2
   _common:
     <Tolerance>k__BackingField: 0.01
   _resource:
