@@ -27,13 +27,13 @@ namespace Code.ECS.Systems.UI
 
 		private void Prepare(GameEntity window)
 		{
-			var sliders = _contexts.game
-			                       .GetEntitiesWithAttachedTo(window.attachableIndex)
-			                       .Where(IsSlider);
-
-			sliders.ForEach(ActualizeValue);
+			_contexts.game
+			         .GetEntitiesWithAttachedTo(window.attachableIndex)
+			         .Where(IsSlider)
+			         .ForEach(ActualizeValue);
 
 			window.isPreparationInProcess = false;
+			window.isPrepared = true;
 		}
 
 		private void ActualizeValue(GameEntity entity) => entity.ReplaceSliderMaxValue(FirstInventoryItem.Count);

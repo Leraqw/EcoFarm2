@@ -9,9 +9,9 @@ namespace Code.ECS.Systems.UI
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.Prepared);
+			=> context.CreateCollector(GameMatcher.Prepared.Added());
 
-		protected override bool Filter(GameEntity entity) => entity.hasEnabled == false;
+		protected override bool Filter(GameEntity entity) => entity.isPreparationInProcess == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Enable);
 

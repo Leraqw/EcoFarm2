@@ -27,7 +27,6 @@ namespace Code.ECS.Systems.UI
 			if (activity == true
 			    && window.isRequirePreparation)
 			{
-				window.isRequirePreparation = false;
 				window.isPreparationInProcess = true;
 				return;
 			}
