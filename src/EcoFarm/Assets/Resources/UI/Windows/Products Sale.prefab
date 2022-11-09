@@ -240,7 +240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314300945753528201, guid: 774bbcd86b6226541a7e79998465f774, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314300946989557805, guid: 774bbcd86b6226541a7e79998465f774, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 774bbcd86b6226541a7e79998465f774, type: 3}
@@ -789,11 +793,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+--- !u!114 &1847902237655711077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2787566651835839775, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+  m_PrefabInstance: {fileID: 4542579868494743674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847902237655711079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1847902237655711078 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2787566651835839772, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
   m_PrefabInstance: {fileID: 4542579868494743674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1847902237655711079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+  m_PrefabInstance: {fileID: 4542579868494743674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5516254936332571663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847902237655711079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b31e03049e40d79138ba3badb54326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1847902237655711077}
+  _slider: {fileID: 7664336638718247652}
 --- !u!1001 &4542579868791918910
 PrefabInstance:
   m_ObjectHideFlags: 0

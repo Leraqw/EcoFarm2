@@ -7,6 +7,8 @@ namespace Code.Unity.ViewListeners
 	{
 		[SerializeField] private Slider _slider;
 
+		public int Value => (int)_slider.value;
+
 		private void OnEnable() => _slider.onValueChanged.AddListener(OnValueChanged);
 		
 		private void OnDisable() => _slider.onValueChanged.RemoveListener(OnValueChanged);
