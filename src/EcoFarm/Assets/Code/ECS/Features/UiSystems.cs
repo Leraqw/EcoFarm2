@@ -13,6 +13,7 @@ namespace Code.ECS.Features
 			Add(new InitializeCurrentCountTextSystem(contexts));
 			
 			Add(new OnToggleActivityButtonClickSystem(contexts));
+			Add(new OnSliderValueChangedSystem(contexts));
 			Add(new PrepareSellWindowSystem(contexts));
 			Add(new EnablePreparedWindow(contexts));
 		}

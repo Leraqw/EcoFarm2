@@ -185,48 +185,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8658976622203491511, guid: dac71c5bc573f924687205c11c853151, type: 3}
   m_PrefabInstance: {fileID: 1297738}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &52782845 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4542579868877592162, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-  m_PrefabInstance: {fileID: 4542579867969041196}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &52782847 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4542579868877592188, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-  m_PrefabInstance: {fileID: 4542579867969041196}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52782845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &52782848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52782845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9e38549eea49b699d027a240b474d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 52782847}
---- !u!114 &52782849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52782845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3742820131604e4cbad66d5c3aac441d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 52782847}
 --- !u!1 &230805172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,14 +2103,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871304929}
     m_Modifications:
-    - target: {fileID: 4542579868692543463, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542579869408987203, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4542579869774672509, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
       propertyPath: m_Name
       value: Products Sale
