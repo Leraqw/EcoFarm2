@@ -30,48 +30,49 @@ public static class GameComponentsLookup {
     public const int FruitRequire = 19;
     public const int FruitTypeId = 20;
     public const int Growth = 21;
-    public const int Inventory = 22;
-    public const int InventoryItem = 23;
-    public const int MouseClick = 24;
-    public const int MouseDown = 25;
-    public const int MouseUp = 26;
-    public const int Pickable = 27;
-    public const int Picked = 28;
-    public const int Position = 29;
-    public const int PreparationInProcess = 30;
-    public const int Prepared = 31;
-    public const int ProportionalScale = 32;
-    public const int Radius = 33;
-    public const int RequirePreparation = 34;
-    public const int RequireSprite = 35;
-    public const int RequireTreeOnPosition = 36;
-    public const int RequireView = 37;
-    public const int SellWindow = 38;
-    public const int SliderMaxValue = 39;
-    public const int SliderValue = 40;
-    public const int SpawnPosition = 41;
-    public const int Sprite = 42;
-    public const int TargetActivity = 43;
-    public const int TargetPosition = 44;
-    public const int TargetScale = 45;
-    public const int Text = 46;
-    public const int Tree = 47;
-    public const int View = 48;
-    public const int Watered = 49;
-    public const int Watering = 50;
-    public const int WillFall = 51;
-    public const int CoinsCountListener = 52;
-    public const int EnabledListener = 53;
-    public const int InventoryItemListener = 54;
-    public const int PositionListener = 55;
-    public const int ProportionalScaleListener = 56;
-    public const int SliderMaxValueListener = 57;
-    public const int SliderValueListener = 58;
-    public const int SpriteListener = 59;
-    public const int TextListener = 60;
-    public const int WateringListener = 61;
+    public const int IntValueChanged = 22;
+    public const int Inventory = 23;
+    public const int InventoryItem = 24;
+    public const int MouseClick = 25;
+    public const int MouseDown = 26;
+    public const int MouseUp = 27;
+    public const int Pickable = 28;
+    public const int Picked = 29;
+    public const int Position = 30;
+    public const int PreparationInProcess = 31;
+    public const int Prepared = 32;
+    public const int ProportionalScale = 33;
+    public const int Radius = 34;
+    public const int RequirePreparation = 35;
+    public const int RequireSprite = 36;
+    public const int RequireTreeOnPosition = 37;
+    public const int RequireView = 38;
+    public const int SellWindow = 39;
+    public const int SliderMaxValue = 40;
+    public const int SliderValue = 41;
+    public const int SpawnPosition = 42;
+    public const int Sprite = 43;
+    public const int TargetActivity = 44;
+    public const int TargetPosition = 45;
+    public const int TargetScale = 46;
+    public const int Text = 47;
+    public const int Tree = 48;
+    public const int View = 49;
+    public const int Watered = 50;
+    public const int Watering = 51;
+    public const int WillFall = 52;
+    public const int CoinsCountListener = 53;
+    public const int EnabledListener = 54;
+    public const int InventoryItemListener = 55;
+    public const int PositionListener = 56;
+    public const int ProportionalScaleListener = 57;
+    public const int SliderMaxValueListener = 58;
+    public const int SliderValueListener = 59;
+    public const int SpriteListener = 60;
+    public const int TextListener = 61;
+    public const int WateringListener = 62;
 
-    public const int TotalComponents = 62;
+    public const int TotalComponents = 63;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -96,6 +97,7 @@ public static class GameComponentsLookup {
         "FruitRequire",
         "FruitTypeId",
         "Growth",
+        "IntValueChanged",
         "Inventory",
         "InventoryItem",
         "MouseClick",
@@ -161,6 +163,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FruitRequireComponent),
         typeof(Code.ECS.Components.FruitTypeIdComponent),
         typeof(Code.ECS.Components.GrowthComponent),
+        typeof(Code.ECS.Components.IntValueChangedComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
         typeof(Code.ECS.Components.MouseClickComponent),

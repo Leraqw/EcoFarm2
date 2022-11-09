@@ -25,4 +25,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class PreparedComponent : FlagComponent { }
 
 	[Game] [Event(Self)] public sealed class TextComponent : ValueComponent<string> { }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class IntValueChangedComponent : ValueComponent<int> { }
 }
