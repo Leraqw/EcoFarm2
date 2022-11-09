@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions;
 using Entitas;
 
 namespace Code.ECS.Systems.UI
@@ -15,6 +16,8 @@ namespace Code.ECS.Systems.UI
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Enable);
 
-		private void Enable(GameEntity entity) => entity.ReplaceEnabled(true);
+		private static void Enable(GameEntity entity) => entity
+		                                                 .Do((e) => e.ReplaceEnabled(true))
+		                                                 .Do((e) => e.isPrepared = false);
 	}
 }
