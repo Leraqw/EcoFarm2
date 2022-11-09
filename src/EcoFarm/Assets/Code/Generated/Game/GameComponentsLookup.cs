@@ -46,32 +46,33 @@ public static class GameComponentsLookup {
     public const int RequireSprite = 35;
     public const int RequireTreeOnPosition = 36;
     public const int RequireView = 37;
-    public const int SellWindow = 38;
-    public const int SliderMaxValue = 39;
-    public const int SliderValue = 40;
-    public const int SpawnPosition = 41;
-    public const int Sprite = 42;
-    public const int TargetActivity = 43;
-    public const int TargetPosition = 44;
-    public const int TargetScale = 45;
-    public const int Text = 46;
-    public const int Tree = 47;
-    public const int View = 48;
-    public const int Watered = 49;
-    public const int Watering = 50;
-    public const int WillFall = 51;
-    public const int CoinsCountListener = 52;
-    public const int EnabledListener = 53;
-    public const int InventoryItemListener = 54;
-    public const int PositionListener = 55;
-    public const int ProportionalScaleListener = 56;
-    public const int SliderMaxValueListener = 57;
-    public const int SliderValueListener = 58;
-    public const int SpriteListener = 59;
-    public const int TextListener = 60;
-    public const int WateringListener = 61;
+    public const int SellDeal = 38;
+    public const int SellWindow = 39;
+    public const int SliderMaxValue = 40;
+    public const int SliderValue = 41;
+    public const int SpawnPosition = 42;
+    public const int Sprite = 43;
+    public const int TargetActivity = 44;
+    public const int TargetPosition = 45;
+    public const int TargetScale = 46;
+    public const int Text = 47;
+    public const int Tree = 48;
+    public const int View = 49;
+    public const int Watered = 50;
+    public const int Watering = 51;
+    public const int WillFall = 52;
+    public const int CoinsCountListener = 53;
+    public const int EnabledListener = 54;
+    public const int InventoryItemListener = 55;
+    public const int PositionListener = 56;
+    public const int ProportionalScaleListener = 57;
+    public const int SliderMaxValueListener = 58;
+    public const int SliderValueListener = 59;
+    public const int SpriteListener = 60;
+    public const int TextListener = 61;
+    public const int WateringListener = 62;
 
-    public const int TotalComponents = 62;
+    public const int TotalComponents = 63;
 
     public static readonly string[] componentNames = {
         "AttachableIndex",
@@ -112,6 +113,7 @@ public static class GameComponentsLookup {
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
+        "SellDeal",
         "SellWindow",
         "SliderMaxValue",
         "SliderValue",
@@ -177,6 +179,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
+        typeof(Code.ECS.Components.SellDealComponent),
         typeof(Code.ECS.Components.SellWindowComponent),
         typeof(Code.ECS.Components.SliderMaxValueComponent),
         typeof(Code.ECS.Components.SliderValueComponent),
