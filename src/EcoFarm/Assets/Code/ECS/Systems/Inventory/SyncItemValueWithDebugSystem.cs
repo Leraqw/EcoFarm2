@@ -16,6 +16,6 @@ namespace Code.ECS.Systems.Inventory
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SetActualDebugName);
 
-		private static void SetActualDebugName(GameEntity obj) => obj.SetActualDebugName();
+		private static void SetActualDebugName(GameEntity entity) => entity.SetActualDebugName();
 	}
 }
