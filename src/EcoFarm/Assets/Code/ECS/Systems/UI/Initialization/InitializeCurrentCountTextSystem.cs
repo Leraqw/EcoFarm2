@@ -1,4 +1,6 @@
-﻿using Entitas;
+﻿using Code.Services.Interfaces;
+using Code.Utils.Extensions;
+using Entitas;
 
 namespace Code.ECS.Systems.UI.Initialization
 {
@@ -6,15 +8,13 @@ namespace Code.ECS.Systems.UI.Initialization
 	{
 		private readonly Contexts _contexts;
 
-		public InitializeCurrentCountTextSystem(Contexts contexts)
-		{
-			_contexts = contexts;
-		}
+		public InitializeCurrentCountTextSystem(Contexts contexts) => _contexts = contexts;
+
+		private IUiService UI => _contexts.services.uiService.Value;
 
 		public void Initialize()
-		{
-			_contexts.game.CreateEntity()
-			         .AddView(_contexts.services.uiService.Value.WindowSell.CurrentValue.gameObject);
-		}
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddView(UI.WindowSell.CurrentValue.gameObject))
+			            .Do((e) => e.AddText(0.ToString()));
 	}
 }
