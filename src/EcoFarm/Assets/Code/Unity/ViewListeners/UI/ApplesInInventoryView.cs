@@ -9,6 +9,7 @@ namespace Code.Unity.ViewListeners.UI
 		[SerializeField] private TextMeshProUGUI _text;
 
 		protected override void AddListener(GameEntity entity) => entity.AddInventoryItemListener(this);
+
 		protected override bool HasComponent(GameEntity entity) => entity.hasInventoryItem;
 
 		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem);

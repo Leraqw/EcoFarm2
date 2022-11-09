@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.Inventory
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseEachCounter);
 
 		private void IncreaseEachCounter(GameEntity entity)
-			=> InventoryItems.ForEach(IncreaseCount, @if: (item) => item.HasSameFruitType(entity));
+			=> InventoryItems.ForEach(IncreaseCount, @if: entity.HasSameFruitType);
 
 		private static void IncreaseCount(GameEntity entity) => entity.UpdateInventoryItemCount(with: (c) => c + 1);
 	}

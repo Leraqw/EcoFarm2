@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Systems.Inventory.SellDeal;
+using Code.ECS.Systems.UI;
 
 namespace Code.ECS.Features
 {
@@ -10,6 +11,7 @@ namespace Code.ECS.Features
 			Add(new MakeSellDealSystem(contexts));
 			Add(new SubtractSoldApplesSystem(contexts));
 			Add(new DeactivateDealSystem(contexts));
+			Add(new ActualizeCountToSellSliderMaxValueSystem(contexts));
 		}
 	}
 }
