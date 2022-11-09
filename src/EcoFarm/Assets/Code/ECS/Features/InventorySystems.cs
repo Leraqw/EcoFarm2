@@ -9,7 +9,7 @@ namespace Code.ECS.Features
 		{
 			Add(new SubtractSoldApplesSystem(contexts));
 			Add(new MakeSellDealSystem(contexts));
-			// TODO: Add DeactivateDealSystem
+			Add(new DeactivateDealSystem(contexts));
 		}
 	}
 }
