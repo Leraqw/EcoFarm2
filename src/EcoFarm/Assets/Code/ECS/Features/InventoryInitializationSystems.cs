@@ -9,6 +9,7 @@ namespace Code.ECS.Features
 		{
 			Add(new CreateInventorySystem(contexts));
 			Add(new CreateInventoryItemsSystem(contexts));
+			Add(new InitializeSellDealSystem(contexts));
 		}
 	}
 }
