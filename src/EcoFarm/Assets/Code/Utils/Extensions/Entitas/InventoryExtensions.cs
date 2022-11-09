@@ -33,5 +33,8 @@ namespace Code.Utils.Extensions.Entitas
 		
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
 			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
+		
+		public static bool HasSameFruitType(this GameEntity @this, GameEntity other) 
+			=> @this.fruitTypeId.Value == other.fruitTypeId.Value;
 	}
 }
