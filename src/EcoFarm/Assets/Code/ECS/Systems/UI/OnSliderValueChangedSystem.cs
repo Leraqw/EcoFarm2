@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static System.Globalization.CultureInfo;
