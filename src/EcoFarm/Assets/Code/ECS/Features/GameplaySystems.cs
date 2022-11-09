@@ -16,6 +16,7 @@
 			Add(new FallingSystems(contexts));
 			Add(new WateringSystems(contexts));
 			Add(new DurationSystems(contexts));
+			Add(new InventorySystems(contexts));
 
 			Add(new CleanupSystems(contexts));
 		}

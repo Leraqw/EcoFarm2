@@ -11,13 +11,9 @@ namespace Code.Services.Interfaces.Config
 		IBucketConfig Bucket { get; }
 
 		IWarehouseConfig Warehouse { get; }
-		
-		IFruitConfig Fruit { get; }
-		IDealConfig       Deal  { get; }
-	}
 
-	public interface IDealConfig
-	{
-		int SellPrice { get; }
+		IFruitConfig Fruit { get; }
+
+		IDealConfig Deal { get; }
 	}
 }

@@ -30,5 +30,8 @@ namespace Code.Utils.Extensions.Entitas
 			@this.ReplaceInventoryItem(item);
 			@this.SetActualDebugName();
 		}
+		
+		public static void IncreaseCoinsCount(this GameEntity @this, int value)
+			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
 	}
 }
