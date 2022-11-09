@@ -2,7 +2,7 @@
 using Code.Utils.Extensions;
 using Entitas;
 
-namespace Code.ECS.Systems.UI
+namespace Code.ECS.Systems.UI.Initialization
 {
 	public sealed class InitializeSellWindowSystem : IInitializeSystem
 	{
