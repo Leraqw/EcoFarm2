@@ -21,9 +21,10 @@ namespace Code.Data.Config.Editor
 
 		private void OnGUI()
 		{
+			Space(25);
 			AsHorizontalGroupAlignCenter(DllPathLabel, DllPathTextField, DllPathOpenFileButton);
 			AsHorizontalGroupAlignCenter(ButtonCopy);
-			Space(50);
+			Space(25);
 			AsHorizontalGroupAlignCenter(ButtonGenerate);
 		}
 
