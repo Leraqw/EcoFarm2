@@ -1,1 +1,8 @@
-{"Levels":[{"Order":1,"TreesCount":5}]}
+{
+    "Levels": [
+        {
+            "Order": 1,
+            "TreesCount": 5
+        }
+    ]
+}
