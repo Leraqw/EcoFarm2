@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Code.Utils.Extensions;
 using UnityEngine;
 
 namespace Code.Data.Config.Editor
@@ -8,30 +9,22 @@ namespace Code.Data.Config.Editor
 	{
 		private const string DirectoryPath = "DataModel/Dll";
 
-		// Copy all the dll files and pdb files to the project folder.
 		public static void CopyDlls(string pathToDlls)
 		{
 			CopyFilesWithExtension("*.dll", from: pathToDlls);
 			CopyFilesWithExtension("*.pdb", from: pathToDlls);
 		}
 
-		private static void CopyFilesWithExtension(string extension, string from) 
+		private static void CopyFilesWithExtension(string extension, string from)
 			=> CopyFilesToProject(Directory.GetFiles(from, extension, SearchOption.AllDirectories));
 
-		private static void CopyFilesToProject(IEnumerable<string> files)
-		{
-			foreach (var file in files)
-			{
-				var fileName = Path.GetFileName(file);
-				
-				if (fileName == null)
-				{
-					continue;
-				}
+		private static void CopyFilesToProject(IEnumerable<string> files) => files.ForEach(Copy, @if: NameNotNull);
 
-				var destination = Path.Combine(Application.dataPath, DirectoryPath, fileName);
-				File.Copy(file, destination, overwrite: true);
-			}
-		}
+		private static bool NameNotNull(string file) => Path.GetFileName(file) != null;
+
+		private static void Copy(string file) => File.Copy(file, GetDestinationFor(file), overwrite: true);
+
+		private static string GetDestinationFor(string file)
+			=> Path.Combine(Application.dataPath, DirectoryPath, Path.GetFileName(file));
 	}
 }
