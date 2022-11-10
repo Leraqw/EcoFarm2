@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEditor;
+using UnityEngine;
 
 namespace Code.Data.Config.Editor
 {
@@ -10,6 +11,12 @@ namespace Code.Data.Config.Editor
 			EditorGUILayout.BeginHorizontal();
 			@this();
 			EditorGUILayout.EndHorizontal();
+		}
+
+		public static EditorWindow WithTitle(this EditorWindow @this, string title)
+		{
+			@this.titleContent = new GUIContent(title);
+			return @this;
 		}
 	}
 }

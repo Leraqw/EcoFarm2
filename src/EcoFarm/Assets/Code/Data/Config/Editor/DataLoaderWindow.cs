@@ -9,14 +9,9 @@ namespace Code.Data.Config.Editor
 	public class DataLoaderWindow : EditorWindow
 	{
 		private string _pathToDll;
-		
+
 		[MenuItem("Tools/Eco-Farm/Data Loader Window")]
-		private static void ShowWindow()
-		{
-			var window = GetWindow<DataLoaderWindow>();
-			window.titleContent = new GUIContent("Data Loader");
-			window.Show();
-		}
+		private static void ShowWindow() => GetWindow<DataLoaderWindow>().WithTitle("Data Loader").Show();
 
 		private void OnGUI()
 		{
