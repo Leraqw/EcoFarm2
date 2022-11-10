@@ -6,7 +6,7 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.ECS.Components
 {
-	[Game] [Event(Self)] public sealed class EnabledComponent : ValueComponent<bool> { }
+	[Game] [Event(Self)] public sealed class ActivateComponent : ValueComponent<bool> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : FlagComponent { }
 

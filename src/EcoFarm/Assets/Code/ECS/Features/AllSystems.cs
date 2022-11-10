@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces;
+﻿using Code.ECS.Features.Initialization;
+using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 
 namespace Code.ECS.Features

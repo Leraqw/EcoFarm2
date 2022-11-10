@@ -19,7 +19,7 @@ namespace Code.ECS.Systems.UI.Initialization
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Slider"))
-			            .Do((e) => e.AddView(UI.WindowSell.CountToSellSlider.gameObject))
+			            .Do((e) => e.AddView(UI.Windows.Sell.CountToSellSlider.gameObject))
 			            .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
 			            .Do((e) => e.AddFruitTypeId(Constants.Temp.AppleID))
 			            .Do((e) => e.AddSliderValue(0))
