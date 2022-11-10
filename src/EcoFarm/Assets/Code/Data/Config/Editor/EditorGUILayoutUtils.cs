@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEditor;
-using UnityEngine;
 
 namespace Code.Data.Config.Editor
 {

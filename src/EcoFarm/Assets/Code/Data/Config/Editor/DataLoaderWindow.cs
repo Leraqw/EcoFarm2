@@ -1,5 +1,4 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
-using System.IO;
 using UnityEditor;
 using UnityEngine;
 using static Code.Data.Config.Editor.EditorGUILayoutUtils;
