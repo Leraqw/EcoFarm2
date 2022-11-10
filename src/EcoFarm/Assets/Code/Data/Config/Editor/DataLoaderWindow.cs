@@ -2,13 +2,14 @@
 using UnityEditor;
 using UnityEngine;
 using static Code.Data.Config.Editor.EditorGUILayoutUtils;
+using static UnityEditor.EditorUtility;
 using static UnityEngine.GUILayout;
 
 namespace Code.Data.Config.Editor
 {
 	public class DataLoaderWindow : EditorWindow
 	{
-		private string _pathToDll;
+		private string _pathToDlls;
 
 		[MenuItem("Tools/Eco-Farm/Data Loader Window")]
 		private static void ShowWindow() => GetWindow<DataLoaderWindow>().WithTitle("Data Loader").Show();
@@ -16,6 +17,7 @@ namespace Code.Data.Config.Editor
 		private void OnGUI()
 		{
 			AsHorizontalGroup(DrawOpenDll);
+			Button("Copy").OnPress(() => FilesWorker.CopyDlls(_pathToDlls));
 			
 			Button("Generate").OnPress(TempDataCreator.Create);
 		}
@@ -23,10 +25,10 @@ namespace Code.Data.Config.Editor
 		private void DrawOpenDll()
 		{
 			Label("Dll path", new GUIStyle(GUI.skin.label), Width(50));
-			_pathToDll = TextField(_pathToDll);
+			_pathToDlls = TextField(_pathToDlls);
 			Button("Open file", new GUIStyle(GUI.skin.button), Width(75)).OnPress(GetPathToDll);
 		}
 
-		private void GetPathToDll() => _pathToDll = EditorUtility.OpenFilePanel("Open file", string.Empty, "dll");
+		private void GetPathToDll() => _pathToDlls = OpenFolderPanel("Open folder", string.Empty, string.Empty);
 	}
 }
