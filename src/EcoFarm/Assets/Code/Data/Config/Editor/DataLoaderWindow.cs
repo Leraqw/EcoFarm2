@@ -1,6 +1,5 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
 using UnityEditor;
-using UnityEngine;
 using static Code.Data.Config.Editor.EditorGUILayoutUtils;
 using static UnityEditor.EditorUtility;
 using static UnityEngine.GUILayout;
@@ -20,30 +19,19 @@ namespace Code.Data.Config.Editor
 
 		private void OnGUI()
 		{
-			AsHorizontalGroup(DrawOpenDll);
-
-			AsHorizontalGroupAlignCenter
-			(
-				() => Label("Dll path"),
-				() => _pathToDlls = TextField(_pathToDlls, Width(PathTextFieldWidth)),
-				() => Button("Open file").OnPress(GetPathToDll)
-			);
-			
+			AsHorizontalGroupAlignCenter(DllPathLabel, DllPathTextField, DllPathOpenFileButton);
 			Button("Copy").OnPress(() => FilesWorker.CopyDlls(_pathToDlls));
-
 			Space(50);
-
 			AsHorizontalGroupAlignCenter(ButtonGenerate);
 		}
 
-		private void ButtonGenerate() => Button("Generate", Width(position.width / 2)).OnPress(TempDataCreator.Create);
+		private void DllPathLabel() => Label("Dll path");
 
-		private void DrawOpenDll()
-		{
-			Label("Dll path", new GUIStyle(GUI.skin.label), Width(DllPathLabelWidth));
-			_pathToDlls = TextField(_pathToDlls, Width(PathTextFieldWidth));
-			Button("Open file", new GUIStyle(GUI.skin.button), Width(OpenFileButtonWidth)).OnPress(GetPathToDll);
-		}
+		private void DllPathTextField() => _pathToDlls = TextField(_pathToDlls, Width(PathTextFieldWidth));
+
+		private void DllPathOpenFileButton() => Button("Open file").OnPress(GetPathToDll);
+
+		private void ButtonGenerate() => Button("Generate", Width(position.width / 2)).OnPress(TempDataCreator.Create);
 
 		private void GetPathToDll() => _pathToDlls = OpenFolderPanel("Open folder", string.Empty, string.Empty);
 	}
