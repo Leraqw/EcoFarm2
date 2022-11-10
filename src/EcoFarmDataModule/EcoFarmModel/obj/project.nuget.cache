@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "2B/qqyvsOChHtO90JsTfRDqJ0nVF6e6daECO3+E1ofgkkXwnSlOcScOzs0Whyfeh+P6/Jhu5RINK/TB55uGLzA==",
+  "dgSpecHash": "CE3ebb3B7Qt6HFTALoXSwZ6VkGdh/oWetNrQvPreiD9Pc362iWDHb50hzzxFmuFpD8x7ByCbG7xuPJEUTBe7aw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModel\\EcoFarmModel.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.0-rc.2.22472.3\\microsoft.netcore.app.runtime.win-x86.7.0.0-rc.2.22472.3.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\7.0.0-rc.2.22472.3\\microsoft.netcore.app.crossgen2.win-x64.7.0.0-rc.2.22472.3.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.0-rc.2.22472.13\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.0-rc.2.22472.13.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.0-rc.2.22476.2\\microsoft.aspnetcore.app.runtime.win-x86.7.0.0-rc.2.22476.2.nupkg.sha512"
+  ],
   "logs": []
 }
