@@ -1945,9 +1945,10 @@ MonoBehaviour:
   <UiService>k__BackingField:
     _buttons:
       <Sell>k__BackingField: {fileID: 1605429770}
+    _windows:
+      <Sell>k__BackingField: {fileID: 1877000532}
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
-    <WindowSell>k__BackingField: {fileID: 1877000532}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
