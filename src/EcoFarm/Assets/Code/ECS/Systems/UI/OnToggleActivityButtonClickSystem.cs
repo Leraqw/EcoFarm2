@@ -31,7 +31,7 @@ namespace Code.ECS.Systems.UI
 				return;
 			}
 
-			window.ReplaceEnabled(activity);
+			window.ReplaceActivate(activity);
 		}
 
 		private GameEntity GetWindowForButton(GameEntity button)

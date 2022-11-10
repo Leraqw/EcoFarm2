@@ -17,7 +17,7 @@ namespace Code.ECS.Systems.UI
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Enable);
 
 		private static void Enable(GameEntity entity) => entity
-		                                                 .Do((e) => e.ReplaceEnabled(true))
+		                                                 .Do((e) => e.ReplaceActivate(true))
 		                                                 .Do((e) => e.isPrepared = false);
 	}
 }

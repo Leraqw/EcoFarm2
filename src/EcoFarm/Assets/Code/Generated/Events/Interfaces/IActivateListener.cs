@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IEnabledListener {
-    void OnEnabled(GameEntity entity, bool value);
+public interface IActivateListener {
+    void OnActivate(GameEntity entity, bool value);
 }

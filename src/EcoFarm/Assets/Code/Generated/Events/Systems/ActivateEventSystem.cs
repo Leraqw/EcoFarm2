@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class EnabledEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class ActivateEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<IEnabledListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IActivateListener> _listenerBuffer;
 
-    public EnabledEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<IEnabledListener>();
+    public ActivateEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<IActivateListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.Enabled)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.Activate)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasEnabled && entity.hasEnabledListener;
+        return entity.hasActivate && entity.hasActivateListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            var component = e.enabled;
+            var component = e.activate;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.enabledListener.value);
+            _listenerBuffer.AddRange(e.activateListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnEnabled(e, component.Value);
+                listener.OnActivate(e, component.Value);
             }
         }
     }

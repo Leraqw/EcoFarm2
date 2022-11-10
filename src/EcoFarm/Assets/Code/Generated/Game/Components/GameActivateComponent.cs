@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.EnabledComponent enabled { get { return (Code.ECS.Components.EnabledComponent)GetComponent(GameComponentsLookup.Enabled); } }
-    public bool hasEnabled { get { return HasComponent(GameComponentsLookup.Enabled); } }
+    public Code.ECS.Components.ActivateComponent activate { get { return (Code.ECS.Components.ActivateComponent)GetComponent(GameComponentsLookup.Activate); } }
+    public bool hasActivate { get { return HasComponent(GameComponentsLookup.Activate); } }
 
-    public void AddEnabled(bool newValue) {
-        var index = GameComponentsLookup.Enabled;
-        var component = (Code.ECS.Components.EnabledComponent)CreateComponent(index, typeof(Code.ECS.Components.EnabledComponent));
+    public void AddActivate(bool newValue) {
+        var index = GameComponentsLookup.Activate;
+        var component = (Code.ECS.Components.ActivateComponent)CreateComponent(index, typeof(Code.ECS.Components.ActivateComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnabled(bool newValue) {
-        var index = GameComponentsLookup.Enabled;
-        var component = (Code.ECS.Components.EnabledComponent)CreateComponent(index, typeof(Code.ECS.Components.EnabledComponent));
+    public void ReplaceActivate(bool newValue) {
+        var index = GameComponentsLookup.Activate;
+        var component = (Code.ECS.Components.ActivateComponent)CreateComponent(index, typeof(Code.ECS.Components.ActivateComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveEnabled() {
-        RemoveComponent(GameComponentsLookup.Enabled);
+    public void RemoveActivate() {
+        RemoveComponent(GameComponentsLookup.Activate);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherEnabled;
+    static Entitas.IMatcher<GameEntity> _matcherActivate;
 
-    public static Entitas.IMatcher<GameEntity> Enabled {
+    public static Entitas.IMatcher<GameEntity> Activate {
         get {
-            if (_matcherEnabled == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Enabled);
+            if (_matcherActivate == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Activate);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherEnabled = matcher;
+                _matcherActivate = matcher;
             }
 
-            return _matcherEnabled;
+            return _matcherActivate;
         }
     }
 }

@@ -9,8 +9,8 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
+        Add(new ActivateEventSystem(contexts)); // priority: 0
         Add(new CoinsCountEventSystem(contexts)); // priority: 0
-        Add(new EnabledEventSystem(contexts)); // priority: 0
         Add(new InventoryItemEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
         Add(new ProportionalScaleEventSystem(contexts)); // priority: 0

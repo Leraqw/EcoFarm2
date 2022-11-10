@@ -1,14 +1,14 @@
 ﻿
 namespace Code.Unity.ViewListeners
 {
-	public class EnabledView : BaseViewListener, IEnabledListener
+	public class EnabledView : BaseViewListener, IActivateListener
 	{
-		protected override void AddListener(GameEntity entity) => entity.AddEnabledListener(this);
+		protected override void AddListener(GameEntity entity) => entity.AddActivateListener(this);
 
-		protected override bool HasComponent(GameEntity entity) => entity.hasEnabled;
+		protected override bool HasComponent(GameEntity entity) => entity.hasActivate;
 
-		protected override void UpdateValue(GameEntity entity) => OnEnabled(entity, entity.isEnabled);
+		protected override void UpdateValue(GameEntity entity) => OnActivate(entity, entity.isEnabled);
 
-		public void OnEnabled(GameEntity entity, bool value) => gameObject.SetActive(value);
+		public void OnActivate(GameEntity entity, bool value) => gameObject.SetActive(value);
 	}
 }

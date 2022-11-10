@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class EnabledListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<IEnabledListener> value;
+public sealed class ActivateListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<IActivateListener> value;
 }
