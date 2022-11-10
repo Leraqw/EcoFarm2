@@ -3,7 +3,7 @@ using Code.ECS.Systems.Watering.Crane;
 using Code.ECS.Systems.Watering.Drought;
 using Code.ECS.Systems.Watering.Tree;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Updatables.Gameplay
 {
 	public sealed class WateringSystems : Feature
 	{

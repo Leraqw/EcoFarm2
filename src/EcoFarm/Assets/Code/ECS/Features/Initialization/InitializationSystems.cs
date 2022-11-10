@@ -5,7 +5,7 @@ using Code.ECS.Systems.Watering.Bucket;
 using Code.ECS.Systems.Watering.Crane;
 using Code.ECS.Systems.Watering.Tree;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Initialization
 {
 	public sealed class InitializationSystems : Feature
 	{

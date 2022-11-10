@@ -1,7 +1,7 @@
 ﻿using Code.ECS.Systems.Inventory.SellDeal;
 using Code.ECS.Systems.UI;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Updatables.Gameplay
 {
 	public sealed class InventorySystems : Feature
 	{

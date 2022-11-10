@@ -3,7 +3,7 @@ using Code.ECS.Systems.Services;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Initialization
 {
 	public sealed class ServicesRegistrationSystems : Feature
 	{

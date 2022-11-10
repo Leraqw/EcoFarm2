@@ -1,7 +1,7 @@
 ﻿using Code.ECS.Systems.Product.Fruit.Cooldown;
 using Code.ECS.Systems.Product.Fruit.Growing;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Updatables.Gameplay
 {
 	public sealed class GrowingSystems : Feature
 	{

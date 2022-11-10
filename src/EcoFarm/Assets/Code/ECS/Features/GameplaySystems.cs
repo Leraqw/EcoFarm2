@@ -1,4 +1,9 @@
-﻿namespace Code.ECS.Features
+﻿using Code.ECS.Features.Initialization;
+using Code.ECS.Features.Updatables;
+using Code.ECS.Features.Updatables.Cleanup;
+using Code.ECS.Features.Updatables.Gameplay;
+
+namespace Code.ECS.Features
 {
 	public sealed class GameplaySystems : Feature
 	{

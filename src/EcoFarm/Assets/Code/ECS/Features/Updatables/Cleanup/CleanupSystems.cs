@@ -1,6 +1,6 @@
 ﻿using Code.ECS.Systems.Product.Fruit;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Updatables.Cleanup
 {
 	public sealed class CleanupSystems : Feature
 	{

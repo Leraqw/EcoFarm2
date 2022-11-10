@@ -1,7 +1,7 @@
 ﻿using Code.ECS.Systems.Product.Fruit;
 using Code.ECS.Systems.Product.Fruit.Falling;
 
-namespace Code.ECS.Features
+namespace Code.ECS.Features.Updatables.Gameplay
 {
 	public sealed class FallingSystems : Feature
 	{
