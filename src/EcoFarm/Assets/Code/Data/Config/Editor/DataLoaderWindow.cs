@@ -16,6 +16,8 @@ namespace Code.Data.Config.Editor
 		private void OnGUI()
 		{
 			AsHorizontalGroup(DrawOpenDll);
+			
+			Button("Generate").OnPress(TempDataCreator.Create);
 		}
 
 		private void DrawOpenDll()
