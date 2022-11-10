@@ -1,6 +1,5 @@
 ﻿using System;
 using Code.Services.Interfaces;
-using Code.Unity.Containers;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -9,11 +8,12 @@ namespace Code.Services.UnityImplementations
 	public class UnityUiService : IUiService
 	{
 		[SerializeField] private ButtonsCollection _buttons;
+		[SerializeField] private WindowsCollection _windows;
 
 		public IButtonsCollection Buttons => _buttons;
+		public IWindowsCollection Windows => _windows;
 
-		[field: SerializeField] public GameObject CoinsView  { get; private set; }
-		[field: SerializeField] public GameObject AppleView  { get; private set; }
-		[field: SerializeField] public WindowSell WindowSell { get; private set; }
+		[field: SerializeField] public GameObject CoinsView { get; private set; }
+		[field: SerializeField] public GameObject AppleView { get; private set; }
 	}
 }

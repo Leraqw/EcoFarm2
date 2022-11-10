@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.UI.Initialization
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("CurrentCountText"))
-			            .Do((e) => e.AddView(UI.WindowSell.CurrentValue.gameObject))
+			            .Do((e) => e.AddView(UI.Windows.Sell.CurrentValue.gameObject))
 			            .Do((e) => e.AddText(0.ToString()));
 	}
 }

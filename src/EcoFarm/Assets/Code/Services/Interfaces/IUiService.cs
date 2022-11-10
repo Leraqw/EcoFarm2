@@ -1,12 +1,12 @@
-﻿using Code.Unity.Containers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Services.Interfaces
 {
 	public interface IUiService
 	{
-		GameObject         CoinsView  { get; }
-		GameObject         AppleView  { get; }
-		WindowSell     WindowSell { get; }
+		GameObject CoinsView  { get; }
+		GameObject AppleView  { get; }
+		IWindowsCollection Windows { get; }
+		IButtonsCollection Buttons { get; }
 	}
 }
