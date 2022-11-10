@@ -14,16 +14,22 @@ namespace Code.Data.Config.Editor
 
 		private float PathTextFieldWidth => position.width - (OpenFileButtonWidth + DllPathLabelWidth);
 
+		private float WindowWidth => position.width;
+
 		[MenuItem("Tools/Eco-Farm/Data Loader Window")]
 		private static void ShowWindow() => GetWindow<DataLoaderWindow>().WithTitle("Data Loader").Show();
 
 		private void OnGUI()
 		{
 			AsHorizontalGroupAlignCenter(DllPathLabel, DllPathTextField, DllPathOpenFileButton);
-			Button("Copy").OnPress(() => FilesWorker.CopyDlls(_pathToDlls));
+			AsHorizontalGroupAlignCenter(ButtonCopy);
 			Space(50);
 			AsHorizontalGroupAlignCenter(ButtonGenerate);
 		}
+
+		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
+
+		private void CopyDlls() => FilesWorker.CopyDlls(_pathToDlls);
 
 		private void DllPathLabel() => Label("Dll path");
 
@@ -31,7 +37,7 @@ namespace Code.Data.Config.Editor
 
 		private void DllPathOpenFileButton() => Button("Open file").OnPress(GetPathToDll);
 
-		private void ButtonGenerate() => Button("Generate", Width(position.width / 2)).OnPress(TempDataCreator.Create);
+		private void ButtonGenerate() => Button("Generate", Width(WindowWidth / 2)).OnPress(TempDataCreator.Create);
 
 		private void GetPathToDll() => _pathToDlls = OpenFolderPanel("Open folder", string.Empty, string.Empty);
 	}
