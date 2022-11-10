@@ -13,6 +13,21 @@ namespace Code.Data.Config.Editor
 			EditorGUILayout.EndHorizontal();
 		}
 
+		public static void AsHorizontalGroupAlignCenter(params Action[] actions)
+		{
+			void AsFlexible()
+			{
+				foreach (var action in actions)
+				{
+					GUILayout.FlexibleSpace();
+					action();
+					GUILayout.FlexibleSpace();
+				}
+			}
+
+			AsHorizontalGroup(AsFlexible);
+		}
+
 		public static EditorWindow WithTitle(this EditorWindow @this, string title)
 		{
 			@this.titleContent = new GUIContent(title);

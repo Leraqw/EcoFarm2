@@ -1,7 +1,6 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static Code.Data.Config.Editor.EditorGUILayoutUtils;
 using static UnityEditor.EditorUtility;
 using static UnityEngine.GUILayout;
@@ -10,11 +9,11 @@ namespace Code.Data.Config.Editor
 {
 	public class DataLoaderWindow : EditorWindow
 	{
-		private const int OpenFileButtonWidth = 75;
 		private const int DllPathLabelWidth = 50;
+		private const int OpenFileButtonWidth = 75;
 		private string _pathToDlls;
 
-		private float PathTextFieldWidth => position.width - (OpenFileButtonWidth + DllPathLabelWidth + 15);
+		private float PathTextFieldWidth => position.width - (OpenFileButtonWidth + DllPathLabelWidth);
 
 		[MenuItem("Tools/Eco-Farm/Data Loader Window")]
 		private static void ShowWindow() => GetWindow<DataLoaderWindow>().WithTitle("Data Loader").Show();
@@ -22,19 +21,22 @@ namespace Code.Data.Config.Editor
 		private void OnGUI()
 		{
 			AsHorizontalGroup(DrawOpenDll);
+
+			AsHorizontalGroupAlignCenter
+			(
+				() => Label("Dll path"),
+				() => _pathToDlls = TextField(_pathToDlls, Width(PathTextFieldWidth)),
+				() => Button("Open file").OnPress(GetPathToDll)
+			);
+			
 			Button("Copy").OnPress(() => FilesWorker.CopyDlls(_pathToDlls));
 
 			Space(50);
 
-			AsHorizontalGroup(ButtonGenerate);
+			AsHorizontalGroupAlignCenter(ButtonGenerate);
 		}
 
-		private void ButtonGenerate()
-		{
-			FlexibleSpace();
-			Button("Generate", Width(100)).OnPress(TempDataCreator.Create);
-			FlexibleSpace();
-		}
+		private void ButtonGenerate() => Button("Generate", Width(position.width / 2)).OnPress(TempDataCreator.Create);
 
 		private void DrawOpenDll()
 		{
