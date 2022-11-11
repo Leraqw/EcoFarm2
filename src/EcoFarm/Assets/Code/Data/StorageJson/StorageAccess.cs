@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
@@ -11,9 +12,9 @@ namespace Code.Data.StorageJson
 
 		public StorageAccess() => LoadStorage();
 
-		public int TreesCount => _storage.Levels[0].TreesCount;
+		public int TreesCount => _storage.Levels.First().TreesCount;
 
-		public Tree AppleTree => _storage.Trees[0];
+		public Tree AppleTree => _storage.Trees.First();
 
 		private void LoadStorage() => _storage = JsonConvert.DeserializeObject<Storage>(GetJson());
 
