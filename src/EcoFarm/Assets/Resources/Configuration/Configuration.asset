@@ -49,3 +49,7 @@ MonoBehaviour:
       _bucket:
         <Empty>k__BackingField: {fileID: 21300000, guid: b2c59742da9130a4784a7a41221f0808, type: 3}
         <Filled>k__BackingField: {fileID: 21300000, guid: c23c381c1b3b99948a651858287b105c, type: 3}
+      _tree:
+        <Dry>k__BackingField: {fileID: 21300000, guid: 6656ea9ea8abafc4db6dc8260ef4248d, type: 3}
+        <Normal>k__BackingField: {fileID: 21300000, guid: 8fe4770d1652af84d9565a26411a841f, type: 3}
+        <Rotten>k__BackingField: {fileID: 21300000, guid: 506481c2d55cd7e4c89ad15538efef24, type: 3}
