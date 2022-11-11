@@ -31,54 +31,55 @@ public static class GameComponentsLookup {
     public const int Filled = 20;
     public const int Fruitful = 21;
     public const int FruitRequire = 22;
-    public const int Goal = 23;
-    public const int Growth = 24;
-    public const int Inventory = 25;
-    public const int InventoryItem = 26;
-    public const int MouseClick = 27;
-    public const int MouseDown = 28;
-    public const int MouseUp = 29;
-    public const int Pickable = 30;
-    public const int Picked = 31;
-    public const int Position = 32;
-    public const int PreparationInProcess = 33;
-    public const int Prepared = 34;
-    public const int Product = 35;
-    public const int ProportionalScale = 36;
-    public const int Radius = 37;
-    public const int RequirePreparation = 38;
-    public const int RequireSprite = 39;
-    public const int RequireTreeOnPosition = 40;
-    public const int RequireView = 41;
-    public const int SellDeal = 42;
-    public const int SellWindow = 43;
-    public const int SliderMaxValue = 44;
-    public const int SliderValue = 45;
-    public const int SpawnPosition = 46;
-    public const int Sprite = 47;
-    public const int SpriteToLoad = 48;
-    public const int Storage = 49;
-    public const int TargetActivity = 50;
-    public const int TargetPosition = 51;
-    public const int TargetScale = 52;
-    public const int Text = 53;
-    public const int Tree = 54;
-    public const int View = 55;
-    public const int ViewPrefab = 56;
-    public const int Watered = 57;
-    public const int Watering = 58;
-    public const int WillFall = 59;
-    public const int CoinsCountListener = 60;
-    public const int InventoryItemListener = 61;
-    public const int PositionListener = 62;
-    public const int ProportionalScaleListener = 63;
-    public const int SliderMaxValueListener = 64;
-    public const int SliderValueListener = 65;
-    public const int SpriteListener = 66;
-    public const int TextListener = 67;
-    public const int WateringListener = 68;
+    public const int GoalCompleted = 23;
+    public const int Goal = 24;
+    public const int Growth = 25;
+    public const int Inventory = 26;
+    public const int InventoryItem = 27;
+    public const int MouseClick = 28;
+    public const int MouseDown = 29;
+    public const int MouseUp = 30;
+    public const int Pickable = 31;
+    public const int Picked = 32;
+    public const int Position = 33;
+    public const int PreparationInProcess = 34;
+    public const int Prepared = 35;
+    public const int Product = 36;
+    public const int ProportionalScale = 37;
+    public const int Radius = 38;
+    public const int RequirePreparation = 39;
+    public const int RequireSprite = 40;
+    public const int RequireTreeOnPosition = 41;
+    public const int RequireView = 42;
+    public const int SellDeal = 43;
+    public const int SellWindow = 44;
+    public const int SliderMaxValue = 45;
+    public const int SliderValue = 46;
+    public const int SpawnPosition = 47;
+    public const int Sprite = 48;
+    public const int SpriteToLoad = 49;
+    public const int Storage = 50;
+    public const int TargetActivity = 51;
+    public const int TargetPosition = 52;
+    public const int TargetScale = 53;
+    public const int Text = 54;
+    public const int Tree = 55;
+    public const int View = 56;
+    public const int ViewPrefab = 57;
+    public const int Watered = 58;
+    public const int Watering = 59;
+    public const int WillFall = 60;
+    public const int CoinsCountListener = 61;
+    public const int InventoryItemListener = 62;
+    public const int PositionListener = 63;
+    public const int ProportionalScaleListener = 64;
+    public const int SliderMaxValueListener = 65;
+    public const int SliderValueListener = 66;
+    public const int SpriteListener = 67;
+    public const int TextListener = 68;
+    public const int WateringListener = 69;
 
-    public const int TotalComponents = 69;
+    public const int TotalComponents = 70;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -104,6 +105,7 @@ public static class GameComponentsLookup {
         "Filled",
         "Fruitful",
         "FruitRequire",
+        "GoalCompleted",
         "Goal",
         "Growth",
         "Inventory",
@@ -176,6 +178,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FilledComponent),
         typeof(Code.ECS.Components.FruitfulComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
+        typeof(Code.ECS.Components.GoalCompletedComponent),
         typeof(Code.ECS.Components.GoalComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.InventoryComponent),
