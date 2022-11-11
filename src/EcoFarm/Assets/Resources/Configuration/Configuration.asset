@@ -39,7 +39,7 @@ MonoBehaviour:
     <Tolerance>k__BackingField: 0.01
   _resource:
     _prefab:
-      <Apple>k__BackingField: Products/Fruits/Prefabs/Apple
+      <Apple>k__BackingField: {fileID: 347387760436490403, guid: 1e700df656d159a458b093866520b36a, type: 3}
       <Tree>k__BackingField: Trees/Prefabs/Tree
       <BedPlug>k__BackingField: Environment/Trees Beds/Prefabs/Tree Bed Plug
       <Warehouse>k__BackingField: Environment/Warehouse/Prefabs/Warehouse

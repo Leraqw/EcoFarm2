@@ -9,6 +9,8 @@ namespace Code.ECS.Components
 {
 	[Game] public sealed class RequireViewComponent : ValueComponent<string> { }
 
+	[Game] public sealed class ViewPrefabComponent : ValueComponent<GameObject> { }
+	
 	[Game] public sealed class ViewComponent : ValueComponent<GameObject> { }
 
 	[Game] public sealed class SpawnPositionComponent : ValueComponent<Vector2> { }

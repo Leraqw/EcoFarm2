@@ -60,20 +60,21 @@ public static class GameComponentsLookup {
     public const int Text = 49;
     public const int Tree = 50;
     public const int View = 51;
-    public const int Watered = 52;
-    public const int Watering = 53;
-    public const int WillFall = 54;
-    public const int CoinsCountListener = 55;
-    public const int InventoryItemListener = 56;
-    public const int PositionListener = 57;
-    public const int ProportionalScaleListener = 58;
-    public const int SliderMaxValueListener = 59;
-    public const int SliderValueListener = 60;
-    public const int SpriteListener = 61;
-    public const int TextListener = 62;
-    public const int WateringListener = 63;
+    public const int ViewPrefab = 52;
+    public const int Watered = 53;
+    public const int Watering = 54;
+    public const int WillFall = 55;
+    public const int CoinsCountListener = 56;
+    public const int InventoryItemListener = 57;
+    public const int PositionListener = 58;
+    public const int ProportionalScaleListener = 59;
+    public const int SliderMaxValueListener = 60;
+    public const int SliderValueListener = 61;
+    public const int SpriteListener = 62;
+    public const int TextListener = 63;
+    public const int WateringListener = 64;
 
-    public const int TotalComponents = 64;
+    public const int TotalComponents = 65;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -128,6 +129,7 @@ public static class GameComponentsLookup {
         "Text",
         "Tree",
         "View",
+        "ViewPrefab",
         "Watered",
         "Watering",
         "WillFall",
@@ -195,6 +197,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.ECS.Components.ViewPrefabComponent),
         typeof(Code.ECS.Components.WateredComponent),
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),
