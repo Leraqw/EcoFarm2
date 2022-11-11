@@ -9,11 +9,11 @@ namespace Code.Data.StorageJson
 {
 	public class StorageAccess : IDataService
 	{
-		public StorageAccess() => LoadStorage();
+		public StorageAccess() => Storage = Deserialize();
 
-		public Storage Storage { get; private set; }
+		public Storage Storage { get; }
 
-		private void LoadStorage() => Storage = JsonConvert.DeserializeObject<Storage>(GetJson(), WithReferences);
+		private static Storage Deserialize() => JsonConvert.DeserializeObject<Storage>(GetJson(), WithReferences);
 
 		private static string GetJson() => File.ReadAllText(Constants.PathToStorage);
 	}
