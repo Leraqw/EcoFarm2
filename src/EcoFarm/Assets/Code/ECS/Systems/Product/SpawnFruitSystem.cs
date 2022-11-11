@@ -5,7 +5,6 @@ using Code.Services.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Temp;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Product

@@ -13,7 +13,9 @@ namespace Code.ECS.Systems.Inventory
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		public void Initialize() => _contexts.game.CreateInventoryItem("Apple", 0)
+		private EcoFarmDataModule.Product Product => _contexts.services.dataService.Value.AppleTree.Product;
+
+		public void Initialize() => _contexts.game.CreateInventoryItem(Product, 0)
 		                                     .Do((e) => e.AddView(UIService.AppleView));
 	}
 }
