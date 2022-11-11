@@ -1,4 +1,5 @@
 ﻿using Code.Data.DataBase;
+using Code.Data.StorageJson;
 using Code.Services.Interfaces;
 
 namespace Code.Services.UnityImplementations
@@ -7,7 +8,7 @@ namespace Code.Services.UnityImplementations
 	{
 		private readonly IDataAccess _data;
 
-		public UnityDataBaseService() => _data = new DataBaseAccess();
+		public UnityDataBaseService() => _data = new StorageAccess();
 
 		public int TreesCount => _data.TreesCount;
 	}
