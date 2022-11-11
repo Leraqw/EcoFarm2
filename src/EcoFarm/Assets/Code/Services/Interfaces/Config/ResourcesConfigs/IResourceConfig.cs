@@ -1,6 +1,4 @@
-﻿using Code.Unity.SO.Configuration;
-
-namespace Code.Services.Interfaces.Config.ResourcesConfigs
+﻿namespace Code.Services.Interfaces.Config.ResourcesConfigs
 {
 	public interface IResourceConfig
 	{

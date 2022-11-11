@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Entitas;
