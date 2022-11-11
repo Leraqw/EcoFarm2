@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -7,8 +8,6 @@ namespace Code.Data.Config.Editor
 { 
 	public static class TempDataCreator
 	{
-		private const string RelativePath = "Assets/DataModel/SerializedFiles";
-
 		public static void Create()
 		{
 			var storage = new Storage
@@ -17,7 +16,7 @@ namespace Code.Data.Config.Editor
 			};
 
 			var json = JsonConvert.SerializeObject(storage, Formatting.Indented);
-			var path = Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
+			var path = Constants.PathToStorage;
 
 			File.WriteAllText(path, json);
 			Debug.Log($"File created on {path}");

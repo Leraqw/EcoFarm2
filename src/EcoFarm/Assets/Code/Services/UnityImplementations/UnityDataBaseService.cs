@@ -5,10 +5,10 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityDataBaseService : IDataBaseService
 	{
-		private readonly DataBaseAccess _dataBase;
+		private readonly IDataAccess _data;
 
-		public UnityDataBaseService() => _dataBase = new DataBaseAccess();
+		public UnityDataBaseService() => _data = new DataBaseAccess();
 
-		public int TreesCount => _dataBase.TreesCount;
+		public int TreesCount => _data.TreesCount;
 	}
 }

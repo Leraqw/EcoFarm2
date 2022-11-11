@@ -4,7 +4,7 @@ using Mono.Data.Sqlite;
 
 namespace Code.Data.DataBase
 {
-	public class DataBaseAccess : IDisposable
+	public class DataBaseAccess : IDisposable, IDataAccess
 	{
 		private readonly SqliteConnection _connection;
 
