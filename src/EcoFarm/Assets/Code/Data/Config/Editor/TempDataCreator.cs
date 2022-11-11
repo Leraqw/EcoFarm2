@@ -1,25 +1,28 @@
 ﻿using System.IO;
-using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
 using UnityEngine;
+using static Code.Utils.StaticClasses.Constants;
 
 namespace Code.Data.Config.Editor
-{ 
+{
 	public static class TempDataCreator
 	{
-		public static void Create()
-		{
-			var storage = new Storage
+		public static void Create() => Serialization(NewStorage());
+
+		private static Storage NewStorage()
+			=> new()
 			{
 				Levels = new[] { new Level { Order = 1, TreesCount = 5 } }
 			};
 
-			var json = JsonConvert.SerializeObject(storage, Formatting.Indented);
-			var path = Constants.PathToStorage;
-
-			File.WriteAllText(path, json);
-			Debug.Log($"File created on {path}");
+		private static void Serialization(Storage storage)
+		{
+			File.WriteAllText(PathToStorage, SerializeObject(storage));
+			Debug.Log($"File created on {PathToStorage}");
 		}
+
+		private static string SerializeObject(Storage storage) 
+			=> JsonConvert.SerializeObject(storage, Formatting.Indented);
 	}
 }
