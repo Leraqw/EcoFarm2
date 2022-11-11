@@ -20,7 +20,7 @@ namespace Code.ECS.Systems.Watering.Crane
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Crane"))
 			            .Do((e) => e.isCrane = true)
-			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.Crane))
+			            .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.Crane))
 			            .Do((e) => e.AddPosition(SpawnPointsService.Crane));
 	}
 }

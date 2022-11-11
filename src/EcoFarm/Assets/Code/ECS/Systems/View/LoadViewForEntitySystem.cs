@@ -23,7 +23,7 @@ namespace Code.ECS.Systems.View
 		private IResourcesService Resources => _services.resourcesService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(RequireView);
+			=> context.CreateCollector(AnyOf(RequireView, ViewPrefab));
 
 		protected override bool Filter(GameEntity entity) => entity.hasView == false;
 
@@ -35,6 +35,7 @@ namespace Code.ECS.Systems.View
 		private GameObject Instantiate(GameEntity e)
 			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
-		private GameObject LoadPrefab(GameEntity e) => Resources.LoadGameObject(e.requireView.Value);
+		private GameObject LoadPrefab(GameEntity e)
+			=> e.hasViewPrefab ? e.viewPrefab : Resources.LoadGameObject(e.requireView.Value);
 	}
 }

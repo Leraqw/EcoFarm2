@@ -54,26 +54,28 @@ public static class GameComponentsLookup {
     public const int SliderValue = 43;
     public const int SpawnPosition = 44;
     public const int Sprite = 45;
-    public const int TargetActivity = 46;
-    public const int TargetPosition = 47;
-    public const int TargetScale = 48;
-    public const int Text = 49;
-    public const int Tree = 50;
-    public const int View = 51;
-    public const int Watered = 52;
-    public const int Watering = 53;
-    public const int WillFall = 54;
-    public const int CoinsCountListener = 55;
-    public const int InventoryItemListener = 56;
-    public const int PositionListener = 57;
-    public const int ProportionalScaleListener = 58;
-    public const int SliderMaxValueListener = 59;
-    public const int SliderValueListener = 60;
-    public const int SpriteListener = 61;
-    public const int TextListener = 62;
-    public const int WateringListener = 63;
+    public const int SpriteToLoad = 46;
+    public const int TargetActivity = 47;
+    public const int TargetPosition = 48;
+    public const int TargetScale = 49;
+    public const int Text = 50;
+    public const int Tree = 51;
+    public const int View = 52;
+    public const int ViewPrefab = 53;
+    public const int Watered = 54;
+    public const int Watering = 55;
+    public const int WillFall = 56;
+    public const int CoinsCountListener = 57;
+    public const int InventoryItemListener = 58;
+    public const int PositionListener = 59;
+    public const int ProportionalScaleListener = 60;
+    public const int SliderMaxValueListener = 61;
+    public const int SliderValueListener = 62;
+    public const int SpriteListener = 63;
+    public const int TextListener = 64;
+    public const int WateringListener = 65;
 
-    public const int TotalComponents = 64;
+    public const int TotalComponents = 66;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -122,12 +124,14 @@ public static class GameComponentsLookup {
         "SliderValue",
         "SpawnPosition",
         "Sprite",
+        "SpriteToLoad",
         "TargetActivity",
         "TargetPosition",
         "TargetScale",
         "Text",
         "Tree",
         "View",
+        "ViewPrefab",
         "Watered",
         "Watering",
         "WillFall",
@@ -189,12 +193,14 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.SliderValueComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
+        typeof(Code.ECS.Components.SpriteToLoadComponent),
         typeof(Code.ECS.Components.TargetActivityComponent),
         typeof(Code.ECS.Components.TargetPositionComponent),
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.ECS.Components.ViewPrefabComponent),
         typeof(Code.ECS.Components.WateredComponent),
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),

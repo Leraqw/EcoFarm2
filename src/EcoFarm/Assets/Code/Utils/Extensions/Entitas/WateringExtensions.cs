@@ -2,6 +2,7 @@
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Interfaces.Config;
 using Code.Unity.SO.Configuration;
+using UnityEngine;
 
 namespace Code.Utils.Extensions.Entitas
 {
@@ -19,7 +20,7 @@ namespace Code.Utils.Extensions.Entitas
 			return @this;
 		}
 		
-		public static string GetActualBucketSprite(this GameEntity entity) 
+		public static Sprite GetActualBucketSprite(this GameEntity entity) 
 			=> entity.isFilled ? Sprite.Bucket.Filled : Sprite.Bucket.Empty;
 
 		private static ISpriteConfig Sprite => Configuration.ResourcePath.Sprite;

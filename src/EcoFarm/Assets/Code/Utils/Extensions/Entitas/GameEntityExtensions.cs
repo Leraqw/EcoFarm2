@@ -12,7 +12,14 @@ namespace Code.Utils.Extensions.Entitas
 		public static void PerformRequiredView(this GameEntity @this, GameObject gameObject)
 		{
 			@this.AddView(gameObject);
-			@this.RemoveRequireView();
+			if (@this.hasRequireView)
+			{
+				@this.RemoveRequireView();
+			}
+			else
+			{
+				@this.RemoveViewPrefab();
+			}
 		}
 
 		public static Vector2 GetActualPosition(this GameEntity @this)

@@ -26,7 +26,7 @@ namespace Code.ECS.Systems.Tree
 		private void Spawn(GameEntity entry)
 			=> entry.Do((e) => e.AddDebugName("Tree"))
 			        .Do((e) => e.AddAttachableIndex(e.creationIndex))
-			        .Do((e) => e.AddRequireView(ResourcePath.Prefab.Tree))
+			        .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
 			        .Do((e) => e.isTree = true)
 			        .Do((e) => e.isFruitful = true)

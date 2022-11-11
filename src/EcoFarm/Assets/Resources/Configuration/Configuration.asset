@@ -39,13 +39,13 @@ MonoBehaviour:
     <Tolerance>k__BackingField: 0.01
   _resource:
     _prefab:
-      <Apple>k__BackingField: Products/Fruits/Prefabs/Apple
-      <Tree>k__BackingField: Trees/Prefabs/Tree
-      <BedPlug>k__BackingField: Environment/Trees Beds/Prefabs/Tree Bed Plug
-      <Warehouse>k__BackingField: Environment/Warehouse/Prefabs/Warehouse
-      <Crane>k__BackingField: Environment/Crane/Prefabs/Crane
-      <Bucket>k__BackingField: Environment/Bucket/Prefabs/Bucket
+      <Apple>k__BackingField: {fileID: 347387760436490403, guid: 1e700df656d159a458b093866520b36a, type: 3}
+      <Tree>k__BackingField: {fileID: 5931395629363369475, guid: 122cb32c8b54f5945be2ed3351fa5c49, type: 3}
+      <BedPlug>k__BackingField: {fileID: 6228490252963839037, guid: 201e83c78b042dd4c9dd636ef1a3410b, type: 3}
+      <Warehouse>k__BackingField: {fileID: 7903105866861288345, guid: 789e564d00853d54ca67ff047c50c9e9, type: 3}
+      <Crane>k__BackingField: {fileID: 1445715841870575261, guid: 0d45df538f41ae249ba5499c5ed6e879, type: 3}
+      <Bucket>k__BackingField: {fileID: 4462173050554342179, guid: e67478f1501dc164aa7e5c12de60f43e, type: 3}
     _sprite:
       _bucket:
-        <Empty>k__BackingField: Environment/Bucket/Art/BucketEmpty
-        <Filled>k__BackingField: Environment/Bucket/Art/BucketFilled
+        <Empty>k__BackingField: {fileID: 21300000, guid: b2c59742da9130a4784a7a41221f0808, type: 3}
+        <Filled>k__BackingField: {fileID: 21300000, guid: c23c381c1b3b99948a651858287b105c, type: 3}

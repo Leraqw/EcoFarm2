@@ -1,12 +1,14 @@
-﻿namespace Code.Services.Interfaces.Config.ResourcesConfigs
+﻿using UnityEngine;
+
+namespace Code.Services.Interfaces.Config.ResourcesConfigs
 {
 	public interface IPrefabConfig
 	{
-		string Apple     { get; }
-		string Tree      { get; }
-		string BedPlug   { get; }
-		string Warehouse { get; }
-		string Crane     { get; }
-		string Bucket    { get; }
+		GameObject Apple     { get; }
+		GameObject Tree      { get; }
+		GameObject BedPlug   { get; }
+		GameObject Warehouse { get; }
+		GameObject Crane     { get; }
+		GameObject Bucket    { get; }
 	}
 }
