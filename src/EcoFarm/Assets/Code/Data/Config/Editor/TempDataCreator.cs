@@ -20,6 +20,8 @@ namespace Code.Data.Config.Editor
 				{
 					new Tree
 					{
+						Title = "Apple Tree",
+						Description = "Giving apples",
 						Product = new Product
 						{
 							Title = "Apple",

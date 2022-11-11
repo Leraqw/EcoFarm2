@@ -4,5 +4,17 @@
       "Order": 1,
       "TreesCount": 5
     }
+  ],
+  "Trees": [
+    {
+      "Product": {
+        "Title": "Apple",
+        "Description": "Is a sweet, edible fruit produced by an apple tree.",
+        "Price": 10
+      },
+      "Title": "Apple Tree",
+      "Description": "Giving apples",
+      "Price": 0
+    }
   ]
 }
