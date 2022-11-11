@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Services.Interfaces.Config.ResourcesConfigs;
 using UnityEngine;
 
 namespace Code.Unity.SO.Configuration
@@ -6,7 +7,7 @@ namespace Code.Unity.SO.Configuration
 	[Serializable]
 	public class BucketSpritesConfig : IBucketSpritesConfig
 	{
-		[field: SerializeField] public string Empty  { get; private set; } = "Environment/Bucket/Art/BucketEmpty";
-		[field: SerializeField] public string Filled { get; private set; } = "Environment/Bucket/Art/BucketFilled";
+		[field: SerializeField] public Sprite Empty  { get; private set; }
+		[field: SerializeField] public Sprite Filled { get; private set; }
 	}
 }

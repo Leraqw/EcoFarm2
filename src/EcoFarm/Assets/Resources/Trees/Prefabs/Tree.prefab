@@ -199,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3437057505231374022}
   - component: {fileID: 4005872917033057837}
+  - component: {fileID: 7402068616413860224}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -236,6 +237,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 5748244182732023742}
+--- !u!114 &7402068616413860224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931395629363369475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45e465112e5472c8182582cea4fbffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3523887526531625688}
 --- !u!1 &7458467447657207221
 GameObject:
   m_ObjectHideFlags: 0

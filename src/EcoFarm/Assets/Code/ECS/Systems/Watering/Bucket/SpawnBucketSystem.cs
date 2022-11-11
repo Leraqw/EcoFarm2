@@ -1,5 +1,6 @@
 ﻿using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
+using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Entitas;
 
@@ -15,14 +16,14 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private IResourcePathConfig ResourcePath => _contexts.GetConfiguration().ResourcePath;
+		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
 			            .Do((e) => e.isBucket = true)
-			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.Bucket))
-			            .Do((e) => e.AddRequireSprite(ResourcePath.Sprite.Bucket.Filled))
+			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Bucket))
+			            .Do((e) => e.AddSpriteToLoad(Resource.Sprite.Bucket.Filled))
 			            .Do((e) => e.AddRadius(Balance.Bucket.Radius))
 			            .Do((e) => e.isDraggable = true)
 			            .Do((e) => e.isFilled = true)

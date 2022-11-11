@@ -17,6 +17,6 @@ namespace Code.ECS.Systems.Watering.Bucket
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
-		private static void Sync(GameEntity entity) => entity.AddRequireSprite(entity.GetActualBucketSprite());
+		private static void Sync(GameEntity entity) => entity.AddSpriteToLoad(entity.GetActualBucketSprite());
 	}
 }

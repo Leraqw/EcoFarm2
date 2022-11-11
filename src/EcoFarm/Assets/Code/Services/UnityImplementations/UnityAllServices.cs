@@ -2,6 +2,7 @@
 using Code.Data.Config;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
+using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Unity;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ namespace Code.Services.UnityImplementations
 
 		ICommonConfig IConfigurationService.Common => _configuration.Common;
 
-		IResourcePathConfig IConfigurationService.ResourcePath => _configuration.ResourcePath;
+		IResourceConfig IConfigurationService.Resource => _configuration.Resource;
 
 		GameObject IUiService.CoinsView => _ui.CoinsView;
 
