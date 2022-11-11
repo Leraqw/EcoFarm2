@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.Inventory.SellDeal;
+﻿using Code.ECS.Systems.Goals;
+using Code.ECS.Systems.Inventory.SellDeal;
 using Code.ECS.Systems.UI;
 
 namespace Code.ECS.Features.Updatables.Gameplay
@@ -12,6 +13,9 @@ namespace Code.ECS.Features.Updatables.Gameplay
 			Add(new SubtractSoldApplesSystem(contexts));
 			Add(new DeactivateDealSystem(contexts));
 			Add(new ActualizeCountToSellSliderMaxValueSystem(contexts));
+			
+			// TODO: GoalsSystems
+			Add(new CheckGoalsByProductSystem(contexts));
 		}
 	}
 }
