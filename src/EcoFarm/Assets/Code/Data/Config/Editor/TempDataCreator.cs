@@ -13,19 +13,21 @@ namespace Code.Data.Config.Editor
 
 		private static Storage NewStorage()
 		{
-			var tree = new Tree
-			{
-				Product = new Product
-				{
-					Title = "Apple",
-					Description = "Is a sweet, edible fruit produced by an apple tree.",
-					Price = 10,
-				}
-			};
-			
 			return new Storage
 			{
-				Levels = new[] { new Level { Order = 1, TreesCount = 5 } }
+				Levels = new[] { new Level { Order = 1, TreesCount = 5 } },
+				Trees = new[]
+				{
+					new Tree
+					{
+						Product = new Product
+						{
+							Title = "Apple",
+							Description = "Is a sweet, edible fruit produced by an apple tree.",
+							Price = 10,
+						}
+					}
+				}
 			};
 		}
 
@@ -35,7 +37,7 @@ namespace Code.Data.Config.Editor
 			Debug.Log($"File created on {PathToStorage}");
 		}
 
-		private static string SerializeObject(Storage storage) 
+		private static string SerializeObject(Storage storage)
 			=> JsonConvert.SerializeObject(storage, Formatting.Indented);
 	}
 }
