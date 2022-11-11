@@ -1,7 +1,7 @@
 ﻿using Code.Utils.Extensions;
 using Entitas;
 
-namespace Code.ECS.Systems.Date
+namespace Code.ECS.Systems.Data
 {
 	public sealed class SpawnStorage : IInitializeSystem
 	{
