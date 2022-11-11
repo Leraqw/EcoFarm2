@@ -12,8 +12,7 @@ namespace Code.Data.Config.Editor
 		public static void Create() => Serialization(NewStorage());
 
 		private static Storage NewStorage()
-		{
-			return new Storage
+			=> new()
 			{
 				Levels = new[] { new Level { Order = 1, TreesCount = 5 } },
 				Trees = new[]
@@ -31,7 +30,6 @@ namespace Code.Data.Config.Editor
 					}
 				}
 			};
-		}
 
 		private static void Serialization(Storage storage)
 		{
