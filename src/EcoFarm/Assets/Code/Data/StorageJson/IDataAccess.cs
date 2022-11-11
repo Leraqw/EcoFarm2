@@ -1,4 +1,4 @@
-namespace Code.Data.DataBase
+namespace Code.Data.StorageJson
 {
 	public interface IDataAccess
 	{
