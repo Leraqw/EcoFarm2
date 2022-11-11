@@ -1,16 +1,29 @@
 {
+  "$id": "1",
   "Levels": [
     {
+      "$id": "2",
       "Order": 1,
-      "TreesCount": 5
+      "TreesCount": 5,
+      "Goals": [
+        {
+          "$id": "3",
+          "DevelopmentObject": {
+            "$id": "4",
+            "Title": "Apple",
+            "Description": "Is a sweet, edible fruit produced by an apple tree.",
+            "Price": 2
+          },
+          "TargetQuantity": 5
+        }
+      ]
     }
   ],
   "Trees": [
     {
+      "$id": "5",
       "Product": {
-        "Title": "Apple",
-        "Description": "Is a sweet, edible fruit produced by an apple tree.",
-        "Price": 2
+        "$ref": "4"
       },
       "Title": "Apple Tree",
       "Description": "Giving apples",
