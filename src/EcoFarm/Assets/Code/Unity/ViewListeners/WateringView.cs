@@ -10,7 +10,7 @@ namespace Code.Unity.ViewListeners
 	{
 		[SerializeField] private Slider _slider;
 
-		private static ITreeConfig ConfigTree => sharedInstance.GetConfiguration().Balance.Tree;
+		private static ITreeConfig ConfigurationTree => sharedInstance.GetConfiguration().Balance.Tree;
 		
 		protected override void AddListener(GameEntity entity) => entity.AddWateringListener(this);
 
@@ -18,8 +18,8 @@ namespace Code.Unity.ViewListeners
 
 		protected override void UpdateValue(GameEntity entity)
 		{
-			_slider.minValue = ConfigTree.MinWatering;
-			_slider.maxValue = ConfigTree.MaxWatering;
+			_slider.minValue = ConfigurationTree.MinWatering;
+			_slider.maxValue = ConfigurationTree.MaxWatering;
 			OnWatering(entity, entity.watering.Value);
 		}
 
