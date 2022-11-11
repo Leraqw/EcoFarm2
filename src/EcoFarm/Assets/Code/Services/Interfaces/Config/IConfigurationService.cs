@@ -1,4 +1,6 @@
-﻿namespace Code.Services.Interfaces.Config
+﻿using Code.Services.Interfaces.Config.ResourcesConfigs;
+
+namespace Code.Services.Interfaces.Config
 {
 	public interface IConfigurationService
 	{
@@ -6,6 +8,6 @@
 		
 		ICommonConfig Common { get; }
 		
-		IResourcePathConfig ResourcePath { get; }
+		IResourceConfig Resource { get; }
 	}
 }

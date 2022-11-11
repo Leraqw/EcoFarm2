@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Code.Unity.SO.Configuration
 {
 	[Serializable]
-	public class ResourceConfig : IResourcePathConfig
+	public class ResourceConfig : IResourceConfig
 	{
 		[SerializeField] private PrefabConfig _prefab;
 		[SerializeField] private SpriteConfig _sprite;

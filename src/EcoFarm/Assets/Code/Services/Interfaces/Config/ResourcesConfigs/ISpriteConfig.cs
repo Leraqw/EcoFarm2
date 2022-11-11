@@ -1,4 +1,4 @@
-﻿namespace Code.Unity.SO.Configuration
+﻿namespace Code.Services.Interfaces.Config.ResourcesConfigs
 {
 	public interface ISpriteConfig
 	{
