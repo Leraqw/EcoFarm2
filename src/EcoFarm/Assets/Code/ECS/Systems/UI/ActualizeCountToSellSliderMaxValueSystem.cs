@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.UI
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(ActualizeSliders);
 
 		private void ActualizeSliders(GameEntity item)
-			=> _sliders.ForEach((s) => Actualize(s, item), @if: item.HasSameFruitType);
+			=> _sliders.ForEach((s) => Actualize(s, item), @if: item.IsSameFruit);
 
 		private static void Actualize(GameEntity slider, GameEntity item)
 			=> slider.ReplaceSliderMaxValue(item.inventoryItem.Value.Count);

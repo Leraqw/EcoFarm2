@@ -30,18 +30,18 @@ public static class GameComponentsLookup {
     public const int Filled = 19;
     public const int Fruitful = 20;
     public const int FruitRequire = 21;
-    public const int FruitTypeId = 22;
-    public const int Growth = 23;
-    public const int Inventory = 24;
-    public const int InventoryItem = 25;
-    public const int MouseClick = 26;
-    public const int MouseDown = 27;
-    public const int MouseUp = 28;
-    public const int Pickable = 29;
-    public const int Picked = 30;
-    public const int Position = 31;
-    public const int PreparationInProcess = 32;
-    public const int Prepared = 33;
+    public const int Growth = 22;
+    public const int Inventory = 23;
+    public const int InventoryItem = 24;
+    public const int MouseClick = 25;
+    public const int MouseDown = 26;
+    public const int MouseUp = 27;
+    public const int Pickable = 28;
+    public const int Picked = 29;
+    public const int Position = 30;
+    public const int PreparationInProcess = 31;
+    public const int Prepared = 32;
+    public const int Product = 33;
     public const int ProportionalScale = 34;
     public const int Radius = 35;
     public const int RequirePreparation = 36;
@@ -100,7 +100,6 @@ public static class GameComponentsLookup {
         "Filled",
         "Fruitful",
         "FruitRequire",
-        "FruitTypeId",
         "Growth",
         "Inventory",
         "InventoryItem",
@@ -112,6 +111,7 @@ public static class GameComponentsLookup {
         "Position",
         "PreparationInProcess",
         "Prepared",
+        "Product",
         "ProportionalScale",
         "Radius",
         "RequirePreparation",
@@ -169,7 +169,6 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.FilledComponent),
         typeof(Code.ECS.Components.FruitfulComponent),
         typeof(Code.ECS.Components.FruitRequireComponent),
-        typeof(Code.ECS.Components.FruitTypeIdComponent),
         typeof(Code.ECS.Components.GrowthComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
@@ -181,6 +180,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.PreparationInProcessComponent),
         typeof(Code.ECS.Components.PreparedComponent),
+        typeof(Code.ECS.Components.ProductComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
         typeof(Code.ECS.Components.RequirePreparationComponent),

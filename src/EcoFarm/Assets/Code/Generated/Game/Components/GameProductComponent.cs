@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.TreeComponent tree { get { return (Code.ECS.Components.TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
-    public bool hasTree { get { return HasComponent(GameComponentsLookup.Tree); } }
+    public Code.ECS.Components.ProductComponent product { get { return (Code.ECS.Components.ProductComponent)GetComponent(GameComponentsLookup.Product); } }
+    public bool hasProduct { get { return HasComponent(GameComponentsLookup.Product); } }
 
-    public void AddTree(EcoFarmDataModule.Tree newValue) {
-        var index = GameComponentsLookup.Tree;
-        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
+    public void AddProduct(EcoFarmDataModule.Product newValue) {
+        var index = GameComponentsLookup.Product;
+        var component = (Code.ECS.Components.ProductComponent)CreateComponent(index, typeof(Code.ECS.Components.ProductComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTree(EcoFarmDataModule.Tree newValue) {
-        var index = GameComponentsLookup.Tree;
-        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
+    public void ReplaceProduct(EcoFarmDataModule.Product newValue) {
+        var index = GameComponentsLookup.Product;
+        var component = (Code.ECS.Components.ProductComponent)CreateComponent(index, typeof(Code.ECS.Components.ProductComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveTree() {
-        RemoveComponent(GameComponentsLookup.Tree);
+    public void RemoveProduct() {
+        RemoveComponent(GameComponentsLookup.Product);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTree;
+    static Entitas.IMatcher<GameEntity> _matcherProduct;
 
-    public static Entitas.IMatcher<GameEntity> Tree {
+    public static Entitas.IMatcher<GameEntity> Product {
         get {
-            if (_matcherTree == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Tree);
+            if (_matcherProduct == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Product);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherTree = matcher;
+                _matcherProduct = matcher;
             }
 
-            return _matcherTree;
+            return _matcherProduct;
         }
     }
 }

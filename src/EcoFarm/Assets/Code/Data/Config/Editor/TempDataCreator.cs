@@ -3,6 +3,7 @@ using EcoFarmDataModule;
 using Newtonsoft.Json;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants;
+using Tree = EcoFarmDataModule.Tree;
 
 namespace Code.Data.Config.Editor
 {
@@ -13,7 +14,21 @@ namespace Code.Data.Config.Editor
 		private static Storage NewStorage()
 			=> new()
 			{
-				Levels = new[] { new Level { Order = 1, TreesCount = 5 } }
+				Levels = new[] { new Level { Order = 1, TreesCount = 5 } },
+				Trees = new[]
+				{
+					new Tree
+					{
+						Title = "Apple Tree",
+						Description = "Giving apples",
+						Product = new Product
+						{
+							Title = "Apple",
+							Description = "Is a sweet, edible fruit produced by an apple tree.",
+							Price = 2,
+						}
+					}
+				}
 			};
 
 		private static void Serialization(Storage storage)
@@ -22,7 +37,7 @@ namespace Code.Data.Config.Editor
 			Debug.Log($"File created on {PathToStorage}");
 		}
 
-		private static string SerializeObject(Storage storage) 
+		private static string SerializeObject(Storage storage)
 			=> JsonConvert.SerializeObject(storage, Formatting.Indented);
 	}
 }
