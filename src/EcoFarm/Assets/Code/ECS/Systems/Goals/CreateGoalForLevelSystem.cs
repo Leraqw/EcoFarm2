@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Data;
 using EcoFarmDataModule;
 using Entitas;
 
@@ -18,6 +19,7 @@ namespace Code.ECS.Systems.Goals
 		private void Create(Goal goal)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddGoal(goal))
+			            .MarkGoal()
 			            .Do((e) => e.AddDebugName($"Goal {goal.TargetQuantity} – {goal.GetType().Name}"));
 	}
 }

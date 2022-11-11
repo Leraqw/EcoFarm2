@@ -13,5 +13,15 @@ namespace Code.Utils.Extensions.Data
 
 			return entity;
 		}
+
+		public static GameEntity MarkGoal(this GameEntity @this)
+		{
+			if (@this.goal.Value is GoalByDevelopmentObject { DevelopmentObject: Product product })
+			{
+				@this.AddProduct(product);
+			}
+
+			return @this;
+		}
 	}
 }
