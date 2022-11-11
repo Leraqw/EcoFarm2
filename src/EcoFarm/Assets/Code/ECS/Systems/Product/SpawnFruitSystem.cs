@@ -30,7 +30,7 @@ namespace Code.ECS.Systems.Product
 		private void SpawnFruitFor(GameEntity tree)
 			=> _context.CreateEntity()
 			           .Do((e) => e.AddDebugName("Fruit"))
-			           .Do((e) => e.AddFruitTypeId(AppleID))
+			           .Do((e) => e.AddProduct(tree.tree.Value.Product))
 			           .Do((e) => e.AddAttachedTo(tree.attachableIndex))
 			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
