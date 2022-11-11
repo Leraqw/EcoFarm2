@@ -1,3 +1,3 @@
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.dll
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.deps.json
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.pdb
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.dll

@@ -17,7 +17,7 @@ namespace Code.Data.Config.Editor
 			};
 
 			var json = JsonConvert.SerializeObject(storage, Formatting.Indented);
-			var path = Path.Combine(Directory.GetCurrentDirectory(), RelativePath, "storage.json");
+			var path = Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
 
 			File.WriteAllText(path, json);
 			Debug.Log($"File created on {path}");
