@@ -19,7 +19,7 @@ namespace Code.ECS.Systems.Warehouse
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Warehouse"))
-			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.Warehouse))
+			            .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.Warehouse))
 			            .Do((e) => e.AddSpawnPosition(SpawnPointsService.Warehouse));
 	}
 }

@@ -28,7 +28,7 @@ namespace Code.ECS.Systems.Tree
 
 		private void SpawnPlug(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.BedPlug))
+			            .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.BedPlug))
 			            .Do((e) => e.AddSpawnPosition(position))
 			            .Do((e) => e.AddDebugName("BedPlug"));
 	}

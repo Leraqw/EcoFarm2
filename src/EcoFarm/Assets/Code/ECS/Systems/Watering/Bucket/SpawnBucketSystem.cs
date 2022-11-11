@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Bucket"))
 			            .Do((e) => e.isBucket = true)
-			            .Do((e) => e.AddRequireView(ResourcePath.Prefab.Bucket))
+			            .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.Bucket))
 			            .Do((e) => e.AddRequireSprite(ResourcePath.Sprite.Bucket.Filled))
 			            .Do((e) => e.AddRadius(Balance.Bucket.Radius))
 			            .Do((e) => e.isDraggable = true)
