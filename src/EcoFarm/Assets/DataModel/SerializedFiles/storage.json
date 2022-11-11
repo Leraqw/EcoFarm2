@@ -1,33 +1,47 @@
 {
   "$id": "1",
-  "Levels": [
-    {
-      "$id": "2",
-      "Order": 1,
-      "TreesCount": 5,
-      "Goals": [
-        {
-          "$id": "3",
-          "DevelopmentObject": {
-            "$id": "4",
-            "Title": "Apple",
-            "Description": "Is a sweet, edible fruit produced by an apple tree.",
-            "Price": 2
-          },
-          "TargetQuantity": 5
+  "$type": "EcoFarmDataModule.Storage, EcoFarmModel",
+  "Levels": {
+    "$type": "EcoFarmDataModule.Level[], EcoFarmModel",
+    "$values": [
+      {
+        "$id": "2",
+        "$type": "EcoFarmDataModule.Level, EcoFarmModel",
+        "Order": 1,
+        "TreesCount": 5,
+        "GoalsGoalByDevelopmentObject": {
+          "$type": "EcoFarmDataModule.GoalByDevelopmentObject[], EcoFarmModel",
+          "$values": [
+            {
+              "$id": "3",
+              "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
+              "DevelopmentObject": {
+                "$id": "4",
+                "$type": "EcoFarmDataModule.Product, EcoFarmModel",
+                "Title": "Apple",
+                "Description": "Is a sweet, edible fruit produced by an apple tree.",
+                "Price": 2
+              },
+              "TargetQuantity": 5
+            }
+          ]
         }
-      ]
-    }
-  ],
-  "Trees": [
-    {
-      "$id": "5",
-      "Product": {
-        "$ref": "4"
-      },
-      "Title": "Apple Tree",
-      "Description": "Giving apples",
-      "Price": 0
-    }
-  ]
+      }
+    ]
+  },
+  "Trees": {
+    "$type": "EcoFarmDataModule.Tree[], EcoFarmModel",
+    "$values": [
+      {
+        "$id": "5",
+        "$type": "EcoFarmDataModule.Tree, EcoFarmModel",
+        "Product": {
+          "$ref": "4"
+        },
+        "Title": "Apple Tree",
+        "Description": "Giving apples",
+        "Price": 0
+      }
+    ]
+  }
 }

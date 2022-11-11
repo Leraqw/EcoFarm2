@@ -2,16 +2,14 @@
 using EcoFarmDataModule;
 using Newtonsoft.Json;
 using UnityEngine;
+using static Code.Data.StorageJson.JsonUtils;
 using static Code.Utils.StaticClasses.Constants;
-using static Newtonsoft.Json.PreserveReferencesHandling;
 using Tree = EcoFarmDataModule.Tree;
 
 namespace Code.Data.Config.Editor
 {
 	public static class TempDataCreator
 	{
-		private static JsonSerializerSettings WithReferences => new() { PreserveReferencesHandling = Objects };
-
 		public static void Create() => Serialization(NewStorage());
 
 		private static Storage NewStorage()
@@ -31,7 +29,7 @@ namespace Code.Data.Config.Editor
 					{
 						Order = 1,
 						TreesCount = 5,
-						Goals = new Goal[]
+						GoalsGoalByDevelopmentObject = new[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 }
 						}

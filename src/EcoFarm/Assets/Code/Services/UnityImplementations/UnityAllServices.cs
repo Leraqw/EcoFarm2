@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Data.Config;
+using Code.Data.StorageJson;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
@@ -28,7 +29,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_data = new UnityDataService();
+			_data = new StorageAccess();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
 		}

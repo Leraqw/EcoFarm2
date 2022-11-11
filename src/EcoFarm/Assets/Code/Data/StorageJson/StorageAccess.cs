@@ -1,19 +1,18 @@
 ﻿using System.IO;
 using System.Linq;
+using Code.Services.Interfaces;
 using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
-using static Newtonsoft.Json.PreserveReferencesHandling;
+using static Code.Data.StorageJson.JsonUtils;
 
 namespace Code.Data.StorageJson
 {
-	public class StorageAccess : IDataAccess
+	public class StorageAccess : IDataService
 	{
 		private Storage _storage;
 
 		public StorageAccess() => LoadStorage();
-
-		private static JsonSerializerSettings WithReferences => new() { PreserveReferencesHandling = Objects };
 
 		public int TreesCount => _storage.Levels.First().TreesCount;
 
