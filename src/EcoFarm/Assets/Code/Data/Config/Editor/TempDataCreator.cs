@@ -29,7 +29,7 @@ namespace Code.Data.Config.Editor
 					{
 						Order = 1,
 						TreesCount = 5,
-						GoalsGoalByDevelopmentObject = new[]
+						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 }
 						}

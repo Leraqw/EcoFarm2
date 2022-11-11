@@ -9,8 +9,8 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "GoalsGoalByDevelopmentObject": {
-          "$type": "EcoFarmDataModule.GoalByDevelopmentObject[], EcoFarmModel",
+        "Goals": {
+          "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
             {
               "$id": "3",

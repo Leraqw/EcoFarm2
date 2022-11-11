@@ -5,5 +5,5 @@ public class Level
 {
 	public int Order;
 	public int TreesCount;
-	public GoalByDevelopmentObject[] GoalsGoalByDevelopmentObject;
+	public Goal[] Goals;
 }
