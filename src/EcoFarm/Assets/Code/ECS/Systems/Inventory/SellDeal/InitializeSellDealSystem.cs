@@ -14,6 +14,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Sell Deal"))
 			            .Do((e) => e.isSellDeal = true)
-			            .Do((e) => e.AddProduct(_contexts.services.dataService.Value.Storage.Trees.First().Product));
+			            .Do((e) => e.AddProduct(_contexts.game.storage.Value.Trees.First().Product));
 	}
 }

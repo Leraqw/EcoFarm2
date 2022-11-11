@@ -10,8 +10,8 @@ namespace Code.ECS.Features
 		public GameplaySystems(Contexts contexts)
 			: base(nameof(GameplaySystems))
 		{
-			Add(new UiSystems(contexts));
 			Add(new InitializationSystems(contexts));
+			Add(new UiSystems(contexts));
 
 			Add(new InputSystems(contexts));
 			Add(new CollectingSystems(contexts));
