@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Code.Data.Config.Editor
 {
-	[CustomEditor(typeof(Associations))]
+	[CustomEditor(typeof(AssociationsCollection))]
 	public class AssociationsEditor : UnityEditor.Editor
 	{
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
 
-			GUILayout.Button("Update Resources").OnPress(((Associations)target).UpdateResources);
+			GUILayout.Button("Update Resources").OnPress(((AssociationsCollection)target).UpdateResources);
 		}
 	}
 }
