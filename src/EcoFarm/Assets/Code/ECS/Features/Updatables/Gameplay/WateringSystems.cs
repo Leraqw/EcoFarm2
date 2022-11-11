@@ -13,6 +13,7 @@ namespace Code.ECS.Features.Updatables.Gameplay
 			Add(new PourWaterSystem(contexts));
 			Add(new WaterNearTreeSystem(contexts));
 			Add(new OnTreeWateredSystem(contexts));
+			Add(new CheckTreeOverWateringSystem(contexts));
 			Add(new ClickOnCraneSystem(contexts));
 
 			Add(new SpawnDroughtTimerSystem(contexts));
