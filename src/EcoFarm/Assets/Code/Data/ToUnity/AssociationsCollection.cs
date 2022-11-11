@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Data.StorageJson;
 using EcoFarmDataModule;
@@ -34,22 +33,10 @@ namespace Code.Data.ToUnity
 
 		private Association GetOrAdd(Product p) => Contains(p) ? SelectFromCollection(p) : CreateNew(p);
 
-		private static Association CreateNew(DevelopmentObject p) => new(p.Title);
+		private bool Contains(DevelopmentObject p) => Associations.Select((a) => a.Title).Contains(p.Title);
 
 		private Association SelectFromCollection(DevelopmentObject p) => Associations.Single((a) => a.Title == p.Title);
 
-		private bool Contains(DevelopmentObject p) => Associations.Select((a) => a.Title).Contains(p.Title);
-	}
-
-	[Serializable]
-	public class Association
-	{
-		public string Title;
-		public Sprite Sprite;
-
-		public Association(string title)
-		{
-			Title = title;
-		}
+		private static Association CreateNew(DevelopmentObject p) => new(p.Title);
 	}
 }
