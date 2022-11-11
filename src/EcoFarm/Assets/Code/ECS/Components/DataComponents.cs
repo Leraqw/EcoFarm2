@@ -9,4 +9,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class ProductComponent : ValueComponent<Product> { }
 
 	[Game] public sealed class TreeComponent : ValueComponent<Tree> { }
+	
+	[Game] public sealed class GoalComponent : ValueComponent<Goal> { }
 }
