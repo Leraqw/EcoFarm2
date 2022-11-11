@@ -12,7 +12,6 @@ namespace Code.Data.Config.Editor
 		public static void CopyDlls(string pathToDlls)
 		{
 			CopyFilesWithExtension("*.dll", from: pathToDlls);
-			CopyFilesWithExtension("*.pdb", from: pathToDlls);
 			Debug.Log("Dlls copied");
 		}
 
