@@ -6,7 +6,7 @@ namespace Code.Services.Interfaces
 		: IResourcesService,
 		  ISpawnPointsService,
 		  IStorageService,
-		  IDataBaseService,
+		  IDataService,
 		  ICameraService,
 		  IInputService,
 		  IConfigurationService,
