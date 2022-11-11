@@ -40,7 +40,7 @@ MonoBehaviour:
   _resource:
     _prefab:
       <Apple>k__BackingField: {fileID: 347387760436490403, guid: 1e700df656d159a458b093866520b36a, type: 3}
-      <Tree>k__BackingField: Trees/Prefabs/Tree
+      <Tree>k__BackingField: {fileID: 5931395629363369475, guid: 122cb32c8b54f5945be2ed3351fa5c49, type: 3}
       <BedPlug>k__BackingField: Environment/Trees Beds/Prefabs/Tree Bed Plug
       <Warehouse>k__BackingField: Environment/Warehouse/Prefabs/Warehouse
       <Crane>k__BackingField: Environment/Crane/Prefabs/Crane

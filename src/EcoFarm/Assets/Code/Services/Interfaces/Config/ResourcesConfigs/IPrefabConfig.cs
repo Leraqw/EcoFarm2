@@ -5,7 +5,7 @@ namespace Code.Services.Interfaces.Config.ResourcesConfigs
 	public interface IPrefabConfig
 	{
 		GameObject Apple     { get; }
-		string     Tree      { get; }
+		GameObject Tree      { get; }
 		string     BedPlug   { get; }
 		string     Warehouse { get; }
 		string     Crane     { get; }
