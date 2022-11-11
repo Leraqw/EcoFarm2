@@ -28,7 +28,7 @@ namespace Code.ECS.Systems.Tree
 			        .Do((e) => e.AddAttachableIndex(e.creationIndex))
 			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
-			        .Do((e) => e.isTree = true)
+			        .Do((e) => e.AddTree(_contexts.services.dataService.Value.))
 			        .Do((e) => e.isFruitful = true)
 			        .Do((e) => e.RemoveRequireTreeOnPosition());
 	}
