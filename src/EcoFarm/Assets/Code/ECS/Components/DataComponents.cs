@@ -1,9 +1,10 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using EcoFarmDataModule;
+using Entitas.CodeGeneration.Attributes;
 
 namespace Code.ECS.Components
 {
-	[Game] public sealed class StorageComponent : ValueComponent<Storage> { }
+	[Game] [Unique] public sealed class StorageComponent : ValueComponent<Storage> { }
 
 	[Game] public sealed class ProductComponent : ValueComponent<Product> { }
 

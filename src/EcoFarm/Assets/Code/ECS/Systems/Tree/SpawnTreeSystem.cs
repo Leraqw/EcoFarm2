@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
@@ -28,7 +29,7 @@ namespace Code.ECS.Systems.Tree
 			        .Do((e) => e.AddAttachableIndex(e.creationIndex))
 			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
-			        .Do((e) => e.AddTree(_contexts.services.dataService.Value.AppleTree))
+			        .Do((e) => e.AddTree(_contexts.services.dataService.Value.Storage.Trees.First()))
 			        .Do((e) => e.isFruitful = true)
 			        .Do((e) => e.RemoveRequireTreeOnPosition());
 	}

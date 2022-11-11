@@ -5,8 +5,8 @@ using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Unity;
+using EcoFarmDataModule;
 using UnityEngine;
-using Tree = EcoFarmDataModule.Tree;
 
 namespace Code.Services.UnityImplementations
 {
@@ -52,9 +52,7 @@ namespace Code.Services.UnityImplementations
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
-		int IDataService.TreesCount => _data.TreesCount;
-
-		Tree IDataService.AppleTree => _data.AppleTree;
+		Storage IDataService.Storage => _data.Storage;
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 

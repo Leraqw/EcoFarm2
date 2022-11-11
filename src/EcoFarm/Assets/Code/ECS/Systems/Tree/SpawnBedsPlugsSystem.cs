@@ -23,7 +23,7 @@ namespace Code.ECS.Systems.Tree
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Skip(DataService.TreesCount)
+			   .Skip(DataService.Storage.Levels.First().TreesCount)
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)

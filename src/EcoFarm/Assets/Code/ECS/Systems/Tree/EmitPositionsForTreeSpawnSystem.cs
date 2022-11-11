@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Tree
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Take(DataService.TreesCount)
+			   .Take(DataService.Storage.Levels.First().TreesCount)
 			   .ForEach(RequireTreeOn);
 
 		private void RequireTreeOn(Vector2 position)

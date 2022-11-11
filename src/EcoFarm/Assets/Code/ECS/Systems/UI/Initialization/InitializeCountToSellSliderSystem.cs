@@ -20,7 +20,7 @@ namespace Code.ECS.Systems.UI.Initialization
 			            .Do((e) => e.AddDebugName("Slider"))
 			            .Do((e) => e.AddView(UI.Windows.Sell.CountToSellSlider.gameObject))
 			            .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
-			            .Do((e) => e.AddProduct(_contexts.services.dataService.Value.AppleTree.Product))
+			            .Do((e) => e.AddProduct(_contexts.services.dataService.Value.Storage.Trees.First().Product))
 			            .Do((e) => e.AddSliderValue(0))
 			            .Do((e) => e.AddSliderMaxValue(0));
 	}

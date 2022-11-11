@@ -1,4 +1,5 @@
-﻿using Code.Utils.Extensions;
+﻿using System.Linq;
+using Code.Utils.Extensions;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory.SellDeal
@@ -13,6 +14,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Sell Deal"))
 			            .Do((e) => e.isSellDeal = true)
-			            .Do((e) => e.AddProduct(_contexts.services.dataService.Value.AppleTree.Product));
+			            .Do((e) => e.AddProduct(_contexts.services.dataService.Value.Storage.Trees.First().Product));
 	}
 }
