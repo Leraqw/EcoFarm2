@@ -30,6 +30,7 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		private void MarkAsRotten(GameEntity entity)
 			=> entity.Do((e) => e.ReplaceWatering(MaxWatering))
-			         .Do((e) => e.AddSpriteToLoad(TreeRottenSprite));
+			         .Do((e) => e.AddSpriteToLoad(TreeRottenSprite))
+			         .Do((e) => e.isFruitful = false);
 	}
 }
