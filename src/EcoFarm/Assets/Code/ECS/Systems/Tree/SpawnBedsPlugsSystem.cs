@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Tree
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private IDataService DataService => _contexts.services.DataService.Value;
+		private IDataService DataService => _contexts.services.dataService.Value;
 
 		private IResourcePathConfig ResourcePath => _contexts.GetConfiguration().ResourcePath;
 

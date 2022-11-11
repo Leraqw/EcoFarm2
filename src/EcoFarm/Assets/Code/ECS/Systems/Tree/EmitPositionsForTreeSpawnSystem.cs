@@ -13,7 +13,7 @@ namespace Code.ECS.Systems.Tree
 		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
-		private IDataService DataService => _contexts.services.DataService.Value;
+		private IDataService DataService => _contexts.services.dataService.Value;
 
 		public void Initialize()
 			=> SpawnPointsService
