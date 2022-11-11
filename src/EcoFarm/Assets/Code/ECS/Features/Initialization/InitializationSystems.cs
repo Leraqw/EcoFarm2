@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.Product;
+﻿using Code.ECS.Systems.Date;
+using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.Warehouse;
 using Code.ECS.Systems.Watering.Bucket;
@@ -12,6 +13,7 @@ namespace Code.ECS.Features.Initialization
 		public InitializationSystems(Contexts contexts)
 			: base(nameof(InitializationSystems))
 		{
+			Add(new SpawnStorage(contexts));
 			Add(new DataBaseLoadSystems(contexts));
 			
 			Add(new InventoryInitializationSystems(contexts));
