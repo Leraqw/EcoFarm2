@@ -1,6 +1,6 @@
-﻿using Code.Utils.Extensions;
+﻿using System.Linq;
+using Code.Utils.Extensions;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants.Temp;
 
 namespace Code.ECS.Systems.Inventory.SellDeal
 {
@@ -14,6 +14,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Sell Deal"))
 			            .Do((e) => e.isSellDeal = true)
-			            .Do((e) => e.AddFruitTypeId(AppleID));
+			            .Do((e) => e.AddProduct(_contexts.game.storage.Value.Trees.First().Product));
 	}
 }

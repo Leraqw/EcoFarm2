@@ -1,19 +1,19 @@
 ﻿using System.IO;
+using Code.Services.Interfaces;
 using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
+using static Code.Data.StorageJson.JsonUtils;
 
 namespace Code.Data.StorageJson
 {
-	public class StorageAccess : IDataAccess
+	public class StorageAccess : IDataService
 	{
-		private Storage _storage;
+		public StorageAccess() => Storage = Deserialize();
 
-		public StorageAccess() => LoadStorage();
+		public Storage Storage { get; }
 
-		public int TreesCount => _storage.Levels[0].TreesCount;
-
-		private void LoadStorage() => _storage = JsonConvert.DeserializeObject<Storage>(GetJson());
+		private static Storage Deserialize() => JsonConvert.DeserializeObject<Storage>(GetJson(), WithReferences);
 
 		private static string GetJson() => File.ReadAllText(Constants.PathToStorage);
 	}

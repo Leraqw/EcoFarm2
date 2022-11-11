@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.TreeComponent treeComponent = new Code.ECS.Components.TreeComponent();
+    public Code.ECS.Components.TreeComponent tree { get { return (Code.ECS.Components.TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
+    public bool hasTree { get { return HasComponent(GameComponentsLookup.Tree); } }
 
-    public bool isTree {
-        get { return HasComponent(GameComponentsLookup.Tree); }
-        set {
-            if (value != isTree) {
-                var index = GameComponentsLookup.Tree;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : treeComponent;
+    public void AddTree(EcoFarmDataModule.Tree newValue) {
+        var index = GameComponentsLookup.Tree;
+        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
+        component.Value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceTree(EcoFarmDataModule.Tree newValue) {
+        var index = GameComponentsLookup.Tree;
+        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
+        component.Value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveTree() {
+        RemoveComponent(GameComponentsLookup.Tree);
     }
 }
 

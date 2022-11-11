@@ -4,6 +4,7 @@ using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code.ECS.Components
 {
+
 	[Game] public sealed class FruitRequireComponent : FlagComponent { }
 
 	[Game] public sealed class GrowthComponent : FlagComponent { }
@@ -17,6 +18,4 @@ namespace Code.ECS.Components
 	[Game] [Cleanup(RemoveComponent)] public sealed class PickedComponent : FlagComponent { }
 
 	[Game] public sealed class CollectedComponent : FlagComponent { }
-
-	[Game] public sealed class FruitTypeIdComponent : ValueComponent<int> { }
 }

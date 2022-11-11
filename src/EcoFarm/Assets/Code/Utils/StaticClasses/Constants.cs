@@ -9,10 +9,5 @@ namespace Code.Utils.StaticClasses
 			=> Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
 
 		private const string RelativePath = "Assets/DataModel/SerializedFiles";
-
-		public static class Temp
-		{
-			public const int AppleID = 1;
-		}
 	}
 }

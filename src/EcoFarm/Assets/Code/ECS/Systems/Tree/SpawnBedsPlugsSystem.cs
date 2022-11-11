@@ -16,14 +16,12 @@ namespace Code.ECS.Systems.Tree
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private IDataService DataService => _contexts.services.dataService.Value;
-
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Skip(DataService.TreesCount)
+			   .Skip(_contexts.game.storage.Value.Levels.First().TreesCount)
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)

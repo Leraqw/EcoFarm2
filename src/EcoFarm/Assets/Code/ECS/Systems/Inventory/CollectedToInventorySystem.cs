@@ -17,12 +17,12 @@ namespace Code.ECS.Systems.Inventory
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Collected);
 
-		protected override bool Filter(GameEntity entity) => entity.hasFruitTypeId;
+		protected override bool Filter(GameEntity entity) => entity.hasProduct;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseEachCounter);
 
 		private void IncreaseEachCounter(GameEntity entity)
-			=> InventoryItems.ForEach(IncreaseCount, @if: entity.HasSameFruitType);
+			=> InventoryItems.ForEach(IncreaseCount, @if: entity.IsSameFruit);
 
 		private static void IncreaseCount(GameEntity entity) => entity.UpdateInventoryItemCount(with: (c) => c + 1);
 	}

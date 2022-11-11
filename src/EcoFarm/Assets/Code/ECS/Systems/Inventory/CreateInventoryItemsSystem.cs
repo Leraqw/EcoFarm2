@@ -1,4 +1,5 @@
-﻿using Code.Services.Interfaces;
+﻿using System.Linq;
+using Code.Services.Interfaces;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -13,7 +14,9 @@ namespace Code.ECS.Systems.Inventory
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		public void Initialize() => _contexts.game.CreateInventoryItem("Apple", 0)
+		private EcoFarmDataModule.Product Product => _contexts.game.storage.Value.Trees.First().Product;
+
+		public void Initialize() => _contexts.game.CreateInventoryItem(Product, 0)
 		                                     .Do((e) => e.AddView(UIService.AppleView));
 	}
 }

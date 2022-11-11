@@ -1,0 +1,6 @@
+﻿using Code.Utils.ComponentsTemplates;
+
+namespace Code.ECS.Components
+{
+	[Game] public sealed class GoalCompletedComponent : FlagComponent { }
+}

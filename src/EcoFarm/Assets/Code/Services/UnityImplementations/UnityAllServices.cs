@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using Code.Data.Config;
+using Code.Data.StorageJson;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Unity;
+using EcoFarmDataModule;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations
@@ -27,7 +29,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_data = new UnityDataService();
+			_data = new StorageAccess();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
 		}
@@ -50,7 +52,7 @@ namespace Code.Services.UnityImplementations
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
-		int IDataService.TreesCount => _data.TreesCount;
+		Storage IDataService.Storage => _data.Storage;
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 

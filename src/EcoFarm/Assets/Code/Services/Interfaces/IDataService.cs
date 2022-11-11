@@ -1,7 +1,9 @@
-﻿namespace Code.Services.Interfaces
+﻿using EcoFarmDataModule;
+
+namespace Code.Services.Interfaces
 {
 	public interface IDataService : IService
 	{
-		int TreesCount { get; }
+		Storage Storage { get; }
 	}
 }
