@@ -13,12 +13,12 @@ namespace Code.ECS.Systems.Tree
 		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
-		private IDataBaseService DataBaseService => _contexts.services.dataBaseService.Value;
+		private IDataService DataService => _contexts.services.DataService.Value;
 
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Take(DataBaseService.TreesCount)
+			   .Take(DataService.TreesCount)
 			   .ForEach(RequireTreeOn);
 
 		private void RequireTreeOn(Vector2 position)

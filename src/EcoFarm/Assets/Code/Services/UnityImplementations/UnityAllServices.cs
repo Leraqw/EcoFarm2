@@ -12,7 +12,7 @@ namespace Code.Services.UnityImplementations
 		private readonly ISpawnPointsService _spawnPoints;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
-		private readonly IDataBaseService _dataBase;
+		private readonly IDataService _data;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly IConfigurationService _configuration;
@@ -26,7 +26,7 @@ namespace Code.Services.UnityImplementations
 
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_dataBase = new UnityDataBaseService();
+			_data = new UnityDataService();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
 		}
@@ -49,7 +49,7 @@ namespace Code.Services.UnityImplementations
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
-		int IDataBaseService.TreesCount => _dataBase.TreesCount;
+		int IDataService.TreesCount => _data.TreesCount;
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 

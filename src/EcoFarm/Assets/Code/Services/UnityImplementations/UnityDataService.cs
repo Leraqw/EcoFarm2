@@ -3,11 +3,11 @@ using Code.Services.Interfaces;
 
 namespace Code.Services.UnityImplementations
 {
-	public class UnityDataBaseService : IDataBaseService
+	public class UnityDataService : IDataService
 	{
 		private readonly IDataAccess _data;
 
-		public UnityDataBaseService() => _data = new StorageAccess();
+		public UnityDataService() => _data = new StorageAccess();
 
 		public int TreesCount => _data.TreesCount;
 	}

@@ -15,7 +15,7 @@ namespace Code.ECS.Features.Initialization
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
 			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
 			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
-			Register<IDataBaseService>(services, servicesContext.ReplaceDataBaseService);
+			Register<IDataService>(services, servicesContext.ReplaceDataService);
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<IConfigurationService>(services, servicesContext.ReplaceConfigurationService);
