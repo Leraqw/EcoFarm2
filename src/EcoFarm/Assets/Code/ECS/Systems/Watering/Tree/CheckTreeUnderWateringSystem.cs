@@ -19,15 +19,15 @@ namespace Code.ECS.Systems.Watering.Tree
 		private Sprite TreeDrySprite => _contexts.GetConfiguration().Resource.Sprite.Tree.Dry;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.Watered);
+			=> context.CreateCollector(GameMatcher.Watering);
 
 		protected override bool Filter(GameEntity entity) => true;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsRotten, @if: IsOverWatered);
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsDry, @if: IsOverWatered);
 
-		private bool IsOverWatered(GameEntity entity) => entity.watering < MinWatering;
+		private bool IsOverWatered(GameEntity entity) => entity.watering <= MinWatering;
 
-		private void MarkAsRotten(GameEntity entity)
+		private void MarkAsDry(GameEntity entity)
 			=> entity.Do((e) => e.ReplaceWatering(MinWatering))
 			         .Do((e) => e.AddSpriteToLoad(TreeDrySprite))
 			         .Do((e) => e.isFruitful = false);
