@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.Watering.Tree
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(Watered);
 
-		protected override bool Filter(GameEntity entity) => entity.hasWatering && entity.hasSprite;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsRotten, @if: IsOverWatered);
 
