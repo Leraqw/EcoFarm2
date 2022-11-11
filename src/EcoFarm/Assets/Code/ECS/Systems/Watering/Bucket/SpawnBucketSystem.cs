@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.Watering.Bucket
 			            .Do((e) => e.AddDebugName("Bucket"))
 			            .Do((e) => e.isBucket = true)
 			            .Do((e) => e.AddViewPrefab(ResourcePath.Prefab.Bucket))
-			            .Do((e) => e.AddRequireSprite(ResourcePath.Sprite.Bucket.Filled))
+			            .Do((e) => e.AddSpriteToLoad(ResourcePath.Sprite.Bucket.Filled))
 			            .Do((e) => e.AddRadius(Balance.Bucket.Radius))
 			            .Do((e) => e.isDraggable = true)
 			            .Do((e) => e.isFilled = true)

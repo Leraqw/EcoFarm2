@@ -37,5 +37,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class RequireSpriteComponent : ValueComponent<string> { }
 	
+	[Game] public sealed class SpriteToLoadComponent : ValueComponent<Sprite> { }
+	
 	[Game] [Event(Self)] public sealed class SpriteComponent : ValueComponent<Sprite> { }
 }

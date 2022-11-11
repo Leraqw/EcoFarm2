@@ -1,8 +1,10 @@
-﻿namespace Code.Unity.SO.Configuration
+﻿using UnityEngine;
+
+namespace Code.Unity.SO.Configuration
 {
 	public interface IBucketSpritesConfig
 	{
-		string Empty  { get; }
-		string Filled { get; }
+		Sprite Empty  { get; }
+		Sprite Filled { get; }
 	}
 }
