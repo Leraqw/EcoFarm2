@@ -26,7 +26,7 @@ namespace Code.Data.Config.Editor
 						{
 							Title = "Apple",
 							Description = "Is a sweet, edible fruit produced by an apple tree.",
-							Price = 10,
+							Price = 2,
 						}
 					}
 				}
