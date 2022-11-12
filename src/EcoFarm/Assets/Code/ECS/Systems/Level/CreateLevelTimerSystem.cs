@@ -16,6 +16,7 @@ namespace Code.ECS.Systems.Level
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("LevelTimer"))
+			            .Do((e) => e.AddView(_contexts.services.uiService.Value.TimerView))
 			            .Do((e) => e.isLevelTimer = true)
 			            .Do((e) => e.AddDuration(Storage.Levels.First().SecondsForLevel));
 	}

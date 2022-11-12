@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7359849444463667117}
+  - component: {fileID: 7359849443953079534}
   m_Layer: 0
   m_Name: Timer View
   m_TagString: Untagged
@@ -114,6 +115,19 @@ RectTransform:
   m_AnchoredPosition: {x: 301.85, y: 0}
   m_SizeDelta: {x: 365.35, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7359849443953079534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359849444463667118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd864479029410188de2e926c60411d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textMesh: {fileID: 3471938785917829883}
 --- !u!1001 &2144536075662807505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,3 +246,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3309057057493930793, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
   m_PrefabInstance: {fileID: 2144536075662807505}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3471938785917829883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3309057057493930794, guid: 3071bedd0b218c24ca765cac23f0c0aa, type: 3}
+  m_PrefabInstance: {fileID: 2144536075662807505}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

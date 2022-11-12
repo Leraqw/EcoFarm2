@@ -15,6 +15,6 @@ namespace Code.Unity.ViewListeners.UI
 
 		public void OnDuration(GameEntity entity, float value) => _textMesh.text = InMmSsFormat(value);
 
-		private static string InMmSsFormat(float seconds) => $"{seconds / 60:00}:{seconds % 60:00}";
+		private static string InMmSsFormat(float seconds) => $"{(int)seconds / 60:00}:{(int)seconds % 60:00}";
 	}
 }
