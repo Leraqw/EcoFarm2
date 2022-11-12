@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Code.Unity.ViewListeners.UI
 {
-	public class GoalListener : BaseViewListener, IGoalListener
+	public class GoalView : BaseViewListener, IGoalListener
 	{
 		[SerializeField] private Image _image;
 		[SerializeField] private TextMeshProUGUI _textMesh;
