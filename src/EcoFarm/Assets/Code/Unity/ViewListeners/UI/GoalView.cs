@@ -29,7 +29,7 @@ namespace Code.Unity.ViewListeners.UI
 		{
 			_image.sprite = SpriteForGoal(entity);
 			_targetValue = value.TargetQuantity.ToString();
-			_currentValue = 0.ToString();
+			_currentValue = entity.currentQuantity.Value.ToString();
 			_textMesh.text = $"{_currentValue} / {_targetValue}";
 		}
 

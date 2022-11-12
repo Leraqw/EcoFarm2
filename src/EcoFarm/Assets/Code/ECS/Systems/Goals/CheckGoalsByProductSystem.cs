@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions;
 using Entitas;
 using Code.Utils.Extensions.Entitas;
 using static GameMatcher;
@@ -20,10 +21,18 @@ namespace Code.ECS.Systems.Goals
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Check);
 
-		private void Check(GameEntity item) => _goals.ForEach(Mark, @if: (goal) => IsCompleted(goal, item));
+		private void Check(GameEntity item) => _goals
+		                                       .Do((g) => UpdateQuantities(g, item))
+		                                       .Do(MarkCompleted);
 
-		private static bool IsCompleted(GameEntity goal, GameEntity item)
-			=> item.inventoryItem.Value.Count >= goal.goal.Value.TargetQuantity;
+		private void UpdateQuantities(IGroup<GameEntity> goals, GameEntity item)
+			=> goals.ForEach((g) => g.ReplaceCurrentQuantity(item.inventoryItem.Value.Count));
+
+		private void MarkCompleted(IGroup<GameEntity> goals)
+			=> goals.ForEach(Mark, @if: IsCompleted);
+
+		private static bool IsCompleted(GameEntity goal)
+			=> goal.currentQuantity.Value >= goal.goal.Value.TargetQuantity;
 
 		private static void Mark(GameEntity goal) => goal.isGoalCompleted = true;
 	}
