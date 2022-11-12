@@ -22,6 +22,8 @@ namespace Code.ECS.Systems.View
 
 		private IResourcesService Resources => _services.resourcesService.Value;
 
+		private RectTransform UiRoot => _services.uiService.Value.UiRoot;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AnyOf(RequireView, ViewPrefab));
 
@@ -33,7 +35,9 @@ namespace Code.ECS.Systems.View
 		private void InstantiateView(GameEntity e) => e.PerformRequiredView(Instantiate(e));
 
 		private GameObject Instantiate(GameEntity e)
-			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
+			=> e.isUiElement
+				? Object.Instantiate(LoadPrefab(e), e.hasUiParent ? e.uiParent : UiRoot)
+				: GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e)
 			=> e.hasViewPrefab ? e.viewPrefab : Resources.LoadGameObject(e.requireView.Value);
