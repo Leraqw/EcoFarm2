@@ -1,4 +1,5 @@
-﻿using Code.Data.ToUnity;
+﻿using System;
+using Code.Data.ToUnity;
 using EcoFarmDataModule;
 using TMPro;
 using UnityEngine;
@@ -23,13 +24,15 @@ namespace Code.Unity.ViewListeners.UI
 
 		public void OnGoal(GameEntity entity, Goal value)
 		{
-			_image.sprite = SpriteForGoal(value);
+			_image.sprite = SpriteForGoal(entity);
 			_targetValue = value.TargetQuantity.ToString();
 			_currentValue = 0.ToString();
 			_textMesh.text = $"{_currentValue} / {_targetValue}";
 		}
 
-		private Sprite SpriteForGoal(Goal value) 
-			=> _associations.Dictionary[((GoalByDevelopmentObject)value).DevelopmentObject.Title];
+		private Sprite SpriteForGoal(GameEntity entity)
+			=> entity.hasProduct
+				? _associations.Dictionary[entity.product.Value.Title]
+				: throw new NotImplementedException("No sprite for GoalByResource");
 	}
 }

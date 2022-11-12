@@ -13,7 +13,8 @@ namespace Code.Services.UnityImplementations
 		public IButtonsCollection Buttons => _buttons;
 		public IWindowsCollection Windows => _windows;
 
-		[field: SerializeField] public GameObject CoinsView { get; private set; }
-		[field: SerializeField] public GameObject AppleView { get; private set; }
+		[field: SerializeField] public GameObject GoalPrefab { get; private set; }
+		[field: SerializeField] public GameObject CoinsView  { get; private set; }
+		[field: SerializeField] public GameObject AppleView  { get; private set; }
 	}
 }

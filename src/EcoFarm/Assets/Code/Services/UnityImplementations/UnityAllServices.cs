@@ -68,6 +68,8 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IUiService.AppleView => _ui.AppleView;
 
+		GameObject IUiService.GoalPrefab => _ui.GoalPrefab;
+
 		IWindowsCollection IUiService.Windows => _ui.Windows;
 
 		IButtonsCollection IUiService.Buttons => _ui.Buttons;

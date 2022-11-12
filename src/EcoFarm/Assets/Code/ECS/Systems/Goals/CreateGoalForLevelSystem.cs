@@ -20,6 +20,7 @@ namespace Code.ECS.Systems.Goals
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddGoal(goal))
 			            .MarkGoal()
+			            .Do((e) => e.AddViewPrefab(_contexts.services.uiService.Value.GoalPrefab))
 			            .Do((e) => e.AddDebugName($"Goal {goal.TargetQuantity} – {goal.GetType().Name}"));
 	}
 }
