@@ -21,6 +21,7 @@ namespace Code.ECS.Systems.Goals
 			            .Do((e) => e.AddGoal(goal))
 			            .MarkGoal()
 			            .Do((e) => e.AddView(_contexts.services.uiService.Value.GoalPrefab))
+			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddDebugName($"Goal {goal.TargetQuantity} – {goal.GetType().Name}"));
 	}
 }

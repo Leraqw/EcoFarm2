@@ -1995,6 +1995,7 @@ MonoBehaviour:
       <Sell>k__BackingField: {fileID: 1605429770}
     _windows:
       <Sell>k__BackingField: {fileID: 1877000532}
+    <UiRoot>k__BackingField: {fileID: 1688588089}
     <GoalPrefab>k__BackingField: {fileID: 883118079}
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}

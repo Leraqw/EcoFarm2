@@ -64,23 +64,24 @@ public static class GameComponentsLookup {
     public const int TargetScale = 53;
     public const int Text = 54;
     public const int Tree = 55;
-    public const int View = 56;
-    public const int ViewPrefab = 57;
-    public const int Watered = 58;
-    public const int Watering = 59;
-    public const int WillFall = 60;
-    public const int CoinsCountListener = 61;
-    public const int GoalListener = 62;
-    public const int InventoryItemListener = 63;
-    public const int PositionListener = 64;
-    public const int ProportionalScaleListener = 65;
-    public const int SliderMaxValueListener = 66;
-    public const int SliderValueListener = 67;
-    public const int SpriteListener = 68;
-    public const int TextListener = 69;
-    public const int WateringListener = 70;
+    public const int UiElement = 56;
+    public const int View = 57;
+    public const int ViewPrefab = 58;
+    public const int Watered = 59;
+    public const int Watering = 60;
+    public const int WillFall = 61;
+    public const int CoinsCountListener = 62;
+    public const int GoalListener = 63;
+    public const int InventoryItemListener = 64;
+    public const int PositionListener = 65;
+    public const int ProportionalScaleListener = 66;
+    public const int SliderMaxValueListener = 67;
+    public const int SliderValueListener = 68;
+    public const int SpriteListener = 69;
+    public const int TextListener = 70;
+    public const int WateringListener = 71;
 
-    public const int TotalComponents = 71;
+    public const int TotalComponents = 72;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -139,6 +140,7 @@ public static class GameComponentsLookup {
         "TargetScale",
         "Text",
         "Tree",
+        "UiElement",
         "View",
         "ViewPrefab",
         "Watered",
@@ -213,6 +215,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TargetScaleComponent),
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.TreeComponent),
+        typeof(Code.ECS.Components.UiElementComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.ViewPrefabComponent),
         typeof(Code.ECS.Components.WateredComponent),
