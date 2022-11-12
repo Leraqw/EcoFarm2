@@ -36,7 +36,7 @@ namespace Code.ECS.Systems.View
 
 		private GameObject Instantiate(GameEntity e)
 			=> e.isUiElement
-				? Object.Instantiate(LoadPrefab(e), UiRoot)
+				? Object.Instantiate(LoadPrefab(e), e.hasUiParent ? e.uiParent : UiRoot)
 				: GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e)

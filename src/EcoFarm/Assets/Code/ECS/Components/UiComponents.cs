@@ -1,6 +1,7 @@
 using Code.Unity.Containers;
 using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
+using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
@@ -27,4 +28,6 @@ namespace Code.ECS.Components
 	[Game] [Event(Self)] public sealed class TextComponent : ValueComponent<string> { }
 
 	[Game] public sealed class UiElementComponent : FlagComponent { }
+
+	[Game] public sealed class UiParentComponent : ValueComponent<RectTransform> { }
 }

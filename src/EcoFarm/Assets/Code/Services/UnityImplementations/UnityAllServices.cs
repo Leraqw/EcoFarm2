@@ -75,5 +75,7 @@ namespace Code.Services.UnityImplementations
 		IWindowsCollection IUiService.Windows => _ui.Windows;
 
 		IButtonsCollection IUiService.Buttons => _ui.Buttons;
+
+		RectTransform IUiService.GoalsGroup => _ui.GoalsGroup;
 	}
 }
