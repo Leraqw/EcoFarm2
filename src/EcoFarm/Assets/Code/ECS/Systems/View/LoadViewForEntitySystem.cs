@@ -35,9 +35,9 @@ namespace Code.ECS.Systems.View
 		private void InstantiateView(GameEntity e) => e.PerformRequiredView(Instantiate(e));
 
 		private GameObject Instantiate(GameEntity e)
-			=> GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), ViewRoot(e));
-
-		private Transform ViewRoot(GameEntity entity) => entity.isUiElement ? UiRoot : _viewRoot;
+			=> e.isUiElement
+				? Object.Instantiate(LoadPrefab(e), UiRoot)
+				: GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e)
 			=> e.hasViewPrefab ? e.viewPrefab : Resources.LoadGameObject(e.requireView.Value);
