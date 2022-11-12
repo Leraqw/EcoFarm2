@@ -2,6 +2,7 @@
 using Code.ECS.Features.Updatables;
 using Code.ECS.Features.Updatables.Cleanup;
 using Code.ECS.Features.Updatables.Gameplay;
+using Code.ECS.Systems.Level;
 
 namespace Code.ECS.Features
 {
@@ -22,6 +23,9 @@ namespace Code.ECS.Features
 			Add(new WateringSystems(contexts));
 			Add(new DurationSystems(contexts));
 			Add(new InventorySystems(contexts));
+			
+			// TODO: Add GameCycleSystems 
+			Add(new DebugGameOverSystem(contexts));
 
 			Add(new CleanupSystems(contexts));
 		}

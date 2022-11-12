@@ -7,4 +7,6 @@ namespace Code.ECS.Components
 	[Game] [Event(Self)] public sealed class GoalCompletedComponent : FlagComponent { }
 
 	[Game] [Event(Self)] public sealed class CurrentQuantityComponent : ValueComponent<int> { }
+
+	[Game] [Unique] public sealed class LevelTimerComponent : FlagComponent { }
 }

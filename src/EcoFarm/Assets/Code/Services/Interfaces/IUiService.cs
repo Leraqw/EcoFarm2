@@ -11,5 +11,6 @@ namespace Code.Services.Interfaces
 		IWindowsCollection Windows    { get; }
 		IButtonsCollection Buttons    { get; }
 		RectTransform      GoalsGroup { get; }
+		GameObject         TimerView  { get; }
 	}
 }

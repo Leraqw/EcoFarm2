@@ -17,7 +17,7 @@ namespace Code.ECS.Components
 
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector2> { }
 
-	[Game] public sealed class DurationComponent : ValueComponent<float> { }
+	[Game] [Event(Self)] public sealed class DurationComponent : ValueComponent<float> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class DurationUpComponent : FlagComponent { }
 
