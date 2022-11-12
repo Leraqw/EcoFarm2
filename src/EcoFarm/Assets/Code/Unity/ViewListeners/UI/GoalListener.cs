@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Data.ToUnity;
+using Code.ECS.Systems.Watering.Bucket;
 using EcoFarmDataModule;
 using TMPro;
 using UnityEngine;
@@ -11,10 +12,12 @@ namespace Code.Unity.ViewListeners.UI
 	{
 		[SerializeField] private Image _image;
 		[SerializeField] private TextMeshProUGUI _textMesh;
-		[SerializeField] private AssociationsCollection _associations;
 
 		private string _targetValue;
 		private string _currentValue;
+
+		private AssociationsCollection ResourceAssociations
+			=> Contexts.sharedInstance.GetConfiguration().Resource.Associations;
 
 		protected override void AddListener(GameEntity entity) => entity.AddGoalListener(this);
 
@@ -32,7 +35,7 @@ namespace Code.Unity.ViewListeners.UI
 
 		private Sprite SpriteForGoal(GameEntity entity)
 			=> entity.hasProduct
-				? _associations.Dictionary[entity.product.Value.Title]
+				? ResourceAssociations.Dictionary[entity.product.Value.Title]
 				: throw new NotImplementedException("No sprite for GoalByResource");
 	}
 }
