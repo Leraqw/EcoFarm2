@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364071565}
   m_Layer: 0
-  m_Name: Targets
+  m_Name: Goals View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
