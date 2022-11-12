@@ -13,6 +13,9 @@ namespace Code.Data.ToUnity
 
 		private List<Product> _products;
 		private Storage _storage;
+		private Dictionary<string, Sprite> _dictionary;
+
+		public AssociationsCollection() => _dictionary = new Dictionary<string, Sprite>();
 
 		public void UpdateResources()
 		{
@@ -26,17 +29,15 @@ namespace Code.Data.ToUnity
 			                    .OfType<Product>()
 			                    .ToList();
 
-			Associations = _products
-			               .Select(GetOrAdd)
-			               .ToList();
+			// Add new products to dictionary
+			var newValues = _products
+			              .Where((p) => _dictionary.ContainsKey(p.Title) == false)
+			              .Select((p) => new Association(p.Title))
+			              .ToDictionary((a) => a.Title, (a) => a.Sprite);
+			
+			_dictionary = _dictionary.Concat(newValues).ToDictionary((p) => p.Key, (p) => p.Value);
+
+			Associations = _dictionary.Select((p) => new Association(p.Key, p.Value)).ToList(); 
 		}
-
-		private Association GetOrAdd(Product p) => Contains(p) ? SelectFromCollection(p) : CreateNew(p);
-
-		private bool Contains(DevelopmentObject p) => Associations.Select((a) => a.Title).Contains(p.Title);
-
-		private Association SelectFromCollection(DevelopmentObject p) => Associations.Single((a) => a.Title == p.Title);
-
-		private static Association CreateNew(DevelopmentObject p) => new(p.Title);
 	}
 }

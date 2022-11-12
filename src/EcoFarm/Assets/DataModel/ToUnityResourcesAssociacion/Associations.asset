@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4506dbafc094fd8835aefffaaa2788b, type: 3}
   m_Name: Associations
   m_EditorClassIdentifier: 
-  _storage:
-    Levels: []
-    Trees: []
+  <Associations>k__BackingField:
+  - Title: Apple
+    Sprite: {fileID: 21300000, guid: 1941333b7cea477418306b20d5a2e5ff, type: 3}

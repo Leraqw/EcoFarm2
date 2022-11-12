@@ -9,9 +9,10 @@ namespace Code.Data.ToUnity
 		public string Title;
 		public Sprite Sprite;
 
-		public Association(string title)
+		public Association(string title, Sprite sprite = null)
 		{
 			Title = title;
+			Sprite = sprite;
 		}
 	}
 }
