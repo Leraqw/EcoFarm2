@@ -9,6 +9,7 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
+        "SecondsForLevel": 60,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
