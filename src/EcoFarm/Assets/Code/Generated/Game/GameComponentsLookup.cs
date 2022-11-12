@@ -75,18 +75,19 @@ public static class GameComponentsLookup {
     public const int WillFall = 64;
     public const int CoinsCountListener = 65;
     public const int CurrentQuantityListener = 66;
-    public const int GoalCompletedListener = 67;
-    public const int GoalListener = 68;
-    public const int InventoryItemListener = 69;
-    public const int PositionListener = 70;
-    public const int ProportionalScaleListener = 71;
-    public const int SliderMaxValueListener = 72;
-    public const int SliderValueListener = 73;
-    public const int SpriteListener = 74;
-    public const int TextListener = 75;
-    public const int WateringListener = 76;
+    public const int DurationListener = 67;
+    public const int GoalCompletedListener = 68;
+    public const int GoalListener = 69;
+    public const int InventoryItemListener = 70;
+    public const int PositionListener = 71;
+    public const int ProportionalScaleListener = 72;
+    public const int SliderMaxValueListener = 73;
+    public const int SliderValueListener = 74;
+    public const int SpriteListener = 75;
+    public const int TextListener = 76;
+    public const int WateringListener = 77;
 
-    public const int TotalComponents = 77;
+    public const int TotalComponents = 78;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -156,6 +157,7 @@ public static class GameComponentsLookup {
         "WillFall",
         "CoinsCountListener",
         "CurrentQuantityListener",
+        "DurationListener",
         "GoalCompletedListener",
         "GoalListener",
         "InventoryItemListener",
@@ -236,6 +238,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
+        typeof(DurationListenerComponent),
         typeof(GoalCompletedListenerComponent),
         typeof(GoalListenerComponent),
         typeof(InventoryItemListenerComponent),
