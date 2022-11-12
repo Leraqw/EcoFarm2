@@ -2254,6 +2254,7 @@ MonoBehaviour:
     <GoalPrefab>k__BackingField: {fileID: 583486726864707964, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
+    <TimerView>k__BackingField: {fileID: 7359849443953079533}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2701,3 +2702,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e862ca6c37ccc548ad21b7231849863, type: 3}
+--- !u!114 &7359849443953079532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471938785917829883, guid: 6e862ca6c37ccc548ad21b7231849863, type: 3}
+  m_PrefabInstance: {fileID: 7359849443953079531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7359849443953079533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7359849444463667118, guid: 6e862ca6c37ccc548ad21b7231849863, type: 3}
+  m_PrefabInstance: {fileID: 7359849443953079531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7359849443953079534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359849443953079533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd864479029410188de2e926c60411d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textMesh: {fileID: 7359849443953079532}

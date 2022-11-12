@@ -77,5 +77,7 @@ namespace Code.Services.UnityImplementations
 		IButtonsCollection IUiService.Buttons => _ui.Buttons;
 
 		RectTransform IUiService.GoalsGroup => _ui.GoalsGroup;
+
+		GameObject IUiService.TimerView => _ui.TimerView;
 	}
 }
