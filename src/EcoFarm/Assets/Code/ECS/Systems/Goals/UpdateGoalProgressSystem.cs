@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.Goals
 
 		private void UpdateGoals(GameEntity item) => _goals.ForEach((goal) => UpdateProgress(goal, item));
 
-		private static void UpdateProgress(GameEntity entity, GameEntity item)
-			=> entity.ReplaceCurrentQuantity(item.inventoryItem.Value.Count);
+		private static void UpdateProgress(GameEntity goal, GameEntity item)
+			=> goal.ReplaceCurrentQuantity(item.inventoryItem.Value.Count);
 	}
 }
