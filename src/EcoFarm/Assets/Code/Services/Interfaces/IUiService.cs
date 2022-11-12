@@ -10,5 +10,6 @@ namespace Code.Services.Interfaces
 		RectTransform      UiRoot     { get; }
 		IWindowsCollection Windows    { get; }
 		IButtonsCollection Buttons    { get; }
+		RectTransform      GoalsGroup { get; }
 	}
 }

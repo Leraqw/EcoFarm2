@@ -66,25 +66,26 @@ public static class GameComponentsLookup {
     public const int Text = 55;
     public const int Tree = 56;
     public const int UiElement = 57;
-    public const int View = 58;
-    public const int ViewPrefab = 59;
-    public const int Watered = 60;
-    public const int Watering = 61;
-    public const int WillFall = 62;
-    public const int CoinsCountListener = 63;
-    public const int CurrentQuantityListener = 64;
-    public const int GoalCompletedListener = 65;
-    public const int GoalListener = 66;
-    public const int InventoryItemListener = 67;
-    public const int PositionListener = 68;
-    public const int ProportionalScaleListener = 69;
-    public const int SliderMaxValueListener = 70;
-    public const int SliderValueListener = 71;
-    public const int SpriteListener = 72;
-    public const int TextListener = 73;
-    public const int WateringListener = 74;
+    public const int UiParent = 58;
+    public const int View = 59;
+    public const int ViewPrefab = 60;
+    public const int Watered = 61;
+    public const int Watering = 62;
+    public const int WillFall = 63;
+    public const int CoinsCountListener = 64;
+    public const int CurrentQuantityListener = 65;
+    public const int GoalCompletedListener = 66;
+    public const int GoalListener = 67;
+    public const int InventoryItemListener = 68;
+    public const int PositionListener = 69;
+    public const int ProportionalScaleListener = 70;
+    public const int SliderMaxValueListener = 71;
+    public const int SliderValueListener = 72;
+    public const int SpriteListener = 73;
+    public const int TextListener = 74;
+    public const int WateringListener = 75;
 
-    public const int TotalComponents = 75;
+    public const int TotalComponents = 76;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -145,6 +146,7 @@ public static class GameComponentsLookup {
         "Text",
         "Tree",
         "UiElement",
+        "UiParent",
         "View",
         "ViewPrefab",
         "Watered",
@@ -223,6 +225,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.UiElementComponent),
+        typeof(Code.ECS.Components.UiParentComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.ViewPrefabComponent),
         typeof(Code.ECS.Components.WateredComponent),
