@@ -70,16 +70,17 @@ public static class GameComponentsLookup {
     public const int Watering = 59;
     public const int WillFall = 60;
     public const int CoinsCountListener = 61;
-    public const int InventoryItemListener = 62;
-    public const int PositionListener = 63;
-    public const int ProportionalScaleListener = 64;
-    public const int SliderMaxValueListener = 65;
-    public const int SliderValueListener = 66;
-    public const int SpriteListener = 67;
-    public const int TextListener = 68;
-    public const int WateringListener = 69;
+    public const int GoalListener = 62;
+    public const int InventoryItemListener = 63;
+    public const int PositionListener = 64;
+    public const int ProportionalScaleListener = 65;
+    public const int SliderMaxValueListener = 66;
+    public const int SliderValueListener = 67;
+    public const int SpriteListener = 68;
+    public const int TextListener = 69;
+    public const int WateringListener = 70;
 
-    public const int TotalComponents = 70;
+    public const int TotalComponents = 71;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -144,6 +145,7 @@ public static class GameComponentsLookup {
         "Watering",
         "WillFall",
         "CoinsCountListener",
+        "GoalListener",
         "InventoryItemListener",
         "PositionListener",
         "ProportionalScaleListener",
@@ -217,6 +219,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(CoinsCountListenerComponent),
+        typeof(GoalListenerComponent),
         typeof(InventoryItemListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ProportionalScaleListenerComponent),

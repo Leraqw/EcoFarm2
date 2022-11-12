@@ -1,6 +1,7 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using EcoFarmDataModule;
 using Entitas.CodeGeneration.Attributes;
+using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.ECS.Components
 {
@@ -10,7 +11,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class TreeComponent : ValueComponent<Tree> { }
 	
-	[Game] public sealed class GoalComponent : ValueComponent<Goal> { }
+	[Game] [Event(Self)] public sealed class GoalComponent : ValueComponent<Goal> { }
 
 	[Game] public sealed class DevelopmentObjectComponent : ValueComponent<DevelopmentObject> { }
 }
