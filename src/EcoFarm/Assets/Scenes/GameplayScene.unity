@@ -728,6 +728,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &883118079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 583486726864707964, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
+  m_PrefabInstance: {fileID: 583486726518763139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &883118080 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 583486726864715395, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
@@ -1990,7 +1995,7 @@ MonoBehaviour:
       <Sell>k__BackingField: {fileID: 1605429770}
     _windows:
       <Sell>k__BackingField: {fileID: 1877000532}
-    <GoalPrefab>k__BackingField: {fileID: 583486726864707964, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
+    <GoalPrefab>k__BackingField: {fileID: 883118079}
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
 --- !u!1001 &2048831294
