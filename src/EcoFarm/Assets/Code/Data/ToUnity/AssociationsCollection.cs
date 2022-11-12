@@ -3,6 +3,7 @@ using System.Linq;
 using Code.Data.StorageJson;
 using EcoFarmDataModule;
 using UnityEngine;
+using Code.Utils.Extensions;
 
 namespace Code.Data.ToUnity
 {
@@ -11,7 +12,6 @@ namespace Code.Data.ToUnity
 	{
 		[field: SerializeField] public List<Association> Associations { get; private set; }
 
-		private List<Product> _products;
 		private Storage _storage;
 		private Dictionary<string, Sprite> _dictionary;
 
@@ -22,22 +22,28 @@ namespace Code.Data.ToUnity
 			_storage = new StorageAccess().Storage;
 
 			// Get all Products from Goals in Levels where is Goal by Development Object
-			_products = _storage.Levels
-			                    .SelectMany((l) => l.Goals)
-			                    .OfType<GoalByDevelopmentObject>()
-			                    .Select((g) => g.DevelopmentObject)
-			                    .OfType<Product>()
-			                    .ToList();
+			var products = _storage.Levels
+			                       .SelectMany((l) => l.Goals)
+			                       .OfType<GoalByDevelopmentObject>()
+			                       .Select((g) => g.DevelopmentObject)
+			                       .OfType<Product>()
+			                       .ToList();
 
-			// Add new products to dictionary
-			var newValues = _products
-			              .Where((p) => _dictionary.ContainsKey(p.Title) == false)
-			              .Select((p) => new Association(p.Title))
-			              .ToDictionary((a) => a.Title, (a) => a.Sprite);
+			// Add new products to dictionary without resetting old
+			products.ForEach(AddNew, @if: IsNotAlreadyInDictionary);
 			
-			_dictionary = _dictionary.Concat(newValues).ToDictionary((p) => p.Key, (p) => p.Value);
+			_dictionary = products
+			              .Where((p) => _dictionary.ContainsKey(p.Title) == false)
+			              .ToDictionary<Product, string, Sprite>((p) => p.Title, (_) => null)
+			              .Concat(_dictionary)
+			              .ToDictionary((p) => p.Key, (p) => p.Value)
+				;
 
-			Associations = _dictionary.Select((p) => new Association(p.Key, p.Value)).ToList(); 
+			Associations = _dictionary.Select((p) => new Association(p.Key, p.Value)).ToList();
 		}
+
+		private void AddNew(Product p) => _dictionary.Add(p.Title, null);
+
+		private bool IsNotAlreadyInDictionary(Product p) => _dictionary.ContainsKey(p.Title) == false;
 	}
 }
