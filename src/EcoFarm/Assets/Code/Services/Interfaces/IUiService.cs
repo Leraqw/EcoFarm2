@@ -7,6 +7,7 @@ namespace Code.Services.Interfaces
 		GameObject         CoinsView  { get; }
 		GameObject         AppleView  { get; }
 		GameObject         GoalPrefab { get; }
+		RectTransform      UiRoot     { get; }
 		IWindowsCollection Windows    { get; }
 		IButtonsCollection Buttons    { get; }
 	}
