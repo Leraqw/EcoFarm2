@@ -10,29 +10,22 @@ namespace Code.Data.ToUnity
 	[CreateAssetMenu(fileName = "Associations", menuName = "ScriptableObject/Association")]
 	public class AssociationsCollection : ScriptableObject
 	{
-		[field: SerializeField] public List<Association> Associations { get; private set; }
+		[SerializeField] private List<Association> _associations;
 
-		private Storage _storage;
+		public Dictionary<string, Sprite> Dictionary => _associations.ToDictionary((x) => x.Title, (x) => x.Sprite);
 
 		public void UpdateResources()
-		{
-			_storage = new StorageAccess().Storage;
-
-			// Get all Products from Goals in Levels where is Goal by Development Object
-			var products = _storage.Levels
-			                       .SelectMany((l) => l.Goals)
-			                       .OfType<GoalByDevelopmentObject>()
-			                       .Select((g) => g.DevelopmentObject)
-			                       .OfType<Product>()
-			                       .ToList();
-
-			// Add new products to dictionary without resetting old
-			products.ForEach(AddNew, @if: IsNotAlreadyInDictionary);
-		}
+			=> new StorageAccess()
+			   .Storage.Levels
+			   .SelectMany((l) => l.Goals)
+			   .OfType<GoalByDevelopmentObject>()
+			   .Select((g) => g.DevelopmentObject)
+			   .OfType<Product>()
+			   .ForEach(AddNew, @if: IsNotAlreadyInDictionary);
 
 		private bool IsNotAlreadyInDictionary(Product product)
-			=> Associations.Any((p) => product.Title == p.Title) == false;
+			=> _associations.Any((p) => product.Title == p.Title) == false;
 
-		private void AddNew(Product product) => Associations.Add(new Association(product.Title));
+		private void AddNew(Product product) => _associations.Add(new Association(product.Title));
 	}
 }
