@@ -13,9 +13,6 @@ namespace Code.Data.ToUnity
 		[field: SerializeField] public List<Association> Associations { get; private set; }
 
 		private Storage _storage;
-		private Dictionary<string, Sprite> _dictionary;
-
-		public AssociationsCollection() => _dictionary = new Dictionary<string, Sprite>();
 
 		public void UpdateResources()
 		{
@@ -31,19 +28,11 @@ namespace Code.Data.ToUnity
 
 			// Add new products to dictionary without resetting old
 			products.ForEach(AddNew, @if: IsNotAlreadyInDictionary);
-			
-			_dictionary = products
-			              .Where((p) => _dictionary.ContainsKey(p.Title) == false)
-			              .ToDictionary<Product, string, Sprite>((p) => p.Title, (_) => null)
-			              .Concat(_dictionary)
-			              .ToDictionary((p) => p.Key, (p) => p.Value)
-				;
-
-			Associations = _dictionary.Select((p) => new Association(p.Key, p.Value)).ToList();
 		}
 
-		private void AddNew(Product p) => _dictionary.Add(p.Title, null);
+		private bool IsNotAlreadyInDictionary(Product product)
+			=> Associations.Any((p) => product.Title == p.Title) == false;
 
-		private bool IsNotAlreadyInDictionary(Product p) => _dictionary.ContainsKey(p.Title) == false;
+		private void AddNew(Product product) => Associations.Add(new Association(product.Title));
 	}
 }
