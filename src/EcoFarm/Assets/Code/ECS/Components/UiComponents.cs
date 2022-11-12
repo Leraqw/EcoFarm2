@@ -25,4 +25,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class PreparedComponent : FlagComponent { }
 
 	[Game] [Event(Self)] public sealed class TextComponent : ValueComponent<string> { }
+
+	[Game] public sealed class UiElementComponent : FlagComponent { }
 }

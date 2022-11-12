@@ -70,6 +70,8 @@ namespace Code.Services.UnityImplementations
 
 		GameObject IUiService.GoalPrefab => _ui.GoalPrefab;
 
+		RectTransform IUiService.UiRoot => _ui.UiRoot;
+
 		IWindowsCollection IUiService.Windows => _ui.Windows;
 
 		IButtonsCollection IUiService.Buttons => _ui.Buttons;
