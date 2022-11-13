@@ -7,10 +7,11 @@ namespace Code.PlayerContext.Features
 	{
 		public PlayerSystems()
 		{
-			var contexts =  Contexts.sharedInstance;
+			var contexts = Contexts.sharedInstance;
+
 			Add(new InitializePlayerContextSystem(contexts));
 		}
-		
+
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }
