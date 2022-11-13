@@ -2,7 +2,7 @@
 using Code.Services.Game.Interfaces;
 using Code.Services.Game.Interfaces.Config;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Services.Interfaces;
+using Code.Services.Game.Interfaces.Ui;
 using Code.Unity;
 using UnityEngine;
 

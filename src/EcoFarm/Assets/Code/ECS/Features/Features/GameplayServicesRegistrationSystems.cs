@@ -3,6 +3,7 @@ using Code.ECS.Systems.Services;
 using Code.Services.Game.Implementations;
 using Code.Services.Game.Interfaces;
 using Code.Services.Game.Interfaces.Config;
+using Code.Services.Game.Interfaces.Ui;
 using Code.Unity;
 
 namespace Code.ECS.Features.Features

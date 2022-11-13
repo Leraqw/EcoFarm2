@@ -1,7 +1,6 @@
-﻿using Code.Services.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Services.Game.Interfaces
+namespace Code.Services.Game.Interfaces.Ui
 {
 	public interface IUiService
 	{

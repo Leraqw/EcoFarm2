@@ -1,4 +1,4 @@
-﻿using Code.Services.Game.Interfaces;
+﻿using Code.Services.Game.Interfaces.Ui;
 using Code.Utils.Extensions;
 using Entitas;
 

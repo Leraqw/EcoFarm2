@@ -1,8 +1,8 @@
 ﻿using System;
-using Code.Services.Interfaces;
+using Code.Services.Game.Interfaces.Ui;
 using UnityEngine;
 
-namespace Code.Services.UnityImplementations
+namespace Code.Services.Game.Implementations.Ui
 {
 	[Serializable]
 	public class ButtonsCollection : IButtonsCollection

@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using Code.Services.Game.Interfaces;
+using Code.Services.Game.Interfaces.Ui;
 
 public partial class ServicesContext {
 
