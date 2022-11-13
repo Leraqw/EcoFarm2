@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Code.Global.PlayerContext.Components;
-using Code.Global.PlayerContext.CustomTypes;
-
 public partial class PlayerEntity {
 
-    public SessionResultComponent sessionResult { get { return (SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public Code.Global.PlayerContext.Components.SessionResultComponent sessionResult { get { return (Code.Global.PlayerContext.Components.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(SessionResult newValue) {
+    public void AddSessionResult(Code.Global.PlayerContext.CustomTypes.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
+        var component = (Code.Global.PlayerContext.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SessionResultComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(SessionResult newValue) {
+    public void ReplaceSessionResult(Code.Global.PlayerContext.CustomTypes.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
+        var component = (Code.Global.PlayerContext.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SessionResultComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

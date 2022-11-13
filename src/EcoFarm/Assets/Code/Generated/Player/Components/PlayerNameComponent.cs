@@ -6,23 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Code.Global.PlayerContext.Components;
-
 public partial class PlayerEntity {
 
-    public NameComponent name { get { return (NameComponent)GetComponent(PlayerComponentsLookup.Name); } }
+    public Code.Global.PlayerContext.Components.NameComponent name { get { return (Code.Global.PlayerContext.Components.NameComponent)GetComponent(PlayerComponentsLookup.Name); } }
     public bool hasName { get { return HasComponent(PlayerComponentsLookup.Name); } }
 
     public void AddName(string newValue) {
         var index = PlayerComponentsLookup.Name;
-        var component = (NameComponent)CreateComponent(index, typeof(NameComponent));
+        var component = (Code.Global.PlayerContext.Components.NameComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.NameComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceName(string newValue) {
         var index = PlayerComponentsLookup.Name;
-        var component = (NameComponent)CreateComponent(index, typeof(NameComponent));
+        var component = (Code.Global.PlayerContext.Components.NameComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.NameComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

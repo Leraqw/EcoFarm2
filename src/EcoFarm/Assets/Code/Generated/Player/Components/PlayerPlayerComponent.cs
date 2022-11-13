@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Code.Global.PlayerContext.Components;
-
 public partial class PlayerContext {
 
     public PlayerEntity playerEntity { get { return GetGroup(PlayerMatcher.Player).GetSingleEntity(); } }
@@ -37,7 +35,7 @@ public partial class PlayerContext {
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly PlayerComponent playerComponent = new PlayerComponent();
+    static readonly Code.Global.PlayerContext.Components.PlayerComponent playerComponent = new Code.Global.PlayerContext.Components.PlayerComponent();
 
     public bool isPlayer {
         get { return HasComponent(PlayerComponentsLookup.Player); }
