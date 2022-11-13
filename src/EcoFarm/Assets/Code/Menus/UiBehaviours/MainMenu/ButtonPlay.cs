@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Code.Menus.UiBehaviours
+namespace Code.Menus.UiBehaviours.MainMenu
 {
 	public class ButtonPlay : MonoBehaviour
 	{
