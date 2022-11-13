@@ -13,7 +13,7 @@ namespace Code.PlayerContext.Unity
 		{
 			DontDestroyOnLoad(gameObject);
 			
-			IAllServices resources = new UnityAllServices();
+			IGlobalServices resources = new UnityGlobalServices();
 
 			_systems = new PlayerSystems(resources);
 			_systems.Initialize();

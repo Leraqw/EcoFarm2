@@ -4,10 +4,10 @@ using Code.Utils.Extensions.Entitas;
 
 namespace Code.ECS.Features
 {
-	public sealed class AllSystems : Feature
+	public sealed class GameContextSystems : Feature
 	{
-		public AllSystems(UnityDependencies dependencies)
-			: base(nameof(AllSystems))
+		public GameContextSystems(UnityDependencies dependencies)
+			: base(nameof(GameContextSystems))
 		{
 			var contexts = Contexts.sharedInstance;
 			Add(new GameplayServicesRegistrationSystems(contexts, dependencies));

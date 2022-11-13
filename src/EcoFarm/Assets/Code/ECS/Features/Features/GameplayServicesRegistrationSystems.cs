@@ -2,7 +2,6 @@
 using Code.ECS.Systems.Services;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
-using Code.Services.UnityImplementations;
 using Code.Unity;
 
 namespace Code.ECS.Features.Features
@@ -13,7 +12,7 @@ namespace Code.ECS.Features.Features
 			: base(nameof(ServicesRegistrationSystems))
 		{
 			var servicesContext = contexts.services;
-			var services = new UnityAllServices(dependencies);
+			var services = new UnityGameServices(dependencies);
 
 			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
 			Register<IConfigurationService>(services, servicesContext.ReplaceConfigurationService);
@@ -22,6 +21,5 @@ namespace Code.ECS.Features.Features
 
 		private void Register<T>(T service, Action<T> replaceService)
 			=> Add(new RegisterServiceSystem<T>(service, replaceService));
-
 	}
 }

@@ -7,7 +7,7 @@ namespace Code.PlayerContext.Features
 {
 	public sealed class PlayerSystems : Feature
 	{
-		public PlayerSystems(IAllServices services)
+		public PlayerSystems(IGlobalServices services)
 		{
 			var contexts = Contexts.sharedInstance;
 

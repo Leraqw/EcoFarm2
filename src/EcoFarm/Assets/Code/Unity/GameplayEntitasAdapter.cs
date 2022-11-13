@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Code.Unity
 {
-	public class UnityToEntitasAdapter : MonoBehaviour
+	public class GameplayEntitasAdapter : MonoBehaviour
 	{
 		[SerializeField] private UnityDependencies _dependencies;
 
-		private AllSystems _systems;
+		private GameContextSystems _systems;
 
 		private void Start()
 		{
-			_systems = new AllSystems(_dependencies);
+			_systems = new GameContextSystems(_dependencies);
 			_systems.Initialize();
 		}
 
