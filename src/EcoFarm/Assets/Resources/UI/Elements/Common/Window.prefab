@@ -207,7 +207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817223720527305075, guid: b779a8b4e66354e41b68a1547a3c7b73, type: 3}
       propertyPath: m_text
-      value: Shop
+      value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817223720527305075, guid: b779a8b4e66354e41b68a1547a3c7b73, type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3817223720527305085, guid: b779a8b4e66354e41b68a1547a3c7b73, type: 3}
       propertyPath: m_Name
