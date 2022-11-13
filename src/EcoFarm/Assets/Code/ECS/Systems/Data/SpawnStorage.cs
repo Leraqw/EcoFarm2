@@ -1,4 +1,5 @@
 ﻿using Code.Utils.Extensions;
+using EcoFarmDataModule;
 using Entitas;
 
 namespace Code.ECS.Systems.Data
@@ -9,11 +10,13 @@ namespace Code.ECS.Systems.Data
 
 		public SpawnStorage(Contexts contexts) => _contexts = contexts;
 
+		private Storage Storage => _contexts.services.dataService.Value.Storage;
+
 		public void Initialize()
 			=> _contexts.game
-			            .Do((c) => c.ReplaceStorage(_contexts.services.dataService.Value.Storage))
+			            .Do((c) => c.ReplaceStorage(Storage))
 			            .storageEntity
-			            .Do((e) => e.AddDebugName("Storage"));
+			            .Do((e) => e.ReplaceDebugName(nameof(Storage)));
 	}
 
 }
