@@ -11,7 +11,7 @@ namespace Code.PlayerContext.Features
 		{
 			var contexts = Contexts.sharedInstance;
 
-			Add(new ServicesRegistrationSystems(contexts, services));
+			Add(new GlobalServicesRegistrationSystems(contexts, services));
 
 			Add(new InitializePlayerContextSystem(contexts));
 			

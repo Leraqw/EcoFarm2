@@ -11,7 +11,7 @@ namespace Code.ECS.Features.Features
 	public sealed class GameplayServicesRegistrationSystems : Feature
 	{
 		public GameplayServicesRegistrationSystems(Contexts contexts, UnityDependencies dependencies)
-			: base(nameof(ServicesRegistrationSystems))
+			: base(nameof(GlobalServicesRegistrationSystems))
 		{
 			var servicesContext = contexts.services;
 			var services = new UnityGameServices(dependencies);
