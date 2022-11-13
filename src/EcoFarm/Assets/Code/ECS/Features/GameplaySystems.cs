@@ -26,7 +26,7 @@ namespace Code.ECS.Features
 			Add(new InventorySystems(contexts));
 			
 			// TODO: Add GameCycleSystems 
-			Add(new DebugGameOverSystem(contexts));
+			Add(new GameOverSystem(contexts));
 			
 			// TODO: Add GameOverSystems
 			Add(new DestroyAllGameEntitiesSystem(contexts));
