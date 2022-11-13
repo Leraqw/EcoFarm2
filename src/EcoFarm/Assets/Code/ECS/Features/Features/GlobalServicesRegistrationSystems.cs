@@ -4,10 +4,10 @@ using Code.Services.Interfaces;
 
 namespace Code.ECS.Features.Features
 {
-	public sealed class ServicesRegistrationSystems : Feature
+	public sealed class GlobalServicesRegistrationSystems : Feature
 	{
-		public ServicesRegistrationSystems(Contexts contexts, IGlobalServices services)
-			: base(nameof(ServicesRegistrationSystems))
+		public GlobalServicesRegistrationSystems(Contexts contexts, IGlobalServices services)
+			: base(nameof(GlobalServicesRegistrationSystems))
 		{
 			var servicesContext = contexts.services;
 
@@ -16,6 +16,7 @@ namespace Code.ECS.Features.Features
 			Register<IDataService>(services, servicesContext.ReplaceDataService);
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
+			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

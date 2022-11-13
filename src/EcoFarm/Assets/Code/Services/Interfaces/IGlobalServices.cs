@@ -5,5 +5,6 @@
 		  IStorageService,
 		  IDataService,
 		  ICameraService,
-		  IInputService { }
+		  IInputService,
+		  ISceneTransferService { }
 }
