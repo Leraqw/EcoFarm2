@@ -76,15 +76,15 @@ public static class GameComponentsLookup {
     public const int CoinsCountListener = 65;
     public const int CurrentQuantityListener = 66;
     public const int DurationListener = 67;
-    public const int GoalCompletedListener = 68;
-    public const int GoalListener = 69;
-    public const int InventoryItemListener = 70;
-    public const int PositionListener = 71;
-    public const int ProportionalScaleListener = 72;
-    public const int SliderMaxValueListener = 73;
-    public const int SliderValueListener = 74;
-    public const int SpriteListener = 75;
-    public const int TextListener = 76;
+    public const int GameTextListener = 68;
+    public const int GoalCompletedListener = 69;
+    public const int GoalListener = 70;
+    public const int InventoryItemListener = 71;
+    public const int PositionListener = 72;
+    public const int ProportionalScaleListener = 73;
+    public const int SliderMaxValueListener = 74;
+    public const int SliderValueListener = 75;
+    public const int SpriteListener = 76;
     public const int WateringListener = 77;
 
     public const int TotalComponents = 78;
@@ -158,6 +158,7 @@ public static class GameComponentsLookup {
         "CoinsCountListener",
         "CurrentQuantityListener",
         "DurationListener",
+        "GameTextListener",
         "GoalCompletedListener",
         "GoalListener",
         "InventoryItemListener",
@@ -166,7 +167,6 @@ public static class GameComponentsLookup {
         "SliderMaxValueListener",
         "SliderValueListener",
         "SpriteListener",
-        "TextListener",
         "WateringListener"
     };
 
@@ -239,6 +239,7 @@ public static class GameComponentsLookup {
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
         typeof(DurationListenerComponent),
+        typeof(GameTextListenerComponent),
         typeof(GoalCompletedListenerComponent),
         typeof(GoalListenerComponent),
         typeof(InventoryItemListenerComponent),
@@ -247,7 +248,6 @@ public static class GameComponentsLookup {
         typeof(SliderMaxValueListenerComponent),
         typeof(SliderValueListenerComponent),
         typeof(SpriteListenerComponent),
-        typeof(TextListenerComponent),
         typeof(WateringListenerComponent)
     };
 }

@@ -6,12 +6,12 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class TextEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class GameTextEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<ITextListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IGameTextListener> _listenerBuffer;
 
-    public TextEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<ITextListener>();
+    public GameTextEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<IGameTextListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
@@ -21,14 +21,14 @@ public sealed class TextEventSystem : Entitas.ReactiveSystem<GameEntity> {
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasText && entity.hasTextListener;
+        return entity.hasText && entity.hasGameTextListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
             var component = e.text;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.textListener.value);
+            _listenerBuffer.AddRange(e.gameTextListener.value);
             foreach (var listener in _listenerBuffer) {
                 listener.OnText(e, component.Value);
             }

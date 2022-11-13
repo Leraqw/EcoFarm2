@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Code.Unity.ViewListeners.UI
 {
-	public class TextView : BaseViewListener, ITextListener
+	public class TextView : BaseViewListener, IGameTextListener
 	{
 		[SerializeField] private TextMeshProUGUI _text;
 
-		protected override void AddListener(GameEntity entity) => entity.AddTextListener(this);
+		protected override void AddListener(GameEntity entity) => entity.AddGameTextListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasText;
 
