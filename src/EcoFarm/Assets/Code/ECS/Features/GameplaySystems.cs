@@ -3,6 +3,7 @@ using Code.ECS.Features.Updatables;
 using Code.ECS.Features.Updatables.Cleanup;
 using Code.ECS.Features.Updatables.Gameplay;
 using Code.ECS.Systems.Level;
+using Code.ECS.Systems.TearDown;
 
 namespace Code.ECS.Features
 {
@@ -26,6 +27,9 @@ namespace Code.ECS.Features
 			
 			// TODO: Add GameCycleSystems 
 			Add(new DebugGameOverSystem(contexts));
+			
+			// TODO: Add GameOverSystems
+			Add(new DestroyAllGameEntitiesSystem(contexts));
 
 			Add(new CleanupSystems(contexts));
 		}
