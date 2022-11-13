@@ -1,6 +1,7 @@
 ﻿using Code.Data.Config;
 using Code.Data.StorageJson;
 using Code.Services.Interfaces;
+using Code.Unity.CustomTypes;
 using EcoFarmDataModule;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Code.Services.UnityImplementations
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly ISceneTransferService _scene;
-		
+
 		public UnityGlobalServices()
 		{
 			_resourceLoader = new UnityResourceService();
@@ -24,11 +25,11 @@ namespace Code.Services.UnityImplementations
 			_input = new UnityInputService();
 			_scene = new UnitySceneTransferService();
 		}
-		
+
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
 		Sprite IResourcesService.LoadSprite(string path) => _resourceLoader.LoadSprite(path);
-		
+
 		void IStorage.Save<T>(T data) => _storage.Save(data);
 
 		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);
@@ -45,6 +46,8 @@ namespace Code.Services.UnityImplementations
 
 		void ISceneTransferService.ToGameplayScene() => _scene.ToGameplayScene();
 
-		void ISceneTransferService.ToGameResultScene()	=> _scene.ToGameResultScene();
+		void ISceneTransferService.ToGameResultScene() => _scene.ToGameResultScene();
+
+		void ISceneTransferService.ToScene(SceneField scene) => _scene.ToScene(scene);
 	}
 }

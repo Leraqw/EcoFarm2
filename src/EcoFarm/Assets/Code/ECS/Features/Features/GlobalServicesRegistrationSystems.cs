@@ -16,6 +16,7 @@ namespace Code.ECS.Features.Features
 			Register<IDataService>(services, servicesContext.ReplaceDataService);
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
+			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
