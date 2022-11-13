@@ -9,7 +9,7 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "SecondsForLevel": 100,
+        "SecondsForLevel": 60,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
@@ -24,6 +24,14 @@
                 "Price": 2
               },
               "TargetQuantity": 5
+            },
+            {
+              "$id": "5",
+              "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
+              "DevelopmentObject": {
+                "$ref": "4"
+              },
+              "TargetQuantity": 3
             }
           ]
         }
@@ -34,7 +42,7 @@
     "$type": "EcoFarmDataModule.Tree[], EcoFarmModel",
     "$values": [
       {
-        "$id": "5",
+        "$id": "6",
         "$type": "EcoFarmDataModule.Tree, EcoFarmModel",
         "Product": {
           "$ref": "4"
