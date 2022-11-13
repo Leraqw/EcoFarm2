@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Utils.Extensions;
 using Entitas;
 using static Code.PlayerContext.CustomTypes.SessionResult;
 using static GameMatcher;
@@ -22,15 +23,11 @@ namespace Code.ECS.Systems.Goals
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GoalCompleted);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasGoal;
 
-		protected override void Execute(List<GameEntity> entites)
-		{
-			if (AllGoalsIsCompleted)
-			{
-				_contexts.player.playerEntity.ReplaceSessionResult(Victory);
-			}
-		}
+		protected override void Execute(List<GameEntity> _) => this.Do(GameVictory, @if: AllGoalsIsCompleted);
+
+		private void GameVictory(object _) => _contexts.player.playerEntity.ReplaceSessionResult(Victory);
 
 		private bool AllGoalsIsCompleted => _notCompletedGoals.GetEntities().Any() == false;
 	}
