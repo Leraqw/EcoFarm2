@@ -18,6 +18,6 @@ namespace Code.PlayerContext.Systems
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(OnEnd);
 
 		private static void OnEnd(PlayerEntity entity) 
-			=> Debug.Log($"At this moment, the session has ended with the result: {entity.sessionResult}");
+			=> Debug.Log($"At this moment, the session has ended with the result: {entity.sessionResult.Value}");
 	}
 }
