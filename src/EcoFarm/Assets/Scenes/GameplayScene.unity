@@ -2416,7 +2416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button Warehouse
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839774, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_Type
@@ -2509,9 +2509,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871304929}
     m_Modifications:
-    - target: {fileID: 4542579869011120907, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5
+    - target: {fileID: 4542579868692543463, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542579869408987203, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4542579869774672509, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
       propertyPath: m_Name
@@ -2617,6 +2621,10 @@ PrefabInstance:
     - target: {fileID: 5997163250435477926, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
       propertyPath: m_Name
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997163250435477926, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5997163250435477927, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
       propertyPath: m_Pivot.x
