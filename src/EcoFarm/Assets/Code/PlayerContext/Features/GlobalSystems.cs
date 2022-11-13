@@ -5,9 +5,9 @@ using Code.Utils.Extensions.Entitas;
 
 namespace Code.PlayerContext.Features
 {
-	public sealed class PlayerSystems : Feature
+	public sealed class GlobalSystems : Feature
 	{
-		public PlayerSystems(IGlobalServices services)
+		public GlobalSystems(IGlobalServices services)
 		{
 			var contexts = Contexts.sharedInstance;
 
