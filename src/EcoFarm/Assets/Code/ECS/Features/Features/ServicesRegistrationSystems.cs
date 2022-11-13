@@ -1,7 +1,6 @@
 ﻿using System;
 using Code.ECS.Systems.Services;
 using Code.Services.Interfaces;
-using Code.Services.Interfaces.Config;
 
 namespace Code.ECS.Features.Features
 {

@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using Code.Data.Config;
+﻿using Code.Data.Config;
 using Code.Data.StorageJson;
 using Code.Services.Interfaces;
-using Code.Services.Interfaces.Config;
-using Code.Services.Interfaces.Config.ResourcesConfigs;
-using Code.Unity;
 using EcoFarmDataModule;
 using UnityEngine;
 
