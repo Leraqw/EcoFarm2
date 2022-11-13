@@ -6,7 +6,8 @@ namespace Code.PlayerContext.Features
 	{
 		public PlayerSystems()
 		{
-			Add(new InitializePlayerContextSystem());
+			var contexts =  Contexts.sharedInstance;
+			Add(new InitializePlayerContextSystem(contexts));
 		}
 		
 		public void OnUpdate()
