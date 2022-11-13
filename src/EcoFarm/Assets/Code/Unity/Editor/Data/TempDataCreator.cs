@@ -35,6 +35,16 @@ namespace Code.Unity.Editor.Data
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 }
 						}
+					},
+					new Level
+					{
+						Order = 2,
+						TreesCount = 9,
+						SecondsForLevel = 100,
+						Goals = new Goal[]
+						{
+							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 10 },
+						}
 					}
 				},
 				Trees = new[]
