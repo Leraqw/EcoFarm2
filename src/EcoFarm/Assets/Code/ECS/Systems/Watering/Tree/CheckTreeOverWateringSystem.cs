@@ -2,6 +2,7 @@
 using Code.ECS.Systems.Watering.Bucket;
 using Entitas;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using UnityEngine;
 using static GameMatcher;
 
@@ -22,15 +23,13 @@ namespace Code.ECS.Systems.Watering.Tree
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(Watered);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasWatering;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsRotten, @if: IsOverWatered);
 
 		private bool IsOverWatered(GameEntity entity) => entity.watering > MaxWatering;
 
 		private void MarkAsRotten(GameEntity entity)
-			=> entity.Do((e) => e.ReplaceWatering(MaxWatering))
-			         .Do((e) => e.AddSpriteToLoad(TreeRottenSprite))
-			         .Do((e) => e.isFruitful = false);
+			=> entity.TreeIsDead(TreeRottenSprite);
 	}
 }
