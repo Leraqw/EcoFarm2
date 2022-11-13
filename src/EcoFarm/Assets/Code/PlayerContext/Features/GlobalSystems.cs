@@ -5,9 +5,9 @@ using Code.Utils.Extensions.Entitas;
 
 namespace Code.PlayerContext.Features
 {
-	public sealed class PlayerSystems : Feature
+	public sealed class GlobalSystems : Feature
 	{
-		public PlayerSystems(IGlobalServices services)
+		public GlobalSystems(IGlobalServices services)
 		{
 			var contexts = Contexts.sharedInstance;
 
@@ -16,6 +16,9 @@ namespace Code.PlayerContext.Features
 			Add(new InitializePlayerContextSystem(contexts));
 			
 			Add(new OnSessionEndSystem(contexts));
+
+			Add(new PlayerEventSystems(contexts));
+			Add(new PlayerCleanupSystems(contexts));
 		}
 
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();

@@ -7,7 +7,7 @@ namespace Code.PlayerContext.Unity
 {
 	public class GlobalEntitasAdapter : MonoBehaviour
 	{
-		private PlayerSystems _systems;
+		private GlobalSystems _systems;
 
 		private void Start()
 		{
@@ -15,7 +15,7 @@ namespace Code.PlayerContext.Unity
 			
 			IGlobalServices resources = new UnityGlobalServices();
 
-			_systems = new PlayerSystems(resources);
+			_systems = new GlobalSystems(resources);
 			_systems.Initialize();
 		}
 

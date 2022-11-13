@@ -8,21 +8,33 @@
 //------------------------------------------------------------------------------
 public static class PlayerComponentsLookup {
 
-    public const int Name = 0;
-    public const int Player = 1;
-    public const int SessionResult = 2;
+    public const int Text = 0;
+    public const int View = 1;
+    public const int Destroy = 2;
+    public const int Name = 3;
+    public const int Player = 4;
+    public const int SessionResult = 5;
+    public const int PlayerTextListener = 6;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
+        "Text",
+        "View",
+        "Destroy",
         "Name",
         "Player",
-        "SessionResult"
+        "SessionResult",
+        "PlayerTextListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ECS.Components.TextComponent),
+        typeof(Code.ECS.Components.ViewComponent),
+        typeof(Code.PlayerContext.Components.DestroyComponent),
         typeof(Code.PlayerContext.Components.NameComponent),
         typeof(Code.PlayerContext.Components.PlayerComponent),
-        typeof(Code.PlayerContext.Components.SessionResultComponent)
+        typeof(Code.PlayerContext.Components.SessionResultComponent),
+        typeof(PlayerTextListenerComponent)
     };
 }

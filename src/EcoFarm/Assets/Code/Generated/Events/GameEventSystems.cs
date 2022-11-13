@@ -21,7 +21,7 @@ public sealed class GameEventSystems : Feature {
         Add(new SliderMaxValueEventSystem(contexts)); // priority: 0
         Add(new SliderValueEventSystem(contexts)); // priority: 0
         Add(new SpriteEventSystem(contexts)); // priority: 0
-        Add(new TextEventSystem(contexts)); // priority: 0
+        Add(new GameTextEventSystem(contexts)); // priority: 0
         Add(new WateringEventSystem(contexts)); // priority: 0
     }
 }
