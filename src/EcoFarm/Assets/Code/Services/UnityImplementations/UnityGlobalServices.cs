@@ -13,6 +13,8 @@ namespace Code.Services.UnityImplementations
 		private readonly IDataService _data;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
+		private readonly ISceneTransferService _scene;
+		
 		public UnityGlobalServices()
 		{
 			_resourceLoader = new UnityResourceService();
@@ -20,6 +22,7 @@ namespace Code.Services.UnityImplementations
 			_data = new StorageAccess();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
+			_scene = new UnitySceneTransferService();
 		}
 		
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
@@ -38,5 +41,10 @@ namespace Code.Services.UnityImplementations
 
 		Vector2 IInputService.MousePosition => _input.MousePosition;
 
-		}
+		void ISceneTransferService.ToMainMenuScene() => _scene.ToMainMenuScene();
+
+		void ISceneTransferService.ToGameplayScene() => _scene.ToGameplayScene();
+
+		void ISceneTransferService.ToGameResultScene()	=> _scene.ToGameResultScene();
+	}
 }
