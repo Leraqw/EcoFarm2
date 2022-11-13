@@ -9,7 +9,7 @@ namespace Code.SessionResultScene
 	{
 		[SerializeField] private TextView _textListener;
 
-		private static global::PlayerContext Context => Contexts.sharedInstance.player;
+		private static PlayerContext Context => Contexts.sharedInstance.player;
 
 		private void Start()
 			=> Context.CreateEntity()
