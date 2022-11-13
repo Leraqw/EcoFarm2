@@ -2303,6 +2303,7 @@ MonoBehaviour:
       <Sell>k__BackingField: {fileID: 1605429770}
     _windows:
       <Sell>k__BackingField: {fileID: 1877000532}
+      <Pause>k__BackingField: {fileID: 414658495}
     <UiRoot>k__BackingField: {fileID: 1688588089}
     <GoalsGroup>k__BackingField: {fileID: 364071565}
     <GoalPrefab>k__BackingField: {fileID: 583486726864707964, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
