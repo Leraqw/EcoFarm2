@@ -841,11 +841,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5997163250435477927, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
   m_PrefabInstance: {fileID: 5997163250025899594}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &736753646
+--- !u!114 &736753646 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 736753646, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
+  m_PrefabInstance: {fileID: 5997163250025899594}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414658495}
   m_Enabled: 1
