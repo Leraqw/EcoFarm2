@@ -1,7 +1,7 @@
 ﻿using Code.Unity.ViewListeners.UI;
 using Code.Utils.Extensions;
 using UnityEngine;
-using static Code.PlayerContext.CustomTypes.SessionResult;
+using static Code.Global.PlayerContext.CustomTypes.SessionResult;
 
 namespace Code.SessionResultScene
 {

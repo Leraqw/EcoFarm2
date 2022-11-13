@@ -1,9 +1,9 @@
 ﻿using Code.ECS.Features.Features;
-using Code.PlayerContext.Systems;
+using Code.Global.PlayerContext.Systems;
 using Code.Services.Interfaces;
 using Code.Utils.Extensions.Entitas;
 
-namespace Code.PlayerContext.Features
+namespace Code.Global.PlayerContext.Features
 {
 	public sealed class GlobalSystems : Feature
 	{

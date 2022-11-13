@@ -6,9 +6,11 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Global.PlayerContext.Components;
+
 public partial class PlayerEntity {
 
-    static readonly Code.PlayerContext.Components.DestroyComponent destroyComponent = new Code.PlayerContext.Components.DestroyComponent();
+    static readonly DestroyComponent destroyComponent = new DestroyComponent();
 
     public bool isDestroy {
         get { return HasComponent(PlayerComponentsLookup.Destroy); }

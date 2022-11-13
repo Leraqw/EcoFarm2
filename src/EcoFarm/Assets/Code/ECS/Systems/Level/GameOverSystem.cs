@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using static Code.PlayerContext.CustomTypes.SessionResult;
+using static Code.Global.PlayerContext.CustomTypes.SessionResult;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Level

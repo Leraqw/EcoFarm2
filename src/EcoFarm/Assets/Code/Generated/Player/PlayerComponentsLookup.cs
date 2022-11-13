@@ -6,6 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Global.PlayerContext.Components;
+
 public static class PlayerComponentsLookup {
 
     public const int Text = 0;
@@ -31,10 +33,10 @@ public static class PlayerComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.ViewComponent),
-        typeof(Code.PlayerContext.Components.DestroyComponent),
-        typeof(Code.PlayerContext.Components.NameComponent),
-        typeof(Code.PlayerContext.Components.PlayerComponent),
-        typeof(Code.PlayerContext.Components.SessionResultComponent),
+        typeof(DestroyComponent),
+        typeof(NameComponent),
+        typeof(PlayerComponent),
+        typeof(SessionResultComponent),
         typeof(PlayerTextListenerComponent)
     };
 }

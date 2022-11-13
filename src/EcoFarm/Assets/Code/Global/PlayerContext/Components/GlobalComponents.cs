@@ -1,9 +1,9 @@
-﻿using Code.PlayerContext.CustomTypes;
+﻿using Code.Global.PlayerContext.CustomTypes;
 using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code.PlayerContext.Components
+namespace Code.Global.PlayerContext.Components
 {
 	[Player] public sealed class NameComponent : ValueComponent<string> { }
 
