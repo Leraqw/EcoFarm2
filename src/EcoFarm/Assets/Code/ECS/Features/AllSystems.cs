@@ -1,16 +1,16 @@
-﻿using Code.ECS.Features.Initialization;
-using Code.Services.Interfaces;
+﻿using Code.ECS.Features.Features;
+using Code.Unity;
 using Code.Utils.Extensions.Entitas;
 
 namespace Code.ECS.Features
 {
 	public sealed class AllSystems : Feature
 	{
-		public AllSystems(IAllServices services)
+		public AllSystems(UnityDependencies dependencies)
 			: base(nameof(AllSystems))
 		{
 			var contexts = Contexts.sharedInstance;
-			Add(new ServicesRegistrationSystems(contexts, services));
+			Add(new GameplayServicesRegistrationSystems(contexts, dependencies));
 
 			Add(new GameplaySystems(contexts));
 

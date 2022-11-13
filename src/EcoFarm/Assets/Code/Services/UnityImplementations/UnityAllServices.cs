@@ -12,26 +12,30 @@ namespace Code.Services.UnityImplementations
 {
 	public class UnityAllServices : IAllServices
 	{
-		private readonly ISpawnPointsService _spawnPoints;
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
 		private readonly IDataService _data;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
+
+		private readonly ISpawnPointsService _spawnPoints;
 		private readonly IConfigurationService _configuration;
 		private readonly IUiService _ui;
+
+		public UnityAllServices()
+		{
+			_resourceLoader = new UnityResourceService();
+			_storage = new UnityStorageService();
+			_data = new StorageAccess();
+			_camera = new UnityCameraService();
+			_input = new UnityInputService();
+		}
 
 		public UnityAllServices(UnityDependencies dependencies)
 		{
 			_spawnPoints = dependencies.SpawnPoints;
 			_configuration = dependencies.UnityConfiguration;
 			_ui = dependencies.UiService;
-
-			_resourceLoader = new UnityResourceService();
-			_storage = new UnityStorageService();
-			_data = new StorageAccess();
-			_camera = new UnityCameraService();
-			_input = new UnityInputService();
 		}
 
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);

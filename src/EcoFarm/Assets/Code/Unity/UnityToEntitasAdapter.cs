@@ -1,6 +1,4 @@
 ﻿using Code.ECS.Features;
-using Code.Services.Interfaces;
-using Code.Services.UnityImplementations;
 using UnityEngine;
 
 namespace Code.Unity
@@ -13,8 +11,7 @@ namespace Code.Unity
 
 		private void Start()
 		{
-			IAllServices resources = new UnityAllServices(_dependencies);
-			_systems = new AllSystems(resources);
+			_systems = new AllSystems(_dependencies);
 			_systems.Initialize();
 		}
 

@@ -2,27 +2,26 @@
 using Code.ECS.Systems.Services;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
+using Code.Services.UnityImplementations;
+using Code.Unity;
 
-namespace Code.ECS.Features.Initialization
+namespace Code.ECS.Features.Features
 {
-	public sealed class ServicesRegistrationSystems : Feature
+	public sealed class GameplayServicesRegistrationSystems : Feature
 	{
-		public ServicesRegistrationSystems(Contexts contexts, IAllServices services)
+		public GameplayServicesRegistrationSystems(Contexts contexts, UnityDependencies dependencies)
 			: base(nameof(ServicesRegistrationSystems))
 		{
 			var servicesContext = contexts.services;
+			var services = new UnityAllServices(dependencies);
 
-			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
 			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
-			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
-			Register<IDataService>(services, servicesContext.ReplaceDataService);
-			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
-			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<IConfigurationService>(services, servicesContext.ReplaceConfigurationService);
 			Register<IUiService>(services, servicesContext.ReplaceUiService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
 			=> Add(new RegisterServiceSystem<T>(service, replaceService));
+
 	}
 }
