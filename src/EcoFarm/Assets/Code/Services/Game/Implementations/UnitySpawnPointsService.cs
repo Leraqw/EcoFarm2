@@ -4,7 +4,7 @@ using System.Linq;
 using Code.Services.Game.Interfaces;
 using UnityEngine;
 
-namespace Code.Services.UnityImplementations
+namespace Code.Services.Game.Implementations
 {
 	[Serializable]
 	public class UnitySpawnPointsService : ISpawnPointsService

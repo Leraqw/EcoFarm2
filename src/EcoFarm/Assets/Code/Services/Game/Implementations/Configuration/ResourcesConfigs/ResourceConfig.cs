@@ -3,7 +3,7 @@ using Code.Data.ToUnity;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using UnityEngine;
 
-namespace Code.Unity.SO.Configuration.ResourcesConfigs
+namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
 {
 	[Serializable]
 	public class ResourceConfig : IResourceConfig

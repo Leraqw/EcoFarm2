@@ -2,7 +2,7 @@
 using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
 
-namespace Code.Unity.SO.Configuration.BalanceConfigs
+namespace Code.Services.Game.Implementations.Configuration.BalanceConfigs
 {
 	[Serializable]
 	public class WateringConfig : IWateringConfig

@@ -2,7 +2,7 @@
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using UnityEngine;
 
-namespace Code.Unity.SO.Configuration
+namespace Code.Services.Game.Implementations.Configuration
 {
 	[Serializable]
 	public class BucketSpritesConfig : IBucketSpritesConfig

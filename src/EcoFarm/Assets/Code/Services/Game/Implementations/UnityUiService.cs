@@ -1,9 +1,10 @@
 ﻿using System;
 using Code.Services.Game.Interfaces;
 using Code.Services.Interfaces;
+using Code.Services.UnityImplementations;
 using UnityEngine;
 
-namespace Code.Services.UnityImplementations
+namespace Code.Services.Game.Implementations
 {
 	[Serializable]
 	public class UnityUiService : IUiService

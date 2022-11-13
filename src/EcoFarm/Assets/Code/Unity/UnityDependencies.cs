@@ -1,5 +1,5 @@
-﻿using Code.Services.UnityImplementations;
-using Code.Unity.SO.Configuration;
+﻿using Code.Services.Game.Implementations;
+using Code.Services.Game.Implementations.Configuration;
 using UnityEngine;
 
 namespace Code.Unity
