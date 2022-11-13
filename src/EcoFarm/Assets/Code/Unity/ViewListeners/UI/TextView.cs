@@ -11,10 +11,12 @@ namespace Code.Unity.ViewListeners.UI
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasText;
 
-		protected override void UpdateValue(GameEntity entity) => OnText(entity, entity.text.Value);
+		protected override void UpdateValue(GameEntity entity) => SetText(entity.text.Value);
 
-		public void OnText(GameEntity entity, string value) => _text.text = value;
+		public void OnText(GameEntity entity, string value) => SetText(value);
 		
-		public void OnText(PlayerEntity entity, string value) => _text.text = value;
+		public void OnText(PlayerEntity entity, string value) => SetText(value);
+
+		private void SetText(string value) => _text.text = value;
 	}
 }
