@@ -18,6 +18,7 @@ namespace Code.PlayerContext.Features
 			Add(new OnSessionEndSystem(contexts));
 
 			Add(new PlayerEventSystems(contexts));
+			Add(new PlayerCleanupSystems(contexts));
 		}
 
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();

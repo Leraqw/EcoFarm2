@@ -14,7 +14,8 @@ namespace Code.SessionResultScene
 		private void Start()
 			=> Context.CreateEntity()
 			          .Do((e) => e.AddText(GetTextByResult()))
-			          .Do((e) => e.AddPlayerTextListener(_textListener));
+			          .Do((e) => e.AddPlayerTextListener(_textListener))
+			          .Do((e) => e.isDestroy = true);
 
 		private static string GetTextByResult()
 			=> Context.playerEntity.sessionResult.Value is SessionResult.Victory
