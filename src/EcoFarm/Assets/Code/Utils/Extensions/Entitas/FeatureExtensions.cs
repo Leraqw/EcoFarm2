@@ -2,6 +2,10 @@
 {
 	public static class FeatureExtensions
 	{
-		public static Feature ExecuteAnd(this Feature @this) => @this.Do((t) => t.Execute());
+		public static Feature ExecuteAnd(this Feature @this)
+		{
+			@this.Execute();
+			return @this;
+		}
 	}
 }
