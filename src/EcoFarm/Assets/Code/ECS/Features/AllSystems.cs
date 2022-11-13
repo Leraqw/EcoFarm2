@@ -14,8 +14,8 @@ namespace Code.ECS.Features
 
 			Add(new GameplaySystems(contexts));
 
-			Add(new GameCleanupSystems(contexts));
 			Add(new GameEventSystems(contexts));
+			Add(new GameCleanupSystems(contexts));
 		}
 
 		public void OnUpdate() => this.Do(Execute).Do(Cleanup);
