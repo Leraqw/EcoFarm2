@@ -10,6 +10,8 @@ namespace Code.PlayerContext.Features
 			var contexts = Contexts.sharedInstance;
 
 			Add(new InitializePlayerContextSystem(contexts));
+			
+			Add(new OnSessionEndSystem(contexts));
 		}
 
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();
