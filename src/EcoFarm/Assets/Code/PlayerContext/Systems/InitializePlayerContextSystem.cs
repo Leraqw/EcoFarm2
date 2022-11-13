@@ -9,7 +9,9 @@ namespace Code.PlayerContext.Systems
 
 		public InitializePlayerContextSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => _contexts.player.CreateEntity()
+		public void Initialize() => _contexts.player
+		                                     .CreateEntity()
+		                                     .Do((e) => e.isPlayer = true)
 		                                     .Do((e) => e.AddName("Test Player"));
 	}
 }
