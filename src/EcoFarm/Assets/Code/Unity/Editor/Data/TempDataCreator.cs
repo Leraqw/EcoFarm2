@@ -46,8 +46,8 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 }
-						}
+							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 },
+						},
 					},
 					new Level
 					{
@@ -57,8 +57,8 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 10 },
-						}
-					}
+						},
+					},
 				},
 				Trees = new[]
 				{
@@ -66,9 +66,9 @@ namespace Code.Unity.Editor.Data
 					{
 						Title = "Apple Tree",
 						Description = "Giving apples",
-						Product = apple
-					}
-				}
+						Product = apple,
+					},
+				},
 			};
 		}
 
