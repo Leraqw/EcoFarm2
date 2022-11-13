@@ -3,7 +3,7 @@ using System.IO;
 using Code.Utils.Extensions;
 using UnityEngine;
 
-namespace Code.Data.Config.Editor
+namespace Code.Unity.Editor.Data
 {
 	public static class FilesWorker
 	{

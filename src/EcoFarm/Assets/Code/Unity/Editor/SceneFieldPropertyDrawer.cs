@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using Code.Unity.CustomTypes;
+using UnityEditor;
 using UnityEngine;
 
-namespace Code.Unity.CustomTypes.Editor
+namespace Code.Unity.Editor
 {
 
 	[CustomPropertyDrawer(typeof(SceneField))]
