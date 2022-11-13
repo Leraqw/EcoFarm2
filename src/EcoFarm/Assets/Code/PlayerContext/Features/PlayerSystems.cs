@@ -1,6 +1,6 @@
 ﻿using Code.PlayerContext.Systems;
 
-namespace Code.PlayerContext.Unity
+namespace Code.PlayerContext.Features
 {
 	internal sealed class PlayerSystems : Feature
 	{
