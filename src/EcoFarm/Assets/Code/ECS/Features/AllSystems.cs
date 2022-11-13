@@ -1,6 +1,6 @@
 ﻿using Code.ECS.Features.Initialization;
 using Code.Services.Interfaces;
-using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 
 namespace Code.ECS.Features
 {
@@ -18,10 +18,6 @@ namespace Code.ECS.Features
 			Add(new GameCleanupSystems(contexts));
 		}
 
-		public void OnUpdate() => this.Do(Execute).Do(Cleanup);
-
-		private static void Execute(AllSystems @this) => @this.Execute();
-
-		private static void Cleanup(AllSystems @this) => @this.Cleanup();
+		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }
