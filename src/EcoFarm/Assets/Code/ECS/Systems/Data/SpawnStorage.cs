@@ -10,8 +10,8 @@ namespace Code.ECS.Systems.Data
 		public SpawnStorage(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
-			=> _contexts.game
-			            .SetStorage(_contexts.services.dataService.Value.Storage)
-			            .Do((e) => e.AddDebugName("Storage"));
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddDebugName("Storage"))
+			            .Do((e) => e.ReplaceStorage(_contexts.services.dataService.Value.Storage));
 	}
 }
