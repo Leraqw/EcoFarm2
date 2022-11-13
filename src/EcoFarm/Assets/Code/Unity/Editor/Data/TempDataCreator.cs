@@ -21,8 +21,21 @@ namespace Code.Unity.Editor.Data
 				Price = 2,
 			};
 
+			var money = new Product
+			{
+				Title = "Money",
+				Description = "Is a medium of exchange, a unit of account, and a store of value.",
+				Price = 1,
+			};
+
 			return new Storage
 			{
+				Products = new[]
+				{
+					money,
+					apple,
+				},
+				
 				Levels = new[]
 				{
 					new Level
