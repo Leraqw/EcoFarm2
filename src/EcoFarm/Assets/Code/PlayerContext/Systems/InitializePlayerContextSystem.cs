@@ -10,17 +10,14 @@ namespace Code.PlayerContext.Systems
 
 		public InitializePlayerContextSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize()
-		{
-			// TODO: move to BootstrapScene or something like that
-			if (_contexts.player.playerEntity == null)
-			{
-				_contexts.player
-				         .CreateEntity()
-				         .Do((e) => e.isPlayer = true)
-				         .Do((e) => e.AddSessionResult(None))
-				         .Do((e) => e.AddName("Test Player"));
-			}
-		}
+		public void Initialize() => _contexts.player.Do(CreatePlayer, @if: IsNotCreatedYet);
+
+		private bool IsNotCreatedYet(global::PlayerContext arg) => _contexts.player.playerEntity == null;
+
+		private static void CreatePlayer(global::PlayerContext context)
+			=> context.CreateEntity()
+			          .Do((e) => e.isPlayer = true)
+			          .Do((e) => e.AddSessionResult(None))
+			          .Do((e) => e.AddName("Test Player"));
 	}
 }
