@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Code.Data.Config.Editor
+namespace Code.Unity.Editor.Common
 {
 	public static class EditorGUILayoutUtils
 	{

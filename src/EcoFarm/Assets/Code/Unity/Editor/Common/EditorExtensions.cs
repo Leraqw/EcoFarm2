@@ -1,4 +1,4 @@
-﻿namespace Code.Data.Config.Editor
+﻿namespace Code.Unity.Editor.Common
 {
 	public static class EditorExtensions
 	{
