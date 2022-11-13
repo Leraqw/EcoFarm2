@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Unity.ViewListeners.UI
 {
-	public class TextView : BaseViewListener, IGameTextListener
+	public class TextView : BaseViewListener, IGameTextListener, IPlayerTextListener
 	{
 		[SerializeField] private TextMeshProUGUI _text;
 
@@ -14,5 +14,7 @@ namespace Code.Unity.ViewListeners.UI
 		protected override void UpdateValue(GameEntity entity) => OnText(entity, entity.text.Value);
 
 		public void OnText(GameEntity entity, string value) => _text.text = value;
+		
+		public void OnText(PlayerEntity entity, string value) => _text.text = value;
 	}
 }
