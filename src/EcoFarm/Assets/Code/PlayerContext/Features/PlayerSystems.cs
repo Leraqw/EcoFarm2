@@ -1,5 +1,5 @@
 ﻿using Code.PlayerContext.Systems;
-using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 
 namespace Code.PlayerContext.Features
 {
@@ -11,6 +11,6 @@ namespace Code.PlayerContext.Features
 			Add(new InitializePlayerContextSystem(contexts));
 		}
 		
-		public void OnUpdate() => this.Do((t) => t.Execute()).Do((t) => t.Cleanup());
+		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }
