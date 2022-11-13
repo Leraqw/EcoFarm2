@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using Code.Services.Game.Interfaces;
 using Code.Services.Interfaces;
 using Code.Services.Interfaces.Config;
 using Code.Services.Interfaces.Config.ResourcesConfigs;
 using Code.Unity;
 using UnityEngine;
 
-namespace Code.ECS.Features.Features
+namespace Code.Services.Game.Implementations
 {
 	public class UnityGameServices : IGameServices
 	{
