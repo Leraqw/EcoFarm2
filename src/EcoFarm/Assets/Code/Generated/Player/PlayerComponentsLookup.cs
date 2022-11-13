@@ -10,16 +10,19 @@ public static class PlayerComponentsLookup {
 
     public const int Name = 0;
     public const int Player = 1;
+    public const int SessionResult = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "Name",
-        "Player"
+        "Player",
+        "SessionResult"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.PlayerContext.Components.NameComponent),
-        typeof(Code.PlayerContext.Components.PlayerComponent)
+        typeof(Code.PlayerContext.Components.PlayerComponent),
+        typeof(Code.PlayerContext.Components.SessionResultComponent)
     };
 }
