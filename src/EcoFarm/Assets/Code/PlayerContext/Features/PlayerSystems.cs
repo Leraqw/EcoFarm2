@@ -1,8 +1,9 @@
 ﻿using Code.PlayerContext.Systems;
+using Code.Utils.Extensions;
 
 namespace Code.PlayerContext.Features
 {
-	internal sealed class PlayerSystems : Feature
+	public sealed class PlayerSystems : Feature
 	{
 		public PlayerSystems()
 		{
@@ -10,9 +11,6 @@ namespace Code.PlayerContext.Features
 			Add(new InitializePlayerContextSystem(contexts));
 		}
 		
-		public void OnUpdate()
-		{
-			
-		}
+		public void OnUpdate() => this.Do((t) => t.Execute()).Do((t) => t.Cleanup());
 	}
 }
