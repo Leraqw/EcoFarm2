@@ -6,13 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Services.Game.Interfaces;
+using Code.Services.Game.Interfaces.Ui;
+
 public partial class ServicesContext {
 
     public ServicesEntity uiServiceEntity { get { return GetGroup(ServicesMatcher.UiService).GetSingleEntity(); } }
     public Code.ECS.Components.UiServiceComponent uiService { get { return uiServiceEntity.uiService; } }
     public bool hasUiService { get { return uiServiceEntity != null; } }
 
-    public ServicesEntity SetUiService(Code.Services.Interfaces.IUiService newValue) {
+    public ServicesEntity SetUiService(IUiService newValue) {
         if (hasUiService) {
             throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with Code.ECS.Components.UiServiceComponent!",
                 "You should check if the context already has a uiServiceEntity before setting it or use context.ReplaceUiService().");
@@ -22,7 +25,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceUiService(Code.Services.Interfaces.IUiService newValue) {
+    public void ReplaceUiService(IUiService newValue) {
         var entity = uiServiceEntity;
         if (entity == null) {
             entity = SetUiService(newValue);
@@ -49,14 +52,14 @@ public partial class ServicesEntity {
     public Code.ECS.Components.UiServiceComponent uiService { get { return (Code.ECS.Components.UiServiceComponent)GetComponent(ServicesComponentsLookup.UiService); } }
     public bool hasUiService { get { return HasComponent(ServicesComponentsLookup.UiService); } }
 
-    public void AddUiService(Code.Services.Interfaces.IUiService newValue) {
+    public void AddUiService(IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
         var component = (Code.ECS.Components.UiServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.UiServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceUiService(Code.Services.Interfaces.IUiService newValue) {
+    public void ReplaceUiService(IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
         var component = (Code.ECS.Components.UiServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.UiServiceComponent));
         component.Value = newValue;

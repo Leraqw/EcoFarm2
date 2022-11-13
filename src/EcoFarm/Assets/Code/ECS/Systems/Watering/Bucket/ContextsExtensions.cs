@@ -1,4 +1,4 @@
-﻿using Code.Services.Interfaces.Config;
+﻿using Code.Services.Game.Interfaces.Config;
 
 namespace Code.ECS.Systems.Watering.Bucket
 {

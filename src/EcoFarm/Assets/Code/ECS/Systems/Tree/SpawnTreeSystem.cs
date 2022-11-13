@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Interfaces.Config.ResourcesConfigs;
+using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Entitas;
 

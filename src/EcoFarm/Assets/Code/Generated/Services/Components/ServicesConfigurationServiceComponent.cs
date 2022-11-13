@@ -6,13 +6,15 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Services.Game.Interfaces.Config;
+
 public partial class ServicesContext {
 
     public ServicesEntity configurationServiceEntity { get { return GetGroup(ServicesMatcher.ConfigurationService).GetSingleEntity(); } }
     public Code.ECS.Components.ConfigurationServiceComponent configurationService { get { return configurationServiceEntity.configurationService; } }
     public bool hasConfigurationService { get { return configurationServiceEntity != null; } }
 
-    public ServicesEntity SetConfigurationService(Code.Services.Interfaces.Config.IConfigurationService newValue) {
+    public ServicesEntity SetConfigurationService(IConfigurationService newValue) {
         if (hasConfigurationService) {
             throw new Entitas.EntitasException("Could not set ConfigurationService!\n" + this + " already has an entity with Code.ECS.Components.ConfigurationServiceComponent!",
                 "You should check if the context already has a configurationServiceEntity before setting it or use context.ReplaceConfigurationService().");
@@ -22,7 +24,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceConfigurationService(Code.Services.Interfaces.Config.IConfigurationService newValue) {
+    public void ReplaceConfigurationService(IConfigurationService newValue) {
         var entity = configurationServiceEntity;
         if (entity == null) {
             entity = SetConfigurationService(newValue);
@@ -49,14 +51,14 @@ public partial class ServicesEntity {
     public Code.ECS.Components.ConfigurationServiceComponent configurationService { get { return (Code.ECS.Components.ConfigurationServiceComponent)GetComponent(ServicesComponentsLookup.ConfigurationService); } }
     public bool hasConfigurationService { get { return HasComponent(ServicesComponentsLookup.ConfigurationService); } }
 
-    public void AddConfigurationService(Code.Services.Interfaces.Config.IConfigurationService newValue) {
+    public void AddConfigurationService(IConfigurationService newValue) {
         var index = ServicesComponentsLookup.ConfigurationService;
         var component = (Code.ECS.Components.ConfigurationServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.ConfigurationServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceConfigurationService(Code.Services.Interfaces.Config.IConfigurationService newValue) {
+    public void ReplaceConfigurationService(IConfigurationService newValue) {
         var index = ServicesComponentsLookup.ConfigurationService;
         var component = (Code.ECS.Components.ConfigurationServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.ConfigurationServiceComponent));
         component.Value = newValue;
