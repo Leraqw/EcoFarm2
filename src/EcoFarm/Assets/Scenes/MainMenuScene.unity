@@ -460,6 +460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 921651613}
+  _scene:
+    _scene: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
 --- !u!1 &1037689461
 GameObject:
   m_ObjectHideFlags: 0
