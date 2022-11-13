@@ -1,8 +1,9 @@
 ﻿using System;
 using Code.ECS.Systems.Services;
 using Code.Services.Game.Implementations;
+using Code.Services.Game.Interfaces;
+using Code.Services.Game.Interfaces.Config;
 using Code.Services.Interfaces;
-using Code.Services.Interfaces.Config;
 using Code.Unity;
 
 namespace Code.ECS.Features.Features

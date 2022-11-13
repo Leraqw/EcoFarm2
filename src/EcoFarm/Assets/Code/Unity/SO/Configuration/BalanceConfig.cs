@@ -1,6 +1,6 @@
 ﻿using System;
-using Code.Services.Interfaces.Config;
-using Code.Services.Interfaces.Config.BalanceConfigs;
+using Code.Services.Game.Interfaces.Config;
+using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using Code.Unity.SO.Configuration.BalanceConfigs;
 using UnityEngine;
 

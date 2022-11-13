@@ -1,5 +1,5 @@
 ﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Interfaces.Config.BalanceConfigs;
+using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
 using UnityEngine.UI;
 using static Contexts;

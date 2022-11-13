@@ -1,6 +1,6 @@
-﻿using Code.Services.Interfaces.Config.BalanceConfigs;
+﻿using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 
-namespace Code.Services.Interfaces.Config
+namespace Code.Services.Game.Interfaces.Config
 {
 	public interface IBalanceConfig
 	{

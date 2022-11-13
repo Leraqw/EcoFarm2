@@ -1,4 +1,4 @@
-﻿namespace Code.Services.Interfaces.Config
+﻿namespace Code.Services.Game.Interfaces.Config
 {
 	public interface IDealConfig
 	{

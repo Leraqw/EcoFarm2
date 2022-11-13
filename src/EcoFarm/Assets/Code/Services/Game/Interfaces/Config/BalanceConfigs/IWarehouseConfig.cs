@@ -1,4 +1,4 @@
-﻿namespace Code.Services.Interfaces.Config.BalanceConfigs
+﻿namespace Code.Services.Game.Interfaces.Config.BalanceConfigs
 {
 	public interface IWarehouseConfig
 	{

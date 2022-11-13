@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Services.Interfaces.Config.BalanceConfigs;
+using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
 
 namespace Code.Unity.SO.Configuration.BalanceConfigs

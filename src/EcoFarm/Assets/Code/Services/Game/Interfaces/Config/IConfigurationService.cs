@@ -1,6 +1,6 @@
-﻿using Code.Services.Interfaces.Config.ResourcesConfigs;
+﻿using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 
-namespace Code.Services.Interfaces.Config
+namespace Code.Services.Game.Interfaces.Config
 {
 	public interface IConfigurationService
 	{

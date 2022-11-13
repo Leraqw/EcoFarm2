@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Services.Interfaces.Config.ResourcesConfigs;
+using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using UnityEngine;
 
 namespace Code.Unity.SO.Configuration

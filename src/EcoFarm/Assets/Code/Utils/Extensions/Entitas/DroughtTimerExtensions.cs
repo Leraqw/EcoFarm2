@@ -1,5 +1,5 @@
 ﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Interfaces.Config;
+using Code.Services.Game.Interfaces.Config;
 using static Contexts;
 
 namespace Code.Utils.Extensions.Entitas

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Services.Interfaces
+namespace Code.Services.Game.Interfaces
 {
 	public interface ISpawnPointsService
 	{
