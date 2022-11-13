@@ -32,7 +32,8 @@ namespace Code.Unity.Editor.Data
 						SecondsForLevel = 60,
 						Goals = new Goal[]
 						{
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 }
+							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
+							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 }
 						}
 					}
 				},
