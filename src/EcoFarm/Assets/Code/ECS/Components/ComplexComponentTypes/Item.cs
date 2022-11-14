@@ -1,10 +1,13 @@
-﻿// ReSharper disable FieldCanBeMadeReadOnly.Global - for Unity Serialization
+﻿using System;
+using UnityEngine;
+
 namespace Code.ECS.Components.ComplexComponentTypes
 {
+	[Serializable]
 	public class Item
 	{
-		public string Name;
-		public int Count;
+		[field: SerializeField] public string Name  { get; private set; }
+		[field: SerializeField] public int    Count { get; set; }
 
 		public Item(string name)
 		{
