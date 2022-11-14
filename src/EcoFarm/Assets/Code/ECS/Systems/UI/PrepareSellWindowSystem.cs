@@ -16,8 +16,6 @@ namespace Code.ECS.Systems.UI
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private Item FirstInventoryItem => _contexts.game.GetInventoryItems().First().inventoryItem.Value;
-
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PreparationInProcess, SellWindow));
 
@@ -36,7 +34,11 @@ namespace Code.ECS.Systems.UI
 			window.isPrepared = true;
 		}
 
-		private void ActualizeValue(GameEntity entity) => entity.ReplaceSliderMaxValue(FirstInventoryItem.Count);
+		private void ActualizeValue(GameEntity slider)
+			=> slider.ReplaceSliderMaxValue(ItemWithSameProduct(slider).Count);
+
+		private Item ItemWithSameProduct(GameEntity slider) 
+			=> _contexts.game.GetInventoryItems().First(slider.HasSameProduct).inventoryItem;
 
 		private bool IsSlider(GameEntity e) => e.hasSliderMaxValue;
 	}
