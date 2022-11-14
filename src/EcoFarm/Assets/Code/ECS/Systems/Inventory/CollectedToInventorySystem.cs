@@ -14,6 +14,8 @@ namespace Code.ECS.Systems.Inventory
 
 		private IEnumerable<GameEntity> InventoryItems => _context.GetInventoryItems();
 
+		private static int Step => 1;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Collected);
 
@@ -24,6 +26,6 @@ namespace Code.ECS.Systems.Inventory
 		private void IncreaseEachCounter(GameEntity product)
 			=> InventoryItems.ForEach(IncreaseCount, @if: product.HasSameProduct);
 
-		private static void IncreaseCount(GameEntity entity) => entity.UpdateInventoryItemCount(with: (c) => c + 1);
+		private static void IncreaseCount(GameEntity entity) => entity.IncreaseInventoryItemCount(Step);
 	}
 }
