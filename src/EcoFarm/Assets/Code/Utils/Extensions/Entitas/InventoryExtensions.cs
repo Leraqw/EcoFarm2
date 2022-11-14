@@ -28,6 +28,9 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void DecreaseInventoryItemCount(this GameEntity @this, int count)
 			=> @this.UpdateInventoryItemCount(with: (c) => c - count);
+		
+		public static void UpdateInventoryItemCount(this GameEntity @this, int count)
+			=> @this.UpdateInventoryItemCount(with: (_) => count);
 
 		public static void UpdateInventoryItemCount(this GameEntity @this, Func<int, int> with)
 			=> @this.Do((x) => x.inventoryItem.Value.Count = with(x.inventoryItem.Value.Count))

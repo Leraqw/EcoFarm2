@@ -20,6 +20,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
 		private void Sync(GameEntity entity) 
-			=> _contexts.game.coinEntity.IncreaseInventoryItemCount(entity.coinsCount);
+			=> _contexts.game.coinEntity.UpdateInventoryItemCount(entity.coinsCount);
 	}
 }
