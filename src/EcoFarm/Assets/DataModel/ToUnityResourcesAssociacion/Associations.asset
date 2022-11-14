@@ -15,5 +15,5 @@ MonoBehaviour:
   _associations:
   - Title: Apple
     Sprite: {fileID: 21300000, guid: 1941333b7cea477418306b20d5a2e5ff, type: 3}
-  - Title: Money
+  - Title: Coin
     Sprite: {fileID: 21300000, guid: afa129d6746ac3b429913d5e693d12e1, type: 3}

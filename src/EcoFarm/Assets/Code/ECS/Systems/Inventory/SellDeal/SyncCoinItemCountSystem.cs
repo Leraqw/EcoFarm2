@@ -1,25 +1,25 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory.SellDeal
 {
-	public sealed class SyncCoinItemCountSystem : ReactiveSystem<ContextEntity>
+	public sealed class SyncCoinItemCountSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public SyncCoinItemCountSystem(Contexts contexts)
-			: base(contexts.context) { }
+			: base(contexts.game)
+			=> _contexts = contexts;
 
-		protected override ICollector<ContextEntity> GetTrigger(IContext<ContextEntity> context)
-			=> context.CreateCollector(ContextMatcher.Matcher);
+		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+			=> context.CreateCollector(GameMatcher.CoinsCount);
 
-		protected override bool Filter(ContextEntity entity)
-			=> true;
+		protected override bool Filter(GameEntity entity) => true;
 
-		protected override void Execute(List<ContextEntity> entites)
-		{
-			foreach (ContextEntity e in entites)
-			{
-				
-			}
-		}
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
+
+		private void Sync(GameEntity entity) 
+			=> _contexts.game.coinEntity.IncreaseInventoryItemCount(entity.coinsCount);
 	}
 }
