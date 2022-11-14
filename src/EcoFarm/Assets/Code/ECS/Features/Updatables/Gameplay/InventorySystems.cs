@@ -16,7 +16,7 @@ namespace Code.ECS.Features.Updatables.Gameplay
 			
 			// TODO: GoalsSystems
 			Add(new CheckGoalsByProductSystem(contexts));
-			Add(new UpdateGoalProgressSystem(contexts));
+			Add(new UpdateProductGoalsProgressSystem(contexts));
 		}
 	}
 }

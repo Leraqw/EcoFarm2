@@ -29,7 +29,7 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(SubtractFromItems);
 
 		private void SubtractFromItems(GameEntity deal)
-			=> InventoryItems.ForEach((item) => Subtract(item, deal), @if: deal.IsSameFruit);
+			=> InventoryItems.ForEach((item) => Subtract(item, deal), @if: deal.HasSameProduct);
 
 		private void Subtract(GameEntity item, GameEntity deal)
 			=> item.UpdateInventoryItemCount((c) => c - deal.count);
