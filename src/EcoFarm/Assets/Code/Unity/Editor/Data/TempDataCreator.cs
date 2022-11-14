@@ -21,9 +21,9 @@ namespace Code.Unity.Editor.Data
 				Price = 2,
 			};
 
-			var money = new Product
+			var coin = new Product
 			{
-				Title = "Money",
+				Title = CoinItemName,
 				Description = "Is a medium of exchange, a unit of account, and a store of value.",
 				Price = 1,
 			};
@@ -32,7 +32,7 @@ namespace Code.Unity.Editor.Data
 			{
 				Products = new[]
 				{
-					money,
+					coin,
 					apple,
 				},
 				
@@ -46,7 +46,7 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
-							new GoalByDevelopmentObject { DevelopmentObject = money, TargetQuantity = 15 },
+							new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
 						},
 					},
 					new Level

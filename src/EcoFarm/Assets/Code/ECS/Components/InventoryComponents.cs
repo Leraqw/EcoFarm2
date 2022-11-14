@@ -14,4 +14,6 @@ namespace Code.ECS.Components
 	[Game] [Event(Self)] public sealed class CoinsCountComponent : ValueComponent<int> { }
 
 	[Game] public sealed class CountComponent : ValueComponent<int> { }
+
+	[Game] [Unique] public sealed class CoinComponent : FlagComponent { }
 }

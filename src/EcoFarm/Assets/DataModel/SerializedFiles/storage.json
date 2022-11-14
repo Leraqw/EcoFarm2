@@ -7,7 +7,7 @@
       {
         "$id": "2",
         "$type": "EcoFarmDataModule.Product, EcoFarmModel",
-        "Title": "Money",
+        "Title": "Coin",
         "Description": "Is a medium of exchange, a unit of account, and a store of value.",
         "Price": 1
       },
