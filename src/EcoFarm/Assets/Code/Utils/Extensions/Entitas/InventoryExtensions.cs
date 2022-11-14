@@ -24,12 +24,9 @@ namespace Code.Utils.Extensions.Entitas
 			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex);
 
 		public static void UpdateInventoryItemCount(this GameEntity @this, Func<int, int> with)
-		{
-			var item = @this.inventoryItem.Value;
-			item.Count = with(item.Count);
-			@this.ReplaceInventoryItem(item);
-			@this.SetActualDebugName();
-		}
+			=> @this.Do((x) => x.inventoryItem.Value.Count = with(x.inventoryItem.Value.Count))
+			        .Do((x) => x.ReplaceInventoryItem(x.inventoryItem.Value))
+			        .Do((e) => e.SetActualDebugName());
 
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
 			=> @this.ReplaceCoinsCount(@this.coinsCount + value);

@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using Code.Services.Game.Interfaces.Ui;
+﻿using Code.Services.Game.Interfaces.Ui;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using EcoFarmDataModule;
 using Entitas;
 
 namespace Code.ECS.Systems.Inventory
@@ -14,9 +14,12 @@ namespace Code.ECS.Systems.Inventory
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		private EcoFarmDataModule.Product Product => _contexts.game.storage.Value.Trees.First().Product;
+		private Storage Storage => _contexts.game.storage.Value;
 
-		public void Initialize() => _contexts.game.CreateInventoryItem(Product)
-		                                     .Do((e) => e.AddView(UIService.AppleView));
+		public void Initialize() => Storage.Products.ForEach(Create);
+
+		private void Create(EcoFarmDataModule.Product product)
+			=> _contexts.game.CreateInventoryItem(product)
+			            .Do((e) => e.AddView(UIService.AppleView));
 	}
 }
