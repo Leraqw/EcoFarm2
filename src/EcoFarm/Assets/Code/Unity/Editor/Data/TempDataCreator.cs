@@ -46,7 +46,7 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 },
+							new GoalByDevelopmentObject { DevelopmentObject = money, TargetQuantity = 15 },
 						},
 					},
 					new Level
