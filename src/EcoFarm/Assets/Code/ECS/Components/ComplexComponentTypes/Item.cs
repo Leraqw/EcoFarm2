@@ -1,11 +1,15 @@
-﻿namespace Code.ECS.Components.ComplexComponentTypes
+﻿// ReSharper disable FieldCanBeMadeReadOnly.Global - for Unity Serialization
+namespace Code.ECS.Components.ComplexComponentTypes
 {
 	public class Item
 	{
 		public string Name;
 		public int Count;
-		
-		public static implicit operator Item((string name, int count) tuple)
-			=> new() { Name = tuple.name, Count = tuple.count };
+
+		public Item(string name)
+		{
+			Name = name;
+			Count = 0;
+		}
 	}
 }

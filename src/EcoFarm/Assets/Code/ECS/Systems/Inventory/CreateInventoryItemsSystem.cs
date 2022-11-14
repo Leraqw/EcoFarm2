@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Inventory
 
 		private EcoFarmDataModule.Product Product => _contexts.game.storage.Value.Trees.First().Product;
 
-		public void Initialize() => _contexts.game.CreateInventoryItem(Product, 0)
+		public void Initialize() => _contexts.game.CreateInventoryItem(Product)
 		                                     .Do((e) => e.AddView(UIService.AppleView));
 	}
 }

@@ -13,9 +13,9 @@ namespace Code.Utils.Extensions.Entitas
 		private static void ReplaceDebugName(this GameEntity @this, Item item)
 			=> @this.ReplaceDebugName($"Item: {item.Name} ({item.Count})");
 
-		public static GameEntity CreateInventoryItem(this GameContext @this, Product product, int count)
+		public static GameEntity CreateInventoryItem(this GameContext @this, Product product)
 			=> @this.CreateEntity()
-			        .Do((e) => e.AddInventoryItem((product.Title, count)))
+			        .Do((e) => e.AddInventoryItem(new Item(product.Title)))
 			        .Do((e) => e.SetActualDebugName())
 			        .Do((e) => e.AddProduct(product))
 			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachableIndex));
