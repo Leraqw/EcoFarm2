@@ -5,13 +5,15 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.Goals
 {
-	public sealed class UpdateGoalProgressSystem : ReactiveSystem<GameEntity>
+	public sealed class UpdateProductGoalsProgressSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly IGroup<GameEntity> _goals;
 
-		public UpdateGoalProgressSystem(Contexts contexts)
+		public UpdateProductGoalsProgressSystem(Contexts contexts)
 			: base(contexts.game)
-			=> _goals = contexts.game.GetGroup(AllOf(Goal, GameMatcher.Product).NoneOf(GoalCompleted));
+			=> _goals = contexts.game.GetGroup(AllOf(Goal, Product).NoneOf(GoalCompleted));
+
+		private static IMatcher<GameEntity> Product => GameMatcher.Product;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(InventoryItem);
@@ -20,7 +22,8 @@ namespace Code.ECS.Systems.Goals
 
 		protected override void Execute(List<GameEntity> items) => items.ForEach(UpdateGoals);
 
-		private void UpdateGoals(GameEntity item) => _goals.ForEach((goal) => UpdateProgress(goal, item));
+		private void UpdateGoals(GameEntity item)
+			=> _goals.ForEach((goal) => UpdateProgress(goal, item), @if: item.HasSameProduct);
 
 		private static void UpdateProgress(GameEntity goal, GameEntity item)
 			=> goal.ReplaceCurrentQuantity(item.inventoryItem.Value.Count);

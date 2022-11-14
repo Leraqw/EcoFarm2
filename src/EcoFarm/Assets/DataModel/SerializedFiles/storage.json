@@ -1,37 +1,72 @@
 {
   "$id": "1",
   "$type": "EcoFarmDataModule.Storage, EcoFarmModel",
+  "Products": {
+    "$type": "EcoFarmDataModule.Product[], EcoFarmModel",
+    "$values": [
+      {
+        "$id": "2",
+        "$type": "EcoFarmDataModule.Product, EcoFarmModel",
+        "Title": "Coin",
+        "Description": "Is a medium of exchange, a unit of account, and a store of value.",
+        "Price": 1
+      },
+      {
+        "$id": "3",
+        "$type": "EcoFarmDataModule.Product, EcoFarmModel",
+        "Title": "Apple",
+        "Description": "Is a sweet, edible fruit produced by an apple tree.",
+        "Price": 2
+      }
+    ]
+  },
   "Levels": {
     "$type": "EcoFarmDataModule.Level[], EcoFarmModel",
     "$values": [
       {
-        "$id": "2",
+        "$id": "4",
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "SecondsForLevel": 60,
+        "SecondsForLevel": 300,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
             {
-              "$id": "3",
+              "$id": "5",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
-                "$id": "4",
-                "$type": "EcoFarmDataModule.Product, EcoFarmModel",
-                "Title": "Apple",
-                "Description": "Is a sweet, edible fruit produced by an apple tree.",
-                "Price": 2
+                "$ref": "3"
               },
               "TargetQuantity": 5
             },
             {
-              "$id": "5",
+              "$id": "6",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
-                "$ref": "4"
+                "$ref": "2"
               },
-              "TargetQuantity": 3
+              "TargetQuantity": 15
+            }
+          ]
+        }
+      },
+      {
+        "$id": "7",
+        "$type": "EcoFarmDataModule.Level, EcoFarmModel",
+        "Order": 2,
+        "TreesCount": 9,
+        "SecondsForLevel": 100,
+        "Goals": {
+          "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
+          "$values": [
+            {
+              "$id": "8",
+              "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
+              "DevelopmentObject": {
+                "$ref": "3"
+              },
+              "TargetQuantity": 10
             }
           ]
         }
@@ -42,10 +77,10 @@
     "$type": "EcoFarmDataModule.Tree[], EcoFarmModel",
     "$values": [
       {
-        "$id": "6",
+        "$id": "9",
         "$type": "EcoFarmDataModule.Tree, EcoFarmModel",
         "Product": {
-          "$ref": "4"
+          "$ref": "3"
         },
         "Title": "Apple Tree",
         "Description": "Giving apples",

@@ -1,11 +1,18 @@
-﻿namespace Code.ECS.Components.ComplexComponentTypes
+﻿using System;
+using UnityEngine;
+
+namespace Code.ECS.Components.ComplexComponentTypes
 {
+	[Serializable]
 	public class Item
 	{
-		public string Name;
-		public int Count;
-		
-		public static implicit operator Item((string name, int count) tuple)
-			=> new() { Name = tuple.name, Count = tuple.count };
+		[field: SerializeField] public string Name  { get; private set; }
+		[field: SerializeField] public int    Count { get; set; }
+
+		public Item(string name)
+		{
+			Name = name;
+			Count = 0;
+		}
 	}
 }

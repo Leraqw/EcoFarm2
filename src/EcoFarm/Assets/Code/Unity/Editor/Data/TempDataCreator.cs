@@ -21,8 +21,21 @@ namespace Code.Unity.Editor.Data
 				Price = 2,
 			};
 
+			var coin = new Product
+			{
+				Title = CoinItemName,
+				Description = "Is a medium of exchange, a unit of account, and a store of value.",
+				Price = 1,
+			};
+
 			return new Storage
 			{
+				Products = new[]
+				{
+					coin,
+					apple,
+				},
+				
 				Levels = new[]
 				{
 					new Level
@@ -33,8 +46,8 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 3 }
-						}
+							new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
+						},
 					},
 					new Level
 					{
@@ -44,8 +57,8 @@ namespace Code.Unity.Editor.Data
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 10 },
-						}
-					}
+						},
+					},
 				},
 				Trees = new[]
 				{
@@ -53,9 +66,9 @@ namespace Code.Unity.Editor.Data
 					{
 						Title = "Apple Tree",
 						Description = "Giving apples",
-						Product = apple
-					}
-				}
+						Product = apple,
+					},
+				},
 			};
 		}
 

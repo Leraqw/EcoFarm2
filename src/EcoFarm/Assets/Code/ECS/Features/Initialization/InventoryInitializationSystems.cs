@@ -10,6 +10,7 @@ namespace Code.ECS.Features.Initialization
 		{
 			Add(new CreateInventorySystem(contexts));
 			Add(new CreateInventoryItemsSystem(contexts));
+			Add(new MarkItemAsCoinsSystem(contexts));
 			Add(new InitializeSellDealSystem(contexts));
 		}
 	}

@@ -9,5 +9,7 @@ namespace Code.Utils.StaticClasses
 			=> Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
 
 		private const string RelativePath = "Assets/DataModel/SerializedFiles";
+		
+		public const string CoinItemName = "Coin";
 	}
 }
