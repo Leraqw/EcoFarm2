@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Code.Unity.Containers
 {
-	public class BuildView : MonoBehaviour
+	public class BuildViewContainer : MonoBehaviour
 	{
 		[field: SerializeField] public TextMeshProUGUI TitleTextMesh       { get; private set; }
 		[field: SerializeField] public TextMeshProUGUI DescriptionTextMesh { get; private set; }

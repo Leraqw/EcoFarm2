@@ -25,7 +25,7 @@ namespace Code.ECS.Systems.UI
 
 		private void Prepare(GameEntity window)
 		{
-			var buildView = _contexts.services.uiService.Value.BuildView;
+			var buildView = _contexts.services.uiService.Value.BuildViewContainer;
 			var buildings = _contexts.game.storage.Value.Buildings;
 
 			buildings.ForEach((b) => Prepare(b, buildView, window));
@@ -33,16 +33,12 @@ namespace Code.ECS.Systems.UI
 			EndPreparation(window);
 		}
 
-		private void Prepare(DevelopmentObject building, BuildView buildViewPrefab, GameEntity window)
-		{
-			var parent = window.buildWindow.Value.ContentView.transform;
-
-			var buildView = Object.Instantiate(buildViewPrefab, parent);
-			buildView.TitleTextMesh.text = building.Title;
-			buildView.DescriptionTextMesh.text = building.Description;
-			buildView.PriceTextMesh.text = building.Price.ToString();
-			buildView.Image.sprite = _contexts.GetConfiguration().Resource.SpriteSheet.Buildings[building.Title];
-		}
+		private void Prepare(Building building, BuildViewContainer buildViewContainerPrefab, GameEntity window)
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.isUiElement = true)
+			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
+			            .Do((e) => e.AddBuilding(building))
+			            .Do((e) => e.AddViewPrefab(buildViewContainerPrefab.gameObject));
 
 		private static void EndPreparation(GameEntity window)
 			=> window

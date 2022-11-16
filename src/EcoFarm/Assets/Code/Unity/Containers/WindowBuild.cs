@@ -7,6 +7,6 @@ namespace Code.Unity.Containers
 	{
 		[field: SerializeField] public BaseViewListener Listener { get; private set; }
 		
-		[field: SerializeField] public GameObject ContentView { get; private set; }
+		[field: SerializeField] public RectTransform ContentView { get; private set; }
 	}
 }

@@ -53,6 +53,6 @@ namespace Code.Services.Game.Implementations
 		RectTransform IUiService.GoalsGroup => _ui.GoalsGroup;
 
 		GameObject IUiService.TimerView => _ui.TimerView;
-		BuildView IUiService. BuildView => _ui.BuildView;
+		BuildViewContainer IUiService. BuildViewContainer => _ui.BuildViewContainer;
 	}
 }

@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6990952128768807886}
   - component: {fileID: 6990952128768807872}
   - component: {fileID: 6990952128768807873}
-  - component: {fileID: 9219660904326646967}
+  - component: {fileID: 2891819435829616523}
   m_Layer: 0
   m_Name: Bulding Item
   m_TagString: Untagged
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9219660904326646967
+--- !u!114 &2891819435829616523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,13 +128,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6990952128768807887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7c69babac24a20a468b727d11e7650, type: 3}
+  m_Script: {fileID: 11500000, guid: 1baa50bd8ab143a0b01b1576bc7a9a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TitleTextMesh>k__BackingField: {fileID: 2359793845834655781}
-  <DescriptionTextMesh>k__BackingField: {fileID: 223939868245166316}
-  <Image>k__BackingField: {fileID: 9037574530510867333}
-  <PriceTextMesh>k__BackingField: {fileID: 1088456139131626914}
+  _titleTextMesh: {fileID: 2359793845834655781}
+  _descriptionTextMesh: {fileID: 223939868245166316}
+  _image: {fileID: 9037574530510867333}
+  _priceTextMesh: {fileID: 1088456139131626914}
 --- !u!1 &7049663989659901947
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,6 @@ namespace Code.Services.Game.Interfaces.Ui
 		IButtonsCollection Buttons    { get; }
 		RectTransform      GoalsGroup { get; }
 		GameObject         TimerView  { get; }
-		BuildView          BuildView  { get; }
+		BuildViewContainer          BuildViewContainer  { get; }
 	}
 }
