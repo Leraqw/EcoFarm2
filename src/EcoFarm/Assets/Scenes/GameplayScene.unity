@@ -2540,7 +2540,7 @@ MonoBehaviour:
     _windows:
       <Sell>k__BackingField: {fileID: 1877000532}
       <Pause>k__BackingField: {fileID: 414658495}
-      <Build>k__BackingField: {fileID: 0}
+      <Build>k__BackingField: {fileID: 8241124127403020914}
     <UiRoot>k__BackingField: {fileID: 1688588089}
     <GoalsGroup>k__BackingField: {fileID: 364071565}
     <GoalPrefab>k__BackingField: {fileID: 583486726864707964, guid: 2a8d41c55b56c8641b7eda436847ed47, type: 3}
@@ -3205,6 +3205,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6055cd7300bd244fa92bfde89cc26a3, type: 3}
+--- !u!114 &8241124127403020914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8241124127403020916, guid: c6055cd7300bd244fa92bfde89cc26a3, type: 3}
+  m_PrefabInstance: {fileID: 8241124127403020913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b4a64bde0340d29b271f16c66c06b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8241124127403020918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1161434169407212721, guid: c6055cd7300bd244fa92bfde89cc26a3, type: 3}
