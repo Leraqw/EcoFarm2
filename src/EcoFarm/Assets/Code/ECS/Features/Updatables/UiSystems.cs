@@ -9,6 +9,7 @@ namespace Code.ECS.Features.Updatables
 			: base(nameof(UiSystems))
 		{
 			Add(new InitializeSellWindowSystem(contexts));
+			Add(new InitializeBuildWindowSystem(contexts));
 			Add(new InitializePauseWindowSystem(contexts));
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new InitializeCurrentCountTextSystem(contexts));
