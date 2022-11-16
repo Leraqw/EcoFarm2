@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8241124129301531594}
   - component: {fileID: 1161434169407212721}
+  - component: {fileID: 8241124127403020916}
   m_Layer: 0
   m_Name: Build
   m_TagString: Untagged
@@ -532,6 +533,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d574392eea14fad90f6b1045fc7d7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8241124127403020916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241124129301531595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b4a64bde0340d29b271f16c66c06b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ContentView>k__BackingField: {fileID: 4528398596053004894}
 --- !u!1001 &808651946846217338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,7 +843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button Cancel
       objectReference: {fileID: 0}
     - target: {fileID: 2787566652448513151, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_text
@@ -841,6 +855,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+--- !u!114 &6120734541730258888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2787566651835839775, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+  m_PrefabInstance: {fileID: 8241124128316058327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120734541730258890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6120734541730258890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+  m_PrefabInstance: {fileID: 8241124128316058327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8241124127403020920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120734541730258890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48646a02e96641ef810bef30dfe60fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6120734541730258888}
+  _window: {fileID: 1161434169407212721}
+  _targetActivity: 0
 --- !u!224 &6120734541730258891 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2787566651835839772, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
