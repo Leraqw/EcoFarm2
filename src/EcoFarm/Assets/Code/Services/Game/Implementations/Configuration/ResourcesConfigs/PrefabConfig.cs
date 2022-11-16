@@ -13,5 +13,6 @@ namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
 		[field: SerializeField] public GameObject Warehouse { get; private set; }
 		[field: SerializeField] public GameObject Crane     { get; private set; }
 		[field: SerializeField] public GameObject Bucket    { get; private set; }
+		[field: SerializeField] public GameObject Sign      { get; private set; }
 	}
 }

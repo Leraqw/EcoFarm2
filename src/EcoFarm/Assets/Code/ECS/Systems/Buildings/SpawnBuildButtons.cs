@@ -1,4 +1,6 @@
-﻿using Code.Services.Game.Interfaces;
+﻿using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Game.Interfaces;
+using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
@@ -13,6 +15,8 @@ namespace Code.ECS.Systems.Buildings
 		
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
+		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
+
 		public void Initialize() => SpawnPointsService.Buildings
 		                                              .ForEach(Spawn);
 
@@ -21,7 +25,7 @@ namespace Code.ECS.Systems.Buildings
 			_contexts.game.CreateEntity()
 			         .Do((e) => e.AddDebugName("SpawnBuildButton"))
 			         .Do((e) => e.AddSpawnPosition(position))
-			         .Do((e) => e.isUiElement = true)
+			         .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
 			         ;
 		}
 	}
