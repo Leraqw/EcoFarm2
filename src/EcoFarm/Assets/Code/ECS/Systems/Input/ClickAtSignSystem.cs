@@ -22,6 +22,6 @@ namespace Code.ECS.Systems.Input
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(OpenWindow);
 
-		private void OpenWindow(GameEntity click) => Windows.Build.Listener.Entity.ReplaceActivate(true);
+		private void OpenWindow(GameEntity click) => Windows.Build.Listener.Entity.isPreparationInProcess = true;
 	}
 }

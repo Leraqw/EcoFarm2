@@ -3,6 +3,8 @@ using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
+using UnityEngine;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.UI
 {
@@ -15,7 +17,7 @@ namespace Code.ECS.Systems.UI
 			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.AllOf(GameMatcher.PreparationInProcess, GameMatcher.SellWindow));
+			=> context.CreateCollector(AllOf(PreparationInProcess, BuildWindow));
 
 		protected override bool Filter(GameEntity entity) => true;
 
