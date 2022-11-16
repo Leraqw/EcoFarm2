@@ -9,6 +9,8 @@ namespace Code.ECS.Features.Updatables
 		{
 			Add(new ClickAtPickableSystem(contexts));
 			Add(new ClickAtDraggableSystem(contexts));
+
+			Add(new ClickAtSignSystem(contexts));
 		}
 	}
 }

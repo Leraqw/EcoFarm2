@@ -17,8 +17,7 @@ namespace Code.ECS.Systems.Buildings
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
-		public void Initialize() => SpawnPointsService.Buildings
-		                                              .ForEach(Spawn);
+		public void Initialize() => SpawnPointsService.Buildings.ForEach(Spawn);
 
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()
