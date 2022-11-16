@@ -28,14 +28,27 @@ namespace Code.Unity.Editor.Data
 				Price = 1,
 			};
 
+			var juice = new Product
+			{
+				Title = "Juice",
+				Description = "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+				Price = 10,
+			};
+
+			var electricity = new Resource
+			{
+				Title = "Electricity",
+				Description = "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
+			};
 			return new Storage
 			{
 				Products = new[]
 				{
 					coin,
 					apple,
+					juice,
 				},
-				
+
 				Levels = new[]
 				{
 					new Level
@@ -67,6 +80,19 @@ namespace Code.Unity.Editor.Data
 						Title = "Apple Tree",
 						Description = "Giving apples",
 						Product = apple,
+					},
+				},
+				Buildings = new Building[]
+				{
+					new FactoryBuilding
+					{
+						Title = "Apple Juice Factory",
+						Description = "Making 1 apple juice from 5 apples",
+						Price = 20,
+						InputProducts = new[] { apple, apple, apple, apple, apple, },
+						OutputProducts = new[] { juice },
+						Resource = electricity,
+						ResourceConsumptionCoefficient = 10,
 					},
 				},
 			};

@@ -11,7 +11,7 @@ namespace Code.Unity.Editor.Data
 	{
 		private const int DllPathLabelWidth = 50;
 		private const int OpenFileButtonWidth = 75;
-		private string _pathToDlls;
+		private string _pathToDlls = "C:/Users/nikol/Documents/source/GitHub/BdKursach/src/Shared/Model";
 
 		private float PathTextFieldWidth => position.width - (OpenFileButtonWidth + DllPathLabelWidth);
 
