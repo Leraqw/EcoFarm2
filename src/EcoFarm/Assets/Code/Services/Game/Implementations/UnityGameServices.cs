@@ -4,7 +4,7 @@ using Code.Services.Game.Interfaces.Config;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Services.Game.Interfaces.Ui;
 using Code.Unity;
-using Code.Unity.Containers;
+using Code.Unity.ViewListeners;
 using UnityEngine;
 
 namespace Code.Services.Game.Implementations
@@ -53,6 +53,7 @@ namespace Code.Services.Game.Implementations
 		RectTransform IUiService.GoalsGroup => _ui.GoalsGroup;
 
 		GameObject IUiService.TimerView => _ui.TimerView;
-		BuildViewContainer IUiService. BuildViewContainer => _ui.BuildViewContainer;
+
+		BuildView IUiService.BuildView => _ui.BuildView;
 	}
 }

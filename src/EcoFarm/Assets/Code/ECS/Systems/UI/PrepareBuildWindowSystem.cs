@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Unity.Containers;
+using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
-using UnityEngine;
 
 namespace Code.ECS.Systems.UI
 {
@@ -25,7 +23,7 @@ namespace Code.ECS.Systems.UI
 
 		private void Prepare(GameEntity window)
 		{
-			var buildView = _contexts.services.uiService.Value.BuildViewContainer;
+			var buildView = _contexts.services.uiService.Value.BuildView;
 			var buildings = _contexts.game.storage.Value.Buildings;
 
 			buildings.ForEach((b) => Prepare(b, buildView, window));
@@ -33,7 +31,7 @@ namespace Code.ECS.Systems.UI
 			EndPreparation(window);
 		}
 
-		private void Prepare(Building building, BuildViewContainer buildViewContainerPrefab, GameEntity window)
+		private void Prepare(Building building, BuildView buildViewContainerPrefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))

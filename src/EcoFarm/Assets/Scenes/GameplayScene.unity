@@ -2547,7 +2547,7 @@ MonoBehaviour:
     <CoinsView>k__BackingField: {fileID: 893405805}
     <AppleView>k__BackingField: {fileID: 1273709649}
     <TimerView>k__BackingField: {fileID: 7359849443953079533}
-    <BuildView>k__BackingField: {fileID: 9219660904326646967, guid: 3a6e1ea1736741942a099679d2d1f755, type: 3}
+    <BuildView>k__BackingField: {fileID: 2891819435829616523, guid: 3a6e1ea1736741942a099679d2d1f755, type: 3}
 --- !u!1001 &2048831294
 PrefabInstance:
   m_ObjectHideFlags: 0
