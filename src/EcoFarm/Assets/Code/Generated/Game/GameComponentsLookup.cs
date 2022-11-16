@@ -10,93 +10,96 @@ public static class GameComponentsLookup {
 
     public const int ActivateListener = 0;
     public const int BuildingListener = 1;
-    public const int Activate = 2;
-    public const int AttachableIndex = 3;
-    public const int AttachedTo = 4;
-    public const int Bucket = 5;
-    public const int Building = 6;
-    public const int BuildWindow = 7;
-    public const int ButtonClick = 8;
-    public const int Coin = 9;
-    public const int CoinsCount = 10;
-    public const int Collected = 11;
-    public const int Count = 12;
-    public const int Crane = 13;
-    public const int CurrentQuantity = 14;
-    public const int DebugName = 15;
-    public const int DevelopmentObject = 16;
-    public const int Draggable = 17;
-    public const int Dragging = 18;
-    public const int DraggingEnd = 19;
-    public const int DraggingStart = 20;
-    public const int DroughtTimer = 21;
-    public const int Duration = 22;
-    public const int DurationUp = 23;
-    public const int Fell = 24;
-    public const int Filled = 25;
-    public const int Fruitful = 26;
-    public const int FruitRequire = 27;
-    public const int GoalCompleted = 28;
-    public const int Goal = 29;
-    public const int Growth = 30;
-    public const int Inventory = 31;
-    public const int InventoryItem = 32;
-    public const int LevelTimer = 33;
-    public const int MouseClick = 34;
-    public const int MouseDown = 35;
-    public const int MouseUp = 36;
-    public const int Pickable = 37;
-    public const int Picked = 38;
-    public const int Position = 39;
-    public const int PreparationInProcess = 40;
-    public const int Prepared = 41;
-    public const int Product = 42;
-    public const int ProportionalScale = 43;
-    public const int Radius = 44;
-    public const int RequirePreparation = 45;
-    public const int RequireSprite = 46;
-    public const int RequireTreeOnPosition = 47;
-    public const int RequireView = 48;
-    public const int SellDeal = 49;
-    public const int SellWindow = 50;
-    public const int Sign = 51;
-    public const int SliderMaxValue = 52;
-    public const int SliderValue = 53;
-    public const int SpawnPosition = 54;
-    public const int Sprite = 55;
-    public const int SpriteToLoad = 56;
-    public const int Storage = 57;
-    public const int TargetActivity = 58;
-    public const int TargetPosition = 59;
-    public const int TargetScale = 60;
-    public const int Text = 61;
-    public const int Tree = 62;
-    public const int UiElement = 63;
-    public const int UiParent = 64;
-    public const int View = 65;
-    public const int ViewPrefab = 66;
-    public const int Watered = 67;
-    public const int Watering = 68;
-    public const int WillFall = 69;
-    public const int CoinsCountListener = 70;
-    public const int CurrentQuantityListener = 71;
-    public const int DurationListener = 72;
-    public const int GameTextListener = 73;
-    public const int GoalCompletedListener = 74;
-    public const int GoalListener = 75;
-    public const int InventoryItemListener = 76;
-    public const int PositionListener = 77;
-    public const int ProportionalScaleListener = 78;
-    public const int SliderMaxValueListener = 79;
-    public const int SliderValueListener = 80;
-    public const int SpriteListener = 81;
-    public const int WateringListener = 82;
+    public const int ClearChildrensListener = 2;
+    public const int Activate = 3;
+    public const int AttachableIndex = 4;
+    public const int AttachedTo = 5;
+    public const int Bucket = 6;
+    public const int Building = 7;
+    public const int BuildWindow = 8;
+    public const int ButtonClick = 9;
+    public const int ClearChildrens = 10;
+    public const int Coin = 11;
+    public const int CoinsCount = 12;
+    public const int Collected = 13;
+    public const int Count = 14;
+    public const int Crane = 15;
+    public const int CurrentQuantity = 16;
+    public const int DebugName = 17;
+    public const int DevelopmentObject = 18;
+    public const int Draggable = 19;
+    public const int Dragging = 20;
+    public const int DraggingEnd = 21;
+    public const int DraggingStart = 22;
+    public const int DroughtTimer = 23;
+    public const int Duration = 24;
+    public const int DurationUp = 25;
+    public const int Fell = 26;
+    public const int Filled = 27;
+    public const int Fruitful = 28;
+    public const int FruitRequire = 29;
+    public const int GoalCompleted = 30;
+    public const int Goal = 31;
+    public const int Growth = 32;
+    public const int Inventory = 33;
+    public const int InventoryItem = 34;
+    public const int LevelTimer = 35;
+    public const int MouseClick = 36;
+    public const int MouseDown = 37;
+    public const int MouseUp = 38;
+    public const int Pickable = 39;
+    public const int Picked = 40;
+    public const int Position = 41;
+    public const int PreparationInProcess = 42;
+    public const int Prepared = 43;
+    public const int Product = 44;
+    public const int ProportionalScale = 45;
+    public const int Radius = 46;
+    public const int RequirePreparation = 47;
+    public const int RequireSprite = 48;
+    public const int RequireTreeOnPosition = 49;
+    public const int RequireView = 50;
+    public const int SellDeal = 51;
+    public const int SellWindow = 52;
+    public const int Sign = 53;
+    public const int SliderMaxValue = 54;
+    public const int SliderValue = 55;
+    public const int SpawnPosition = 56;
+    public const int Sprite = 57;
+    public const int SpriteToLoad = 58;
+    public const int Storage = 59;
+    public const int TargetActivity = 60;
+    public const int TargetPosition = 61;
+    public const int TargetScale = 62;
+    public const int Text = 63;
+    public const int Tree = 64;
+    public const int UiElement = 65;
+    public const int UiParent = 66;
+    public const int View = 67;
+    public const int ViewPrefab = 68;
+    public const int Watered = 69;
+    public const int Watering = 70;
+    public const int WillFall = 71;
+    public const int CoinsCountListener = 72;
+    public const int CurrentQuantityListener = 73;
+    public const int DurationListener = 74;
+    public const int GameTextListener = 75;
+    public const int GoalCompletedListener = 76;
+    public const int GoalListener = 77;
+    public const int InventoryItemListener = 78;
+    public const int PositionListener = 79;
+    public const int ProportionalScaleListener = 80;
+    public const int SliderMaxValueListener = 81;
+    public const int SliderValueListener = 82;
+    public const int SpriteListener = 83;
+    public const int WateringListener = 84;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 85;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
         "BuildingListener",
+        "ClearChildrensListener",
         "Activate",
         "AttachableIndex",
         "AttachedTo",
@@ -104,6 +107,7 @@ public static class GameComponentsLookup {
         "Building",
         "BuildWindow",
         "ButtonClick",
+        "ClearChildrens",
         "Coin",
         "CoinsCount",
         "Collected",
@@ -183,6 +187,7 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(ActivateListenerComponent),
         typeof(BuildingListenerComponent),
+        typeof(ClearChildrensListenerComponent),
         typeof(Code.ECS.Components.ActivateComponent),
         typeof(Code.ECS.Components.AttachableIndexComponent),
         typeof(Code.ECS.Components.AttachedToComponent),
@@ -190,6 +195,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.BuildingComponent),
         typeof(Code.ECS.Components.BuildWindowComponent),
         typeof(Code.ECS.Components.ButtonClickComponent),
+        typeof(Code.ECS.Components.ClearChildrensComponent),
         typeof(Code.ECS.Components.CoinComponent),
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),

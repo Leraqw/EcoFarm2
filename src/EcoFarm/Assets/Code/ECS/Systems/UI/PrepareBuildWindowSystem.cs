@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
@@ -28,17 +27,18 @@ namespace Code.ECS.Systems.UI
 			var buildView = _contexts.services.uiService.Value.BuildView;
 			var buildings = _contexts.game.storage.Value.Buildings;
 
+			window.buildWindow.Value.ContentView.transform.DestroyChildrens();
 			buildings.ForEach((b) => Prepare(b, buildView, window));
 
 			EndPreparation(window);
 		}
 
-		private void Prepare(Building building, BuildView buildViewContainerPrefab, GameEntity window)
+		private void Prepare(Building building, Component prefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
-			            .Do((e) => e.AddViewPrefab(buildViewContainerPrefab.gameObject));
+			            .Do((e) => e.AddViewPrefab(prefab.gameObject));
 
 		private static void EndPreparation(GameEntity window)
 			=> window
