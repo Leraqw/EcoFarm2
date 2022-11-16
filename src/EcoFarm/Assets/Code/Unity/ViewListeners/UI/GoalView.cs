@@ -17,7 +17,7 @@ namespace Code.Unity.ViewListeners.UI
 		private string _currentValue;
 
 		private SpriteSheet ResourceAssociations
-			=> Contexts.sharedInstance.GetConfiguration().Resource.Associations;
+			=> Contexts.sharedInstance.GetConfiguration().Resource.SpriteSheet;
 
 		protected override void AddListener(GameEntity entity) => entity.AddGoalListener(this);
 
@@ -35,7 +35,7 @@ namespace Code.Unity.ViewListeners.UI
 
 		private Sprite SpriteForGoal(GameEntity entity)
 			=> entity.hasProduct
-				? ResourceAssociations.Dictionary[entity.product.Value.Title]
+				? ResourceAssociations.Products[entity.product.Value.Title]
 				: throw new NotImplementedException("No sprite for GoalByResource");
 	}
 }

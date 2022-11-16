@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4506dbafc094fd8835aefffaaa2788b, type: 3}
   m_Name: Associations
   m_EditorClassIdentifier: 
-  _associations:
+  _products:
   - Title: Apple
     Sprite: {fileID: 21300000, guid: 1941333b7cea477418306b20d5a2e5ff, type: 3}
   - Title: Coin
     Sprite: {fileID: 21300000, guid: afa129d6746ac3b429913d5e693d12e1, type: 3}
   - Title: Juice
     Sprite: {fileID: 21300000, guid: 23b34153bbdeb134d86a794e80e16e44, type: 3}
+  _buildings:
+  - Title: Apple Juice Factory
+    Sprite: {fileID: 21300000, guid: d22922b607458ce448f256b46d32d909, type: 3}
