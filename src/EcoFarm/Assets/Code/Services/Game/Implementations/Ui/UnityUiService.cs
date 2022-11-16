@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Services.Game.Interfaces.Ui;
+using Code.Unity.Containers;
 using UnityEngine;
 
 namespace Code.Services.Game.Implementations.Ui
@@ -19,5 +20,6 @@ namespace Code.Services.Game.Implementations.Ui
 		[field: SerializeField] public GameObject    CoinsView  { get; private set; }
 		[field: SerializeField] public GameObject    AppleView  { get; private set; }
 		[field: SerializeField] public GameObject    TimerView  { get; private set; }
+		[field: SerializeField] public BuildView     BuildView  { get; private set; }
 	}
 }
