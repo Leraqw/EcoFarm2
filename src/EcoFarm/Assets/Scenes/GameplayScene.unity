@@ -2517,6 +2517,13 @@ MonoBehaviour:
     - {fileID: 2048831295}
     - {fileID: 444709401}
     - {fileID: 1765480801}
+    _buildings:
+    - {fileID: 746069370}
+    - {fileID: 134409559}
+    - {fileID: 970054764}
+    - {fileID: 1539853274}
+    - {fileID: 824356737}
+    - {fileID: 327437524}
     _warehouse: {fileID: 1876006552}
     _crane: {fileID: 1296622495}
     _bucket: {fileID: 2139132646}

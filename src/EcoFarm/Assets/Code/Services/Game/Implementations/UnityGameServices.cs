@@ -23,6 +23,8 @@ namespace Code.Services.Game.Implementations
 
 		IEnumerable<Vector2> ISpawnPointsService.Trees => _spawnPoints.Trees;
 
+		IEnumerable<Vector2> ISpawnPointsService.Buildings => _spawnPoints.Buildings;
+
 		Vector2 ISpawnPointsService.Warehouse => _spawnPoints.Warehouse;
 
 		Vector2 ISpawnPointsService.Crane => _spawnPoints.Crane;
