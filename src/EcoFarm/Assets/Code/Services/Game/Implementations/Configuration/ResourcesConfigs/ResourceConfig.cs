@@ -15,6 +15,6 @@ namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
 
 		public ISpriteConfig Sprite => _sprite;
 
-		[field: SerializeField] public AssociationsCollection Associations { get; private set; }
+		[field: SerializeField] public SpriteSheet Associations { get; private set; }
 	}
 }

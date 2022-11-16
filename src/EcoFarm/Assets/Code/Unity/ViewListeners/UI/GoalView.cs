@@ -16,7 +16,7 @@ namespace Code.Unity.ViewListeners.UI
 		private string _targetValue;
 		private string _currentValue;
 
-		private AssociationsCollection ResourceAssociations
+		private SpriteSheet ResourceAssociations
 			=> Contexts.sharedInstance.GetConfiguration().Resource.Associations;
 
 		protected override void AddListener(GameEntity entity) => entity.AddGoalListener(this);
