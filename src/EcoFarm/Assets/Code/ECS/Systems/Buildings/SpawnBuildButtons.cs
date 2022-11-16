@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Buildings
 		private readonly Contexts _contexts;
 
 		public SpawnBuildButtons(Contexts contexts) => _contexts = contexts;
-		
+
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
@@ -21,12 +21,9 @@ namespace Code.ECS.Systems.Buildings
 		                                              .ForEach(Spawn);
 
 		private void Spawn(Vector2 position)
-		{
-			_contexts.game.CreateEntity()
-			         .Do((e) => e.AddDebugName("SpawnBuildButton"))
-			         .Do((e) => e.AddSpawnPosition(position))
-			         .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
-			         ;
-		}
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddDebugName("SpawnBuildButton"))
+			            .Do((e) => e.AddPosition(position))
+			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign));
 	}
 }
