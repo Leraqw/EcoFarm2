@@ -64,7 +64,6 @@ public partial class Contexts {
 
     public const string AttachableIndex = "AttachableIndex";
     public const string AttachedTo = "AttachedTo";
-    public const string BuildPosition = "BuildPosition";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -77,11 +76,6 @@ public partial class Contexts {
             AttachedTo,
             game.GetGroup(GameMatcher.AttachedTo),
             (e, c) => ((Code.ECS.Components.AttachedToComponent)c).Value));
-
-        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, UnityEngine.Vector2>(
-            BuildPosition,
-            game.GetGroup(GameMatcher.BuildPosition),
-            (e, c) => ((Code.ECS.Components.BuildPositionComponent)c).Value));
     }
 }
 
@@ -93,10 +87,6 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithAttachedTo(this GameContext context, int Value) {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.AttachedTo)).GetEntities(Value);
-    }
-
-    public static GameEntity GetEntityWithBuildPosition(this GameContext context, UnityEngine.Vector2 Value) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.BuildPosition)).GetEntity(Value);
     }
 }
 //------------------------------------------------------------------------------

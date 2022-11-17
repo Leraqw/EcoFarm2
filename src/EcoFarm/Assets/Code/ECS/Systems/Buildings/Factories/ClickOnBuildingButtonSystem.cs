@@ -26,13 +26,11 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
-		private void Spawn(GameEntity button)
-			=> _signs.ForEach(Replace, @if: button.HasSamePosition);
+		private void Spawn(GameEntity button) => _signs.ForEach(Replace, @if: button.HasSamePosition);
 
 		private void Replace(GameEntity sign)
-			=> sign
-			   .Do((e) => e.RemoveView())
-			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory));
+			=> sign.Do((e) => e.RemoveView())
+			       .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory));
 
 		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
 	}
