@@ -7,6 +7,7 @@ using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
+using Entitas;
 
 namespace Code.ECS.Features
 {
@@ -24,6 +25,7 @@ namespace Code.ECS.Features
 			Add(new ViewSystems(contexts));
 			Add(new GrowingSystems(contexts));
 			Add(new FallingSystems(contexts));
+			Add(new ResourcesSystems(contexts));
 			Add(new WateringSystems(contexts));
 			Add(new DurationSystems(contexts));
 			Add(new InventorySystems(contexts));
