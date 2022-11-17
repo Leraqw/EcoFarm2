@@ -371,7 +371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CountToSellSlider>k__BackingField: {fileID: 4542579868877592188}
-  <CurrentValue>k__BackingField: {fileID: 3567581705434411448}
+  <ProductsCount>k__BackingField: {fileID: 3567581705434411448}
+  <CoinsReceiveCount>k__BackingField: {fileID: 7862814599419051820}
 --- !u!1 &6896647780519292377
 GameObject:
   m_ObjectHideFlags: 0
