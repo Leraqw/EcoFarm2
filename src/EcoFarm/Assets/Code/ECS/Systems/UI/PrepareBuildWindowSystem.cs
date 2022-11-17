@@ -43,7 +43,8 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
-			            .Do((e) => e.AddViewPrefab(prefab.gameObject));
+			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
+			            .Do((e) => e.AddPosition(window.position));
 
 		private static void EndPreparations(GameEntity window)
 			=> window.Do((e) => e.isPreparationInProcess = false)
