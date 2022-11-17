@@ -7,11 +7,11 @@ using UnityEngine;
 
 namespace Code.ECS.Systems.Buildings
 {
-	public sealed class SpawnBuildButtons : IInitializeSystem
+	public sealed class SpawnBuildPositionsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public SpawnBuildButtons(Contexts contexts) => _contexts = contexts;
+		public SpawnBuildPositionsSystem(Contexts contexts) => _contexts = contexts;
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
