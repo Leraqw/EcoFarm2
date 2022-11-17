@@ -45,54 +45,55 @@ public static class GameComponentsLookup {
     public const int MouseClick = 34;
     public const int MouseDown = 35;
     public const int MouseUp = 36;
-    public const int Pickable = 37;
-    public const int Picked = 38;
-    public const int Position = 39;
-    public const int PreparationInProcess = 40;
-    public const int Prepared = 41;
-    public const int Product = 42;
-    public const int ProportionalScale = 43;
-    public const int Radius = 44;
-    public const int RequirePreparation = 45;
-    public const int RequireSprite = 46;
-    public const int RequireTreeOnPosition = 47;
-    public const int RequireView = 48;
-    public const int SellDeal = 49;
-    public const int SellWindow = 50;
-    public const int Sign = 51;
-    public const int SliderMaxValue = 52;
-    public const int SliderValue = 53;
-    public const int SpawnPosition = 54;
-    public const int Sprite = 55;
-    public const int SpriteToLoad = 56;
-    public const int Storage = 57;
-    public const int TargetActivity = 58;
-    public const int TargetPosition = 59;
-    public const int TargetScale = 60;
-    public const int Text = 61;
-    public const int Tree = 62;
-    public const int UiElement = 63;
-    public const int UiParent = 64;
-    public const int View = 65;
-    public const int ViewPrefab = 66;
-    public const int Watered = 67;
-    public const int Watering = 68;
-    public const int WillFall = 69;
-    public const int CoinsCountListener = 70;
-    public const int CurrentQuantityListener = 71;
-    public const int DurationListener = 72;
-    public const int GameTextListener = 73;
-    public const int GoalCompletedListener = 74;
-    public const int GoalListener = 75;
-    public const int InventoryItemListener = 76;
-    public const int PositionListener = 77;
-    public const int ProportionalScaleListener = 78;
-    public const int SliderMaxValueListener = 79;
-    public const int SliderValueListener = 80;
-    public const int SpriteListener = 81;
-    public const int WateringListener = 82;
+    public const int Occupied = 37;
+    public const int Pickable = 38;
+    public const int Picked = 39;
+    public const int Position = 40;
+    public const int PreparationInProcess = 41;
+    public const int Prepared = 42;
+    public const int Product = 43;
+    public const int ProportionalScale = 44;
+    public const int Radius = 45;
+    public const int RequirePreparation = 46;
+    public const int RequireSprite = 47;
+    public const int RequireTreeOnPosition = 48;
+    public const int RequireView = 49;
+    public const int SellDeal = 50;
+    public const int SellWindow = 51;
+    public const int Sign = 52;
+    public const int SliderMaxValue = 53;
+    public const int SliderValue = 54;
+    public const int SpawnPosition = 55;
+    public const int Sprite = 56;
+    public const int SpriteToLoad = 57;
+    public const int Storage = 58;
+    public const int TargetActivity = 59;
+    public const int TargetPosition = 60;
+    public const int TargetScale = 61;
+    public const int Text = 62;
+    public const int Tree = 63;
+    public const int UiElement = 64;
+    public const int UiParent = 65;
+    public const int View = 66;
+    public const int ViewPrefab = 67;
+    public const int Watered = 68;
+    public const int Watering = 69;
+    public const int WillFall = 70;
+    public const int CoinsCountListener = 71;
+    public const int CurrentQuantityListener = 72;
+    public const int DurationListener = 73;
+    public const int GameTextListener = 74;
+    public const int GoalCompletedListener = 75;
+    public const int GoalListener = 76;
+    public const int InventoryItemListener = 77;
+    public const int PositionListener = 78;
+    public const int ProportionalScaleListener = 79;
+    public const int SliderMaxValueListener = 80;
+    public const int SliderValueListener = 81;
+    public const int SpriteListener = 82;
+    public const int WateringListener = 83;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 84;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -132,6 +133,7 @@ public static class GameComponentsLookup {
         "MouseClick",
         "MouseDown",
         "MouseUp",
+        "Occupied",
         "Pickable",
         "Picked",
         "Position",
@@ -218,6 +220,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.MouseClickComponent),
         typeof(Code.ECS.Components.MouseDownComponent),
         typeof(Code.ECS.Components.MouseUpComponent),
+        typeof(Code.ECS.Components.OccupiedComponent),
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
         typeof(Code.ECS.Components.PositionComponent),
