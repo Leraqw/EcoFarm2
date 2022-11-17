@@ -1,5 +1,4 @@
 ﻿using Code.ECS.Systems.Goals;
-using Code.ECS.Systems.Inventory;
 using Code.ECS.Systems.Inventory.SellDeal;
 using Code.ECS.Systems.UI;
 
