@@ -14,6 +14,7 @@ namespace Code.ECS.Features.Updatables
 			Add(new InitializePauseWindowSystem(contexts));
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new InitializeCurrentCountTextSystem(contexts));
+			Add(new InitializeCoinsReceiveCountTextSystem(contexts));
 			
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 			Add(new OnSliderValueChangedSystem(contexts));

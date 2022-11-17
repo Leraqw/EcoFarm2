@@ -8,6 +8,6 @@ namespace Code.Unity.Containers
 	{
 		[field: SerializeField] public Slider          CountToSellSlider { get; private set; }
 		[field: SerializeField] public TextMeshProUGUI ProductsCount     { get; private set; }
-		[field: SerializeField] public TextMeshProUGUI CoinsCount        { get; private set; }
+		[field: SerializeField] public TextMeshProUGUI CoinsReceiveCount { get; private set; }
 	}
 }
