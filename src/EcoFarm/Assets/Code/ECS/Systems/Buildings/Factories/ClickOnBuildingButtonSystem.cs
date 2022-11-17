@@ -22,7 +22,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, MouseDown, Building));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.isOccupied == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
