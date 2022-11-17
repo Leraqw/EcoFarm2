@@ -5,8 +5,9 @@ namespace Code.Services.Game.Interfaces.Ui
 {
 	public interface IWindowsCollection
 	{
-		WindowSell  Sell  { get; }
-		GameObject  Pause { get; }
-		WindowBuild Build { get; }
+		WindowSell      Sell      { get; }
+		GameObject      Pause     { get; }
+		WindowBuild     Build     { get; }
+		WindowResources Resources { get; }
 	}
 }
