@@ -1,5 +1,6 @@
 ﻿using Code.ECS.Systems.UI;
 using Code.ECS.Systems.UI.Initialization;
+using Code.ECS.Systems.UI.Initialization.Sell;
 
 namespace Code.ECS.Features.Updatables
 {
@@ -13,6 +14,7 @@ namespace Code.ECS.Features.Updatables
 			Add(new InitializePauseWindowSystem(contexts));
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new InitializeCurrentCountTextSystem(contexts));
+			Add(new InitializeCoinsReceiveCountTextSystem(contexts));
 			
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 			Add(new OnSliderValueChangedSystem(contexts));

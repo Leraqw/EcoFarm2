@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.UI
 
 		public OnSliderValueChangedSystem(Contexts contexts)
 			: base(contexts.game)
-			=> _sliderValueViews = contexts.game.GetGroup(AllOf(Text));
+			=> _sliderValueViews = contexts.game.GetGroup(AllOf(Text, SellCoefficient));
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(SliderValue);
@@ -24,6 +24,10 @@ namespace Code.ECS.Systems.UI
 		private void Sync(GameEntity slider)
 			=> _sliderValueViews.ForEach((view) => Update(view, slider.sliderValue));
 
-		private void Update(GameEntity view, float value) => view.ReplaceText(value.ToString(InvariantCulture));
+		private void Update(GameEntity textMesh, float value) => textMesh.ReplaceText(Format(textMesh, value));
+
+		private static string Format(GameEntity view, float value) => Scale(view, value).ToString(InvariantCulture);
+
+		private static float Scale(GameEntity view, float value) => value * view.sellCoefficient;
 	}
 }

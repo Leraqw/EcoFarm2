@@ -59,42 +59,43 @@ public static class GameComponentsLookup {
     public const int RequireSprite = 48;
     public const int RequireTreeOnPosition = 49;
     public const int RequireView = 50;
-    public const int SellDeal = 51;
-    public const int SellWindow = 52;
-    public const int Sign = 53;
-    public const int SliderMaxValue = 54;
-    public const int SliderValue = 55;
-    public const int SpawnPosition = 56;
-    public const int Sprite = 57;
-    public const int SpriteToLoad = 58;
-    public const int Storage = 59;
-    public const int TargetActivity = 60;
-    public const int TargetPosition = 61;
-    public const int TargetScale = 62;
-    public const int Text = 63;
-    public const int Tree = 64;
-    public const int UiElement = 65;
-    public const int UiParent = 66;
-    public const int View = 67;
-    public const int ViewPrefab = 68;
-    public const int Watered = 69;
-    public const int Watering = 70;
-    public const int WillFall = 71;
-    public const int CoinsCountListener = 72;
-    public const int CurrentQuantityListener = 73;
-    public const int DurationListener = 74;
-    public const int GameTextListener = 75;
-    public const int GoalCompletedListener = 76;
-    public const int GoalListener = 77;
-    public const int InventoryItemListener = 78;
-    public const int PositionListener = 79;
-    public const int ProportionalScaleListener = 80;
-    public const int SliderMaxValueListener = 81;
-    public const int SliderValueListener = 82;
-    public const int SpriteListener = 83;
-    public const int WateringListener = 84;
+    public const int SellCoefficient = 51;
+    public const int SellDeal = 52;
+    public const int SellWindow = 53;
+    public const int Sign = 54;
+    public const int SliderMaxValue = 55;
+    public const int SliderValue = 56;
+    public const int SpawnPosition = 57;
+    public const int Sprite = 58;
+    public const int SpriteToLoad = 59;
+    public const int Storage = 60;
+    public const int TargetActivity = 61;
+    public const int TargetPosition = 62;
+    public const int TargetScale = 63;
+    public const int Text = 64;
+    public const int Tree = 65;
+    public const int UiElement = 66;
+    public const int UiParent = 67;
+    public const int View = 68;
+    public const int ViewPrefab = 69;
+    public const int Watered = 70;
+    public const int Watering = 71;
+    public const int WillFall = 72;
+    public const int CoinsCountListener = 73;
+    public const int CurrentQuantityListener = 74;
+    public const int DurationListener = 75;
+    public const int GameTextListener = 76;
+    public const int GoalCompletedListener = 77;
+    public const int GoalListener = 78;
+    public const int InventoryItemListener = 79;
+    public const int PositionListener = 80;
+    public const int ProportionalScaleListener = 81;
+    public const int SliderMaxValueListener = 82;
+    public const int SliderValueListener = 83;
+    public const int SpriteListener = 84;
+    public const int WateringListener = 85;
 
-    public const int TotalComponents = 85;
+    public const int TotalComponents = 86;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -148,6 +149,7 @@ public static class GameComponentsLookup {
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
+        "SellCoefficient",
         "SellDeal",
         "SellWindow",
         "Sign",
@@ -236,6 +238,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
+        typeof(Code.ECS.Components.SellCoefficientComponent),
         typeof(Code.ECS.Components.SellDealComponent),
         typeof(Code.ECS.Components.SellWindowComponent),
         typeof(Code.ECS.Components.SignComponent),

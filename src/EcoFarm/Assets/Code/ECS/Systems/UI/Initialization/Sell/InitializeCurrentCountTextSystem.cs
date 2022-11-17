@@ -2,7 +2,7 @@
 using Code.Utils.Extensions;
 using Entitas;
 
-namespace Code.ECS.Systems.UI.Initialization
+namespace Code.ECS.Systems.UI.Initialization.Sell
 {
 	public sealed class InitializeCurrentCountTextSystem : IInitializeSystem
 	{
@@ -14,8 +14,9 @@ namespace Code.ECS.Systems.UI.Initialization
 
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("CurrentCountText"))
-			            .Do((e) => e.AddView(UI.Windows.Sell.CurrentValue.gameObject))
-			            .Do((e) => e.AddText(0.ToString()));
+			            .Do((e) => e.AddDebugName("Products Count"))
+			            .Do((e) => e.AddView(UI.Windows.Sell.ProductsCount.gameObject))
+			            .Do((e) => e.AddText(0.ToString()))
+			            .Do((e) => e.AddSellCoefficient(1));
 	}
 }
