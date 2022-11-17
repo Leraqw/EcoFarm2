@@ -35,9 +35,10 @@ namespace Code.ECS.Systems.UI
 		private static void CleanBuildingList(GameEntity window)
 			=> window.buildWindow.Value.ContentView.transform.DestroyChildrens();
 
-		private void FillBuildingsList(GameEntity window) => Buildings.ForEach((b) => BindView(b, BuildView, window));
+		private void FillBuildingsList(GameEntity window)
+			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildView, window));
 
-		private void BindView(Building building, Component prefab, GameEntity window)
+		private void BindBuildingButtonView(Building building, Component prefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))

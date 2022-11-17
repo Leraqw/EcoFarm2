@@ -2,6 +2,7 @@
 using Code.ECS.Features.Updatables;
 using Code.ECS.Features.Updatables.Cleanup;
 using Code.ECS.Features.Updatables.Gameplay;
+using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
@@ -26,6 +27,9 @@ namespace Code.ECS.Features
 			Add(new DurationSystems(contexts));
 			Add(new InventorySystems(contexts));
 			
+			// TODO: Add BuildingSystems
+			Add(new ClickOnBuildingButtonSystem(contexts));
+
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));
 			Add(new GameOverSystem(contexts));

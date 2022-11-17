@@ -46,6 +46,7 @@ MonoBehaviour:
       <Crane>k__BackingField: {fileID: 1445715841870575261, guid: 0d45df538f41ae249ba5499c5ed6e879, type: 3}
       <Bucket>k__BackingField: {fileID: 4462173050554342179, guid: e67478f1501dc164aa7e5c12de60f43e, type: 3}
       <Sign>k__BackingField: {fileID: 5673224526700804755, guid: 541959933325f15499f9e4682f73142d, type: 3}
+      <Factory>k__BackingField: {fileID: 6702277768182265153, guid: 45769c2facf801a44abf96acc7c9be01, type: 3}
     _sprite:
       _bucket:
         <Empty>k__BackingField: {fileID: 21300000, guid: b2c59742da9130a4784a7a41221f0808, type: 3}

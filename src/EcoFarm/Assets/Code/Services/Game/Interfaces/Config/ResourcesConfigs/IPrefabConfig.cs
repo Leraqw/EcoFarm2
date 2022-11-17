@@ -11,5 +11,6 @@ namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
 		GameObject Crane     { get; }
 		GameObject Bucket    { get; }
 		GameObject Sign      { get; }
+		GameObject Factory   { get; }
 	}
 }
