@@ -6,7 +6,8 @@ namespace Code.Unity.Containers
 {
 	public class WindowSell : MonoBehaviour
 	{
-		[field: SerializeField] public Slider CountToSellSlider { get; private set; }
-		[field: SerializeField] public TextMeshProUGUI CurrentValue { get; private set; }
+		[field: SerializeField] public Slider          CountToSellSlider { get; private set; }
+		[field: SerializeField] public TextMeshProUGUI ProductsCount     { get; private set; }
+		[field: SerializeField] public TextMeshProUGUI CoinsCount        { get; private set; }
 	}
 }
