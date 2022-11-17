@@ -39,6 +39,9 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
 			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
+		
+		public static void DecreaseCoinsCount(this GameEntity @this, int value)
+			=> @this.ReplaceCoinsCount(@this.coinsCount - value);
 
 		public static bool HasSameProduct(this GameEntity @this, GameEntity other)
 			=> @this.product.Value == other.product.Value;

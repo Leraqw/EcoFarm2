@@ -31,6 +31,6 @@ namespace Code.ECS.Systems.Buildings
 			           .Do((e) => e.isBought = true);
 
 		private void DecreaseMoneyCount(GameEntity building)
-			=> _contexts.game.coinEntity.DecreaseInventoryItemCount(building.building.Value.Price);
+			=> _contexts.game.inventoryEntity.DecreaseCoinsCount(building.building.Value.Price);
 	}
 }

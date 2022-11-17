@@ -15,7 +15,6 @@ namespace Code.ECS.Features.Updatables.Gameplay
 			Add(new SubtractSoldApplesSystem(contexts));
 			Add(new DeactivateDealSystem(contexts));
 			Add(new ActualizeCountToSellSliderMaxValueSystem(contexts));
-			Add(new SyncCoinsValue(contexts));
 			
 			// TODO: GoalsSystems
 			Add(new CheckGoalsByProductSystem(contexts));
