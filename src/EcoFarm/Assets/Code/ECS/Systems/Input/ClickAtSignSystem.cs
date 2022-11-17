@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Services.Game.Interfaces.Ui;
+using Code.Utils.Extensions;
 using Entitas;
 using static GameMatcher;
 
@@ -22,6 +23,8 @@ namespace Code.ECS.Systems.Input
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(OpenWindow);
 
-		private void OpenWindow(GameEntity click) => Windows.Build.Listener.Entity.isPreparationInProcess = true;
+		private void OpenWindow(GameEntity click) => Windows.Build.Listener.Entity
+		                                                    .Do((e) => e.ReplacePosition(click.position.Value))
+		                                                    .Do((e) => e.isPreparationInProcess = true);
 	}
 }

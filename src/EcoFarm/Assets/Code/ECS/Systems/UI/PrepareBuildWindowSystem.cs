@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
@@ -15,6 +16,10 @@ namespace Code.ECS.Systems.UI
 			: base(contexts.game)
 			=> _contexts = contexts;
 
+		private IEnumerable<Building> Buildings => _contexts.game.storage.Value.Buildings;
+
+		private BuildView BuildView => _contexts.services.uiService.Value.BuildView;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PreparationInProcess, BuildWindow));
 
@@ -23,26 +28,24 @@ namespace Code.ECS.Systems.UI
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Prepare);
 
 		private void Prepare(GameEntity window)
-		{
-			var buildView = _contexts.services.uiService.Value.BuildView;
-			var buildings = _contexts.game.storage.Value.Buildings;
+			=> window.Do(CleanBuildingList)
+			         .Do(FillBuildingsList)
+			         .Do(EndPreparations);
 
-			window.buildWindow.Value.ContentView.transform.DestroyChildrens();
-			buildings.ForEach((b) => Prepare(b, buildView, window));
+		private static void CleanBuildingList(GameEntity window)
+			=> window.buildWindow.Value.ContentView.transform.DestroyChildrens();
 
-			EndPreparation(window);
-		}
+		private void FillBuildingsList(GameEntity window) => Buildings.ForEach((b) => BindView(b, BuildView, window));
 
-		private void Prepare(Building building, Component prefab, GameEntity window)
+		private void BindView(Building building, Component prefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject));
 
-		private static void EndPreparation(GameEntity window)
-			=> window
-			   .Do((e) => e.isPreparationInProcess = false)
-			   .Do((e) => e.isPrepared = true);
+		private static void EndPreparations(GameEntity window)
+			=> window.Do((e) => e.isPreparationInProcess = false)
+			         .Do((e) => e.isPrepared = true);
 	}
 }
