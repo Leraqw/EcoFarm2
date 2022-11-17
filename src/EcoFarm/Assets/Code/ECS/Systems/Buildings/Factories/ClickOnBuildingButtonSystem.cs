@@ -22,15 +22,19 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, MouseDown, Building));
 
-		protected override bool Filter(GameEntity entity) => entity.isOccupied == false;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
-		private void Spawn(GameEntity button) => _signs.ForEach(Replace, @if: button.HasSamePosition);
+		private void Spawn(GameEntity button) => _signs.ForEach(Replace, @if: (s) => Fits(s, button));
+
+		private bool Fits(GameEntity sign, GameEntity button) 
+			=> sign.isOccupied == false && sign.HasSamePosition(button);
 
 		private void Replace(GameEntity sign)
 			=> sign.Do((e) => e.RemoveView())
-			       .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory));
+			       .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
+			       .Do((e) => e.isOccupied = true);
 
 		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
 	}
