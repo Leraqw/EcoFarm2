@@ -6,6 +6,6 @@ namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
 	{
 		IPrefabConfig Prefab { get; }
 		ISpriteConfig Sprite { get; }
-		AssociationsCollection Associations { get; }
+		SpriteSheet SpriteSheet { get; }
 	}
 }

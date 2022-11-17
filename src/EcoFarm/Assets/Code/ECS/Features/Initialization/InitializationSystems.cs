@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.Data;
+﻿using Code.ECS.Systems.Buildings;
+using Code.ECS.Systems.Data;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.Product;
@@ -27,6 +28,7 @@ namespace Code.ECS.Features.Initialization
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));
+			Add(new SpawnBuildPositionsSystem(contexts));
 			Add(new SpawnCraneSystem(contexts));
 			Add(new SpawnBucketSystem(contexts));
 		}

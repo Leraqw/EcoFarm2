@@ -12,6 +12,8 @@ namespace Code.ECS.Components
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : FlagComponent { }
 
 	[Game] public sealed class SellWindowComponent : ValueComponent<WindowSell> { }
+	
+	[Game] public sealed class BuildWindowComponent : ValueComponent<WindowBuild> { }
 
 	[Game] public sealed class TargetActivityComponent : ValueComponent<bool> { }
 

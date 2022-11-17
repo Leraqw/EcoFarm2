@@ -3,7 +3,7 @@ using Code.Unity.CustomTypes;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Menus.UiBehaviours.MainMenu
+namespace Code.Menus.UiBehaviours.Buttons
 {
 	public class ButtonToScene : MonoBehaviour
 	{

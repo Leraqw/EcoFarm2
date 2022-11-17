@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Unity.ViewListeners;
+using UnityEngine;
 
 namespace Code.Services.Game.Interfaces.Ui
 {
@@ -12,5 +13,6 @@ namespace Code.Services.Game.Interfaces.Ui
 		IButtonsCollection Buttons    { get; }
 		RectTransform      GoalsGroup { get; }
 		GameObject         TimerView  { get; }
+		BuildView          BuildView  { get; }
 	}
 }

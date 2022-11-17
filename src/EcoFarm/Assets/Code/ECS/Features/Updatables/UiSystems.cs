@@ -9,6 +9,7 @@ namespace Code.ECS.Features.Updatables
 			: base(nameof(UiSystems))
 		{
 			Add(new InitializeSellWindowSystem(contexts));
+			Add(new InitializeBuildWindowSystem(contexts));
 			Add(new InitializePauseWindowSystem(contexts));
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new InitializeCurrentCountTextSystem(contexts));
@@ -16,6 +17,7 @@ namespace Code.ECS.Features.Updatables
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 			Add(new OnSliderValueChangedSystem(contexts));
 			Add(new PrepareSellWindowSystem(contexts));
+			Add(new PrepareBuildWindowSystem(contexts));
 			Add(new EnablePreparedWindow(contexts));
 		}
 	}

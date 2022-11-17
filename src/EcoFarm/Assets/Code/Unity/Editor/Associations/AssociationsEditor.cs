@@ -6,10 +6,10 @@ using static UnityEngine.GUILayout;
 
 namespace Code.Unity.Editor.Associations
 {
-	[CustomEditor(typeof(AssociationsCollection))]
+	[CustomEditor(typeof(SpriteSheet))]
 	public class AssociationsEditor : UnityEditor.Editor
 	{
-		private AssociationsCollection Target => (AssociationsCollection)target;
+		private SpriteSheet Target => (SpriteSheet)target;
 
 		public override void OnInspectorGUI()
 		{

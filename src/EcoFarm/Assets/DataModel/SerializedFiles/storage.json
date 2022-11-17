@@ -17,6 +17,13 @@
         "Title": "Apple",
         "Description": "Is a sweet, edible fruit produced by an apple tree.",
         "Price": 2
+      },
+      {
+        "$id": "4",
+        "$type": "EcoFarmDataModule.Product, EcoFarmModel",
+        "Title": "Juice",
+        "Description": "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+        "Price": 10
       }
     ]
   },
@@ -24,16 +31,16 @@
     "$type": "EcoFarmDataModule.Level[], EcoFarmModel",
     "$values": [
       {
-        "$id": "4",
+        "$id": "5",
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "SecondsForLevel": 300,
+        "SecondsForLevel": 360,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
             {
-              "$id": "5",
+              "$id": "6",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
                 "$ref": "3"
@@ -41,18 +48,18 @@
               "TargetQuantity": 5
             },
             {
-              "$id": "6",
+              "$id": "7",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
                 "$ref": "2"
               },
-              "TargetQuantity": 15
+              "TargetQuantity": 99
             }
           ]
         }
       },
       {
-        "$id": "7",
+        "$id": "8",
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 2,
         "TreesCount": 9,
@@ -61,7 +68,7 @@
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
             {
-              "$id": "8",
+              "$id": "9",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
                 "$ref": "3"
@@ -77,7 +84,7 @@
     "$type": "EcoFarmDataModule.Tree[], EcoFarmModel",
     "$values": [
       {
-        "$id": "9",
+        "$id": "10",
         "$type": "EcoFarmDataModule.Tree, EcoFarmModel",
         "Product": {
           "$ref": "3"
@@ -85,6 +92,53 @@
         "Title": "Apple Tree",
         "Description": "Giving apples",
         "Price": 0
+      }
+    ]
+  },
+  "Buildings": {
+    "$type": "EcoFarmDataModule.Building[], EcoFarmModel",
+    "$values": [
+      {
+        "$id": "11",
+        "$type": "EcoFarmDataModule.FactoryBuilding, EcoFarmModel",
+        "InputProducts": {
+          "$type": "EcoFarmDataModule.Product[], EcoFarmModel",
+          "$values": [
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "3"
+            }
+          ]
+        },
+        "OutputProducts": {
+          "$type": "EcoFarmDataModule.Product[], EcoFarmModel",
+          "$values": [
+            {
+              "$ref": "4"
+            }
+          ]
+        },
+        "Resource": {
+          "$id": "12",
+          "$type": "EcoFarmDataModule.Resource, EcoFarmModel",
+          "Title": "Electricity",
+          "Description": "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge."
+        },
+        "ResourceConsumptionCoefficient": 10,
+        "Title": "Apple Juice Factory",
+        "Description": "Making 1 apple juice from 5 apples",
+        "Price": 20
       }
     ]
   }
