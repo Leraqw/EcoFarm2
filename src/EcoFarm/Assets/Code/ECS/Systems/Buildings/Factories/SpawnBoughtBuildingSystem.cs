@@ -7,12 +7,12 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
 {
-	public sealed class ClickOnBuildingButtonSystem : ReactiveSystem<GameEntity>
+	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _signs;
 
-		public ClickOnBuildingButtonSystem(Contexts contexts)
+		public SpawnBoughtBuildingSystem(Contexts contexts)
 			: base(contexts.game)
 		{
 			_contexts = contexts;
@@ -20,7 +20,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		}
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(UiElement, MouseDown, Building));
+			=> context.CreateCollector(AllOf(UiElement, Bought, Building));
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -28,7 +28,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Spawn(GameEntity button) => _signs.ForEach(Replace, @if: (s) => Fits(s, button));
 
-		private bool Fits(GameEntity sign, GameEntity button) 
+		private bool Fits(GameEntity sign, GameEntity button)
 			=> sign.isOccupied == false && sign.HasSamePosition(button);
 
 		private void Replace(GameEntity sign)
