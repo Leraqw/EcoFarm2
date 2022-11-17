@@ -2912,11 +2912,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76d5f84c2a178e4a92d27af7cc27b0c, type: 3}
---- !u!1 &5217096133397239782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4427465923592904836, guid: b66479c9f936f5049aeb3d89d72587b8, type: 3}
-  m_PrefabInstance: {fileID: 8437315257022691170}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5997163250025899594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3018,20 +3013,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b83058c403dc8849bda453d9005d0c4, type: 3}
---- !u!114 &7142125704764488794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5217096133397239782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bae0c6094445e9907e976b291d3081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <WaterProgressBar>k__BackingField: {fileID: 8437315257022691172}
-  <EnergyProgressBar>k__BackingField: {fileID: 8437315257022691171}
 --- !u!1001 &7359849443953079531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3391,25 +3372,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66479c9f936f5049aeb3d89d72587b8, type: 3}
---- !u!114 &8437315257022691171 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9099025631702270093, guid: b66479c9f936f5049aeb3d89d72587b8, type: 3}
-  m_PrefabInstance: {fileID: 8437315257022691170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b449801bb8754176b2b9349f2932a535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8437315257022691172 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5159210286067378389, guid: b66479c9f936f5049aeb3d89d72587b8, type: 3}
-  m_PrefabInstance: {fileID: 8437315257022691170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b449801bb8754176b2b9349f2932a535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
