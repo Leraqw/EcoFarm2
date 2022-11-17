@@ -16,4 +16,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class CountComponent : ValueComponent<int> { }
 
 	[Game] [Unique] public sealed class CoinComponent : FlagComponent { }
+
+	[Game] public sealed class SellCoefficientComponent : ValueComponent<float> { }
 }

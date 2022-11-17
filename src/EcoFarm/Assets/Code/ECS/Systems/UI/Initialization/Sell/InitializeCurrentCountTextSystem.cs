@@ -16,6 +16,7 @@ namespace Code.ECS.Systems.UI.Initialization.Sell
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Products Count"))
 			            .Do((e) => e.AddView(UI.Windows.Sell.ProductsCount.gameObject))
-			            .Do((e) => e.AddText(0.ToString()));
+			            .Do((e) => e.AddText(0.ToString()))
+			            .Do((e) => e.AddSellCoefficient(1));
 	}
 }
