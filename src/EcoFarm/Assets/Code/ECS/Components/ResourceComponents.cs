@@ -1,6 +1,7 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using Packages.Code.Ecs.Components.Workflow;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code.ECS.Components
 {
@@ -16,5 +17,5 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
 
-	[Game] public sealed class UsedComponent : FlagComponent { }
+	[Game] [Cleanup(RemoveComponent)] public sealed class UsedComponent : FlagComponent { }
 }

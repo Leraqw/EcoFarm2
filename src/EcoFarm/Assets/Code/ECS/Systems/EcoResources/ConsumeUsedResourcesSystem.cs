@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
+using static GameMatcher;
 
 namespace Code.ECS.Systems.EcoResources
 {
@@ -9,7 +10,7 @@ namespace Code.ECS.Systems.EcoResources
 		public ConsumeUsedResourcesSystem(Contexts contexts) : base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.Used);
+			=> context.CreateCollector(Used);
 
 		protected override bool Filter(GameEntity entity) => true;
 
