@@ -1,6 +1,4 @@
-﻿using System;
-using Code.Unity.ViewListeners.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.EntityBehaviours
 {
