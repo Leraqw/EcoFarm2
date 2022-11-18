@@ -7,6 +7,8 @@ namespace Code.ECS.Features
 		public ResourcesSystems(Contexts contexts)
 		{
 			Add(new InitializeResourcesSystem(contexts));
+			Add(new PostInitializeBucketResourceSystem(contexts));
+
 		}
 	}
 }
