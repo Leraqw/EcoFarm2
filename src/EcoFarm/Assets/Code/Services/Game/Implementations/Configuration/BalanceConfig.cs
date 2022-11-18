@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Services.Game.Implementations.Configuration.BalanceConfigs;
+using Code.Services.Game.Implementations.Configuration.BalanceConfigs.EcoResources;
 using Code.Services.Game.Interfaces.Config;
 using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace Code.Services.Game.Implementations.Configuration
 		[SerializeField] private BucketConfig _bucket;
 		[SerializeField] private WarehouseConfig _warehouse;
 		[SerializeField] private FruitConfig _fruit;
+		[SerializeField] private ResourceConfig _water;
+		[SerializeField] private ResourceConfig _energy;
 
 		public IWateringConfig Watering => _watering;
 
@@ -24,5 +27,9 @@ namespace Code.Services.Game.Implementations.Configuration
 		public IWarehouseConfig Warehouse => _warehouse;
 
 		public IFruitConfig Fruit => _fruit;
+
+		public IResourceConfig Water => _water;
+
+		public IResourceConfig Energy => _energy;
 	}
 }

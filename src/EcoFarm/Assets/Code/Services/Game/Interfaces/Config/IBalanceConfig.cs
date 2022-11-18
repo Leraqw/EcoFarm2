@@ -13,5 +13,9 @@ namespace Code.Services.Game.Interfaces.Config
 		IWarehouseConfig Warehouse { get; }
 
 		IFruitConfig Fruit { get; }
+
+		IResourceConfig Water { get; }
+
+		IResourceConfig Energy { get; }
 	}
 }
