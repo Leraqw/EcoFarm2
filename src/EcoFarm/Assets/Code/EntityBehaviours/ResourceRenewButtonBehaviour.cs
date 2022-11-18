@@ -14,7 +14,7 @@ namespace Code.EntityBehaviours
 			       .Do((e) => e.AddDebugName("Behaviour — Resource Renew Button"))
 			       .Do((e) => e.AddText("XX"))
 			       .Do((e) => e.AddView(gameObject))
-			       .Do((e) => e.AddGameTextListener(_textView))
+			       .Do(_textView.Register)
 				;
 		}
 	}
