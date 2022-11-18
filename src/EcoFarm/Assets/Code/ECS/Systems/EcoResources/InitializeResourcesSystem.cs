@@ -23,11 +23,13 @@ namespace Code.ECS.Systems.EcoResources
 		private void InitializeEnergy(GameContext context)
 			=> context.CreateResource("Resource - Energy", Balance.Energy)
 			          .Do((e) => e.isEnergyResource = true)
-			          .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject));
+			          .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
+		/**/;
 
 		private void InitializeWater(GameContext context)
 			=> context.CreateResource("Resource - Water", Balance.Water)
 			          .Do((e) => e.isWaterResource = true)
-			          .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject));
+			          .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
+		/**/;
 	}
 }
