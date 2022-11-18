@@ -13,7 +13,5 @@ namespace Code.Services.Game.Interfaces.Config
 		IWarehouseConfig Warehouse { get; }
 
 		IFruitConfig Fruit { get; }
-
-		IDealConfig Deal { get; }
 	}
 }
