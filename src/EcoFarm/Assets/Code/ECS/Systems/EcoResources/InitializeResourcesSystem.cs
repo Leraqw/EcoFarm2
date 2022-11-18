@@ -3,7 +3,6 @@ using Code.Services.Game.Interfaces.Config;
 using Code.Unity.Containers;
 using Code.Utils.Extensions;
 using Entitas;
-using TMPro;
 
 namespace Code.ECS.Systems.EcoResources
 {
@@ -31,13 +30,17 @@ namespace Code.ECS.Systems.EcoResources
 			         .Do((e) => e.AddDebugName("Resource - Energy"))
 			         .Do((e) => e.isEnergyResource = true)
 			         .Do((e) => e.AddProgressBar(new ProgressBarValues { Max = EnergyMax, Current = EnergyStart }))
-			         .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject));
+			         .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
+			         .Do((e) => e.AddConsumable(e.creationIndex))
+				;
 
 			_contexts.game.CreateEntity()
 			         .Do((e) => e.AddDebugName("Resource - Water"))
 			         .Do((e) => e.isWaterResource = true)
 			         .Do((e) => e.AddProgressBar(new ProgressBarValues { Max = WaterMax, Current = WaterStart }))
-			         .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject));
+			         .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
+			         .Do((e) => e.AddConsumable(e.creationIndex))
+				;
 		}
 	}
 }
