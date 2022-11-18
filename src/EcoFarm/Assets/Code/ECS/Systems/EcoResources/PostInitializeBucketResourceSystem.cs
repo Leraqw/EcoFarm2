@@ -14,7 +14,7 @@ namespace Code.ECS.Systems.EcoResources
 		private IBucketConfig BalanceBucket => _contexts.services.configurationService.Value.Balance.Bucket;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(Bucket);
+			=> context.CreateCollector(Crane);
 
 		protected override bool Filter(GameEntity entity) => true;
 
