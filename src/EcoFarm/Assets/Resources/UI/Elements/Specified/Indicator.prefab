@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textView: {fileID: 1569070819184301678}
+  _progressBarView: {fileID: 2955873364464580894}
 --- !u!1 &3148816990318014533
 GameObject:
   m_ObjectHideFlags: 0

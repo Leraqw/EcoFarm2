@@ -7,15 +7,23 @@ namespace Code.EntityBehaviours
 	public class ResourceRenewButtonBehaviour : EntityBehaviour
 	{
 		[SerializeField] private TextView _textView;
+		[SerializeField] private ProgressBarView _progressBarView;
 
-		private void Start()
+		private bool _initialized;
+
+		private void Update()
 		{
-			Context.CreateEntity()
-			       .Do((e) => e.AddDebugName("Behaviour — Resource Renew Button"))
-			       .Do((e) => e.AddText("XX"))
-			       .Do((e) => e.AddView(gameObject))
-			       .Do(_textView.Register)
+			if (_initialized || _progressBarView.Entity == null)
+			{
+				return;
+			}
+
+			_progressBarView.Entity
+			                .Do((e) => e.AddText(e.renewPrice))
+			                // .Do((e) => e.AddView(gameObject))
+			                .Do(_textView.Register)
 				;
+			_initialized = true;
 		}
 	}
 }

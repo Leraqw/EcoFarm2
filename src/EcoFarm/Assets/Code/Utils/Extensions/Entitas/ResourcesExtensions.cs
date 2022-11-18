@@ -9,7 +9,9 @@ namespace Code.Utils.Extensions.Entitas
 			=> @this.CreateEntity()
 			        .Do((e) => e.AddDebugName(name))
 			        .Do((e) => e.AddProgressBar(NewValue(resource)))
-			        .Do((e) => e.AddConsumable(e.creationIndex));
+			        .Do((e) => e.AddRenewPrice(resource.RenewPrice))
+			        .Do((e) => e.AddConsumable(e.creationIndex))
+		/**/;
 
 		public static void Consume(this GameEntity entity)
 			=> GetResourceOf(entity).DecreaseResourceCurrentValue(entity.consumptionCoefficient);
