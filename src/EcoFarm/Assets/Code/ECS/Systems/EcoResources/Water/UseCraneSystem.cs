@@ -2,7 +2,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code.ECS.Systems.EcoResources.Water
 {
 	public sealed class UseCraneSystem : ReactiveSystem<GameEntity>
 	{
