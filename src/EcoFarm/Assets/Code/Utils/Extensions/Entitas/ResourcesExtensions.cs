@@ -1,5 +1,4 @@
-﻿using Code.ECS.Components;
-using Code.ECS.Components.ComplexComponentTypes;
+﻿using Code.ECS.Components.ComplexComponentTypes;
 using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 
 namespace Code.Utils.Extensions.Entitas
