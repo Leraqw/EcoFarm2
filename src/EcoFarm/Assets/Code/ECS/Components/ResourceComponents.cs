@@ -18,4 +18,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class UsedComponent : FlagComponent { }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class RenewComponent : FlagComponent { }
 }

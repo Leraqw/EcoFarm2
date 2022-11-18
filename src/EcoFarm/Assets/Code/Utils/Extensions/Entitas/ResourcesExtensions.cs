@@ -16,16 +16,15 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static bool IsResourceExhausted(this GameEntity entity)
 			=> GetResourceOf(entity).progressBar.Value.Current <= 0;
-		
-		private static void DecreaseResourceCurrentValue(this GameEntity resource, int value)
-		{
-			var newCurrent = resource.progressBar.Value.Current - value;
-			var oldMax = resource.progressBar.Value.Max;
-			resource.ReplaceProgressBar(new ProgressBarValues { Max = oldMax, Current = newCurrent });
-		}
 
-		private static GameEntity GetResourceOf(GameEntity entity)
-			=> Contexts.game.GetEntityWithConsumable(entity.consumer);
+		public static void UpdateResourceCurrentValue(this GameEntity @this, float value)
+			=> @this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });
+
+		private static void DecreaseResourceCurrentValue(this GameEntity @this, int value)
+			=> @this.UpdateResourceCurrentValue(@this.progressBar.Value.Current - value);
+
+		private static GameEntity GetResourceOf(GameEntity @this)
+			=> Contexts.game.GetEntityWithConsumable(@this.consumer);
 
 		private static ProgressBarValues NewValue(IResourceConfig resource)
 			=> new() { Max = resource.MaxValue, Current = resource.StartValue };
