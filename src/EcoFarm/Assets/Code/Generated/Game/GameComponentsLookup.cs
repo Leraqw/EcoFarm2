@@ -82,28 +82,29 @@ public static class GameComponentsLookup {
     public const int Tree = 71;
     public const int UiElement = 72;
     public const int UiParent = 73;
-    public const int View = 74;
-    public const int ViewPrefab = 75;
-    public const int Watered = 76;
-    public const int Watering = 77;
-    public const int WaterResource = 78;
-    public const int WillFall = 79;
-    public const int CoinsCountListener = 80;
-    public const int CurrentQuantityListener = 81;
-    public const int DurationListener = 82;
-    public const int GameTextListener = 83;
-    public const int GoalCompletedListener = 84;
-    public const int GoalListener = 85;
-    public const int InventoryItemListener = 86;
-    public const int PositionListener = 87;
-    public const int ProgressBarListener = 88;
-    public const int ProportionalScaleListener = 89;
-    public const int SliderMaxValueListener = 90;
-    public const int SliderValueListener = 91;
-    public const int SpriteListener = 92;
-    public const int WateringListener = 93;
+    public const int Used = 74;
+    public const int View = 75;
+    public const int ViewPrefab = 76;
+    public const int Watered = 77;
+    public const int Watering = 78;
+    public const int WaterResource = 79;
+    public const int WillFall = 80;
+    public const int CoinsCountListener = 81;
+    public const int CurrentQuantityListener = 82;
+    public const int DurationListener = 83;
+    public const int GameTextListener = 84;
+    public const int GoalCompletedListener = 85;
+    public const int GoalListener = 86;
+    public const int InventoryItemListener = 87;
+    public const int PositionListener = 88;
+    public const int ProgressBarListener = 89;
+    public const int ProportionalScaleListener = 90;
+    public const int SliderMaxValueListener = 91;
+    public const int SliderValueListener = 92;
+    public const int SpriteListener = 93;
+    public const int WateringListener = 94;
 
-    public const int TotalComponents = 94;
+    public const int TotalComponents = 95;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -180,6 +181,7 @@ public static class GameComponentsLookup {
         "Tree",
         "UiElement",
         "UiParent",
+        "Used",
         "View",
         "ViewPrefab",
         "Watered",
@@ -277,6 +279,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.TreeComponent),
         typeof(Code.ECS.Components.UiElementComponent),
         typeof(Code.ECS.Components.UiParentComponent),
+        typeof(Code.ECS.Components.UsedComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.ECS.Components.ViewPrefabComponent),
         typeof(Code.ECS.Components.WateredComponent),

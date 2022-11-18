@@ -11,7 +11,15 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddProgressBar(NewValue(resource)))
 			        .Do((e) => e.AddConsumable(e.creationIndex));
 
+		public static void Consume(this GameEntity entity)
+			=> GetResourceOf(entity).progressBar.Value.Current -= entity.consumptionCoefficient;
+
+		private static GameEntity GetResourceOf(GameEntity entity)
+			=> Contexts.game.GetEntityWithConsumable(entity.consumer);
+
 		private static ProgressBarValues NewValue(IResourceConfig resource)
 			=> new() { Max = resource.MaxValue, Current = resource.StartValue };
+
+		private static Contexts Contexts => Contexts.sharedInstance;
 	}
 }

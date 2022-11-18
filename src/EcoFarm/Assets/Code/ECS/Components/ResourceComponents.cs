@@ -15,4 +15,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class ConsumerComponent : IndexComponent<int> { }
 
 	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
+
+	[Game] public sealed class UsedComponent : FlagComponent { }
 }
