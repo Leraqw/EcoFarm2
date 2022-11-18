@@ -1,3 +1,4 @@
+using Code.ECS.Components.ComplexComponentTypes;
 using Code.Unity.Containers;
 using Code.Utils.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
@@ -32,4 +33,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class UiElementComponent : FlagComponent { }
 
 	[Game] public sealed class UiParentComponent : ValueComponent<RectTransform> { }
+
+	[Game] [Event(Self)] public sealed class ProgressBarComponent : ValueComponent<ProgressBarValues> { }
 }

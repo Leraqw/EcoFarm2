@@ -5,11 +5,11 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.Watering.Crane
 {
-	public sealed class ClickOnCraneSystem : ReactiveSystem<GameEntity>
+	public sealed class FillBucketSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly IGroup<GameEntity> _buckets;
 
-		public ClickOnCraneSystem(Contexts contexts)
+		public FillBucketSystem(Contexts contexts)
 			: base(contexts.game)
 			=> _buckets = contexts.game.GetGroup(GameMatcher.Bucket);
 

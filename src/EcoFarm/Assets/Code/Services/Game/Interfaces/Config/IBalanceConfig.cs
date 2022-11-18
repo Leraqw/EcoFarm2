@@ -14,6 +14,8 @@ namespace Code.Services.Game.Interfaces.Config
 
 		IFruitConfig Fruit { get; }
 
-		IDealConfig Deal { get; }
+		IResourceConfig Water { get; }
+
+		IResourceConfig Energy { get; }
 	}
 }

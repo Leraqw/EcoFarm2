@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.ECS.Components.ComplexComponentTypes;
 using EcoFarmDataModule;
 
@@ -21,7 +22,8 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachableIndex));
 
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this)
-			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex);
+			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex)
+			        .Where((e) => e.hasInventoryItem);
 
 		public static void IncreaseInventoryItemCount(this GameEntity @this, int count)
 			=> @this.UpdateInventoryItemCount(with: (c) => c + count);

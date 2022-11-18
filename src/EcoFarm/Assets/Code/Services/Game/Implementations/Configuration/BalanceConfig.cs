@@ -14,7 +14,8 @@ namespace Code.Services.Game.Implementations.Configuration
 		[SerializeField] private BucketConfig _bucket;
 		[SerializeField] private WarehouseConfig _warehouse;
 		[SerializeField] private FruitConfig _fruit;
-		[SerializeField] private DealConfig _deal;
+		[SerializeField] private ResourceConfig _water;
+		[SerializeField] private ResourceConfig _energy;
 
 		public IWateringConfig Watering => _watering;
 
@@ -26,6 +27,8 @@ namespace Code.Services.Game.Implementations.Configuration
 
 		public IFruitConfig Fruit => _fruit;
 
-		public IDealConfig Deal => _deal;
+		public IResourceConfig Water => _water;
+
+		public IResourceConfig Energy => _energy;
 	}
 }
