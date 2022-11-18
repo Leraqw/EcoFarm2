@@ -23,8 +23,6 @@ namespace Code.EntityBehaviours
 
 				_progressBarView.Entity
 				                .Do((e) => e.AddText(e.renewPrice))
-				                // .Do((e) => e.AddView(gameObject))
-				                .Do(_textView.Register)
 					;
 				yield break;
 			}
