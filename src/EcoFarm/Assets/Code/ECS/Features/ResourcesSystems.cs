@@ -11,6 +11,7 @@ namespace Code.ECS.Features
 			Add(new PostInitializeCraneResourceSystem(contexts));
 			Add(new ConsumeUsedResourcesSystem(contexts));
 			Add(new UseCraneSystem(contexts));
+			Add(new OnResourceButtonClickSystem(contexts));
 		}
 	}
 }

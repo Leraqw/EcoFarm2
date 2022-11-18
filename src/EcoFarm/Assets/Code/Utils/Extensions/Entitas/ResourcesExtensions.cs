@@ -9,23 +9,24 @@ namespace Code.Utils.Extensions.Entitas
 			=> @this.CreateEntity()
 			        .Do((e) => e.AddDebugName(name))
 			        .Do((e) => e.AddProgressBar(NewValue(resource)))
-			        .Do((e) => e.AddConsumable(e.creationIndex));
+			        .Do((e) => e.AddRenewPrice(resource.RenewPrice))
+			        .Do((e) => e.AddConsumable(e.creationIndex))
+		/**/;
 
 		public static void Consume(this GameEntity entity)
 			=> GetResourceOf(entity).DecreaseResourceCurrentValue(entity.consumptionCoefficient);
 
 		public static bool IsResourceExhausted(this GameEntity entity)
 			=> GetResourceOf(entity).progressBar.Value.Current <= 0;
-		
-		private static void DecreaseResourceCurrentValue(this GameEntity resource, int value)
-		{
-			var newCurrent = resource.progressBar.Value.Current - value;
-			var oldMax = resource.progressBar.Value.Max;
-			resource.ReplaceProgressBar(new ProgressBarValues { Max = oldMax, Current = newCurrent });
-		}
 
-		private static GameEntity GetResourceOf(GameEntity entity)
-			=> Contexts.game.GetEntityWithConsumable(entity.consumer);
+		public static void UpdateResourceCurrentValue(this GameEntity @this, float value)
+			=> @this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });
+
+		private static void DecreaseResourceCurrentValue(this GameEntity @this, int value)
+			=> @this.UpdateResourceCurrentValue(@this.progressBar.Value.Current - value);
+
+		private static GameEntity GetResourceOf(GameEntity @this)
+			=> Contexts.game.GetEntityWithConsumable(@this.consumer);
 
 		private static ProgressBarValues NewValue(IResourceConfig resource)
 			=> new() { Max = resource.MaxValue, Current = resource.StartValue };
