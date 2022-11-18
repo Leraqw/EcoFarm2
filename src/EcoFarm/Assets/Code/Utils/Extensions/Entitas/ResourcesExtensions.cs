@@ -14,6 +14,9 @@ namespace Code.Utils.Extensions.Entitas
 		public static void Consume(this GameEntity entity)
 			=> GetResourceOf(entity).DecreaseResourceCurrentValue(entity.consumptionCoefficient);
 
+		public static bool IsResourceExhausted(this GameEntity entity)
+			=> GetResourceOf(entity).progressBar.Value.Current <= 0;
+		
 		private static void DecreaseResourceCurrentValue(this GameEntity resource, int value)
 		{
 			var newCurrent = resource.progressBar.Value.Current - value;
