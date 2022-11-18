@@ -1,4 +1,5 @@
-﻿using Code.ECS.Components.ComplexComponentTypes;
+﻿using Code.ECS.Components;
+using Code.ECS.Components.ComplexComponentTypes;
 using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 
 namespace Code.Utils.Extensions.Entitas
@@ -12,12 +13,13 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddConsumable(e.creationIndex));
 
 		public static void Consume(this GameEntity entity)
+			=> GetResourceOf(entity).DecreaseResourceCurrentValue(entity.consumptionCoefficient);
+
+		private static void DecreaseResourceCurrentValue(this GameEntity resource, int value)
 		{
-			var newCurrent = GetResourceOf(entity).progressBar.Value.Current - entity.consumptionCoefficient;
-			var oldMax = GetResourceOf(entity).progressBar.Value.Max;
-			var progressBarValues = new ProgressBarValues { Max = oldMax, Current = newCurrent };
-			
-			GetResourceOf(entity).ReplaceProgressBar(progressBarValues);
+			var newCurrent = resource.progressBar.Value.Current - value;
+			var oldMax = resource.progressBar.Value.Max;
+			resource.ReplaceProgressBar(new ProgressBarValues { Max = oldMax, Current = newCurrent });
 		}
 
 		private static GameEntity GetResourceOf(GameEntity entity)
