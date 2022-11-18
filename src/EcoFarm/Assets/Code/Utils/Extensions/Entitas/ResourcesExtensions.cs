@@ -12,7 +12,13 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddConsumable(e.creationIndex));
 
 		public static void Consume(this GameEntity entity)
-			=> GetResourceOf(entity).progressBar.Value.Current -= entity.consumptionCoefficient;
+		{
+			var newCurrent = GetResourceOf(entity).progressBar.Value.Current - entity.consumptionCoefficient;
+			var oldMax = GetResourceOf(entity).progressBar.Value.Max;
+			var progressBarValues = new ProgressBarValues { Max = oldMax, Current = newCurrent };
+			
+			GetResourceOf(entity).ReplaceProgressBar(progressBarValues);
+		}
 
 		private static GameEntity GetResourceOf(GameEntity entity)
 			=> Contexts.game.GetEntityWithConsumable(entity.consumer);
