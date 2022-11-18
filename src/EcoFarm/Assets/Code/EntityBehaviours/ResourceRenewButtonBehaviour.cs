@@ -1,3 +1,4 @@
+using System.Collections;
 using Code.Unity.ViewListeners.UI;
 using Code.Utils.Extensions;
 using UnityEngine;
@@ -9,21 +10,24 @@ namespace Code.EntityBehaviours
 		[SerializeField] private TextView _textView;
 		[SerializeField] private ProgressBarView _progressBarView;
 
-		private bool _initialized;
+		private void Start() => StartCoroutine(InitializationLoop());
 
-		private void Update()
+		private IEnumerator InitializationLoop()
 		{
-			if (_initialized || _progressBarView.Entity == null)
+			while (true)
 			{
-				return;
-			}
+				if (_progressBarView.Entity == null)
+				{
+					yield return null;
+				}
 
-			_progressBarView.Entity
-			                .Do((e) => e.AddText(e.renewPrice))
-			                // .Do((e) => e.AddView(gameObject))
-			                .Do(_textView.Register)
-				;
-			_initialized = true;
+				_progressBarView.Entity
+				                .Do((e) => e.AddText(e.renewPrice))
+				                // .Do((e) => e.AddView(gameObject))
+				                .Do(_textView.Register)
+					;
+				yield break;
+			}
 		}
 	}
 }
