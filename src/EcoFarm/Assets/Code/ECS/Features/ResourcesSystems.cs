@@ -9,6 +9,7 @@ namespace Code.ECS.Features
 			Add(new InitializeResourcesSystem(contexts));
 			Add(new PostInitializeBucketResourceSystem(contexts));
 			Add(new ConsumeUsedResourcesSystem(contexts));
+			Add(new UseCraneSystem(contexts));
 		}
 	}
 }
