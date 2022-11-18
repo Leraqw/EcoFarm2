@@ -3,18 +3,18 @@ using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Watering.Crane
+namespace Code.ECS.Systems.Watering.WaterCrane
 {
 	public sealed class FillBucketSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly IGroup<GameEntity> _buckets;
 
-		public FillBucketSystem(Contexts contexts)
+		public FillBucketSystem(Contexts contexts) 
 			: base(contexts.game)
 			=> _buckets = contexts.game.GetGroup(GameMatcher.Bucket);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(MouseDown, GameMatcher.Crane));
+			=> context.CreateCollector(AllOf(Used, Crane));
 
 		protected override bool Filter(GameEntity entity) => true;
 

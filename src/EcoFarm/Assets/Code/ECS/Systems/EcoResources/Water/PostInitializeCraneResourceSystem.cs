@@ -4,12 +4,12 @@ using Code.Utils.Extensions;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code.ECS.Systems.EcoResources.Water
 {
-	public sealed class PostInitializeBucketResourceSystem : ReactiveSystem<GameEntity>
+	public sealed class PostInitializeCraneResourceSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
-		public PostInitializeBucketResourceSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+		public PostInitializeCraneResourceSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
 		private IBucketConfig BalanceBucket => _contexts.services.configurationService.Value.Balance.Bucket;
 
@@ -20,10 +20,9 @@ namespace Code.ECS.Systems.EcoResources
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Initialize);
 
-		private void Initialize(GameEntity bucket)
-			=> bucket
-			   .Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable))
-			   .Do((e) => e.AddConsumptionCoefficient(BalanceBucket.WaterConsumption))
+		private void Initialize(GameEntity crane)
+			=> crane.Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable))
+			        .Do((e) => e.AddConsumptionCoefficient(BalanceBucket.WaterConsumption))
 		/**/;
 	}
 }

@@ -4,7 +4,7 @@ using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Entitas;
 
-namespace Code.ECS.Systems.Watering.Crane
+namespace Code.ECS.Systems.Watering.WaterCrane
 {
 	public sealed class SpawnCraneSystem : IInitializeSystem
 	{

@@ -6,8 +6,8 @@ using Code.ECS.Systems.Product;
 using Code.ECS.Systems.Tree;
 using Code.ECS.Systems.Warehouse;
 using Code.ECS.Systems.Watering.Bucket;
-using Code.ECS.Systems.Watering.Crane;
 using Code.ECS.Systems.Watering.Tree;
+using Code.ECS.Systems.Watering.WaterCrane;
 
 namespace Code.ECS.Features.Initialization
 {

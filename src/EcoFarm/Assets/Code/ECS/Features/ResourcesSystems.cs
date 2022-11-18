@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Systems.EcoResources;
+using Code.ECS.Systems.EcoResources.Water;
 
 namespace Code.ECS.Features
 {
@@ -7,7 +8,7 @@ namespace Code.ECS.Features
 		public ResourcesSystems(Contexts contexts)
 		{
 			Add(new InitializeResourcesSystem(contexts));
-			Add(new PostInitializeBucketResourceSystem(contexts));
+			Add(new PostInitializeCraneResourceSystem(contexts));
 			Add(new ConsumeUsedResourcesSystem(contexts));
 			Add(new UseCraneSystem(contexts));
 		}

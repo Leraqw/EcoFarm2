@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code.ECS.Systems.EcoResources.Water
 {
 	public sealed class UseCraneSystem : ReactiveSystem<GameEntity>
 	{
@@ -13,7 +15,9 @@ namespace Code.ECS.Systems.EcoResources
 
 		protected override bool Filter(GameEntity entity) => true;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Use);
+		protected override void Execute(List<GameEntity> cranes) => cranes.ForEach(Use, @if: HasWater);
+
+		private static bool HasWater(GameEntity crane) => crane.IsResourceExhausted() == false;
 
 		private static void Use(GameEntity crane) => crane.isUsed = true;
 	}
