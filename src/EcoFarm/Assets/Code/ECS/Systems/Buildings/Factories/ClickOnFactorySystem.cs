@@ -29,16 +29,19 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private bool IsEnoughOnWarehouse(GameEntity entity)
 		{
 			var products = entity.factory.Value.InputProducts;
-			var items = _contexts.game.GetInventoryItems().ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
 
-			return products.All((p) => CountOfAvailableProducts(items, p) >= CountOfRequestedProducts(products, p));
+			// array to dictionary. key - is value. value - is count of entries in array
+			var productsDict = products.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
+			var items = _contexts.game.GetInventoryItems()
+			                     .ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
+
+			return products.All((p) => items[p] >= productsDict[p]);
 		}
 
 		private static int CountOfRequestedProducts(IEnumerable<Product> products, Product product)
 			=> products.Count((p) => p == product);
 
-		private static int CountOfAvailableProducts(Dictionary<Product, int> items, Product product)
-			=> items.Single((i) => i.Key == product).Value;
+		private static int CountOfAvailableProducts(Dictionary<Product, int> items, Product product) => items[product];
 
 		private void TakeProducts(GameEntity entity) { }
 	}
