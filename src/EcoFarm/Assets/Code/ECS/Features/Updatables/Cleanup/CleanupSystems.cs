@@ -1,4 +1,4 @@
-﻿using Code.ECS.Systems.Product.Fruit;
+﻿using Code.ECS.Systems.Products.Fruit;
 
 namespace Code.ECS.Features.Updatables.Cleanup
 {

@@ -6,7 +6,7 @@ using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit.Growing
+namespace Code.ECS.Systems.Products.Fruit.Growing
 {
 	public sealed class CheckGrowthUpSystem : IExecuteSystem
 	{

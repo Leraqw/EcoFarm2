@@ -1,5 +1,5 @@
-﻿using Code.ECS.Systems.Product.Fruit.Cooldown;
-using Code.ECS.Systems.Product.Fruit.Growing;
+﻿using Code.ECS.Systems.Products.Fruit.Cooldown;
+using Code.ECS.Systems.Products.Fruit.Growing;
 
 namespace Code.ECS.Features.Updatables.Gameplay
 {

@@ -1,4 +1,4 @@
-﻿using Code.ECS.Systems.Product.Fruit.Growing;
+﻿using Code.ECS.Systems.Products.Fruit.Growing;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config;
 using Code.Utils.Extensions;
@@ -7,7 +7,7 @@ using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit.Falling
+namespace Code.ECS.Systems.Products.Fruit.Falling
 {
 	public sealed class CheckFellUpSystem : IExecuteSystem
 	{
