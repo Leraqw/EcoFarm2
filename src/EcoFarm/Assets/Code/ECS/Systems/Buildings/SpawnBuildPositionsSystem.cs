@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.Buildings
 
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("Build Button"))
+			            .Do((e) => e.AddDebugName("Sign"))
 			            .Do((e) => e.AddPosition(position))
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
 			            .Do((e) => e.isSign = true);

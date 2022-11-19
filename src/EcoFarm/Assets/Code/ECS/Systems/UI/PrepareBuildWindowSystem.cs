@@ -35,13 +35,11 @@ namespace Code.ECS.Systems.UI
 			         .Do(EndPreparations);
 
 		private void CleanBuildingList(GameEntity window)
-		{
-			_contexts.game.GetEntitiesWithAttachedTo(window.attachableIndex)
-			         .Where((e) => e.hasView)
-			         .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
-			         .Do((entities) => entities.ForEach((e) => e.view.Value.DestroyGameObject()))
-				;
-		}
+			=> _contexts.game.GetEntitiesWithAttachedTo(window.attachableIndex)
+			            .Where((e) => e.hasView)
+			            .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
+			            .Do((entities) => entities.ForEach((e) => e.view.Value.DestroyGameObject()))
+		/**/;
 
 		private void FillBuildingsList(GameEntity window)
 			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildViewPrefab, window));

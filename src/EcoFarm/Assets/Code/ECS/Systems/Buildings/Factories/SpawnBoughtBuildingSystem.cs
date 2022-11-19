@@ -41,6 +41,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> sign
 			   .Do((e) => e.ReplaceDebugName("Building Factory"))
 			   .Do((e) => e.view.Value.DestroyGameObject())
+			   .Do((e) => e.RemovePositionListener())
 			   .Do((e) => e.RemoveView())
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
 			   .Do((e) => e.isOccupied = true)
