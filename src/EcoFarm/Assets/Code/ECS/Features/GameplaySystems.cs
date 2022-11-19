@@ -34,6 +34,7 @@ namespace Code.ECS.Features
 			Add(new ClickOnBuildItemSystem(contexts));
 			Add(new SpawnBoughtBuildingSystem(contexts));
 			Add(new ClickOnFactorySystem(contexts));
+			Add(new PerformProductsRequestSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));
