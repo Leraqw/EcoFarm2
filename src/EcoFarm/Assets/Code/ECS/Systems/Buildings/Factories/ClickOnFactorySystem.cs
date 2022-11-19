@@ -29,7 +29,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private bool IsEnoughOnWarehouse(GameEntity entity)
 		{
 			var products = entity.factory.Value.InputProducts;
-			var items = _contexts.game.GetInventoryItems().Select((i) => i.product.Value);
+			var items = _contexts.game.GetInventoryItems().ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
 
 			return products.All((p) => CountOfAvailableProducts(items, p) >= CountOfRequestedProducts(products, p));
 		}
@@ -37,8 +37,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private static int CountOfRequestedProducts(IEnumerable<Product> products, Product product)
 			=> products.Count((p) => p == product);
 
-		private static int CountOfAvailableProducts(IEnumerable<Product> items, Product product)
-			=> items.Count((i) => i == product);
+		private static int CountOfAvailableProducts(Dictionary<Product, int> items, Product product)
+			=> items.Single((i) => i.Key == product).Value;
 
 		private void TakeProducts(GameEntity entity) { }
 	}
