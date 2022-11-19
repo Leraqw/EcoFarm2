@@ -44,11 +44,17 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> groups.ToDictionary(x => x.Key, x => x.Count());
 
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddRequireProduct(product.Key))
-			            .Do((e) => e.AddPosition(factory.position))
-			            .Do((e) => e.AddCount(product.Value))
-		/**/;
+		{
+			_contexts.game.CreateEntity()
+			         .Do((e) => e.AddRequireProduct(product.Key))
+			         .Do((e) => e.AddPosition(factory.position))
+			         .Do((e) => e.AddCount(product.Value))
+				;
+
+			_contexts.game.GetInventoryItems()
+			         .Single((p) => p.product.Value == product.Key)
+			         .DecreaseInventoryItemCount(product.Value);
+		}
 
 		private static IGrouping<Product, Product>[] GetGroups(GameEntity entity)
 		{
