@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
@@ -22,8 +21,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			_signs = contexts.game.GetGroup(Sign);
 		}
 
-		// TODO: Remove Linq
-		private FactoryBuilding FirstFactory => (FactoryBuilding)_contexts.game.storage.Value.Buildings.First();
+		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, Bought, GameMatcher.Building));
@@ -32,22 +30,30 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
-		private void Spawn(GameEntity button) => _signs.ForEach(Replace, @if: (s) => Fits(s, button));
+		private void Spawn(GameEntity button) => _signs.ForEach((s) => Replace(s, button), @if: (s) => Fits(s, button));
 
 		private bool Fits(GameEntity sign, GameEntity button)
 			=> sign.isOccupied == false && sign.HasSamePosition(button);
 
-		private void Replace(GameEntity sign)
+		private void Replace(GameEntity sign, GameEntity button)
 			=> sign
 			   .Do((e) => e.ReplaceDebugName("Building Factory"))
-			   .Do((e) => e.view.Value.DestroyGameObject())
-			   .Do((e) => e.RemovePositionListener())
-			   .Do((e) => e.RemoveView())
+			   .Do((e) => e.AddBuilding(button.building))
+			   .Do((e) => e.AddFactory((FactoryBuilding)e.building))
+			   .Do(DestroySign)
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
 			   .Do((e) => e.isOccupied = true)
 			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
-			   .Do((e) => e.AddConsumptionCoefficient(FirstFactory.ResourceConsumptionCoefficient));
+			   .Do((e) => e.AddConsumptionCoefficient(GetFactory(e).ResourceConsumptionCoefficient))
+		/**/;
 
-		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
+		private void DestroySign(GameEntity entity)
+			=> entity
+			   .Do((e) => e.view.Value.DestroyGameObject())
+			   .Do((e) => e.RemovePositionListener())
+			   .Do((e) => e.RemoveView())
+		/**/;
+
+		private static FactoryBuilding GetFactory(GameEntity e) => (FactoryBuilding)e.building.Value;
 	}
 }
