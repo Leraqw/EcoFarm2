@@ -39,7 +39,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> sign
 			   .Do((e) => e.ReplaceDebugName("Building Factory"))
 			   .Do((e) => e.AddBuilding(button.building))
-			   .Do((e) => e.AddFactory((FactoryBuilding)e.building))
+			   .Do(SetFactory, @if: BuildingIsFactory)
 			   .Do(DestroySign)
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
 			   .Do((e) => e.isOccupied = true)
@@ -47,7 +47,16 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.AddConsumptionCoefficient(GetFactory(e).ResourceConsumptionCoefficient))
 		/**/;
 
-		private void DestroySign(GameEntity entity)
+		private static bool BuildingIsFactory(GameEntity entity) 
+			=> entity.building.Value is FactoryBuilding;
+
+		private static void SetFactory(GameEntity entity)
+			=> entity
+			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building))
+			   .Do((e) => e.RemoveBuilding())
+		/**/;
+
+		private static void DestroySign(GameEntity entity)
 			=> entity
 			   .Do((e) => e.view.Value.DestroyGameObject())
 			   .Do((e) => e.RemovePositionListener())
