@@ -15,6 +15,7 @@ public sealed class GameEventSystems : Feature {
         Add(new CurrentQuantityEventSystem(contexts)); // priority: 0
         Add(new DurationEventSystem(contexts)); // priority: 0
         Add(new FactoryEventSystem(contexts)); // priority: 0
+        Add(new GeneratorEventSystem(contexts)); // priority: 0
         Add(new GoalEventSystem(contexts)); // priority: 0
         Add(new GoalCompletedEventSystem(contexts)); // priority: 0
         Add(new InventoryItemEventSystem(contexts)); // priority: 0
