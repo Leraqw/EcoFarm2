@@ -15,6 +15,10 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		public ClickOnFactorySystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
+		private Dictionary<Product, int> AvailableProducts
+			=> _contexts.game.GetInventoryItems()
+			            .ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Factory, MouseDown));
 
@@ -28,26 +32,14 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private bool IsEnoughOnWarehouse(GameEntity entity)
 		{
-			var products = entity.factory.Value.InputProducts;
+			var groups = entity.factory.Value.InputProducts
+			                    .GroupBy(x => x);
+			var required = groups
+			                     .ToDictionary(x => x.Key, x => x.Count());
 
-			// array to dictionary. key - is value. value - is count of entries in array
-			var productsDict = products.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
-			var items = _contexts.game.GetInventoryItems()
-			                     .ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
-
-			return products.All((p) => items[p] >= productsDict[p]);
+			return groups.All((p) => AvailableProducts[p.Key] >= required[p.Key]);
 		}
 
-		private static int CountOfRequestedProducts(IEnumerable<Product> products, Product product)
-			=> products.Count((p) => p == product);
-
-		private static int CountOfAvailableProducts(Dictionary<Product, int> items, Product product) => items[product];
-
 		private void TakeProducts(GameEntity entity) { }
-	}
-
-	public static class TempExt
-	{
-		public static int CountOf<T>(this IEnumerable<T> @this, T @object) => @this.Count((o) => o.Equals(@object));
 	}
 }
