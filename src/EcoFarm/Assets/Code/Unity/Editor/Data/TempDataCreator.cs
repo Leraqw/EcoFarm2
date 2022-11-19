@@ -94,6 +94,14 @@ namespace Code.Unity.Editor.Data
 						Resource = electricity,
 						ResourceConsumptionCoefficient = 10,
 					},
+					new Generator
+					{
+						Title = "Windmill",
+						Description = "Generating electricity",
+						Price = 100,
+						Resource = electricity,
+						EfficiencyCoefficient = 10,
+					},
 				},
 			};
 		}

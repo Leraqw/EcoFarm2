@@ -66,6 +66,7 @@ public partial class Contexts {
     public const string AttachedTo = "AttachedTo";
     public const string Consumable = "Consumable";
     public const string Consumer = "Consumer";
+    public const string Resource = "Resource";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -88,6 +89,11 @@ public partial class Contexts {
             Consumer,
             game.GetGroup(GameMatcher.Consumer),
             (e, c) => ((Code.ECS.Components.ConsumerComponent)c).Value));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
+            Resource,
+            game.GetGroup(GameMatcher.Resource),
+            (e, c) => ((Code.ECS.Components.ResourceComponent)c).Value));
     }
 }
 
@@ -107,6 +113,10 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithConsumer(this GameContext context, int Value) {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Consumer)).GetEntities(Value);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithResource(this GameContext context, int Value) {
+        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Resource)).GetEntities(Value);
     }
 }
 //------------------------------------------------------------------------------

@@ -12,5 +12,6 @@ namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
 		GameObject Bucket    { get; }
 		GameObject Sign      { get; }
 		GameObject Factory   { get; }
+		GameObject Windmill  { get; }
 	}
 }

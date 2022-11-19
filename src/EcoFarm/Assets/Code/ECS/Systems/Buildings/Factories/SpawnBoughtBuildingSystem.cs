@@ -39,16 +39,40 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> sign
 			   .Do((e) => e.ReplaceDebugName("Building Factory"))
 			   .Do((e) => e.AddBuilding(button.building))
-			   .Do(SetFactory, @if: BuildingIsFactory)
+			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
+			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)
-			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
+			   .Do(AddRelativeView)
 			   .Do((e) => e.isOccupied = true)
+			   .Do(AddConsumption, @if: (e) => e.hasFactory)
+			   .Do(AddProduction, @if: (e) => e.hasGenerator)
+		/**/;
+
+		private void AddRelativeView(GameEntity entity)
+			=> entity
+			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
+			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Windmill), @if: (e) => e.hasGenerator)
+		/**/;
+
+		private void AddProduction(GameEntity entity)
+			=> entity
+			   .Do((e) => e.AddResource(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
+		/**/;
+
+		private void AddConsumption(GameEntity entity)
+			=> entity
 			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 
-		private static bool BuildingIsFactory(GameEntity entity) 
-			=> entity.building.Value is FactoryBuilding;
+		private static bool BuildingIs<T>(GameEntity entity) => entity.hasBuilding && entity.building.Value is T;
+
+		private static void SetGenerator(GameEntity entity)
+			=> entity
+			   .Do((e) => e.AddGenerator((Generator)entity.building))
+			   .Do((e) => e.RemoveBuilding())
+		/**/;
 
 		private static void SetFactory(GameEntity entity)
 			=> entity

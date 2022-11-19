@@ -14,8 +14,12 @@ namespace Code.ECS.Components
 	[Game] public sealed class ConsumableComponent : PrimaryComponent<int> { }
 
 	[Game] public sealed class ConsumerComponent : IndexComponent<int> { }
+	
+	[Game] public sealed class ResourceComponent : IndexComponent<int> { }
 
 	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
+	
+	[Game] public sealed class EfficiencyCoefficientComponent : ValueComponent<int> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class UsedComponent : FlagComponent { }
 
