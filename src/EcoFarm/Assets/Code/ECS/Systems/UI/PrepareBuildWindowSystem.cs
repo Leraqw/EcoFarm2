@@ -6,7 +6,6 @@ using EcoFarmDataModule;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.UI
