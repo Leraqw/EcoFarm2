@@ -48,11 +48,11 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do(AddProduction, @if: (e) => e.hasGenerator)
 		/**/;
 
-		private void AddRelativeView(GameEntity entity) => 
-			entity
-				.Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
-				.Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Windmill), @if: (e) => e.hasGenerator)
-			/**/;
+		private void AddRelativeView(GameEntity entity)
+			=> entity
+			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
+			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Windmill), @if: (e) => e.hasGenerator)
+		/**/;
 
 		private void AddProduction(GameEntity entity)
 			=> entity
@@ -66,7 +66,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 
-		private static bool BuildingIs<T>(GameEntity entity) => entity.building.Value is T;
+		private static bool BuildingIs<T>(GameEntity entity) => entity.hasBuilding && entity.building.Value is T;
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
