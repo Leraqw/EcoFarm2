@@ -146,7 +146,7 @@
         "Resource": {
           "$ref": "12"
         },
-        "EfficiencyCoefficient": 10,
+        "EfficiencyCoefficient": 2,
         "Title": "Windmill",
         "Description": "Generating electricity",
         "Price": 100
