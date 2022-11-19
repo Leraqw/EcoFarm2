@@ -44,7 +44,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
 			   .Do((e) => e.isOccupied = true)
 			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
-			   .Do((e) => e.AddConsumptionCoefficient(GetFactory(e).ResourceConsumptionCoefficient))
+			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 
 		private static bool BuildingIsFactory(GameEntity entity) 
@@ -61,6 +61,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.view.Value.DestroyGameObject())
 			   .Do((e) => e.RemovePositionListener())
 			   .Do((e) => e.RemoveView())
+			   .Do((e) => e.isSign = false)
 		/**/;
 
 		private static FactoryBuilding GetFactory(GameEntity e) => (FactoryBuilding)e.building.Value;
