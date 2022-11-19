@@ -45,72 +45,73 @@ public static class GameComponentsLookup {
     public const int GoalCompleted = 34;
     public const int Goal = 35;
     public const int Growth = 36;
-    public const int InputProducts = 37;
-    public const int Inventory = 38;
-    public const int InventoryItem = 39;
-    public const int LevelTimer = 40;
-    public const int MouseClick = 41;
-    public const int MouseDown = 42;
-    public const int MouseUp = 43;
-    public const int Occupied = 44;
-    public const int Pickable = 45;
-    public const int Picked = 46;
-    public const int Position = 47;
-    public const int PreparationInProcess = 48;
-    public const int Prepared = 49;
-    public const int Product = 50;
-    public const int ProgressBar = 51;
-    public const int ProportionalScale = 52;
-    public const int Radius = 53;
-    public const int Renew = 54;
-    public const int RenewPrice = 55;
-    public const int RequirePreparation = 56;
-    public const int RequireProduct = 57;
-    public const int RequireSprite = 58;
-    public const int RequireTreeOnPosition = 59;
-    public const int RequireView = 60;
-    public const int SellCoefficient = 61;
-    public const int SellDeal = 62;
-    public const int SellWindow = 63;
-    public const int Sign = 64;
-    public const int SliderMaxValue = 65;
-    public const int SliderValue = 66;
-    public const int SpawnPosition = 67;
-    public const int Sprite = 68;
-    public const int SpriteToLoad = 69;
-    public const int Storage = 70;
-    public const int TargetActivity = 71;
-    public const int TargetPosition = 72;
-    public const int TargetScale = 73;
-    public const int Text = 74;
-    public const int Tree = 75;
-    public const int UiElement = 76;
-    public const int UiParent = 77;
-    public const int Used = 78;
-    public const int View = 79;
-    public const int ViewPrefab = 80;
-    public const int Watered = 81;
-    public const int Watering = 82;
-    public const int WaterResource = 83;
-    public const int WillFall = 84;
-    public const int Destroy = 85;
-    public const int CoinsCountListener = 86;
-    public const int CurrentQuantityListener = 87;
-    public const int DurationListener = 88;
-    public const int FactoryListener = 89;
-    public const int GameTextListener = 90;
-    public const int GoalCompletedListener = 91;
-    public const int GoalListener = 92;
-    public const int InventoryItemListener = 93;
-    public const int PositionListener = 94;
-    public const int ProgressBarListener = 95;
-    public const int ProportionalScaleListener = 96;
-    public const int SliderMaxValueListener = 97;
-    public const int SliderValueListener = 98;
-    public const int SpriteListener = 99;
-    public const int WateringListener = 100;
+    public const int InFactory = 37;
+    public const int InputProducts = 38;
+    public const int Inventory = 39;
+    public const int InventoryItem = 40;
+    public const int LevelTimer = 41;
+    public const int MouseClick = 42;
+    public const int MouseDown = 43;
+    public const int MouseUp = 44;
+    public const int Occupied = 45;
+    public const int Pickable = 46;
+    public const int Picked = 47;
+    public const int Position = 48;
+    public const int PreparationInProcess = 49;
+    public const int Prepared = 50;
+    public const int Product = 51;
+    public const int ProgressBar = 52;
+    public const int ProportionalScale = 53;
+    public const int Radius = 54;
+    public const int Renew = 55;
+    public const int RenewPrice = 56;
+    public const int RequirePreparation = 57;
+    public const int RequireProduct = 58;
+    public const int RequireSprite = 59;
+    public const int RequireTreeOnPosition = 60;
+    public const int RequireView = 61;
+    public const int SellCoefficient = 62;
+    public const int SellDeal = 63;
+    public const int SellWindow = 64;
+    public const int Sign = 65;
+    public const int SliderMaxValue = 66;
+    public const int SliderValue = 67;
+    public const int SpawnPosition = 68;
+    public const int Sprite = 69;
+    public const int SpriteToLoad = 70;
+    public const int Storage = 71;
+    public const int TargetActivity = 72;
+    public const int TargetPosition = 73;
+    public const int TargetScale = 74;
+    public const int Text = 75;
+    public const int Tree = 76;
+    public const int UiElement = 77;
+    public const int UiParent = 78;
+    public const int Used = 79;
+    public const int View = 80;
+    public const int ViewPrefab = 81;
+    public const int Watered = 82;
+    public const int Watering = 83;
+    public const int WaterResource = 84;
+    public const int WillFall = 85;
+    public const int Destroy = 86;
+    public const int CoinsCountListener = 87;
+    public const int CurrentQuantityListener = 88;
+    public const int DurationListener = 89;
+    public const int FactoryListener = 90;
+    public const int GameTextListener = 91;
+    public const int GoalCompletedListener = 92;
+    public const int GoalListener = 93;
+    public const int InventoryItemListener = 94;
+    public const int PositionListener = 95;
+    public const int ProgressBarListener = 96;
+    public const int ProportionalScaleListener = 97;
+    public const int SliderMaxValueListener = 98;
+    public const int SliderValueListener = 99;
+    public const int SpriteListener = 100;
+    public const int WateringListener = 101;
 
-    public const int TotalComponents = 101;
+    public const int TotalComponents = 102;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -150,6 +151,7 @@ public static class GameComponentsLookup {
         "GoalCompleted",
         "Goal",
         "Growth",
+        "InFactory",
         "InputProducts",
         "Inventory",
         "InventoryItem",
@@ -254,6 +256,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.GoalCompletedComponent),
         typeof(Code.ECS.Components.GoalComponent),
         typeof(Code.ECS.Components.GrowthComponent),
+        typeof(Code.ECS.Components.InFactoryComponent),
         typeof(Code.ECS.Components.InputProductsComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
