@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
+using Entitas.VisualDebugging.Unity;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.UI
@@ -18,7 +21,7 @@ namespace Code.ECS.Systems.UI
 
 		private IEnumerable<Building> Buildings => _contexts.game.storage.Value.Buildings;
 
-		private BuildView BuildView => _contexts.services.uiService.Value.BuildView;
+		private BuildView BuildViewPrefab => _contexts.services.uiService.Value.BuildView;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PreparationInProcess, BuildWindow));
@@ -32,11 +35,17 @@ namespace Code.ECS.Systems.UI
 			         .Do(FillBuildingsList)
 			         .Do(EndPreparations);
 
-		private static void CleanBuildingList(GameEntity window)
-			=> window.buildWindow.Value.ContentView.transform.DestroyChildrens();
+		private void CleanBuildingList(GameEntity window)
+		{
+			_contexts.game.GetEntitiesWithAttachedTo(window.attachableIndex)
+			         .Where((e) => e.hasView)
+			         .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
+			         .Do((entities) => entities.ForEach((e) => e.view.Value.DestroyGameObject()))
+				;
+		}
 
 		private void FillBuildingsList(GameEntity window)
-			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildView, window));
+			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildViewPrefab, window));
 
 		private void BindBuildingButtonView(Building building, Component prefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
@@ -44,7 +53,9 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
-			            .Do((e) => e.AddPosition(window.position));
+			            .Do((e) => e.AddPosition(window.position))
+			            .Do((e) => e.AddAttachedTo(window.attachableIndex))
+		/**/;
 
 		private static void EndPreparations(GameEntity window)
 			=> window.Do((e) => e.isPreparationInProcess = false)

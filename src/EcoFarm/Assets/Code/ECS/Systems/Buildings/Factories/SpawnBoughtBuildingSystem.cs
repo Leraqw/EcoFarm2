@@ -5,6 +5,7 @@ using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using EcoFarmDataModule;
 using Entitas;
+using Entitas.VisualDebugging.Unity;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
@@ -22,7 +23,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		}
 
 		// TODO: Remove Linq
-		private FactoryBuilding FirstFactory => ((FactoryBuilding)_contexts.game.storage.Value.Buildings.First());
+		private FactoryBuilding FirstFactory => (FactoryBuilding)_contexts.game.storage.Value.Buildings.First();
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, Bought, GameMatcher.Building));
@@ -37,11 +38,14 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> sign.isOccupied == false && sign.HasSamePosition(button);
 
 		private void Replace(GameEntity sign)
-			=> sign.Do((e) => e.RemoveView())
-			       .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
-			       .Do((e) => e.isOccupied = true)
-			       .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
-			       .Do((e) => e.AddConsumptionCoefficient(FirstFactory.ResourceConsumptionCoefficient));
+			=> sign
+			   .Do((e) => e.ReplaceDebugName("Building Factory"))
+			   .Do((e) => e.view.Value.DestroyGameObject())
+			   .Do((e) => e.RemoveView())
+			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
+			   .Do((e) => e.isOccupied = true)
+			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddConsumptionCoefficient(FirstFactory.ResourceConsumptionCoefficient));
 
 		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
 	}

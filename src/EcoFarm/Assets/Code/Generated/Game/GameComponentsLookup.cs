@@ -90,22 +90,23 @@ public static class GameComponentsLookup {
     public const int Watering = 79;
     public const int WaterResource = 80;
     public const int WillFall = 81;
-    public const int CoinsCountListener = 82;
-    public const int CurrentQuantityListener = 83;
-    public const int DurationListener = 84;
-    public const int GameTextListener = 85;
-    public const int GoalCompletedListener = 86;
-    public const int GoalListener = 87;
-    public const int InventoryItemListener = 88;
-    public const int PositionListener = 89;
-    public const int ProgressBarListener = 90;
-    public const int ProportionalScaleListener = 91;
-    public const int SliderMaxValueListener = 92;
-    public const int SliderValueListener = 93;
-    public const int SpriteListener = 94;
-    public const int WateringListener = 95;
+    public const int Destroy = 82;
+    public const int CoinsCountListener = 83;
+    public const int CurrentQuantityListener = 84;
+    public const int DurationListener = 85;
+    public const int GameTextListener = 86;
+    public const int GoalCompletedListener = 87;
+    public const int GoalListener = 88;
+    public const int InventoryItemListener = 89;
+    public const int PositionListener = 90;
+    public const int ProgressBarListener = 91;
+    public const int ProportionalScaleListener = 92;
+    public const int SliderMaxValueListener = 93;
+    public const int SliderValueListener = 94;
+    public const int SpriteListener = 95;
+    public const int WateringListener = 96;
 
-    public const int TotalComponents = 96;
+    public const int TotalComponents = 97;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -190,6 +191,7 @@ public static class GameComponentsLookup {
         "Watering",
         "WaterResource",
         "WillFall",
+        "Destroy",
         "CoinsCountListener",
         "CurrentQuantityListener",
         "DurationListener",
@@ -289,6 +291,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WaterResourceComponent),
         typeof(Code.ECS.Components.WillFallComponent),
+        typeof(Code.Global.PlayerContext.Components.DestroyComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
         typeof(DurationListenerComponent),
