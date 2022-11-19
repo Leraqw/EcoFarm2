@@ -2,10 +2,8 @@
 using System.Linq;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using Codice.Utils;
 using Entitas;
 using EcoFarmDataModule;
-using UnityEngine;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
@@ -40,7 +38,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddRequireProducts(product.Key))
+			            .Do((e) => e.AddRequireProduct(product.Key))
 			            .Do((e) => e.AddPosition(factory.position))
 			            .Do((e) => e.AddCount(product.Value))
 		/**/;

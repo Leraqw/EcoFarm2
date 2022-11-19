@@ -63,7 +63,5 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.RemoveView())
 			   .Do((e) => e.isSign = false)
 		/**/;
-
-		private static FactoryBuilding GetFactory(GameEntity e) => (FactoryBuilding)e.building.Value;
 	}
 }

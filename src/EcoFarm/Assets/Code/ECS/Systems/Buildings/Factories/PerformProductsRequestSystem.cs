@@ -14,7 +14,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> _products = contexts.game.GetGroup(AllOf(Product, Collected));
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(RequireProducts);
+			=> context.CreateCollector(RequireProduct);
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -23,7 +23,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private void Perform(GameEntity request)
 			=> _products
 			   .GetEntities()
-			   .Where((e) => e.product.Value == request.product.Value)
+			   .Where((e) => e.product.Value == request.requireProduct.Value)
 			   .ForEach((e) => e.AddTargetPosition(request.position));
 	}
 }

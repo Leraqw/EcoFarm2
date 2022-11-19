@@ -65,7 +65,7 @@ public static class GameComponentsLookup {
     public const int Renew = 54;
     public const int RenewPrice = 55;
     public const int RequirePreparation = 56;
-    public const int RequireProducts = 57;
+    public const int RequireProduct = 57;
     public const int RequireSprite = 58;
     public const int RequireTreeOnPosition = 59;
     public const int RequireView = 60;
@@ -170,7 +170,7 @@ public static class GameComponentsLookup {
         "Renew",
         "RenewPrice",
         "RequirePreparation",
-        "RequireProducts",
+        "RequireProduct",
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
@@ -274,7 +274,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RenewComponent),
         typeof(Code.ECS.Components.RenewPriceComponent),
         typeof(Code.ECS.Components.RequirePreparationComponent),
-        typeof(Code.ECS.Components.RequireProductsComponent),
+        typeof(Code.ECS.Components.RequireProductComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
