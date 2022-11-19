@@ -32,12 +32,16 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private bool IsEnoughOnWarehouse(GameEntity entity)
 		{
-			var groups = entity.factory.Value.InputProducts
-			                    .GroupBy(x => x);
-			var required = groups
-			                     .ToDictionary(x => x.Key, x => x.Count());
+			var groups = GetGroups(entity);
+			var requiredProducts = groups.ToDictionary(x => x.Key, x => x.Count());
 
-			return groups.All((p) => AvailableProducts[p.Key] >= required[p.Key]);
+			return groups.All((p) => AvailableProducts[p.Key] >= requiredProducts[p.Key]);
+		}
+
+		private static IGrouping<Product, Product>[] GetGroups(GameEntity entity)
+		{
+			var groups = entity.factory.Value.InputProducts.GroupBy(x => x);
+			return groups as IGrouping<Product, Product>[] ?? groups.ToArray();
 		}
 
 		private void TakeProducts(GameEntity entity) { }
