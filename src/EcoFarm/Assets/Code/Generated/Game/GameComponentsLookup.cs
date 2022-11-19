@@ -65,51 +65,52 @@ public static class GameComponentsLookup {
     public const int Renew = 54;
     public const int RenewPrice = 55;
     public const int RequirePreparation = 56;
-    public const int RequireSprite = 57;
-    public const int RequireTreeOnPosition = 58;
-    public const int RequireView = 59;
-    public const int SellCoefficient = 60;
-    public const int SellDeal = 61;
-    public const int SellWindow = 62;
-    public const int Sign = 63;
-    public const int SliderMaxValue = 64;
-    public const int SliderValue = 65;
-    public const int SpawnPosition = 66;
-    public const int Sprite = 67;
-    public const int SpriteToLoad = 68;
-    public const int Storage = 69;
-    public const int TargetActivity = 70;
-    public const int TargetPosition = 71;
-    public const int TargetScale = 72;
-    public const int Text = 73;
-    public const int Tree = 74;
-    public const int UiElement = 75;
-    public const int UiParent = 76;
-    public const int Used = 77;
-    public const int View = 78;
-    public const int ViewPrefab = 79;
-    public const int Watered = 80;
-    public const int Watering = 81;
-    public const int WaterResource = 82;
-    public const int WillFall = 83;
-    public const int Destroy = 84;
-    public const int CoinsCountListener = 85;
-    public const int CurrentQuantityListener = 86;
-    public const int DurationListener = 87;
-    public const int FactoryListener = 88;
-    public const int GameTextListener = 89;
-    public const int GoalCompletedListener = 90;
-    public const int GoalListener = 91;
-    public const int InventoryItemListener = 92;
-    public const int PositionListener = 93;
-    public const int ProgressBarListener = 94;
-    public const int ProportionalScaleListener = 95;
-    public const int SliderMaxValueListener = 96;
-    public const int SliderValueListener = 97;
-    public const int SpriteListener = 98;
-    public const int WateringListener = 99;
+    public const int RequireProducts = 57;
+    public const int RequireSprite = 58;
+    public const int RequireTreeOnPosition = 59;
+    public const int RequireView = 60;
+    public const int SellCoefficient = 61;
+    public const int SellDeal = 62;
+    public const int SellWindow = 63;
+    public const int Sign = 64;
+    public const int SliderMaxValue = 65;
+    public const int SliderValue = 66;
+    public const int SpawnPosition = 67;
+    public const int Sprite = 68;
+    public const int SpriteToLoad = 69;
+    public const int Storage = 70;
+    public const int TargetActivity = 71;
+    public const int TargetPosition = 72;
+    public const int TargetScale = 73;
+    public const int Text = 74;
+    public const int Tree = 75;
+    public const int UiElement = 76;
+    public const int UiParent = 77;
+    public const int Used = 78;
+    public const int View = 79;
+    public const int ViewPrefab = 80;
+    public const int Watered = 81;
+    public const int Watering = 82;
+    public const int WaterResource = 83;
+    public const int WillFall = 84;
+    public const int Destroy = 85;
+    public const int CoinsCountListener = 86;
+    public const int CurrentQuantityListener = 87;
+    public const int DurationListener = 88;
+    public const int FactoryListener = 89;
+    public const int GameTextListener = 90;
+    public const int GoalCompletedListener = 91;
+    public const int GoalListener = 92;
+    public const int InventoryItemListener = 93;
+    public const int PositionListener = 94;
+    public const int ProgressBarListener = 95;
+    public const int ProportionalScaleListener = 96;
+    public const int SliderMaxValueListener = 97;
+    public const int SliderValueListener = 98;
+    public const int SpriteListener = 99;
+    public const int WateringListener = 100;
 
-    public const int TotalComponents = 100;
+    public const int TotalComponents = 101;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -169,6 +170,7 @@ public static class GameComponentsLookup {
         "Renew",
         "RenewPrice",
         "RequirePreparation",
+        "RequireProducts",
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
@@ -272,6 +274,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.RenewComponent),
         typeof(Code.ECS.Components.RenewPriceComponent),
         typeof(Code.ECS.Components.RequirePreparationComponent),
+        typeof(Code.ECS.Components.RequireProductsComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),

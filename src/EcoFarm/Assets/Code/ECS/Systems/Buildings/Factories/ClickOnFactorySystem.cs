@@ -2,6 +2,7 @@
 using System.Linq;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using Codice.Utils;
 using Entitas;
 using EcoFarmDataModule;
 using UnityEngine;
@@ -25,25 +26,29 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites)
-		{
-			entites.ForEach((e) => Debug.Log($"Is enough products: {IsEnoughOnWarehouse(e)}"));
-			// entites.ForEach(TakeProducts, @if: IsEnoughOnWarehouse);
-		}
+			=> entites.ForEach(TakeProducts, @if: IsEnoughOnWarehouse);
 
-		private bool IsEnoughOnWarehouse(GameEntity entity)
+		private bool IsEnoughOnWarehouse(GameEntity factory)
 		{
-			var groups = GetGroups(entity);
+			var groups = GetGroups(factory);
 			var requiredProducts = groups.ToDictionary(x => x.Key, x => x.Count());
 
 			return groups.All((p) => AvailableProducts[p.Key] >= requiredProducts[p.Key]);
 		}
+
+		private void TakeProducts(GameEntity factory) => AvailableProducts.ForEach((p) => CreateRequest(p, factory));
+
+		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddRequireProducts(product.Key))
+			            .Do((e) => e.AddPosition(factory.position))
+			            .Do((e) => e.AddCount(product.Value))
+		/**/;
 
 		private static IGrouping<Product, Product>[] GetGroups(GameEntity entity)
 		{
 			var groups = entity.factory.Value.InputProducts.GroupBy(x => x);
 			return groups as IGrouping<Product, Product>[] ?? groups.ToArray();
 		}
-
-		private void TakeProducts(GameEntity entity) { }
 	}
 }
