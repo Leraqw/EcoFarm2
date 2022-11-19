@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Products.Fruit
 {
 	public sealed class MarkFellFruitAsPickableSystem : ReactiveSystem<GameEntity>
 	{

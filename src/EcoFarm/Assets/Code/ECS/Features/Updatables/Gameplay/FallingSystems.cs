@@ -1,5 +1,5 @@
-﻿using Code.ECS.Systems.Product.Fruit;
-using Code.ECS.Systems.Product.Fruit.Falling;
+﻿using Code.ECS.Systems.Products.Fruit;
+using Code.ECS.Systems.Products.Fruit.Falling;
 
 namespace Code.ECS.Features.Updatables.Gameplay
 {

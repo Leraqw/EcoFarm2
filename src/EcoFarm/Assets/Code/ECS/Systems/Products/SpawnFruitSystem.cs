@@ -7,7 +7,7 @@ using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product
+namespace Code.ECS.Systems.Products
 {
 	public sealed class SpawnFruitSystem : IExecuteSystem
 	{

@@ -3,7 +3,7 @@ using Code.Utils.Extensions;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Products.Fruit
 {
 	public sealed class DetachFromTreeSystem : ReactiveSystem<GameEntity>
 	{

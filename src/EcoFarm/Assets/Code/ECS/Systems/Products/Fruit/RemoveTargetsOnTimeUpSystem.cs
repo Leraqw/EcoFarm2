@@ -1,10 +1,10 @@
-﻿using Code.ECS.Systems.Product.Fruit.Growing;
+﻿using Code.ECS.Systems.Products.Fruit.Growing;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit
+namespace Code.ECS.Systems.Products.Fruit
 {
 	public sealed class RemoveTargetsOnTimeUpSystem : ICleanupSystem
 	{

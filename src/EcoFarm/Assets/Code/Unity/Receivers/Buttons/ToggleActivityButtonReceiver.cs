@@ -12,6 +12,8 @@ namespace Code.Unity.Receivers.Buttons
 		protected override void OnButtonClick()
 			=> Context.CreateEntity()
 			          .Do((e) => e.AddAttachedTo(_window.Entity.attachableIndex))
-			          .Do((e) => e.AddTargetActivity(_targetActivity));
+			          .Do((e) => e.AddTargetActivity(_targetActivity))
+			          .Do((e) => e.isDestroy = true)
+		/**/;
 	}
 }

@@ -17,7 +17,7 @@ namespace Code.Utils.Extensions.Entitas
 			=> GetResourceOf(entity).DecreaseResourceCurrentValue(entity.consumptionCoefficient);
 
 		public static bool IsResourceExhausted(this GameEntity entity)
-			=> GetResourceOf(entity).progressBar.Value.Current <= 0;
+			=> GetResourceOf(entity).progressBar.Value.Current <= entity.consumptionCoefficient;
 
 		public static void UpdateResourceCurrentValue(this GameEntity @this, float value)
 			=> @this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });

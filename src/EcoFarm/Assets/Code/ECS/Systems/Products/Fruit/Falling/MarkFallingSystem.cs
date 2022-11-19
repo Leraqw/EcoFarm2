@@ -7,7 +7,7 @@ using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit.Falling
+namespace Code.ECS.Systems.Products.Fruit.Falling
 {
 	public sealed class MarkFallingSystem : ReactiveSystem<GameEntity>
 	{

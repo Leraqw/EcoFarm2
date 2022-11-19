@@ -5,7 +5,7 @@ using Code.Utils.Extensions;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Product.Fruit.Cooldown
+namespace Code.ECS.Systems.Products.Fruit.Cooldown
 {
 	public sealed class WaitAfterGrowingSystem : ReactiveSystem<GameEntity>
 	{

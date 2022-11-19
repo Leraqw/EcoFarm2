@@ -16,4 +16,8 @@ namespace Code.ECS.Components
 	[Game] public sealed class DevelopmentObjectComponent : ValueComponent<DevelopmentObject> { }
 	
 	[Game] [Event(Self)] public sealed class BuildingComponent : ValueComponent<Building> { }
+	
+	[Game] [Event(Self)] public sealed class FactoryComponent : ValueComponent<FactoryBuilding> { }
+
+	[Game] public sealed class InputProductsComponent : ValueComponent<Product[]> { }
 }

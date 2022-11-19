@@ -11,5 +11,5 @@ namespace Code.Global.PlayerContext.Components
 
 	[Player] public sealed class SessionResultComponent : ValueComponent<SessionResult> { }
 
-	[Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : FlagComponent { }
+	[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : FlagComponent { }
 }

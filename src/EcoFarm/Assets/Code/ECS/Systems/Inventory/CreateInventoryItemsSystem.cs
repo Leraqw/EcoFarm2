@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Inventory
 
 		public void Initialize() => Storage.Products.ForEach(Create);
 
-		private void Create(EcoFarmDataModule.Product product)
+		private void Create(Product product)
 			=> _contexts.game.CreateInventoryItem(product)
 			            .Do((e) => e.AddView(UIService.AppleView));
 	}

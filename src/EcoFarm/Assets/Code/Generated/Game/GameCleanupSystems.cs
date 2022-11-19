@@ -18,5 +18,6 @@ public sealed class GameCleanupSystems : Feature {
         Add(new RemoveMouseDownGameSystem(contexts));
         Add(new RemoveMouseUpGameSystem(contexts));
         Add(new RemoveButtonClickGameSystem(contexts));
+        Add(new DestroyDestroyGameSystem(contexts));
     }
 }
