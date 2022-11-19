@@ -16,29 +16,35 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(RequireProduct, Count).NoneOf(Duration));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Perform);
 
 		private void Perform(GameEntity request)
 		{
-			_products
-				.GetEntities()
-				.First((e) => e.product.Value == request.requireProduct.Value)
-				.Do((product) => Send(request, product));
-
 			if (request.count > 0)
 			{
-				request
-					.Do((e) => e.ReplaceCount(request.count - 1))
-					.Do((e) => e.ReplaceDuration(0.1f))
-					;
+				SendFirstMatch(request);
+				WaitBeforeSendNext(request);
 			}
 			else
 			{
 				request.isDestroy = true;
 			}
 		}
+
+		private static void WaitBeforeSendNext(GameEntity request)
+			=> request
+			   .Do((e) => e.ReplaceCount(request.count - 1))
+			   .Do((e) => e.ReplaceDuration(0.1f))
+		/**/;
+
+		private void SendFirstMatch(GameEntity request)
+			=> _products
+			   .GetEntities()
+			   .First((e) => e.product.Value == request.requireProduct.Value)
+			   .Do((product) => Send(request, product))
+		/**/;
 
 		private static void Send(GameEntity request, GameEntity product)
 			=> product
