@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		public ClickOnFactorySystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, MouseClick));
+			=> context.CreateCollector(AllOf(Factory, MouseDown));
 
 		protected override bool Filter(GameEntity entity) => true;
 
