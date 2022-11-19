@@ -42,11 +42,17 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
 			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)
-			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory))
+			   .Do(AddRelativeView)
 			   .Do((e) => e.isOccupied = true)
 			   .Do(AddConsumption, @if: (e) => e.hasFactory)
 			   .Do(AddProduction, @if: (e) => e.hasGenerator)
 		/**/;
+
+		private void AddRelativeView(GameEntity entity) => 
+			entity
+				.Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
+				.Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Windmill), @if: (e) => e.hasGenerator)
+			/**/;
 
 		private void AddProduction(GameEntity entity)
 			=> entity
