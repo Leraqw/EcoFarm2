@@ -35,7 +35,7 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "SecondsForLevel": 360,
+        "SecondsForLevel": 60,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
@@ -53,7 +53,7 @@
               "DevelopmentObject": {
                 "$ref": "2"
               },
-              "TargetQuantity": 99
+              "TargetQuantity": 15
             }
           ]
         }
@@ -73,7 +73,7 @@
               "DevelopmentObject": {
                 "$ref": "3"
               },
-              "TargetQuantity": 15
+              "TargetQuantity": 10
             }
           ]
         }
@@ -139,6 +139,17 @@
         "Title": "Apple Juice Factory",
         "Description": "Making 1 apple juice from 5 apples",
         "Price": 20
+      },
+      {
+        "$id": "13",
+        "$type": "EcoFarmDataModule.Generator, EcoFarmModel",
+        "Resource": {
+          "$ref": "12"
+        },
+        "EfficiencyCoefficient": 10,
+        "Title": "Windmill",
+        "Description": "Generating electricity",
+        "Price": 100
       }
     ]
   }
