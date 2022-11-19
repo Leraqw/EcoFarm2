@@ -29,12 +29,19 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private bool IsEnoughOnWarehouse(GameEntity factory)
 		{
 			var groups = GetGroups(factory);
-			var requiredProducts = groups.ToDictionary(x => x.Key, x => x.Count());
+			var requiredProducts = RequiredProducts(groups);
 
 			return groups.All((p) => AvailableProducts[p.Key] >= requiredProducts[p.Key]);
 		}
 
-		private void TakeProducts(GameEntity factory) => AvailableProducts.ForEach((p) => CreateRequest(p, factory));
+		private void TakeProducts(GameEntity factory)
+			=> RequiredProducts(factory).ForEach((p) => CreateRequest(p, factory));
+
+		private static Dictionary<Product, int> RequiredProducts(GameEntity factory)
+			=> RequiredProducts(GetGroups(factory));
+
+		private static Dictionary<Product, int> RequiredProducts(IGrouping<Product, Product>[] groups)
+			=> groups.ToDictionary(x => x.Key, x => x.Count());
 
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 			=> _contexts.game.CreateEntity()
@@ -45,7 +52,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private static IGrouping<Product, Product>[] GetGroups(GameEntity entity)
 		{
-			var groups = entity.factory.Value.InputProducts.GroupBy(x => x);
+			var groups = entity.factory.Value.InputProducts.GroupBy((x) => x);
 			return groups as IGrouping<Product, Product>[] ?? groups.ToArray();
 		}
 	}

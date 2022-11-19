@@ -14,22 +14,37 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> _products = contexts.game.GetGroup(AllOf(Product, Collected).NoneOf(InFactory));
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(RequireProduct);
+			=> context.CreateCollector(AllOf(RequireProduct, Count).NoneOf(Duration));
 
 		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Perform);
 
-		private void Perform(GameEntity r)
-			=> _products
-			   .GetEntities()
-			   .Where((e) => e.product.Value == r.requireProduct.Value)
-			   .ForEach((product) => Send(r, product));
+		private void Perform(GameEntity request)
+		{
+			_products
+				.GetEntities()
+				.First((e) => e.product.Value == request.requireProduct.Value)
+				.Do((product) => Send(request, product));
 
-		private static GameEntity Send(GameEntity request, GameEntity product)
+			if (request.count > 0)
+			{
+				request
+					.Do((e) => e.ReplaceCount(request.count - 1))
+					.Do((e) => e.ReplaceDuration(0.1f))
+					;
+			}
+			else
+			{
+				request.isDestroy = true;
+			}
+		}
+
+		private static void Send(GameEntity request, GameEntity product)
 			=> product
 			   .Do((e) => e.AddTargetPosition(request.position))
 			   .Do((e) => e.AddDuration(1))
-			   .Do((e) => e.isInFactory = true);
+			   .Do((e) => e.isInFactory = true)
+		/**/;
 	}
 }
