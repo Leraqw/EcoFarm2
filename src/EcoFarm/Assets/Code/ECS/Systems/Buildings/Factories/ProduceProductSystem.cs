@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		public ProduceProductSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Ready));
+			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp));
 
 		protected override bool Filter(GameEntity entity) => entity.isReady;
 
@@ -34,6 +34,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 			            .AttachTo(entity)
 			            .Do((e) => e.AddPosition(entity.GetActualPosition() + ProductSpawnOffset))
 			            .Do((e) => e.AddViewPrefab(_contexts.GetConfiguration().Resource.Prefab.AppleJuice))
+			            .Do((e) => e.isPickable = true)
+			            .Do((e) => e.isInFactory = true)
 		/**/;
 	}
 }

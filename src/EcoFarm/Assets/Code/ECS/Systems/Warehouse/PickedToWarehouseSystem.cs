@@ -30,6 +30,8 @@ namespace Code.ECS.Systems.Warehouse
 		private void StartMoving(GameEntity entity)
 			=> entity.Do((e) => e.isCollected = true)
 			         .Do((e) => e.AddTargetPosition(WarehousePosition))
-			         .Do((e) => e.AddDuration(Balance.Warehouse.PickupDuration));
+			         .Do((e) => e.AddDuration(Balance.Warehouse.PickupDuration))
+			         .Do((e) => e.isInFactory = false, @if: (e) => e.isInFactory)
+		/**/ ;
 	}
 }
