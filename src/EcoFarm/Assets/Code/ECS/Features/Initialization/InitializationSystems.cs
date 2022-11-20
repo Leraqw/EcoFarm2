@@ -28,7 +28,7 @@ namespace Code.ECS.Features.Initialization
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));
-			Add(new SpawnBuildPositionsSystem(contexts));
+			Add(new SpawnSignsSystem(contexts));
 			Add(new SpawnCraneSystem(contexts));
 			Add(new SpawnBucketSystem(contexts));
 		}

@@ -49,6 +49,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			         .Do((e) => e.AddRequireProduct(product.Key))
 			         .Do((e) => e.AddPosition(factory.position))
 			         .Do((e) => e.AddCount(product.Value))
+			         .AttachTo(factory)
 				;
 
 			_contexts.game.GetInventoryItems()
