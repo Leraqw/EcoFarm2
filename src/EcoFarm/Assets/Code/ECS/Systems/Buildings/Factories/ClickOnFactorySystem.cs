@@ -12,7 +12,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 	{
 		private readonly Contexts _contexts;
 
-		private Dictionary<Product, int> _cash;
+		private Dictionary<Product, int> _requiredProducts;
 
 		public ClickOnFactorySystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
@@ -29,14 +29,14 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Handle(GameEntity entity)
 			=> entity
-			   .Do((e) => _cash = e.RequiredProducts())
+			   .Do((e) => _requiredProducts = e.RequiredProducts())
 			   .Do(TakeProducts, @if: IsEnoughOnWarehouse)
 		/**/;
 
 		private bool IsEnoughOnWarehouse(GameEntity factory)
-			=> _cash.All((p) => AvailableProducts[p.Key] >= _cash[p.Key]);
+			=> _requiredProducts.All((p) => AvailableProducts[p.Key] >= p.Value);
 
-		private void TakeProducts(GameEntity factory) => _cash.ForEach((p) => CreateRequest(p, factory));
+		private void TakeProducts(GameEntity factory) => _requiredProducts.ForEach((p) => CreateRequest(p, factory));
 
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 		{
@@ -48,7 +48,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 				;
 
 			_contexts.game.GetInventoryItem(product.Key)
-			         .DecreaseInventoryItemCount(product.Value);
+			         .DecreaseInventoryItemCount(product.Value)
+				;
 		}
 	}
 }
