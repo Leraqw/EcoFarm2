@@ -2,6 +2,7 @@
 using Code.Services.Game.Interfaces;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using UnityEngine;
 
@@ -25,16 +26,7 @@ namespace Code.ECS.Systems.Buildings
 			            .Do((e) => e.AddPosition(position))
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
 			            .Do((e) => e.isSign = true)
-			            .Do((e) => e.AddAttachableIndex())
+			            .AddAttachableIndex()
 			/**/;
-	}
-
-	public static class AttachExtensions
-	{
-		public static GameEntity AttachTo(this GameEntity @this, GameEntity attachable) 
-			=> @this.Do((e) => e.AddAttachedTo(attachable.attachableIndex));
-		
-		public static GameEntity AddAttachableIndex(this GameEntity @this) 
-			=> @this.Do((e) => e.AddAttachableIndex(@this.creationIndex));
 	}
 }
