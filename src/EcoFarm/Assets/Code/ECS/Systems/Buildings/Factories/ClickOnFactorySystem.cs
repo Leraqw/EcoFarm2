@@ -12,6 +12,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 	{
 		private readonly Contexts _contexts;
 
+		private Dictionary<Product, int> _cash;
+
 		public ClickOnFactorySystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
 		private Dictionary<Product, int> AvailableProducts
@@ -23,25 +25,18 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		protected override bool Filter(GameEntity entity) => true;
 
-		protected override void Execute(List<GameEntity> entites)
-			=> entites.ForEach(TakeProducts, @if: IsEnoughOnWarehouse);
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Handle);
+
+		private void Handle(GameEntity entity)
+			=> entity
+			   .Do((e) => _cash = e.RequiredProducts())
+			   .Do(TakeProducts, @if: IsEnoughOnWarehouse)
+		/**/;
 
 		private bool IsEnoughOnWarehouse(GameEntity factory)
-		{
-			var groups = GetGroups(factory);
-			var requiredProducts = RequiredProducts(groups);
+			=> _cash.All((p) => AvailableProducts[p.Key] >= _cash[p.Key]);
 
-			return groups.All((p) => AvailableProducts[p.Key] >= requiredProducts[p.Key]);
-		}
-
-		private void TakeProducts(GameEntity factory)
-			=> RequiredProducts(factory).ForEach((p) => CreateRequest(p, factory));
-
-		private static Dictionary<Product, int> RequiredProducts(GameEntity factory)
-			=> RequiredProducts(GetGroups(factory));
-
-		private static Dictionary<Product, int> RequiredProducts(IGrouping<Product, Product>[] groups)
-			=> groups.ToDictionary(x => x.Key, x => x.Count());
+		private void TakeProducts(GameEntity factory) => _cash.ForEach((p) => CreateRequest(p, factory));
 
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 		{
@@ -54,12 +49,6 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 			_contexts.game.GetInventoryItem(product.Key)
 			         .DecreaseInventoryItemCount(product.Value);
-		}
-
-		private static IGrouping<Product, Product>[] GetGroups(GameEntity entity)
-		{
-			var groups = entity.factory.Value.InputProducts.GroupBy((x) => x);
-			return groups as IGrouping<Product, Product>[] ?? groups.ToArray();
 		}
 	}
 }
