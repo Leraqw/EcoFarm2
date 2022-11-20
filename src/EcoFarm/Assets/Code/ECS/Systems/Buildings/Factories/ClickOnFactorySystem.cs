@@ -52,8 +52,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			         .AttachTo(factory)
 				;
 
-			_contexts.game.GetInventoryItems()
-			         .Single((p) => p.product.Value == product.Key)
+			_contexts.game.GetInventoryItem(product.Key)
 			         .DecreaseInventoryItemCount(product.Value);
 		}
 
