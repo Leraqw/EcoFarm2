@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -32,6 +33,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			            .Do((e) => e.AddProduct(entity.factory.Value.OutputProducts.First()))
 			            .AttachTo(entity)
 			            .Do((e) => e.AddPosition(entity.GetActualPosition() + ProductSpawnOffset))
+			            .Do((e) => e.AddViewPrefab(_contexts.GetConfiguration().Resource.Prefab.AppleJuice))
 		/**/;
 	}
 }
