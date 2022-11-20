@@ -22,7 +22,7 @@ namespace Code.Utils.Extensions.Entitas
 			        .AttachTo(@this.inventoryEntity);
 
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this)
-			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex)
+			=> @this.inventoryEntity.GetAttachedEntities()
 			        .Where((e) => e.hasInventoryItem);
 
 		public static void IncreaseInventoryItemCount(this GameEntity @this, int count)

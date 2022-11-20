@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components;
 using Entitas;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
@@ -15,9 +14,7 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private IEnumerable<GameEntity> InventoryItems => _contexts.game.GetEntitiesWithAttachedTo(InventoryIndex);
-
-		private AttachableIndexComponent InventoryIndex => _contexts.game.inventoryEntity.attachableIndex;
+		private IEnumerable<GameEntity> InventoryItems => _contexts.game.inventoryEntity.GetAttachedEntities();
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(SellDeal, Count));

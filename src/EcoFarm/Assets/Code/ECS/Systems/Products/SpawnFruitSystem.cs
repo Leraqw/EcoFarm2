@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions;
@@ -26,6 +25,8 @@ namespace Code.ECS.Systems.Products
 
 		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
 
+		private static bool IsHasNotFruits(GameEntity entity) => entity.GetAttachedEntities().Any() == false;
+
 		private void SpawnFruitFor(GameEntity tree)
 			=> _context.CreateEntity()
 			           .Do((e) => e.AddDebugName("Fruit"))
@@ -35,10 +36,5 @@ namespace Code.ECS.Systems.Products
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
 			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime));
-
-		private bool IsHasNotFruits(GameEntity entity) => GetAttachedFruits(entity).Any() == false;
-
-		private IEnumerable<GameEntity> GetAttachedFruits(GameEntity entity)
-			=> _context.GetEntitiesWithAttachedTo(entity.attachableIndex);
 	}
 }
