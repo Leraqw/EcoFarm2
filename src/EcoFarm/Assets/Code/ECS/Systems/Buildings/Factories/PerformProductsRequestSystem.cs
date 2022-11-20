@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
@@ -31,8 +32,12 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private static bool LeftProductsToSend(GameEntity e) => e.count > 0;
 
 		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
-		
-		private static void MarkAsPerformed(GameEntity entity) => entity.isDestroy = true;
+
+		private static void MarkAsPerformed(GameEntity entity)
+			=> entity
+			   .Do((e) => e.GetAttachableEntity().isReady = true)
+			   .Do((e) => e.isDestroy = true)
+		/**/;
 
 		private static void WaitBeforeSendNext(GameEntity request)
 			=> request

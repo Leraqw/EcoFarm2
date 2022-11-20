@@ -8,7 +8,6 @@ using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
 
-
 namespace Code.ECS.Features
 {
 	public sealed class GameplaySystems : Feature
@@ -35,6 +34,7 @@ namespace Code.ECS.Features
 			Add(new SpawnBoughtBuildingSystem(contexts));
 			Add(new ClickOnFactorySystem(contexts));
 			Add(new PerformProductsRequestSystem(contexts));
+			Add(new ProduceProductSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));
