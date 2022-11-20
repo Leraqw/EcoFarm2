@@ -24,6 +24,9 @@ namespace Code.Utils.Extensions.Entitas
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this)
 			=> @this.inventoryEntity.GetAttachedEntities()
 			        .Where((e) => e.hasInventoryItem);
+		
+		public static GameEntity GetInventoryItem(this GameContext @this, Product product)
+			=> @this.GetInventoryItems().Single((e) => e.product.Value == product);
 
 		public static void IncreaseInventoryItemCount(this GameEntity @this, int count)
 			=> @this.UpdateInventoryItemCount(with: (c) => c + count);

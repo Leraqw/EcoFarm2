@@ -35,6 +35,7 @@ namespace Code.ECS.Systems.Products
 			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
-			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime));
+			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime))
+		/**/;
 	}
 }

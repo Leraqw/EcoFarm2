@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
+using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
@@ -21,22 +23,32 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Perform);
 
 		private void Perform(GameEntity request)
-		{
-			if (request.count > 0)
-			{
-				SendFirstMatch(request);
-				WaitBeforeSendNext(request);
-			}
-			else
-			{
-				request.isDestroy = true;
-			}
-		}
+			=> request.Do
+			(
+				@if: LeftProductsToSend,
+				@true: SendWithCoolDown,
+				@false: MarkAsPerformed
+			);
+
+		private static bool LeftProductsToSend(GameEntity e) => e.count > 0;
+
+		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
+
+		private static void MarkAsPerformed(GameEntity entity)
+			=> entity
+			   .Do
+			   (
+				   (e) => e.GetAttachableEntity()
+				           .Do((factory) => factory.isReady = true)
+				           .Do((factory) => factory.ReplaceDuration(RoadToFactoryDuration))
+			   )
+			   .Do((e) => e.isDestroy = true)
+		/**/;
 
 		private static void WaitBeforeSendNext(GameEntity request)
 			=> request
 			   .Do((e) => e.ReplaceCount(request.count - 1))
-			   .Do((e) => e.ReplaceDuration(0.1f))
+			   .Do((e) => e.ReplaceDuration(SendProductToFactoryDelay))
 		/**/;
 
 		private void SendFirstMatch(GameEntity request)
@@ -49,7 +61,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private static void Send(GameEntity request, GameEntity product)
 			=> product
 			   .Do((e) => e.AddTargetPosition(request.position))
-			   .Do((e) => e.AddDuration(1))
+			   .Do((e) => e.AddDuration(RoadToFactoryDuration))
 			   .Do((e) => e.isInFactory = true)
 		/**/;
 	}

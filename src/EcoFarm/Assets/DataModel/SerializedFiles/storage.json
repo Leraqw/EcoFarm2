@@ -135,7 +135,7 @@
           "Title": "Electricity",
           "Description": "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge."
         },
-        "ResourceConsumptionCoefficient": 10,
+        "ResourceConsumptionCoefficient": 20,
         "Title": "Apple Juice Factory",
         "Description": "Making 1 apple juice from 5 apples",
         "Price": 20

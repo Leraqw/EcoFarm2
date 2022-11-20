@@ -55,6 +55,7 @@ MonoBehaviour:
       <Sign>k__BackingField: {fileID: 5673224526700804755, guid: 541959933325f15499f9e4682f73142d, type: 3}
       <Factory>k__BackingField: {fileID: 6702277768182265153, guid: 45769c2facf801a44abf96acc7c9be01, type: 3}
       <Windmill>k__BackingField: {fileID: 5716585335110416847, guid: 9f00157707803484b8c6e8888fc0ba5c, type: 3}
+      <AppleJuice>k__BackingField: {fileID: 347387760436490403, guid: 92955dfbc671a394295b5cebade746bb, type: 3}
     _sprite:
       _bucket:
         <Empty>k__BackingField: {fileID: 21300000, guid: b2c59742da9130a4784a7a41221f0808, type: 3}
