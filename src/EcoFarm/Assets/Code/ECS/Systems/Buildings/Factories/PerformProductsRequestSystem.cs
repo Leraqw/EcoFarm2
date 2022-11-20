@@ -2,7 +2,6 @@
 using System.Linq;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
