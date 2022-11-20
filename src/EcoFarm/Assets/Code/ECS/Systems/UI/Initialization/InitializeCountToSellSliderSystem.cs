@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Code.Services.Game.Interfaces.Ui;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.UI.Initialization
@@ -19,7 +20,7 @@ namespace Code.ECS.Systems.UI.Initialization
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Slider"))
 			            .Do((e) => e.AddView(UI.Windows.Sell.CountToSellSlider.gameObject))
-			            .Do((e) => e.AddAttachedTo(SellWindow.attachableIndex))
+			            .AttachTo(SellWindow)
 			            .Do((e) => e.AddProduct(_contexts.game.storage.Value.Trees.First().Product))
 			            .Do((e) => e.AddSliderValue(0))
 			            .Do((e) => e.AddSliderMaxValue(0));

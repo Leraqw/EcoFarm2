@@ -1,5 +1,6 @@
 ﻿using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using UnityEngine;
 
 namespace Code.Unity.Receivers.Buttons
@@ -11,7 +12,7 @@ namespace Code.Unity.Receivers.Buttons
 
 		protected override void OnButtonClick()
 			=> Context.CreateEntity()
-			          .Do((e) => e.AddAttachedTo(_window.Entity.attachableIndex))
+			          .AttachTo(_window.Entity)
 			          .Do((e) => e.AddTargetActivity(_targetActivity))
 			          .Do((e) => e.isDestroy = true)
 		/**/;

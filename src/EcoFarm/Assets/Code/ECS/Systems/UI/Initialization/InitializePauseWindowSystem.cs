@@ -1,5 +1,6 @@
 ﻿using Code.Services.Game.Interfaces.Ui;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.UI.Initialization
@@ -17,6 +18,6 @@ namespace Code.ECS.Systems.UI.Initialization
 			            .Do((e) => e.AddDebugName("PauseWindow"))
 			            .Do((e) => e.AddActivate(false))
 			            .Do((e) => e.AddView(UI.Windows.Pause))
-			            .Do((e) => e.AddAttachableIndex(e.creationIndex));
+			            .Do((e) => e.AddAttachableIndex());
 	}
 }

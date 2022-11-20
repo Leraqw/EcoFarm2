@@ -3,6 +3,7 @@ using System.Linq;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 
 namespace Code.ECS.Systems.Tree
@@ -26,7 +27,7 @@ namespace Code.ECS.Systems.Tree
 
 		private void Spawn(GameEntity entry)
 			=> entry.Do((e) => e.AddDebugName("Tree"))
-			        .Do((e) => e.AddAttachableIndex(e.creationIndex))
+			        .Do((e) => e.AddAttachableIndex())
 			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
 			        .Do((e) => e.AddTree(_contexts.game.storage.Value.Trees.First()))

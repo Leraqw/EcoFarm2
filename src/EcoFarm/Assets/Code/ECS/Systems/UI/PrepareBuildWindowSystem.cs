@@ -2,6 +2,7 @@
 using System.Linq;
 using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
+using Code.Utils.Extensions.Entitas;
 using EcoFarmDataModule;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
@@ -51,7 +52,7 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
 			            .Do((e) => e.AddPosition(window.position))
-			            .Do((e) => e.AddAttachedTo(window.attachableIndex))
+			            .AttachTo(window)
 		/**/;
 
 		private static void EndPreparations(GameEntity window)

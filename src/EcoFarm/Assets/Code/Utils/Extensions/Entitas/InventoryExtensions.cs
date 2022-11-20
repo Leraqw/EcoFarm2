@@ -19,7 +19,7 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.AddInventoryItem(new Item(product.Title)))
 			        .Do((e) => e.SetActualDebugName())
 			        .Do((e) => e.AddProduct(product))
-			        .Do((e) => e.AddAttachedTo(@this.inventoryEntity.attachableIndex));
+			        .AttachTo(@this.inventoryEntity);
 
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this)
 			=> @this.GetEntitiesWithAttachedTo(@this.inventoryEntity.attachableIndex)
@@ -30,7 +30,7 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void DecreaseInventoryItemCount(this GameEntity @this, int count)
 			=> @this.UpdateInventoryItemCount(with: (c) => c - count);
-		
+
 		public static void UpdateInventoryItemCount(this GameEntity @this, int count)
 			=> @this.UpdateInventoryItemCount(with: (_) => count);
 
@@ -41,7 +41,7 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
 			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
-		
+
 		public static void DecreaseCoinsCount(this GameEntity @this, int value)
 			=> @this.ReplaceCoinsCount(@this.coinsCount - value);
 

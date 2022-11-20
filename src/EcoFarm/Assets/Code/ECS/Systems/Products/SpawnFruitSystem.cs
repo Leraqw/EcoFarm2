@@ -30,7 +30,7 @@ namespace Code.ECS.Systems.Products
 			=> _context.CreateEntity()
 			           .Do((e) => e.AddDebugName("Fruit"))
 			           .Do((e) => e.AddProduct(tree.tree.Value.Product))
-			           .Do((e) => e.AddAttachedTo(tree.attachableIndex))
+			           .AttachTo(tree)
 			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
