@@ -26,7 +26,7 @@ namespace Code.ECS.Systems.Buildings
 			            .Do((e) => e.AddPosition(position))
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
 			            .Do((e) => e.isSign = true)
-			            .AddAttachableIndex()
+			            .MakeAttachable()
 			/**/;
 	}
 }

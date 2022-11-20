@@ -19,7 +19,7 @@ namespace Code.ECS.Systems.UI.Initialization
 			            .Do((e) => e.AddActivate(false))
 			            .Do((e) => e.AddView(UI.Windows.Build.gameObject))
 			            .Do((e) => e.AddBuildWindow(UI.Windows.Build))
-			            .Do((e) => e.AddAttachableIndex())
+			            .Do((e) => e.MakeAttachable())
 			            .Do((e) => e.isRequirePreparation = true);
 	}
 }

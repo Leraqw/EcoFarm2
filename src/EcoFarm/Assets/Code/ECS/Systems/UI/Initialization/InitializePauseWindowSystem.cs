@@ -18,6 +18,6 @@ namespace Code.ECS.Systems.UI.Initialization
 			            .Do((e) => e.AddDebugName("PauseWindow"))
 			            .Do((e) => e.AddActivate(false))
 			            .Do((e) => e.AddView(UI.Windows.Pause))
-			            .Do((e) => e.AddAttachableIndex());
+			            .Do((e) => e.MakeAttachable());
 	}
 }

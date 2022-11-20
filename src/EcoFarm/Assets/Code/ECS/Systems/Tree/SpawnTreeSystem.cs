@@ -27,7 +27,7 @@ namespace Code.ECS.Systems.Tree
 
 		private void Spawn(GameEntity entry)
 			=> entry.Do((e) => e.AddDebugName("Tree"))
-			        .Do((e) => e.AddAttachableIndex())
+			        .Do((e) => e.MakeAttachable())
 			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
 			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
 			        .Do((e) => e.AddTree(_contexts.game.storage.Value.Trees.First()))
