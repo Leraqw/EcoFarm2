@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
@@ -6,11 +7,7 @@ namespace Code.ECS.Systems.UI
 {
 	public sealed class OnToggleActivityButtonClickSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
-
-		public OnToggleActivityButtonClickSystem(Contexts contexts)
-			: base(contexts.game)
-			=> _contexts = contexts;
+		public OnToggleActivityButtonClickSystem(Contexts contexts) : base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(TargetActivity, AttachedTo));
@@ -19,10 +16,10 @@ namespace Code.ECS.Systems.UI
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Toggle);
 
-		private void Toggle(GameEntity button)
+		private static void Toggle(GameEntity button)
 		{
 			var activity = button.targetActivity;
-			var window = GetWindowForButton(button);
+			var window = button.GetAttachableEntity();
 
 			if (activity == true
 			    && window.isRequirePreparation)
@@ -33,8 +30,5 @@ namespace Code.ECS.Systems.UI
 
 			window.ReplaceActivate(activity);
 		}
-
-		private GameEntity GetWindowForButton(GameEntity button)
-			=> _contexts.game.GetEntityWithAttachableIndex(button.attachedTo);
 	}
 }

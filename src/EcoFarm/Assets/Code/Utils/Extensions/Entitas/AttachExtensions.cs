@@ -7,7 +7,7 @@ namespace Code.Utils.Extensions.Entitas
 		private static GameContext Context => Contexts.sharedInstance.game;
 
 		public static GameEntity AttachTo(this GameEntity @this, GameEntity attachable) 
-			=> @this.Do((e) => e.AddAttachedTo(attachable.attachableIndex));
+			=> @this.Do((e) => e.ReplaceAttachedTo(attachable.attachableIndex));
 
 		public static GameEntity AttachToMe(this GameEntity @this, GameEntity attached) 
 			=> @this.Do((e) => attached.AttachTo(e));
@@ -17,5 +17,8 @@ namespace Code.Utils.Extensions.Entitas
 
 		public static IEnumerable<GameEntity> GetAttachedEntities(this GameEntity @this)
 			=> Context.GetEntitiesWithAttachedTo(@this.attachableIndex);
+		
+		public static GameEntity GetAttachableEntity(this GameEntity @this)
+			=> Context.GetEntityWithAttachableIndex(@this.attachedTo);
 	}
 }
