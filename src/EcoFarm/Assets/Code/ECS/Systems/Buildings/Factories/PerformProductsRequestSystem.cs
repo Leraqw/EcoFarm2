@@ -21,17 +21,18 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Perform);
 
 		private void Perform(GameEntity request)
-		{
-			if (request.count > 0)
-			{
-				SendFirstMatch(request);
-				WaitBeforeSendNext(request);
-			}
-			else
-			{
-				request.isDestroy = true;
-			}
-		}
+			=> request.Do
+			(
+				@if: LeftProductsToSend,
+				@true: SendWithCoolDown,
+				@false: MarkAsPerformed
+			);
+
+		private static bool LeftProductsToSend(GameEntity e) => e.count > 0;
+
+		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
+		
+		private static void MarkAsPerformed(GameEntity entity) => entity.isDestroy = true;
 
 		private static void WaitBeforeSendNext(GameEntity request)
 			=> request

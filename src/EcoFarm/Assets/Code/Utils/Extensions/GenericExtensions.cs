@@ -14,17 +14,31 @@ namespace Code.Utils.Extensions
 		{
 			if (@if.Invoke(@this))
 			{
-				action.Invoke(@this);	
+				action.Invoke(@this);
 			}
 
 			return @this;
 		}
-		
+
+		public static T Do<T>(this T @this, Func<T, bool> @if, Action<T> @true, Action<T> @false)
+		{
+			if (@if.Invoke(@this))
+			{
+				@true.Invoke(@this);
+			}
+			else
+			{
+				@false.Invoke(@this);
+			}
+
+			return @this;
+		}
+
 		public static T Do<T>(this T @this, Action<T> action, bool @if)
 		{
 			if (@if)
 			{
-				action.Invoke(@this);	
+				action.Invoke(@this);
 			}
 
 			return @this;
