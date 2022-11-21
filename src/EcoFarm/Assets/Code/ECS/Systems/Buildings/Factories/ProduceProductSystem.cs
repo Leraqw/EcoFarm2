@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
@@ -14,6 +15,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private readonly Contexts _contexts;
 		public ProduceProductSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
+		private IPrefabConfig Prefab => _contexts.GetConfiguration().Resource.Prefab;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Factory, Working, DurationUp));
 
@@ -23,10 +26,9 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Produce(GameEntity entity)
 			=> entity
-			   .Do((e) => e.isWorking = true)
-			   .Do(SpawnProduct)
+			   .Do((e) => e.isWorking = false)
 			   .Do((e) => e.isUsed = true)
-			   .Do((e) => e.isReady = false)
+			   .Do(SpawnProduct)
 		/**/;
 
 		private void SpawnProduct(GameEntity factory)
@@ -35,7 +37,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			            .Do((e) => e.AddProduct(factory.factory.Value.OutputProducts.First()))
 			            .AttachTo(factory)
 			            .Do((e) => e.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
-			            .Do((e) => e.AddViewPrefab(_contexts.GetConfiguration().Resource.Prefab.AppleJuice))
+			            .Do((e) => e.AddViewPrefab(Prefab.AppleJuice))
 			            .Do((e) => e.isPickable = true)
 			            .Do((e) => e.isInFactory = true)
 		/**/;
