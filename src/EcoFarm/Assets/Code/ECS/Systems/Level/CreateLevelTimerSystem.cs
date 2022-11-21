@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Code.Utils.Extensions;
+﻿using Code.Utils.Extensions;
 using EcoFarmDataModule;
 using Entitas;
 
@@ -13,11 +12,13 @@ namespace Code.ECS.Systems.Level
 
 		private Storage Storage => _contexts.services.dataService.Value.Storage;
 
+		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("LevelTimer"))
 			            .Do((e) => e.AddView(_contexts.services.uiService.Value.TimerView))
 			            .Do((e) => e.isLevelTimer = true)
-			            .Do((e) => e.AddDuration(Storage.Levels.First().SecondsForLevel));
+			            .Do((e) => e.AddDuration(Storage.Levels[SelectedLevel].SecondsForLevel));
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Code.Services.Game.Interfaces.Ui;
+﻿using Code.Services.Game.Interfaces.Ui;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Data;
 using EcoFarmDataModule;
@@ -17,7 +16,9 @@ namespace Code.ECS.Systems.Goals
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		public void Initialize() => Storage.Levels.First().Goals.ForEach(Create);
+		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+
+		public void Initialize() => Storage.Levels[SelectedLevel].Goals.ForEach(Create);
 
 		private void Create(Goal goal)
 			=> _contexts.game.CreateEntity()

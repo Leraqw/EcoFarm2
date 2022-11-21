@@ -3,6 +3,7 @@ using Code.Services.Game.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
+using LevelData = EcoFarmDataModule.Level;
 
 namespace Code.ECS.Systems.Tree
 {
@@ -14,10 +15,14 @@ namespace Code.ECS.Systems.Tree
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
+		private LevelData[] Levels => _contexts.game.storage.Value.Levels;
+
+		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Take(_contexts.game.storage.Value.Levels.First().TreesCount)
+			   .Take(Levels[SelectedLevel].TreesCount)
 			   .ForEach(RequireTreeOn);
 
 		private void RequireTreeOn(Vector2 position)
