@@ -23,6 +23,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Produce(GameEntity entity)
 			=> entity
+			   .Do((e) => e.isWorking = true)
 			   .Do(SpawnProduct)
 			   .Do((e) => e.isUsed = true)
 			   .Do((e) => e.isReady = false)
