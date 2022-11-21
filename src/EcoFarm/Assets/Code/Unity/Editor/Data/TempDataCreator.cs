@@ -31,21 +31,25 @@ namespace Code.Unity.Editor.Data
 			var juice = new Product
 			{
 				Title = "Juice",
-				Description = "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+				Description
+					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
 				Price = 10,
 			};
 
 			var electricity = new Resource
 			{
 				Title = "Electricity",
-				Description = "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
+				Description
+					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
 			};
-			
+
 			var water = new Resource
 			{
 				Title = "Water",
-				Description = "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
+				Description
+					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
 			};
+
 			return new Storage
 			{
 				Products = new[]
