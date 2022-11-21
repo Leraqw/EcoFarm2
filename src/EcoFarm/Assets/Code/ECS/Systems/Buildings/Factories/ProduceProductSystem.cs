@@ -17,22 +17,24 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp));
 
-		protected override bool Filter(GameEntity entity) => entity.isReady;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Produce);
 
 		private void Produce(GameEntity entity)
 			=> entity
+			   .Do((e) => e.isWorking = true)
 			   .Do(SpawnProduct)
 			   .Do((e) => e.isUsed = true)
+			   .Do((e) => e.isReady = false)
 		/**/;
 
-		private void SpawnProduct(GameEntity entity)
+		private void SpawnProduct(GameEntity factory)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName("Product"))
-			            .Do((e) => e.AddProduct(entity.factory.Value.OutputProducts.First()))
-			            .AttachTo(entity)
-			            .Do((e) => e.AddPosition(entity.GetActualPosition() + ProductSpawnOffset))
+			            .Do((e) => e.AddProduct(factory.factory.Value.OutputProducts.First()))
+			            .AttachTo(factory)
+			            .Do((e) => e.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
 			            .Do((e) => e.AddViewPrefab(_contexts.GetConfiguration().Resource.Prefab.AppleJuice))
 			            .Do((e) => e.isPickable = true)
 			            .Do((e) => e.isInFactory = true)

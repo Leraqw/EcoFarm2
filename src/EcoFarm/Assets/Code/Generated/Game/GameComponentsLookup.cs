@@ -98,25 +98,26 @@ public static class GameComponentsLookup {
     public const int Watering = 87;
     public const int WaterResource = 88;
     public const int WillFall = 89;
-    public const int Destroy = 90;
-    public const int CoinsCountListener = 91;
-    public const int CurrentQuantityListener = 92;
-    public const int DurationListener = 93;
-    public const int FactoryListener = 94;
-    public const int GameTextListener = 95;
-    public const int GeneratorListener = 96;
-    public const int GoalCompletedListener = 97;
-    public const int GoalListener = 98;
-    public const int InventoryItemListener = 99;
-    public const int PositionListener = 100;
-    public const int ProgressBarListener = 101;
-    public const int ProportionalScaleListener = 102;
-    public const int SliderMaxValueListener = 103;
-    public const int SliderValueListener = 104;
-    public const int SpriteListener = 105;
-    public const int WateringListener = 106;
+    public const int Working = 90;
+    public const int Destroy = 91;
+    public const int CoinsCountListener = 92;
+    public const int CurrentQuantityListener = 93;
+    public const int DurationListener = 94;
+    public const int FactoryListener = 95;
+    public const int GameTextListener = 96;
+    public const int GeneratorListener = 97;
+    public const int GoalCompletedListener = 98;
+    public const int GoalListener = 99;
+    public const int InventoryItemListener = 100;
+    public const int PositionListener = 101;
+    public const int ProgressBarListener = 102;
+    public const int ProportionalScaleListener = 103;
+    public const int SliderMaxValueListener = 104;
+    public const int SliderValueListener = 105;
+    public const int SpriteListener = 106;
+    public const int WateringListener = 107;
 
-    public const int TotalComponents = 107;
+    public const int TotalComponents = 108;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -209,6 +210,7 @@ public static class GameComponentsLookup {
         "Watering",
         "WaterResource",
         "WillFall",
+        "Working",
         "Destroy",
         "CoinsCountListener",
         "CurrentQuantityListener",
@@ -319,6 +321,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WaterResourceComponent),
         typeof(Code.ECS.Components.WillFallComponent),
+        typeof(Code.ECS.Components.WorkingComponent),
         typeof(Code.Global.PlayerContext.Components.DestroyComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),

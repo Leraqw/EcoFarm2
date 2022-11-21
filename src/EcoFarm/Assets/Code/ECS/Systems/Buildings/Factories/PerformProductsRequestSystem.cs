@@ -38,9 +38,9 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> entity
 			   .Do
 			   (
-				   (e) => e.GetAttachableEntity()
+				   (r) => r.GetAttachableEntity()
 				           .Do((factory) => factory.isReady = true)
-				           .Do((factory) => factory.ReplaceDuration(RoadToFactoryDuration))
+				           .Do((factory) => factory.AddDuration(RoadToFactoryDuration))
 			   )
 			   .Do((e) => e.isDestroy = true)
 		/**/;
