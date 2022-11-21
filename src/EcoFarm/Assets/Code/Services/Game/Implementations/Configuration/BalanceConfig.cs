@@ -16,6 +16,7 @@ namespace Code.Services.Game.Implementations.Configuration
 		[SerializeField] private FruitConfig _fruit;
 		[SerializeField] private ResourceConfig _water;
 		[SerializeField] private ResourceConfig _energy;
+		[SerializeField] private FactoryConfig _factory;
 
 		public IWateringConfig Watering => _watering;
 
@@ -30,5 +31,7 @@ namespace Code.Services.Game.Implementations.Configuration
 		public IResourceConfig Water => _water;
 
 		public IResourceConfig Energy => _energy;
+
+		public IFactoryConfig Factory => _factory;
 	}
 }

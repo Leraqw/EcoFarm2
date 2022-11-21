@@ -34,6 +34,7 @@ namespace Code.ECS.Features
 			Add(new SpawnBoughtBuildingSystem(contexts));
 			Add(new ClickOnFactorySystem(contexts));
 			Add(new PerformProductsRequestSystem(contexts));
+			Add(new FactoryWorkingStateSystem(contexts));
 			Add(new ProduceProductSystem(contexts));
 
 			// TODO: Add GameCycleSystems 

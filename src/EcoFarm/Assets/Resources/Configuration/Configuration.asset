@@ -42,6 +42,8 @@ MonoBehaviour:
       <MaxValue>k__BackingField: 100
       <StartValue>k__BackingField: 100
       <RenewPrice>k__BackingField: 10
+    _factory:
+      <WorkingDuration>k__BackingField: 1
   _common:
     <Tolerance>k__BackingField: 0.01
   _resource:
