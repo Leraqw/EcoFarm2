@@ -10,7 +10,13 @@ namespace Code.Menus.LevelSelectorScreen
 		[SerializeField] private bool _isCompleted;
 		[SerializeField] private GameObject _completedView;
 
-		protected override void OnButtonClick() => Debug.Log($"Level {_levelIndex} clicked");
+		private static Contexts Contexts => Contexts.sharedInstance;
+
+		protected override void OnButtonClick()
+		{
+			Contexts.player.playerEntity.ReplaceSelectedLevel(_levelIndex);
+			Contexts.services.sceneTransferService.Value.ToScene(_sceneField);
+		}
 
 		private void OnValidate() => ActualizeCompleted();
 
