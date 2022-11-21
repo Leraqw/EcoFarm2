@@ -60,6 +60,7 @@ namespace Code.Unity.Editor.Data
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
 							new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
+							new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 2 },
 						},
 					},
 					new Level
@@ -92,7 +93,7 @@ namespace Code.Unity.Editor.Data
 						InputProducts = new[] { apple, apple, apple, apple, apple, },
 						OutputProducts = new[] { juice },
 						Resource = electricity,
-						ResourceConsumptionCoefficient = 10,
+						ResourceConsumptionCoefficient = 20,
 					},
 					new Generator
 					{
@@ -100,7 +101,7 @@ namespace Code.Unity.Editor.Data
 						Description = "Generating electricity",
 						Price = 100,
 						Resource = electricity,
-						EfficiencyCoefficient = 10,
+						EfficiencyCoefficient = 2,
 					},
 				},
 			};

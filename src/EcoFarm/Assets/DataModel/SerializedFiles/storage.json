@@ -53,13 +53,21 @@
               "DevelopmentObject": {
                 "$ref": "2"
               },
-              "TargetQuantity": 99
+              "TargetQuantity": 15
+            },
+            {
+              "$id": "8",
+              "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
+              "DevelopmentObject": {
+                "$ref": "4"
+              },
+              "TargetQuantity": 2
             }
           ]
         }
       },
       {
-        "$id": "8",
+        "$id": "9",
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 2,
         "TreesCount": 9,
@@ -68,7 +76,7 @@
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
             {
-              "$id": "9",
+              "$id": "10",
               "$type": "EcoFarmDataModule.GoalByDevelopmentObject, EcoFarmModel",
               "DevelopmentObject": {
                 "$ref": "3"
@@ -84,7 +92,7 @@
     "$type": "EcoFarmDataModule.Tree[], EcoFarmModel",
     "$values": [
       {
-        "$id": "10",
+        "$id": "11",
         "$type": "EcoFarmDataModule.Tree, EcoFarmModel",
         "Product": {
           "$ref": "3"
@@ -99,7 +107,7 @@
     "$type": "EcoFarmDataModule.Building[], EcoFarmModel",
     "$values": [
       {
-        "$id": "11",
+        "$id": "12",
         "$type": "EcoFarmDataModule.FactoryBuilding, EcoFarmModel",
         "InputProducts": {
           "$type": "EcoFarmDataModule.Product[], EcoFarmModel",
@@ -130,7 +138,7 @@
           ]
         },
         "Resource": {
-          "$id": "12",
+          "$id": "13",
           "$type": "EcoFarmDataModule.Resource, EcoFarmModel",
           "Title": "Electricity",
           "Description": "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge."
@@ -141,10 +149,10 @@
         "Price": 20
       },
       {
-        "$id": "13",
+        "$id": "14",
         "$type": "EcoFarmDataModule.Generator, EcoFarmModel",
         "Resource": {
-          "$ref": "12"
+          "$ref": "13"
         },
         "EfficiencyCoefficient": 2,
         "Title": "Windmill",
