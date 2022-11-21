@@ -156,8 +156,22 @@
         },
         "EfficiencyCoefficient": 2,
         "Title": "Windmill",
-        "Description": "Generating electricity",
-        "Price": 100
+        "Description": "Generating Electricity",
+        "Price": 25
+      },
+      {
+        "$id": "15",
+        "$type": "EcoFarmDataModule.Generator, EcoFarmModel",
+        "Resource": {
+          "$id": "16",
+          "$type": "EcoFarmDataModule.Resource, EcoFarmModel",
+          "Title": "Water",
+          "Description": "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms."
+        },
+        "EfficiencyCoefficient": 30,
+        "Title": "Water Cleaning Station",
+        "Description": "Generating Water",
+        "Price": 25
       }
     ]
   }

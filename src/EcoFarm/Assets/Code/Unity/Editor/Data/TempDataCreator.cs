@@ -40,6 +40,12 @@ namespace Code.Unity.Editor.Data
 				Title = "Electricity",
 				Description = "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
 			};
+			
+			var water = new Resource
+			{
+				Title = "Water",
+				Description = "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
+			};
 			return new Storage
 			{
 				Products = new[]
@@ -98,10 +104,18 @@ namespace Code.Unity.Editor.Data
 					new Generator
 					{
 						Title = "Windmill",
-						Description = "Generating electricity",
-						Price = 100,
+						Description = "Generating Electricity",
+						Price = 25,
 						Resource = electricity,
 						EfficiencyCoefficient = 2,
+					},
+					new Generator
+					{
+						Title = "Water Cleaning Station",
+						Description = "Generating Water",
+						Price = 25,
+						Resource = water,
+						EfficiencyCoefficient = 30,
 					},
 				},
 			};
