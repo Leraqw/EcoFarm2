@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		public ProduceProductSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp));
+			=> context.CreateCollector(AllOf(Factory, Working, DurationUp));
 
 		protected override bool Filter(GameEntity entity) => true;
 

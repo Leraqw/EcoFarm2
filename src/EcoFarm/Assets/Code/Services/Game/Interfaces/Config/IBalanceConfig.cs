@@ -17,5 +17,7 @@ namespace Code.Services.Game.Interfaces.Config
 		IResourceConfig Water { get; }
 
 		IResourceConfig Energy { get; }
+		
+		IFactoryConfig Factory { get; }
 	}
 }
