@@ -16,4 +16,6 @@ namespace Code.ECS.Components
 	[Game] public sealed class InFactoryComponent : FlagComponent { }
 
 	[Game] public sealed class WorkingComponent : FlagComponent { }
+
+	[Game] public sealed class BusyComponent : FlagComponent { }
 }

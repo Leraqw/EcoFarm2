@@ -28,6 +28,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> factory
 			   .Do((e) => e.isWorking = false)
 			   .Do((e) => e.isUsed = true)
+			   .Do((e) => e.isBusy = false)
 			   .Do(SpawnProduct)
 		/**/;
 
