@@ -18,10 +18,12 @@ namespace Code.ECS.Systems.Tree
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
+		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+
 		public void Initialize()
 			=> SpawnPointsService
 			   .Trees
-			   .Skip(_contexts.game.storage.Value.Levels.First().TreesCount)
+			   .Skip(_contexts.game.storage.Value.Levels[SelectedLevel].TreesCount)
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)
