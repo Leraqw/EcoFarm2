@@ -13,10 +13,11 @@ public static class PlayerComponentsLookup {
     public const int Destroy = 2;
     public const int Name = 3;
     public const int Player = 4;
-    public const int SessionResult = 5;
-    public const int PlayerTextListener = 6;
+    public const int SelectedLevel = 5;
+    public const int SessionResult = 6;
+    public const int PlayerTextListener = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Text",
@@ -24,6 +25,7 @@ public static class PlayerComponentsLookup {
         "Destroy",
         "Name",
         "Player",
+        "SelectedLevel",
         "SessionResult",
         "PlayerTextListener"
     };
@@ -34,6 +36,7 @@ public static class PlayerComponentsLookup {
         typeof(Code.Global.PlayerContext.Components.DestroyComponent),
         typeof(Code.Global.PlayerContext.Components.NameComponent),
         typeof(Code.Global.PlayerContext.Components.PlayerComponent),
+        typeof(Code.Global.PlayerContext.Components.SelectedLevelComponent),
         typeof(Code.Global.PlayerContext.Components.SessionResultComponent),
         typeof(PlayerTextListenerComponent)
     };
