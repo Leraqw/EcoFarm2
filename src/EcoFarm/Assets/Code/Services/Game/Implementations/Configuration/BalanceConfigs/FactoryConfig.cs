@@ -7,6 +7,6 @@ namespace Code.Services.Game.Implementations.Configuration.BalanceConfigs
 	[Serializable]
 	public class FactoryConfig : IFactoryConfig
 	{
-		[field: SerializeField] public float WorkingDuration { get; private set; }
+		[field: SerializeField] public float WorkingDuration { get; private set; } = 1f;
 	}
 }

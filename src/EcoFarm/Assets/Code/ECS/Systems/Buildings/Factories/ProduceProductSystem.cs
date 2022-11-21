@@ -18,14 +18,14 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private IPrefabConfig Prefab => _contexts.GetConfiguration().Resource.Prefab;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Working, DurationUp));
+			=> context.CreateCollector(AllOf(Factory, Working, DurationUp).NoneOf(Duration));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity factory) => factory.hasDuration == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Produce);
 
-		private void Produce(GameEntity entity)
-			=> entity
+		private void Produce(GameEntity factory)
+			=> factory
 			   .Do((e) => e.isWorking = false)
 			   .Do((e) => e.isUsed = true)
 			   .Do(SpawnProduct)

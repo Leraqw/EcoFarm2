@@ -16,9 +16,9 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private IFactoryConfig Balance => _contexts.GetConfiguration().Balance.Factory;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp));
+			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp).NoneOf(Duration));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(StartWorking);
 
@@ -26,7 +26,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> factory
 			   .Do((e) => e.isReady = false)
 			   .Do((e) => e.isWorking = true)
-			   .Do((e) => e.ReplaceDuration(Balance.WorkingDuration))
+			   .Do((e) => e.AddDuration(Balance.WorkingDuration))
 		/**/;
 	}
 }
