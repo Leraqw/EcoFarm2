@@ -14,9 +14,5 @@ namespace Code.Utils.StaticClasses
 		private const string RelativePath = "Assets/DataModel/SerializedFiles";
 
 		public const string CoinItemName = "Coin";
-
-		// TODO: move to config
-		public const float SendProductToFactoryDelay = 0.1f;
-		public const float RoadToFactoryDuration = 1f;
 	}
 }

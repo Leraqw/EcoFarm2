@@ -1,19 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Code.ECS.Systems.Watering.Bucket;
+using Code.Services.Game.Interfaces.Config.BalanceConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
-using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
 {
 	public sealed class PerformProductsRequestSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _products;
 
 		public PerformProductsRequestSystem(Contexts contexts) : base(contexts.game)
-			=> _products = contexts.game.GetGroup(AllOf(Product, Collected).NoneOf(InFactory));
+		{
+			_contexts = contexts;
+			_products = contexts.game.GetGroup(AllOf(Product, Collected).NoneOf(InFactory));
+		}
+
+		private float RoadToFactoryDuration => Balance.RoadToFactoryDuration;
+
+		private float SendProductToFactoryDelay => Balance.SendProductToFactoryDelay;
+
+		private IFactoryConfig Balance => _contexts.GetConfiguration().Balance.Factory;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(RequireProduct, Count).NoneOf(Duration));
@@ -34,7 +45,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
 
-		private static void MarkAsPerformed(GameEntity entity)
+		private void MarkAsPerformed(GameEntity entity)
 			=> entity
 			   .Do
 			   (
@@ -45,7 +56,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.isDestroy = true)
 		/**/;
 
-		private static void WaitBeforeSendNext(GameEntity request)
+		private void WaitBeforeSendNext(GameEntity request)
 			=> request
 			   .Do((e) => e.ReplaceCount(request.count - 1))
 			   .Do((e) => e.ReplaceDuration(SendProductToFactoryDelay))
@@ -58,7 +69,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((product) => Send(request, product))
 		/**/;
 
-		private static void Send(GameEntity request, GameEntity product)
+		private void Send(GameEntity request, GameEntity product)
 			=> product
 			   .Do((e) => e.AddTargetPosition(request.position))
 			   .Do((e) => e.AddDuration(RoadToFactoryDuration))
