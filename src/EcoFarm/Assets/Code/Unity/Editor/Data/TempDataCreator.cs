@@ -107,7 +107,7 @@ namespace Code.Unity.Editor.Data
 					},
 					new Generator
 					{
-						Title = "Windmill",
+						Title = WindmillName,
 						Description = "Generating Electricity",
 						Price = 25,
 						Resource = electricity,
@@ -115,7 +115,7 @@ namespace Code.Unity.Editor.Data
 					},
 					new Generator
 					{
-						Title = "Water Cleaning Station",
+						Title = WaterCleanerName,
 						Description = "Generating Water",
 						Price = 25,
 						Resource = water,
