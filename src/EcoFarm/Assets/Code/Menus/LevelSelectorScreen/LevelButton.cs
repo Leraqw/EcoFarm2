@@ -1,8 +1,7 @@
-﻿using Code.Menus;
-using Code.Unity.CustomTypes;
+﻿using Code.Unity.CustomTypes;
 using UnityEngine;
 
-namespace EcoFarm.Code.Menus.LevelSelectorScreen
+namespace Code.Menus.LevelSelectorScreen
 {
 	public class LevelButton : UnityEventAdapter
 	{
