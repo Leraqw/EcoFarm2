@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using EcoFarmDataModule;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
+using UnityEngine;
+using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories
@@ -51,18 +54,26 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private void AddRelativeView(GameEntity entity)
 			=> entity
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
-			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Windmill), @if: (e) => e.hasGenerator)
+			   .Do(RelativeGeneratorView, @if: (e) => e.hasGenerator)
 		/**/;
+
+		private void RelativeGeneratorView(GameEntity generator)
+			=> generator
+			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
+			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName))
+		/**/;
+
+		private static Action<GameEntity> SetPrefab(GameObject prefab) => (e) => e.ReplaceViewPrefab(prefab);
 
 		private void AddProduction(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddResource(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
 		/**/;
 
 		private void AddConsumption(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable))
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 

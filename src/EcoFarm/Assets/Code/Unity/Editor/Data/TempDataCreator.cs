@@ -31,17 +31,32 @@ namespace Code.Unity.Editor.Data
 			var juice = new Product
 			{
 				Title = "Juice",
-				Description = "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+				Description
+					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
 				Price = 10,
 			};
 
 			var electricity = new Resource
 			{
-				Title = "Electricity",
-				Description = "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
+				Title = ElectricityName,
+				Description
+					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
 			};
+
+			var water = new Resource
+			{
+				Title = WaterName,
+				Description
+					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
+			};
+
 			return new Storage
 			{
+				Resources = new[]
+				{
+					electricity,
+					water,
+				},
 				Products = new[]
 				{
 					coin,
@@ -97,11 +112,19 @@ namespace Code.Unity.Editor.Data
 					},
 					new Generator
 					{
-						Title = "Windmill",
-						Description = "Generating electricity",
-						Price = 100,
+						Title = WindmillName,
+						Description = "Generating Electricity",
+						Price = 25,
 						Resource = electricity,
 						EfficiencyCoefficient = 2,
+					},
+					new Generator
+					{
+						Title = WaterCleanerName,
+						Description = "Generating Water",
+						Price = 25,
+						Resource = water,
+						EfficiencyCoefficient = 30,
 					},
 				},
 			};

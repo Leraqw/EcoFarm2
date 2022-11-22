@@ -15,7 +15,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class ConsumerComponent : IndexComponent<int> { }
 	
-	[Game] public sealed class ResourceComponent : IndexComponent<int> { }
+	[Game] public sealed class ProduceResourceComponent : IndexComponent<int> { }
 
 	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
 	

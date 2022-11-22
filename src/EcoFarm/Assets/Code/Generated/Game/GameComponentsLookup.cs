@@ -62,63 +62,64 @@ public static class GameComponentsLookup {
     public const int Position = 51;
     public const int PreparationInProcess = 52;
     public const int Prepared = 53;
-    public const int Product = 54;
-    public const int ProgressBar = 55;
-    public const int ProportionalScale = 56;
-    public const int Radius = 57;
-    public const int Ready = 58;
-    public const int Renew = 59;
-    public const int RenewPrice = 60;
-    public const int RequirePreparation = 61;
-    public const int RequireProduct = 62;
-    public const int RequireSprite = 63;
-    public const int RequireTreeOnPosition = 64;
-    public const int RequireView = 65;
-    public const int Resource = 66;
-    public const int SellCoefficient = 67;
-    public const int SellDeal = 68;
-    public const int SellWindow = 69;
-    public const int Sign = 70;
-    public const int SliderMaxValue = 71;
-    public const int SliderValue = 72;
-    public const int SpawnPosition = 73;
-    public const int Sprite = 74;
-    public const int SpriteToLoad = 75;
-    public const int Storage = 76;
-    public const int TargetActivity = 77;
-    public const int TargetPosition = 78;
-    public const int TargetScale = 79;
-    public const int Text = 80;
-    public const int Tree = 81;
-    public const int UiElement = 82;
-    public const int UiParent = 83;
-    public const int Used = 84;
-    public const int View = 85;
-    public const int ViewPrefab = 86;
-    public const int Watered = 87;
-    public const int Watering = 88;
-    public const int WaterResource = 89;
-    public const int WillFall = 90;
-    public const int Working = 91;
-    public const int Destroy = 92;
-    public const int CoinsCountListener = 93;
-    public const int CurrentQuantityListener = 94;
-    public const int DurationListener = 95;
-    public const int FactoryListener = 96;
-    public const int GameTextListener = 97;
-    public const int GeneratorListener = 98;
-    public const int GoalCompletedListener = 99;
-    public const int GoalListener = 100;
-    public const int InventoryItemListener = 101;
-    public const int PositionListener = 102;
-    public const int ProgressBarListener = 103;
-    public const int ProportionalScaleListener = 104;
-    public const int SliderMaxValueListener = 105;
-    public const int SliderValueListener = 106;
-    public const int SpriteListener = 107;
-    public const int WateringListener = 108;
+    public const int ProduceResource = 54;
+    public const int Product = 55;
+    public const int ProgressBar = 56;
+    public const int ProportionalScale = 57;
+    public const int Radius = 58;
+    public const int Ready = 59;
+    public const int Renew = 60;
+    public const int RenewPrice = 61;
+    public const int RequirePreparation = 62;
+    public const int RequireProduct = 63;
+    public const int RequireSprite = 64;
+    public const int RequireTreeOnPosition = 65;
+    public const int RequireView = 66;
+    public const int Resource = 67;
+    public const int SellCoefficient = 68;
+    public const int SellDeal = 69;
+    public const int SellWindow = 70;
+    public const int Sign = 71;
+    public const int SliderMaxValue = 72;
+    public const int SliderValue = 73;
+    public const int SpawnPosition = 74;
+    public const int Sprite = 75;
+    public const int SpriteToLoad = 76;
+    public const int Storage = 77;
+    public const int TargetActivity = 78;
+    public const int TargetPosition = 79;
+    public const int TargetScale = 80;
+    public const int Text = 81;
+    public const int Tree = 82;
+    public const int UiElement = 83;
+    public const int UiParent = 84;
+    public const int Used = 85;
+    public const int View = 86;
+    public const int ViewPrefab = 87;
+    public const int Watered = 88;
+    public const int Watering = 89;
+    public const int WaterResource = 90;
+    public const int WillFall = 91;
+    public const int Working = 92;
+    public const int Destroy = 93;
+    public const int CoinsCountListener = 94;
+    public const int CurrentQuantityListener = 95;
+    public const int DurationListener = 96;
+    public const int FactoryListener = 97;
+    public const int GameTextListener = 98;
+    public const int GeneratorListener = 99;
+    public const int GoalCompletedListener = 100;
+    public const int GoalListener = 101;
+    public const int InventoryItemListener = 102;
+    public const int PositionListener = 103;
+    public const int ProgressBarListener = 104;
+    public const int ProportionalScaleListener = 105;
+    public const int SliderMaxValueListener = 106;
+    public const int SliderValueListener = 107;
+    public const int SpriteListener = 108;
+    public const int WateringListener = 109;
 
-    public const int TotalComponents = 109;
+    public const int TotalComponents = 110;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -175,6 +176,7 @@ public static class GameComponentsLookup {
         "Position",
         "PreparationInProcess",
         "Prepared",
+        "ProduceResource",
         "Product",
         "ProgressBar",
         "ProportionalScale",
@@ -287,6 +289,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.PreparationInProcessComponent),
         typeof(Code.ECS.Components.PreparedComponent),
+        typeof(Code.ECS.Components.ProduceResourceComponent),
         typeof(Code.ECS.Components.ProductComponent),
         typeof(Code.ECS.Components.ProgressBarComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
