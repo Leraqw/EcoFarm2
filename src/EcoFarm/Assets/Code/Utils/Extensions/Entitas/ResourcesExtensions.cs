@@ -28,7 +28,18 @@ namespace Code.Utils.Extensions.Entitas
 			=> @this.UpdateResourceCurrentValue(@this.progressBar.Value.Current + value);
 
 		public static void UpdateResourceCurrentValue(this GameEntity @this, float value)
-			=> @this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });
+		{
+			if (value > @this.progressBar.Value.Max)
+			{
+				value = @this.progressBar.Value.Max;
+			}
+			else if (value < 0)
+			{
+				value = 0;
+			}
+
+			@this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });
+		}
 
 		public static GameEntity GetResource(this GameEntity @this)
 			=> Contexts.game.GetEntityWithConsumable(@this.hasProduceResource ? @this.produceResource : @this.consumer);
