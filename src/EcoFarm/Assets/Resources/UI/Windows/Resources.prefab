@@ -435,6 +435,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Indicator Water
       objectReference: {fileID: 0}
+    - target: {fileID: 2666099427180109526, guid: 698d8e2c4a80dd64288156cf48001db6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 26.0122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666099427180109526, guid: 698d8e2c4a80dd64288156cf48001db6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7234389004508708621, guid: 698d8e2c4a80dd64288156cf48001db6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
