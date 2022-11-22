@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90bdd58a2d1e4836a739f07fac752853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textView: {fileID: 1569070819184301678}
   _progressBarView: {fileID: 2955873364464580894}
 --- !u!1 &3148816990318014533
 GameObject:
@@ -133,7 +132,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 24, y: 42}
+  m_SizeDelta: {x: 42, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6178560991447676301
 CanvasRenderer:
