@@ -18,8 +18,8 @@ namespace Code.Utils.Extensions.Entitas
 		public static void Produce(this GameEntity @this)
 			=> @this.GetResource().IncreaseResourceCurrentValue(@this.efficiencyCoefficient);
 
-		public static bool IsResourceExhausted(this GameEntity entity)
-			=> entity.GetResource().progressBar.Value.Current <= entity.consumptionCoefficient;
+		public static bool IsResourceEnough(this GameEntity entity)
+			=> entity.GetResource().progressBar.Value.Current >= entity.consumptionCoefficient;
 
 		public static void DecreaseResourceCurrentValue(this GameEntity @this, int value)
 			=> @this.UpdateResourceCurrentValue(@this.progressBar.Value.Current - value);

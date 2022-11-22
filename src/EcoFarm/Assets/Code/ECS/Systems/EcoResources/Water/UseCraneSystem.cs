@@ -17,7 +17,7 @@ namespace Code.ECS.Systems.EcoResources.Water
 
 		protected override void Execute(List<GameEntity> cranes) => cranes.ForEach(Use, @if: EnoughWater);
 
-		private static bool EnoughWater(GameEntity crane) => crane.IsResourceExhausted() == false;
+		private static bool EnoughWater(GameEntity crane) => crane.IsResourceEnough();
 
 		private static void Use(GameEntity crane) => crane.isUsed = true;
 	}
