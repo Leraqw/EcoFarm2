@@ -59,7 +59,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void RelativeGeneratorView(GameEntity generator)
 			=> generator
-			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
+			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))			
 			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName))
 		/**/;
 
@@ -69,6 +69,9 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> entity
 			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
+			   .Do((e) => e.isPermanentGenerator = true, @if: (e) => e.GeneratorIs(WindmillName))
+			   .Do((e) => e.AddDuration(1), @if: (e) => e.GeneratorIs(WindmillName))
+			   .Do((e) => e.isCleanerGenerator = true, @if: (e) => e.GeneratorIs(WaterCleanerName))
 		/**/;
 
 		private void AddConsumption(GameEntity entity)
