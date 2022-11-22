@@ -33,6 +33,7 @@ namespace Code.ECS.Systems.EcoResources
 			   .Do((e) => e.InitializeAsResource(Balance.Energy))
 			   .Do((e) => e.isEnergyResource = true)
 			   .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
+			   // TODO: mark as every second generator 
 		/**/;
 
 		private void InitializeWater(GameEntity context)
@@ -40,6 +41,7 @@ namespace Code.ECS.Systems.EcoResources
 			   .Do((e) => e.InitializeAsResource(Balance.Water))
 			   .Do((e) => e.isWaterResource = true)
 			   .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
+			   // TODO: mark as by pollution generator
 		/**/;
 	}
 }
