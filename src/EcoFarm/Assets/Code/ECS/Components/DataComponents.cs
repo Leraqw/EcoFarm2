@@ -1,6 +1,7 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using EcoFarmDataModule;
 using Entitas.CodeGeneration.Attributes;
+using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.ECS.Components
@@ -22,4 +23,6 @@ namespace Code.ECS.Components
 	[Game] [Event(Self)] public sealed class GeneratorComponent : ValueComponent<Generator> { }
 
 	[Game] public sealed class InputProductsComponent : ValueComponent<Product[]> { }
+
+	[Game] public sealed class ResourceComponent : PrimaryComponent<Resource> { }
 }

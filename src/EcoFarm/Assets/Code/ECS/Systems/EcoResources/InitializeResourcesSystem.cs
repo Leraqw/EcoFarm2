@@ -2,6 +2,8 @@
 using Code.Unity.Containers;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using Code.Utils.StaticClasses;
+using EcoFarmDataModule;
 using Entitas;
 
 namespace Code.ECS.Systems.EcoResources
@@ -16,20 +18,28 @@ namespace Code.ECS.Systems.EcoResources
 
 		private IBalanceConfig Balance => _contexts.services.configurationService.Value.Balance;
 
-		public void Initialize()
-			=> _contexts.game.Do(InitializeWater)
-			            .Do(InitializeEnergy);
+		public void Initialize() => _contexts.game.storage.Value.Resources.ForEach(Create);
 
-		private void InitializeEnergy(GameContext context)
-			=> context.CreateResource("Resource - Energy", Balance.Energy)
-			          .Do((e) => e.isEnergyResource = true)
-			          .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
+		private void Create(Resource resource)
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.AddDebugName($"Resource – {resource.Title}"))
+			            .Do((e) => e.AddResource(resource))
+			            .Do(InitializeEnergy, @if: resource.Title == Constants.ElectricityName)
+			            .Do(InitializeWater, @if: resource.Title == Constants.WaterName)
 		/**/;
 
-		private void InitializeWater(GameContext context)
-			=> context.CreateResource("Resource - Water", Balance.Water)
-			          .Do((e) => e.isWaterResource = true)
-			          .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
+		private void InitializeEnergy(GameEntity entity)
+			=> entity
+			   .Do((e) => e.InitializeAsResource(Balance.Energy))
+			   .Do((e) => e.isEnergyResource = true)
+			   .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
+		/**/;
+
+		private void InitializeWater(GameEntity context)
+			=> context
+			   .Do((e) => e.InitializeAsResource(Balance.Water))
+			   .Do((e) => e.isWaterResource = true)
+			   .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
 		/**/;
 	}
 }

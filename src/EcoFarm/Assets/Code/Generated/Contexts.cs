@@ -66,6 +66,7 @@ public partial class Contexts {
     public const string AttachedTo = "AttachedTo";
     public const string Consumable = "Consumable";
     public const string Consumer = "Consumer";
+    public const string ProduceResource = "ProduceResource";
     public const string Resource = "Resource";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
@@ -91,6 +92,11 @@ public partial class Contexts {
             (e, c) => ((Code.ECS.Components.ConsumerComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
+            ProduceResource,
+            game.GetGroup(GameMatcher.ProduceResource),
+            (e, c) => ((Code.ECS.Components.ProduceResourceComponent)c).Value));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, EcoFarmDataModule.Resource>(
             Resource,
             game.GetGroup(GameMatcher.Resource),
             (e, c) => ((Code.ECS.Components.ResourceComponent)c).Value));
@@ -115,8 +121,12 @@ public static class ContextsExtensions {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Consumer)).GetEntities(Value);
     }
 
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithResource(this GameContext context, int Value) {
-        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Resource)).GetEntities(Value);
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithProduceResource(this GameContext context, int Value) {
+        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.ProduceResource)).GetEntities(Value);
+    }
+
+    public static GameEntity GetEntityWithResource(this GameContext context, EcoFarmDataModule.Resource Value) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, EcoFarmDataModule.Resource>)context.GetEntityIndex(Contexts.Resource)).GetEntity(Value);
     }
 }
 //------------------------------------------------------------------------------

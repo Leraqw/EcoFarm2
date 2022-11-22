@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.ECS.Components.ResourceComponent resource { get { return (Code.ECS.Components.ResourceComponent)GetComponent(GameComponentsLookup.Resource); } }
     public bool hasResource { get { return HasComponent(GameComponentsLookup.Resource); } }
 
-    public void AddResource(int newValue) {
+    public void AddResource(EcoFarmDataModule.Resource newValue) {
         var index = GameComponentsLookup.Resource;
         var component = (Code.ECS.Components.ResourceComponent)CreateComponent(index, typeof(Code.ECS.Components.ResourceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceResource(int newValue) {
+    public void ReplaceResource(EcoFarmDataModule.Resource newValue) {
         var index = GameComponentsLookup.Resource;
         var component = (Code.ECS.Components.ResourceComponent)CreateComponent(index, typeof(Code.ECS.Components.ResourceComponent));
         component.Value = newValue;

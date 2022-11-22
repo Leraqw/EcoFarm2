@@ -67,13 +67,13 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void AddProduction(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddResource(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
 		/**/;
 
 		private void AddConsumption(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddConsumer(_contexts.game.energyResourceEntity.consumable))
+			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable))
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 

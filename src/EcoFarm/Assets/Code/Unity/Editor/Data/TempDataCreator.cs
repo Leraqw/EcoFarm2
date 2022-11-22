@@ -38,20 +38,25 @@ namespace Code.Unity.Editor.Data
 
 			var electricity = new Resource
 			{
-				Title = "Electricity",
+				Title = ElectricityName,
 				Description
 					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
 			};
 
 			var water = new Resource
 			{
-				Title = "Water",
+				Title = WaterName,
 				Description
 					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
 			};
 
 			return new Storage
 			{
+				Resources = new[]
+				{
+					electricity,
+					water,
+				},
 				Products = new[]
 				{
 					coin,
