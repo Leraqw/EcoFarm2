@@ -10,7 +10,7 @@ namespace Code.ECS.Features
 			Add(new InitializeResourcesSystem(contexts));
 			Add(new PostInitializeCraneResourceSystem(contexts));
 			Add(new ConsumeUsedResourcesSystem(contexts));
-			Add(new ProduceResourceSystem(contexts));
+			Add(new PermanentProduceResourceSystem(contexts));
 			Add(new UseCraneSystem(contexts));
 			Add(new OnResourceButtonClickSystem(contexts));
 		}

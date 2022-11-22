@@ -6,14 +6,14 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.EcoResources
 {
-	public sealed class ProduceResourceSystem : ReactiveSystem<GameEntity>
+	public sealed class PermanentProduceResourceSystem : ReactiveSystem<GameEntity>
 	{
-		public ProduceResourceSystem(Contexts contexts) : base(contexts.game) { }
+		public PermanentProduceResourceSystem(Contexts contexts) : base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Generator, EfficiencyCoefficient).NoneOf(Duration));
+			=> context.CreateCollector(AllOf(Generator, EfficiencyCoefficient, PermanentGenerator, DurationUp));
 
-		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(ProducePerSecond);
 
