@@ -22,4 +22,7 @@ namespace Code.ECS.Components
 	[Game] public sealed class PermanentGeneratorComponent : FlagComponent { }
 
 	[Game] public sealed class CleanerGeneratorComponent : FlagComponent { }
+
+	[Game] public sealed class PolluteComponent : ValueComponent<int> { }
+
 }

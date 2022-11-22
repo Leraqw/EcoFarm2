@@ -10,6 +10,7 @@ namespace Code.Utils.StaticClasses
 			=> Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
 
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
+		public const int FactoryPollution = 25;
 
 		private const string RelativePath = "Assets/DataModel/SerializedFiles";
 

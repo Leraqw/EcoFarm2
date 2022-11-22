@@ -4,6 +4,7 @@ using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
+using Code.Utils.StaticClasses;
 using Entitas;
 using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
@@ -30,17 +31,18 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.isUsed = true)
 			   .Do((e) => e.isBusy = false)
 			   .Do(SpawnProduct)
+			   .Do((e) => e.AddPollute(FactoryPollution))
 		/**/;
 
 		private void SpawnProduct(GameEntity factory)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("Product"))
-			            .Do((e) => e.AddProduct(factory.factory.Value.OutputProducts.First()))
+			            .Do((p) => p.AddDebugName("Product"))
+			            .Do((p) => p.AddProduct(factory.factory.Value.OutputProducts.First()))
 			            .AttachTo(factory)
-			            .Do((e) => e.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
-			            .Do((e) => e.AddViewPrefab(Prefab.AppleJuice))
-			            .Do((e) => e.isPickable = true)
-			            .Do((e) => e.isInFactory = true)
+			            .Do((p) => p.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
+			            .Do((p) => p.AddViewPrefab(Prefab.AppleJuice))
+			            .Do((p) => p.isPickable = true)
+			            .Do((p) => p.isInFactory = true)
 		/**/;
 	}
 }
