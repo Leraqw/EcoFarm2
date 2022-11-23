@@ -38,7 +38,7 @@ namespace Code.Global.PlayerContexts.Systems
 
 		private static IEnumerable<Player> Deserialize()
 		{
-			var path = Constants.PathToStorage;
+			var path = Constants.PathToPlayers;
 			if (File.Exists(path) == false)
 			{
 				TempPlayersCreator.CreateEmpty();

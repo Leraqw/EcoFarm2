@@ -9,7 +9,14 @@ namespace Code.Unity.TEMP
 	{
 		public static void CreateEmpty()
 		{
-			var players = new Player[] { };
+			var players = new Player[]
+			{
+				new()
+				{
+					Nickname = "NewPlayer",
+					CompletedLevelsCount = 0,
+				}
+			};
 
 			TempDataCreator.Serialize(players, Constants.PathToPlayers);
 		}
@@ -21,7 +28,7 @@ namespace Code.Unity.TEMP
 				new()
 				{
 					Nickname = "Tester 123",
-					CompletedLevelsCount = 0,
+					CompletedLevelsCount = 1,
 				}
 			};
 
