@@ -15,7 +15,7 @@ namespace Code.Global.LevelChoice.Unity
 		{
 			var e = Contexts.player.CreateEntity();
 			e.isLevelRelatedEntity = true;
-			e.AddUnlockedLevelsCount(CurrentPlayer.unlockedLevelsCount);
+			e.AddUnlockedLevelsCount(CurrentPlayer.GetCompletedUnlockedLevelsCount());
 			_view.Register(e);
 			e.AddView(gameObject);
 		}

@@ -1,6 +1,6 @@
 ﻿using Code.Global.LevelChoice.Systems;
 
-namespace Code.Global.LevelChoice
+namespace Code.Global.LevelChoice.Extensions
 {
 	public sealed class LevelChoiceSystems : Feature
 	{

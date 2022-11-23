@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Global.LevelChoice.Extensions;
+using UnityEngine;
 
 namespace Code.Global.LevelChoice
 {
