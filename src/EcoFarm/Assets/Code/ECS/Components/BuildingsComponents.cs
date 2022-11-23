@@ -25,6 +25,7 @@ namespace Code.ECS.Components
 
 	[Game] public sealed class CleanerGeneratorComponent : FlagComponent { }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class PolluteComponent : ValueComponent<int> { }
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : ValueComponent<int> { }
 
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : ValueComponent<Resource> { }
 }

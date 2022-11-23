@@ -30,7 +30,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.isUsed = true)
 			   .Do((e) => e.isBusy = false)
 			   .Do(SpawnProduct)
-			   .Do((e) => e.AddPollute(FactoryPollution))
+			   .Do((e) => e.AddPollution(_contexts.game.waterResourceEntity.resource))
+			   .Do((e) => e.AddPollutionCoefficient(FactoryPollution))
 		/**/;
 
 		private void SpawnProduct(GameEntity factory)
