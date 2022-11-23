@@ -20,7 +20,12 @@ namespace Code.Utils.StaticClasses
 		public const string ElectricityName = "Electricity";
 		public const string WaterName = "Water";
 		public const float CleaningTime = 1;
-		public const float SpriteHighDelta = 0.01f;
-		public const float SpriteNormalHigh = 1f;
+
+		public static class SpriteHigh
+		{
+			public const float DeltaStep = 0.05f;
+			public const float DeltaMax = 0.25f;
+			public const float Normal = 1f;
+		}
 	}
 }

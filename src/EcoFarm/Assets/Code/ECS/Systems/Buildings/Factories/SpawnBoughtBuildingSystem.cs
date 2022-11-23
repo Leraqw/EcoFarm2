@@ -10,6 +10,7 @@ using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
+using static Code.Utils.StaticClasses.Constants.SpriteHigh;
 
 namespace Code.ECS.Systems.Buildings.Factories
 {
@@ -78,7 +79,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		{
 			e.isCleanerGenerator = true;
 			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
-			e.AddSpriteHigh(SpriteNormalHigh);
+			e.AddSpriteHigh(Normal);
 		}
 
 		private void InitializeAsWindmill(GameEntity e)

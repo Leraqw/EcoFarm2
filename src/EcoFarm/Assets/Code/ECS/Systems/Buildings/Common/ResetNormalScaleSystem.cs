@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Buildings.Common
 		{
 			foreach (var e in entites)
 			{
-				e.ReplaceSpriteHigh(Constants.SpriteNormalHigh);
+				e.ReplaceSpriteHigh(Constants.SpriteHigh.Normal);
 			}
 		}
 	}

@@ -1,5 +1,6 @@
-﻿using Code.Utils.StaticClasses;
-using Entitas;
+﻿using Entitas;
+using UnityEngine;
+using static Code.Utils.StaticClasses.Constants.SpriteHigh;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Common
@@ -17,7 +18,10 @@ namespace Code.ECS.Systems.Buildings.Common
 		{
 			foreach (var e in _entities)
 			{
-				e.ReplaceSpriteHigh(e.spriteHigh + Constants.SpriteHighDelta);
+				// Change high by sinusoida
+				var delta = 0.1f;
+				var timeScale = 10;
+				e.ReplaceSpriteHigh(Normal + Mathf.Sin(Time.time * timeScale) * delta);
 			}
 		}
 	}
