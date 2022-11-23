@@ -17,7 +17,7 @@ namespace Code.ECS.Systems.Tree
 
 		private LevelData[] Levels => _contexts.game.storage.Value.Levels;
 
-		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
 
 		public void Initialize()
 			=> SpawnPointsService

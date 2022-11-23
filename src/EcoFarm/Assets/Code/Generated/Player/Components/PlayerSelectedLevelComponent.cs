@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContext.Components.SelectedLevelComponent selectedLevel { get { return (Code.Global.PlayerContext.Components.SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
+    public Code.Global.PlayerContexts.Components.SelectedLevelComponent selectedLevel { get { return (Code.Global.PlayerContexts.Components.SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
     public bool hasSelectedLevel { get { return HasComponent(PlayerComponentsLookup.SelectedLevel); } }
 
     public void AddSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (Code.Global.PlayerContext.Components.SelectedLevelComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SelectedLevelComponent));
+        var component = (Code.Global.PlayerContexts.Components.SelectedLevelComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (Code.Global.PlayerContext.Components.SelectedLevelComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SelectedLevelComponent));
+        var component = (Code.Global.PlayerContexts.Components.SelectedLevelComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

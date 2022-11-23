@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Tree
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
-		private int SelectedLevel => _contexts.player.playerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
 
 		public void Initialize()
 			=> SpawnPointsService

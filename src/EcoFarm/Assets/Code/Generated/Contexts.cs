@@ -66,6 +66,7 @@ public partial class Contexts {
     public const string AttachedTo = "AttachedTo";
     public const string Consumable = "Consumable";
     public const string Consumer = "Consumer";
+    public const string Nickname = "Nickname";
     public const string ProduceResource = "ProduceResource";
     public const string Resource = "Resource";
 
@@ -90,6 +91,11 @@ public partial class Contexts {
             Consumer,
             game.GetGroup(GameMatcher.Consumer),
             (e, c) => ((Code.ECS.Components.ConsumerComponent)c).Value));
+
+        player.AddEntityIndex(new Entitas.PrimaryEntityIndex<PlayerEntity, string>(
+            Nickname,
+            player.GetGroup(PlayerMatcher.Nickname),
+            (e, c) => ((Code.Global.PlayerContexts.Components.NicknameComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             ProduceResource,
@@ -119,6 +125,10 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithConsumer(this GameContext context, int Value) {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Consumer)).GetEntities(Value);
+    }
+
+    public static PlayerEntity GetEntityWithNickname(this PlayerContext context, string Value) {
+        return ((Entitas.PrimaryEntityIndex<PlayerEntity, string>)context.GetEntityIndex(Contexts.Nickname)).GetEntity(Value);
     }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithProduceResource(this GameContext context, int Value) {

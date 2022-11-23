@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using static Code.Global.PlayerContext.CustomTypes.SessionResult;
+using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Level
@@ -19,6 +19,6 @@ namespace Code.ECS.Systems.Level
 		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> _) 
-			=> _contexts.player.playerEntity.ReplaceSessionResult(Defeat);
+			=> _contexts.player.currentPlayerEntity.ReplaceSessionResult(Defeat);
 	}
 }

@@ -2,7 +2,7 @@
 using System.Linq;
 using Code.Utils.Extensions;
 using Entitas;
-using static Code.Global.PlayerContext.CustomTypes.SessionResult;
+using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Goals
@@ -26,7 +26,7 @@ namespace Code.ECS.Systems.Goals
 
 		protected override void Execute(List<GameEntity> _) => this.Do(GameVictory, @if: AllGoalsIsCompleted);
 
-		private void GameVictory(object _) => _contexts.player.playerEntity.ReplaceSessionResult(Victory);
+		private void GameVictory(object _) => _contexts.player.currentPlayerEntity.ReplaceSessionResult(Victory);
 
 		private bool AllGoalsIsCompleted => _notCompletedGoals.GetEntities().Any() == false;
 	}

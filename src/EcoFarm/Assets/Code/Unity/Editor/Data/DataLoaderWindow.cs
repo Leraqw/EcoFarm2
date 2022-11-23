@@ -1,5 +1,6 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
 using Code.Unity.Editor.Common;
+using Code.Unity.TEMP;
 using UnityEditor;
 using static Code.Unity.Editor.Common.EditorGUILayoutUtils;
 using static UnityEditor.EditorUtility;
@@ -27,7 +28,11 @@ namespace Code.Unity.Editor.Data
 			AsHorizontalGroupAlignCenter(ButtonCopy);
 			Space(25);
 			AsHorizontalGroupAlignCenter(ButtonGenerate);
+			AsHorizontalGroupAlignCenter(ButtonCreatePlayers);
 		}
+
+		private void ButtonCreatePlayers() 
+			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.CreateTest);
 
 		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
 

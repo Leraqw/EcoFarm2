@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContext.Components.SessionResultComponent sessionResult { get { return (Code.Global.PlayerContext.Components.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public Code.Global.PlayerContexts.Components.SessionResultComponent sessionResult { get { return (Code.Global.PlayerContexts.Components.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(Code.Global.PlayerContext.CustomTypes.SessionResult newValue) {
+    public void AddSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContext.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SessionResultComponent));
+        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(Code.Global.PlayerContext.CustomTypes.SessionResult newValue) {
+    public void ReplaceSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContext.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContext.Components.SessionResultComponent));
+        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
