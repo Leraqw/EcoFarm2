@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.OccupiedComponent occupiedComponent = new Code.ECS.Components.OccupiedComponent();
+    static readonly Code.ECS.Components.Buildings.OccupiedComponent occupiedComponent = new Code.ECS.Components.Buildings.OccupiedComponent();
 
     public bool isOccupied {
         get { return HasComponent(GameComponentsLookup.Occupied); }

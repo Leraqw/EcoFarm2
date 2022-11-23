@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.BusyComponent busyComponent = new Code.ECS.Components.Buildings.BusyComponent();
+    static readonly Code.ECS.Components.Buildings.SpinnerComponent spinnerComponent = new Code.ECS.Components.Buildings.SpinnerComponent();
 
-    public bool isBusy {
-        get { return HasComponent(GameComponentsLookup.Busy); }
+    public bool isSpinner {
+        get { return HasComponent(GameComponentsLookup.Spinner); }
         set {
-            if (value != isBusy) {
-                var index = GameComponentsLookup.Busy;
+            if (value != isSpinner) {
+                var index = GameComponentsLookup.Spinner;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : busyComponent;
+                            : spinnerComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherBusy;
+    static Entitas.IMatcher<GameEntity> _matcherSpinner;
 
-    public static Entitas.IMatcher<GameEntity> Busy {
+    public static Entitas.IMatcher<GameEntity> Spinner {
         get {
-            if (_matcherBusy == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Busy);
+            if (_matcherSpinner == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Spinner);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherBusy = matcher;
+                _matcherSpinner = matcher;
             }
 
-            return _matcherBusy;
+            return _matcherSpinner;
         }
     }
 }

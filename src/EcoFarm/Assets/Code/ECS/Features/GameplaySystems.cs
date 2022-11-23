@@ -7,6 +7,7 @@ using Code.ECS.Systems.Buildings.Common;
 using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Buildings.Generators;
 using Code.ECS.Systems.Buildings.Generators.WaterCleaner;
+using Code.ECS.Systems.Buildings.Generators.Windmill;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
@@ -46,6 +47,9 @@ namespace Code.ECS.Features
 			// Dancing
 			Add(new DanceWhileWorkingSystem(contexts));
 			Add(new ResetNormalScaleSystem(contexts));
+			
+			// Rotating
+			Add(new RotateSpinnersSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));

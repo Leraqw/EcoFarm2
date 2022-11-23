@@ -33,7 +33,7 @@
         "$type": "EcoFarmDataModule.Product, EcoFarmModel",
         "Title": "Apple",
         "Description": "Is a sweet, edible fruit produced by an apple tree.",
-        "Price": 2
+        "Price": 99999
       },
       {
         "$id": "6",

@@ -43,7 +43,7 @@ MonoBehaviour:
       <StartValue>k__BackingField: 100
       <RenewPrice>k__BackingField: 10
     _factory:
-      <WorkingDuration>k__BackingField: 1
+      <WorkingDuration>k__BackingField: 2.5
       <SendProductToFactoryDelay>k__BackingField: 0.1
       <RoadToFactoryDuration>k__BackingField: 1
   _common:

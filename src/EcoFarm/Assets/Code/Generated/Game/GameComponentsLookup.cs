@@ -13,119 +13,123 @@ public static class GameComponentsLookup {
     public const int Activate = 2;
     public const int AttachableIndex = 3;
     public const int AttachedTo = 4;
-    public const int Bought = 5;
-    public const int Bucket = 6;
-    public const int Building = 7;
-    public const int BuildWindow = 8;
-    public const int Busy = 9;
-    public const int ButtonClick = 10;
-    public const int CleanerGenerator = 11;
-    public const int Coin = 12;
-    public const int CoinsCount = 13;
-    public const int Collected = 14;
-    public const int Consumable = 15;
-    public const int Consumer = 16;
-    public const int ConsumptionCoefficient = 17;
-    public const int Count = 18;
-    public const int Crane = 19;
-    public const int CurrentQuantity = 20;
-    public const int DebugName = 21;
-    public const int DevelopmentObject = 22;
-    public const int Draggable = 23;
-    public const int Dragging = 24;
-    public const int DraggingEnd = 25;
-    public const int DraggingStart = 26;
-    public const int DroughtTimer = 27;
-    public const int Duration = 28;
-    public const int DurationUp = 29;
-    public const int EfficiencyCoefficient = 30;
-    public const int EnergyResource = 31;
-    public const int Factory = 32;
-    public const int Fell = 33;
-    public const int Filled = 34;
-    public const int Fruitful = 35;
-    public const int FruitRequire = 36;
-    public const int Generator = 37;
-    public const int GoalCompleted = 38;
-    public const int Goal = 39;
-    public const int Growth = 40;
-    public const int InFactory = 41;
-    public const int InputProducts = 42;
-    public const int Inventory = 43;
-    public const int InventoryItem = 44;
-    public const int LevelTimer = 45;
-    public const int MouseClick = 46;
-    public const int MouseDown = 47;
-    public const int MouseUp = 48;
-    public const int Occupied = 49;
-    public const int PermanentGenerator = 50;
-    public const int Pickable = 51;
-    public const int Picked = 52;
-    public const int PollutionCoefficient = 53;
-    public const int Pollution = 54;
-    public const int Position = 55;
-    public const int PreparationInProcess = 56;
-    public const int Prepared = 57;
-    public const int ProduceResource = 58;
-    public const int Product = 59;
-    public const int ProgressBar = 60;
-    public const int ProportionalScale = 61;
-    public const int Radius = 62;
-    public const int Ready = 63;
-    public const int Renew = 64;
-    public const int RenewPrice = 65;
-    public const int RequirePreparation = 66;
-    public const int RequireProduct = 67;
-    public const int RequireSprite = 68;
-    public const int RequireTreeOnPosition = 69;
-    public const int RequireView = 70;
-    public const int Resource = 71;
-    public const int SellCoefficient = 72;
-    public const int SellDeal = 73;
-    public const int SellWindow = 74;
-    public const int Sign = 75;
-    public const int SliderMaxValue = 76;
-    public const int SliderValue = 77;
-    public const int SpawnPosition = 78;
-    public const int Sprite = 79;
-    public const int SpriteHigh = 80;
-    public const int SpriteToLoad = 81;
-    public const int Storage = 82;
-    public const int TargetActivity = 83;
-    public const int TargetPosition = 84;
-    public const int TargetScale = 85;
-    public const int Text = 86;
-    public const int Tree = 87;
-    public const int UiElement = 88;
-    public const int UiParent = 89;
-    public const int Used = 90;
-    public const int View = 91;
-    public const int ViewPrefab = 92;
-    public const int Watered = 93;
-    public const int Watering = 94;
-    public const int WaterResource = 95;
-    public const int WillFall = 96;
-    public const int Working = 97;
-    public const int Destroy = 98;
-    public const int CoinsCountListener = 99;
-    public const int CurrentQuantityListener = 100;
-    public const int DurationListener = 101;
-    public const int FactoryListener = 102;
-    public const int GameTextListener = 103;
-    public const int GeneratorListener = 104;
-    public const int GoalCompletedListener = 105;
-    public const int GoalListener = 106;
-    public const int InventoryItemListener = 107;
-    public const int PositionListener = 108;
-    public const int ProgressBarListener = 109;
-    public const int ProportionalScaleListener = 110;
-    public const int SliderMaxValueListener = 111;
-    public const int SliderValueListener = 112;
-    public const int SpriteHighListener = 113;
-    public const int SpriteListener = 114;
-    public const int WateringListener = 115;
+    public const int Bucket = 5;
+    public const int Building = 6;
+    public const int Bought = 7;
+    public const int Busy = 8;
+    public const int CleanerGenerator = 9;
+    public const int InFactory = 10;
+    public const int Occupied = 11;
+    public const int PermanentGenerator = 12;
+    public const int PollutionCoefficient = 13;
+    public const int Pollution = 14;
+    public const int Ready = 15;
+    public const int RequireProduct = 16;
+    public const int Rotation = 17;
+    public const int RotationSpeed = 18;
+    public const int Sign = 19;
+    public const int Spinner = 20;
+    public const int SpriteHigh = 21;
+    public const int Working = 22;
+    public const int BuildWindow = 23;
+    public const int ButtonClick = 24;
+    public const int Coin = 25;
+    public const int CoinsCount = 26;
+    public const int Collected = 27;
+    public const int Consumable = 28;
+    public const int Consumer = 29;
+    public const int ConsumptionCoefficient = 30;
+    public const int Count = 31;
+    public const int Crane = 32;
+    public const int CurrentQuantity = 33;
+    public const int DebugName = 34;
+    public const int DevelopmentObject = 35;
+    public const int Draggable = 36;
+    public const int Dragging = 37;
+    public const int DraggingEnd = 38;
+    public const int DraggingStart = 39;
+    public const int DroughtTimer = 40;
+    public const int Duration = 41;
+    public const int DurationUp = 42;
+    public const int EfficiencyCoefficient = 43;
+    public const int EnergyResource = 44;
+    public const int Factory = 45;
+    public const int Fell = 46;
+    public const int Filled = 47;
+    public const int Fruitful = 48;
+    public const int FruitRequire = 49;
+    public const int Generator = 50;
+    public const int GoalCompleted = 51;
+    public const int Goal = 52;
+    public const int Growth = 53;
+    public const int InputProducts = 54;
+    public const int Inventory = 55;
+    public const int InventoryItem = 56;
+    public const int LevelTimer = 57;
+    public const int MouseClick = 58;
+    public const int MouseDown = 59;
+    public const int MouseUp = 60;
+    public const int Pickable = 61;
+    public const int Picked = 62;
+    public const int Position = 63;
+    public const int PreparationInProcess = 64;
+    public const int Prepared = 65;
+    public const int ProduceResource = 66;
+    public const int Product = 67;
+    public const int ProgressBar = 68;
+    public const int ProportionalScale = 69;
+    public const int Radius = 70;
+    public const int Renew = 71;
+    public const int RenewPrice = 72;
+    public const int RequirePreparation = 73;
+    public const int RequireSprite = 74;
+    public const int RequireTreeOnPosition = 75;
+    public const int RequireView = 76;
+    public const int Resource = 77;
+    public const int SellCoefficient = 78;
+    public const int SellDeal = 79;
+    public const int SellWindow = 80;
+    public const int SliderMaxValue = 81;
+    public const int SliderValue = 82;
+    public const int SpawnPosition = 83;
+    public const int Sprite = 84;
+    public const int SpriteToLoad = 85;
+    public const int Storage = 86;
+    public const int TargetActivity = 87;
+    public const int TargetPosition = 88;
+    public const int TargetScale = 89;
+    public const int Text = 90;
+    public const int Tree = 91;
+    public const int UiElement = 92;
+    public const int UiParent = 93;
+    public const int Used = 94;
+    public const int View = 95;
+    public const int ViewPrefab = 96;
+    public const int Watered = 97;
+    public const int Watering = 98;
+    public const int WaterResource = 99;
+    public const int WillFall = 100;
+    public const int Destroy = 101;
+    public const int CoinsCountListener = 102;
+    public const int CurrentQuantityListener = 103;
+    public const int DurationListener = 104;
+    public const int FactoryListener = 105;
+    public const int GameTextListener = 106;
+    public const int GeneratorListener = 107;
+    public const int GoalCompletedListener = 108;
+    public const int GoalListener = 109;
+    public const int InventoryItemListener = 110;
+    public const int PositionListener = 111;
+    public const int ProgressBarListener = 112;
+    public const int ProportionalScaleListener = 113;
+    public const int RotationListener = 114;
+    public const int SliderMaxValueListener = 115;
+    public const int SliderValueListener = 116;
+    public const int SpriteHighListener = 117;
+    public const int SpriteListener = 118;
+    public const int WateringListener = 119;
 
-    public const int TotalComponents = 116;
+    public const int TotalComponents = 120;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -133,13 +137,26 @@ public static class GameComponentsLookup {
         "Activate",
         "AttachableIndex",
         "AttachedTo",
-        "Bought",
         "Bucket",
         "Building",
-        "BuildWindow",
+        "Bought",
         "Busy",
-        "ButtonClick",
         "CleanerGenerator",
+        "InFactory",
+        "Occupied",
+        "PermanentGenerator",
+        "PollutionCoefficient",
+        "Pollution",
+        "Ready",
+        "RequireProduct",
+        "Rotation",
+        "RotationSpeed",
+        "Sign",
+        "Spinner",
+        "SpriteHigh",
+        "Working",
+        "BuildWindow",
+        "ButtonClick",
         "Coin",
         "CoinsCount",
         "Collected",
@@ -169,7 +186,6 @@ public static class GameComponentsLookup {
         "GoalCompleted",
         "Goal",
         "Growth",
-        "InFactory",
         "InputProducts",
         "Inventory",
         "InventoryItem",
@@ -177,12 +193,8 @@ public static class GameComponentsLookup {
         "MouseClick",
         "MouseDown",
         "MouseUp",
-        "Occupied",
-        "PermanentGenerator",
         "Pickable",
         "Picked",
-        "PollutionCoefficient",
-        "Pollution",
         "Position",
         "PreparationInProcess",
         "Prepared",
@@ -191,11 +203,9 @@ public static class GameComponentsLookup {
         "ProgressBar",
         "ProportionalScale",
         "Radius",
-        "Ready",
         "Renew",
         "RenewPrice",
         "RequirePreparation",
-        "RequireProduct",
         "RequireSprite",
         "RequireTreeOnPosition",
         "RequireView",
@@ -203,12 +213,10 @@ public static class GameComponentsLookup {
         "SellCoefficient",
         "SellDeal",
         "SellWindow",
-        "Sign",
         "SliderMaxValue",
         "SliderValue",
         "SpawnPosition",
         "Sprite",
-        "SpriteHigh",
         "SpriteToLoad",
         "Storage",
         "TargetActivity",
@@ -225,7 +233,6 @@ public static class GameComponentsLookup {
         "Watering",
         "WaterResource",
         "WillFall",
-        "Working",
         "Destroy",
         "CoinsCountListener",
         "CurrentQuantityListener",
@@ -239,6 +246,7 @@ public static class GameComponentsLookup {
         "PositionListener",
         "ProgressBarListener",
         "ProportionalScaleListener",
+        "RotationListener",
         "SliderMaxValueListener",
         "SliderValueListener",
         "SpriteHighListener",
@@ -252,13 +260,26 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.ActivateComponent),
         typeof(Code.ECS.Components.AttachableIndexComponent),
         typeof(Code.ECS.Components.AttachedToComponent),
-        typeof(Code.ECS.Components.BoughtComponent),
         typeof(Code.ECS.Components.BucketComponent),
         typeof(Code.ECS.Components.BuildingComponent),
+        typeof(Code.ECS.Components.Buildings.BoughtComponent),
+        typeof(Code.ECS.Components.Buildings.BusyComponent),
+        typeof(Code.ECS.Components.Buildings.CleanerGeneratorComponent),
+        typeof(Code.ECS.Components.Buildings.InFactoryComponent),
+        typeof(Code.ECS.Components.Buildings.OccupiedComponent),
+        typeof(Code.ECS.Components.Buildings.PermanentGeneratorComponent),
+        typeof(Code.ECS.Components.Buildings.PollutionCoefficientComponent),
+        typeof(Code.ECS.Components.Buildings.PollutionComponent),
+        typeof(Code.ECS.Components.Buildings.ReadyComponent),
+        typeof(Code.ECS.Components.Buildings.RequireProductComponent),
+        typeof(Code.ECS.Components.Buildings.RotationComponent),
+        typeof(Code.ECS.Components.Buildings.RotationSpeedComponent),
+        typeof(Code.ECS.Components.Buildings.SignComponent),
+        typeof(Code.ECS.Components.Buildings.SpinnerComponent),
+        typeof(Code.ECS.Components.Buildings.SpriteHighComponent),
+        typeof(Code.ECS.Components.Buildings.WorkingComponent),
         typeof(Code.ECS.Components.BuildWindowComponent),
-        typeof(Code.ECS.Components.BusyComponent),
         typeof(Code.ECS.Components.ButtonClickComponent),
-        typeof(Code.ECS.Components.CleanerGeneratorComponent),
         typeof(Code.ECS.Components.CoinComponent),
         typeof(Code.ECS.Components.CoinsCountComponent),
         typeof(Code.ECS.Components.CollectedComponent),
@@ -288,7 +309,6 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.GoalCompletedComponent),
         typeof(Code.ECS.Components.GoalComponent),
         typeof(Code.ECS.Components.GrowthComponent),
-        typeof(Code.ECS.Components.InFactoryComponent),
         typeof(Code.ECS.Components.InputProductsComponent),
         typeof(Code.ECS.Components.InventoryComponent),
         typeof(Code.ECS.Components.InventoryItemComponent),
@@ -296,12 +316,8 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.MouseClickComponent),
         typeof(Code.ECS.Components.MouseDownComponent),
         typeof(Code.ECS.Components.MouseUpComponent),
-        typeof(Code.ECS.Components.OccupiedComponent),
-        typeof(Code.ECS.Components.PermanentGeneratorComponent),
         typeof(Code.ECS.Components.PickableComponent),
         typeof(Code.ECS.Components.PickedComponent),
-        typeof(Code.ECS.Components.PollutionCoefficientComponent),
-        typeof(Code.ECS.Components.PollutionComponent),
         typeof(Code.ECS.Components.PositionComponent),
         typeof(Code.ECS.Components.PreparationInProcessComponent),
         typeof(Code.ECS.Components.PreparedComponent),
@@ -310,11 +326,9 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.ProgressBarComponent),
         typeof(Code.ECS.Components.ProportionalScaleComponent),
         typeof(Code.ECS.Components.RadiusComponent),
-        typeof(Code.ECS.Components.ReadyComponent),
         typeof(Code.ECS.Components.RenewComponent),
         typeof(Code.ECS.Components.RenewPriceComponent),
         typeof(Code.ECS.Components.RequirePreparationComponent),
-        typeof(Code.ECS.Components.RequireProductComponent),
         typeof(Code.ECS.Components.RequireSpriteComponent),
         typeof(Code.ECS.Components.RequireTreeOnPositionComponent),
         typeof(Code.ECS.Components.RequireViewComponent),
@@ -322,12 +336,10 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.SellCoefficientComponent),
         typeof(Code.ECS.Components.SellDealComponent),
         typeof(Code.ECS.Components.SellWindowComponent),
-        typeof(Code.ECS.Components.SignComponent),
         typeof(Code.ECS.Components.SliderMaxValueComponent),
         typeof(Code.ECS.Components.SliderValueComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
-        typeof(Code.ECS.Components.SpriteHighComponent),
         typeof(Code.ECS.Components.SpriteToLoadComponent),
         typeof(Code.ECS.Components.StorageComponent),
         typeof(Code.ECS.Components.TargetActivityComponent),
@@ -344,7 +356,6 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WaterResourceComponent),
         typeof(Code.ECS.Components.WillFallComponent),
-        typeof(Code.ECS.Components.WorkingComponent),
         typeof(Code.Global.PlayerContext.Components.DestroyComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
@@ -358,6 +369,7 @@ public static class GameComponentsLookup {
         typeof(PositionListenerComponent),
         typeof(ProgressBarListenerComponent),
         typeof(ProportionalScaleListenerComponent),
+        typeof(RotationListenerComponent),
         typeof(SliderMaxValueListenerComponent),
         typeof(SliderValueListenerComponent),
         typeof(SpriteHighListenerComponent),
