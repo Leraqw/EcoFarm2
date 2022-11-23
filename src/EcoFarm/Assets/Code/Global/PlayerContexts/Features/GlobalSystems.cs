@@ -16,6 +16,7 @@ namespace Code.Global.PlayerContexts.Features
 			Add(new LoadPlayersSystem(contexts));
 			
 			Add(new OnSessionEndSystem(contexts));
+			Add(new SaveProgressSystem(contexts));
 			Add(new ToMainSceneSystem(contexts));
 
 			Add(new PlayerEventSystems(contexts));
