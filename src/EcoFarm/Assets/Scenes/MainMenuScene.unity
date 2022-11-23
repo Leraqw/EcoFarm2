@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c803846018a45cda3fbc8645dbf1f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 921651613}
 --- !u!114 &921651616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f58de1c2440b6884394834976cfaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeView: {fileID: 921651615}
+  _interactableView: {fileID: 921651615}
 --- !u!1 &1037689461
 GameObject:
   m_ObjectHideFlags: 0
