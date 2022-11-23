@@ -4,7 +4,7 @@ using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code.ECS.Systems.Buildings.Generators
 {
 	public sealed class PermanentProduceResourceSystem : ReactiveSystem<GameEntity>
 	{

@@ -40,8 +40,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Replace(GameEntity sign, GameEntity button)
 			=> sign
-			   .Do((e) => e.ReplaceDebugName("Building Factory"))
 			   .Do((e) => e.AddBuilding(button.building))
+			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
 			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
 			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)

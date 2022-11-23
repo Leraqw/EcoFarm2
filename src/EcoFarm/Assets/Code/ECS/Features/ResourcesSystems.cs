@@ -1,4 +1,5 @@
-﻿using Code.ECS.Systems.EcoResources;
+﻿using Code.ECS.Systems.Buildings.Generators;
+using Code.ECS.Systems.EcoResources;
 using Code.ECS.Systems.EcoResources.Water;
 
 namespace Code.ECS.Features

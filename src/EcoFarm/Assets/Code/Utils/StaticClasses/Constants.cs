@@ -19,5 +19,6 @@ namespace Code.Utils.StaticClasses
 		public const string WaterCleanerName = "Water Cleaning Station";
 		public const string ElectricityName = "Electricity";
 		public const string WaterName = "Water";
+		public const float CleaningTime = 1;
 	}
 }

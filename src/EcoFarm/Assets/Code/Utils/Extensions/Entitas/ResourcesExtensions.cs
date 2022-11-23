@@ -40,6 +40,9 @@ namespace Code.Utils.Extensions.Entitas
 
 			@this.ReplaceProgressBar(new ProgressBarValues { Max = @this.progressBar.Value.Max, Current = value });
 		}
+		
+		public static bool HasSameResource(this GameEntity @this, GameEntity other)
+			=> @this.resource.Value == other.resource.Value;
 
 		public static GameEntity GetResource(this GameEntity @this)
 			=> Contexts.game.GetEntityWithConsumable(@this.hasProduceResource ? @this.produceResource : @this.consumer);

@@ -4,6 +4,7 @@ using Code.ECS.Features.Updatables.Cleanup;
 using Code.ECS.Features.Updatables.Gameplay;
 using Code.ECS.Systems.Buildings;
 using Code.ECS.Systems.Buildings.Factories;
+using Code.ECS.Systems.Buildings.Generators;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
@@ -36,6 +37,7 @@ namespace Code.ECS.Features
 			Add(new PerformProductsRequestSystem(contexts));
 			Add(new FactoryWorkingStateSystem(contexts));
 			Add(new ProduceProductSystem(contexts));
+			Add(new CleanPollutionSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));
