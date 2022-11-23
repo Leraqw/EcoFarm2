@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6358205370146380027}
   - component: {fileID: 4624676314534793939}
+  - component: {fileID: 112409560499026422}
   m_Layer: 0
   m_Name: Propeller
   m_TagString: Untagged
@@ -160,6 +161,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2d9ba6d6fd402e8f890298b636867b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &112409560499026422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6748766314360959982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63762fde4812403ab01600ccf0245ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8414617159949695907
