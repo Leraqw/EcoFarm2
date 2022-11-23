@@ -69,4 +69,7 @@ MonoBehaviour:
         <Dry>k__BackingField: {fileID: 21300000, guid: 6656ea9ea8abafc4db6dc8260ef4248d, type: 3}
         <Normal>k__BackingField: {fileID: 21300000, guid: 8fe4770d1652af84d9565a26411a841f, type: 3}
         <Rotten>k__BackingField: {fileID: 21300000, guid: 506481c2d55cd7e4c89ad15538efef24, type: 3}
+      _waterCleaner:
+        <Clean>k__BackingField: {fileID: 21300000, guid: 3c6d6c819b55917459345eb51d5d3953, type: 3}
+        <Dirty>k__BackingField: {fileID: 21300000, guid: dca490567be604d4085298d2876522ba, type: 3}
     <SpriteSheet>k__BackingField: {fileID: 11400000, guid: b36f7bdfe08b0624fbefd8698cf3e093, type: 2}

@@ -2,6 +2,7 @@
 using EcoFarmDataModule;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.ECS.Components
 {
@@ -28,4 +29,6 @@ namespace Code.ECS.Components
 	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : ValueComponent<int> { }
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : ValueComponent<Resource> { }
+
+	[Game] [Event(Self)] public sealed class SpriteHighComponent : ValueComponent<float> { }
 }

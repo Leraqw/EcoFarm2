@@ -88,42 +88,44 @@ public static class GameComponentsLookup {
     public const int SliderValue = 77;
     public const int SpawnPosition = 78;
     public const int Sprite = 79;
-    public const int SpriteToLoad = 80;
-    public const int Storage = 81;
-    public const int TargetActivity = 82;
-    public const int TargetPosition = 83;
-    public const int TargetScale = 84;
-    public const int Text = 85;
-    public const int Tree = 86;
-    public const int UiElement = 87;
-    public const int UiParent = 88;
-    public const int Used = 89;
-    public const int View = 90;
-    public const int ViewPrefab = 91;
-    public const int Watered = 92;
-    public const int Watering = 93;
-    public const int WaterResource = 94;
-    public const int WillFall = 95;
-    public const int Working = 96;
-    public const int Destroy = 97;
-    public const int CoinsCountListener = 98;
-    public const int CurrentQuantityListener = 99;
-    public const int DurationListener = 100;
-    public const int FactoryListener = 101;
-    public const int GameTextListener = 102;
-    public const int GeneratorListener = 103;
-    public const int GoalCompletedListener = 104;
-    public const int GoalListener = 105;
-    public const int InventoryItemListener = 106;
-    public const int PositionListener = 107;
-    public const int ProgressBarListener = 108;
-    public const int ProportionalScaleListener = 109;
-    public const int SliderMaxValueListener = 110;
-    public const int SliderValueListener = 111;
-    public const int SpriteListener = 112;
-    public const int WateringListener = 113;
+    public const int SpriteHigh = 80;
+    public const int SpriteToLoad = 81;
+    public const int Storage = 82;
+    public const int TargetActivity = 83;
+    public const int TargetPosition = 84;
+    public const int TargetScale = 85;
+    public const int Text = 86;
+    public const int Tree = 87;
+    public const int UiElement = 88;
+    public const int UiParent = 89;
+    public const int Used = 90;
+    public const int View = 91;
+    public const int ViewPrefab = 92;
+    public const int Watered = 93;
+    public const int Watering = 94;
+    public const int WaterResource = 95;
+    public const int WillFall = 96;
+    public const int Working = 97;
+    public const int Destroy = 98;
+    public const int CoinsCountListener = 99;
+    public const int CurrentQuantityListener = 100;
+    public const int DurationListener = 101;
+    public const int FactoryListener = 102;
+    public const int GameTextListener = 103;
+    public const int GeneratorListener = 104;
+    public const int GoalCompletedListener = 105;
+    public const int GoalListener = 106;
+    public const int InventoryItemListener = 107;
+    public const int PositionListener = 108;
+    public const int ProgressBarListener = 109;
+    public const int ProportionalScaleListener = 110;
+    public const int SliderMaxValueListener = 111;
+    public const int SliderValueListener = 112;
+    public const int SpriteHighListener = 113;
+    public const int SpriteListener = 114;
+    public const int WateringListener = 115;
 
-    public const int TotalComponents = 114;
+    public const int TotalComponents = 116;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -206,6 +208,7 @@ public static class GameComponentsLookup {
         "SliderValue",
         "SpawnPosition",
         "Sprite",
+        "SpriteHigh",
         "SpriteToLoad",
         "Storage",
         "TargetActivity",
@@ -238,6 +241,7 @@ public static class GameComponentsLookup {
         "ProportionalScaleListener",
         "SliderMaxValueListener",
         "SliderValueListener",
+        "SpriteHighListener",
         "SpriteListener",
         "WateringListener"
     };
@@ -323,6 +327,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.SliderValueComponent),
         typeof(Code.ECS.Components.SpawnPositionComponent),
         typeof(Code.ECS.Components.SpriteComponent),
+        typeof(Code.ECS.Components.SpriteHighComponent),
         typeof(Code.ECS.Components.SpriteToLoadComponent),
         typeof(Code.ECS.Components.StorageComponent),
         typeof(Code.ECS.Components.TargetActivityComponent),
@@ -355,6 +360,7 @@ public static class GameComponentsLookup {
         typeof(ProportionalScaleListenerComponent),
         typeof(SliderMaxValueListenerComponent),
         typeof(SliderValueListenerComponent),
+        typeof(SpriteHighListenerComponent),
         typeof(SpriteListenerComponent),
         typeof(WateringListenerComponent)
     };
