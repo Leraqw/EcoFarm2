@@ -12,6 +12,8 @@ namespace Code.Global.PlayerContexts.Systems
 {
 	public sealed class LoadPlayersSystem : IInitializeSystem
 	{
+		private static bool _isLoaded;
+		
 		private readonly Contexts _contexts;
 
 		public LoadPlayersSystem(Contexts contexts)
@@ -21,10 +23,17 @@ namespace Code.Global.PlayerContexts.Systems
 
 		public void Initialize()
 		{
+			if (_isLoaded)
+			{
+				return;
+			}
+			
 			Deserialize()
 				.Select(ToEntity)
 				.First()
 				.isCurrentPlayer = true;
+			
+			_isLoaded = true;
 		}
 
 		private PlayerEntity ToEntity(Player player)
