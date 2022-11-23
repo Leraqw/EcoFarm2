@@ -1,5 +1,7 @@
 ﻿using Code.Utils.ComponentsTemplates;
 using EcoFarmDataModule;
+using Entitas.CodeGeneration.Attributes;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code.ECS.Components
 {
@@ -18,4 +20,12 @@ namespace Code.ECS.Components
 	[Game] public sealed class WorkingComponent : FlagComponent { }
 
 	[Game] public sealed class BusyComponent : FlagComponent { }
+
+	[Game] public sealed class PermanentGeneratorComponent : FlagComponent { }
+
+	[Game] public sealed class CleanerGeneratorComponent : FlagComponent { }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : ValueComponent<int> { }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : ValueComponent<Resource> { }
 }

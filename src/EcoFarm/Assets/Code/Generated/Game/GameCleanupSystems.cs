@@ -10,6 +10,8 @@ public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
         Add(new RemovePickedGameSystem(contexts));
+        Add(new RemovePollutionCoefficientGameSystem(contexts));
+        Add(new RemovePollutionGameSystem(contexts));
         Add(new RemoveUsedGameSystem(contexts));
         Add(new RemoveRenewGameSystem(contexts));
         Add(new RemoveDurationUpGameSystem(contexts));

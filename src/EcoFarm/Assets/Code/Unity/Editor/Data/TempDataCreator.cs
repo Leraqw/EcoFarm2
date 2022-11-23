@@ -70,7 +70,7 @@ namespace Code.Unity.Editor.Data
 					{
 						Order = 1,
 						TreesCount = 5,
-						SecondsForLevel = 60,
+						SecondsForLevel = 360,
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
@@ -82,7 +82,7 @@ namespace Code.Unity.Editor.Data
 					{
 						Order = 2,
 						TreesCount = 9,
-						SecondsForLevel = 100,
+						SecondsForLevel = 300,
 						Goals = new Goal[]
 						{
 							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 10 },

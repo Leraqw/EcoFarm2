@@ -52,7 +52,7 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 1,
         "TreesCount": 5,
-        "SecondsForLevel": 60,
+        "SecondsForLevel": 360,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [
@@ -88,7 +88,7 @@
         "$type": "EcoFarmDataModule.Level, EcoFarmModel",
         "Order": 2,
         "TreesCount": 9,
-        "SecondsForLevel": 100,
+        "SecondsForLevel": 300,
         "Goals": {
           "$type": "EcoFarmDataModule.Goal[], EcoFarmModel",
           "$values": [

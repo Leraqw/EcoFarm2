@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
@@ -40,8 +41,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Replace(GameEntity sign, GameEntity button)
 			=> sign
-			   .Do((e) => e.ReplaceDebugName("Building Factory"))
 			   .Do((e) => e.AddBuilding(button.building))
+			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
 			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
 			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)
@@ -59,7 +60,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void RelativeGeneratorView(GameEntity generator)
 			=> generator
-			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
+			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))			
 			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName))
 		/**/;
 
@@ -69,7 +70,21 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> entity
 			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
+			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
+			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName))
 		/**/;
+
+		private void InitializeAsWaterCleaner(GameEntity e)
+		{
+			e.isCleanerGenerator = true;
+			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
+		}
+
+		private void InitializeAsWindmill(GameEntity e)
+		{
+			e.isPermanentGenerator = true;
+			e.AddDuration(1);
+		}
 
 		private void AddConsumption(GameEntity entity)
 			=> entity

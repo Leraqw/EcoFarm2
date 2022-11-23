@@ -30,17 +30,19 @@ namespace Code.ECS.Systems.Buildings.Factories
 			   .Do((e) => e.isUsed = true)
 			   .Do((e) => e.isBusy = false)
 			   .Do(SpawnProduct)
+			   .Do((e) => e.AddPollution(_contexts.game.waterResourceEntity.resource))
+			   .Do((e) => e.AddPollutionCoefficient(FactoryPollution))
 		/**/;
 
 		private void SpawnProduct(GameEntity factory)
 			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("Product"))
-			            .Do((e) => e.AddProduct(factory.factory.Value.OutputProducts.First()))
+			            .Do((p) => p.AddDebugName("Product"))
+			            .Do((p) => p.AddProduct(factory.factory.Value.OutputProducts.First()))
 			            .AttachTo(factory)
-			            .Do((e) => e.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
-			            .Do((e) => e.AddViewPrefab(Prefab.AppleJuice))
-			            .Do((e) => e.isPickable = true)
-			            .Do((e) => e.isInFactory = true)
+			            .Do((p) => p.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
+			            .Do((p) => p.AddViewPrefab(Prefab.AppleJuice))
+			            .Do((p) => p.isPickable = true)
+			            .Do((p) => p.isInFactory = true)
 		/**/;
 	}
 }
