@@ -1,5 +1,4 @@
 ﻿using Entitas;
-using UnityEngine;
 
 namespace Code.Global.LevelChoice.Systems
 {
@@ -11,8 +10,6 @@ namespace Code.Global.LevelChoice.Systems
 
 		public void Initialize()
 		{
-			Debug.Log("Levels Choice opened");
-
 			var e = _contexts.player.CreateEntity();
 			e.isLevelRelatedEntity = true;
 		}

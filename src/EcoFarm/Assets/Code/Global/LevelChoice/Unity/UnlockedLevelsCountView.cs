@@ -9,6 +9,19 @@ namespace Code.Global.LevelChoice.Unity
 	public class UnlockedLevelsCountView : MonoBehaviour, IUnlockedLevelsCountListener
 	{
 		[SerializeField] private List<LevelButton> _levels;
+		
+		public PlayerEntity Entity { get; private set; }
+		
+		public void Register(PlayerEntity entity)
+		{
+			Entity = entity;
+			Entity.AddUnlockedLevelsCountListener(this);
+			
+			if (Entity.hasUnlockedLevelsCount)
+			{
+				OnUnlockedLevelsCount(Entity, Entity.unlockedLevelsCount);
+			}
+		}
 
 		public void OnUnlockedLevelsCount(PlayerEntity entity, int value)
 		{
