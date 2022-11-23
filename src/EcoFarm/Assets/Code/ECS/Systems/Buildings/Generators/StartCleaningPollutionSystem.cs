@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Code.Utils.StaticClasses;
@@ -9,10 +10,14 @@ namespace Code.ECS.Systems.Buildings.Generators
 {
 	public sealed class StartCleaningPollutionSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _generators;
 
 		public StartCleaningPollutionSystem(Contexts contexts) : base(contexts.game)
-			=> _generators = contexts.game.GetGroup(CleanerGenerator);
+		{
+			_contexts = contexts;
+			_generators = contexts.game.GetGroup(CleanerGenerator);
+		}
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(PollutionCoefficient);
@@ -30,7 +35,7 @@ namespace Code.ECS.Systems.Buildings.Generators
 		private void StartCleaning(GameEntity generator, GameEntity pollute)
 		{
 			generator
-				.Do((e) => e.AddDuration(Constants.CleaningTime))
+				.Do((e) => e.AddDuration(_contexts.GetConfiguration().Balance.Factory.WorkingDuration))
 				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient))
 				.Do((e) => e.isWorking = true)
 				;
