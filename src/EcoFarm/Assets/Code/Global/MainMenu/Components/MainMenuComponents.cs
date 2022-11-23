@@ -6,5 +6,5 @@ namespace Code.Global.MainMenu.Components
 {
 	[Player] public sealed class ForPlayerButtonComponent : FlagComponent { }
 
-	[Player] [Event(Self)] public sealed class ActiveComponent : ValueComponent<bool> { }
+	[Player] [Event(Self)] public sealed class InteractableComponent : ValueComponent<bool> { }
 }

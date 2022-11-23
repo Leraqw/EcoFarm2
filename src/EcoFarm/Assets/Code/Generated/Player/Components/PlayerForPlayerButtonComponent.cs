@@ -6,11 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Code.Global.MainMenu.Components;
-
 public partial class PlayerEntity {
 
-    static readonly ForPlayerButtonComponent forPlayerButtonComponent = new ForPlayerButtonComponent();
+    static readonly Code.Global.MainMenu.Components.ForPlayerButtonComponent forPlayerButtonComponent = new Code.Global.MainMenu.Components.ForPlayerButtonComponent();
 
     public bool isForPlayerButton {
         get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); }

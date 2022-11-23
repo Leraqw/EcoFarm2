@@ -6,37 +6,34 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Code.Global.MainMenu.Components;
-
 public static class PlayerComponentsLookup {
 
-    public const int ActiveListener = 0;
-    public const int Text = 1;
-    public const int View = 2;
-    public const int LevelRelatedEntity = 3;
-    public const int UnlockedLevelsCount = 4;
-    public const int Active = 5;
-    public const int ForPlayerButton = 6;
-    public const int CompletedLevelsCount = 7;
-    public const int CurrentPlayer = 8;
-    public const int Destroy = 9;
-    public const int Nickname = 10;
-    public const int Player = 11;
-    public const int SelectedLevel = 12;
-    public const int SessionResult = 13;
+    public const int Text = 0;
+    public const int View = 1;
+    public const int LevelRelatedEntity = 2;
+    public const int UnlockedLevelsCount = 3;
+    public const int ForPlayerButton = 4;
+    public const int Interactable = 5;
+    public const int CompletedLevelsCount = 6;
+    public const int CurrentPlayer = 7;
+    public const int Destroy = 8;
+    public const int Nickname = 9;
+    public const int Player = 10;
+    public const int SelectedLevel = 11;
+    public const int SessionResult = 12;
+    public const int InteractableListener = 13;
     public const int PlayerTextListener = 14;
     public const int UnlockedLevelsCountListener = 15;
 
     public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
-        "ActiveListener",
         "Text",
         "View",
         "LevelRelatedEntity",
         "UnlockedLevelsCount",
-        "Active",
         "ForPlayerButton",
+        "Interactable",
         "CompletedLevelsCount",
         "CurrentPlayer",
         "Destroy",
@@ -44,18 +41,18 @@ public static class PlayerComponentsLookup {
         "Player",
         "SelectedLevel",
         "SessionResult",
+        "InteractableListener",
         "PlayerTextListener",
         "UnlockedLevelsCountListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(ActiveListenerComponent),
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.ViewComponent),
         typeof(Code.Global.LevelChoice.LevelRelatedEntityComponent),
         typeof(Code.Global.LevelChoice.UnlockedLevelsCountComponent),
-        typeof(ActiveComponent),
-        typeof(ForPlayerButtonComponent),
+        typeof(Code.Global.MainMenu.Components.ForPlayerButtonComponent),
+        typeof(Code.Global.MainMenu.Components.InteractableComponent),
         typeof(Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent),
         typeof(Code.Global.PlayerContexts.Components.CurrentPlayerComponent),
         typeof(Code.Global.PlayerContexts.Components.DestroyComponent),
@@ -63,6 +60,7 @@ public static class PlayerComponentsLookup {
         typeof(Code.Global.PlayerContexts.Components.PlayerComponent),
         typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent),
         typeof(Code.Global.PlayerContexts.Components.SessionResultComponent),
+        typeof(InteractableListenerComponent),
         typeof(PlayerTextListenerComponent),
         typeof(UnlockedLevelsCountListenerComponent)
     };

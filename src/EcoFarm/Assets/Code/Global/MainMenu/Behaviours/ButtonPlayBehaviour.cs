@@ -6,7 +6,7 @@ namespace Code.Global.MainMenu.Behaviours
 {
 	public class ButtonPlayBehaviour : EntityBehaviour
 	{
-		[SerializeField] private ActiveView _activeView;
+		[SerializeField] private InteractableView _interactableView;
 
 		protected override bool ReadyForInitialization() => true;
 
@@ -14,8 +14,8 @@ namespace Code.Global.MainMenu.Behaviours
 		{
 			var e = Contexts.player.CreateEntity();
 			e.AddView(gameObject);
-			e.AddActive(true);
-			_activeView.Register(e);
+			e.AddInteractable(true);
+			_interactableView.Register(e);
 		}
 	}
 }

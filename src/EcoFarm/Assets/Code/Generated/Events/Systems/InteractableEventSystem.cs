@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class ActiveEventSystem : Entitas.ReactiveSystem<PlayerEntity> {
+public sealed class InteractableEventSystem : Entitas.ReactiveSystem<PlayerEntity> {
 
-    readonly System.Collections.Generic.List<IActiveListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IInteractableListener> _listenerBuffer;
 
-    public ActiveEventSystem(Contexts contexts) : base(contexts.player) {
-        _listenerBuffer = new System.Collections.Generic.List<IActiveListener>();
+    public InteractableEventSystem(Contexts contexts) : base(contexts.player) {
+        _listenerBuffer = new System.Collections.Generic.List<IInteractableListener>();
     }
 
     protected override Entitas.ICollector<PlayerEntity> GetTrigger(Entitas.IContext<PlayerEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(PlayerMatcher.Active)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(PlayerMatcher.Interactable)
         );
     }
 
     protected override bool Filter(PlayerEntity entity) {
-        return entity.hasActive && entity.hasActiveListener;
+        return entity.hasInteractable && entity.hasInteractableListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<PlayerEntity> entities) {
         foreach (var e in entities) {
-            var component = e.active;
+            var component = e.interactable;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.activeListener.value);
+            _listenerBuffer.AddRange(e.interactableListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnActive(e, component.Value);
+                listener.OnInteractable(e, component.Value);
             }
         }
     }
