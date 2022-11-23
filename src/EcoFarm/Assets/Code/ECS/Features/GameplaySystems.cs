@@ -46,6 +46,9 @@ namespace Code.ECS.Features
 			// Dancing
 			Add(new DanceWhileWorkingSystem(contexts));
 			Add(new ResetNormalScaleSystem(contexts));
+			
+			// Rotating
+			Add(new RotateSpinnersSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));
