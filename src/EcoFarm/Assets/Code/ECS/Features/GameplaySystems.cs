@@ -5,6 +5,7 @@ using Code.ECS.Features.Updatables.Gameplay;
 using Code.ECS.Systems.Buildings;
 using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Buildings.Generators;
+using Code.ECS.Systems.Buildings.Generators.WaterCleaner;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;
@@ -38,6 +39,7 @@ namespace Code.ECS.Features
 			Add(new FactoryWorkingStateSystem(contexts));
 			Add(new ProduceProductSystem(contexts));
 			Add(new StartCleaningPollutionSystem(contexts));
+			Add(new ReplaceSpriteWhileWorkingSystem(contexts));
 			Add(new GenerateCleanedResourceSystem(contexts));
 
 			// TODO: Add GameCycleSystems 

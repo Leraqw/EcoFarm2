@@ -32,6 +32,7 @@ namespace Code.ECS.Systems.Buildings.Generators
 			generator
 				.Do((e) => e.AddDuration(Constants.CleaningTime))
 				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient))
+				.Do((e) => e.isWorking = true)
 				;
 
 			pollute

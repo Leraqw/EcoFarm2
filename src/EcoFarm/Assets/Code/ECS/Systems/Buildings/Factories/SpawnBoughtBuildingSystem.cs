@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
@@ -69,12 +70,21 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> entity
 			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
-			   
-			   .Do((e) => e.isPermanentGenerator = true, @if: (e) => e.GeneratorIs(WindmillName))
-			   .Do((e) => e.AddDuration(1), @if: (e) => e.GeneratorIs(WindmillName))
-			   
-			   .Do((e) => e.isCleanerGenerator = true, @if: (e) => e.GeneratorIs(WaterCleanerName))
+			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
+			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName))
 		/**/;
+
+		private void InitializeAsWaterCleaner(GameEntity e)
+		{
+			e.isCleanerGenerator = true;
+			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
+		}
+
+		private void InitializeAsWindmill(GameEntity e)
+		{
+			e.isPermanentGenerator = true;
+			e.AddDuration(1);
+		}
 
 		private void AddConsumption(GameEntity entity)
 			=> entity

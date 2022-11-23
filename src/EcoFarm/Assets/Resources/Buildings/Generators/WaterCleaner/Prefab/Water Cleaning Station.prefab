@@ -82,6 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4513538433428362766}
   - component: {fileID: 77170582026959379}
+  - component: {fileID: 8200693341456396531}
   m_Layer: 0
   m_Name: Water Cleaning Station
   m_TagString: Untagged
@@ -118,6 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb613a64f9a468cb2728131bf04ecca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8200693341456396531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702277768182265153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45e465112e5472c8182582cea4fbffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6744666527221180756}
 --- !u!1 &7529303886725978056
 GameObject:
   m_ObjectHideFlags: 0

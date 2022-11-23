@@ -17,6 +17,9 @@ namespace Code.ECS.Systems.Buildings.Generators
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Generate);
 
-		private void Generate(GameEntity generator) => generator.Do((g) => g.Produce());
+		private void Generate(GameEntity generator)
+			=> generator.Do((g) => g.Produce())
+			            .Do((e) => e.isWorking = false)
+		/**/;
 	}
 }
