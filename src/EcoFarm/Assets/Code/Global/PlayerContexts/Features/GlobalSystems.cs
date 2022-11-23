@@ -21,7 +21,7 @@ namespace Code.Global.PlayerContexts.Features
 			Add(new ToMainSceneSystem(contexts));
 			
 			// Main Menu Systems
-			Add(new DisableIfNoPlayerSystem(contexts));
+			Add(new DisableIfNoCurrentPlayerSystem(contexts));
 
 			Add(new PlayerEventSystems(contexts));
 			Add(new PlayerCleanupSystems(contexts));

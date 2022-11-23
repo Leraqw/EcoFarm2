@@ -1,7 +1,5 @@
 ﻿using EcoFarmDataModule;
-using static System.IO.Path;
 using static Code.Unity.TEMP.TempDataCreator;
-using static UnityEngine.Application;
 using Constants = Code.Utils.StaticClasses.Constants;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation

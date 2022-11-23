@@ -4,12 +4,12 @@ using static PlayerMatcher;
 
 namespace Code.Global.MainMenu.Systems
 {
-	public sealed class DisableIfNoPlayerSystem : ReactiveSystem<PlayerEntity>
+	public sealed class DisableIfNoCurrentPlayerSystem : ReactiveSystem<PlayerEntity>
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<PlayerEntity> _buttons;
 
-		public DisableIfNoPlayerSystem(Contexts contexts) : base(contexts.player)
+		public DisableIfNoCurrentPlayerSystem(Contexts contexts) : base(contexts.player)
 		{
 			_contexts = contexts;
 			_buttons = contexts.player.GetGroup(ForPlayerButton);
