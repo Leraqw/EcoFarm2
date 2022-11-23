@@ -37,7 +37,8 @@ namespace Code.ECS.Features
 			Add(new PerformProductsRequestSystem(contexts));
 			Add(new FactoryWorkingStateSystem(contexts));
 			Add(new ProduceProductSystem(contexts));
-			Add(new CleanPollutionSystem(contexts));
+			Add(new StartCleaningPollutionSystem(contexts));
+			Add(new GenerateCleanedResourceSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));

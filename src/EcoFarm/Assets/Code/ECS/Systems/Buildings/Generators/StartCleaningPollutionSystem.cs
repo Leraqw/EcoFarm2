@@ -7,11 +7,11 @@ using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Generators
 {
-	public sealed class CleanPollutionSystem : ReactiveSystem<GameEntity>
+	public sealed class StartCleaningPollutionSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly IGroup<GameEntity> _generators;
 
-		public CleanPollutionSystem(Contexts contexts) : base(contexts.game)
+		public StartCleaningPollutionSystem(Contexts contexts) : base(contexts.game)
 			=> _generators = contexts.game.GetGroup(CleanerGenerator);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
