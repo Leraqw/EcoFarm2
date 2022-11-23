@@ -22,13 +22,7 @@ namespace Code.Global.PlayerContexts.Systems
 
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(Save);
 
-		private void Save(PlayerEntity entity)
-		{
-			Player.ReplaceCompletedLevelsCount(Player.completedLevelsCount.Value + 1);
-			
-			var newValue = Player.completedLevelsCount.Value;
-			TempPlayersCreator.Players[entity.nickname.Value].CompletedLevelsCount = newValue;
-			TempPlayersCreator.Save();
-		}
+		private void Save(PlayerEntity entity) 
+			=> Player.ReplaceCompletedLevelsCount(Player.completedLevelsCount.Value + 1);
 	}
 }
