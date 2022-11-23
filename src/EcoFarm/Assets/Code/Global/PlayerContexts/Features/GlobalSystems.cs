@@ -20,8 +20,8 @@ namespace Code.Global.PlayerContexts.Features
 
 			Add(new PlayerEventSystems(contexts));
 			Add(new PlayerCleanupSystems(contexts));
-		}
 
+		}
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }
