@@ -22,6 +22,7 @@ public sealed class GameEventSystems : Feature {
         Add(new PositionEventSystem(contexts)); // priority: 0
         Add(new ProgressBarEventSystem(contexts)); // priority: 0
         Add(new ProportionalScaleEventSystem(contexts)); // priority: 0
+        Add(new RotationEventSystem(contexts)); // priority: 0
         Add(new SliderMaxValueEventSystem(contexts)); // priority: 0
         Add(new SliderValueEventSystem(contexts)); // priority: 0
         Add(new SpriteEventSystem(contexts)); // priority: 0

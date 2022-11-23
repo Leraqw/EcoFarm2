@@ -2,7 +2,6 @@
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
 using Entitas;
 using static GameMatcher;
 

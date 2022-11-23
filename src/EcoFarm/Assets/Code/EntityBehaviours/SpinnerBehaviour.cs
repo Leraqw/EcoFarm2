@@ -6,9 +6,11 @@ namespace Code.EntityBehaviours
 
 		protected override void Initialize()
 		{
-			var entity = Context.CreateEntity();
-			entity.isSpinner = true;
-			entity.AddRotationSpeed(1f);
+			var e = Context.CreateEntity();
+			e.isSpinner = true;
+			e.AddRotationSpeed(1f);
+			e.AddRotation(0);
+			e.AddView(gameObject);
 		}
 	}
 }
