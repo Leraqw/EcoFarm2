@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Code.Global.PlayerContexts.CustomTypes;
 using Code.Unity.TEMP;
 using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
@@ -12,28 +13,16 @@ namespace Code.Global.PlayerContexts.Systems
 {
 	public sealed class LoadPlayersSystem : IInitializeSystem
 	{
-		private static bool _isLoaded;
-		
 		private readonly Contexts _contexts;
 
-		public LoadPlayersSystem(Contexts contexts)
-		{
-			_contexts = contexts;
-		}
+		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
 		{
-			if (_isLoaded)
-			{
-				return;
-			}
-			
 			Deserialize()
 				.Select(ToEntity)
 				.First()
 				.isCurrentPlayer = true;
-			
-			_isLoaded = true;
 		}
 
 		private PlayerEntity ToEntity(Player player)
@@ -42,6 +31,7 @@ namespace Code.Global.PlayerContexts.Systems
 			e.isPlayer = true;
 			e.AddNickname(player.Nickname);
 			e.AddCompletedLevelsCount(player.CompletedLevelsCount);
+			e.AddSessionResult(SessionResult.None);
 			return e;
 		}
 

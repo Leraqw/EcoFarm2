@@ -14,9 +14,9 @@ namespace Code.Global.PlayerContexts.Features
 			Add(new GlobalServicesRegistrationSystems(contexts, services));
 
 			Add(new LoadPlayersSystem(contexts));
-			Add(new InitializePlayerContextSystem(contexts));
 			
 			Add(new OnSessionEndSystem(contexts));
+			Add(new ToMainSceneSystem(contexts));
 
 			Add(new PlayerEventSystems(contexts));
 			Add(new PlayerCleanupSystems(contexts));
