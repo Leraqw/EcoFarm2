@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.BoughtComponent boughtComponent = new Code.ECS.Components.BoughtComponent();
+    static readonly Code.ECS.Components.Buildings.BoughtComponent boughtComponent = new Code.ECS.Components.Buildings.BoughtComponent();
 
     public bool isBought {
         get { return HasComponent(GameComponentsLookup.Bought); }

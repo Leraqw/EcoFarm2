@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.PollutionCoefficientComponent pollutionCoefficient { get { return (Code.ECS.Components.PollutionCoefficientComponent)GetComponent(GameComponentsLookup.PollutionCoefficient); } }
+    public Code.ECS.Components.Buildings.PollutionCoefficientComponent pollutionCoefficient { get { return (Code.ECS.Components.Buildings.PollutionCoefficientComponent)GetComponent(GameComponentsLookup.PollutionCoefficient); } }
     public bool hasPollutionCoefficient { get { return HasComponent(GameComponentsLookup.PollutionCoefficient); } }
 
     public void AddPollutionCoefficient(int newValue) {
         var index = GameComponentsLookup.PollutionCoefficient;
-        var component = (Code.ECS.Components.PollutionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.PollutionCoefficientComponent));
+        var component = (Code.ECS.Components.Buildings.PollutionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.PollutionCoefficientComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePollutionCoefficient(int newValue) {
         var index = GameComponentsLookup.PollutionCoefficient;
-        var component = (Code.ECS.Components.PollutionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.PollutionCoefficientComponent));
+        var component = (Code.ECS.Components.Buildings.PollutionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.PollutionCoefficientComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

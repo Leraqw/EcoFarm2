@@ -4,7 +4,7 @@ using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code.ECS.Components.Buildings
 {
 	[Game] public sealed class SignComponent : FlagComponent { }
 

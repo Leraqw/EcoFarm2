@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.ReadyComponent readyComponent = new Code.ECS.Components.ReadyComponent();
+    static readonly Code.ECS.Components.Buildings.ReadyComponent readyComponent = new Code.ECS.Components.Buildings.ReadyComponent();
 
     public bool isReady {
         get { return HasComponent(GameComponentsLookup.Ready); }
