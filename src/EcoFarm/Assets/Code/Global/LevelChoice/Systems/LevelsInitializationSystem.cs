@@ -12,6 +12,9 @@ namespace Code.Global.LevelChoice.Systems
 		public void Initialize()
 		{
 			Debug.Log("Levels Choice opened");
+
+			_contexts.player.CreateEntity()
+			         .isLevelRelatedEntity = true;
 		}
 	}
 }

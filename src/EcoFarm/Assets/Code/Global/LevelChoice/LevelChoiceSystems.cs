@@ -7,8 +7,10 @@ namespace Code.Global.LevelChoice
 		public LevelChoiceSystems()
 		{
 			var contexts = Contexts.sharedInstance;
-			
+
 			Add(new LevelsInitializationSystem(contexts));
+
+			Add(new TearDownLevelsSystems(contexts));
 		}
 	}
 }
