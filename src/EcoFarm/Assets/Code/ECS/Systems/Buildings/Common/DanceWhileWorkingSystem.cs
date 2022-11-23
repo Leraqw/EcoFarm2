@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Buildings.Common
 		{
 			foreach (var e in _entities)
 			{
-				// Change high by sinusoida
+				// Change high by sinusoid
 				var delta = 0.1f;
 				var timeScale = 10;
 				e.ReplaceSpriteHigh(Normal + Mathf.Sin(Time.time * timeScale) * delta);

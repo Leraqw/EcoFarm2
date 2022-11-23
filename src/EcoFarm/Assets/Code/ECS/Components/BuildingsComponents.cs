@@ -31,6 +31,4 @@ namespace Code.ECS.Components
 	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : ValueComponent<Resource> { }
 
 	[Game] [Event(Self)] public sealed class SpriteHighComponent : ValueComponent<float> { }
-
-	[Game] public sealed class DirectionComponent : ValueComponent<int> { }
 }
