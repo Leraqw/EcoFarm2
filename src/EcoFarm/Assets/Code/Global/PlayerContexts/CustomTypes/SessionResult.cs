@@ -1,4 +1,4 @@
-﻿namespace Code.Global.PlayerContext.CustomTypes
+﻿namespace Code.Global.PlayerContexts.CustomTypes
 {
 	public enum SessionResult
 	{

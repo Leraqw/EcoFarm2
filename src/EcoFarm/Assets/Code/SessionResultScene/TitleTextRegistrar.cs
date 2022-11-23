@@ -1,7 +1,7 @@
 ﻿using Code.Unity.ViewListeners.UI;
 using Code.Utils.Extensions;
 using UnityEngine;
-using static Code.Global.PlayerContext.CustomTypes.SessionResult;
+using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
 namespace Code.SessionResultScene
 {
@@ -18,7 +18,7 @@ namespace Code.SessionResultScene
 			          .Do((e) => e.isDestroy = true);
 
 		private static string GetTextByResult()
-			=> Context.playerEntity.sessionResult.Value is Victory
+			=> Context.currentPlayerEntity.sessionResult.Value is Victory
 				? "Victory!"
 				: "You lose:(";
 	}

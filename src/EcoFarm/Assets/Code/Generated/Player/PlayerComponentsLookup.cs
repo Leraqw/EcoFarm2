@@ -10,20 +10,24 @@ public static class PlayerComponentsLookup {
 
     public const int Text = 0;
     public const int View = 1;
-    public const int Destroy = 2;
-    public const int Name = 3;
-    public const int Player = 4;
-    public const int SelectedLevel = 5;
-    public const int SessionResult = 6;
-    public const int PlayerTextListener = 7;
+    public const int CompletedLevelsCount = 2;
+    public const int CurrentPlayer = 3;
+    public const int Destroy = 4;
+    public const int Nickname = 5;
+    public const int Player = 6;
+    public const int SelectedLevel = 7;
+    public const int SessionResult = 8;
+    public const int PlayerTextListener = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Text",
         "View",
+        "CompletedLevelsCount",
+        "CurrentPlayer",
         "Destroy",
-        "Name",
+        "Nickname",
         "Player",
         "SelectedLevel",
         "SessionResult",
@@ -33,11 +37,13 @@ public static class PlayerComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ECS.Components.TextComponent),
         typeof(Code.ECS.Components.ViewComponent),
-        typeof(Code.Global.PlayerContext.Components.DestroyComponent),
-        typeof(Code.Global.PlayerContext.Components.NameComponent),
-        typeof(Code.Global.PlayerContext.Components.PlayerComponent),
-        typeof(Code.Global.PlayerContext.Components.SelectedLevelComponent),
-        typeof(Code.Global.PlayerContext.Components.SessionResultComponent),
+        typeof(Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent),
+        typeof(Code.Global.PlayerContexts.Components.CurrentPlayerComponent),
+        typeof(Code.Global.PlayerContexts.Components.DestroyComponent),
+        typeof(Code.Global.PlayerContexts.Components.NicknameComponent),
+        typeof(Code.Global.PlayerContexts.Components.PlayerComponent),
+        typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent),
+        typeof(Code.Global.PlayerContexts.Components.SessionResultComponent),
         typeof(PlayerTextListenerComponent)
     };
 }

@@ -356,7 +356,7 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WateringComponent),
         typeof(Code.ECS.Components.WaterResourceComponent),
         typeof(Code.ECS.Components.WillFallComponent),
-        typeof(Code.Global.PlayerContext.Components.DestroyComponent),
+        typeof(Code.Global.PlayerContexts.Components.DestroyComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
         typeof(DurationListenerComponent),

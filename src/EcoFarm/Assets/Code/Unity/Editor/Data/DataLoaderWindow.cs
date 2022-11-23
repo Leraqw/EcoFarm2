@@ -32,7 +32,7 @@ namespace Code.Unity.Editor.Data
 		}
 
 		private void ButtonCreatePlayers() 
-			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.Create);
+			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.CreateTest);
 
 		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
 

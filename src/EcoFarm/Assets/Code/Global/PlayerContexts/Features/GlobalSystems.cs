@@ -1,9 +1,9 @@
 ﻿using Code.ECS.Features.Features;
-using Code.Global.PlayerContext.Systems;
+using Code.Global.PlayerContexts.Systems;
 using Code.Services.Interfaces;
 using Code.Utils.Extensions.Entitas;
 
-namespace Code.Global.PlayerContext.Features
+namespace Code.Global.PlayerContexts.Features
 {
 	public sealed class GlobalSystems : Feature
 	{
@@ -13,6 +13,7 @@ namespace Code.Global.PlayerContext.Features
 
 			Add(new GlobalServicesRegistrationSystems(contexts, services));
 
+			Add(new LoadPlayersSystem(contexts));
 			Add(new InitializePlayerContextSystem(contexts));
 			
 			Add(new OnSessionEndSystem(contexts));

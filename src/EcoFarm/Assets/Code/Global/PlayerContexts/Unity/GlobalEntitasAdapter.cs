@@ -1,9 +1,9 @@
-﻿using Code.Global.PlayerContext.Features;
+﻿using Code.Global.PlayerContexts.Features;
 using Code.Services.Interfaces;
 using Code.Services.UnityImplementations;
 using UnityEngine;
 
-namespace Code.Global.PlayerContext.Unity
+namespace Code.Global.PlayerContexts.Unity
 {
 	public class GlobalEntitasAdapter : MonoBehaviour
 	{

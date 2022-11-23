@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Global.PlayerContext.Components.DestroyComponent destroyComponent = new Code.Global.PlayerContext.Components.DestroyComponent();
+    static readonly Code.Global.PlayerContexts.Components.DestroyComponent destroyComponent = new Code.Global.PlayerContexts.Components.DestroyComponent();
 
     public bool isDestroy {
         get { return HasComponent(GameComponentsLookup.Destroy); }

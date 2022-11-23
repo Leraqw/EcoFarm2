@@ -9,6 +9,7 @@
 public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
+        Add(new DestroyDestroyGameSystem(contexts));
         Add(new RemovePollutionCoefficientGameSystem(contexts));
         Add(new RemovePollutionGameSystem(contexts));
         Add(new RemovePickedGameSystem(contexts));
@@ -20,6 +21,5 @@ public sealed class GameCleanupSystems : Feature {
         Add(new RemoveMouseDownGameSystem(contexts));
         Add(new RemoveMouseUpGameSystem(contexts));
         Add(new RemoveButtonClickGameSystem(contexts));
-        Add(new DestroyDestroyGameSystem(contexts));
     }
 }
