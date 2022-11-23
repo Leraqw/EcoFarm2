@@ -78,7 +78,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		{
 			e.isCleanerGenerator = true;
 			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
-			e.AddSpriteHigh(1);
+			e.AddSpriteHigh(SpriteNormalHigh);
 		}
 
 		private void InitializeAsWindmill(GameEntity e)

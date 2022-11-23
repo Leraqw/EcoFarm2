@@ -21,5 +21,6 @@ namespace Code.Utils.StaticClasses
 		public const string WaterName = "Water";
 		public const float CleaningTime = 1;
 		public const float SpriteHighDelta = 0.01f;
+		public const float SpriteNormalHigh = 1f;
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Utils.StaticClasses;
 using Entitas;
 using static GameMatcher;
 
@@ -17,7 +18,7 @@ namespace Code.ECS.Systems.Buildings.Common
 		{
 			foreach (var e in entites)
 			{
-				e.ReplaceSpriteHigh(1);
+				e.ReplaceSpriteHigh(Constants.SpriteNormalHigh);
 			}
 		}
 	}
