@@ -8,8 +8,6 @@ namespace Code.Global.LevelChoice.Extensions
 		{
 			var contexts = Contexts.sharedInstance;
 
-			// Add(new LevelsInitializationSystem(contexts));
-
 			Add(new TearDownLevelsSystems(contexts));
 		}
 	}
