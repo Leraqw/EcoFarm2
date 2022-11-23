@@ -27,7 +27,11 @@ namespace Code.Unity.Editor.Data
 			AsHorizontalGroupAlignCenter(ButtonCopy);
 			Space(25);
 			AsHorizontalGroupAlignCenter(ButtonGenerate);
+			AsHorizontalGroupAlignCenter(ButtonCreatePlayers);
 		}
+
+		private void ButtonCreatePlayers() 
+			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.Create);
 
 		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
 

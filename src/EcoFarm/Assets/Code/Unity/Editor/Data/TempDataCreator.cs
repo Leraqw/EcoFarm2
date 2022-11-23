@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.ComponentModel;
+using System.IO;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -10,7 +11,13 @@ namespace Code.Unity.Editor.Data
 {
 	public static class TempDataCreator
 	{
-		public static void Create() => Serialization(NewStorage());
+		public static void Create() => Serialize(NewStorage(), PathToStorage);
+
+		public static void Serialize(object data, string path)
+		{
+			File.WriteAllText(path, SerializeObject(data));
+			Debug.Log($"File created on {path}");
+		}
 
 		private static Storage NewStorage()
 		{
@@ -130,13 +137,7 @@ namespace Code.Unity.Editor.Data
 			};
 		}
 
-		private static void Serialization(Storage storage)
-		{
-			File.WriteAllText(PathToStorage, SerializeObject(storage));
-			Debug.Log($"File created on {PathToStorage}");
-		}
-
-		private static string SerializeObject(Storage storage)
-			=> JsonConvert.SerializeObject(storage, Formatting.Indented, WithReferences);
+		private static string SerializeObject(object data)
+			=> JsonConvert.SerializeObject(data, Formatting.Indented, WithReferences);
 	}
 }
