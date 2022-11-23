@@ -2,7 +2,7 @@
 using EcoFarmDataModule;
 using static UnityEngine.Application;
 
-namespace Code.Unity.Editor.Data
+namespace Code.Unity.TEMP
 {
 	public static class TempPlayersCreator
 	{

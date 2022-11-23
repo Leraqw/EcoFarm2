@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Code.Services.Interfaces;
+using Code.Unity.TEMP;
 using Code.Utils.StaticClasses;
 using EcoFarmDataModule;
 using Newtonsoft.Json;
@@ -13,8 +14,16 @@ namespace Code.Data.StorageJson
 
 		public Storage Storage { get; }
 
-		private static Storage Deserialize() => JsonConvert.DeserializeObject<Storage>(GetJson(), WithReferences);
+		private static Storage Deserialize()
+		{
+			var path = Constants.PathToStorage;
+			if (File.Exists(path) == false)
+			{
+				TempDataCreator.Create();
+			}
 
-		private static string GetJson() => File.ReadAllText(Constants.PathToStorage);
+			var json = File.ReadAllText(path);
+			return JsonConvert.DeserializeObject<Storage>(json, WithReferences);
+		}
 	}
 }
