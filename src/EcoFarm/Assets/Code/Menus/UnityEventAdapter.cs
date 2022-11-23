@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Code.Menus
 {
 	public abstract class UnityEventAdapter : MonoBehaviour
 	{
-		[SerializeField] private Button _button;
+		[FormerlySerializedAs("_button")] [SerializeField] protected Button Button;
 
-		private void OnEnable() => _button.onClick.AddListener(OnButtonClick);
+		private void OnEnable() => Button.onClick.AddListener(OnButtonClick);
 		
-		private void OnDisable() => _button.onClick.RemoveListener(OnButtonClick);
+		private void OnDisable() => Button.onClick.RemoveListener(OnButtonClick);
 
 		protected abstract void OnButtonClick();
 	}
