@@ -6,5 +6,6 @@ namespace Code.Services.Interfaces
 		void ToMainMenuScene();
 		void ToGameplayScene();
 		void ToGameResultScene();
+		void ToLevelChoice();
 	}
 }

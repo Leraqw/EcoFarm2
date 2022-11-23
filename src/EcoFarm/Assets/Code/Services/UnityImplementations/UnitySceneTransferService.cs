@@ -10,5 +10,6 @@ namespace Code.Services.UnityImplementations
 		public void ToGameplayScene() => SceneManager.LoadScene("GameplayScene");
 
 		public void ToGameResultScene() => SceneManager.LoadScene("GameResultScene");
+		public void ToLevelChoice() => SceneManager.LoadScene("LevelChoiseScene");
 	}
 }

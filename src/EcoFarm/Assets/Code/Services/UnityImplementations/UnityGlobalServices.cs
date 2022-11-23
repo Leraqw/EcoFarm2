@@ -1,5 +1,5 @@
-﻿using Code.Data.Config;
-using Code.Data.StorageJson;
+﻿using Code.Data.StorageJson;
+using Code.Data.Config;
 using Code.Services.Interfaces;
 using EcoFarmDataModule;
 using UnityEngine;
@@ -46,5 +46,7 @@ namespace Code.Services.UnityImplementations
 		void ISceneTransferService.ToGameplayScene() => _scene.ToGameplayScene();
 
 		void ISceneTransferService.ToGameResultScene() => _scene.ToGameResultScene();
+
+		void ISceneTransferService.ToLevelChoice() => _scene.ToLevelChoice();
 	}
 }
