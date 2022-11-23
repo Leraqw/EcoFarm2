@@ -5,7 +5,7 @@ namespace Code.EntityBehaviours
 {
 	public abstract class EntityBehaviour : MonoBehaviour
 	{
-		protected GameContext Context => Contexts.sharedInstance.game;
+		protected Contexts Contexts => Contexts.sharedInstance;
 		private void Start() => StartCoroutine(InitializationLoop());
 
 		private IEnumerator InitializationLoop()

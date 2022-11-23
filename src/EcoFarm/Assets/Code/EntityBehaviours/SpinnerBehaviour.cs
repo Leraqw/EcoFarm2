@@ -6,7 +6,7 @@ namespace Code.EntityBehaviours
 
 		protected override void Initialize()
 		{
-			var e = Context.CreateEntity();
+			var e = Contexts.game.CreateEntity();
 			e.AddDebugName("Windmill Rotation");
 			e.isSpinner = true;
 			e.AddRotationSpeed(1f);
