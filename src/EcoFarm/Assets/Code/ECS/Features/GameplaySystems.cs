@@ -7,6 +7,7 @@ using Code.ECS.Systems.Buildings.Common;
 using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Buildings.Generators;
 using Code.ECS.Systems.Buildings.Generators.WaterCleaner;
+using Code.ECS.Systems.Buildings.Generators.Windmill;
 using Code.ECS.Systems.Goals;
 using Code.ECS.Systems.Level;
 using Code.ECS.Systems.TearDown;

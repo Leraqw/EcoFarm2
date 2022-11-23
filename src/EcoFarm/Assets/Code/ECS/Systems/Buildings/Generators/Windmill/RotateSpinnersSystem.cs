@@ -13,7 +13,12 @@ namespace Code.ECS.Systems.Buildings.Generators.Windmill
 		{
 			foreach (var e in _entities)
 			{
-				e.ReplaceRotation(e.rotation + e.rotationSpeed * Time.deltaTime);
+				e.ReplaceRotation(e.rotation.Value + e.rotationSpeed.Value * Time.fixedDeltaTime * 10);
+				
+				if (e.rotation.Value % 360 == 0)
+				{
+					e.ReplaceRotation(0f);
+				}
 			}
 		}
 	}
