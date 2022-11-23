@@ -22,12 +22,16 @@ namespace Code.ECS.Systems.Buildings.Generators
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Clean);
 
 		private void Clean(GameEntity pollute)
-			=> _generators.ForEach(g => StartCleaning(g, pollute.pollute), @if: pollute.HasSameResource);
+			=> _generators.ForEach((g) => StartCleaning(g, pollute), @if: pollute.HasSameResource);
 
-		private void StartCleaning(GameEntity generator, int polluteValue)
-			=> generator
-			   .Do((e) => e.AddDuration(Constants.CleaningTime))
-			   .Do((e) => e.ReplaceEfficiencyCoefficient(polluteValue))
-		/**/;
+		private void StartCleaning(GameEntity generator, GameEntity pollute)
+		{
+			generator
+				.Do((e) => e.AddDuration(Constants.CleaningTime))
+				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollute))
+				;
+
+			pollute.RemovePollute();
+		}
 	}
 }

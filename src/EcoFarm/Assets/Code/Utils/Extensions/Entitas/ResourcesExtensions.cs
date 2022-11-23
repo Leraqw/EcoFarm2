@@ -42,7 +42,7 @@ namespace Code.Utils.Extensions.Entitas
 		}
 		
 		public static bool HasSameResource(this GameEntity @this, GameEntity other)
-			=> @this.resource.Value == other.resource.Value;
+			=> @this.GetResource() == other.GetResource();
 
 		public static GameEntity GetResource(this GameEntity @this)
 			=> Contexts.game.GetEntityWithConsumable(@this.hasProduceResource ? @this.produceResource : @this.consumer);
