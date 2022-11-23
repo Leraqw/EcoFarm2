@@ -3,6 +3,7 @@ using Code.ECS.Features.Updatables;
 using Code.ECS.Features.Updatables.Cleanup;
 using Code.ECS.Features.Updatables.Gameplay;
 using Code.ECS.Systems.Buildings;
+using Code.ECS.Systems.Buildings.Common;
 using Code.ECS.Systems.Buildings.Factories;
 using Code.ECS.Systems.Buildings.Generators;
 using Code.ECS.Systems.Buildings.Generators.WaterCleaner;
@@ -41,6 +42,10 @@ namespace Code.ECS.Features
 			Add(new StartCleaningPollutionSystem(contexts));
 			Add(new ReplaceSpriteWhileWorkingSystem(contexts));
 			Add(new GenerateCleanedResourceSystem(contexts));
+			
+			// Dancing
+			Add(new DanceWhileWorkingSystem(contexts));
+			Add(new ResetNormalScaleSystem(contexts));
 
 			// TODO: Add GameCycleSystems 
 			Add(new ObserveGoalCompletionSystem(contexts));

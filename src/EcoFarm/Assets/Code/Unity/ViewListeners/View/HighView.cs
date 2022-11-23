@@ -8,9 +8,9 @@ namespace Code.Unity.ViewListeners.View
 
 		public void OnSpriteHigh(GameEntity entity, float value)
 		{
-			var pos = _target.position;
+			var pos = _target.localScale;
 			pos.y = value;
-			_target.position = pos;
+			_target.localScale = pos;
 		}
 
 		protected override void AddListener(GameEntity entity) => entity.AddSpriteHighListener(this);

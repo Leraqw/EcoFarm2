@@ -78,6 +78,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		{
 			e.isCleanerGenerator = true;
 			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
+			e.AddSpriteHigh(1);
 		}
 
 		private void InitializeAsWindmill(GameEntity e)
@@ -104,6 +105,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			=> entity
 			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building))
 			   .Do((e) => e.RemoveBuilding())
+			   .Do((e) => e.AddSpriteHigh(1))
 		/**/;
 
 		private static void DestroySign(GameEntity entity)
