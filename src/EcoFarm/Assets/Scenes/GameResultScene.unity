@@ -466,12 +466,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501803894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06439c0fc4b4eabb95a691732492789, type: 3}
+  m_Script: {fileID: 11500000, guid: edc123b457cd4e009c02a8cbc5106640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 1501803895}
-  _scene:
-    _scene: {fileID: 102900000, guid: e40176ac8ebf23c43a23d76531b0b3f2, type: 3}
+  Button: {fileID: 1501803895}
 --- !u!1001 &1667931445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,12 +605,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1667931447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06439c0fc4b4eabb95a691732492789, type: 3}
+  m_Script: {fileID: 11500000, guid: 3902bfed5b9748fbaac1ebe7617a76c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 1667931448}
-  _scene:
-    _scene: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  Button: {fileID: 1667931448}
 --- !u!1 &1981995066
 GameObject:
   m_ObjectHideFlags: 0

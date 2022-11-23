@@ -1,7 +1,6 @@
 ﻿using Code.Data.Config;
 using Code.Data.StorageJson;
 using Code.Services.Interfaces;
-using Code.Unity.CustomTypes;
 using EcoFarmDataModule;
 using UnityEngine;
 
@@ -47,7 +46,5 @@ namespace Code.Services.UnityImplementations
 		void ISceneTransferService.ToGameplayScene() => _scene.ToGameplayScene();
 
 		void ISceneTransferService.ToGameResultScene() => _scene.ToGameResultScene();
-
-		void ISceneTransferService.ToScene(SceneField scene) => _scene.ToScene(scene);
 	}
 }
