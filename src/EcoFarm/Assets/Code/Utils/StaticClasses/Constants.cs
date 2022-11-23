@@ -7,7 +7,7 @@ namespace Code.Utils.StaticClasses
 	public static class Constants
 	{
 		public static string PathToStorage
-			=> Path.Combine(Directory.GetCurrentDirectory(), RelativePath, $"{nameof(Storage)}.json");
+			=> Path.Combine(Application.persistentDataPath, $"{nameof(Storage)}.json");
 
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
 		public const int FactoryPollution = 25;

@@ -19,6 +19,9 @@ namespace Code.Unity.Editor.Data
 			Debug.Log($"File created on {path}");
 		}
 
+		private static string SerializeObject(object data)
+			=> JsonConvert.SerializeObject(data, Formatting.Indented, WithReferences);
+
 		private static Storage NewStorage()
 		{
 			var apple = new Product
@@ -136,8 +139,5 @@ namespace Code.Unity.Editor.Data
 				},
 			};
 		}
-
-		private static string SerializeObject(object data)
-			=> JsonConvert.SerializeObject(data, Formatting.Indented, WithReferences);
 	}
 }
