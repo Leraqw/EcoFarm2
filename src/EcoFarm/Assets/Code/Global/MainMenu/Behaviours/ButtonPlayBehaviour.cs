@@ -15,6 +15,7 @@ namespace Code.Global.MainMenu.Behaviours
 			var e = Contexts.player.CreateEntity();
 			e.AddView(gameObject);
 			e.AddInteractable(true);
+			e.isForPlayerButton = true;
 			_interactableView.Register(e);
 		}
 	}

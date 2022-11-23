@@ -1,4 +1,7 @@
 ﻿using EcoFarmDataModule;
+using static System.IO.Path;
+using static Code.Unity.TEMP.TempDataCreator;
+using static UnityEngine.Application;
 using Constants = Code.Utils.StaticClasses.Constants;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
@@ -7,9 +10,11 @@ namespace Code.Unity.TEMP
 {
 	public static class TempPlayersCreator
 	{
+		public static Player[] Players;
+
 		public static void CreateEmpty()
 		{
-			var players = new Player[]
+			Players = new Player[]
 			{
 				new()
 				{
@@ -18,12 +23,12 @@ namespace Code.Unity.TEMP
 				}
 			};
 
-			TempDataCreator.Serialize(players, Constants.PathToPlayers);
+			Serialize(Players, Constants.PathToPlayers);
 		}
 
 		public static void CreateTest()
 		{
-			var players = new Player[]
+			Players = new Player[]
 			{
 				new()
 				{
@@ -32,7 +37,7 @@ namespace Code.Unity.TEMP
 				}
 			};
 
-			TempDataCreator.Serialize(players, Constants.PathToPlayers);
+			Serialize(Players, Constants.PathToPlayers);
 		}
 	}
 }
