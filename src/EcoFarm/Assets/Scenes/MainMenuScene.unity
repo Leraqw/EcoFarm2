@@ -624,21 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &921651614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921651612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06439c0fc4b4eabb95a691732492789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 921651613}
-  _scene:
-    _scene: {fileID: 102900000, guid: 968d73235eef74641acae1256241bcc8, type: 3}
 --- !u!114 &921651615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +650,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactableView: {fileID: 921651615}
+--- !u!114 &921651617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921651612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadfa655a6c84625bfd67c73ab1a9aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 921651613}
 --- !u!1 &1037689461
 GameObject:
   m_ObjectHideFlags: 0

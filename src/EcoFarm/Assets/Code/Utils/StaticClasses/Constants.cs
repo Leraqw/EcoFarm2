@@ -25,5 +25,6 @@ namespace Code.Utils.StaticClasses
 			public const float DeltaMax = 0.25f;
 			public const float Normal = 1f;
 		}
+
 	}
 }
