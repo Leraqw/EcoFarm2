@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using EcoFarmModel;
 using SQLite;
+using Level = DataAdministration.Tables.Level;
 
 namespace DataAdministration
 {
@@ -18,22 +18,25 @@ namespace DataAdministration
 		{
 			if (File.Exists(DbPath))
 			{
-				return;
+				// return;
 			}
 
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.CreateTable<Storage>();
+				dataBase.CreateTable<Level>();
 			}
 		}
 
 		private void ButtonTest_Click(object sender, EventArgs e)
 		{
-			var newObject = DataCreator.NewStorage();
+			var newObject = new Level
+			{
+				Order = 1,
+			};
 			
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.Insert<Storage>(newObject);
+				dataBase.Insert<Level>(newObject);
 			}
 		}
 	}
