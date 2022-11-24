@@ -1,0 +1,11 @@
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Debug\DataAdministration.exe.config
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Debug\DataAdministration.exe
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Debug\DataAdministration.pdb
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.csproj.AssemblyReference.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.csproj.SuggestedBindingRedirects.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.Properties.Resources.resources
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.csproj.GenerateResource.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.csproj.CoreCompileInputs.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.exe
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.pdb
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Debug\DataAdministration.Form1.resources

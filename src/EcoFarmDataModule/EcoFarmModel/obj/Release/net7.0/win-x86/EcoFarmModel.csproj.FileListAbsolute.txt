@@ -10,3 +10,5 @@ C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmMo
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\net7.0\win-x86\refint\EcoFarmModel.dll
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\net7.0\win-x86\EcoFarmModel.pdb
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\net7.0\win-x86\ref\EcoFarmModel.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\net7.0\win-x86\EcoFarmModel.runtimeconfig.json
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\net7.0\win-x86\EcoFarmModel.genruntimeconfig.cache
