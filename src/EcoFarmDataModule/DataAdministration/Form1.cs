@@ -1,9 +1,12 @@
-namespace DataAdministration;
+﻿using System.Windows.Forms;
 
-public partial class Form1 : Form
+namespace DataAdministration
 {
-	public Form1()
+	public partial class Form1 : Form
 	{
-		InitializeComponent();
+		public Form1()
+		{
+			InitializeComponent();
+		}
 	}
 }
