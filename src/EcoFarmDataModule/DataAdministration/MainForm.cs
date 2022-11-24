@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using EcoFarmDataModuleOld;
 using SQLite;
 
 namespace DataAdministration
@@ -9,20 +10,20 @@ namespace DataAdministration
 	{
 		public MainForm() => InitializeComponent();
 
-		private static string Path => System.IO.Path.Combine(Directory.GetCurrentDirectory(), @"\EcoFarm.db");
+		private static string DbPath => Path.Combine(Directory.GetCurrentDirectory(), "EcoFarm.db");
 
 		private void MainForm_Load(object sender, EventArgs e) => CreateDbIfIsNotExists();
 
 		private void CreateDbIfIsNotExists()
 		{
-			if (File.Exists(Path))
+			if (File.Exists(DbPath))
 			{
 				return;
 			}
 
-			using (var dataBase = new SQLiteConnection(Path))
+			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				// dataBase.CreateTable<DevelopmentObject>();
+				dataBase.CreateTable<DevelopmentObject>();
 			}
 		}
 

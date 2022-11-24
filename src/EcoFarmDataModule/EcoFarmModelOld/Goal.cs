@@ -1,4 +1,4 @@
-namespace EcoFarmDataModule;
+namespace EcoFarmDataModuleOld;
 
 [Serializable]
 public abstract class Goal

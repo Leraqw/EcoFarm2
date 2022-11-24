@@ -1,4 +1,4 @@
-namespace EcoFarmDataModule;
+namespace EcoFarmDataModuleOld;
 
 [Serializable]
 public class Generator : Building
