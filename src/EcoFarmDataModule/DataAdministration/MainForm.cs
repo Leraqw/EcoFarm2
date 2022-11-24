@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using EcoFarmDataModuleOld;
+using EcoFarmModel;
 using SQLite;
 
 namespace DataAdministration
@@ -29,7 +30,12 @@ namespace DataAdministration
 
 		private void ButtonTest_Click(object sender, EventArgs e)
 		{
+			var newObject = new Generator("Not Generator", "asd", 25, 12);
 			
+			using (var dataBase = new SQLiteConnection(DbPath))
+			{
+				dataBase.Insert<DevelopmentObject>(newObject);
+			}
 		}
 	}
 }
