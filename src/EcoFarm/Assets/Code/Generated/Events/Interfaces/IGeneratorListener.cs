@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGeneratorListener {
-    void OnGenerator(GameEntity entity, EcoFarmDataModule.Generator value);
+    void OnGenerator(GameEntity entity, EcoFarmModel.Generator value);
 }

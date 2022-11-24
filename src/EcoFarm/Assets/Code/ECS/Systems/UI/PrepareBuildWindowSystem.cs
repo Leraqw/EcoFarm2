@@ -3,7 +3,7 @@ using System.Linq;
 using Code.Unity.ViewListeners;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;

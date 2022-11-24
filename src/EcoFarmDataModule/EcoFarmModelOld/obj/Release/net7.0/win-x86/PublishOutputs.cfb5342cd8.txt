@@ -1,9 +1,0 @@
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.deps.json
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\EcoFarmModel.pdb
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\SQLite-net.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\SQLitePCLRaw.batteries_v2.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\SQLitePCLRaw.nativelibrary.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\SQLitePCLRaw.core.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\SQLitePCLRaw.provider.dynamic_cdecl.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\Shared\Model\e_sqlite3.dll

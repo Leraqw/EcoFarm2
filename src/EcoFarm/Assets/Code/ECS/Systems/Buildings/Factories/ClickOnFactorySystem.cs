@@ -3,7 +3,7 @@ using System.Linq;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using Entitas;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using static GameMatcher;
 
 namespace Code.ECS.Systems.Buildings.Factories

@@ -1,4 +1,4 @@
-using EcoFarmDataModule;
+using EcoFarmModel;
 
 namespace Code.Utils.Extensions.Data
 {
