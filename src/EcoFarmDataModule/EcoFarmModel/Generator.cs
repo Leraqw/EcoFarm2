@@ -5,7 +5,7 @@ namespace EcoFarmModel
 	[Serializable]
 	public class Generator : Building
 	{
-		public Resource Resource;
-		public int EfficiencyCoefficient;
+		public Resource Resource              { get; set; }
+		public int      EfficiencyCoefficient { get; set; }
 	}
 }

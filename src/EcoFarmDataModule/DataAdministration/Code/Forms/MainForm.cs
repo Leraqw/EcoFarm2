@@ -23,23 +23,17 @@ namespace DataAdministration
 
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.CreateTable<DevelopmentObject>();
+				dataBase.CreateTable<Storage>();
 			}
 		}
 
 		private void ButtonTest_Click(object sender, EventArgs e)
 		{
-			var newObject = new Generator()
-			{
-				Title = "Not Generator",
-				Description = "asd",
-				EfficiencyCoefficient = 25,
-				Price = 12,
-			};
+			var newObject = DataCreator.NewStorage();
 			
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.Insert<DevelopmentObject>(newObject);
+				dataBase.Insert<Storage>(newObject);
 			}
 		}
 	}

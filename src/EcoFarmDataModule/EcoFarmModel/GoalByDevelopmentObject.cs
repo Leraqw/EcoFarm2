@@ -5,6 +5,6 @@ namespace EcoFarmModel
 	[Serializable]
 	public class GoalByDevelopmentObject : Goal
 	{
-		public DevelopmentObject DevelopmentObject;
+		public DevelopmentObject DevelopmentObject { get; set; }
 	}
 }
