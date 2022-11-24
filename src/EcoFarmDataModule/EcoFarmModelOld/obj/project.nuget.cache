@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sCWDN7reemN5j16a1mCBIELnmzTZ4wzbzDUd4T0Rbn7aaL5/XOKFBnD0fguJWeWY5GUs8jDJib+kgcgjtyEarA==",
+  "dgSpecHash": "/WyzsF9VRKYL/C3NSrD52hZLDreeyfqBFufl+Xu3pmkONo6C434IUGr60dhdVj2B89Ctmbn5aTI8e+UrI4NWHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModel\\EcoFarmModel.csproj",
+  "projectFilePath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModelOld\\EcoFarmModelOld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikol\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\nikol\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",

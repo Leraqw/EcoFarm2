@@ -254,11 +254,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModel\\EcoFarmModel.csproj",
-      "projectName": "EcoFarmModel",
-      "projectPath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModel\\EcoFarmModel.csproj",
+      "projectUniqueName": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModelOld\\EcoFarmModelOld.csproj",
+      "projectName": "EcoFarmModelOld",
+      "projectPath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModelOld\\EcoFarmModelOld.csproj",
       "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModel\\obj\\",
+      "outputPath": "C:\\Users\\nikol\\Documents\\source\\GitHub\\BdKursach\\src\\EcoFarmDataModule\\EcoFarmModelOld\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
