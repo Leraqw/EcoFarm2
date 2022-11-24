@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using SQLite;
 
-namespace EcoFarmDataModuleOld
+namespace EcoFarmModel
 {
 	[Serializable]
 	public abstract class DevelopmentObject
