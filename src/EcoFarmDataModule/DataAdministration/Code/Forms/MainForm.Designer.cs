@@ -54,23 +54,24 @@
 			this.MainDataGridView.Location = new System.Drawing.Point(12, 51);
 			this.MainDataGridView.Name = "MainDataGridView";
 			this.MainDataGridView.RowTemplate.Height = 24;
-			this.MainDataGridView.Size = new System.Drawing.Size(689, 305);
+			this.MainDataGridView.Size = new System.Drawing.Size(758, 305);
 			this.MainDataGridView.TabIndex = 1;
 			// 
 			// CurrentTableComboBox
 			// 
+			this.CurrentTableComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.CurrentTableComboBox.FormattingEnabled = true;
-			this.CurrentTableComboBox.Location = new System.Drawing.Point(458, 17);
+			this.CurrentTableComboBox.Location = new System.Drawing.Point(527, 17);
 			this.CurrentTableComboBox.Name = "CurrentTableComboBox";
 			this.CurrentTableComboBox.Size = new System.Drawing.Size(243, 24);
 			this.CurrentTableComboBox.TabIndex = 2;
+			this.CurrentTableComboBox.SelectedValueChanged += new System.EventHandler(this.CurrentTableComboBox_SelectedValueChanged);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(713, 368);
+			this.ClientSize = new System.Drawing.Size(782, 368);
 			this.Controls.Add(this.CurrentTableComboBox);
 			this.Controls.Add(this.MainDataGridView);
 			this.Controls.Add(this.ButtonNewDb);
