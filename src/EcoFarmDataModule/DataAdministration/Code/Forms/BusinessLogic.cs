@@ -20,9 +20,7 @@ namespace DataAdministration
 
 		private void Create(SQLiteConnection connection)
 		{
-			var tables = new TablesCollection();
-
-			foreach (var type in tables.Types)
+			foreach (var type in TablesCollection.Types)
 			{
 				connection.CreateTable(type);
 			}

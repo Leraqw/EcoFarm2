@@ -6,9 +6,10 @@ namespace DataAdministration
 {
 	public class TablesCollection
 	{
-		private readonly List<Type> _types;
+		// ReSharper disable once InconsistentNaming
+		private static readonly List<Type> _types;
 
-		public TablesCollection()
+		static TablesCollection()
 		{
 			_types = new List<Type>
 			{
@@ -30,6 +31,6 @@ namespace DataAdministration
 			};
 		}
 
-		public IEnumerable<Type> Types => _types;
+		public static IEnumerable<Type> Types => _types;
 	}
 }

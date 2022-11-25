@@ -30,6 +30,9 @@
 		private void InitializeComponent()
 		{
 			this.ButtonNewDb = new System.Windows.Forms.Button();
+			this.MainDataGridView = new System.Windows.Forms.DataGridView();
+			this.CurrentTableComboBox = new System.Windows.Forms.ComboBox();
+			((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -42,18 +45,45 @@
 			this.ButtonNewDb.UseVisualStyleBackColor = true;
 			this.ButtonNewDb.Click += new System.EventHandler(this.ButtonNewDb_Click);
 			// 
+			// MainDataGridView
+			// 
+			this.MainDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+					| System.Windows.Forms.AnchorStyles.Left)
+				| System.Windows.Forms.AnchorStyles.Right)));
+			this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.MainDataGridView.Location = new System.Drawing.Point(12, 51);
+			this.MainDataGridView.Name = "MainDataGridView";
+			this.MainDataGridView.RowTemplate.Height = 24;
+			this.MainDataGridView.Size = new System.Drawing.Size(689, 305);
+			this.MainDataGridView.TabIndex = 1;
+			// 
+			// CurrentTableComboBox
+			// 
+			this.CurrentTableComboBox.FormattingEnabled = true;
+			this.CurrentTableComboBox.Location = new System.Drawing.Point(510, 17);
+			this.CurrentTableComboBox.Name = "CurrentTableComboBox";
+			this.CurrentTableComboBox.Size = new System.Drawing.Size(191, 24);
+			this.CurrentTableComboBox.TabIndex = 2;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(713, 368);
+			this.Controls.Add(this.CurrentTableComboBox);
+			this.Controls.Add(this.MainDataGridView);
 			this.Controls.Add(this.ButtonNewDb);
 			this.Name = "MainForm";
 			this.Text = "Эко-ферма Модуль Управления Данными";
 			this.Load += new System.EventHandler(this.MainForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.ComboBox CurrentTableComboBox;
+
+		private System.Windows.Forms.DataGridView MainDataGridView;
 
 		private System.Windows.Forms.Button ButtonNewDb;
 
