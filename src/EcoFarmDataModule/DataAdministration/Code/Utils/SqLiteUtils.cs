@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataAdministration.Tables;
 using SQLite;
 
 namespace DataAdministration

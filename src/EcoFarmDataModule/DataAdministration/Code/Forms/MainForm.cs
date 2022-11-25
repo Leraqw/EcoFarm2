@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using DataAdministration.Tables;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
 
 namespace DataAdministration
 {
@@ -13,6 +15,13 @@ namespace DataAdministration
 		private void ButtonNewDb_Click(object sender, EventArgs e) => CreateDataBase();
 
 		private static void CreateDataBase()
+		{
+			Create();
+			
+			MessageBox.Show("БД создана!", "Успех", OK, Information);
+		}
+
+		private static void Create()
 		{
 			SqLiteUtils
 				.StartConnection()
