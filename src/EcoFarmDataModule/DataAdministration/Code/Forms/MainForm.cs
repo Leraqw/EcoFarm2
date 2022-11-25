@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
-using SQLite;
+using static DataAdministration.Constants;
 
 namespace DataAdministration
 {
@@ -10,33 +10,31 @@ namespace DataAdministration
 	{
 		public MainForm() => InitializeComponent();
 
-		private static string DbPath => Path.Combine(Directory.GetCurrentDirectory(), "EcoFarm.db");
+		private void MainForm_Load(object sender, EventArgs e) { }
 
-		private void MainForm_Load(object sender, EventArgs e) => CreateDbIfIsNotExists();
+		private void ButtonNewDb_Click(object sender, EventArgs e) => CreateDataBase();
 
-		private void CreateDbIfIsNotExists()
+		private static void CreateDataBase()
 		{
-			if (File.Exists(DbPath)) { }
-
-			using (var dataBase = new SQLiteConnection(DbPath))
-			{
-				dataBase.CreateTable<Product>();
-			}
-		}
-
-		private void ButtonTest_Click(object sender, EventArgs e)
-		{
-			var product = new Product
-			{
-				Title = "Apple",
-				Description = "Red apple",
-				Price = 2,
-			};
-
-			using (var dataBase = new SQLiteConnection(DbPath))
-			{
-				dataBase.Insert(product);
-			}
+			SqLiteUtils
+				.StartConnection()
+				.Add<Building>()
+				.Add<DevelopmentObject>()
+				.Add<DevelopmentObjectOnLevelStartup>()
+				.Add<Factory>()
+				.Add<Generator>()
+				.Add<Goal>()
+				.Add<InputProducts>()
+				.Add<Level>()
+				.Add<OutputProducts>()
+				.Add<Product>()
+				.Add<Resource>()
+				.Add<ResourceForBuilding>()
+				.Add<Tree>()
+				.Add<User>()
+				.Add<UserProgress>()
+				.Build()
+				;
 		}
 	}
 }

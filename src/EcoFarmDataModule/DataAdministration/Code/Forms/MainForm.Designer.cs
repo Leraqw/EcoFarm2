@@ -29,18 +29,18 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ButtonTest = new System.Windows.Forms.Button();
+			this.ButtonNewDb = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// ButtonTest
+			// ButtonNewDb
 			// 
-			this.ButtonTest.Location = new System.Drawing.Point(227, 75);
-			this.ButtonTest.Name = "ButtonTest";
-			this.ButtonTest.Size = new System.Drawing.Size(114, 33);
-			this.ButtonTest.TabIndex = 0;
-			this.ButtonTest.Text = "Test";
-			this.ButtonTest.UseVisualStyleBackColor = true;
-			this.ButtonTest.Click += new System.EventHandler(this.ButtonTest_Click);
+			this.ButtonNewDb.Location = new System.Drawing.Point(12, 12);
+			this.ButtonNewDb.Name = "ButtonNewDb";
+			this.ButtonNewDb.Size = new System.Drawing.Size(144, 33);
+			this.ButtonNewDb.TabIndex = 0;
+			this.ButtonNewDb.Text = "Создать новую БД";
+			this.ButtonNewDb.UseVisualStyleBackColor = true;
+			this.ButtonNewDb.Click += new System.EventHandler(this.ButtonNewDb_Click);
 			// 
 			// MainForm
 			// 
@@ -48,14 +48,14 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.ButtonTest);
+			this.Controls.Add(this.ButtonNewDb);
 			this.Name = "MainForm";
 			this.Text = "Эко-ферма Модуль Управления Данными";
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.ResumeLayout(false);
 		}
 
-		private System.Windows.Forms.Button ButtonTest;
+		private System.Windows.Forms.Button ButtonNewDb;
 
 #endregion
 	}
