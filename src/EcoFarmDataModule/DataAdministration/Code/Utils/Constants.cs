@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace DataAdministration
+﻿namespace DataAdministration
 {
 	public static class Constants
 	{
@@ -9,7 +7,5 @@ namespace DataAdministration
 		public const string WaterCleanerName = "Water Cleaning Station";
 		public const string ElectricityName = "Electricity";
 		public const string WaterName = "Water";
-
-		public static string DbPath => Path.Combine(Directory.GetCurrentDirectory(), "EcoFarm.db");
 	}
 }

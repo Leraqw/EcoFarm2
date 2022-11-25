@@ -12,9 +12,8 @@ namespace DataAdministration
 	{
 		public void CreateDataBase()
 		{
-			var path = GetPath();
-
-			SqLiteUtils.At(path).Perform(Create);
+			SqLiteUtils.CurrentPath = GetPath();
+			SqLiteUtils.Perform(Create);
 
 			MessageBox.Show("База Данных создана", "Успех", OK, Information);
 		}
