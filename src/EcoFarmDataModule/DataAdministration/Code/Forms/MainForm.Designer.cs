@@ -43,7 +43,17 @@
 			this.BuildingsData = new System.Windows.Forms.DataGridView();
 			this.TabFactories = new System.Windows.Forms.TabPage();
 			this.FactoriesData = new System.Windows.Forms.DataGridView();
+			this.TabGenerators = new System.Windows.Forms.TabPage();
+			this.TabResources = new System.Windows.Forms.TabPage();
+			this.TabGoal = new System.Windows.Forms.TabPage();
+			this.TabPlayers = new System.Windows.Forms.TabPage();
+			this.TabDOonStart = new System.Windows.Forms.TabPage();
+			this.TabInputProduct = new System.Windows.Forms.TabPage();
+			this.TabOutputProducts = new System.Windows.Forms.TabPage();
+			this.TabResourcesFoFractory = new System.Windows.Forms.TabPage();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
+			this.TabGoalByDO = new System.Windows.Forms.TabPage();
+			this.TabPlayerProgress = new System.Windows.Forms.TabPage();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -91,6 +101,16 @@
 			this.TabControl.Controls.Add(this.TabTree);
 			this.TabControl.Controls.Add(this.TabBuilding);
 			this.TabControl.Controls.Add(this.TabFactories);
+			this.TabControl.Controls.Add(this.TabGenerators);
+			this.TabControl.Controls.Add(this.TabResources);
+			this.TabControl.Controls.Add(this.TabGoal);
+			this.TabControl.Controls.Add(this.TabPlayers);
+			this.TabControl.Controls.Add(this.TabDOonStart);
+			this.TabControl.Controls.Add(this.TabInputProduct);
+			this.TabControl.Controls.Add(this.TabOutputProducts);
+			this.TabControl.Controls.Add(this.TabResourcesFoFractory);
+			this.TabControl.Controls.Add(this.TabGoalByDO);
+			this.TabControl.Controls.Add(this.TabPlayerProgress);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
@@ -218,6 +238,86 @@
 			this.FactoriesData.Size = new System.Drawing.Size(738, 306);
 			this.FactoriesData.TabIndex = 5;
 			// 
+			// TabGenerators
+			// 
+			this.TabGenerators.Location = new System.Drawing.Point(4, 25);
+			this.TabGenerators.Name = "TabGenerators";
+			this.TabGenerators.Padding = new System.Windows.Forms.Padding(3);
+			this.TabGenerators.Size = new System.Drawing.Size(744, 312);
+			this.TabGenerators.TabIndex = 6;
+			this.TabGenerators.Text = "Генераторы";
+			this.TabGenerators.UseVisualStyleBackColor = true;
+			// 
+			// TabResources
+			// 
+			this.TabResources.Location = new System.Drawing.Point(4, 25);
+			this.TabResources.Name = "TabResources";
+			this.TabResources.Padding = new System.Windows.Forms.Padding(3);
+			this.TabResources.Size = new System.Drawing.Size(744, 312);
+			this.TabResources.TabIndex = 7;
+			this.TabResources.Text = "Ресурсы";
+			this.TabResources.UseVisualStyleBackColor = true;
+			// 
+			// TabGoal
+			// 
+			this.TabGoal.Location = new System.Drawing.Point(4, 25);
+			this.TabGoal.Name = "TabGoal";
+			this.TabGoal.Padding = new System.Windows.Forms.Padding(3);
+			this.TabGoal.Size = new System.Drawing.Size(744, 312);
+			this.TabGoal.TabIndex = 8;
+			this.TabGoal.Text = "Цели";
+			this.TabGoal.UseVisualStyleBackColor = true;
+			// 
+			// TabPlayers
+			// 
+			this.TabPlayers.Location = new System.Drawing.Point(4, 25);
+			this.TabPlayers.Name = "TabPlayers";
+			this.TabPlayers.Padding = new System.Windows.Forms.Padding(3);
+			this.TabPlayers.Size = new System.Drawing.Size(744, 312);
+			this.TabPlayers.TabIndex = 9;
+			this.TabPlayers.Text = "Игроки";
+			this.TabPlayers.UseVisualStyleBackColor = true;
+			// 
+			// TabDOonStart
+			// 
+			this.TabDOonStart.Location = new System.Drawing.Point(4, 25);
+			this.TabDOonStart.Name = "TabDOonStart";
+			this.TabDOonStart.Padding = new System.Windows.Forms.Padding(3);
+			this.TabDOonStart.Size = new System.Drawing.Size(744, 312);
+			this.TabDOonStart.TabIndex = 10;
+			this.TabDOonStart.Text = "ОР на уровне";
+			this.TabDOonStart.UseVisualStyleBackColor = true;
+			// 
+			// TabInputProduct
+			// 
+			this.TabInputProduct.Location = new System.Drawing.Point(4, 25);
+			this.TabInputProduct.Name = "TabInputProduct";
+			this.TabInputProduct.Padding = new System.Windows.Forms.Padding(3);
+			this.TabInputProduct.Size = new System.Drawing.Size(744, 312);
+			this.TabInputProduct.TabIndex = 11;
+			this.TabInputProduct.Text = "Продукты на вход";
+			this.TabInputProduct.UseVisualStyleBackColor = true;
+			// 
+			// TabOutputProducts
+			// 
+			this.TabOutputProducts.Location = new System.Drawing.Point(4, 25);
+			this.TabOutputProducts.Name = "TabOutputProducts";
+			this.TabOutputProducts.Padding = new System.Windows.Forms.Padding(3);
+			this.TabOutputProducts.Size = new System.Drawing.Size(744, 312);
+			this.TabOutputProducts.TabIndex = 12;
+			this.TabOutputProducts.Text = "Продукты на выход";
+			this.TabOutputProducts.UseVisualStyleBackColor = true;
+			// 
+			// TabResourcesFoFractory
+			// 
+			this.TabResourcesFoFractory.Location = new System.Drawing.Point(4, 25);
+			this.TabResourcesFoFractory.Name = "TabResourcesFoFractory";
+			this.TabResourcesFoFractory.Padding = new System.Windows.Forms.Padding(3);
+			this.TabResourcesFoFractory.Size = new System.Drawing.Size(744, 312);
+			this.TabResourcesFoFractory.TabIndex = 13;
+			this.TabResourcesFoFractory.Text = "Ресурсы завода";
+			this.TabResourcesFoFractory.UseVisualStyleBackColor = true;
+			// 
 			// ButtonOpenDb
 			// 
 			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
@@ -227,6 +327,26 @@
 			this.ButtonOpenDb.Text = "Открыть БД";
 			this.ButtonOpenDb.UseVisualStyleBackColor = true;
 			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
+			// 
+			// TabGoalByDO
+			// 
+			this.TabGoalByDO.Location = new System.Drawing.Point(4, 25);
+			this.TabGoalByDO.Name = "TabGoalByDO";
+			this.TabGoalByDO.Padding = new System.Windows.Forms.Padding(3);
+			this.TabGoalByDO.Size = new System.Drawing.Size(744, 312);
+			this.TabGoalByDO.TabIndex = 14;
+			this.TabGoalByDO.Text = "Цель по ОР";
+			this.TabGoalByDO.UseVisualStyleBackColor = true;
+			// 
+			// TabPlayerProgress
+			// 
+			this.TabPlayerProgress.Location = new System.Drawing.Point(4, 25);
+			this.TabPlayerProgress.Name = "TabPlayerProgress";
+			this.TabPlayerProgress.Padding = new System.Windows.Forms.Padding(3);
+			this.TabPlayerProgress.Size = new System.Drawing.Size(744, 312);
+			this.TabPlayerProgress.TabIndex = 15;
+			this.TabPlayerProgress.Text = "Прогресс Игрока";
+			this.TabPlayerProgress.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
@@ -254,6 +374,26 @@
 			((System.ComponentModel.ISupportInitialize)(this.FactoriesData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.TabPage TabPlayerProgress;
+
+		private System.Windows.Forms.TabPage TabGoalByDO;
+
+		private System.Windows.Forms.TabPage TabResourcesFoFractory;
+
+		private System.Windows.Forms.TabPage TabOutputProducts;
+
+		private System.Windows.Forms.TabPage TabInputProduct;
+
+		private System.Windows.Forms.TabPage TabDOonStart;
+
+		private System.Windows.Forms.TabPage TabPlayers;
+
+		private System.Windows.Forms.TabPage TabGoal;
+
+		private System.Windows.Forms.TabPage TabResources;
+
+		private System.Windows.Forms.TabPage TabGenerators;
 
 		private System.Windows.Forms.TabPage TabFactories;
 		private System.Windows.Forms.DataGridView FactoriesData;
