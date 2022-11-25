@@ -10,23 +10,24 @@ namespace DataAdministration
 
 		public TablesCollection()
 		{
-			_types = new List<Type>()
-			         .Add<Building>()
-			         .Add<DevelopmentObject>()
-			         .Add<DevelopmentObjectOnLevelStartup>()
-			         .Add<Factory>()
-			         .Add<Generator>()
-			         .Add<Goal>()
-			         .Add<InputProducts>()
-			         .Add<Level>()
-			         .Add<OutputProducts>()
-			         .Add<Product>()
-			         .Add<Resource>()
-			         .Add<ResourceForBuilding>()
-			         .Add<Tree>()
-			         .Add<User>()
-			         .Add<UserProgress>()
-				;
+			_types = new List<Type>
+			{
+				typeof(Building),
+				typeof(DevelopmentObject),
+				typeof(DevelopmentObjectOnLevelStartup),
+				typeof(Factory),
+				typeof(Generator),
+				typeof(Goal),
+				typeof(InputProducts),
+				typeof(Level),
+				typeof(OutputProducts),
+				typeof(Product),
+				typeof(Resource),
+				typeof(ResourceForBuilding),
+				typeof(Tree),
+				typeof(User),
+				typeof(UserProgress),
+			};
 		}
 
 		public IEnumerable<Type> Types => _types;
