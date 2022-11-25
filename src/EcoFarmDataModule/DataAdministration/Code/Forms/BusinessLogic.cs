@@ -1,6 +1,7 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using SQLite;
@@ -33,6 +34,8 @@ namespace DataAdministration
 			return Path.Combine(pathToDirectory, "EcoFarm.db");
 		}
 
-		public List<T> GetTableData<T>() where T : new() => SqLiteUtils.Select((c) => new List<T>(c.Table<T>()));
+		public BindingList<T> GetTableData<T>()
+			where T : new()
+			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
 	}
 }
