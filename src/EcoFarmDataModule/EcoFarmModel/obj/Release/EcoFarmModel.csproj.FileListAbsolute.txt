@@ -22,3 +22,8 @@ C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmMo
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\EcoFarmModel.csproj.CopyComplete
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\EcoFarmModel.dll
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Release\EcoFarmModel.pdb
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\EcoFarmModel.dll.config
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\Newtonsoft.Json.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\SQLiteNetExtensions.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\Newtonsoft.Json.xml
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Release\SQLiteNetExtensions.pdb
