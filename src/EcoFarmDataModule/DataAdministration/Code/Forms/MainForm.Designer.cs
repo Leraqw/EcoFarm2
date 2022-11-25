@@ -39,6 +39,8 @@
 			this.DOData = new System.Windows.Forms.DataGridView();
 			this.TabTree = new System.Windows.Forms.TabPage();
 			this.TreesData = new System.Windows.Forms.DataGridView();
+			this.TabBuilding = new System.Windows.Forms.TabPage();
+			this.BuildingsData = new System.Windows.Forms.DataGridView();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
@@ -49,6 +51,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.DOData)).BeginInit();
 			this.TabTree.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.TreesData)).BeginInit();
+			this.TabBuilding.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.BuildingsData)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -81,6 +85,7 @@
 			this.TabControl.Controls.Add(this.TabProducts);
 			this.TabControl.Controls.Add(this.TabDO);
 			this.TabControl.Controls.Add(this.TabTree);
+			this.TabControl.Controls.Add(this.TabBuilding);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
@@ -164,6 +169,28 @@
 			this.TreesData.Size = new System.Drawing.Size(738, 306);
 			this.TreesData.TabIndex = 3;
 			// 
+			// TabBuilding
+			// 
+			this.TabBuilding.Controls.Add(this.BuildingsData);
+			this.TabBuilding.Location = new System.Drawing.Point(4, 25);
+			this.TabBuilding.Name = "TabBuilding";
+			this.TabBuilding.Padding = new System.Windows.Forms.Padding(3);
+			this.TabBuilding.Size = new System.Drawing.Size(744, 312);
+			this.TabBuilding.TabIndex = 4;
+			this.TabBuilding.Text = "Здания";
+			this.TabBuilding.UseVisualStyleBackColor = true;
+			// 
+			// BuildingsData
+			// 
+			this.BuildingsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.BuildingsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.BuildingsData.Location = new System.Drawing.Point(3, 3);
+			this.BuildingsData.Name = "BuildingsData";
+			this.BuildingsData.RowHeadersWidth = 51;
+			this.BuildingsData.RowTemplate.Height = 24;
+			this.BuildingsData.Size = new System.Drawing.Size(738, 306);
+			this.BuildingsData.TabIndex = 4;
+			// 
 			// ButtonOpenDb
 			// 
 			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
@@ -194,8 +221,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.DOData)).EndInit();
 			this.TabTree.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.TreesData)).EndInit();
+			this.TabBuilding.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.BuildingsData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.DataGridView BuildingsData;
+
+		private System.Windows.Forms.TabPage TabBuilding;
 
 		private System.Windows.Forms.DataGridView TreesData;
 
