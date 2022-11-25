@@ -16,7 +16,9 @@ namespace DataAdministration
 			}
 		}
 
-		public static SQLiteConnection StartConnection() => new SQLiteConnection(Constants.DbPath);
+		public static SQLiteConnection StartConnection() => StartConnection(Constants.DbPath);
+
+		public static SQLiteConnection StartConnection(string path) => new SQLiteConnection(path);
 
 		public static SQLiteConnection Add<T>(this SQLiteConnection @this)
 		{
@@ -28,7 +30,7 @@ namespace DataAdministration
 		{
 			TypesForTables.ForEach((t) => @this.CreateTable(t));
 			TypesForTables.Clear();
-			
+
 			@this.Close();
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
 using static System.Windows.Forms.MessageBoxButtons;
@@ -17,14 +18,19 @@ namespace DataAdministration
 		private static void CreateDataBase()
 		{
 			Create();
-			
+
 			MessageBox.Show("БД создана!", "Успех", OK, Information);
 		}
 
 		private static void Create()
 		{
+			var folderBrowserDialog = new FolderBrowserDialog();
+			folderBrowserDialog.ShowDialog();
+			var pathToDirectory = folderBrowserDialog.SelectedPath;
+			var completePath = Path.Combine(pathToDirectory, "EcoFarm.db");
+
 			SqLiteUtils
-				.StartConnection()
+				.StartConnection(completePath)
 				.Add<Building>()
 				.Add<DevelopmentObject>()
 				.Add<DevelopmentObjectOnLevelStartup>()
