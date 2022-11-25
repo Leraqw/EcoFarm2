@@ -33,10 +33,13 @@
 			this.ProductsData = new System.Windows.Forms.DataGridView();
 			this.TabControl = new System.Windows.Forms.TabControl();
 			this.TabLevels = new System.Windows.Forms.TabPage();
+			this.LevelsData = new System.Windows.Forms.DataGridView();
 			this.TabProducts = new System.Windows.Forms.TabPage();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
+			this.TabLevels.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).BeginInit();
 			this.TabProducts.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -76,6 +79,7 @@
 			// 
 			// TabLevels
 			// 
+			this.TabLevels.Controls.Add(this.LevelsData);
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
@@ -83,6 +87,17 @@
 			this.TabLevels.TabIndex = 0;
 			this.TabLevels.Text = "Уровни";
 			this.TabLevels.UseVisualStyleBackColor = true;
+			// 
+			// LevelsData
+			// 
+			this.LevelsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.LevelsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LevelsData.Location = new System.Drawing.Point(3, 3);
+			this.LevelsData.Name = "LevelsData";
+			this.LevelsData.RowHeadersWidth = 51;
+			this.LevelsData.RowTemplate.Height = 24;
+			this.LevelsData.Size = new System.Drawing.Size(738, 306);
+			this.LevelsData.TabIndex = 2;
 			// 
 			// TabProducts
 			// 
@@ -118,9 +133,13 @@
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).EndInit();
 			this.TabControl.ResumeLayout(false);
+			this.TabLevels.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).EndInit();
 			this.TabProducts.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.DataGridView LevelsData;
 
 		private System.Windows.Forms.TabControl TabControl;
 		private System.Windows.Forms.TabPage TabLevels;

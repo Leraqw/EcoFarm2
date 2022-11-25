@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using DataAdministration.Tables;
 using Product = DataAdministration.Tables.Product;
 
 namespace DataAdministration
@@ -36,6 +37,7 @@ namespace DataAdministration
 		private void UpdateTables()
 		{
 			ProductsData.DataSource = _businessLogic.GetTableData<Product>();
+			LevelsData.DataSource = _businessLogic.GetTableData<Level>();
 		}
 	}
 }
