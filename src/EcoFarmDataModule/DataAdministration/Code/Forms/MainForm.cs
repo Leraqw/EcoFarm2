@@ -57,7 +57,6 @@ namespace DataAdministration
 			InputProductsData.DataSource = _businessLogic.GetTableData<InputProducts>();
 			OutputProductsData.DataSource = _businessLogic.GetTableData<OutputProducts>();
 			ResourcesForFactoryData.DataSource = _businessLogic.GetTableData<ResourceForBuilding>();
-			GoalByDOData.DataSource = _businessLogic.GetTableData<GoalByDevelopmentObject>();
 		}
 	}
 }

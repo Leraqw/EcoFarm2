@@ -44,24 +44,22 @@
 			this.TabFactories = new System.Windows.Forms.TabPage();
 			this.FactoriesData = new System.Windows.Forms.DataGridView();
 			this.TabGenerators = new System.Windows.Forms.TabPage();
-			this.TabResources = new System.Windows.Forms.TabPage();
-			this.TabGoal = new System.Windows.Forms.TabPage();
-			this.TabPlayers = new System.Windows.Forms.TabPage();
-			this.TabDOonStart = new System.Windows.Forms.TabPage();
-			this.TabInputProduct = new System.Windows.Forms.TabPage();
-			this.TabOutputProducts = new System.Windows.Forms.TabPage();
-			this.TabResourcesFoFractory = new System.Windows.Forms.TabPage();
-			this.TabGoalByDO = new System.Windows.Forms.TabPage();
-			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			this.GeneratorsData = new System.Windows.Forms.DataGridView();
+			this.TabResources = new System.Windows.Forms.TabPage();
 			this.ResourcesData = new System.Windows.Forms.DataGridView();
+			this.TabGoal = new System.Windows.Forms.TabPage();
 			this.GoalsData = new System.Windows.Forms.DataGridView();
-			this.PlayersData = new System.Windows.Forms.DataGridView();
+			this.TabDOonStart = new System.Windows.Forms.TabPage();
 			this.DOonLevelsData = new System.Windows.Forms.DataGridView();
+			this.TabInputProduct = new System.Windows.Forms.TabPage();
 			this.InputProductsData = new System.Windows.Forms.DataGridView();
+			this.TabOutputProducts = new System.Windows.Forms.TabPage();
 			this.OutputProductsData = new System.Windows.Forms.DataGridView();
+			this.TabResourcesFoFractory = new System.Windows.Forms.TabPage();
 			this.ResourcesForFactoryData = new System.Windows.Forms.DataGridView();
+			this.TabGoalByDO = new System.Windows.Forms.TabPage();
 			this.GoalByDOData = new System.Windows.Forms.DataGridView();
+			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.Tabs.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -76,22 +74,20 @@
 			this.TabFactories.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.FactoriesData)).BeginInit();
 			this.TabGenerators.SuspendLayout();
-			this.TabResources.SuspendLayout();
-			this.TabGoal.SuspendLayout();
-			this.TabPlayers.SuspendLayout();
-			this.TabDOonStart.SuspendLayout();
-			this.TabInputProduct.SuspendLayout();
-			this.TabOutputProducts.SuspendLayout();
-			this.TabResourcesFoFractory.SuspendLayout();
-			this.TabGoalByDO.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.GeneratorsData)).BeginInit();
+			this.TabResources.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ResourcesData)).BeginInit();
+			this.TabGoal.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.GoalsData)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.PlayersData)).BeginInit();
+			this.TabDOonStart.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DOonLevelsData)).BeginInit();
+			this.TabInputProduct.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.InputProductsData)).BeginInit();
+			this.TabOutputProducts.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.OutputProductsData)).BeginInit();
+			this.TabResourcesFoFractory.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ResourcesForFactoryData)).BeginInit();
+			this.TabGoalByDO.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -130,7 +126,6 @@
 			this.Tabs.Controls.Add(this.TabGenerators);
 			this.Tabs.Controls.Add(this.TabResources);
 			this.Tabs.Controls.Add(this.TabGoal);
-			this.Tabs.Controls.Add(this.TabPlayers);
 			this.Tabs.Controls.Add(this.TabDOonStart);
 			this.Tabs.Controls.Add(this.TabInputProduct);
 			this.Tabs.Controls.Add(this.TabOutputProducts);
@@ -274,104 +269,6 @@
 			this.TabGenerators.Text = "Генераторы";
 			this.TabGenerators.UseVisualStyleBackColor = true;
 			// 
-			// TabResources
-			// 
-			this.TabResources.Controls.Add(this.ResourcesData);
-			this.TabResources.Location = new System.Drawing.Point(4, 25);
-			this.TabResources.Name = "TabResources";
-			this.TabResources.Padding = new System.Windows.Forms.Padding(3);
-			this.TabResources.Size = new System.Drawing.Size(744, 312);
-			this.TabResources.TabIndex = 7;
-			this.TabResources.Text = "Ресурсы";
-			this.TabResources.UseVisualStyleBackColor = true;
-			// 
-			// TabGoal
-			// 
-			this.TabGoal.Controls.Add(this.GoalsData);
-			this.TabGoal.Location = new System.Drawing.Point(4, 25);
-			this.TabGoal.Name = "TabGoal";
-			this.TabGoal.Padding = new System.Windows.Forms.Padding(3);
-			this.TabGoal.Size = new System.Drawing.Size(744, 312);
-			this.TabGoal.TabIndex = 8;
-			this.TabGoal.Text = "Цели";
-			this.TabGoal.UseVisualStyleBackColor = true;
-			// 
-			// TabPlayers
-			// 
-			this.TabPlayers.Controls.Add(this.PlayersData);
-			this.TabPlayers.Location = new System.Drawing.Point(4, 25);
-			this.TabPlayers.Name = "TabPlayers";
-			this.TabPlayers.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPlayers.Size = new System.Drawing.Size(744, 312);
-			this.TabPlayers.TabIndex = 9;
-			this.TabPlayers.Text = "Игроки";
-			this.TabPlayers.UseVisualStyleBackColor = true;
-			// 
-			// TabDOonStart
-			// 
-			this.TabDOonStart.Controls.Add(this.DOonLevelsData);
-			this.TabDOonStart.Location = new System.Drawing.Point(4, 25);
-			this.TabDOonStart.Name = "TabDOonStart";
-			this.TabDOonStart.Padding = new System.Windows.Forms.Padding(3);
-			this.TabDOonStart.Size = new System.Drawing.Size(744, 312);
-			this.TabDOonStart.TabIndex = 10;
-			this.TabDOonStart.Text = "ОР на уровне";
-			this.TabDOonStart.UseVisualStyleBackColor = true;
-			// 
-			// TabInputProduct
-			// 
-			this.TabInputProduct.Controls.Add(this.InputProductsData);
-			this.TabInputProduct.Location = new System.Drawing.Point(4, 25);
-			this.TabInputProduct.Name = "TabInputProduct";
-			this.TabInputProduct.Padding = new System.Windows.Forms.Padding(3);
-			this.TabInputProduct.Size = new System.Drawing.Size(744, 312);
-			this.TabInputProduct.TabIndex = 11;
-			this.TabInputProduct.Text = "Продукты на вход";
-			this.TabInputProduct.UseVisualStyleBackColor = true;
-			// 
-			// TabOutputProducts
-			// 
-			this.TabOutputProducts.Controls.Add(this.OutputProductsData);
-			this.TabOutputProducts.Location = new System.Drawing.Point(4, 25);
-			this.TabOutputProducts.Name = "TabOutputProducts";
-			this.TabOutputProducts.Padding = new System.Windows.Forms.Padding(3);
-			this.TabOutputProducts.Size = new System.Drawing.Size(744, 312);
-			this.TabOutputProducts.TabIndex = 12;
-			this.TabOutputProducts.Text = "Продукты на выход";
-			this.TabOutputProducts.UseVisualStyleBackColor = true;
-			// 
-			// TabResourcesFoFractory
-			// 
-			this.TabResourcesFoFractory.Controls.Add(this.ResourcesForFactoryData);
-			this.TabResourcesFoFractory.Location = new System.Drawing.Point(4, 25);
-			this.TabResourcesFoFractory.Name = "TabResourcesFoFractory";
-			this.TabResourcesFoFractory.Padding = new System.Windows.Forms.Padding(3);
-			this.TabResourcesFoFractory.Size = new System.Drawing.Size(744, 312);
-			this.TabResourcesFoFractory.TabIndex = 13;
-			this.TabResourcesFoFractory.Text = "Ресурсы завода";
-			this.TabResourcesFoFractory.UseVisualStyleBackColor = true;
-			// 
-			// TabGoalByDO
-			// 
-			this.TabGoalByDO.Controls.Add(this.GoalByDOData);
-			this.TabGoalByDO.Location = new System.Drawing.Point(4, 25);
-			this.TabGoalByDO.Name = "TabGoalByDO";
-			this.TabGoalByDO.Padding = new System.Windows.Forms.Padding(3);
-			this.TabGoalByDO.Size = new System.Drawing.Size(744, 312);
-			this.TabGoalByDO.TabIndex = 14;
-			this.TabGoalByDO.Text = "Цель по ОР";
-			this.TabGoalByDO.UseVisualStyleBackColor = true;
-			// 
-			// ButtonOpenDb
-			// 
-			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
-			this.ButtonOpenDb.Name = "ButtonOpenDb";
-			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
-			this.ButtonOpenDb.TabIndex = 3;
-			this.ButtonOpenDb.Text = "Открыть БД";
-			this.ButtonOpenDb.UseVisualStyleBackColor = true;
-			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
-			// 
 			// GeneratorsData
 			// 
 			this.GeneratorsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -382,6 +279,17 @@
 			this.GeneratorsData.RowTemplate.Height = 24;
 			this.GeneratorsData.Size = new System.Drawing.Size(738, 306);
 			this.GeneratorsData.TabIndex = 6;
+			// 
+			// TabResources
+			// 
+			this.TabResources.Controls.Add(this.ResourcesData);
+			this.TabResources.Location = new System.Drawing.Point(4, 25);
+			this.TabResources.Name = "TabResources";
+			this.TabResources.Padding = new System.Windows.Forms.Padding(3);
+			this.TabResources.Size = new System.Drawing.Size(744, 312);
+			this.TabResources.TabIndex = 7;
+			this.TabResources.Text = "Ресурсы";
+			this.TabResources.UseVisualStyleBackColor = true;
 			// 
 			// ResourcesData
 			// 
@@ -394,6 +302,17 @@
 			this.ResourcesData.Size = new System.Drawing.Size(738, 306);
 			this.ResourcesData.TabIndex = 6;
 			// 
+			// TabGoal
+			// 
+			this.TabGoal.Controls.Add(this.GoalsData);
+			this.TabGoal.Location = new System.Drawing.Point(4, 25);
+			this.TabGoal.Name = "TabGoal";
+			this.TabGoal.Padding = new System.Windows.Forms.Padding(3);
+			this.TabGoal.Size = new System.Drawing.Size(744, 312);
+			this.TabGoal.TabIndex = 8;
+			this.TabGoal.Text = "Цели";
+			this.TabGoal.UseVisualStyleBackColor = true;
+			// 
 			// GoalsData
 			// 
 			this.GoalsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -405,16 +324,16 @@
 			this.GoalsData.Size = new System.Drawing.Size(738, 306);
 			this.GoalsData.TabIndex = 6;
 			// 
-			// PlayersData
+			// TabDOonStart
 			// 
-			this.PlayersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.PlayersData.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PlayersData.Location = new System.Drawing.Point(3, 3);
-			this.PlayersData.Name = "PlayersData";
-			this.PlayersData.RowHeadersWidth = 51;
-			this.PlayersData.RowTemplate.Height = 24;
-			this.PlayersData.Size = new System.Drawing.Size(738, 306);
-			this.PlayersData.TabIndex = 6;
+			this.TabDOonStart.Controls.Add(this.DOonLevelsData);
+			this.TabDOonStart.Location = new System.Drawing.Point(4, 25);
+			this.TabDOonStart.Name = "TabDOonStart";
+			this.TabDOonStart.Padding = new System.Windows.Forms.Padding(3);
+			this.TabDOonStart.Size = new System.Drawing.Size(744, 312);
+			this.TabDOonStart.TabIndex = 10;
+			this.TabDOonStart.Text = "ОР на уровне";
+			this.TabDOonStart.UseVisualStyleBackColor = true;
 			// 
 			// DOonLevelsData
 			// 
@@ -427,6 +346,17 @@
 			this.DOonLevelsData.Size = new System.Drawing.Size(738, 306);
 			this.DOonLevelsData.TabIndex = 6;
 			// 
+			// TabInputProduct
+			// 
+			this.TabInputProduct.Controls.Add(this.InputProductsData);
+			this.TabInputProduct.Location = new System.Drawing.Point(4, 25);
+			this.TabInputProduct.Name = "TabInputProduct";
+			this.TabInputProduct.Padding = new System.Windows.Forms.Padding(3);
+			this.TabInputProduct.Size = new System.Drawing.Size(744, 312);
+			this.TabInputProduct.TabIndex = 11;
+			this.TabInputProduct.Text = "Продукты на вход";
+			this.TabInputProduct.UseVisualStyleBackColor = true;
+			// 
 			// InputProductsData
 			// 
 			this.InputProductsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -437,6 +367,17 @@
 			this.InputProductsData.RowTemplate.Height = 24;
 			this.InputProductsData.Size = new System.Drawing.Size(738, 306);
 			this.InputProductsData.TabIndex = 6;
+			// 
+			// TabOutputProducts
+			// 
+			this.TabOutputProducts.Controls.Add(this.OutputProductsData);
+			this.TabOutputProducts.Location = new System.Drawing.Point(4, 25);
+			this.TabOutputProducts.Name = "TabOutputProducts";
+			this.TabOutputProducts.Padding = new System.Windows.Forms.Padding(3);
+			this.TabOutputProducts.Size = new System.Drawing.Size(744, 312);
+			this.TabOutputProducts.TabIndex = 12;
+			this.TabOutputProducts.Text = "Продукты на выход";
+			this.TabOutputProducts.UseVisualStyleBackColor = true;
 			// 
 			// OutputProductsData
 			// 
@@ -449,6 +390,17 @@
 			this.OutputProductsData.Size = new System.Drawing.Size(738, 306);
 			this.OutputProductsData.TabIndex = 6;
 			// 
+			// TabResourcesFoFractory
+			// 
+			this.TabResourcesFoFractory.Controls.Add(this.ResourcesForFactoryData);
+			this.TabResourcesFoFractory.Location = new System.Drawing.Point(4, 25);
+			this.TabResourcesFoFractory.Name = "TabResourcesFoFractory";
+			this.TabResourcesFoFractory.Padding = new System.Windows.Forms.Padding(3);
+			this.TabResourcesFoFractory.Size = new System.Drawing.Size(744, 312);
+			this.TabResourcesFoFractory.TabIndex = 13;
+			this.TabResourcesFoFractory.Text = "Ресурсы завода";
+			this.TabResourcesFoFractory.UseVisualStyleBackColor = true;
+			// 
 			// ResourcesForFactoryData
 			// 
 			this.ResourcesForFactoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -460,6 +412,17 @@
 			this.ResourcesForFactoryData.Size = new System.Drawing.Size(738, 306);
 			this.ResourcesForFactoryData.TabIndex = 6;
 			// 
+			// TabGoalByDO
+			// 
+			this.TabGoalByDO.Controls.Add(this.GoalByDOData);
+			this.TabGoalByDO.Location = new System.Drawing.Point(4, 25);
+			this.TabGoalByDO.Name = "TabGoalByDO";
+			this.TabGoalByDO.Padding = new System.Windows.Forms.Padding(3);
+			this.TabGoalByDO.Size = new System.Drawing.Size(744, 312);
+			this.TabGoalByDO.TabIndex = 14;
+			this.TabGoalByDO.Text = "Цель по ОР";
+			this.TabGoalByDO.UseVisualStyleBackColor = true;
+			// 
 			// GoalByDOData
 			// 
 			this.GoalByDOData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -470,6 +433,16 @@
 			this.GoalByDOData.RowTemplate.Height = 24;
 			this.GoalByDOData.Size = new System.Drawing.Size(738, 306);
 			this.GoalByDOData.TabIndex = 6;
+			// 
+			// ButtonOpenDb
+			// 
+			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
+			this.ButtonOpenDb.Name = "ButtonOpenDb";
+			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
+			this.ButtonOpenDb.TabIndex = 3;
+			this.ButtonOpenDb.Text = "Открыть БД";
+			this.ButtonOpenDb.UseVisualStyleBackColor = true;
+			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
 			// 
 			// MainForm
 			// 
@@ -496,22 +469,20 @@
 			this.TabFactories.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.FactoriesData)).EndInit();
 			this.TabGenerators.ResumeLayout(false);
-			this.TabResources.ResumeLayout(false);
-			this.TabGoal.ResumeLayout(false);
-			this.TabPlayers.ResumeLayout(false);
-			this.TabDOonStart.ResumeLayout(false);
-			this.TabInputProduct.ResumeLayout(false);
-			this.TabOutputProducts.ResumeLayout(false);
-			this.TabResourcesFoFractory.ResumeLayout(false);
-			this.TabGoalByDO.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.GeneratorsData)).EndInit();
+			this.TabResources.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ResourcesData)).EndInit();
+			this.TabGoal.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.GoalsData)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.PlayersData)).EndInit();
+			this.TabDOonStart.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.DOonLevelsData)).EndInit();
+			this.TabInputProduct.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.InputProductsData)).EndInit();
+			this.TabOutputProducts.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.OutputProductsData)).EndInit();
+			this.TabResourcesFoFractory.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ResourcesForFactoryData)).EndInit();
+			this.TabGoalByDO.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).EndInit();
 			this.ResumeLayout(false);
 		}
@@ -521,7 +492,6 @@
 		private System.Windows.Forms.DataGridView GeneratorsData;
 		private System.Windows.Forms.DataGridView ResourcesData;
 		private System.Windows.Forms.DataGridView GoalsData;
-		private System.Windows.Forms.DataGridView PlayersData;
 		private System.Windows.Forms.DataGridView DOonLevelsData;
 		private System.Windows.Forms.DataGridView InputProductsData;
 		private System.Windows.Forms.DataGridView dataGridView1;
@@ -539,8 +509,6 @@
 		private System.Windows.Forms.TabPage TabInputProduct;
 
 		private System.Windows.Forms.TabPage TabDOonStart;
-
-		private System.Windows.Forms.TabPage TabPlayers;
 
 		private System.Windows.Forms.TabPage TabGoal;
 
