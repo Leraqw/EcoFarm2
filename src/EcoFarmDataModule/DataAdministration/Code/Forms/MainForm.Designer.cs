@@ -31,7 +31,7 @@
 		{
 			this.ButtonNewDb = new System.Windows.Forms.Button();
 			this.ProductsData = new System.Windows.Forms.DataGridView();
-			this.TabOutProducts = new System.Windows.Forms.TabControl();
+			this.Tabs = new System.Windows.Forms.TabControl();
 			this.TabLevels = new System.Windows.Forms.TabPage();
 			this.LevelsData = new System.Windows.Forms.DataGridView();
 			this.TabProducts = new System.Windows.Forms.TabPage();
@@ -63,7 +63,7 @@
 			this.ResourcesForFactoryData = new System.Windows.Forms.DataGridView();
 			this.GoalByDOData = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
-			this.TabOutProducts.SuspendLayout();
+			this.Tabs.SuspendLayout();
 			this.TabLevels.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).BeginInit();
 			this.TabProducts.SuspendLayout();
@@ -116,31 +116,31 @@
 			this.ProductsData.Size = new System.Drawing.Size(738, 306);
 			this.ProductsData.TabIndex = 1;
 			// 
-			// TabOutProducts
+			// Tabs
 			// 
-			this.TabOutProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-				                                                                   | System.Windows.Forms.AnchorStyles.Left)
-			                                                                   | System.Windows.Forms.AnchorStyles.Right)));
-			this.TabOutProducts.Controls.Add(this.TabLevels);
-			this.TabOutProducts.Controls.Add(this.TabProducts);
-			this.TabOutProducts.Controls.Add(this.TabDO);
-			this.TabOutProducts.Controls.Add(this.TabTree);
-			this.TabOutProducts.Controls.Add(this.TabBuilding);
-			this.TabOutProducts.Controls.Add(this.TabFactories);
-			this.TabOutProducts.Controls.Add(this.TabGenerators);
-			this.TabOutProducts.Controls.Add(this.TabResources);
-			this.TabOutProducts.Controls.Add(this.TabGoal);
-			this.TabOutProducts.Controls.Add(this.TabPlayers);
-			this.TabOutProducts.Controls.Add(this.TabDOonStart);
-			this.TabOutProducts.Controls.Add(this.TabInputProduct);
-			this.TabOutProducts.Controls.Add(this.TabOutputProducts);
-			this.TabOutProducts.Controls.Add(this.TabResourcesFoFractory);
-			this.TabOutProducts.Controls.Add(this.TabGoalByDO);
-			this.TabOutProducts.Location = new System.Drawing.Point(12, 51);
-			this.TabOutProducts.Name = "TabOutProducts";
-			this.TabOutProducts.SelectedIndex = 0;
-			this.TabOutProducts.Size = new System.Drawing.Size(752, 341);
-			this.TabOutProducts.TabIndex = 2;
+			this.Tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			                                                          | System.Windows.Forms.AnchorStyles.Left)
+			                                                         | System.Windows.Forms.AnchorStyles.Right)));
+			this.Tabs.Controls.Add(this.TabLevels);
+			this.Tabs.Controls.Add(this.TabProducts);
+			this.Tabs.Controls.Add(this.TabDO);
+			this.Tabs.Controls.Add(this.TabTree);
+			this.Tabs.Controls.Add(this.TabBuilding);
+			this.Tabs.Controls.Add(this.TabFactories);
+			this.Tabs.Controls.Add(this.TabGenerators);
+			this.Tabs.Controls.Add(this.TabResources);
+			this.Tabs.Controls.Add(this.TabGoal);
+			this.Tabs.Controls.Add(this.TabPlayers);
+			this.Tabs.Controls.Add(this.TabDOonStart);
+			this.Tabs.Controls.Add(this.TabInputProduct);
+			this.Tabs.Controls.Add(this.TabOutputProducts);
+			this.Tabs.Controls.Add(this.TabResourcesFoFractory);
+			this.Tabs.Controls.Add(this.TabGoalByDO);
+			this.Tabs.Location = new System.Drawing.Point(12, 51);
+			this.Tabs.Name = "Tabs";
+			this.Tabs.SelectedIndex = 0;
+			this.Tabs.Size = new System.Drawing.Size(752, 341);
+			this.Tabs.TabIndex = 2;
 			// 
 			// TabLevels
 			// 
@@ -477,13 +477,13 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(776, 404);
 			this.Controls.Add(this.ButtonOpenDb);
-			this.Controls.Add(this.TabOutProducts);
+			this.Controls.Add(this.Tabs);
 			this.Controls.Add(this.ButtonNewDb);
 			this.Name = "MainForm";
 			this.Text = "Эко-ферма Модуль Управления Данными";
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).EndInit();
-			this.TabOutProducts.ResumeLayout(false);
+			this.Tabs.ResumeLayout(false);
 			this.TabLevels.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).EndInit();
 			this.TabProducts.ResumeLayout(false);
@@ -515,6 +515,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.TabControl Tabs;
 
 		private System.Windows.Forms.DataGridView GeneratorsData;
 		private System.Windows.Forms.DataGridView ResourcesData;
