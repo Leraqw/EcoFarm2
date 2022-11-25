@@ -39,6 +39,7 @@ namespace DataAdministration
 			ProductsData.DataSource = _businessLogic.GetTableData<Product>();
 			LevelsData.DataSource = _businessLogic.GetTableData<Level>();
 			DOData.DataSource = _businessLogic.GetTableData<DevelopmentObject>();
+			TreesData.DataSource = _businessLogic.GetTableData<Tree>();
 		}
 	}
 }

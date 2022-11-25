@@ -36,8 +36,10 @@
 			this.LevelsData = new System.Windows.Forms.DataGridView();
 			this.TabProducts = new System.Windows.Forms.TabPage();
 			this.TabDO = new System.Windows.Forms.TabPage();
-			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			this.DOData = new System.Windows.Forms.DataGridView();
+			this.TabTree = new System.Windows.Forms.TabPage();
+			this.TreesData = new System.Windows.Forms.DataGridView();
+			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -45,6 +47,8 @@
 			this.TabProducts.SuspendLayout();
 			this.TabDO.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DOData)).BeginInit();
+			this.TabTree.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.TreesData)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -76,6 +80,7 @@
 			this.TabControl.Controls.Add(this.TabLevels);
 			this.TabControl.Controls.Add(this.TabProducts);
 			this.TabControl.Controls.Add(this.TabDO);
+			this.TabControl.Controls.Add(this.TabTree);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
@@ -126,16 +131,6 @@
 			this.TabDO.Text = "Объекты Развития";
 			this.TabDO.UseVisualStyleBackColor = true;
 			// 
-			// ButtonOpenDb
-			// 
-			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
-			this.ButtonOpenDb.Name = "ButtonOpenDb";
-			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
-			this.ButtonOpenDb.TabIndex = 3;
-			this.ButtonOpenDb.Text = "Открыть БД";
-			this.ButtonOpenDb.UseVisualStyleBackColor = true;
-			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
-			// 
 			// DOData
 			// 
 			this.DOData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -146,6 +141,38 @@
 			this.DOData.RowTemplate.Height = 24;
 			this.DOData.Size = new System.Drawing.Size(738, 306);
 			this.DOData.TabIndex = 2;
+			// 
+			// TabTree
+			// 
+			this.TabTree.Controls.Add(this.TreesData);
+			this.TabTree.Location = new System.Drawing.Point(4, 25);
+			this.TabTree.Name = "TabTree";
+			this.TabTree.Padding = new System.Windows.Forms.Padding(3);
+			this.TabTree.Size = new System.Drawing.Size(744, 312);
+			this.TabTree.TabIndex = 3;
+			this.TabTree.Text = "Деревья";
+			this.TabTree.UseVisualStyleBackColor = true;
+			// 
+			// TreesData
+			// 
+			this.TreesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.TreesData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.TreesData.Location = new System.Drawing.Point(3, 3);
+			this.TreesData.Name = "TreesData";
+			this.TreesData.RowHeadersWidth = 51;
+			this.TreesData.RowTemplate.Height = 24;
+			this.TreesData.Size = new System.Drawing.Size(738, 306);
+			this.TreesData.TabIndex = 3;
+			// 
+			// ButtonOpenDb
+			// 
+			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
+			this.ButtonOpenDb.Name = "ButtonOpenDb";
+			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
+			this.ButtonOpenDb.TabIndex = 3;
+			this.ButtonOpenDb.Text = "Открыть БД";
+			this.ButtonOpenDb.UseVisualStyleBackColor = true;
+			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
 			// 
 			// MainForm
 			// 
@@ -165,8 +192,14 @@
 			this.TabProducts.ResumeLayout(false);
 			this.TabDO.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.DOData)).EndInit();
+			this.TabTree.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.TreesData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.DataGridView TreesData;
+
+		private System.Windows.Forms.TabPage TabTree;
 
 		private System.Windows.Forms.DataGridView DOData;
 
