@@ -35,12 +35,16 @@
 			this.TabLevels = new System.Windows.Forms.TabPage();
 			this.LevelsData = new System.Windows.Forms.DataGridView();
 			this.TabProducts = new System.Windows.Forms.TabPage();
+			this.TabDO = new System.Windows.Forms.TabPage();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
+			this.DOData = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
 			this.TabLevels.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).BeginInit();
 			this.TabProducts.SuspendLayout();
+			this.TabDO.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.DOData)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -71,6 +75,7 @@
 			                                                               | System.Windows.Forms.AnchorStyles.Right)));
 			this.TabControl.Controls.Add(this.TabLevels);
 			this.TabControl.Controls.Add(this.TabProducts);
+			this.TabControl.Controls.Add(this.TabDO);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
@@ -110,6 +115,17 @@
 			this.TabProducts.Text = "Продукты";
 			this.TabProducts.UseVisualStyleBackColor = true;
 			// 
+			// TabDO
+			// 
+			this.TabDO.Controls.Add(this.DOData);
+			this.TabDO.Location = new System.Drawing.Point(4, 25);
+			this.TabDO.Name = "TabDO";
+			this.TabDO.Padding = new System.Windows.Forms.Padding(3);
+			this.TabDO.Size = new System.Drawing.Size(744, 312);
+			this.TabDO.TabIndex = 2;
+			this.TabDO.Text = "Объекты Развития";
+			this.TabDO.UseVisualStyleBackColor = true;
+			// 
 			// ButtonOpenDb
 			// 
 			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
@@ -119,6 +135,17 @@
 			this.ButtonOpenDb.Text = "Открыть БД";
 			this.ButtonOpenDb.UseVisualStyleBackColor = true;
 			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
+			// 
+			// DOData
+			// 
+			this.DOData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DOData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.DOData.Location = new System.Drawing.Point(3, 3);
+			this.DOData.Name = "DOData";
+			this.DOData.RowHeadersWidth = 51;
+			this.DOData.RowTemplate.Height = 24;
+			this.DOData.Size = new System.Drawing.Size(738, 306);
+			this.DOData.TabIndex = 2;
 			// 
 			// MainForm
 			// 
@@ -136,8 +163,14 @@
 			this.TabLevels.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.LevelsData)).EndInit();
 			this.TabProducts.ResumeLayout(false);
+			this.TabDO.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.DOData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.DataGridView DOData;
+
+		private System.Windows.Forms.TabPage TabDO;
 
 		private System.Windows.Forms.DataGridView LevelsData;
 
