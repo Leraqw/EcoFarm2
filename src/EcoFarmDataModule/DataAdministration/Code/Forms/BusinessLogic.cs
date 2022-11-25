@@ -13,27 +13,18 @@ namespace DataAdministration
 	{
 		public void CreateDataBase()
 		{
-			SqLiteUtils.CurrentPath = GetDirectoryPath();
-			SqLiteUtils.Perform(Create);
+			if (FileUtils.TrySelectFolder(out var path) == false)
+			{
+				return;
+			}
+
+			path = Path.Combine(path, "EcoFarm.db");
+			SqLiteUtils.CurrentPath = path;
+
+			SqLiteUtils.Perform(CreateAllTables);
 
 			MessageBox.Show("База Данных создана", "Успех", OK, Information);
 		}
-
-		private static string GetDirectoryPath()
-		{
-			var pathToDirectory = FileUtils.GetSelectedPath();
-			return Path.Combine(pathToDirectory, "EcoFarm.db");
-		}
-
-		private static string GetFilePath()
-		{
-			var pathToDirectory = FileUtils.OpenDb();
-			return Path.Combine(pathToDirectory);
-		}
-
-		public BindingList<T> GetTableData<T>()
-			where T : new()
-			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
 
 		public void OpenDataBase()
 		{
@@ -42,7 +33,17 @@ namespace DataAdministration
 			MessageBox.Show("База Данных открыта", "Успех", OK, Information);
 		}
 
-		private void Create(SQLiteConnection connection)
+		public BindingList<T> GetTableData<T>()
+			where T : new()
+			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
+
+		private static string GetFilePath()
+		{
+			var pathToDirectory = FileUtils.OpenDb();
+			return Path.Combine(pathToDirectory);
+		}
+
+		private void CreateAllTables(SQLiteConnection connection)
 		{
 			foreach (var type in TablesCollection.Types)
 			{

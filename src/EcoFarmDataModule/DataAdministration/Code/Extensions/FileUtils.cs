@@ -10,13 +10,20 @@ namespace DataAdministration
 			folderBrowserDialog.ShowDialog();
 			return folderBrowserDialog.SelectedPath;
 		}
-		
+
 		public static string OpenDb()
 		{
-			// Filters for only *.db files
-			var openFileDialog = new OpenFileDialog {Filter = "Database Files (*.db)|*.db"};
+			var openFileDialog = new OpenFileDialog { Filter = "Database Files (*.db)|*.db" };
 			openFileDialog.ShowDialog();
 			return openFileDialog.FileName;
+		}
+		
+		public static bool TrySelectFolder(out string path)
+		{
+			var folderBrowserDialog = new FolderBrowserDialog();
+			var result = folderBrowserDialog.ShowDialog();
+			path = folderBrowserDialog.SelectedPath;
+			return result == DialogResult.OK;
 		}
 	}
 }

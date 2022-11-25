@@ -37,7 +37,7 @@
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
-			this.TabLevels.SuspendLayout();
+			this.TabProducts.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -76,7 +76,6 @@
 			// 
 			// TabLevels
 			// 
-			this.TabLevels.Controls.Add(this.ProductsData);
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
@@ -87,6 +86,7 @@
 			// 
 			// TabProducts
 			// 
+			this.TabProducts.Controls.Add(this.ProductsData);
 			this.TabProducts.Location = new System.Drawing.Point(4, 25);
 			this.TabProducts.Name = "TabProducts";
 			this.TabProducts.Padding = new System.Windows.Forms.Padding(3);
@@ -118,7 +118,7 @@
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).EndInit();
 			this.TabControl.ResumeLayout(false);
-			this.TabLevels.ResumeLayout(false);
+			this.TabProducts.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
 
