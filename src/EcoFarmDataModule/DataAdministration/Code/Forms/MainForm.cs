@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
-using static DataAdministration.Constants;
 
 namespace DataAdministration
 {
