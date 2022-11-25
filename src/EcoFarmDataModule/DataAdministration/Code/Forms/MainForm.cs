@@ -21,36 +21,22 @@ namespace DataAdministration
 
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.CreateTable<DevelopmentObject>();
-				dataBase.CreateTable<Level>();
-				dataBase.CreateTable<DevelopmentObjectOnLevelStartup>();
+				dataBase.CreateTable<Product>();
 			}
 		}
 
 		private void ButtonTest_Click(object sender, EventArgs e)
 		{
-			var developmentObject = new DevelopmentObject()
+			var product = new Product
 			{
-				Title = "Some",
-			};
-
-			var level = new Level
-			{
-				Order = 1,
-			};
-
-			var relation = new DevelopmentObjectOnLevelStartup
-			{
-				DevelopmentObjectId = 1,
-				LevelId = 12,
-				Quantity = 5,
+				Title = "Apple",
+				Description = "Red apple",
+				Price = 2,
 			};
 
 			using (var dataBase = new SQLiteConnection(DbPath))
 			{
-				dataBase.Insert<DevelopmentObject>(developmentObject);
-				dataBase.Insert<Level>(level);
-				dataBase.Insert<DevelopmentObjectOnLevelStartup>(relation);
+				dataBase.Insert(product);
 			}
 		}
 	}

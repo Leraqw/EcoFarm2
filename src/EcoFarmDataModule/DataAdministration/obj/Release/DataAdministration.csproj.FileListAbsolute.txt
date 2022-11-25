@@ -30,7 +30,5 @@ C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdmin
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Release\DataAdministration.exe
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\obj\Release\DataAdministration.pdb
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Release\Newtonsoft.Json.dll
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Release\SQLiteNetExtensions.dll
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Release\EcoFarmModel.dll.config
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Release\Newtonsoft.Json.xml
-C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\DataAdministration\bin\Release\SQLiteNetExtensions.pdb
