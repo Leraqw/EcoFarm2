@@ -1,6 +1,5 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
@@ -14,10 +13,33 @@ namespace DataAdministration
 	{
 		public void CreateDataBase()
 		{
-			SqLiteUtils.CurrentPath = GetPath();
+			SqLiteUtils.CurrentPath = GetDirectoryPath();
 			SqLiteUtils.Perform(Create);
 
 			MessageBox.Show("База Данных создана", "Успех", OK, Information);
+		}
+
+		private static string GetDirectoryPath()
+		{
+			var pathToDirectory = FileUtils.GetSelectedPath();
+			return Path.Combine(pathToDirectory, "EcoFarm.db");
+		}
+
+		private static string GetFilePath()
+		{
+			var pathToDirectory = FileUtils.OpenDb();
+			return Path.Combine(pathToDirectory);
+		}
+
+		public BindingList<T> GetTableData<T>()
+			where T : new()
+			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
+
+		public void OpenDataBase()
+		{
+			SqLiteUtils.CurrentPath = GetFilePath();
+
+			MessageBox.Show("База Данных открыта", "Успех", OK, Information);
 		}
 
 		private void Create(SQLiteConnection connection)
@@ -27,15 +49,5 @@ namespace DataAdministration
 				connection.CreateTable(type);
 			}
 		}
-
-		private static string GetPath()
-		{
-			var pathToDirectory = new FolderBrowserDialog().GetSelectedPath();
-			return Path.Combine(pathToDirectory, "EcoFarm.db");
-		}
-
-		public BindingList<T> GetTableData<T>()
-			where T : new()
-			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
 	}
 }

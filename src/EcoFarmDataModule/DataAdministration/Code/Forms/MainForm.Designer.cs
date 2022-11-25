@@ -34,6 +34,7 @@
 			this.TabControl = new System.Windows.Forms.TabControl();
 			this.TabLevels = new System.Windows.Forms.TabPage();
 			this.TabProducts = new System.Windows.Forms.TabPage();
+			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -41,7 +42,7 @@
 			// 
 			// ButtonNewDb
 			// 
-			this.ButtonNewDb.Location = new System.Drawing.Point(12, 12);
+			this.ButtonNewDb.Location = new System.Drawing.Point(16, 12);
 			this.ButtonNewDb.Name = "ButtonNewDb";
 			this.ButtonNewDb.Size = new System.Drawing.Size(144, 33);
 			this.ButtonNewDb.TabIndex = 0;
@@ -57,17 +58,20 @@
 			this.ProductsData.Name = "ProductsData";
 			this.ProductsData.RowHeadersWidth = 51;
 			this.ProductsData.RowTemplate.Height = 24;
-			this.ProductsData.Size = new System.Drawing.Size(744, 270);
+			this.ProductsData.Size = new System.Drawing.Size(738, 306);
 			this.ProductsData.TabIndex = 1;
 			// 
 			// TabControl
 			// 
+			this.TabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			                                                                | System.Windows.Forms.AnchorStyles.Left)
+			                                                               | System.Windows.Forms.AnchorStyles.Right)));
 			this.TabControl.Controls.Add(this.TabLevels);
 			this.TabControl.Controls.Add(this.TabProducts);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
-			this.TabControl.Size = new System.Drawing.Size(758, 305);
+			this.TabControl.Size = new System.Drawing.Size(752, 341);
 			this.TabControl.TabIndex = 2;
 			// 
 			// TabLevels
@@ -76,7 +80,7 @@
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
-			this.TabLevels.Size = new System.Drawing.Size(750, 276);
+			this.TabLevels.Size = new System.Drawing.Size(744, 312);
 			this.TabLevels.TabIndex = 0;
 			this.TabLevels.Text = "Уровни";
 			this.TabLevels.UseVisualStyleBackColor = true;
@@ -86,16 +90,27 @@
 			this.TabProducts.Location = new System.Drawing.Point(4, 25);
 			this.TabProducts.Name = "TabProducts";
 			this.TabProducts.Padding = new System.Windows.Forms.Padding(3);
-			this.TabProducts.Size = new System.Drawing.Size(750, 276);
+			this.TabProducts.Size = new System.Drawing.Size(744, 312);
 			this.TabProducts.TabIndex = 1;
 			this.TabProducts.Text = "Продукты";
 			this.TabProducts.UseVisualStyleBackColor = true;
+			// 
+			// ButtonOpenDb
+			// 
+			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
+			this.ButtonOpenDb.Name = "ButtonOpenDb";
+			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
+			this.ButtonOpenDb.TabIndex = 3;
+			this.ButtonOpenDb.Text = "Открыть БД";
+			this.ButtonOpenDb.UseVisualStyleBackColor = true;
+			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(782, 368);
+			this.ClientSize = new System.Drawing.Size(776, 404);
+			this.Controls.Add(this.ButtonOpenDb);
 			this.Controls.Add(this.TabControl);
 			this.Controls.Add(this.ButtonNewDb);
 			this.Name = "MainForm";
@@ -105,7 +120,6 @@
 			this.TabControl.ResumeLayout(false);
 			this.TabLevels.ResumeLayout(false);
 			this.ResumeLayout(false);
-
 		}
 
 		private System.Windows.Forms.TabControl TabControl;
@@ -116,6 +130,8 @@
 
 		private System.Windows.Forms.Button ButtonNewDb;
 
-#endregion
+		#endregion
+
+		private System.Windows.Forms.Button ButtonOpenDb;
 	}
 }

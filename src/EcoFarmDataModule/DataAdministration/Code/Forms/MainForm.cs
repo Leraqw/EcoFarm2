@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using Product = DataAdministration.Tables.Product;
 
@@ -22,6 +21,18 @@ namespace DataAdministration
 		{
 			_businessLogic.CreateDataBase();
 
+			UpdateTables();
+		}
+
+		private void ButtonOpenDb_Click(object sender, EventArgs e)
+		{
+			_businessLogic.OpenDataBase();
+
+			UpdateTables();
+		}
+
+		private void UpdateTables()
+		{
 			ProductsData.DataSource = _businessLogic.GetTableData<Product>();
 		}
 	}
