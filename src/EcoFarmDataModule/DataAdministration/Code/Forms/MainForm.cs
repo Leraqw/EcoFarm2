@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
 using SQLite;
-using Level = DataAdministration.Tables.Level;
 
 namespace DataAdministration
 {
