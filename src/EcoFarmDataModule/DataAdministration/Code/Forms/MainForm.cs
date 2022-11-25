@@ -1,4 +1,5 @@
-﻿using System;
+﻿// ReSharper disable LocalizableElement
+using System;
 using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
@@ -17,20 +18,18 @@ namespace DataAdministration
 
 		private static void CreateDataBase()
 		{
-			Create();
+			var pathToDirectory = new FolderBrowserDialog().GetSelectedPath();
+			var completePath = Path.Combine(pathToDirectory, "EcoFarm.db");
+
+			Create(at: completePath);
 
 			MessageBox.Show("БД создана!", "Успех", OK, Information);
 		}
 
-		private static void Create()
+		private static void Create(string at)
 		{
-			var folderBrowserDialog = new FolderBrowserDialog();
-			folderBrowserDialog.ShowDialog();
-			var pathToDirectory = folderBrowserDialog.SelectedPath;
-			var completePath = Path.Combine(pathToDirectory, "EcoFarm.db");
-
 			SqLiteUtils
-				.StartConnection(completePath)
+				.StartConnection(at)
 				.Add<Building>()
 				.Add<DevelopmentObject>()
 				.Add<DevelopmentObjectOnLevelStartup>()
