@@ -1,7 +1,5 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using EcoFarmModel;

@@ -30,9 +30,13 @@
 		private void InitializeComponent()
 		{
 			this.ButtonNewDb = new System.Windows.Forms.Button();
-			this.MainDataGridView = new System.Windows.Forms.DataGridView();
-			this.CurrentTableComboBox = new System.Windows.Forms.ComboBox();
-			((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
+			this.ProductsData = new System.Windows.Forms.DataGridView();
+			this.TabControl = new System.Windows.Forms.TabControl();
+			this.TabLevels = new System.Windows.Forms.TabPage();
+			this.TabProducts = new System.Windows.Forms.TabPage();
+			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
+			this.TabControl.SuspendLayout();
+			this.TabLevels.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -45,46 +49,70 @@
 			this.ButtonNewDb.UseVisualStyleBackColor = true;
 			this.ButtonNewDb.Click += new System.EventHandler(this.ButtonNewDb_Click);
 			// 
-			// MainDataGridView
+			// ProductsData
 			// 
-			this.MainDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-					| System.Windows.Forms.AnchorStyles.Left)
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.MainDataGridView.Location = new System.Drawing.Point(12, 51);
-			this.MainDataGridView.Name = "MainDataGridView";
-			this.MainDataGridView.RowTemplate.Height = 24;
-			this.MainDataGridView.Size = new System.Drawing.Size(758, 305);
-			this.MainDataGridView.TabIndex = 1;
+			this.ProductsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ProductsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ProductsData.Location = new System.Drawing.Point(3, 3);
+			this.ProductsData.Name = "ProductsData";
+			this.ProductsData.RowHeadersWidth = 51;
+			this.ProductsData.RowTemplate.Height = 24;
+			this.ProductsData.Size = new System.Drawing.Size(744, 270);
+			this.ProductsData.TabIndex = 1;
 			// 
-			// CurrentTableComboBox
+			// TabControl
 			// 
-			this.CurrentTableComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.CurrentTableComboBox.FormattingEnabled = true;
-			this.CurrentTableComboBox.Location = new System.Drawing.Point(527, 17);
-			this.CurrentTableComboBox.Name = "CurrentTableComboBox";
-			this.CurrentTableComboBox.Size = new System.Drawing.Size(243, 24);
-			this.CurrentTableComboBox.TabIndex = 2;
-			this.CurrentTableComboBox.SelectedValueChanged += new System.EventHandler(this.CurrentTableComboBox_SelectedValueChanged);
+			this.TabControl.Controls.Add(this.TabLevels);
+			this.TabControl.Controls.Add(this.TabProducts);
+			this.TabControl.Location = new System.Drawing.Point(12, 51);
+			this.TabControl.Name = "TabControl";
+			this.TabControl.SelectedIndex = 0;
+			this.TabControl.Size = new System.Drawing.Size(758, 305);
+			this.TabControl.TabIndex = 2;
+			// 
+			// TabLevels
+			// 
+			this.TabLevels.Controls.Add(this.ProductsData);
+			this.TabLevels.Location = new System.Drawing.Point(4, 25);
+			this.TabLevels.Name = "TabLevels";
+			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
+			this.TabLevels.Size = new System.Drawing.Size(750, 276);
+			this.TabLevels.TabIndex = 0;
+			this.TabLevels.Text = "Уровни";
+			this.TabLevels.UseVisualStyleBackColor = true;
+			// 
+			// TabProducts
+			// 
+			this.TabProducts.Location = new System.Drawing.Point(4, 25);
+			this.TabProducts.Name = "TabProducts";
+			this.TabProducts.Padding = new System.Windows.Forms.Padding(3);
+			this.TabProducts.Size = new System.Drawing.Size(750, 276);
+			this.TabProducts.TabIndex = 1;
+			this.TabProducts.Text = "Продукты";
+			this.TabProducts.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(782, 368);
-			this.Controls.Add(this.CurrentTableComboBox);
-			this.Controls.Add(this.MainDataGridView);
+			this.Controls.Add(this.TabControl);
 			this.Controls.Add(this.ButtonNewDb);
 			this.Name = "MainForm";
 			this.Text = "Эко-ферма Модуль Управления Данными";
 			this.Load += new System.EventHandler(this.MainForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).EndInit();
+			this.TabControl.ResumeLayout(false);
+			this.TabLevels.ResumeLayout(false);
 			this.ResumeLayout(false);
+
 		}
 
-		private System.Windows.Forms.ComboBox CurrentTableComboBox;
+		private System.Windows.Forms.TabControl TabControl;
+		private System.Windows.Forms.TabPage TabLevels;
+		private System.Windows.Forms.TabPage TabProducts;
 
-		private System.Windows.Forms.DataGridView MainDataGridView;
+		private System.Windows.Forms.DataGridView ProductsData;
 
 		private System.Windows.Forms.Button ButtonNewDb;
 
