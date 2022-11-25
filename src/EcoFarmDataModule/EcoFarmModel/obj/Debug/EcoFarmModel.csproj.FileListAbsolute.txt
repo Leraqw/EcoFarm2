@@ -22,3 +22,6 @@ C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmMo
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Debug\EcoFarmModel.csproj.CopyComplete
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Debug\EcoFarmModel.dll
 C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\obj\Debug\EcoFarmModel.pdb
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Debug\EcoFarmModel.dll.config
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmDataModule\EcoFarmModel\bin\Debug\Newtonsoft.Json.xml
