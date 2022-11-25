@@ -41,6 +41,8 @@
 			this.TreesData = new System.Windows.Forms.DataGridView();
 			this.TabBuilding = new System.Windows.Forms.TabPage();
 			this.BuildingsData = new System.Windows.Forms.DataGridView();
+			this.TabFactories = new System.Windows.Forms.TabPage();
+			this.FactoriesData = new System.Windows.Forms.DataGridView();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.TabControl.SuspendLayout();
@@ -53,6 +55,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.TreesData)).BeginInit();
 			this.TabBuilding.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BuildingsData)).BeginInit();
+			this.TabFactories.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.FactoriesData)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ButtonNewDb
@@ -86,6 +90,7 @@
 			this.TabControl.Controls.Add(this.TabDO);
 			this.TabControl.Controls.Add(this.TabTree);
 			this.TabControl.Controls.Add(this.TabBuilding);
+			this.TabControl.Controls.Add(this.TabFactories);
 			this.TabControl.Location = new System.Drawing.Point(12, 51);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
@@ -191,6 +196,28 @@
 			this.BuildingsData.Size = new System.Drawing.Size(738, 306);
 			this.BuildingsData.TabIndex = 4;
 			// 
+			// TabFactories
+			// 
+			this.TabFactories.Controls.Add(this.FactoriesData);
+			this.TabFactories.Location = new System.Drawing.Point(4, 25);
+			this.TabFactories.Name = "TabFactories";
+			this.TabFactories.Padding = new System.Windows.Forms.Padding(3);
+			this.TabFactories.Size = new System.Drawing.Size(744, 312);
+			this.TabFactories.TabIndex = 5;
+			this.TabFactories.Text = "Заводы";
+			this.TabFactories.UseVisualStyleBackColor = true;
+			// 
+			// FactoriesData
+			// 
+			this.FactoriesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.FactoriesData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.FactoriesData.Location = new System.Drawing.Point(3, 3);
+			this.FactoriesData.Name = "FactoriesData";
+			this.FactoriesData.RowHeadersWidth = 51;
+			this.FactoriesData.RowTemplate.Height = 24;
+			this.FactoriesData.Size = new System.Drawing.Size(738, 306);
+			this.FactoriesData.TabIndex = 5;
+			// 
 			// ButtonOpenDb
 			// 
 			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
@@ -223,8 +250,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.TreesData)).EndInit();
 			this.TabBuilding.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.BuildingsData)).EndInit();
+			this.TabFactories.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.FactoriesData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.TabPage TabFactories;
+		private System.Windows.Forms.DataGridView FactoriesData;
 
 		private System.Windows.Forms.DataGridView BuildingsData;
 
