@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataAdministration.Tables;
 using SQLite;
 
 namespace DataAdministration
@@ -9,33 +8,21 @@ namespace DataAdministration
 	{
 		private static readonly List<Type> TypesForTables = new List<Type>();
 
-		public static void CreateDataBase(string at)
-		{
-			StartConnection(at)
-				.Add<Building>()
-				.Add<DevelopmentObject>()
-				.Add<DevelopmentObjectOnLevelStartup>()
-				.Add<Factory>()
-				.Add<Generator>()
-				.Add<Goal>()
-				.Add<InputProducts>()
-				.Add<Level>()
-				.Add<OutputProducts>()
-				.Add<Product>()
-				.Add<Resource>()
-				.Add<ResourceForBuilding>()
-				.Add<Tree>()
-				.Add<User>()
-				.Add<UserProgress>()
-				.Build()
-				;
-		}
+		public static SQLiteConnection At(string path) => new SQLiteConnection(path);
 
 		public static void Perform(Action<SQLiteConnection> @do)
 		{
 			using (var dataBase = new SQLiteConnection(Constants.DbPath))
 			{
 				@do.Invoke(dataBase);
+			}
+		}
+
+		public static void Perform(this SQLiteConnection @this, Action<SQLiteConnection> @do)
+		{
+			using (@this)
+			{
+				@do.Invoke(@this);
 			}
 		}
 
