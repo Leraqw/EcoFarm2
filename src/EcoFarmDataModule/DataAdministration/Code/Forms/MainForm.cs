@@ -53,7 +53,6 @@ namespace DataAdministration
 			GeneratorsData.DataSource = _businessLogic.GetTableData<Generator>();
 			ResourcesData.DataSource = _businessLogic.GetTableData<Resource>();
 			GoalsData.DataSource = _businessLogic.GetTableData<Goal>();
-			PlayersData.DataSource = _businessLogic.GetTableData<Player>();
 			DOonLevelsData.DataSource = _businessLogic.GetTableData<DevelopmentObjectOnLevelStartup>();
 			InputProductsData.DataSource = _businessLogic.GetTableData<InputProducts>();
 			OutputProductsData.DataSource = _businessLogic.GetTableData<OutputProducts>();
