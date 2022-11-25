@@ -60,9 +60,9 @@
 			// CurrentTableComboBox
 			// 
 			this.CurrentTableComboBox.FormattingEnabled = true;
-			this.CurrentTableComboBox.Location = new System.Drawing.Point(510, 17);
+			this.CurrentTableComboBox.Location = new System.Drawing.Point(458, 17);
 			this.CurrentTableComboBox.Name = "CurrentTableComboBox";
-			this.CurrentTableComboBox.Size = new System.Drawing.Size(191, 24);
+			this.CurrentTableComboBox.Size = new System.Drawing.Size(243, 24);
 			this.CurrentTableComboBox.TabIndex = 2;
 			// 
 			// MainForm
