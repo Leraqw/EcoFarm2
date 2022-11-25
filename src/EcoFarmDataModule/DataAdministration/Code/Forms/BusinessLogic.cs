@@ -11,11 +11,11 @@ namespace DataAdministration
 {
 	public class BusinessLogic
 	{
-		public void CreateDataBase()
+		public bool TryCreateDataBase()
 		{
 			if (FileUtils.TrySelectFolder(out var path) == false)
 			{
-				return;
+				return false;
 			}
 
 			path = Path.Combine(path, "EcoFarm.db");
@@ -24,6 +24,7 @@ namespace DataAdministration
 			SqLiteUtils.Perform(CreateAllTables);
 
 			MessageBox.Show("База Данных создана", "Успех", OK, Information);
+			return true;
 		}
 
 		public void OpenDataBase()

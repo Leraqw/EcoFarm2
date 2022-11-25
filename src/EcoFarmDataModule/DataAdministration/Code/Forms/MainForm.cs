@@ -7,7 +7,7 @@ namespace DataAdministration
 	public partial class MainForm : Form
 	{
 		private readonly BusinessLogic _businessLogic;
-		
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -19,9 +19,10 @@ namespace DataAdministration
 
 		private void ButtonNewDb_Click(object sender, EventArgs e)
 		{
-			_businessLogic.CreateDataBase();
-
-			UpdateTables();
+			if (_businessLogic.TryCreateDataBase())
+			{
+				UpdateTables();
+			}
 		}
 
 		private void ButtonOpenDb_Click(object sender, EventArgs e)

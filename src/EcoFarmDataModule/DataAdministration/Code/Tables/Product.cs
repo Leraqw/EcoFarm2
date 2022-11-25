@@ -1,7 +1,4 @@
 ﻿namespace DataAdministration.Tables
 {
-	public class Product : DevelopmentObject
-	{
-		public Product() { }
-	}
+	public class Product : DevelopmentObject { }
 }

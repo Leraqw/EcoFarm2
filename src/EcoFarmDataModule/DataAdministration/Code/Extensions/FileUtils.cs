@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+// ReSharper disable LocalizableElement
 
 namespace DataAdministration
 {
