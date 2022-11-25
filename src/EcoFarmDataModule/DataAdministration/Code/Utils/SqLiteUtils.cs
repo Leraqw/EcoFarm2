@@ -14,5 +14,13 @@ namespace DataAdministration
 				@do.Invoke(dataBase);
 			}
 		}
+
+		public static TOut Select<TOut>(Func<SQLiteConnection, TOut> @do)
+		{
+			using (var dataBase = new SQLiteConnection(CurrentPath))
+			{
+				return @do.Invoke(dataBase);
+			}
+		}
 	}
 }

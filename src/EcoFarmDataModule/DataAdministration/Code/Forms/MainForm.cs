@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using DataAdministration.Tables;
+using Product = DataAdministration.Tables.Product;
 
 namespace DataAdministration
 {
@@ -21,6 +20,8 @@ namespace DataAdministration
 		private void ButtonNewDb_Click(object sender, EventArgs e)
 		{
 			_businessLogic.CreateDataBase();
+
+			ProductsData.DataSource = _businessLogic.GetTableData<Product>();
 		}
 	}
 }

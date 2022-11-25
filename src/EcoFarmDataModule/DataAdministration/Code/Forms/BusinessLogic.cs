@@ -1,8 +1,8 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using EcoFarmModel;
 using SQLite;
 using static System.Windows.Forms.MessageBoxButtons;
 using static System.Windows.Forms.MessageBoxIcon;
@@ -33,21 +33,6 @@ namespace DataAdministration
 			return Path.Combine(pathToDirectory, "EcoFarm.db");
 		}
 
-		public object GetTable(string tableName)
-		{
-			using (var connection = new SQLiteConnection(SqLiteUtils.CurrentPath))
-			{
-				return connection.Table<Product>();
-			}
-		}
-
-		public TableQuery<T> GetTableData<T>()
-			where T : new()
-		{
-			using (var connection = new SQLiteConnection(SqLiteUtils.CurrentPath))
-			{
-				return connection.Table<T>();
-			}
-		}
+		public List<T> GetTableData<T>() where T : new() => SqLiteUtils.Select((c) => new List<T>(c.Table<T>()));
 	}
 }
