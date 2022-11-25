@@ -5,18 +5,12 @@ namespace DataAdministration
 {
 	public static class FileUtils
 	{
-		public static string GetSelectedPath()
-		{
-			var folderBrowserDialog = new FolderBrowserDialog();
-			folderBrowserDialog.ShowDialog();
-			return folderBrowserDialog.SelectedPath;
-		}
-
-		public static string OpenDb()
+		public static bool TryOpenDb(out string fileName)
 		{
 			var openFileDialog = new OpenFileDialog { Filter = "Database Files (*.db)|*.db" };
-			openFileDialog.ShowDialog();
-			return openFileDialog.FileName;
+			var result = openFileDialog.ShowDialog();
+			fileName = openFileDialog.FileName;
+			return result is DialogResult.OK;
 		}
 		
 		public static bool TrySelectFolder(out string path)
@@ -24,7 +18,7 @@ namespace DataAdministration
 			var folderBrowserDialog = new FolderBrowserDialog();
 			var result = folderBrowserDialog.ShowDialog();
 			path = folderBrowserDialog.SelectedPath;
-			return result == DialogResult.OK;
+			return result is DialogResult.OK;
 		}
 	}
 }

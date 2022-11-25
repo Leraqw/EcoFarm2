@@ -27,22 +27,22 @@ namespace DataAdministration
 			return true;
 		}
 
-		public void OpenDataBase()
+		public bool TryOpenDataBase()
 		{
-			SqLiteUtils.CurrentPath = GetFilePath();
+			if (FileUtils.TryOpenDb(out var path) == false)
+			{
+				return false;
+			}
+
+			SqLiteUtils.CurrentPath = path;
 
 			MessageBox.Show("База Данных открыта", "Успех", OK, Information);
+			return true;
 		}
 
 		public BindingList<T> GetTableData<T>()
 			where T : new()
 			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
-
-		private static string GetFilePath()
-		{
-			var pathToDirectory = FileUtils.OpenDb();
-			return Path.Combine(pathToDirectory);
-		}
 
 		private void CreateAllTables(SQLiteConnection connection)
 		{

@@ -27,9 +27,10 @@ namespace DataAdministration
 
 		private void ButtonOpenDb_Click(object sender, EventArgs e)
 		{
-			_businessLogic.OpenDataBase();
-
-			UpdateTables();
+			if (_businessLogic.TryOpenDataBase())
+			{
+				UpdateTables();
+			}
 		}
 
 		private void UpdateTables()
