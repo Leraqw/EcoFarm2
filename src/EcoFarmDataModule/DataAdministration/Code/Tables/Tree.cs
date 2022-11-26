@@ -1,7 +1,10 @@
-﻿namespace DataAdministration.Tables
+﻿using SQLite;
+
+namespace DataAdministration.Tables
 {
-	public class Tree : DevelopmentObject
+	public class Tree
 	{
-		public int ProductId { get; set; }
+		[PrimaryKey] public int Id        { get; set; }
+		public              int ProductId { get; set; }
 	}
 }

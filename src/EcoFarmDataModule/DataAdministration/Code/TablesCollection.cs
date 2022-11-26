@@ -1,6 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataAdministration.Tables;
+using Building = DataAdministration.Tables.Building;
+using DevelopmentObject = DataAdministration.Tables.DevelopmentObject;
+using Generator = DataAdministration.Tables.Generator;
+using Goal = DataAdministration.Tables.Goal;
+using Level = DataAdministration.Tables.Level;
+using Product = DataAdministration.Tables.Product;
+using Resource = DataAdministration.Tables.Resource;
+using Tree = DataAdministration.Tables.Tree;
 
 namespace DataAdministration
 {
@@ -19,6 +27,7 @@ namespace DataAdministration
 				typeof(Factory),
 				typeof(Generator),
 				typeof(Goal),
+				typeof(GoalByDo),
 				typeof(InputProducts),
 				typeof(Level),
 				typeof(OutputProducts),

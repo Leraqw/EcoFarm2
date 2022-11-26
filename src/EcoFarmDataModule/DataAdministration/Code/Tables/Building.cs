@@ -1,4 +1,9 @@
-﻿namespace DataAdministration.Tables
+﻿using SQLite;
+
+namespace DataAdministration.Tables
 {
-	public class Building : DevelopmentObject {}
+	public class Building
+	{
+		[PrimaryKey] public int Id { get; set; }
+	}
 }

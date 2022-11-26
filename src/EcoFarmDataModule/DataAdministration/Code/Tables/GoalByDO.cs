@@ -1,7 +1,10 @@
-﻿namespace DataAdministration.Tables
+﻿using SQLite;
+
+namespace DataAdministration.Tables
 {
-	public class GoalByDo : Goal
+	public class GoalByDo
 	{
-		public int DevelopmentObjectId { get; set; }
+		[PrimaryKey] public int Id                  { get; set; }
+		public              int DevelopmentObjectId { get; set; }
 	}
 }

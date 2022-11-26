@@ -20,6 +20,7 @@ namespace DataAdministration
 			var trees = @this.Trees;
 			var buildings = @this.Buildings;
 
+			Results.AddRange(ConvertDOs(@this));
 			Results.AddRange(ConvertResources(resources));
 			Results.AddRange(ConvertProducts(products));
 			Results.AddRange(ConvertLevels(levels));
@@ -27,6 +28,12 @@ namespace DataAdministration
 			Results.AddRange(ConvertBuildings(buildings));
 
 			return Results;
+		}
+
+		private static IEnumerable<object> ConvertDOs(Model.Storage storage)
+		{
+
+			yield return storage.Buildings.Select(AsTable.Building);
 		}
 
 		private static IEnumerable<object> ConvertBuildings(IEnumerable<Model.Building> buildings)

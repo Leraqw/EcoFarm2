@@ -3,6 +3,9 @@ using static DataAdministration.StorageExtensions;
 using Model = EcoFarmModel;
 using Table = DataAdministration.Tables;
 
+// ReSharper disable UnusedMember.Global
+// ReSharper disable InconsistentNaming
+
 namespace DataAdministration
 {
 	public static class AsTable
@@ -15,14 +18,7 @@ namespace DataAdministration
 				Description = resource.Description,
 			};
 
-		public static Table.Product Product(Model.Product product)
-			=> new Table.Product
-			{
-				Id = Id++,
-				Title = product.Title,
-				Description = product.Description,
-				Price = product.Price,
-			};
+		public static Table.Product Product(Model.Product product) => new Table.Product { Id = Id++, };
 
 		public static Table.Level Level(Model.Level level)
 			=> new Table.Level
@@ -35,25 +31,27 @@ namespace DataAdministration
 			=> new Table.Tree
 			{
 				Id = Id++,
-				Title = tree.Title,
-				Description = tree.Description,
-				Price = tree.Price,
 				ProductId = tree.GetProduct().Id,
 			};
 
-		public static Table.Building Building(Model.Building building)
-			=> new Table.Building
+		public static Table.Building Building(Model.Building building) => new Table.Building { Id = Id++, };
+
+		public static Table.DevelopmentObject DO(Model.DevelopmentObject @do)
+			=> new Table.DevelopmentObject
 			{
-				Id = Id++,
-				Title = building.Title,
-				Description = building.Description,
-				Price = building.Price,
+				Title = @do.Title,
+				Description = @do.Description,
+				Price = @do.Price,
 			};
 	}
 
 	public static class ModelExtensions
 	{
 		public static Table.Product GetProduct(this Model.Tree @this)
-			=> Results.OfType<Table.Product>().Single((p) => p.Title == @this.Product.Title);
+		{
+			// get id of DevelopmentProduct where product name is same as tree's product name
+			var id = Results.OfType<Table.DevelopmentObject>().Single(p => p.Title == @this.Product.Title).Id;
+			return Results.OfType<Table.Product>().Single(p => p.Id == id);
+		}
 	}
 }
