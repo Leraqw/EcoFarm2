@@ -9,8 +9,10 @@ namespace DataAdministration
 {
 	public static class MessageUtils
 	{
-		public static void ShowError(string message) => MessageBox.Show(message, "Ошибка", OK, Error);
-
 		public static void ShowSuccess(string message) => MessageBox.Show(message, "Успех", OK, Information);
+
+		public static void ShowWarning(string message) => MessageBox.Show(message, "Предупреждение", OK, Warning);
+
+		public static void ShowError(string message) => MessageBox.Show(message, "Ошибка", OK, Error);
 	}
 }

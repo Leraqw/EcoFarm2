@@ -67,21 +67,30 @@ namespace DataAdministration
 
 		private void ButtonDelete_Click(object sender, EventArgs e)
 		{
-			Delete<Product>(ref ProductsData);
-			Delete<Level>(ref LevelsData);
-			Delete<DevelopmentObject>(ref DOData);
-			Delete<Tree>(ref TreesData);
-			Delete<Building>(ref BuildingsData);
-			Delete<Factory>(ref FactoriesData);
-			Delete<Generator>(ref GeneratorsData);
-			Delete<Resource>(ref ResourcesData);
-			Delete<Goal>(ref GoalsData);
-			Delete<DevelopmentObjectOnLevelStartup>(ref DOonLevelsData);
-			Delete<InputProducts>(ref InputProductsData);
-			Delete<OutputProducts>(ref OutputProductsData);
-			Delete<ResourceForBuilding>(ref ResourcesForFactoryData);
+			var deletedCount = 0;
+				
+			deletedCount += Delete<Product>(ref ProductsData);
+			deletedCount += Delete<Level>(ref LevelsData);
+			deletedCount += Delete<DevelopmentObject>(ref DOData);
+			deletedCount += Delete<Tree>(ref TreesData);
+			deletedCount += Delete<Building>(ref BuildingsData);
+			deletedCount += Delete<Factory>(ref FactoriesData);
+			deletedCount += Delete<Generator>(ref GeneratorsData);
+			deletedCount += Delete<Resource>(ref ResourcesData);
+			deletedCount += Delete<Goal>(ref GoalsData);
+			deletedCount += Delete<DevelopmentObjectOnLevelStartup>(ref DOonLevelsData);
+			deletedCount += Delete<InputProducts>(ref InputProductsData);
+			deletedCount += Delete<OutputProducts>(ref OutputProductsData);
+			deletedCount += Delete<ResourceForBuilding>(ref ResourcesForFactoryData);
 			
-			MessageUtils.ShowSuccess("Данные удалены");
+			if (deletedCount > 0)
+			{
+				MessageUtils.ShowSuccess("Данные удалены");
+			}
+			else
+			{
+				MessageUtils.ShowWarning("Для удаления выделите одну или несколько строк");
+			}
 		}
 
 		private void Save<T>(DataGridView grid)
@@ -93,13 +102,15 @@ namespace DataAdministration
 			}
 		}
 
-		private void Delete<T>(ref DataGridView grid)
+		private int Delete<T>(ref DataGridView grid)
 		{
+			var deletedCount = 0;
 			var rows = grid.SelectedRows;
 			foreach (DataGridViewRow row in rows)
 			{
 				var item = (T)row.DataBoundItem;
 				_businessLogic.Delete(item);
+				deletedCount++;
 			}
 			
 			foreach (DataGridViewRow row in rows)
@@ -108,6 +119,7 @@ namespace DataAdministration
 			}
 			
 			grid.Refresh();
+			return deletedCount;
 		}
 
 		private void UpdateTables()
