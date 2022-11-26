@@ -136,7 +136,7 @@
 			this.Tabs.Location = new System.Drawing.Point(12, 51);
 			this.Tabs.Name = "Tabs";
 			this.Tabs.SelectedIndex = 0;
-			this.Tabs.Size = new System.Drawing.Size(752, 341);
+			this.Tabs.Size = new System.Drawing.Size(723, 336);
 			this.Tabs.TabIndex = 2;
 			// 
 			// TabLevels
@@ -145,7 +145,7 @@
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
-			this.TabLevels.Size = new System.Drawing.Size(744, 312);
+			this.TabLevels.Size = new System.Drawing.Size(715, 307);
 			this.TabLevels.TabIndex = 0;
 			this.TabLevels.Text = "Уровни";
 			this.TabLevels.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
 			this.LevelsData.Name = "LevelsData";
 			this.LevelsData.RowHeadersWidth = 51;
 			this.LevelsData.RowTemplate.Height = 24;
-			this.LevelsData.Size = new System.Drawing.Size(738, 306);
+			this.LevelsData.Size = new System.Drawing.Size(709, 301);
 			this.LevelsData.TabIndex = 2;
 			// 
 			// TabProducts
@@ -448,7 +448,8 @@
 			// 
 			// ButtonSave
 			// 
-			this.ButtonSave.Location = new System.Drawing.Point(656, 12);
+			this.ButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.ButtonSave.Location = new System.Drawing.Point(765, 12);
 			this.ButtonSave.Name = "ButtonSave";
 			this.ButtonSave.Size = new System.Drawing.Size(101, 33);
 			this.ButtonSave.TabIndex = 4;
@@ -458,7 +459,8 @@
 			// 
 			// ButtonDelete
 			// 
-			this.ButtonDelete.Location = new System.Drawing.Point(392, 12);
+			this.ButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.ButtonDelete.Location = new System.Drawing.Point(741, 354);
 			this.ButtonDelete.Name = "ButtonDelete";
 			this.ButtonDelete.Size = new System.Drawing.Size(125, 33);
 			this.ButtonDelete.TabIndex = 5;
@@ -470,7 +472,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(776, 404);
+			this.ClientSize = new System.Drawing.Size(878, 399);
 			this.Controls.Add(this.ButtonDelete);
 			this.Controls.Add(this.ButtonSave);
 			this.Controls.Add(this.ButtonOpenDb);
