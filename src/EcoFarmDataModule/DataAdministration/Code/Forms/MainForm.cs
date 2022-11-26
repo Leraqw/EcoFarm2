@@ -13,6 +13,7 @@ using Level = DataAdministration.Tables.Level;
 using Product = DataAdministration.Tables.Product;
 using Resource = DataAdministration.Tables.Resource;
 using Tree = DataAdministration.Tables.Tree;
+// ReSharper disable LocalizableElement
 
 // ReSharper disable StringLiteralTypo
 
