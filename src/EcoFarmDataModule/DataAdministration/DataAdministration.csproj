@@ -82,8 +82,12 @@
     <Compile Include="Code\Extensions\FileUtils.cs" />
     <Compile Include="Code\Extensions\SqLiteConnectionExtensions.cs" />
     <Compile Include="Code\Forms\BusinessLogic.cs" />
-    <Compile Include="Code\Forms\MainForm.cs" />
-    <Compile Include="Code\Forms\MainForm.Designer.cs" />
+    <Compile Include="Code\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\Serialization\AsTable.cs" />
     <Compile Include="Code\Serialization\StorageExtensions.cs" />
     <Compile Include="Code\TablesCollection.cs" />
@@ -108,7 +112,6 @@
     <Compile Include="Code\Utils\SqLiteUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Code\Forms\MainForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
