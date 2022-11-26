@@ -85,7 +85,7 @@ namespace DataAdministration
 			
 			if (deletedCount > 0)
 			{
-				MessageUtils.ShowSuccess("Данные удалены");
+				MessageUtils.ShowSuccess($"Удалено {deletedCount} записей");
 			}
 			else
 			{
