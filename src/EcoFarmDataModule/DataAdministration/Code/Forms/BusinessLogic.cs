@@ -2,10 +2,7 @@
 // ReSharper disable StringLiteralTypo
 using System.ComponentModel;
 using System.IO;
-using System.Windows.Forms;
 using SQLite;
-using static System.Windows.Forms.MessageBoxButtons;
-using static System.Windows.Forms.MessageBoxIcon;
 
 namespace DataAdministration
 {
@@ -23,7 +20,7 @@ namespace DataAdministration
 
 			SqLiteUtils.Perform(CreateAllTables);
 
-			MessageBox.Show("База Данных создана", "Успех", OK, Information);
+			MessageUtils.ShowSuccess("База Данных создана");
 			return true;
 		}
 
@@ -36,7 +33,7 @@ namespace DataAdministration
 
 			SqLiteUtils.CurrentPath = path;
 
-			MessageBox.Show("База Данных открыта", "Успех", OK, Information);
+			MessageUtils.ShowSuccess("База Данных открыта");
 			return true;
 		}
 
@@ -54,8 +51,9 @@ namespace DataAdministration
 
 		public void Save(object item)
 		{
-			// insert new and update old
 			SqLiteUtils.Perform((c) => c.InsertOrReplace(item));
+			
+			MessageUtils.ShowSuccess("Данные сохранены");
 		}
 	}
 }
