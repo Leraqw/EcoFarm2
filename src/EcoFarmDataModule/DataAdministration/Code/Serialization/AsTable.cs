@@ -31,7 +31,7 @@ namespace DataAdministration
 			=> new Table.Tree
 			{
 				Id = Id++,
-				ProductId = tree.GetProduct().Id,
+				ProductId = tree.GetProductId(),
 			};
 
 		public static Table.Building Building(Model.Building building) => new Table.Building { Id = Id++, };
@@ -47,11 +47,14 @@ namespace DataAdministration
 
 	public static class ModelExtensions
 	{
-		public static Table.Product GetProduct(this Model.Tree @this)
+		public static Table.Product GetProduct(this Model.Tree tree)
 		{
 			// get id of DevelopmentProduct where product name is same as tree's product name
-			var id = Results.OfType<Table.DevelopmentObject>().Single(p => p.Title == @this.Product.Title).Id;
+			var id = Results.OfType<Table.DevelopmentObject>().Single((@do) => @do.Title == tree.Product.Title).Id;
 			return Results.OfType<Table.Product>().Single(p => p.Id == id);
 		}
+		
+		public static int GetProductId(this Model.Tree tree)
+			=> Results.OfType<Table.DevelopmentObject>().Single((@do) => @do.Title == tree.Product.Title).Id;
 	}
 }

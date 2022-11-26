@@ -14,40 +14,18 @@ namespace DataAdministration
 		{
 			Results = new List<object>();
 
-			var resources = @this.Resources;
-			var products = @this.Products;
-			var levels = @this.Levels;
-			var trees = @this.Trees;
-			var buildings = @this.Buildings;
-
-			Results.AddRange(ConvertDOs(@this));
-			Results.AddRange(ConvertResources(resources));
-			Results.AddRange(ConvertProducts(products));
-			Results.AddRange(ConvertLevels(levels));
-			Results.AddRange(ConvertTrees(trees));
-			Results.AddRange(ConvertBuildings(buildings));
+			Results.AddRange(@this.Buildings.Select(AsTable.DO));
+			Results.AddRange(@this.Products.Select(AsTable.DO));
+			Results.AddRange(@this.Trees.Select(AsTable.DO));
+			Results.AddRange(@this.Buildings.Select(AsTable.DO));
+			
+			Results.AddRange(@this.Resources.Select(AsTable.Resource));
+			Results.AddRange(@this.Products.Select(AsTable.Product));
+			Results.AddRange(@this.Levels.Select(AsTable.Level));
+			Results.AddRange(@this.Trees.Select(AsTable.Tree));
+			Results.AddRange(@this.Buildings.Select(AsTable.Building));
 
 			return Results;
 		}
-
-		private static IEnumerable<object> ConvertDOs(Model.Storage storage)
-		{
-
-			yield return storage.Buildings.Select(AsTable.Building);
-		}
-
-		private static IEnumerable<object> ConvertBuildings(IEnumerable<Model.Building> buildings)
-			=> buildings.Select(AsTable.Building);
-
-		private static IEnumerable<object> ConvertResources(IEnumerable<Model.Resource> resources)
-			=> resources.Select(AsTable.Resource);
-
-		private static IEnumerable<object> ConvertProducts(IEnumerable<Model.Product> products)
-			=> products.Select(AsTable.Product);
-
-		private static IEnumerable<object> ConvertLevels(IEnumerable<Model.Level> levels)
-			=> levels.Select(AsTable.Level);
-
-		private static IEnumerable<object> ConvertTrees(IEnumerable<Model.Tree> trees) => trees.Select(AsTable.Tree);
 	}
 }
