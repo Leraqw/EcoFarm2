@@ -1,6 +1,5 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
-using System;
 using System.ComponentModel;
 using System.IO;
 using SQLite;

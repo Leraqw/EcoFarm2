@@ -48,24 +48,26 @@ namespace DataAdministration
 
 		private void ButtonSave_Click(object sender, EventArgs e)
 		{
-			Save<Product>();
-			Save<Level>();
-			Save<DevelopmentObject>();
-			Save<Tree>();
-			Save<Building>();
-			Save<Factory>();
-			Save<Generator>();
-			Save<Resource>();
-			Save<Goal>();
-			Save<DevelopmentObjectOnLevelStartup>();
-			Save<InputProducts>();
+			Save<Product>(ProductsData);
+			Save<Level>(LevelsData);
+			Save<DevelopmentObject>(DOData);
+			Save<Tree>(TreesData);
+			Save<Building>(BuildingsData);
+			Save<Factory>(FactoriesData);
+			Save<Generator>(GeneratorsData);
+			Save<Resource>(ResourcesData);
+			Save<Goal>(GoalsData);
+			Save<DevelopmentObjectOnLevelStartup>(DOonLevelsData);
+			Save<InputProducts>(InputProductsData);
+			Save<OutputProducts>(OutputProductsData);
+			Save<ResourceForBuilding>(ResourcesForFactoryData);
 
 			MessageUtils.ShowSuccess("Данные сохранены");
 		}
 
-		private void Save<T>()
+		private void Save<T>(DataGridView grid)
 		{
-			var items = (BindingList<T>)ProductsData.DataSource;
+			var items = (BindingList<T>)grid.DataSource;
 			foreach (var item in items)
 			{
 				_businessLogic.Save(item);
@@ -87,6 +89,27 @@ namespace DataAdministration
 			InputProductsData.DataSource = _businessLogic.GetTableData<InputProducts>();
 			OutputProductsData.DataSource = _businessLogic.GetTableData<OutputProducts>();
 			ResourcesForFactoryData.DataSource = _businessLogic.GetTableData<ResourceForBuilding>();
+		}
+
+		private void ButtonDelete_Click(object sender, EventArgs e)
+		{
+			Delete<Product>();
+			Delete<Level>();
+			Delete<DevelopmentObject>();
+			Delete<Tree>();
+			Delete<Building>();
+			Delete<Factory>();
+			Delete<Generator>();
+			Delete<Resource>();
+			Delete<Goal>();
+			Delete<DevelopmentObjectOnLevelStartup>();
+			Delete<InputProducts>();
+
+			MessageUtils.ShowSuccess("Данные удалены");
+		}
+
+		private void Delete<T>()
+		{
 		}
 	}
 }

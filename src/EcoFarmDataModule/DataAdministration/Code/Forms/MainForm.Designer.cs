@@ -61,6 +61,7 @@
 			this.GoalByDOData = new System.Windows.Forms.DataGridView();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
 			this.ButtonSave = new System.Windows.Forms.Button();
+			this.ButtonDelete = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.Tabs.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -455,11 +456,22 @@
 			this.ButtonSave.UseVisualStyleBackColor = true;
 			this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
 			// 
+			// ButtonDelete
+			// 
+			this.ButtonDelete.Location = new System.Drawing.Point(392, 12);
+			this.ButtonDelete.Name = "ButtonDelete";
+			this.ButtonDelete.Size = new System.Drawing.Size(125, 33);
+			this.ButtonDelete.TabIndex = 5;
+			this.ButtonDelete.Text = "Удалить запись";
+			this.ButtonDelete.UseVisualStyleBackColor = true;
+			this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(776, 404);
+			this.Controls.Add(this.ButtonDelete);
 			this.Controls.Add(this.ButtonSave);
 			this.Controls.Add(this.ButtonOpenDb);
 			this.Controls.Add(this.Tabs);
@@ -498,6 +510,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.Button ButtonDelete;
 
 		private System.Windows.Forms.Button ButtonSave;
 
