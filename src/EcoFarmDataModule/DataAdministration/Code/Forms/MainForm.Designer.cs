@@ -97,9 +97,9 @@
 			// 
 			this.ButtonNewDb.Location = new System.Drawing.Point(16, 12);
 			this.ButtonNewDb.Name = "ButtonNewDb";
-			this.ButtonNewDb.Size = new System.Drawing.Size(144, 33);
+			this.ButtonNewDb.Size = new System.Drawing.Size(98, 33);
 			this.ButtonNewDb.TabIndex = 0;
-			this.ButtonNewDb.Text = "Создать новую БД";
+			this.ButtonNewDb.Text = "Новая БД";
 			this.ButtonNewDb.UseVisualStyleBackColor = true;
 			this.ButtonNewDb.Click += new System.EventHandler(this.ButtonNewDb_Click);
 			// 
@@ -111,7 +111,7 @@
 			this.ProductsData.Name = "ProductsData";
 			this.ProductsData.RowHeadersWidth = 51;
 			this.ProductsData.RowTemplate.Height = 24;
-			this.ProductsData.Size = new System.Drawing.Size(738, 306);
+			this.ProductsData.Size = new System.Drawing.Size(709, 334);
 			this.ProductsData.TabIndex = 1;
 			// 
 			// Tabs
@@ -136,7 +136,7 @@
 			this.Tabs.Location = new System.Drawing.Point(12, 51);
 			this.Tabs.Name = "Tabs";
 			this.Tabs.SelectedIndex = 0;
-			this.Tabs.Size = new System.Drawing.Size(723, 336);
+			this.Tabs.Size = new System.Drawing.Size(723, 369);
 			this.Tabs.TabIndex = 2;
 			// 
 			// TabLevels
@@ -145,7 +145,7 @@
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
-			this.TabLevels.Size = new System.Drawing.Size(715, 307);
+			this.TabLevels.Size = new System.Drawing.Size(715, 340);
 			this.TabLevels.TabIndex = 0;
 			this.TabLevels.Text = "Уровни";
 			this.TabLevels.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
 			this.LevelsData.Name = "LevelsData";
 			this.LevelsData.RowHeadersWidth = 51;
 			this.LevelsData.RowTemplate.Height = 24;
-			this.LevelsData.Size = new System.Drawing.Size(709, 301);
+			this.LevelsData.Size = new System.Drawing.Size(709, 334);
 			this.LevelsData.TabIndex = 2;
 			// 
 			// TabProducts
@@ -167,7 +167,7 @@
 			this.TabProducts.Location = new System.Drawing.Point(4, 25);
 			this.TabProducts.Name = "TabProducts";
 			this.TabProducts.Padding = new System.Windows.Forms.Padding(3);
-			this.TabProducts.Size = new System.Drawing.Size(744, 312);
+			this.TabProducts.Size = new System.Drawing.Size(715, 340);
 			this.TabProducts.TabIndex = 1;
 			this.TabProducts.Text = "Продукты";
 			this.TabProducts.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
 			this.TabDO.Location = new System.Drawing.Point(4, 25);
 			this.TabDO.Name = "TabDO";
 			this.TabDO.Padding = new System.Windows.Forms.Padding(3);
-			this.TabDO.Size = new System.Drawing.Size(744, 312);
+			this.TabDO.Size = new System.Drawing.Size(715, 340);
 			this.TabDO.TabIndex = 2;
 			this.TabDO.Text = "Объекты Развития";
 			this.TabDO.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
 			this.DOData.Name = "DOData";
 			this.DOData.RowHeadersWidth = 51;
 			this.DOData.RowTemplate.Height = 24;
-			this.DOData.Size = new System.Drawing.Size(738, 306);
+			this.DOData.Size = new System.Drawing.Size(709, 334);
 			this.DOData.TabIndex = 2;
 			// 
 			// TabTree
@@ -200,7 +200,7 @@
 			this.TabTree.Location = new System.Drawing.Point(4, 25);
 			this.TabTree.Name = "TabTree";
 			this.TabTree.Padding = new System.Windows.Forms.Padding(3);
-			this.TabTree.Size = new System.Drawing.Size(744, 312);
+			this.TabTree.Size = new System.Drawing.Size(715, 340);
 			this.TabTree.TabIndex = 3;
 			this.TabTree.Text = "Деревья";
 			this.TabTree.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
 			this.TreesData.Name = "TreesData";
 			this.TreesData.RowHeadersWidth = 51;
 			this.TreesData.RowTemplate.Height = 24;
-			this.TreesData.Size = new System.Drawing.Size(738, 306);
+			this.TreesData.Size = new System.Drawing.Size(709, 334);
 			this.TreesData.TabIndex = 3;
 			// 
 			// TabBuilding
@@ -222,7 +222,7 @@
 			this.TabBuilding.Location = new System.Drawing.Point(4, 25);
 			this.TabBuilding.Name = "TabBuilding";
 			this.TabBuilding.Padding = new System.Windows.Forms.Padding(3);
-			this.TabBuilding.Size = new System.Drawing.Size(744, 312);
+			this.TabBuilding.Size = new System.Drawing.Size(715, 340);
 			this.TabBuilding.TabIndex = 4;
 			this.TabBuilding.Text = "Здания";
 			this.TabBuilding.UseVisualStyleBackColor = true;
@@ -235,7 +235,7 @@
 			this.BuildingsData.Name = "BuildingsData";
 			this.BuildingsData.RowHeadersWidth = 51;
 			this.BuildingsData.RowTemplate.Height = 24;
-			this.BuildingsData.Size = new System.Drawing.Size(738, 306);
+			this.BuildingsData.Size = new System.Drawing.Size(709, 334);
 			this.BuildingsData.TabIndex = 4;
 			// 
 			// TabFactories
@@ -244,7 +244,7 @@
 			this.TabFactories.Location = new System.Drawing.Point(4, 25);
 			this.TabFactories.Name = "TabFactories";
 			this.TabFactories.Padding = new System.Windows.Forms.Padding(3);
-			this.TabFactories.Size = new System.Drawing.Size(744, 312);
+			this.TabFactories.Size = new System.Drawing.Size(715, 340);
 			this.TabFactories.TabIndex = 5;
 			this.TabFactories.Text = "Заводы";
 			this.TabFactories.UseVisualStyleBackColor = true;
@@ -257,7 +257,7 @@
 			this.FactoriesData.Name = "FactoriesData";
 			this.FactoriesData.RowHeadersWidth = 51;
 			this.FactoriesData.RowTemplate.Height = 24;
-			this.FactoriesData.Size = new System.Drawing.Size(738, 306);
+			this.FactoriesData.Size = new System.Drawing.Size(709, 334);
 			this.FactoriesData.TabIndex = 5;
 			// 
 			// TabGenerators
@@ -266,7 +266,7 @@
 			this.TabGenerators.Location = new System.Drawing.Point(4, 25);
 			this.TabGenerators.Name = "TabGenerators";
 			this.TabGenerators.Padding = new System.Windows.Forms.Padding(3);
-			this.TabGenerators.Size = new System.Drawing.Size(744, 312);
+			this.TabGenerators.Size = new System.Drawing.Size(715, 340);
 			this.TabGenerators.TabIndex = 6;
 			this.TabGenerators.Text = "Генераторы";
 			this.TabGenerators.UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@
 			this.GeneratorsData.Name = "GeneratorsData";
 			this.GeneratorsData.RowHeadersWidth = 51;
 			this.GeneratorsData.RowTemplate.Height = 24;
-			this.GeneratorsData.Size = new System.Drawing.Size(738, 306);
+			this.GeneratorsData.Size = new System.Drawing.Size(709, 334);
 			this.GeneratorsData.TabIndex = 6;
 			// 
 			// TabResources
@@ -288,7 +288,7 @@
 			this.TabResources.Location = new System.Drawing.Point(4, 25);
 			this.TabResources.Name = "TabResources";
 			this.TabResources.Padding = new System.Windows.Forms.Padding(3);
-			this.TabResources.Size = new System.Drawing.Size(744, 312);
+			this.TabResources.Size = new System.Drawing.Size(715, 340);
 			this.TabResources.TabIndex = 7;
 			this.TabResources.Text = "Ресурсы";
 			this.TabResources.UseVisualStyleBackColor = true;
@@ -301,7 +301,7 @@
 			this.ResourcesData.Name = "ResourcesData";
 			this.ResourcesData.RowHeadersWidth = 51;
 			this.ResourcesData.RowTemplate.Height = 24;
-			this.ResourcesData.Size = new System.Drawing.Size(738, 306);
+			this.ResourcesData.Size = new System.Drawing.Size(709, 334);
 			this.ResourcesData.TabIndex = 6;
 			// 
 			// TabGoal
@@ -310,7 +310,7 @@
 			this.TabGoal.Location = new System.Drawing.Point(4, 25);
 			this.TabGoal.Name = "TabGoal";
 			this.TabGoal.Padding = new System.Windows.Forms.Padding(3);
-			this.TabGoal.Size = new System.Drawing.Size(744, 312);
+			this.TabGoal.Size = new System.Drawing.Size(715, 340);
 			this.TabGoal.TabIndex = 8;
 			this.TabGoal.Text = "Цели";
 			this.TabGoal.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@
 			this.GoalsData.Name = "GoalsData";
 			this.GoalsData.RowHeadersWidth = 51;
 			this.GoalsData.RowTemplate.Height = 24;
-			this.GoalsData.Size = new System.Drawing.Size(738, 306);
+			this.GoalsData.Size = new System.Drawing.Size(709, 334);
 			this.GoalsData.TabIndex = 6;
 			// 
 			// TabDOonStart
@@ -332,7 +332,7 @@
 			this.TabDOonStart.Location = new System.Drawing.Point(4, 25);
 			this.TabDOonStart.Name = "TabDOonStart";
 			this.TabDOonStart.Padding = new System.Windows.Forms.Padding(3);
-			this.TabDOonStart.Size = new System.Drawing.Size(744, 312);
+			this.TabDOonStart.Size = new System.Drawing.Size(715, 340);
 			this.TabDOonStart.TabIndex = 10;
 			this.TabDOonStart.Text = "ОР на уровне";
 			this.TabDOonStart.UseVisualStyleBackColor = true;
@@ -345,7 +345,7 @@
 			this.DOonLevelsData.Name = "DOonLevelsData";
 			this.DOonLevelsData.RowHeadersWidth = 51;
 			this.DOonLevelsData.RowTemplate.Height = 24;
-			this.DOonLevelsData.Size = new System.Drawing.Size(738, 306);
+			this.DOonLevelsData.Size = new System.Drawing.Size(709, 334);
 			this.DOonLevelsData.TabIndex = 6;
 			// 
 			// TabInputProduct
@@ -354,7 +354,7 @@
 			this.TabInputProduct.Location = new System.Drawing.Point(4, 25);
 			this.TabInputProduct.Name = "TabInputProduct";
 			this.TabInputProduct.Padding = new System.Windows.Forms.Padding(3);
-			this.TabInputProduct.Size = new System.Drawing.Size(744, 312);
+			this.TabInputProduct.Size = new System.Drawing.Size(715, 340);
 			this.TabInputProduct.TabIndex = 11;
 			this.TabInputProduct.Text = "Продукты на вход";
 			this.TabInputProduct.UseVisualStyleBackColor = true;
@@ -367,7 +367,7 @@
 			this.InputProductsData.Name = "InputProductsData";
 			this.InputProductsData.RowHeadersWidth = 51;
 			this.InputProductsData.RowTemplate.Height = 24;
-			this.InputProductsData.Size = new System.Drawing.Size(738, 306);
+			this.InputProductsData.Size = new System.Drawing.Size(709, 334);
 			this.InputProductsData.TabIndex = 6;
 			// 
 			// TabOutputProducts
@@ -376,7 +376,7 @@
 			this.TabOutputProducts.Location = new System.Drawing.Point(4, 25);
 			this.TabOutputProducts.Name = "TabOutputProducts";
 			this.TabOutputProducts.Padding = new System.Windows.Forms.Padding(3);
-			this.TabOutputProducts.Size = new System.Drawing.Size(744, 312);
+			this.TabOutputProducts.Size = new System.Drawing.Size(715, 340);
 			this.TabOutputProducts.TabIndex = 12;
 			this.TabOutputProducts.Text = "Продукты на выход";
 			this.TabOutputProducts.UseVisualStyleBackColor = true;
@@ -389,7 +389,7 @@
 			this.OutputProductsData.Name = "OutputProductsData";
 			this.OutputProductsData.RowHeadersWidth = 51;
 			this.OutputProductsData.RowTemplate.Height = 24;
-			this.OutputProductsData.Size = new System.Drawing.Size(738, 306);
+			this.OutputProductsData.Size = new System.Drawing.Size(709, 334);
 			this.OutputProductsData.TabIndex = 6;
 			// 
 			// TabResourcesFoFractory
@@ -398,7 +398,7 @@
 			this.TabResourcesFoFractory.Location = new System.Drawing.Point(4, 25);
 			this.TabResourcesFoFractory.Name = "TabResourcesFoFractory";
 			this.TabResourcesFoFractory.Padding = new System.Windows.Forms.Padding(3);
-			this.TabResourcesFoFractory.Size = new System.Drawing.Size(744, 312);
+			this.TabResourcesFoFractory.Size = new System.Drawing.Size(715, 340);
 			this.TabResourcesFoFractory.TabIndex = 13;
 			this.TabResourcesFoFractory.Text = "Ресурсы завода";
 			this.TabResourcesFoFractory.UseVisualStyleBackColor = true;
@@ -411,7 +411,7 @@
 			this.ResourcesForFactoryData.Name = "ResourcesForFactoryData";
 			this.ResourcesForFactoryData.RowHeadersWidth = 51;
 			this.ResourcesForFactoryData.RowTemplate.Height = 24;
-			this.ResourcesForFactoryData.Size = new System.Drawing.Size(738, 306);
+			this.ResourcesForFactoryData.Size = new System.Drawing.Size(709, 334);
 			this.ResourcesForFactoryData.TabIndex = 6;
 			// 
 			// TabGoalByDO
@@ -420,7 +420,7 @@
 			this.TabGoalByDO.Location = new System.Drawing.Point(4, 25);
 			this.TabGoalByDO.Name = "TabGoalByDO";
 			this.TabGoalByDO.Padding = new System.Windows.Forms.Padding(3);
-			this.TabGoalByDO.Size = new System.Drawing.Size(744, 312);
+			this.TabGoalByDO.Size = new System.Drawing.Size(715, 340);
 			this.TabGoalByDO.TabIndex = 14;
 			this.TabGoalByDO.Text = "Цель по ОР";
 			this.TabGoalByDO.UseVisualStyleBackColor = true;
@@ -433,12 +433,12 @@
 			this.GoalByDOData.Name = "GoalByDOData";
 			this.GoalByDOData.RowHeadersWidth = 51;
 			this.GoalByDOData.RowTemplate.Height = 24;
-			this.GoalByDOData.Size = new System.Drawing.Size(738, 306);
+			this.GoalByDOData.Size = new System.Drawing.Size(709, 334);
 			this.GoalByDOData.TabIndex = 6;
 			// 
 			// ButtonOpenDb
 			// 
-			this.ButtonOpenDb.Location = new System.Drawing.Point(166, 12);
+			this.ButtonOpenDb.Location = new System.Drawing.Point(120, 12);
 			this.ButtonOpenDb.Name = "ButtonOpenDb";
 			this.ButtonOpenDb.Size = new System.Drawing.Size(101, 33);
 			this.ButtonOpenDb.TabIndex = 3;
@@ -448,19 +448,18 @@
 			// 
 			// ButtonSave
 			// 
-			this.ButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ButtonSave.Location = new System.Drawing.Point(765, 12);
+			this.ButtonSave.Location = new System.Drawing.Point(227, 12);
 			this.ButtonSave.Name = "ButtonSave";
-			this.ButtonSave.Size = new System.Drawing.Size(101, 33);
+			this.ButtonSave.Size = new System.Drawing.Size(111, 33);
 			this.ButtonSave.TabIndex = 4;
-			this.ButtonSave.Text = "Сохранить";
+			this.ButtonSave.Text = "Сохранить БД";
 			this.ButtonSave.UseVisualStyleBackColor = true;
 			this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
 			// 
 			// ButtonDelete
 			// 
 			this.ButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.ButtonDelete.Location = new System.Drawing.Point(741, 354);
+			this.ButtonDelete.Location = new System.Drawing.Point(741, 387);
 			this.ButtonDelete.Name = "ButtonDelete";
 			this.ButtonDelete.Size = new System.Drawing.Size(125, 33);
 			this.ButtonDelete.TabIndex = 5;
@@ -472,7 +471,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(878, 399);
+			this.ClientSize = new System.Drawing.Size(878, 432);
 			this.Controls.Add(this.ButtonDelete);
 			this.Controls.Add(this.ButtonSave);
 			this.Controls.Add(this.ButtonOpenDb);
