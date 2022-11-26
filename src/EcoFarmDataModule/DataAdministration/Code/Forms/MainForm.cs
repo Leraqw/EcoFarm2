@@ -24,7 +24,6 @@ namespace DataAdministration
 			InitializeComponent();
 
 			_businessLogic = new BusinessLogic();
-			_businessLogic.NotifyTableChanged += (sender, args) => UpdateTables();
 		}
 
 		private void MainForm_Load(object sender, EventArgs e) { }
