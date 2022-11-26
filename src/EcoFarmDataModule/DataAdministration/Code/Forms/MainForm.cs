@@ -1,7 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Forms;
 using DataAdministration.Tables;
+using EcoFarmModel;
+using Newtonsoft.Json;
 using Building = DataAdministration.Tables.Building;
 using DevelopmentObject = DataAdministration.Tables.DevelopmentObject;
 using Generator = DataAdministration.Tables.Generator;
@@ -25,6 +28,13 @@ namespace DataAdministration
 
 			_businessLogic = new BusinessLogic();
 		}
+
+		private static JsonSerializerSettings JsonSettings
+			=> new JsonSerializerSettings
+			{
+				PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+				TypeNameHandling = TypeNameHandling.All,
+			};
 
 		private void MainForm_Load(object sender, EventArgs e) { }
 
@@ -68,7 +78,7 @@ namespace DataAdministration
 		private void ButtonDelete_Click(object sender, EventArgs e)
 		{
 			var deletedCount = 0;
-				
+
 			deletedCount += Delete<Product>(ref ProductsData);
 			deletedCount += Delete<Level>(ref LevelsData);
 			deletedCount += Delete<DevelopmentObject>(ref DOData);
@@ -82,7 +92,7 @@ namespace DataAdministration
 			deletedCount += Delete<InputProducts>(ref InputProductsData);
 			deletedCount += Delete<OutputProducts>(ref OutputProductsData);
 			deletedCount += Delete<ResourceForBuilding>(ref ResourcesForFactoryData);
-			
+
 			if (deletedCount > 0)
 			{
 				MessageUtils.ShowSuccess($"Удалено {deletedCount} записей");
@@ -102,6 +112,30 @@ namespace DataAdministration
 			}
 		}
 
+		private void ButtonDeserialize_Click(object sender, EventArgs e)
+		{
+			var dialog = new OpenFileDialog
+			{
+				Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+				FilterIndex = 1,
+				RestoreDirectory = true,
+			};
+
+			if (dialog.ShowDialog() != DialogResult.OK)
+			{
+				return;
+			}
+
+			var path = dialog.FileName;
+			var data = File.ReadAllText(path);
+			var storage = JsonConvert.DeserializeObject<Storage>(data, JsonSettings);
+
+			storage.ToTables().ForEach(_businessLogic.InsertOrReplace);
+
+			UpdateTables();
+			MessageUtils.ShowSuccess("Данные загружены");
+		}
+
 		private int Delete<T>(ref DataGridView grid)
 		{
 			var deletedCount = 0;
@@ -112,12 +146,12 @@ namespace DataAdministration
 				_businessLogic.Delete(item);
 				deletedCount++;
 			}
-			
+
 			foreach (DataGridViewRow row in rows)
 			{
 				grid.Rows.Remove(row);
 			}
-			
+
 			grid.Refresh();
 			return deletedCount;
 		}
