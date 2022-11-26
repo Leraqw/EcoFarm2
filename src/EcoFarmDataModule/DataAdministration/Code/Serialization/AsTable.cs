@@ -34,11 +34,20 @@ namespace DataAdministration
 				Price = tree.Price,
 				ProductId = tree.GetProduct().Id,
 			};
+
+		public static Table.Building Building(Model.Building building)
+			=> new Table.Building
+			{
+				Id = Id++,
+				Title = building.Title,
+				Description = building.Description,
+				Price = building.Price,
+			};
 	}
 
 	public static class ModelExtensions
 	{
-		public static Table.Product GetProduct(this Model.Tree @this) 
-			=> Result.OfType<Table.Product>().Single((p) => p.Title == @this.Product.Title);
+		public static Table.Product GetProduct(this Model.Tree @this)
+			=> Results.OfType<Table.Product>().Single((p) => p.Title == @this.Product.Title);
 	}
 }

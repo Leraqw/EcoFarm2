@@ -8,11 +8,11 @@ namespace DataAdministration
 	public static class StorageExtensions
 	{
 		public static int Id;
-		public static List<object> Result;
+		public static List<object> Results;
 
 		public static List<object> ToTables(this Model.Storage @this)
 		{
-			Result = new List<object>();
+			Results = new List<object>();
 
 			var resources = @this.Resources;
 			var products = @this.Products;
@@ -20,13 +20,17 @@ namespace DataAdministration
 			var trees = @this.Trees;
 			var buildings = @this.Buildings;
 
-			Result.AddRange(ConvertResources(resources));
-			Result.AddRange(ConvertProducts(products));
-			Result.AddRange(ConvertLevels(levels));
-			Result.AddRange(ConvertTrees(trees));
+			Results.AddRange(ConvertResources(resources));
+			Results.AddRange(ConvertProducts(products));
+			Results.AddRange(ConvertLevels(levels));
+			Results.AddRange(ConvertTrees(trees));
+			Results.AddRange(ConvertBuildings(buildings));
 
-			return Result;
+			return Results;
 		}
+
+		private static IEnumerable<object> ConvertBuildings(IEnumerable<Model.Building> buildings)
+			=> buildings.Select(AsTable.Building);
 
 		private static IEnumerable<object> ConvertResources(IEnumerable<Model.Resource> resources)
 			=> resources.Select(AsTable.Resource);

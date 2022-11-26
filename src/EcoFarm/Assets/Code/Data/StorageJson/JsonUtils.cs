@@ -7,7 +7,7 @@ namespace Code.Data.StorageJson
 		public static JsonSerializerSettings WithReferences => new()
 		{
 			PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-			TypeNameHandling = TypeNameHandling.All
+			TypeNameHandling = TypeNameHandling.All,
 		};
 	}
 }
