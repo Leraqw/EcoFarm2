@@ -1,7 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using DataAdministration.Tables;
-using EcoFarmModel;
 using Building = DataAdministration.Tables.Building;
 using DevelopmentObject = DataAdministration.Tables.DevelopmentObject;
 using Generator = DataAdministration.Tables.Generator;
@@ -57,6 +57,15 @@ namespace DataAdministration
 			InputProductsData.DataSource = _businessLogic.GetTableData<InputProducts>();
 			OutputProductsData.DataSource = _businessLogic.GetTableData<OutputProducts>();
 			ResourcesForFactoryData.DataSource = _businessLogic.GetTableData<ResourceForBuilding>();
+		}
+
+		private void ButtonSave_Click(object sender, EventArgs e)
+		{
+			var products = (BindingList<Product>)ProductsData.DataSource;
+			foreach (var product in products)
+			{
+				_businessLogic.Save(product);
+			}
 		}
 	}
 }

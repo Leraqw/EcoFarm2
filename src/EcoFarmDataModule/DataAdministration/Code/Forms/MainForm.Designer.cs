@@ -60,6 +60,7 @@
 			this.TabGoalByDO = new System.Windows.Forms.TabPage();
 			this.GoalByDOData = new System.Windows.Forms.DataGridView();
 			this.ButtonOpenDb = new System.Windows.Forms.Button();
+			this.ButtonSave = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.Tabs.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -444,11 +445,22 @@
 			this.ButtonOpenDb.UseVisualStyleBackColor = true;
 			this.ButtonOpenDb.Click += new System.EventHandler(this.ButtonOpenDb_Click);
 			// 
+			// ButtonSave
+			// 
+			this.ButtonSave.Location = new System.Drawing.Point(656, 12);
+			this.ButtonSave.Name = "ButtonSave";
+			this.ButtonSave.Size = new System.Drawing.Size(101, 33);
+			this.ButtonSave.TabIndex = 4;
+			this.ButtonSave.Text = "Сохранить";
+			this.ButtonSave.UseVisualStyleBackColor = true;
+			this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(776, 404);
+			this.Controls.Add(this.ButtonSave);
 			this.Controls.Add(this.ButtonOpenDb);
 			this.Controls.Add(this.Tabs);
 			this.Controls.Add(this.ButtonNewDb);
@@ -486,6 +498,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.Button ButtonSave;
 
 		private System.Windows.Forms.TabControl Tabs;
 

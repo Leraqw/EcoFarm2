@@ -51,5 +51,11 @@ namespace DataAdministration
 				connection.CreateTable(type);
 			}
 		}
+
+		public void Save(object item)
+		{
+			// insert new and update old
+			SqLiteUtils.Perform((c) => c.InsertOrReplace(item));
+		}
 	}
 }

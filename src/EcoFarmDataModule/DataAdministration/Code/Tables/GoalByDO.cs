@@ -1,6 +1,6 @@
 ﻿namespace DataAdministration.Tables
 {
-	public class GoalByDO : Goal
+	public class GoalByDo : Goal
 	{
 		public int DevelopmentObjectId { get; set; }
 	}
