@@ -39,6 +39,7 @@ namespace DataAdministration
 		public static Table.DevelopmentObject DO(Model.DevelopmentObject @do)
 			=> new Table.DevelopmentObject
 			{
+				Id = Id++,
 				Title = @do.Title,
 				Description = @do.Description,
 				Price = @do.Price,

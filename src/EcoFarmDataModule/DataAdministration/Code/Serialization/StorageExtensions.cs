@@ -17,7 +17,6 @@ namespace DataAdministration
 			Results.AddRange(@this.Buildings.Select(AsTable.DO));
 			Results.AddRange(@this.Products.Select(AsTable.DO));
 			Results.AddRange(@this.Trees.Select(AsTable.DO));
-			Results.AddRange(@this.Buildings.Select(AsTable.DO));
 			
 			Results.AddRange(@this.Resources.Select(AsTable.Resource));
 			Results.AddRange(@this.Products.Select(AsTable.Product));
