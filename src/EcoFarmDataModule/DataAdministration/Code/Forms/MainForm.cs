@@ -65,13 +65,49 @@ namespace DataAdministration
 			MessageUtils.ShowSuccess("Данные сохранены");
 		}
 
+		private void ButtonDelete_Click(object sender, EventArgs e)
+		{
+			Delete<Product>(ref ProductsData);
+			Delete<Level>(ref LevelsData);
+			Delete<DevelopmentObject>(ref DOData);
+			Delete<Tree>(ref TreesData);
+			Delete<Building>(ref BuildingsData);
+			Delete<Factory>(ref FactoriesData);
+			Delete<Generator>(ref GeneratorsData);
+			Delete<Resource>(ref ResourcesData);
+			Delete<Goal>(ref GoalsData);
+			Delete<DevelopmentObjectOnLevelStartup>(ref DOonLevelsData);
+			Delete<InputProducts>(ref InputProductsData);
+			Delete<OutputProducts>(ref OutputProductsData);
+			Delete<ResourceForBuilding>(ref ResourcesForFactoryData);
+			
+			MessageUtils.ShowSuccess("Данные удалены");
+		}
+
 		private void Save<T>(DataGridView grid)
 		{
 			var items = (BindingList<T>)grid.DataSource;
 			foreach (var item in items)
 			{
-				_businessLogic.Save(item);
+				_businessLogic.InsertOrReplace(item);
 			}
+		}
+
+		private void Delete<T>(ref DataGridView grid)
+		{
+			var rows = grid.SelectedRows;
+			foreach (DataGridViewRow row in rows)
+			{
+				var item = (T)row.DataBoundItem;
+				_businessLogic.Delete(item);
+			}
+			
+			foreach (DataGridViewRow row in rows)
+			{
+				grid.Rows.Remove(row);
+			}
+			
+			grid.Refresh();
 		}
 
 		private void UpdateTables()
@@ -89,27 +125,6 @@ namespace DataAdministration
 			InputProductsData.DataSource = _businessLogic.GetTableData<InputProducts>();
 			OutputProductsData.DataSource = _businessLogic.GetTableData<OutputProducts>();
 			ResourcesForFactoryData.DataSource = _businessLogic.GetTableData<ResourceForBuilding>();
-		}
-
-		private void ButtonDelete_Click(object sender, EventArgs e)
-		{
-			Delete<Product>();
-			Delete<Level>();
-			Delete<DevelopmentObject>();
-			Delete<Tree>();
-			Delete<Building>();
-			Delete<Factory>();
-			Delete<Generator>();
-			Delete<Resource>();
-			Delete<Goal>();
-			Delete<DevelopmentObjectOnLevelStartup>();
-			Delete<InputProducts>();
-
-			MessageUtils.ShowSuccess("Данные удалены");
-		}
-
-		private void Delete<T>()
-		{
 		}
 	}
 }

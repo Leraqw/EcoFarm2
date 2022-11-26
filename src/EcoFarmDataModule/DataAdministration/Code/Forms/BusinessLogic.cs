@@ -38,17 +38,19 @@ namespace DataAdministration
 			where T : new()
 			=> SqLiteUtils.Select((c) => new BindingList<T>(c.Table<T>().ToList()));
 
+		public void InsertOrReplace(object item) => SqLiteUtils.Perform((c) => c.InsertOrReplace(item));
+
+		public void Delete(object item)
+		{
+			SqLiteUtils.Perform((c) => c.Delete(item));
+		}
+
 		private void CreateAllTables(SQLiteConnection connection)
 		{
 			foreach (var type in TablesCollection.Types)
 			{
 				connection.CreateTable(type);
 			}
-		}
-
-		public void Save(object item)
-		{
-			SqLiteUtils.Perform((c) => c.InsertOrReplace(item));
 		}
 	}
 }
