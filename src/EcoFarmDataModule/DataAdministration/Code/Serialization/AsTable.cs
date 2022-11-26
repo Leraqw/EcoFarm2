@@ -7,7 +7,13 @@ namespace DataAdministration
 {
 	public static class AsTable
 	{
-		public static Table.Resource Resource(Model.Resource _) => new Table.Resource { Id = Id++ };
+		public static Table.Resource Resource(Model.Resource resource)
+			=> new Table.Resource
+			{
+				Id = Id++,
+				Title = resource.Title,
+				Description = resource.Description,
+			};
 
 		public static Table.Product Product(Model.Product product)
 			=> new Table.Product
