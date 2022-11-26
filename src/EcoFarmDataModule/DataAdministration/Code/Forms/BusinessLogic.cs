@@ -1,5 +1,6 @@
 ﻿// ReSharper disable LocalizableElement
 // ReSharper disable StringLiteralTypo
+using System;
 using System.ComponentModel;
 using System.IO;
 using SQLite;
@@ -20,7 +21,6 @@ namespace DataAdministration
 
 			SqLiteUtils.Perform(CreateAllTables);
 
-			MessageUtils.ShowSuccess("База Данных создана");
 			return true;
 		}
 
@@ -32,8 +32,6 @@ namespace DataAdministration
 			}
 
 			SqLiteUtils.CurrentPath = path;
-
-			MessageUtils.ShowSuccess("База Данных открыта");
 			return true;
 		}
 
@@ -52,8 +50,6 @@ namespace DataAdministration
 		public void Save(object item)
 		{
 			SqLiteUtils.Perform((c) => c.InsertOrReplace(item));
-			
-			MessageUtils.ShowSuccess("Данные сохранены");
 		}
 	}
 }
