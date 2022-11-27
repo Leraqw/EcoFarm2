@@ -156,7 +156,7 @@ namespace Code.Unity.TEMP
 					SecondsForLevel = 220,
 					Goals = new Goal[]
 					{
-						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 10 },
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 7 },
 					},
 				},
 				new Level

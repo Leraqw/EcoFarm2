@@ -71,8 +71,8 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Send(GameEntity request, GameEntity product)
 			=> product
-			   .Do((e) => e.AddTargetPosition(request.position))
-			   .Do((e) => e.AddDuration(RoadToFactoryDuration))
+			   .Do((e) => e.ReplaceTargetPosition(request.position))
+			   .Do((e) => e.ReplaceDuration(RoadToFactoryDuration))
 			   .Do((e) => e.isInFactory = true)
 		/**/;
 	}
