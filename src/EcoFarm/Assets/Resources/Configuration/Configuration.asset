@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _balance:
     _watering:
-      <DroughtDuration>k__BackingField: 10
+      <DroughtDuration>k__BackingField: 5
       <DroughtStep>k__BackingField: 1
       <WateringStep>k__BackingField: 2
     _tree:

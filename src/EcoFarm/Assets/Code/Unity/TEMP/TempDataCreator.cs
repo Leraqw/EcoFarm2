@@ -114,7 +114,7 @@ namespace Code.Unity.TEMP
 					SecondsForLevel = 500,
 					Goals = new Goal[]
 					{
-						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 50 },
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
 						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
 					},
 				},
@@ -135,8 +135,7 @@ namespace Code.Unity.TEMP
 					SecondsForLevel = 220,
 					Goals = new Goal[]
 					{
-						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 15 },
-						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 5 },
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 50 },
 					},
 				},
 				new Level
