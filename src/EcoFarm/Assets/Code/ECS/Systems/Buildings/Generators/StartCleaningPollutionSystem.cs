@@ -29,7 +29,7 @@ namespace Code.ECS.Systems.Buildings.Generators
 			=> _generators.ForEach((g) => StartCleaning(g, pollute), @if: (g) => HasSameResource(g, pollute));
 
 		private static bool HasSameResource(GameEntity generator, GameEntity pollute)
-			=> generator.GetResource().resource.Value == pollute.pollution.Value;
+			=> pollute.hasPollution && generator.GetResource().resource.Value == pollute.pollution.Value;
 
 		private void StartCleaning(GameEntity generator, GameEntity pollute)
 		{
