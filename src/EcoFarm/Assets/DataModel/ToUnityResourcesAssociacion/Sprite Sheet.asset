@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: Sprite Sheet
   m_EditorClassIdentifier: 
   _products:
-  - Title: Apple
-    Sprite: {fileID: 21300000, guid: 1941333b7cea477418306b20d5a2e5ff, type: 3}
-  - Title: Coin
+  - Title: "\u041C\u043E\u043D\u0435\u0442\u0430"
     Sprite: {fileID: 21300000, guid: afa129d6746ac3b429913d5e693d12e1, type: 3}
-  - Title: Juice
+  - Title: "\u042F\u0431\u043B\u043E\u043A\u043E"
+    Sprite: {fileID: 21300000, guid: 1941333b7cea477418306b20d5a2e5ff, type: 3}
+  - Title: "\u042F\u0431\u043B\u043E\u0447\u043D\u044B\u0439 \u0441\u043E\u043A"
     Sprite: {fileID: 21300000, guid: 23b34153bbdeb134d86a794e80e16e44, type: 3}
   _buildings:
-  - Title: Apple Juice Factory
+  - Title: "\u042F\u0431\u043B\u043E\u0447\u043D\u044B\u0439 \u0437\u0430\u0432\u043E\u0434"
     Sprite: {fileID: 21300000, guid: d22922b607458ce448f256b46d32d909, type: 3}
-  - Title: Windmill
+  - Title: "\u0412\u0435\u0442\u0440\u044F\u043A"
     Sprite: {fileID: 21300000, guid: 9516e27ae608aa14e96d2236b8b954d8, type: 3}
-  - Title: Water Cleaning Station
+  - Title: "\u0412\u043E\u0434\u043E\u043E\u0447\u0438\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F
+      \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
     Sprite: {fileID: 21300000, guid: 3c6d6c819b55917459345eb51d5d3953, type: 3}
