@@ -91,7 +91,7 @@ namespace Code.Unity.TEMP
 				{
 					Order = 1,
 					TreesCount = 9,
-					SecondsForLevel = 300,
+					SecondsForLevel = 120,
 					Goals = new Goal[]
 					{
 						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 6 },
@@ -101,10 +101,63 @@ namespace Code.Unity.TEMP
 				{
 					Order = 2,
 					TreesCount = 6,
-					SecondsForLevel = 300,
+					SecondsForLevel = 120,
 					Goals = new Goal[]
 					{
 						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 10 },
+					},
+				},
+				new Level
+				{
+					Order = 3,
+					TreesCount = 6,
+					SecondsForLevel = 500,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 50 },
+						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
+					},
+				},
+				new Level
+				{
+					Order = 4,
+					TreesCount = 5,
+					SecondsForLevel = 270,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 1 },
+					},
+				},
+				new Level
+				{
+					Order = 5,
+					TreesCount = 7,
+					SecondsForLevel = 220,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 15 },
+						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 5 },
+					},
+				},
+				new Level
+				{
+					Order = 6,
+					TreesCount = 7,
+					SecondsForLevel = 220,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 3 },
+						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 45 },
+					},
+				},
+				new Level
+				{
+					Order = 7,
+					TreesCount = 7,
+					SecondsForLevel = 220,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 10 },
 					},
 				},
 				new Level
@@ -116,7 +169,7 @@ namespace Code.Unity.TEMP
 					{
 						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
 						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
-						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 2 },
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 10 },
 					},
 				},
 			};
@@ -161,7 +214,7 @@ namespace Code.Unity.TEMP
 				Title = "Juice",
 				Description
 					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
-				Price = 10,
+				Price = 15,
 			};
 		}
 	}
