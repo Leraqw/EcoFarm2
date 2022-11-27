@@ -23,41 +23,9 @@ namespace Code.Unity.TEMP
 
 		private static Storage NewStorage()
 		{
-			var apple = new Product
-			{
-				Title = "Apple",
-				Description = "Is a sweet, edible fruit produced by an apple tree.",
-				Price = 2,
-			};
-
-			var coin = new Product
-			{
-				Title = CoinItemName,
-				Description = "Is a medium of exchange, a unit of account, and a store of value.",
-				Price = 1,
-			};
-
-			var juice = new Product
-			{
-				Title = "Juice",
-				Description
-					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
-				Price = 10,
-			};
-
-			var electricity = new Resource
-			{
-				Title = ElectricityName,
-				Description
-					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
-			};
-
-			var water = new Resource
-			{
-				Title = WaterName,
-				Description
-					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
-			};
+			CreateProducts(out var apple, out var coin, out var juice);
+			CreateResources(out var electricity, out var water);
+			var levels = CreateLevels(apple, coin, juice);
 
 			return new Storage
 			{
@@ -73,31 +41,7 @@ namespace Code.Unity.TEMP
 					juice,
 				},
 
-				Levels = new[]
-				{
-					new Level
-					{
-						Order = 1,
-						TreesCount = 5,
-						SecondsForLevel = 360,
-						Goals = new Goal[]
-						{
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
-							new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
-							new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 2 },
-						},
-					},
-					new Level
-					{
-						Order = 2,
-						TreesCount = 9,
-						SecondsForLevel = 300,
-						Goals = new Goal[]
-						{
-							new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 10 },
-						},
-					},
-				},
+				Levels = levels,
 				Trees = new[]
 				{
 					new Tree
@@ -136,6 +80,88 @@ namespace Code.Unity.TEMP
 						EfficiencyCoefficient = 30,
 					},
 				},
+			};
+		}
+
+		private static Level[] CreateLevels(Product apple, Product coin, Product juice)
+		{
+			var levels = new[]
+			{
+				new Level
+				{
+					Order = 1,
+					TreesCount = 9,
+					SecondsForLevel = 300,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 6 },
+					},
+				},
+				new Level
+				{
+					Order = 2,
+					TreesCount = 6,
+					SecondsForLevel = 300,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 10 },
+					},
+				},
+				new Level
+				{
+					Order = 8,
+					TreesCount = 5,
+					SecondsForLevel = 360,
+					Goals = new Goal[]
+					{
+						new GoalByDevelopmentObject { DevelopmentObject = apple, TargetQuantity = 5 },
+						new GoalByDevelopmentObject { DevelopmentObject = coin, TargetQuantity = 15 },
+						new GoalByDevelopmentObject { DevelopmentObject = juice, TargetQuantity = 2 },
+					},
+				},
+			};
+			return levels;
+		}
+
+		private static void CreateResources(out Resource electricity, out Resource water)
+		{
+			electricity = new Resource
+			{
+				Title = ElectricityName,
+				Description
+					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
+			};
+
+			water = new Resource
+			{
+				Title = WaterName,
+				Description
+					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
+			};
+		}
+
+		private static void CreateProducts(out Product apple, out Product coin, out Product juice)
+		{
+			apple = new Product
+			{
+				Title = "Apple",
+				Description = "Is a sweet, edible fruit produced by an apple tree.",
+				Price = 2,
+			};
+
+			coin = new Product
+			{
+				Title = CoinItemName,
+				Description = "Is a medium of exchange, a unit of account, and a store of value.",
+				Price = 1,
+			};
+
+			juice = new Product
+			{
+				Title = "Juice",
+				Description
+					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+				Price = 10,
 			};
 		}
 	}
