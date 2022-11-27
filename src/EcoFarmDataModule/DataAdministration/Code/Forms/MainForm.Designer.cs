@@ -63,6 +63,7 @@
 			this.ButtonSave = new System.Windows.Forms.Button();
 			this.ButtonDelete = new System.Windows.Forms.Button();
 			this.ButtonDeserialize = new System.Windows.Forms.Button();
+			this.ButtonSerialize = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ProductsData)).BeginInit();
 			this.Tabs.SuspendLayout();
 			this.TabLevels.SuspendLayout();
@@ -137,7 +138,7 @@
 			this.Tabs.Location = new System.Drawing.Point(12, 51);
 			this.Tabs.Name = "Tabs";
 			this.Tabs.SelectedIndex = 0;
-			this.Tabs.Size = new System.Drawing.Size(723, 369);
+			this.Tabs.Size = new System.Drawing.Size(698, 369);
 			this.Tabs.TabIndex = 2;
 			// 
 			// TabLevels
@@ -146,7 +147,7 @@
 			this.TabLevels.Location = new System.Drawing.Point(4, 25);
 			this.TabLevels.Name = "TabLevels";
 			this.TabLevels.Padding = new System.Windows.Forms.Padding(3);
-			this.TabLevels.Size = new System.Drawing.Size(715, 340);
+			this.TabLevels.Size = new System.Drawing.Size(690, 340);
 			this.TabLevels.TabIndex = 0;
 			this.TabLevels.Text = "Уровни";
 			this.TabLevels.UseVisualStyleBackColor = true;
@@ -159,7 +160,7 @@
 			this.LevelsData.Name = "LevelsData";
 			this.LevelsData.RowHeadersWidth = 51;
 			this.LevelsData.RowTemplate.Height = 24;
-			this.LevelsData.Size = new System.Drawing.Size(709, 334);
+			this.LevelsData.Size = new System.Drawing.Size(684, 334);
 			this.LevelsData.TabIndex = 2;
 			// 
 			// TabProducts
@@ -471,19 +472,30 @@
 			// ButtonDeserialize
 			// 
 			this.ButtonDeserialize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ButtonDeserialize.Location = new System.Drawing.Point(730, 12);
+			this.ButtonDeserialize.Location = new System.Drawing.Point(715, 12);
 			this.ButtonDeserialize.Name = "ButtonDeserialize";
-			this.ButtonDeserialize.Size = new System.Drawing.Size(136, 33);
+			this.ButtonDeserialize.Size = new System.Drawing.Size(151, 33);
 			this.ButtonDeserialize.TabIndex = 6;
 			this.ButtonDeserialize.Text = "Десериализовать";
 			this.ButtonDeserialize.UseVisualStyleBackColor = true;
 			this.ButtonDeserialize.Click += new System.EventHandler(this.ButtonDeserialize_Click);
+			// 
+			// ButtonSerialize
+			// 
+			this.ButtonSerialize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.ButtonSerialize.Location = new System.Drawing.Point(716, 51);
+			this.ButtonSerialize.Name = "ButtonSerialize";
+			this.ButtonSerialize.Size = new System.Drawing.Size(150, 33);
+			this.ButtonSerialize.TabIndex = 7;
+			this.ButtonSerialize.Text = "Сериализовать";
+			this.ButtonSerialize.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(878, 432);
+			this.Controls.Add(this.ButtonSerialize);
 			this.Controls.Add(this.ButtonDeserialize);
 			this.Controls.Add(this.ButtonDelete);
 			this.Controls.Add(this.ButtonSave);
@@ -524,6 +536,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.GoalByDOData)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.Button ButtonSerialize;
 
 		private System.Windows.Forms.Button ButtonDeserialize;
 
