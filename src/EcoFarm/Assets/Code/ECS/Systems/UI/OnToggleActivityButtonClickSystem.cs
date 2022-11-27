@@ -29,6 +29,7 @@ namespace Code.ECS.Systems.UI
 			}
 
 			window.ReplaceActivate(activity);
+			request.isDestroy = true;
 		}
 	}
 }
