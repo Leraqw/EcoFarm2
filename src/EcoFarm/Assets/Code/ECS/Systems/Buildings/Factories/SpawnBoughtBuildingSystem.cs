@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
+using Code.Unity.Containers;
 using Code.Utils.Extensions;
 using Code.Utils.Extensions.Entitas;
 using EcoFarmModel;
@@ -28,12 +29,24 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
 
+		private static IMatcher<GameEntity> Building => GameMatcher.Building;
+
+		private WindowBuild Window => _contexts.services.uiService.Value.Windows.Build;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(UiElement, Bought, GameMatcher.Building));
+			=> context.CreateCollector(AllOf(UiElement, Bought, Building));
 
 		protected override bool Filter(GameEntity entity) => true;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
+		protected override void Execute(List<GameEntity> entites)
+		{
+			entites.ForEach(Spawn);
+
+			_contexts.game.CreateEntity()
+			         .Do((e) => e.AttachTo(Window.Listener.Entity))
+			         .Do((e) => e.AddTargetActivity(false))
+				;
+		}
 
 		private void Spawn(GameEntity button) => _signs.ForEach((s) => Replace(s, button), @if: (s) => Fits(s, button));
 
@@ -61,7 +74,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void RelativeGeneratorView(GameEntity generator)
 			=> generator
-			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))			
+			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
 			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName))
 		/**/;
 

@@ -16,10 +16,10 @@ namespace Code.ECS.Systems.UI
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Toggle);
 
-		private static void Toggle(GameEntity button)
+		private static void Toggle(GameEntity request)
 		{
-			var activity = button.targetActivity;
-			var window = button.GetAttachableEntity();
+			var activity = request.targetActivity;
+			var window = request.GetAttachableEntity();
 
 			if (activity == true
 			    && window.isRequirePreparation)
