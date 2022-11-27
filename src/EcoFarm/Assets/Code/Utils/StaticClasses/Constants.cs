@@ -13,11 +13,11 @@ namespace Code.Utils.StaticClasses
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
 		public const int FactoryPollution = 25;
 
-		public const string CoinItemName = "Coin";
-		public const string WindmillName = "Windmill";
-		public const string WaterCleanerName = "Water Cleaning Station";
-		public const string ElectricityName = "Electricity";
-		public const string WaterName = "Water";
+		public const string CoinItemName = "Монета";
+		public const string WindmillName = "Ветряк";
+		public const string WaterCleanerName = "Водоочистительная установка";
+		public const string ElectricityName = "Электричество";
+		public const string WaterName = "Вода";
 
 		public static class SpriteHigh
 		{

@@ -46,8 +46,8 @@ namespace Code.Unity.TEMP
 				{
 					new Tree
 					{
-						Title = "Apple Tree",
-						Description = "Giving apples",
+						Title = "Яблыня",
+						Description = "Даёт яблоки",
 						Product = apple,
 					},
 				},
@@ -55,8 +55,8 @@ namespace Code.Unity.TEMP
 				{
 					new FactoryBuilding
 					{
-						Title = "Apple Juice Factory",
-						Description = "Making 1 apple juice from 5 apples",
+						Title = "Яблочный завод",
+						Description = "Производит одну бутылку сока из 5-ти яблок",
 						Price = 20,
 						InputProducts = new[] { apple, apple, apple, apple, apple, },
 						OutputProducts = new[] { juice },
@@ -66,7 +66,7 @@ namespace Code.Unity.TEMP
 					new Generator
 					{
 						Title = WindmillName,
-						Description = "Generating Electricity",
+						Description = "Генерирует электричество",
 						Price = 25,
 						Resource = electricity,
 						EfficiencyCoefficient = 2,
@@ -74,7 +74,7 @@ namespace Code.Unity.TEMP
 					new Generator
 					{
 						Title = WaterCleanerName,
-						Description = "Generating Water",
+						Description = "Очищает воду от завода",
 						Price = 25,
 						Resource = water,
 						EfficiencyCoefficient = 30,
@@ -180,15 +180,13 @@ namespace Code.Unity.TEMP
 			electricity = new Resource
 			{
 				Title = ElectricityName,
-				Description
-					= "Is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge.",
+				Description = "Это электричество",
 			};
 
 			water = new Resource
 			{
 				Title = WaterName,
-				Description
-					= "Is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.",
+				Description = "Это вода.",
 			};
 		}
 
@@ -196,23 +194,22 @@ namespace Code.Unity.TEMP
 		{
 			apple = new Product
 			{
-				Title = "Apple",
-				Description = "Is a sweet, edible fruit produced by an apple tree.",
+				Title = "Яблоко",
+				Description = "Яблоко, что растёт на дереве",
 				Price = 2,
 			};
 
 			coin = new Product
 			{
 				Title = CoinItemName,
-				Description = "Is a medium of exchange, a unit of account, and a store of value.",
+				Description = "Здешняя валюта",
 				Price = 1,
 			};
 
 			juice = new Product
 			{
-				Title = "Juice",
-				Description
-					= "Is a liquid that is produced by squeezing or macerating fruit and sometimes also by pressing grapes.",
+				Title = "Яблочный сок",
+				Description = "Сок из яблок",
 				Price = 15,
 			};
 		}
