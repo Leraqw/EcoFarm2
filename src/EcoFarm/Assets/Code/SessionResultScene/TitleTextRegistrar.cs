@@ -19,7 +19,7 @@ namespace Code.SessionResultScene
 
 		private static string GetTextByResult()
 			=> Context.currentPlayerEntity.sessionResult.Value is Victory
-				? "Victory!"
-				: "You lose:(";
+				? "Победа!"
+				: "Поражение:(";
 	}
 }
