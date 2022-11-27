@@ -1,8 +1,11 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class Generator : Building
+namespace EcoFarmModel
 {
-	public Resource Resource;
-	public int EfficiencyCoefficient;
+	[Serializable]
+	public class Generator : Building
+	{
+		public Resource Resource              { get; set; }
+		public int      EfficiencyCoefficient { get; set; }
+	}
 }

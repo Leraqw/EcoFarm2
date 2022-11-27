@@ -1,3 +1,6 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable] public class Resource : EnvironmentParameterType { }
+namespace EcoFarmModel
+{
+	[Serializable] public class Resource : EnvironmentParameterType { }
+}

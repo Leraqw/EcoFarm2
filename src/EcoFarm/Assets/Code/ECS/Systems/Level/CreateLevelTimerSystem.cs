@@ -1,5 +1,5 @@
 ﻿using Code.Utils.Extensions;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using Entitas;
 
 namespace Code.ECS.Systems.Level

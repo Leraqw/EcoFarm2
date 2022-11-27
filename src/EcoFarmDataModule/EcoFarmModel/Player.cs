@@ -1,8 +1,11 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class Player
+namespace EcoFarmModel
 {
-	public string Nickname;
-	public int CompletedLevelsCount;
+	[Serializable]
+	public class Player
+	{
+		public string Nickname { get; set; }
+		public int CompletedLevelsCount { get; set; }
+	}
 }

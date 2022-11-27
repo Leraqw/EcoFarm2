@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.ECS.Components.ComplexComponentTypes;
-using EcoFarmDataModule;
+using EcoFarmModel;
 
 namespace Code.Utils.Extensions.Entitas
 {

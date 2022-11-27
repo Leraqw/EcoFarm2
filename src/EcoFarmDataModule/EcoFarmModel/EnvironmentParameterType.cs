@@ -1,8 +1,11 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public abstract class EnvironmentParameterType
+namespace EcoFarmModel
 {
-	public string Title;
-	public string Description;
+	[Serializable]
+	public abstract class EnvironmentParameterType
+	{
+		public string Title;
+		public string Description;
+	}
 }

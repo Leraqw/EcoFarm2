@@ -1,7 +1,10 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class GoalByDevelopmentObject : Goal
+namespace EcoFarmModel
 {
-	public DevelopmentObject DevelopmentObject;
+	[Serializable]
+	public class GoalByDevelopmentObject : Goal
+	{
+		public DevelopmentObject DevelopmentObject { get; set; }
+	}
 }

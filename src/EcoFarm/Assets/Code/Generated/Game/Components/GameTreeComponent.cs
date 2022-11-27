@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.ECS.Components.TreeComponent tree { get { return (Code.ECS.Components.TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
     public bool hasTree { get { return HasComponent(GameComponentsLookup.Tree); } }
 
-    public void AddTree(EcoFarmDataModule.Tree newValue) {
+    public void AddTree(EcoFarmModel.Tree newValue) {
         var index = GameComponentsLookup.Tree;
         var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTree(EcoFarmDataModule.Tree newValue) {
+    public void ReplaceTree(EcoFarmModel.Tree newValue) {
         var index = GameComponentsLookup.Tree;
         var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
         component.Value = newValue;

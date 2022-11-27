@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.ECS.Components.Buildings.RequireProductComponent requireProduct { get { return (Code.ECS.Components.Buildings.RequireProductComponent)GetComponent(GameComponentsLookup.RequireProduct); } }
     public bool hasRequireProduct { get { return HasComponent(GameComponentsLookup.RequireProduct); } }
 
-    public void AddRequireProduct(EcoFarmDataModule.Product newValue) {
+    public void AddRequireProduct(EcoFarmModel.Product newValue) {
         var index = GameComponentsLookup.RequireProduct;
         var component = (Code.ECS.Components.Buildings.RequireProductComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RequireProductComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireProduct(EcoFarmDataModule.Product newValue) {
+    public void ReplaceRequireProduct(EcoFarmModel.Product newValue) {
         var index = GameComponentsLookup.RequireProduct;
         var component = (Code.ECS.Components.Buildings.RequireProductComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RequireProductComponent));
         component.Value = newValue;

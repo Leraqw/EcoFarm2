@@ -1,5 +1,5 @@
 ﻿using Code.Utils.ComponentsTemplates;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using Entitas.CodeGeneration.Attributes;
 using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.EventTarget;

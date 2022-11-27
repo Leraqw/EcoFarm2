@@ -1,7 +1,7 @@
 ﻿using Code.Data.StorageJson;
 using Code.Data.Config;
 using Code.Services.Interfaces;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using UnityEngine;
 
 namespace Code.Services.UnityImplementations

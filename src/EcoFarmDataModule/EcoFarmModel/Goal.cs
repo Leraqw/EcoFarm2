@@ -1,7 +1,10 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public abstract class Goal
+namespace EcoFarmModel
 {
-	public int TargetQuantity;
+	[Serializable]
+	public abstract class Goal
+	{
+		public int TargetQuantity { get; set; }
+	}
 }

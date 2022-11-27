@@ -1,11 +1,14 @@
-﻿namespace EcoFarmDataModule;
+﻿using System;
 
-[Serializable]
-public class Storage
+namespace EcoFarmModel
 {
-	public Resource[] Resources;
-	public Product[] Products;
-	public Level[] Levels;
-	public Tree[] Trees;
-	public Building[] Buildings;
+	[Serializable]
+	public class Storage
+	{
+		public Resource[] Resources { get; set; }
+		public Product[]  Products  { get; set; }
+		public Level[]    Levels    { get; set; }
+		public Tree[]     Trees     { get; set; }
+		public Building[] Buildings { get; set; }
+	}
 }

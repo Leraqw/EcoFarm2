@@ -3,7 +3,7 @@ using Code.Services.Game.Interfaces;
 using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
-using LevelData = EcoFarmDataModule.Level;
+using LevelData = EcoFarmModel.Level;
 
 namespace Code.ECS.Systems.Tree
 {

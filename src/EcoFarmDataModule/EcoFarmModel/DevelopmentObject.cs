@@ -1,9 +1,12 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public abstract class DevelopmentObject
+namespace EcoFarmModel
 {
-	public string Title;
-	public string Description;
-	public int Price;
+	[Serializable]
+	public abstract class DevelopmentObject
+	{
+		public string Title       { get; set; }
+		public string Description { get; set; }
+		public int    Price       { get; set; }
+	}
 }

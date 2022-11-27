@@ -1,7 +1,10 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class Tree : DevelopmentObject
+namespace EcoFarmModel
 {
-	public Product Product;
+	[Serializable]
+	public class Tree : DevelopmentObject
+	{
+		public Product Product { get; set; }
+	}
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Data.StorageJson;
-using EcoFarmDataModule;
+using EcoFarmModel;
 using UnityEngine;
 using Code.Utils.Extensions;
 

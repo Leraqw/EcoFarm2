@@ -1,10 +1,13 @@
-﻿namespace EcoFarmDataModule;
+﻿using System;
 
-[Serializable]
-public class Level
+namespace EcoFarmModel
 {
-	public int Order;
-	public int TreesCount;
-	public int SecondsForLevel;
-	public Goal[] Goals;
+	[Serializable]
+	public class Level
+	{
+		public int    Order           { get; set; }
+		public int    TreesCount      { get; set; }
+		public int    SecondsForLevel { get; set; }
+		public Goal[] Goals           { get; set; }
+	}
 }

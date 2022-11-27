@@ -1,10 +1,13 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class FactoryBuilding : Building
+namespace EcoFarmModel
 {
-	public Product[] InputProducts;
-	public Product[] OutputProducts;
-	public Resource Resource;
-	public int ResourceConsumptionCoefficient;
+	[Serializable]
+	public class FactoryBuilding : Building
+	{
+		public Product[] InputProducts;
+		public Product[] OutputProducts;
+		public Resource Resource;
+		public int ResourceConsumptionCoefficient;
+	}
 }

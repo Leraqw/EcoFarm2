@@ -1,4 +1,6 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable]
-public class Product : DevelopmentObject { }
+namespace EcoFarmModel
+{
+	[Serializable] public class Product : DevelopmentObject { }
+}

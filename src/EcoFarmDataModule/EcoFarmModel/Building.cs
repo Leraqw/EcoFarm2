@@ -1,3 +1,6 @@
-namespace EcoFarmDataModule;
+using System;
 
-[Serializable] public abstract class Building : DevelopmentObject { }
+namespace EcoFarmModel
+{
+	[Serializable] public abstract class Building : DevelopmentObject { }
+}

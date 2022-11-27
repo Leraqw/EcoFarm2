@@ -12,7 +12,7 @@ public partial class GameContext {
     public Code.ECS.Components.StorageComponent storage { get { return storageEntity.storage; } }
     public bool hasStorage { get { return storageEntity != null; } }
 
-    public GameEntity SetStorage(EcoFarmDataModule.Storage newValue) {
+    public GameEntity SetStorage(EcoFarmModel.Storage newValue) {
         if (hasStorage) {
             throw new Entitas.EntitasException("Could not set Storage!\n" + this + " already has an entity with Code.ECS.Components.StorageComponent!",
                 "You should check if the context already has a storageEntity before setting it or use context.ReplaceStorage().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceStorage(EcoFarmDataModule.Storage newValue) {
+    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
         var entity = storageEntity;
         if (entity == null) {
             entity = SetStorage(newValue);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public Code.ECS.Components.StorageComponent storage { get { return (Code.ECS.Components.StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
     public bool hasStorage { get { return HasComponent(GameComponentsLookup.Storage); } }
 
-    public void AddStorage(EcoFarmDataModule.Storage newValue) {
+    public void AddStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
         var component = (Code.ECS.Components.StorageComponent)CreateComponent(index, typeof(Code.ECS.Components.StorageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceStorage(EcoFarmDataModule.Storage newValue) {
+    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
         var component = (Code.ECS.Components.StorageComponent)CreateComponent(index, typeof(Code.ECS.Components.StorageComponent));
         component.Value = newValue;
