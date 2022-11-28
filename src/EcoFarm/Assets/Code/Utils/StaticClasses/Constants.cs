@@ -14,8 +14,8 @@ namespace Code.Utils.StaticClasses
 		public const int FactoryPollution = 25;
 
 		public const string CoinItemName = "Монета";
-		public const string WindmillName = "Ветряк";
-		public const string WaterCleanerName = "Водоочистительная установка";
+		public const string WindmillName = "Ветрогенератор";
+		public const string WaterCleanerName = "Водоочистная станция";
 		public const string ElectricityName = "Электричество";
 		public const string WaterName = "Вода";
 
