@@ -66,7 +66,7 @@ namespace Code.Unity.TEMP
 					new Generator
 					{
 						Title = WindmillName,
-						Description = "Даёт электричество",
+						Description = "Вырабатывает электричество",
 						Price = 25,
 						Resource = electricity,
 						EfficiencyCoefficient = 2,
