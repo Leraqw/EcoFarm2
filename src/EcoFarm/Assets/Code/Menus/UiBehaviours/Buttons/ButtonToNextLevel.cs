@@ -4,7 +4,13 @@
 	{
 		protected override void OnButtonClick()
 		{
-			Contexts.sharedInstance.player.currentPlayerEntity.selectedLevel.Value++;
+			var selectedLevel = Contexts.sharedInstance.player.currentPlayerEntity.selectedLevel;
+			selectedLevel.Value++;
+
+			if (selectedLevel > 7)
+			{
+				selectedLevel.Value = 7;
+			}
 			
 			base.OnButtonClick();
 		}
