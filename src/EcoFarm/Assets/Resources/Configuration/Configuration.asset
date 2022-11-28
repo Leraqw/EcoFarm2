@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _balance:
     _watering:
-      <DroughtDuration>k__BackingField: 5
+      <DroughtDuration>k__BackingField: 10
       <DroughtStep>k__BackingField: 1
       <WateringStep>k__BackingField: 2
     _tree:
       <MinWatering>k__BackingField: 0
       <MaxWatering>k__BackingField: 8
-      <InitialWatering>k__BackingField: 3
+      <InitialWatering>k__BackingField: 8
     _bucket:
       <Radius>k__BackingField: 2
       <WaterConsumption>k__BackingField: 10
