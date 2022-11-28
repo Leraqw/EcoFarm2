@@ -662,6 +662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 930701732}
+  - component: {fileID: 930701733}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -692,6 +693,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 850, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &930701733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930701731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8518a29cca534f83af973733d2fab0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextLevelButton: {fileID: 210991519}
+  _retryLevelButton: {fileID: 1667931447}
 --- !u!1001 &1501803892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839772, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 139
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839772, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
