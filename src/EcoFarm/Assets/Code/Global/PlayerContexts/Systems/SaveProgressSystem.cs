@@ -21,7 +21,13 @@ namespace Code.Global.PlayerContexts.Systems
 
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(Save);
 
-		private void Save(PlayerEntity entity) 
-			=> Player.ReplaceCompletedLevelsCount(Player.selectedLevel + 1);
+		private void Save(PlayerEntity entity)
+		{
+			var currentLevel = Player.selectedLevel + 1;
+			if (currentLevel > Player.completedLevelsCount)
+			{
+				Player.ReplaceCompletedLevelsCount(currentLevel);
+			}
+		}
 	}
 }
