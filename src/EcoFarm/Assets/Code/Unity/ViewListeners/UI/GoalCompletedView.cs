@@ -1,5 +1,6 @@
 ﻿using Code.Utils.Extensions;
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,10 @@ namespace Code.Unity.ViewListeners.UI
 {
 	public class GoalCompletedView : BaseViewListener, IGoalCompletedListener
 	{
+		[SerializeField] private float _completedGoalOpacity = 0.5f;
 		[SerializeField] private Image _image;
 		[SerializeField] private TextMeshProUGUI _textMesh;
+		[SerializeField] private GameObject _checkmark;
 
 		protected override void AddListener(GameEntity entity) => entity.AddGoalCompletedListener(this);
 
@@ -18,9 +21,10 @@ namespace Code.Unity.ViewListeners.UI
 
 		public void OnGoalCompleted(GameEntity entity)
 		{
-			const float translucent = 0.5f;
-			_image.color = _image.color.SetAlpha(translucent);
-			_textMesh.color = _textMesh.color.SetAlpha(translucent);
+			_image.color = _image.color.SetAlpha(_completedGoalOpacity);
+			_textMesh.color = _textMesh.color.SetAlpha(_completedGoalOpacity);
+			
+			_checkmark.SetActive(true);
 		}
 	}
 }
