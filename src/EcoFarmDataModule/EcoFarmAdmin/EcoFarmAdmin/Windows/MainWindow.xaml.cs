@@ -24,5 +24,10 @@ namespace EcoFarmAdmin
 		{
 			InitializeComponent();
 		}
+
+		private void OnCreateDataBaseClick(object sender, RoutedEventArgs e)
+		{
+			
+		}
 	}
 }
