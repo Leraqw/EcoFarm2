@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using DevExpress.Mvvm;
+﻿using DevExpress.Mvvm;
 using EcoFarmAdmin.Models;
 
 namespace EcoFarmAdmin.ViewModels;
@@ -10,5 +9,5 @@ public class MainViewModel : ViewModelBase
 
 	public MainViewModel() => _model = new MainModel();
 
-	public ICommand CreateNewDatabaseCommand => new DelegateCommand(_model.CreateNewDatabase);
+	public ICommand<object> CreateNewDatabase => new DelegateCommand(_model.CreateNewDatabase);
 }
