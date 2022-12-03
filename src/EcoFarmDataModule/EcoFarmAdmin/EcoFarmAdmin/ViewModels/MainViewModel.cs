@@ -10,4 +10,8 @@ public class MainViewModel : ViewModelBase
 	public MainViewModel() => _model = new MainModel();
 
 	public ICommand<object> CreateNewDatabase => new DelegateCommand(_model.CreateNewDatabase);
+	
+	public ICommand<object> OpenDatabase => new DelegateCommand(_model.OpenDatabase);
+	
+	public ICommand<object> ToDevObjectsWindow => new DelegateCommand(() => { }, () => _model.IsDbConnected);
 }
