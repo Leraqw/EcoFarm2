@@ -9,5 +9,5 @@ public class ApplicationContext : DbContext
 	public ApplicationContext(string path) => _path = path;
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		=> optionsBuilder.UseSqlite($"Data Source = {_path}.db");
+		=> optionsBuilder.UseSqlite($"Data Source = {_path}");
 }
