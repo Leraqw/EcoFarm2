@@ -7,9 +7,9 @@ namespace EcoFarmAdmin.Models;
 
 public class MainModel
 {
-	private ApplicationContext? _context;
+	private ApplicationContext? _dataBase;
 	
-	public bool IsDbConnected => _context != null;
+	public bool IsDbConnected => _dataBase != null;
 
 	public void CreateNewDatabase()
 	{
@@ -30,7 +30,8 @@ public class MainModel
 		var path = dialog.FileName;
 
 		MessageBox.Show(path);
-		_context = new ApplicationContext(path);
+		_dataBase = new ApplicationContext(path);
+		_dataBase.Database.EnsureCreated();
 	}
 
 	public void OpenDatabase()
@@ -50,6 +51,6 @@ public class MainModel
 		var path = dialog.FileName;
 
 		MessageBox.Show(path);
-		_context = new ApplicationContext(path);
+		_dataBase = new ApplicationContext(path);
 	}
 }
