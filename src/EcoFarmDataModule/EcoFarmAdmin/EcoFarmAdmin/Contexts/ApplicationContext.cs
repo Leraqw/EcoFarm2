@@ -7,7 +7,7 @@ public class ApplicationContext : DbContext
 {
 	private readonly string _path;
 
-	public ApplicationContext(string path) => _path = path;
+	public ApplicationContext(string path = "EcoFarm.db") => _path = path;
 
 	public DbSet<DevObject> DevObjects { get; set; } = null!;
 
