@@ -11,7 +11,5 @@ public class DataBaseViewModel : ViewModelBase
 		=> DataBaseConnection.CurrentContext?.DevObjects.Local.ToObservableCollection()
 		   ?? throw new NullReferenceException();
 
-	public ICommand<DevObject> EditDoCommand => new DelegateCommand<DevObject>(EditDo);
-
-	private static void EditDo(DevObject devObject) => WindowsTransfer.EditProduct(devObject);
+	public ICommand<DevObject> EditDevObject => new DelegateCommand<DevObject>(WindowsTransfer.EditProduct);
 }
