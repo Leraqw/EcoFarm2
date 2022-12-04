@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:EcoFarmAdmin"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         mc:Ignorable="d"
         Title="DevObjectEditor" Height="450" Width="800">
@@ -11,14 +10,25 @@
         <vm:DataBaseViewModel></vm:DataBaseViewModel>
     </Window.DataContext>
     <Grid>
-        <ListBox ItemsSource="{Binding DevObjects}">
+        <ListBox ItemsSource="{Binding DevObjects}" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Title}" FontSize="16" />
-                        <TextBlock Text="{Binding Description}" FontSize="13" />
-                        <TextBlock Text="{Binding Price}" FontSize="13" />
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!-- title and description -->
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Title}" FontSize="20" />
+                            <TextBlock Text="{Binding Description}" FontSize="13" />
+                        </StackPanel>
+                        <!-- price -->
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Label VerticalAlignment="Center">Цена:</Label>
+                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right" TextAlignment="Right" />
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
