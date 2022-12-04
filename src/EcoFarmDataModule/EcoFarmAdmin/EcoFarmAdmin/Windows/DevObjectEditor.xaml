@@ -17,7 +17,7 @@
                         <Grid.InputBindings>
                             <MouseBinding
                                 MouseAction="LeftDoubleClick"
-                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditDoCommand}"
+                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditDevObject}"
                                 CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = ListBox}, Path = SelectedItem}"
                                 />
                         </Grid.InputBindings>

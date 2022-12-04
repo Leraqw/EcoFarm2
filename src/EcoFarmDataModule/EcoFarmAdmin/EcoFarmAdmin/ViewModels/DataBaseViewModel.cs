@@ -12,7 +12,17 @@ public class DataBaseViewModel : ViewModelBase
 		=> DataBaseConnection.CurrentContext?.DevObjects.Local.ToObservableCollection()
 		   ?? throw new NullReferenceException();
 
-	public ICommand<DevObject> EditDoCommand => new DelegateCommand<DevObject>(EditDo);
+	public ICommand<DevObject> EditDevObject => new DelegateCommand<DevObject>(DataEditModel.EditProduct);
+}
 
-	private static void EditDo(DevObject devObject) => MessageBox.Show($"Edit {devObject.Title}");
+public class DataEditModel
+{
+	public static void EditProduct(DevObject devObject)
+	{
+		if (WindowsTransfer.EditProduct(ref devObject))
+		{
+			MessageBox.Show("Saved");
+			DataBaseConnection.CurrentContext.SaveChanges();
+		}
+	}
 }
