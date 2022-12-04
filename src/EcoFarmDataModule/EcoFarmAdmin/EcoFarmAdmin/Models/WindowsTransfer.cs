@@ -16,7 +16,7 @@ public static class WindowsTransfer
 		var window = new ProductEditWindow();
 		var context = (ProductEditViewModel)window.DataContext;
 		context.DevObject = devObject;
-		window.Show();
+		window.ShowDialog();
 	}
 
 	public static SaveFileDialog SaveDataBaseDialog()

@@ -33,8 +33,8 @@
         <TextBox Height="25" VerticalAlignment="Top" Text="{Binding DevObject.Price}" Grid.Row="2" Grid.Column="1" />
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
-            <Button Margin="10, 0, 10, 15" IsDefault="True">ОК</Button>
-            <Button Margin="10, 0, 10, 15" IsCancel="True">Отмена</Button>
+            <Button IsDefault="True">ОК</Button>
+            <Button IsCancel="True">Отмена</Button>
         </StackPanel>
 
     </Grid>
