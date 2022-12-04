@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
 
@@ -14,5 +13,5 @@ public class DataBaseViewModel : ViewModelBase
 
 	public ICommand<DevObject> EditDoCommand => new DelegateCommand<DevObject>(EditDo);
 
-	private static void EditDo(DevObject devObject) => MessageBox.Show($"Edit {devObject.Title}");
+	private static void EditDo(DevObject devObject) => WindowsTransfer.EditProduct(devObject);
 }

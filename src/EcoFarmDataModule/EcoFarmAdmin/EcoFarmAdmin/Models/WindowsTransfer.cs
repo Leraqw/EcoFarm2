@@ -1,4 +1,6 @@
 using System.IO;
+using EcoFarmAdmin.Domain;
+using EcoFarmAdmin.EditWindows;
 using Microsoft.Win32;
 
 namespace EcoFarmAdmin.ViewModels;
@@ -6,6 +8,16 @@ namespace EcoFarmAdmin.ViewModels;
 public static class WindowsTransfer
 {
 	public static void ToDevObjectWindow() => new DevObjectEditor().Show();
+
+	public static void CreateProduct() => EditProduct(new DevObject());
+
+	public static void EditProduct(DevObject devObject)
+	{
+		var window = new ProductEditWindow();
+		var context = (ProductEditViewModel)window.DataContext;
+		context.DevObject = devObject;
+		window.Show();
+	}
 
 	public static SaveFileDialog SaveDataBaseDialog()
 		=> new()
