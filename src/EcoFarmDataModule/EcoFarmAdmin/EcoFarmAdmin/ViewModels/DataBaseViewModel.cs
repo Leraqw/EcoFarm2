@@ -14,5 +14,5 @@ public class DataBaseViewModel : ViewModelBase
 
 	public ICommand<DevObject> EditDoCommand => new DelegateCommand<DevObject>(EditDo);
 
-	public void EditDo(DevObject devObject) => MessageBox.Show($"Edit {devObject.Title}");
+	private static void EditDo(DevObject devObject) => MessageBox.Show($"Edit {devObject.Title}");
 }
