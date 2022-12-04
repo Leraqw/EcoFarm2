@@ -5,12 +5,8 @@ namespace EcoFarmAdmin;
 
 public class ApplicationContext : DbContext
 {
-	private readonly string _path;
-
-	public ApplicationContext(string path = "EcoFarm.db") => _path = path;
-
 	public DbSet<DevObject> DevObjects { get; set; } = null!;
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		=> optionsBuilder.UseSqlite($"Data Source = {_path}");
+		=> optionsBuilder.UseSqlite($"Data Source = EcoFarm.db");
 }

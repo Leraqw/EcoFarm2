@@ -7,7 +7,12 @@ public class MainViewModel : ViewModelBase
 {
 	private readonly MainModel _model;
 
-	public MainViewModel() => _model = new MainModel();
+	public MainViewModel()
+	{
+		_model = new MainModel();
+
+		_model.OpenDatabase();
+	}
 
 	public ICommand<object> CreateNewDatabase => new DelegateCommand(_model.CreateNewDatabase);
 

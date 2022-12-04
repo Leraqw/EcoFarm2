@@ -8,24 +8,26 @@ public static class DataBaseConnection
 
 	public static bool IsConnected => CurrentContext != null;
 
-	public static ApplicationContext CreateDataBase(string path)
+	public static ApplicationContext CreateDataBase()
 	{
 		CloseConnection();
-		CurrentContext = new ApplicationContext(path);
+		CurrentContext = new ApplicationContext();
 		CurrentContext.Database.EnsureCreated();
 		return CurrentContext;
 	}
 	
-	public static ApplicationContext OpenDataBase(string path)
+	public static ApplicationContext OpenDataBase()
 	{
 		CloseConnection();
-		CurrentContext = new ApplicationContext(path);
+		CurrentContext = new ApplicationContext();
 		CurrentContext.DevObjects.Load();
 		return CurrentContext;
 	}
 
+	// ReSharper disable once MemberCanBePrivate.Global - is used in App.g.cs
 	public static void CloseConnection()
 	{
+		CurrentContext?.SaveChanges();
 		CurrentContext?.Dispose();
 		CurrentContext = null;
 	}
