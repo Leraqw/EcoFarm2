@@ -10,16 +10,17 @@
     <Window.DataContext>
         <vm:DataBaseViewModel></vm:DataBaseViewModel>
     </Window.DataContext>
-
     <Grid>
-        <!-- table -->
-        <DataGrid ItemsSource="{Binding DevObjects}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListBox ItemsSource="{Binding DevObjects}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}" FontSize="16" />
+                        <TextBlock Text="{Binding Description}" FontSize="13" />
+                        <TextBlock Text="{Binding Price}" FontSize="13" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
