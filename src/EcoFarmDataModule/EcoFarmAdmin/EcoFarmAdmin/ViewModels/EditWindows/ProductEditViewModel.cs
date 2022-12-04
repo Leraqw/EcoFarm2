@@ -1,4 +1,5 @@
-﻿using DevExpress.Mvvm;
+﻿using System.Windows;
+using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
@@ -16,4 +17,6 @@ public class ProductEditViewModel : ViewModelBase
 			RaisePropertiesChanged();
 		}
 	}
+
+	public ICommand<Window> Submit => new DelegateCommand<Window>((w) => w.DialogResult = true);
 }

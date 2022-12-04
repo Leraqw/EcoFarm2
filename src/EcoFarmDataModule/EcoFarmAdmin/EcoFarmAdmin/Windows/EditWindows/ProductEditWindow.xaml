@@ -6,7 +6,8 @@
         xmlns:m="clr-namespace:EcoFarmAdmin.Domain"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         mc:Ignorable="d"
-        Title="ProductEditWindow" Height="450" Width="800">
+        Title="ProductEditWindow" Height="450" Width="800"
+        xmlns:dialogResult="{Binding DialogResult}">
     <Window.DataContext>
         <vm:ProductEditViewModel />
     </Window.DataContext>
@@ -33,7 +34,9 @@
         <TextBox Height="25" VerticalAlignment="Top" Text="{Binding DevObject.Price}" Grid.Row="2" Grid.Column="1" />
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
-            <Button IsDefault="True">ОК</Button>
+            <Button IsDefault="True" Command="{Binding Submit}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                    Content="ОК" />
             <Button IsCancel="True">Отмена</Button>
         </StackPanel>
 

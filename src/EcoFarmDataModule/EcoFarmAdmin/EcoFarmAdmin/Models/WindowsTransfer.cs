@@ -9,14 +9,19 @@ public static class WindowsTransfer
 {
 	public static void ToDevObjectWindow() => new DevObjectEditor().Show();
 
-	public static void CreateProduct() => EditProduct(new DevObject());
+	public static bool CreateProduct(out DevObject devObject)
+	{
+		devObject = new DevObject();
+		return EditProduct(ref devObject);
+	}
 
-	public static void EditProduct(DevObject devObject)
+	public static bool EditProduct(ref DevObject devObject)
 	{
 		var window = new ProductEditWindow();
 		var context = (ProductEditViewModel)window.DataContext;
-		context.DevObject = devObject;
+		context.DevObject = devObject.Clone();
 		window.ShowDialog();
+		return window.DialogResult ?? false;
 	}
 
 	public static SaveFileDialog SaveDataBaseDialog()

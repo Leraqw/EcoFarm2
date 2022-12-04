@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
 
@@ -11,5 +12,17 @@ public class DataBaseViewModel : ViewModelBase
 		=> DataBaseConnection.CurrentContext?.DevObjects.Local.ToObservableCollection()
 		   ?? throw new NullReferenceException();
 
-	public ICommand<DevObject> EditDevObject => new DelegateCommand<DevObject>(WindowsTransfer.EditProduct);
+	public ICommand<DevObject> EditDevObject => new DelegateCommand<DevObject>(DataEditModel.EditProduct);
+}
+
+public class DataEditModel
+{
+	public static void EditProduct(DevObject devObject)
+	{
+		if (WindowsTransfer.EditProduct(ref devObject))
+		{
+			MessageBox.Show("Saved");
+			DataBaseConnection.CurrentContext.SaveChanges();
+		}
+	}
 }
