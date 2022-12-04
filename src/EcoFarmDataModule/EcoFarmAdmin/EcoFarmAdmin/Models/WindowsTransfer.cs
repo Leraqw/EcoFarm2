@@ -21,7 +21,13 @@ public static class WindowsTransfer
 		var context = (ProductEditViewModel)window.DataContext;
 		context.DevObject = devObject.Clone();
 		window.ShowDialog();
-		return window.DialogResult ?? false;
+		var confirmed = window.DialogResult ?? false;
+		if (confirmed)
+		{
+			devObject.SetFrom(context.DevObject);
+		}
+
+		return confirmed;
 	}
 
 	public static SaveFileDialog SaveDataBaseDialog()

@@ -11,4 +11,12 @@ public class DevObject
 	public int     Price       { get; set; }
 
 	public DevObject Clone() => (DevObject)MemberwiseClone();
+
+	public void SetFrom(DevObject other)
+	{
+		Id = other.Id;
+		Title = other.Title;
+		Description = other.Description;
+		Price = other.Price;
+	}
 }
