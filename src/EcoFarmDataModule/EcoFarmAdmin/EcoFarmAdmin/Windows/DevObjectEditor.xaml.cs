@@ -1,11 +1,6 @@
-﻿using System.Windows;
+﻿namespace EcoFarmAdmin;
 
-namespace EcoFarmAdmin;
-
-public partial class DevObjectEditor : Window
+public partial class DevObjectEditor
 {
-	public DevObjectEditor()
-	{
-		InitializeComponent();
-	}
+	public DevObjectEditor() => InitializeComponent();
 }
