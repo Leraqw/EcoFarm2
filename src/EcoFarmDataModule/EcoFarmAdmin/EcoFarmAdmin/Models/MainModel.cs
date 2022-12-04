@@ -1,17 +1,10 @@
-using System;
-using System.IO;
 using System.Windows;
 using EcoFarmAdmin.ViewModels;
-using Microsoft.Win32;
 
 namespace EcoFarmAdmin.Models;
 
 public class MainModel
 {
-	private ApplicationContext? _dataBase;
-
-	public bool IsDbConnected => _dataBase != null;
-
 	public void CreateNewDatabase()
 	{
 		var dialog = WindowsTransfer.SaveDataBaseDialog();
@@ -20,11 +13,7 @@ public class MainModel
 			return;
 		}
 
-		var path = dialog.FileName;
-
-		MessageBox.Show(path);
-		_dataBase = new ApplicationContext(path);
-		_dataBase.Database.EnsureCreated();
+		DataBaseConnection.CreateDataBase(dialog.FileName);
 	}
 
 	public void OpenDatabase()
@@ -35,9 +24,6 @@ public class MainModel
 			return;
 		}
 
-		var path = dialog.FileName;
-
-		MessageBox.Show(path);
-		_dataBase = new ApplicationContext(path);
+		DataBaseConnection.OpenDataBase(dialog.FileName);
 	}
 }

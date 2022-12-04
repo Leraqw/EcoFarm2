@@ -7,15 +7,6 @@ public static class WindowsTransfer
 {
 	public static void ToDevObjectWindow() => new DevObjectEditor().Show();
 
-	public static OpenFileDialog OpenDataBaseDialog()
-		=> new()
-		{
-			Filter = "SQLite database (*.db)|*.db",
-			Title = "Select database file",
-			InitialDirectory = Directory.GetCurrentDirectory(),
-			ValidateNames = true,
-		};
-
 	public static SaveFileDialog SaveDataBaseDialog()
 		=> new()
 		{
@@ -24,6 +15,15 @@ public static class WindowsTransfer
 			FileName = "EcoFarm.db",
 			InitialDirectory = Directory.GetCurrentDirectory(),
 			OverwritePrompt = true,
+			ValidateNames = true,
+		};
+
+	public static OpenFileDialog OpenDataBaseDialog()
+		=> new()
+		{
+			Filter = "SQLite database (*.db)|*.db",
+			Title = "Select database file",
+			InitialDirectory = Directory.GetCurrentDirectory(),
 			ValidateNames = true,
 		};
 }

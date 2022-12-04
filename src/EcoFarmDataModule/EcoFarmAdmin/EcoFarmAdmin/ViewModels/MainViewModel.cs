@@ -14,5 +14,5 @@ public class MainViewModel : ViewModelBase
 	public ICommand<object> OpenDatabase => new DelegateCommand(_model.OpenDatabase);
 
 	public ICommand<object> ToDevObjectsWindow 
-		=> new DelegateCommand(WindowsTransfer.ToDevObjectWindow, () => _model.IsDbConnected);
+		=> new DelegateCommand(WindowsTransfer.ToDevObjectWindow, () => DataBaseConnection.IsConnected);
 }
