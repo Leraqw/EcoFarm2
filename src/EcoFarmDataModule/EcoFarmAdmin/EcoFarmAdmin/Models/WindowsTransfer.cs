@@ -7,6 +7,8 @@ public static class WindowsTransfer
 {
 	public static void ToProductsListWindow() => new ProductsListWindow().Show();
 
+	public static void ToTreesListWindow() => new TreesListWindow().Show();
+
 	public static bool CreateProduct(out Product devObject) => EditProduct(new Product(), out devObject);
 
 	public static bool EditProduct(in Product devObject, out Product changed)

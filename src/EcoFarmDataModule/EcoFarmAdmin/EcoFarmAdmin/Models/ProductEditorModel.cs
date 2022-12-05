@@ -4,7 +4,7 @@ using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
 
-public class DataEditModel
+public class ProductEditorModel
 {
 	public static void AddProduct() => DataBaseConnection.CurrentContext.Products.Add(new Product());
 

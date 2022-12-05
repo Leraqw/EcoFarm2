@@ -13,4 +13,11 @@ public class MainViewModel : ViewModelBase
 			WindowsTransfer.ToProductsListWindow,
 			() => DataBaseConnection.IsConnected
 		);
+
+	public ICommand<object> ToTreesListWindow
+		=> new DelegateCommand
+		(
+			WindowsTransfer.ToTreesListWindow,
+			() => DataBaseConnection.IsConnected
+		);
 }
