@@ -22,7 +22,7 @@
                         <Grid.InputBindings>
                             <MouseBinding
                                 MouseAction="LeftDoubleClick"
-                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditDevObject}"
+                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditProduct}"
                                 CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = ListBox}, Path = SelectedItem}" />
                         </Grid.InputBindings>
                         <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
         </ListBox>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Добавить"></Button>
+            <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
             <Button Content="Редактировать"></Button>
             <Button Content="Удалить"></Button>
         </StackPanel>
