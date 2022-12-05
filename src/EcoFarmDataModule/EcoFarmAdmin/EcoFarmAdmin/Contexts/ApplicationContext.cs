@@ -29,6 +29,6 @@ public class ApplicationContext : DbContext
 	private static class Table<T>
 		where T : class
 	{
-		public static DbSet<T> Value;
+		public static DbSet<T> Value = null!;
 	}
 }

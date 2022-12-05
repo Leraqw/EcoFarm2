@@ -21,9 +21,9 @@
         </Grid.ColumnDefinitions>
 
         <ListBox Grid.Row="0"
-                 ItemsSource="{Binding Products}"
+                 ItemsSource="{Binding Collection}"
                  HorizontalContentAlignment="Stretch"
-                 SelectedItem="{Binding SelectedProduct}">
+                 SelectedItem="{Binding SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

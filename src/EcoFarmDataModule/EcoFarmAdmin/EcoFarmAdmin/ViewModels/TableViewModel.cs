@@ -5,7 +5,7 @@ using DevExpress.Mvvm;
 
 namespace EcoFarmAdmin.ViewModels;
 
-public abstract class TableViewModel<T> : DataBaseViewModel
+public abstract class TableViewModel<T> : ViewModelBase
 	where T : class, new()
 {
 	public TableViewModel() => Refresh();
@@ -13,7 +13,7 @@ public abstract class TableViewModel<T> : DataBaseViewModel
 	public T?         SelectedItem           { get; set; }
 	public Visibility HasChangesAsVisibility { get; set; }
 
-	public bool Selected => SelectedItem != null;
+	public bool IsSelected => SelectedItem != null;
 
 	public ObservableCollection<T> Collection
 		=> DataBaseConnection.CurrentContext.GetTable<T>().Local.ToObservableCollection();
@@ -24,7 +24,7 @@ public abstract class TableViewModel<T> : DataBaseViewModel
 		=> new DelegateCommand<T>
 		(
 			DeleteItem,
-			(_) => Selected
+			(_) => IsSelected
 		);
 
 	public static void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
