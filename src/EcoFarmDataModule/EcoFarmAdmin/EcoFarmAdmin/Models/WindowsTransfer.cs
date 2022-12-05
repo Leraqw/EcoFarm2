@@ -9,14 +9,9 @@ public static class WindowsTransfer
 {
 	public static void ToDevObjectWindow() => new DevObjectEditor().Show();
 
-	public static bool CreateProduct(out DevObject devObject)
-	{
-		var editProduct = EditProduct(new DevObject(), out var changed);
-		devObject = changed;
-		return editProduct;
-	}
+	public static bool CreateProduct(out DevObject devObject) => EditProduct(new DevObject(), out devObject);
 
-	public static bool EditProduct(DevObject devObject, out DevObject changed)
+	public static bool EditProduct(in DevObject devObject, out DevObject changed)
 	{
 		var window = new ProductEditWindow();
 		var context = (ProductEditViewModel)window.DataContext;

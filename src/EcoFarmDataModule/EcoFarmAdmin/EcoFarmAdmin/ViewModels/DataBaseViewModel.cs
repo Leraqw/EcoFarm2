@@ -12,5 +12,5 @@ public class DataBaseViewModel : ViewModelBase
 		   ?? throw new NullReferenceException();
 
 	public ICommand<DevObject> EditDevObject
-		=> new DelegateCommand<DevObject>(@do => DataEditModel.EditProduct(ref @do));
+		=> new DelegateCommand<DevObject>((@do) => DataEditModel.EditProduct(ref @do));
 }

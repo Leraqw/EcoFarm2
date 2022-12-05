@@ -23,8 +23,5 @@ public class DevObject : INotifyPropertyChanged
 		Price = other.Price;
 	}
 
-	public void OnPropertyChanged() => OnPropertyChanged(string.Empty);
-
-	private void OnPropertyChanged(string propertyName)
-		=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	public void OnPropertyChanged() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
 }
