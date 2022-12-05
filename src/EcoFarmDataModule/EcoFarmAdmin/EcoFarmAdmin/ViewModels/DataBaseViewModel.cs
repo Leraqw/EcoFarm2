@@ -9,17 +9,18 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class DataBaseViewModel : ViewModelBase
 {
-	public Product? SelectedProduct { get; set; }
+	public Product?   SelectedProduct      { get; set; }
+	public bool       Selected => SelectedProduct != null;
+	public Visibility HasChangesVisibility { get; set; }
 
 	public ObservableCollection<Product> Products
 		=> DataBaseConnection.CurrentContext.Products.Local.ToObservableCollection();
 
 	public ICommand<object> AddProduct => new DelegateCommand(DataEditModel.AddProduct);
 
-	public bool HasChanges => DataBaseConnection.CurrentContext.ChangeTracker.Entries()
-	                                            .Any((e) => e.State is Added or Modified or Deleted);
-	
-	public Visibility HasChangesVisibility { get; set; }
+	public bool HasChanges
+		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
+		                     .Any((e) => e.State is Added or Modified or Deleted);
 
 	public ICommand<Product> EditProduct
 		=> new DelegateCommand<Product>
