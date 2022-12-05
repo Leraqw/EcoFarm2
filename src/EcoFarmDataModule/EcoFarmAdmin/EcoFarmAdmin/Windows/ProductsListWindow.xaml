@@ -69,7 +69,7 @@
             <Label
                 Visibility="{Binding HasChangesVisibility}"
                 Foreground="Red"
-                Content="Есть несохранённые изменения!!!" />
+                Content="Есть несохранённые изменения!" />
             <Button
                 Content="Сохранить"
                 Command="{Binding SaveChanges}" />

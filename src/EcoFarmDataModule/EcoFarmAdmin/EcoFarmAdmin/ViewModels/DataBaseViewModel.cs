@@ -1,9 +1,7 @@
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
-using static Microsoft.EntityFrameworkCore.EntityState;
 
 namespace EcoFarmAdmin.ViewModels;
 
@@ -37,17 +35,11 @@ public class DataBaseViewModel : ViewModelBase
 			() =>
 			{
 				Refresh();
-				return HasChanges;
+				return DataBaseConnection.HasChanges;
 			}
 		);
-
-	private Visibility ToVisibility(bool arg) => arg ? Visibility.Visible : Visibility.Hidden;
-
-	private void Refresh() => HasChangesVisibility = ToVisibility(HasChanges);
-
-	private bool HasChanges
-		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
-		                     .Any((e) => e.State is Added or Modified or Deleted);
+	
+	private void Refresh() => HasChangesVisibility = DataBaseConnection.HasChanges.AsVisibility();
 
 	private void Save() => DataBaseConnection.CurrentContext.SaveChanges();
 }

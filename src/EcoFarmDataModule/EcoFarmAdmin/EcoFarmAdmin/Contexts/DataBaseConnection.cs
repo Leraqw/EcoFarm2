@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.EntityState;
 
 namespace EcoFarmAdmin;
 
@@ -31,4 +34,12 @@ public static class DataBaseConnection
 		_currentContext?.Dispose();
 		_currentContext = null;
 	}
+
+	public static bool HasChanges
+		=> CurrentContext.ChangeTracker.Entries().Any((e) => e.State is Added or Modified or Deleted);
+}
+
+public static class PropertyExtensions
+{
+	public static Visibility AsVisibility(this bool @this) => @this ? Visibility.Visible : Visibility.Hidden;
 }
