@@ -2,7 +2,7 @@
 
 namespace EcoFarmAdmin;
 
-public partial class LevelsListWindow : Window
+public partial class LevelsListWindow
 {
 	public LevelsListWindow()
 	{
