@@ -15,6 +15,11 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
         <ListBox Grid.Row="0"
                  ItemsSource="{Binding Products}"
                  HorizontalContentAlignment="Stretch"
@@ -22,13 +27,6 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Grid.InputBindings>
-                            <MouseBinding
-                                MouseAction="LeftDoubleClick"
-                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditProduct}"
-                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.SelectedProduct}" />
-                        </Grid.InputBindings>
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -49,14 +47,32 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
-            <Button Content="Редактировать"
-                    Command="{Binding EditProduct}"
-                    CommandParameter="{Binding SelectedProduct}" />
             <Button Content="Удалить"
                     Command="{Binding DeleteProduct}"
                     CommandParameter="{Binding SelectedProduct}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedProduct}"
+                    VerticalAlignment="Center">
+            <Label Content="Название:" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+
+            <Label Content="Описание:" />
+            <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+
+            <Label Content="Цена:" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Visibility="{Binding HasChangesAsVisibility}"
+                Foreground="Red"
+                Content="Есть несохранённые изменения!" />
+            <Button
+                Content="Сохранить"
+                Command="{Binding SaveChanges}" />
         </StackPanel>
     </Grid>
 </Window>

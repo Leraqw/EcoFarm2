@@ -4,13 +4,20 @@
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="TextBlock">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5" />
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5" />
         </Style>
         <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5" />
         </Style>
+
+        <Style TargetType="TextBox" x:Key="EditableField" BasedOn="{StaticResource {x:Type TextBox}}">
+            <!-- ReSharper disable once Xaml.BindingWithContextNotResolved - used in DataBaseViewModel.cs -->
+            <Setter Property="IsEnabled"
+                    Value="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.Selected}" />
+        </Style>
+
     </Application.Resources>
 </Application>
