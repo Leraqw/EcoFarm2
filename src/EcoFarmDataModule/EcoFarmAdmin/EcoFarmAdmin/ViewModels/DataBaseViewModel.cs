@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
 
@@ -6,9 +6,9 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class DataBaseViewModel : ViewModelBase
 {
-	public IEnumerable<DevObject> DevObjects
-		=> DataBaseConnection.CurrentContext.DevObjects.Local.ToObservableCollection();
+	public ObservableCollection<Product> Products
+		=> DataBaseConnection.CurrentContext.Products.Local.ToObservableCollection();
 
-	public ICommand<DevObject> EditDevObject
-		=> new DelegateCommand<DevObject>((@do) => DataEditModel.EditProduct(ref @do));
+	public ICommand<Product> EditDevObject
+		=> new DelegateCommand<Product>((p) => DataEditModel.EditProduct(ref p));
 }

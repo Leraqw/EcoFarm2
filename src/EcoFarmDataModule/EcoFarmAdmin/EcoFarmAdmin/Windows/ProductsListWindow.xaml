@@ -10,7 +10,7 @@
         <vm:DataBaseViewModel></vm:DataBaseViewModel>
     </Window.DataContext>
     <Grid>
-        <ListBox ItemsSource="{Binding DevObjects}" HorizontalContentAlignment="Stretch">
+        <ListBox ItemsSource="{Binding Products}" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

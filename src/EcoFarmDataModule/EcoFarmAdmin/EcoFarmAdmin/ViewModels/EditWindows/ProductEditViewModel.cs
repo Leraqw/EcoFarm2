@@ -6,7 +6,7 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class ProductEditViewModel : ViewModelBase
 {
-	public DevObject DevObject { get; set; } = null!;
+	public Product Product { get; set; } = null!;
 
 	public ICommand<Window> Submit => new DelegateCommand<Window>((w) => w.Submit());
 }

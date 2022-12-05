@@ -27,9 +27,9 @@
         <TextBlock Text="Описание" TextAlignment="Right" Grid.Row="1" Grid.Column="0" />
         <TextBlock Text="Цена" TextAlignment="Right" Grid.Row="2" Grid.Column="0" />
 
-        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding DevObject.Title}" Grid.Row="0" Grid.Column="1" />
-        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding DevObject.Description}" Grid.Row="1" Grid.Column="1" />
-        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding DevObject.Price}" Grid.Row="2" Grid.Column="1" />
+        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding Product.Title}" Grid.Row="0" Grid.Column="1" />
+        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding Product.Description}" Grid.Row="1" Grid.Column="1" />
+        <TextBox Height="25" VerticalAlignment="Top" Text="{Binding Product.Price}" Grid.Row="2" Grid.Column="1" />
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
             <Button IsDefault="True" Command="{Binding Submit}"

@@ -7,17 +7,17 @@ public static class WindowsTransfer
 {
 	public static void ToProductsListWindow() => new ProductsListWindow().Show();
 
-	public static bool CreateProduct(out DevObject devObject) => EditProduct(new DevObject(), out devObject);
+	public static bool CreateProduct(out Product devObject) => EditProduct(new Product(), out devObject);
 
-	public static bool EditProduct(in DevObject devObject, out DevObject changed)
+	public static bool EditProduct(in Product devObject, out Product changed)
 	{
 		var window = new ProductEditWindow();
 		var context = (ProductEditViewModel)window.DataContext;
 
-		context.DevObject = devObject.Clone();
+		context.Product = devObject.Clone();
 		window.ShowDialog();
 
-		changed = context.DevObject;
+		changed = context.Product;
 		return window.DialogResult ?? false;
 	}
 }
