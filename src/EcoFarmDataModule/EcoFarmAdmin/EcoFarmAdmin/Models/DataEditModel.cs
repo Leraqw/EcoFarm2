@@ -23,7 +23,7 @@ public class DataEditModel
 		}
 	}
 
-	private static void SaveChanges(Product newProduct)
+	public static void SaveChanges(Product newProduct)
 	{
 		var product = DataBaseConnection.CurrentContext.Products.Find(newProduct.Id)
 		              ?? throw new NullReferenceException("product not founded in database");

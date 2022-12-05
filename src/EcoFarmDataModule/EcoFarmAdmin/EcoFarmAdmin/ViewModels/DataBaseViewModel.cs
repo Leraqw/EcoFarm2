@@ -19,11 +19,18 @@ public class DataBaseViewModel : ViewModelBase
 			(p) => DataEditModel.EditProduct(ref p),
 			(p) => p is not null
 		);
-	
+
 	public ICommand<Product> DeleteProduct
 		=> new DelegateCommand<Product>
 		(
 			DataEditModel.DeleteProduct,
 			(p) => p is not null
 		);
+
+	public ICommand<object> ApplyChanges => new DelegateCommand(Save);
+
+	private void Save()
+	{
+		DataEditModel.SaveChanges(SelectedProduct!);
+	}
 }
