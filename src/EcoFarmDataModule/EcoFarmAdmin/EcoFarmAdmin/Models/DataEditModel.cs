@@ -10,6 +10,7 @@ public class DataEditModel
 		if (WindowsTransfer.CreateProduct(out var product))
 		{
 			DataBaseConnection.CurrentContext.DevObjects.Add(product);
+			DataBaseConnection.CurrentContext.SaveChanges();
 		}
 	}
 
