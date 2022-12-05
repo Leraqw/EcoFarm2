@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿namespace EcoFarmAdmin;
 
-namespace EcoFarmAdmin;
-
-public partial class TreesListWindow : Window
+public partial class TreesListWindow
 {
 	public TreesListWindow()
 	{
