@@ -5,9 +5,7 @@ public static class CommonExtensions
 	public static T SetFrom<T>(this T @this, T other)
 		where T : notnull
 	{
-		var properties = @this.GetType().GetProperties();
-		
-		foreach (var property in properties)
+		foreach (var property in @this.GetType().GetProperties())
 		{
 			property.SetValue(@this, property.GetValue(other));
 		}
