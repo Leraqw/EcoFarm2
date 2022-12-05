@@ -1,34 +1,37 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcoFarmAdmin;
 
 public static class DataBaseConnection
 {
-	public static ApplicationContext? CurrentContext { get; private set; }
+	private static ApplicationContext? _currentContext;
 
-	public static bool IsConnected => CurrentContext != null;
+	public static ApplicationContext CurrentContext => _currentContext ?? throw new NullReferenceException();
+
+	public static bool IsConnected => _currentContext != null;
 
 	public static ApplicationContext CreateDataBase()
 	{
 		CloseConnection();
-		CurrentContext = new ApplicationContext();
-		CurrentContext.Database.EnsureCreated();
-		return CurrentContext;
+		_currentContext = new ApplicationContext();
+		_currentContext.Database.EnsureCreated();
+		return _currentContext;
 	}
-	
+
 	public static ApplicationContext OpenDataBase()
 	{
 		CloseConnection();
-		CurrentContext = new ApplicationContext();
-		CurrentContext.DevObjects.Load();
-		return CurrentContext;
+		_currentContext = new ApplicationContext();
+		_currentContext.DevObjects.Load();
+		return _currentContext;
 	}
 
 	// ReSharper disable once MemberCanBePrivate.Global - is used in App.g.cs
 	public static void CloseConnection()
 	{
-		CurrentContext?.SaveChanges();
-		CurrentContext?.Dispose();
-		CurrentContext = null;
+		_currentContext?.SaveChanges();
+		_currentContext?.Dispose();
+		_currentContext = null;
 	}
 }
