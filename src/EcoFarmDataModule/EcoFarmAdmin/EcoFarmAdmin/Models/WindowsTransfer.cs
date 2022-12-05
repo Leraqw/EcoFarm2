@@ -1,7 +1,5 @@
-using System.IO;
 using EcoFarmAdmin.Domain;
 using EcoFarmAdmin.EditWindows;
-using Microsoft.Win32;
 
 namespace EcoFarmAdmin.ViewModels;
 
@@ -22,24 +20,4 @@ public static class WindowsTransfer
 		changed = context.DevObject;
 		return window.DialogResult ?? false;
 	}
-
-	public static SaveFileDialog SaveDataBaseDialog()
-		=> new()
-		{
-			Filter = "SQLite database (*.db)|*.db",
-			Title = "Select database file",
-			FileName = "EcoFarm.db",
-			InitialDirectory = Directory.GetCurrentDirectory(),
-			OverwritePrompt = true,
-			ValidateNames = true,
-		};
-
-	public static OpenFileDialog OpenDataBaseDialog()
-		=> new()
-		{
-			Filter = "SQLite database (*.db)|*.db",
-			Title = "Select database file",
-			InitialDirectory = Directory.GetCurrentDirectory(),
-			ValidateNames = true,
-		};
 }
