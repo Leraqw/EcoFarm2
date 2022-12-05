@@ -47,8 +47,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal"
-                    HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
             <Button Content="Удалить"
                     Command="{Binding DeleteProduct}"
@@ -57,25 +56,23 @@
 
         <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedProduct}"
                     VerticalAlignment="Center">
-            <Label>Название:</Label>
+            <Label Content="Название:" />
             <TextBox Text="{Binding Title}" Style="{StaticResource EditableField}" />
 
-            <Label>Описание:</Label>
+            <Label Content="Описание:" />
             <TextBox Text="{Binding Description}" Style="{StaticResource EditableField}" />
 
-            <Label>Цена:</Label>
+            <Label Content="Цена:" />
             <TextBox Text="{Binding Price}" Style="{StaticResource EditableField}" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label
                 Visibility="{Binding HasChangesVisibility}"
-                Foreground="Red">
-                Есть несохранённые изменения!!!
-            </Label>
+                Foreground="Red"
+                Content="Есть несохранённые изменения!!!" />
             <Button
                 Content="Сохранить"
                 Command="{Binding SaveChanges}" />
         </StackPanel>
-
     </Grid>
 </Window>
