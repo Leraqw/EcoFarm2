@@ -10,30 +10,22 @@ namespace EcoFarmAdmin.ViewModels;
 public class DataBaseViewModel : ViewModelBase
 {
 	public Product?   SelectedProduct      { get; set; }
-	public bool       Selected => SelectedProduct != null;
 	public Visibility HasChangesVisibility { get; set; }
+
+	// ReSharper disable once UnusedMember.Global - used in style EditableField in App.xaml
+	// ReSharper disable once MemberCanBePrivate.Global - same
+	public bool Selected => SelectedProduct != null;
 
 	public ObservableCollection<Product> Products
 		=> DataBaseConnection.CurrentContext.Products.Local.ToObservableCollection();
 
 	public ICommand<object> AddProduct => new DelegateCommand(DataEditModel.AddProduct);
 
-	public bool HasChanges
-		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
-		                     .Any((e) => e.State is Added or Modified or Deleted);
-
-	public ICommand<Product> EditProduct
-		=> new DelegateCommand<Product>
-		(
-			(p) => DataEditModel.EditProduct(ref p),
-			(p) => p is not null
-		);
-
 	public ICommand<Product> DeleteProduct
 		=> new DelegateCommand<Product>
 		(
 			DataEditModel.DeleteProduct,
-			(p) => p is not null
+			(_) => Selected
 		);
 
 	public ICommand<object> SaveChanges
@@ -46,6 +38,10 @@ public class DataBaseViewModel : ViewModelBase
 				return HasChanges;
 			}
 		);
+
+	private bool HasChanges
+		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
+		                     .Any((e) => e.State is Added or Modified or Deleted);
 
 	private void Save() => DataBaseConnection.CurrentContext.SaveChanges();
 }

@@ -6,21 +6,7 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class DataEditModel
 {
-	public static void AddProduct()
-	{
-		if (WindowsTransfer.CreateProduct(out var product))
-		{
-			DataBaseConnection.CurrentContext.Products.Add(product);
-		}
-	}
-
-	public static void EditProduct(ref Product product)
-	{
-		if (WindowsTransfer.EditProduct(product, out var changed))
-		{
-			product.SetFrom(changed);
-		}
-	}
+	public static void AddProduct() => DataBaseConnection.CurrentContext.Products.Add(new Product());
 
 	public static void DeleteProduct(Product product)
 	{
