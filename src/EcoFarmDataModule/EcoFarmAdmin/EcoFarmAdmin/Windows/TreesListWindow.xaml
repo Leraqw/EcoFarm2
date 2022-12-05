@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:EcoFarmAdmin"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         mc:Ignorable="d"
         Title="TreesListWindow" Height="450" Width="800">
@@ -24,7 +23,7 @@
         <ListBox Grid.Row="0"
                  ItemsSource="{Binding Trees}"
                  HorizontalContentAlignment="Stretch"
-                 SelectedItem="{Binding SelectedProduct}">
+                 SelectedItem="{Binding SelectedTree}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -37,12 +36,11 @@
                             <TextBlock Text="{Binding Title}" FontSize="20" />
                             <TextBlock Text="{Binding Description}" FontSize="13" />
                         </StackPanel>
-                        <!-- price -->
+                        <!-- product -->
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label VerticalAlignment="Center">Продукт:</Label>
-                            <TextBlock Text="{Binding Product.Title}" FontSize="16"
-                                       HorizontalAlignment="Right"
-                                       TextAlignment="Right" />
+                            <TextBlock Text="{Binding Product.Title}" FontSize="16" HorizontalAlignment="Right"
+                                       TextAlignment="Right" VerticalAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

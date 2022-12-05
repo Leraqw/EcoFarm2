@@ -15,7 +15,7 @@ public class DataBaseViewModel : ViewModelBase
 
 	// ReSharper disable once UnusedMember.Global - used in style EditableField in App.xaml
 	// ReSharper disable once MemberCanBePrivate.Global - same
-	public bool Selected => SelectedProduct != null;
+	public bool Selected => SelectedProduct != null || SelectedTree != null;
 
 	public ObservableCollection<Product> Products
 		=> DataBaseConnection.CurrentContext.Products.Local.ToObservableCollection();
