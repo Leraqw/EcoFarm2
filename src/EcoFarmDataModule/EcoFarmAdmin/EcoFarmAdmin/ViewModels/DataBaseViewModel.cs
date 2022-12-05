@@ -23,7 +23,7 @@ public class DataBaseViewModel : ViewModelBase
 	public ICommand<Product> DeleteProduct
 		=> new DelegateCommand<Product>
 		(
-			(p) => DataEditModel.DeleteProduct(p),
+			DataEditModel.DeleteProduct,
 			(p) => p is not null
 		);
 }
