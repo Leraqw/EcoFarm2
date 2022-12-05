@@ -20,7 +20,7 @@
             <Label Content="Управление данными" HorizontalAlignment="Center" />
             <Button Content="Продукты" Command="{Binding ToProductsListWindow}" />
             <Button Content="Деревья" Command="{Binding ToTreesListWindow}" />
-            <Button Content="Уровни" />
+            <Button Content="Уровни" Command="{Binding ToLevelsListWindow}"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="125" Margin="25">
