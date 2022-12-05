@@ -76,12 +76,10 @@
             <Label>Цена:</Label>
             <TextBox Text="{Binding Price}"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"
-                    >
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label
                 Visibility="{Binding HasChangesVisibility}"
-                Foreground="Red"
-                >
+                Foreground="Red">
                 Есть несохранённые изменения!!!
             </Label>
             <Button

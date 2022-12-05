@@ -16,12 +16,10 @@ public class DataBaseViewModel : ViewModelBase
 
 	public ICommand<object> AddProduct => new DelegateCommand(DataEditModel.AddProduct);
 
-	public bool HasChanges
-		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
-		                     .Any((e) => e.State is Modified or Added or Deleted);
+	public bool HasChanges => DataBaseConnection.CurrentContext.ChangeTracker.Entries()
+	                                            .Any((e) => e.State is Added or Modified or Deleted);
 	
-	public Visibility HasChangesVisibility
-		=> HasChanges ? Visibility.Visible : Visibility.Collapsed;
+	public Visibility HasChangesVisibility { get; set; }
 
 	public ICommand<Product> EditProduct
 		=> new DelegateCommand<Product>
@@ -41,7 +39,11 @@ public class DataBaseViewModel : ViewModelBase
 		=> new DelegateCommand
 		(
 			Save,
-			() => HasChanges
+			() =>
+			{
+				HasChangesVisibility = HasChanges ? Visibility.Visible : Visibility.Hidden;
+				return HasChanges;
+			}
 		);
 
 	private void Save() => DataBaseConnection.CurrentContext.SaveChanges();
