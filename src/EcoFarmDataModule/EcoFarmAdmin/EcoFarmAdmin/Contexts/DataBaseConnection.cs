@@ -11,18 +11,11 @@ public static class DataBaseConnection
 
 	public static bool IsConnected => _currentContext != null;
 
-	public static ApplicationContext CreateDataBase()
-	{
-		CloseConnection();
-		_currentContext = new ApplicationContext();
-		_currentContext.Database.EnsureCreated();
-		return _currentContext;
-	}
-
 	public static ApplicationContext OpenDataBase()
 	{
 		CloseConnection();
 		_currentContext = new ApplicationContext();
+		_currentContext.Database.EnsureCreated();
 		_currentContext.DevObjects.Load();
 		return _currentContext;
 	}
