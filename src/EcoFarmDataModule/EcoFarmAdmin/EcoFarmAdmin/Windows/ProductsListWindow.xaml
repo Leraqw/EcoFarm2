@@ -68,14 +68,13 @@
         <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedProduct}"
                     VerticalAlignment="Center">
             <Label>Название:</Label>
-            <TextBox Text="{Binding Title}"></TextBox>
+            <TextBox Text="{Binding Title}" Style="{StaticResource EditableField}"/>
 
             <Label>Описание:</Label>
-            <TextBox Text="{Binding Description}" Style="{StaticResource EditableField}"></TextBox>
+            <TextBox Text="{Binding Description}" Style="{StaticResource EditableField}" />
 
             <Label>Цена:</Label>
-            <TextBox Text="{Binding Price}"
-                     IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.Selected}" />
+            <TextBox Text="{Binding Price}" Style="{StaticResource EditableField}" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label
