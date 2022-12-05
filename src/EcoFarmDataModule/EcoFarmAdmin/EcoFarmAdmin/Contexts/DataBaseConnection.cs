@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -15,6 +16,10 @@ public static class DataBaseConnection
 
 	public static ApplicationContext CurrentContext => _currentContext ?? throw new NullReferenceException();
 
+	public static ObservableCollection<T> Observable<T>()
+		where T : class
+		=> CurrentContext.GetTable<T>().Local.ToObservableCollection();
+
 	public static bool IsConnected => _currentContext != null;
 
 	public static ApplicationContext OpenDataBase()
@@ -26,6 +31,7 @@ public static class DataBaseConnection
 		_currentContext.DevObjects.Load();
 		_currentContext.Products.Load();
 		_currentContext.Trees.Load();
+		_currentContext.Levels.Load();
 
 		return _currentContext;
 	}

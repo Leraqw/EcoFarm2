@@ -20,4 +20,11 @@ public class MainViewModel : ViewModelBase
 			WindowsTransfer.ToTreesListWindow,
 			() => DataBaseConnection.IsConnected
 		);
+
+	public ICommand<object> ToLevelsListWindow
+		=> new DelegateCommand
+		(
+			WindowsTransfer.ToLevelsListWindow,
+			() => DataBaseConnection.IsConnected
+		);
 }

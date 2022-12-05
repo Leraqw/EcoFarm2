@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ProductsListWindow" Height="450" Width="800">
     <Window.DataContext>
-        <vm:DataBaseViewModel></vm:DataBaseViewModel>
+        <vm:ProductsViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -21,9 +21,9 @@
         </Grid.ColumnDefinitions>
 
         <ListBox Grid.Row="0"
-                 ItemsSource="{Binding Products}"
+                 ItemsSource="{Binding Collection}"
                  HorizontalContentAlignment="Stretch"
-                 SelectedItem="{Binding SelectedProduct}">
+                 SelectedItem="{Binding SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -48,13 +48,13 @@
         </ListBox>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
+            <Button Content="Добавить" Command="{Binding Add}"></Button>
             <Button Content="Удалить"
-                    Command="{Binding DeleteProduct}"
-                    CommandParameter="{Binding SelectedProduct}" />
+                    Command="{Binding Delete}"
+                    CommandParameter="{Binding SelectedItem}" />
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedProduct}"
+        <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedItem}"
                     VerticalAlignment="Center">
             <Label Content="Название:" />
             <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
