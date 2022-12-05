@@ -10,17 +10,25 @@
         <vm:DataBaseViewModel></vm:DataBaseViewModel>
     </Window.DataContext>
     <Grid>
-        <ListBox ItemsSource="{Binding Products}" HorizontalContentAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListBox Grid.Row="0"
+                 ItemsSource="{Binding Products}"
+                 HorizontalContentAlignment="Stretch"
+                 SelectedItem="{Binding SelectedProduct}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.InputBindings>
                             <MouseBinding
                                 MouseAction="LeftDoubleClick"
-                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditDevObject}"
-                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = ListBox}, Path = SelectedItem}"
-                                />
+                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditProduct}"
+                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.SelectedProduct}" />
                         </Grid.InputBindings>
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -33,11 +41,22 @@
                         <!-- price -->
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label VerticalAlignment="Center">Цена:</Label>
-                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right" TextAlignment="Right" />
+                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right"
+                                       TextAlignment="Right" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
+            <Button Content="Редактировать"
+                    Command="{Binding EditProduct}"
+                    CommandParameter="{Binding SelectedProduct}" />
+            <Button Content="Удалить"
+                    Command="{Binding DeleteProduct}"
+                    CommandParameter="{Binding SelectedProduct}" />
+        </StackPanel>
     </Grid>
 </Window>

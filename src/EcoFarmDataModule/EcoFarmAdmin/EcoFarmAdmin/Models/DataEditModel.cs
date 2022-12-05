@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
@@ -9,7 +10,8 @@ public class DataEditModel
 	{
 		if (WindowsTransfer.CreateProduct(out var product))
 		{
-			DataBaseConnection.CurrentContext.DevObjects.Add(product);
+			DataBaseConnection.CurrentContext.Products.Add(product);
+			DataBaseConnection.CurrentContext.SaveChanges();
 		}
 	}
 
@@ -21,12 +23,26 @@ public class DataEditModel
 		}
 	}
 
-	private static void SaveChanges(Product product)
+	private static void SaveChanges(Product newProduct)
 	{
-		var devObject = DataBaseConnection.CurrentContext.DevObjects.Find(product.Id)
-		                ?? throw new NullReferenceException("product not founded in database");
+		var product = DataBaseConnection.CurrentContext.Products.Find(newProduct.Id)
+		              ?? throw new NullReferenceException("product not founded in database");
 
-		devObject.SetFrom(product);
+		product.SetFrom(newProduct);
+		DataBaseConnection.CurrentContext.SaveChanges();
+	}
+
+	public static void DeleteProduct(Product product)
+	{
+		try
+		{
+			DataBaseConnection.CurrentContext.Products.Remove(product);
+		}
+		catch (Exception e)
+		{
+			MessageBox.Show(e.Message);
+		}
+
 		DataBaseConnection.CurrentContext.SaveChanges();
 	}
 }
