@@ -54,7 +54,9 @@
             <Button Content="Редактировать"
                     Command="{Binding EditProduct}"
                     CommandParameter="{Binding SelectedProduct}" />
-            <Button Content="Удалить" />
+            <Button Content="Удалить"
+                    Command="{Binding DeleteProduct}"
+                    CommandParameter="{Binding SelectedProduct}" />
         </StackPanel>
     </Grid>
 </Window>

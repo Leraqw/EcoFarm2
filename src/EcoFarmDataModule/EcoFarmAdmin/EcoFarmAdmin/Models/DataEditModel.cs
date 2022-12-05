@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
@@ -28,6 +29,20 @@ public class DataEditModel
 		              ?? throw new NullReferenceException("product not founded in database");
 
 		product.SetFrom(newProduct);
+		DataBaseConnection.CurrentContext.SaveChanges();
+	}
+
+	public static void DeleteProduct(Product product)
+	{
+		try
+		{
+			DataBaseConnection.CurrentContext.Products.Remove(product);
+		}
+		catch (Exception e)
+		{
+			MessageBox.Show(e.Message);
+		}
+
 		DataBaseConnection.CurrentContext.SaveChanges();
 	}
 }
