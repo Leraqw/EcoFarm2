@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿namespace EcoFarmAdmin.EditWindows;
 
-namespace EcoFarmAdmin.EditWindows;
-
-public partial class ProductEditWindow : Window
+public partial class ProductEditWindow
 {
 	public ProductEditWindow()
 	{

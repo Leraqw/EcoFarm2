@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace EcoFarmAdmin
+﻿namespace EcoFarmAdmin
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
