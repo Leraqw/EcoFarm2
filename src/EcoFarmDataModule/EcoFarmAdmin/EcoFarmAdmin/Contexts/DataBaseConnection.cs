@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcoFarmAdmin;
@@ -15,9 +16,12 @@ public static class DataBaseConnection
 	{
 		CloseConnection();
 		_currentContext = new ApplicationContext();
+		_currentContext.Database.Migrate();
 		_currentContext.Database.EnsureCreated();
+
 		_currentContext.DevObjects.Load();
 		_currentContext.Products.Load();
+
 		return _currentContext;
 	}
 
