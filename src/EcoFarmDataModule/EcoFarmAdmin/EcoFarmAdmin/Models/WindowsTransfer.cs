@@ -5,7 +5,7 @@ namespace EcoFarmAdmin.ViewModels;
 
 public static class WindowsTransfer
 {
-	public static void ToDevObjectWindow() => new DevObjectEditor().Show();
+	public static void ToProductsListWindow() => new ProductsListWindow().Show();
 
 	public static bool CreateProduct(out DevObject devObject) => EditProduct(new DevObject(), out devObject);
 

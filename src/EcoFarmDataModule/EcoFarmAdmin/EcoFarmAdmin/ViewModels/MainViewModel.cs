@@ -7,6 +7,6 @@ public class MainViewModel : ViewModelBase
 {
 	public MainViewModel() => new MainModel().OpenDatabase();
 
-	public ICommand<object> ToDevObjectsWindow 
-		=> new DelegateCommand(WindowsTransfer.ToDevObjectWindow, () => DataBaseConnection.IsConnected);
+	public ICommand<object> ToProductsListWindow 
+		=> new DelegateCommand(WindowsTransfer.ToProductsListWindow, () => DataBaseConnection.IsConnected);
 }
