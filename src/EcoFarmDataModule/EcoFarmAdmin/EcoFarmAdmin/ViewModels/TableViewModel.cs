@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Input;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
 
@@ -23,8 +22,6 @@ public abstract class TableViewModel<T> : ViewModelBase
 	public ObservableCollection<Product>   Products   => DataBaseConnection.Observable<Product>();
 	public ObservableCollection<Tree>      Trees      => DataBaseConnection.Observable<Tree>();
 
-	public ApplicationContext Context => DataBaseConnection.CurrentContext;
-
 	public ICommand<object> Add => new DelegateCommand(AddItem);
 
 	public ICommand<T> Delete
@@ -34,7 +31,18 @@ public abstract class TableViewModel<T> : ViewModelBase
 			(_) => IsSelected
 		);
 
-	public static void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
+	public ICommand<object> SaveChanges
+		=> new DelegateCommand
+		(
+			() => DataBaseConnection.CurrentContext.SaveChanges(),
+			() =>
+			{
+				Refresh();
+				return DataBaseConnection.HasChanges;
+			}
+		);
+
+	private static void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
 
 	private static void DeleteItem(T item)
 	{
@@ -47,17 +55,6 @@ public abstract class TableViewModel<T> : ViewModelBase
 			MessageBox.Show(e.Message);
 		}
 	}
-
-	public ICommand<object> SaveChanges
-		=> new DelegateCommand
-		(
-			() => DataBaseConnection.CurrentContext.SaveChanges(),
-			() =>
-			{
-				Refresh();
-				return DataBaseConnection.HasChanges;
-			}
-		);
 
 	private void Refresh() => HasChangesAsVisibility = DataBaseConnection.HasChanges.AsVisibility();
 }
