@@ -11,7 +11,6 @@ public class DataEditModel
 		if (WindowsTransfer.CreateProduct(out var product))
 		{
 			DataBaseConnection.CurrentContext.Products.Add(product);
-			DataBaseConnection.CurrentContext.SaveChanges();
 		}
 	}
 
@@ -19,7 +18,7 @@ public class DataEditModel
 	{
 		if (WindowsTransfer.EditProduct(product, out var changed))
 		{
-			SaveChanges(product.SetFrom(changed));
+			product.SetFrom(changed);
 		}
 	}
 
@@ -42,7 +41,5 @@ public class DataEditModel
 		{
 			MessageBox.Show(e.Message);
 		}
-
-		DataBaseConnection.CurrentContext.SaveChanges();
 	}
 }
