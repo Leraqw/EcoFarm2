@@ -25,6 +25,7 @@ public static class DataBaseConnection
 
 		_currentContext.DevObjects.Load();
 		_currentContext.Products.Load();
+		_currentContext.Trees.Load();
 
 		return _currentContext;
 	}
