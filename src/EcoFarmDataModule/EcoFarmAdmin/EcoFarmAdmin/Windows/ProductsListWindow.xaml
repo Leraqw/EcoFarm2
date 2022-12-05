@@ -52,7 +52,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Добавить" Command="{Binding AddProduct}"></Button>
             <Button Content="Редактировать"
-                    Command="{Binding ButtonEditProduct}"
+                    Command="{Binding EditProduct}"
                     CommandParameter="{Binding SelectedProduct}" />
             <Button Content="Удалить" />
         </StackPanel>
