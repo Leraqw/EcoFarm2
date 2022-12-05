@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
+using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
 
@@ -16,8 +17,13 @@ public abstract class TableViewModel<T> : ViewModelBase
 
 	public bool IsSelected => SelectedItem != null;
 
-	public ObservableCollection<T> Collection
-		=> DataBaseConnection.CurrentContext.GetTable<T>().Local.ToObservableCollection();
+	public ObservableCollection<T> Collection => DataBaseConnection.Observable<T>();
+
+	public ObservableCollection<DevObject> DevObjects => DataBaseConnection.Observable<DevObject>();
+	public ObservableCollection<Product>   Products   => DataBaseConnection.Observable<Product>();
+	public ObservableCollection<Tree>      Trees      => DataBaseConnection.Observable<Tree>();
+
+	public ApplicationContext Context => DataBaseConnection.CurrentContext;
 
 	public ICommand<object> Add => new DelegateCommand(AddItem);
 

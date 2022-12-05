@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -14,6 +15,10 @@ public static class DataBaseConnection
 	private static ApplicationContext? _currentContext;
 
 	public static ApplicationContext CurrentContext => _currentContext ?? throw new NullReferenceException();
+
+	public static ObservableCollection<T> Observable<T>()
+		where T : class
+		=> CurrentContext.GetTable<T>().Local.ToObservableCollection();
 
 	public static bool IsConnected => _currentContext != null;
 
