@@ -10,7 +10,7 @@ public class DataBaseViewModel : ViewModelBase
 	public DataBaseViewModel() => Refresh();
 
 	public Product?   SelectedProduct      { get; set; }
-	public Visibility HasChangesVisibility { get; set; }
+	public Visibility HasChangesAsVisibility { get; set; }
 
 	// ReSharper disable once UnusedMember.Global - used in style EditableField in App.xaml
 	// ReSharper disable once MemberCanBePrivate.Global - same
@@ -39,7 +39,7 @@ public class DataBaseViewModel : ViewModelBase
 			}
 		);
 	
-	private void Refresh() => HasChangesVisibility = DataBaseConnection.HasChanges.AsVisibility();
+	private void Refresh() => HasChangesAsVisibility = DataBaseConnection.HasChanges.AsVisibility();
 
 	private void Save() => DataBaseConnection.CurrentContext.SaveChanges();
 }
