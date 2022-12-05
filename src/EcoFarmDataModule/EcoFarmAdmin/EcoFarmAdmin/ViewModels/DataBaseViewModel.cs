@@ -9,6 +9,8 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class DataBaseViewModel : ViewModelBase
 {
+	public DataBaseViewModel() => Refresh();
+
 	public Product?   SelectedProduct      { get; set; }
 	public Visibility HasChangesVisibility { get; set; }
 
@@ -34,10 +36,14 @@ public class DataBaseViewModel : ViewModelBase
 			Save,
 			() =>
 			{
-				HasChangesVisibility = HasChanges ? Visibility.Visible : Visibility.Hidden;
+				Refresh();
 				return HasChanges;
 			}
 		);
+
+	private Visibility ToVisibility(bool arg) => arg ? Visibility.Visible : Visibility.Hidden;
+
+	private void Refresh() => HasChangesVisibility = ToVisibility(HasChanges);
 
 	private bool HasChanges
 		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
