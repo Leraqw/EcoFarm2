@@ -11,23 +11,21 @@ public static class WindowsTransfer
 
 	public static bool CreateProduct(out DevObject devObject)
 	{
-		devObject = new DevObject();
-		return EditProduct(ref devObject);
+		var editProduct = EditProduct(new DevObject(), out var changed);
+		devObject = changed;
+		return editProduct;
 	}
 
-	public static bool EditProduct(ref DevObject devObject)
+	public static bool EditProduct(DevObject devObject, out DevObject changed)
 	{
 		var window = new ProductEditWindow();
 		var context = (ProductEditViewModel)window.DataContext;
+
 		context.DevObject = devObject.Clone();
 		window.ShowDialog();
-		var confirmed = window.DialogResult ?? false;
-		if (confirmed)
-		{
-			devObject.SetFrom(context.DevObject);
-		}
 
-		return confirmed;
+		changed = context.DevObject;
+		return window.DialogResult ?? false;
 	}
 
 	public static SaveFileDialog SaveDataBaseDialog()
