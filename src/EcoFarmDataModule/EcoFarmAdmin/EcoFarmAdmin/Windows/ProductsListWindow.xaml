@@ -10,7 +10,12 @@
         <vm:DataBaseViewModel></vm:DataBaseViewModel>
     </Window.DataContext>
     <Grid>
-        <ListBox ItemsSource="{Binding Products}" HorizontalContentAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListBox Grid.Row="0" ItemsSource="{Binding Products}" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -18,8 +23,7 @@
                             <MouseBinding
                                 MouseAction="LeftDoubleClick"
                                 Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.EditDevObject}"
-                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = ListBox}, Path = SelectedItem}"
-                                />
+                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = ListBox}, Path = SelectedItem}" />
                         </Grid.InputBindings>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -33,11 +37,18 @@
                         <!-- price -->
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label VerticalAlignment="Center">Цена:</Label>
-                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right" TextAlignment="Right" />
+                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right"
+                                       TextAlignment="Right" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить"></Button>
+            <Button Content="Редактировать"></Button>
+            <Button Content="Удалить"></Button>
+        </StackPanel>
     </Grid>
 </Window>
