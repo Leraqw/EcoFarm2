@@ -66,6 +66,7 @@
             <Label Content="Продукт:" />
             <ComboBox
                 ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.Products}"
+                DisplayMemberPath="Title"
                 SelectedItem="{Binding Product}"
                 Style="{StaticResource EditableField}" />
         </StackPanel>
