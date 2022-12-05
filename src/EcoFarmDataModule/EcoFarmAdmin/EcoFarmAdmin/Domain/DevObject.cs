@@ -12,16 +12,4 @@ public class DevObject : INotifyPropertyChanged
 	public int     Price       { get; set; }
 
 	public event PropertyChangedEventHandler? PropertyChanged;
-
-	public DevObject Clone() => (DevObject)MemberwiseClone();
-
-	public void SetFrom(DevObject other)
-	{
-		Id = other.Id;
-		Title = other.Title;
-		Description = other.Description;
-		Price = other.Price;
-	}
-
-	public void OnPropertyChanged() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
 }

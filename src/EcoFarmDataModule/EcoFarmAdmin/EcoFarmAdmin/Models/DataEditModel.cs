@@ -17,9 +17,7 @@ public class DataEditModel
 	{
 		if (WindowsTransfer.EditProduct(devObject, out var changed))
 		{
-			devObject.SetFrom(changed);
-			devObject.OnPropertyChanged();
-			SaveChanges(changed);
+			SaveChanges(devObject.SetFrom(changed));
 		}
 	}
 
