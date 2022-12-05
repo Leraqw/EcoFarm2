@@ -1,6 +1,9 @@
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
+using static Microsoft.EntityFrameworkCore.EntityState;
 
 namespace EcoFarmAdmin.ViewModels;
 
@@ -12,6 +15,13 @@ public class DataBaseViewModel : ViewModelBase
 		=> DataBaseConnection.CurrentContext.Products.Local.ToObservableCollection();
 
 	public ICommand<object> AddProduct => new DelegateCommand(DataEditModel.AddProduct);
+
+	public bool HasChanges
+		=> DataBaseConnection.CurrentContext.ChangeTracker.Entries()
+		                     .Any((e) => e.State is Modified or Added or Deleted);
+	
+	public Visibility HasChangesVisibility
+		=> HasChanges ? Visibility.Visible : Visibility.Collapsed;
 
 	public ICommand<Product> EditProduct
 		=> new DelegateCommand<Product>
@@ -27,10 +37,12 @@ public class DataBaseViewModel : ViewModelBase
 			(p) => p is not null
 		);
 
-	public ICommand<object> ApplyChanges => new DelegateCommand(Save);
+	public ICommand<object> SaveChanges
+		=> new DelegateCommand
+		(
+			Save,
+			() => HasChanges
+		);
 
-	private void Save()
-	{
-		DataEditModel.SaveChanges(SelectedProduct!);
-	}
+	private void Save() => DataBaseConnection.CurrentContext.SaveChanges();
 }

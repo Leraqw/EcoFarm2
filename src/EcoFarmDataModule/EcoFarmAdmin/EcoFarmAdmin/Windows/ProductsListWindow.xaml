@@ -77,12 +77,16 @@
             <TextBox Text="{Binding Price}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"
-                    DataContext="{Binding }">
+                    >
+            <Label
+                Visibility="{Binding HasChangesVisibility}"
+                Foreground="Red"
+                >
+                Есть несохранённые изменения!!!
+            </Label>
             <Button
                 Content="Сохранить"
-                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.ApplyChanges}"
-            />
-            <Button>Отмена</Button>
+                Command="{Binding SaveChanges}" />
         </StackPanel>
 
     </Grid>
