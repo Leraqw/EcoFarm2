@@ -9,7 +9,7 @@ public class ApplicationContext : DbContext
 	public DbSet<Product>   Products   { get; set; } = null!;
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		=> optionsBuilder.UseSqlite($"Data Source = EcoFarm.db");
+		=> optionsBuilder.UseSqlite("Data Source = EcoFarm.db");
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 		=> modelBuilder.Entity<DevObject>().UseTptMappingStrategy();

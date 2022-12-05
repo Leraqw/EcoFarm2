@@ -17,6 +17,7 @@ public static class DataBaseConnection
 		_currentContext = new ApplicationContext();
 		_currentContext.Database.EnsureCreated();
 		_currentContext.DevObjects.Load();
+		_currentContext.Products.Load();
 		return _currentContext;
 	}
 
