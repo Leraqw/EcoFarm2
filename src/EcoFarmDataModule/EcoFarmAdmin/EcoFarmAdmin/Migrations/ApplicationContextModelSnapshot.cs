@@ -47,8 +47,8 @@ namespace EcoFarmAdmin.Migrations
                     b.Property<string>("Commentary")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Order")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Order")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
