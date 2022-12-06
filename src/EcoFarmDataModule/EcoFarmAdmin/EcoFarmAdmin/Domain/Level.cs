@@ -6,8 +6,9 @@ namespace EcoFarmAdmin.Domain;
 [Serializable]
 public class Level : INotifyPropertyChanged
 {
-	public int Id    { get; set; }
-	public int Order { get; set; }
+	public int     Id         { get; set; }
+	public int     Order      { get; set; }
+	public string? Commentary { get; set; }
 
 	public event PropertyChangedEventHandler? PropertyChanged;
 }
