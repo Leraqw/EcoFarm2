@@ -31,16 +31,9 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <!-- title and description -->
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="{Binding Order}" FontSize="20" />
                             <TextBlock Text="{Binding Commentary}" FontSize="13" />
-                        </StackPanel>
-                        <!-- price -->
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Label VerticalAlignment="Center">Цена:</Label>
-                            <TextBlock Text="{Binding Price}" FontSize="26" HorizontalAlignment="Right"
-                                       TextAlignment="Right" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -56,14 +49,12 @@
 
         <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedItem}"
                     VerticalAlignment="Center">
-            <Label Content="Название:" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+            <Label Content="Порядковый номер:" />
+            <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
 
-            <Label Content="Описание:" />
-            <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
-
-            <Label Content="Цена:" />
-            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+            <Label Content="Комментарий (не будет отображаться в игре):" />
+            <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource EditableField}" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label
