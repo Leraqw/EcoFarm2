@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using EcoFarmAdmin.Utils;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.EntityState;
 
@@ -36,39 +37,38 @@ public static class DataBaseConnection
 		return _currentContext;
 	}
 
-	// ReSharper disable once MemberCanBePrivate.Global - is used in App.g.cs
-
-	public static void CloseConnection(object? sender, CancelEventArgs e)
+	private static void CloseConnection(object? sender, CancelEventArgs e)
 	{
-		if (HasChanges)
+		if (CancelExit())
 		{
-			var result = MessageBox.Show
-			(
-				"Данные не были сохранены. Сохранить?",
-				"Внимание",
-				MessageBoxButton.YesNoCancel,
-				MessageBoxImage.Warning
-			);
-			if (result == MessageBoxResult.Yes)
-			{
-				_currentContext?.SaveChanges();
-			}
-			else if (result == MessageBoxResult.Cancel)
-			{
-				e.Cancel = true;
-				return;
-			}
+			e.Cancel = true;
+			return;
 		}
 
 		_currentContext?.Dispose();
 		_currentContext = null;
 	}
 
+	private static bool CancelExit()
+	{
+		if (HasChanges == false)
+		{
+			return false;
+		}
+
+		var result = MessageBoxUtils.SaveChangesDialog();
+		if (result == MessageBoxResult.Yes)
+		{
+			_currentContext?.SaveChanges();
+		}
+		else if (result == MessageBoxResult.Cancel)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	public static bool HasChanges
 		=> _currentContext?.ChangeTracker.Entries().Any((e) => e.State is Added or Modified or Deleted) ?? false;
-}
-
-public static class PropertyExtensions
-{
-	public static Visibility AsVisibility(this bool @this) => @this ? Visibility.Visible : Visibility.Hidden;
 }
