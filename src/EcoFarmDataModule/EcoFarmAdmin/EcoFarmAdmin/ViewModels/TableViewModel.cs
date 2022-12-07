@@ -42,9 +42,9 @@ public abstract class TableViewModel<T> : ViewModelBase
 			}
 		);
 
-	private static void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
+	protected virtual void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
 
-	private static void DeleteItem(T item)
+	protected virtual void DeleteItem(T item)
 	{
 		try
 		{
