@@ -33,7 +33,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DevObjects");
+                    b.ToTable("DevObjects", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -52,14 +52,14 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Levels");
+                    b.ToTable("Levels", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Product", b =>
                 {
                     b.HasBaseType("EcoFarmAdmin.Domain.DevObject");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Tree", b =>
@@ -71,7 +71,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Trees");
+                    b.ToTable("Trees", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Product", b =>
