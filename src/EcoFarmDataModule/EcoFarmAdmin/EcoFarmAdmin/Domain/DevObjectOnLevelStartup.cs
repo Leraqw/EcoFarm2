@@ -2,10 +2,12 @@
 
 namespace EcoFarmAdmin.Domain;
 
-[PrimaryKey(nameof(DevObjectID), nameof(LevelID))]
+[PrimaryKey(nameof(DevObjectId), nameof(LevelId))]
 public class DevObjectOnLevelStartup
 {
-	public int DevObjectID { get; set; }
-	public int LevelID     { get; set; }
-	public int Quantity    { get; set; }
+	public int       DevObjectId { get; set; }
+	public DevObject DevObject   { get; set; } = null!;
+	public int       LevelId     { get; set; }
+	public Level     Level       { get; set; } = null!;
+	public int       Quantity    { get; set; }
 }
