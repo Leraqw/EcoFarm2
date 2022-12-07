@@ -84,8 +84,8 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <Button Content="Добавить" Command="{Binding Add}"></Button>
-                        <Button Content="Удалить"
+                        <Button Content="+" Command="{Binding Add}"></Button>
+                        <Button Content="-"
                                 Command="{Binding Delete}"
                                 CommandParameter="{Binding SelectedItem}" />
                         <Button Content="↑"
