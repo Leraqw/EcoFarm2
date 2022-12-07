@@ -10,6 +10,8 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class LevelsViewModel : TableViewModel<Level>
 {
+	public LevelsViewModel() => OnSelectionChanged(Collection.First());
+
 	public DevObjectOnLevelStartup                       SelectedDosOnStart       { get; set; }
 	public ObservableCollection<DevObjectOnLevelStartup> DevObjectOnSelectedLevel { get; set; }
 
