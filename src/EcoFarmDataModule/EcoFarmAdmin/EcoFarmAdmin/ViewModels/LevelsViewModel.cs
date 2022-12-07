@@ -12,6 +12,14 @@ public class LevelsViewModel : TableViewModel<Level>
 	public ICommand<Level> MoveUp   => new DelegateCommand<Level>(MoveLevelUp);
 	public ICommand<Level> MoveDown => new DelegateCommand<Level>(MoveLevelDown);
 
+	protected override void AddItem()
+	{
+		base.AddItem();
+		
+		var item = Collection.Last();
+		item.Order = Collection.Max((l) => l.Order) + 1;
+	}
+
 	private void MoveLevelUp(Level level) => MoveLevel(level, isAtBorder: (i, _) => i <= 0, step: (i) => i - 1);
 
 	private void MoveLevelDown(Level level)
