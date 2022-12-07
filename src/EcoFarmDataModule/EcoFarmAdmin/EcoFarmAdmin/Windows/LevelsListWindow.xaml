@@ -71,7 +71,7 @@
                 <GridSplitter Grid.Row="1" Style="{StaticResource VerticalSplitter}" />
 
                 <StackPanel Grid.Row="2">
-                    <StackPanel Grid.Row="0" DataContext="{Binding SelectedItem}"
+                    <StackPanel DataContext="{Binding SelectedItem}"
                                 VerticalAlignment="Center">
                         <Label Content="Порядковый номер:" />
                         <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}"

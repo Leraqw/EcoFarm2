@@ -24,7 +24,7 @@
         
         
         <Style TargetType="{x:Type GridSplitter}" x:Key="BaseSplitter">
-            <Setter Property="Background" Value="LightGreen" />
+            <Setter Property="Background" Value="LightGray" />
         </Style>
         
         <Style TargetType="{x:Type GridSplitter}" x:Key="VerticalSplitter" BasedOn="{StaticResource BaseSplitter}">
