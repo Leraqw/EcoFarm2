@@ -23,55 +23,81 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Row="0"
-                 ItemsSource="{Binding Source={StaticResource CollectionView}}"
-                 HorizontalContentAlignment="Stretch"
-                 SelectedItem="{Binding SelectedItem}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction
-                        Command="{Binding OnSelectionChangedCommand}"
-                        CommandParameter="{Binding SelectedItem}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+        <DockPanel Grid.RowSpan="3" VerticalAlignment="Stretch">
+            <Grid Height="*" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Order}" FontSize="20" />
-                            <TextBlock Text="{Binding Commentary}" FontSize="13" />
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListBox
+                    ItemsSource="{Binding Source={StaticResource CollectionView}}"
+                    HorizontalContentAlignment="Stretch"
+                    SelectedItem="{Binding SelectedItem}"
+                    >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction
+                                Command="{Binding OnSelectionChangedCommand}"
+                                CommandParameter="{Binding SelectedItem}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Добавить" Command="{Binding Add}"></Button>
-            <Button Content="Удалить"
-                    Command="{Binding Delete}"
-                    CommandParameter="{Binding SelectedItem}" />
-            <Button Content="↑"
-                    Command="{Binding MoveUp}"
-                    CommandParameter="{Binding SelectedItem}" />
-            <Button Content="↓"
-                    Command="{Binding MoveDown}"
-                    CommandParameter="{Binding SelectedItem}" />
-        </StackPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Order}" FontSize="20" />
+                                    <TextBlock Text="{Binding Commentary}" FontSize="13" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-        <Grid Grid.Column="1" Grid.Row="0">
+                <GridSplitter Grid.Row="1"
+                              Height="3"
+                              Background="LightGreen"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Stretch" />
+
+                <StackPanel Grid.Row="2">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button Content="Добавить" Command="{Binding Add}"></Button>
+                        <Button Content="Удалить"
+                                Command="{Binding Delete}"
+                                CommandParameter="{Binding SelectedItem}" />
+                        <Button Content="↑"
+                                Command="{Binding MoveUp}"
+                                CommandParameter="{Binding SelectedItem}" />
+                        <Button Content="↓"
+                                Command="{Binding MoveDown}"
+                                CommandParameter="{Binding SelectedItem}" />
+                    </StackPanel></StackPanel>
+            </Grid>
+        </DockPanel>
+
+        <GridSplitter Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"
+                      Width="3"
+                      Background="LightGreen"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Center" />
+
+        <Grid Grid.Column="2" Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -118,7 +144,7 @@
         </Grid>
 
         <!-- bottom buttons -->
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label
                 Visibility="{Binding HasChangesAsVisibility}"
                 Foreground="Red"
