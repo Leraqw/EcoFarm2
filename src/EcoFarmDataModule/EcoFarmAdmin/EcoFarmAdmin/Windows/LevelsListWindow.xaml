@@ -55,12 +55,19 @@
             <Button Content="Удалить"
                     Command="{Binding Delete}"
                     CommandParameter="{Binding SelectedItem}" />
+            <Button Content="↑"
+                    Command="{Binding MoveUp}"
+                    CommandParameter="{Binding SelectedItem}" />
+            <Button Content="↓"
+                    Command="{Binding MoveDown}"
+                    CommandParameter="{Binding SelectedItem}" />
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedItem}"
                     VerticalAlignment="Center">
             <Label Content="Порядковый номер:" />
-            <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+            <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" 
+                     IsEnabled="False"/>
 
             <Label Content="Комментарий (не будет отображаться в игре):" />
             <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
