@@ -35,9 +35,9 @@
         <DockPanel Grid.RowSpan="3" VerticalAlignment="Stretch">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <ListBox
@@ -95,52 +95,39 @@
                                 Command="{Binding MoveDown}"
                                 CommandParameter="{Binding SelectedItem}" />
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="45">
+                        <Label
+                            Visibility="{Binding HasChangesAsVisibility}"
+                            Foreground="Red"
+                            Content="Есть несохранённые изменения!" />
+                        <Button
+                            Content="Сохранить"
+                            Command="{Binding SaveChanges}" />
+                    </StackPanel>
+
                 </StackPanel>
             </Grid>
         </DockPanel>
 
         <GridSplitter Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource HorizontalSplitter}" />
 
-        <Grid Grid.Column="2" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-
-            <GridSplitter Grid.Row="1" Style="{StaticResource VerticalSplitter}" />
-
-            <ListBox
-                Grid.Row="2"
-                ItemsSource="{Binding DevObjectOnSelectedLevel}"
-                SelectedItem="{Binding SelectedDosOnStart}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
-                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
-
-        <!-- bottom buttons -->
-        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label
-                Visibility="{Binding HasChangesAsVisibility}"
-                Foreground="Red"
-                Content="Есть несохранённые изменения!" />
-            <Button
-                Content="Сохранить"
-                Command="{Binding SaveChanges}" />
-        </StackPanel>
+        <ListBox Grid.Row="2" Grid.Column="2"
+                 ItemsSource="{Binding DevObjectOnSelectedLevel}"
+                 SelectedItem="{Binding SelectedDosOnStart}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                            <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
