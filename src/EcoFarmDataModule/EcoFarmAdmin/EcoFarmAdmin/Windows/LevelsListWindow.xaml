@@ -150,9 +150,10 @@
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Объект:" />
                     <ComboBox
-                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path =  DataContext.DevObjects}"
+                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                        Path =  DataContext.DevObjects}"
                         DisplayMemberPath="Title"
-                        SelectedItem="{Binding DevObjectOnSelectedLevel}"
+                        SelectedItem="{Binding SelectedDosOnStart.DevObject}"
                         Style="{StaticResource EditableField}" />
 
                 </DockPanel>
