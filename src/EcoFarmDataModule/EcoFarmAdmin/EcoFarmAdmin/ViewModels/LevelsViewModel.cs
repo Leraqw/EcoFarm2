@@ -22,14 +22,9 @@ public class LevelsViewModel : TableViewModel<Level>
 
 	protected override void DeleteItem(Level item)
 	{
-		var itemOrder = item.Order;
 		base.DeleteItem(item);
 
-		var items = Collection.Where((l) => l.Order > itemOrder);
-		foreach (var level in items)
-		{
-			level.Order--;
-		}
+		Collection.Where((l) => l.Order > item.Order).ForEach((l) => l.Order--);
 	}
 
 	private void MoveLevelUp(Level level) => MoveLevel(level, isAtBorder: (i, _) => i <= 0, step: (i) => i - 1);
