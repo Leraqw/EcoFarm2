@@ -1,12 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+﻿namespace EcoFarmAdmin.Domain;
 
-namespace EcoFarmAdmin.Domain;
-
-[PrimaryKey(nameof(DevObjectId), nameof(LevelId))]
 public class DevObjectOnLevelStartup
 {
-	[ForeignKey(nameof(DevObjectId))]
+	public int       Id          { get; set; }
 	public int       DevObjectId { get; set; }
 	public DevObject DevObject   { get; set; } = null!;
 	public int       LevelId     { get; set; }
