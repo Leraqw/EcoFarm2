@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="LevelsListWindow" Height="450" Width="800">
     <Window.DataContext>
@@ -33,17 +34,17 @@
                  ItemsSource="{Binding Source={StaticResource CollectionView}}"
                  HorizontalContentAlignment="Stretch"
                  SelectedItem="{Binding SelectedItem}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction
+                        Command="{Binding OnSelectionChangedCommand}"
+                        CommandParameter="{Binding SelectedItem}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Grid.InputBindings>
-                            <MouseBinding
-                                MouseAction="LeftClick"
-                                Command="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.OnSelectionChangedCommand}"
-                                CommandParameter="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.SelectedItem}" />
-                        </Grid.InputBindings>
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
