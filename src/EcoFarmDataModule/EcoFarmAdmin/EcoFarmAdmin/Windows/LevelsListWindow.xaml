@@ -123,7 +123,8 @@
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
 
-            <Label Content="Объекты развития на старте:" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+            <Label Content="Объекты развития на старте:" Margin="0" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" />
             <ListBox Grid.Row="1" Grid.Column="0"
                      ItemsSource="{Binding DevObjectOnSelectedLevel}"
                      SelectedItem="{Binding SelectedDosOnStart}">
@@ -143,15 +144,25 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" />
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <DockPanel Height="35" Margin="5">
+                <DockPanel Margin="5">
                     <Label Margin="0" Content="Объект:" />
-                    <ComboBox />
+                    <ComboBox
+                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path =  DataContext.DevObjects}"
+                        DisplayMemberPath="Title"
+                        SelectedItem="{Binding DevObjectOnSelectedLevel}"
+                        Style="{StaticResource EditableField}" />
+
                 </DockPanel>
-                <DockPanel Height="35" Margin="5">
+                <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
-                    <TextBox />
+                    <TextBox
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
+                            Path=DataContext.SelectedDosOnStart.Quantity,
+                            UpdateSourceTrigger=PropertyChanged}"
+                        Style="{StaticResource EditableField}" />
                 </DockPanel>
             </StackPanel>
         </Grid>
