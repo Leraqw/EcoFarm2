@@ -100,6 +100,20 @@
                 Grid.Row="2"
                 ItemsSource="{Binding DevObjectOnSelectedLevel}"
                 SelectedItem="{Binding SelectedDosOnStart}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
 
