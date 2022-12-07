@@ -65,32 +65,36 @@
 
         <Grid Grid.Column="1" Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <StackPanel Grid.Row="0" DataContext="{Binding SelectedItem}"
                         VerticalAlignment="Center">
                 <Label Content="Порядковый номер:" />
                 <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource EditableField}"
                          IsEnabled="False" />
-                
+
                 <Label Content="Комментарий (не будет отображаться в игре):" />
                 <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource EditableField}" />
             </StackPanel>
 
-            <GridSplitter Grid.Row="1" 
-                          Height="3" 
-                          Background="LightGreen" 
-                          VerticalAlignment="Center" 
+            <GridSplitter Grid.Row="1"
+                          Height="3"
+                          Background="LightGreen"
+                          VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" />
-            
-                <ListBox Grid.Row="2" ></ListBox>
+
+            <ListBox
+                Grid.Row="2" 
+                ItemsSource="{Binding DevObjectOnLevelsStartup}"
+                SelectedItem="{Binding SelectedDosOnStart}">
+            </ListBox>
         </Grid>
-        
+
         <!-- bottom buttons -->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label

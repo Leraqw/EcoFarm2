@@ -9,6 +9,8 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class LevelsViewModel : TableViewModel<Level>
 {
+	public DevObjectOnLevelStartup SelectedDosOnStart { get; set; }
+	
 	public ICommand<Level> MoveUp   => new DelegateCommand<Level>(MoveLevelUp);
 	public ICommand<Level> MoveDown => new DelegateCommand<Level>(MoveLevelDown);
 
