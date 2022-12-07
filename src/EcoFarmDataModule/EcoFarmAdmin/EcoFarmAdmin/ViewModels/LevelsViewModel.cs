@@ -18,6 +18,7 @@ public class LevelsViewModel : TableViewModel<Level>
 
 		var item = Collection.Last();
 		item.Order = Collection.Max((l) => l.Order) + 1;
+		item.Id = item.Order;
 	}
 
 	protected override void DeleteItem(Level item)
