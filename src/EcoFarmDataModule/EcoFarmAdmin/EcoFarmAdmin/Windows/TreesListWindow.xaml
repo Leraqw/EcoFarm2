@@ -64,8 +64,6 @@
                      Style="{StaticResource EditableField}" />
 
             <Label Content="Продукт:" />
-            <!-- ↓ DisplayMemberPath="{Binding Title}" ↓ -->
-            <!-- set itemsSource as products observable collection from data base -->
             <ComboBox
                 ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                     Path =  DataContext.Products}"
