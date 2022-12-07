@@ -56,5 +56,5 @@ public abstract class TableViewModel<T> : ViewModelBase
 		}
 	}
 
-	private void Refresh() => HasChangesAsVisibility = DataBaseConnection.HasChanges.AsVisibility();
+	protected void Refresh() => HasChangesAsVisibility = DataBaseConnection.HasChanges.AsVisibility();
 }
