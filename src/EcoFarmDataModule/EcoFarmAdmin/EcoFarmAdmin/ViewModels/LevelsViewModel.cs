@@ -24,5 +24,17 @@ public class LevelsViewModel : TableViewModel<Level>
 		Refresh();
 	}
 
-	private void MoveLevelDown(Level level) { }
+	private void MoveLevelDown(Level level)
+	{ 
+		var sortedLevels = Collection.OrderBy((l) => l.Order).ToList();
+		var indexOfCurrent = sortedLevels.IndexOf((l) => l.Id == level.Id);
+		if (indexOfCurrent >= sortedLevels.Count - 1)
+		{
+			return;
+		}
+
+		var levelToSwap = sortedLevels[indexOfCurrent + 1];
+		(levelToSwap.Order, level.Order) = (level.Order, levelToSwap.Order);
+		Refresh();
+	}
 }
