@@ -113,23 +113,47 @@
 
         <GridSplitter Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalSplitter}" />
 
-        <ListBox Grid.Row="2" Grid.Column="2"
-                 ItemsSource="{Binding DevObjectOnSelectedLevel}"
-                 SelectedItem="{Binding SelectedDosOnStart}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
-                            <TextBlock Text="{Binding Quantity}" FontSize="13" />
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <Label Content="Объекты развития на старте:" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+            <ListBox Grid.Row="1" Grid.Column="0"
+                     ItemsSource="{Binding DevObjectOnSelectedLevel}"
+                     SelectedItem="{Binding SelectedDosOnStart}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <DockPanel Height="35" Margin="5">
+                    <Label Margin="0" Content="Объект:" />
+                    <ComboBox />
+                </DockPanel>
+                <DockPanel Height="35" Margin="5">
+                    <Label Margin="0" Content="Количество:" />
+                    <TextBox />
+                </DockPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -20,8 +20,9 @@
                     Value="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsSelected}" />
         </Style>
         
-        
-        
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5, 5, 5, 0" />
+        </Style>
         
         <Style TargetType="{x:Type GridSplitter}" x:Key="BaseSplitter">
             <Setter Property="Background" Value="LightGray" />
