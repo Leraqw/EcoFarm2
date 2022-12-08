@@ -37,7 +37,7 @@ public class DevObjectsOnLevelsViewModel : LevelsMoverViewModel
 		Refresh();
 	}
 
-	protected void OnSelectionChanged(Level level)
+	protected virtual void OnSelectionChanged(Level level)
 		=> DevObjectOnSelectedLevel = DevObjectOnLevelsStartup
 		                              .Where((dl) => dl.Level == level)
 		                              .ToObservableCollection();

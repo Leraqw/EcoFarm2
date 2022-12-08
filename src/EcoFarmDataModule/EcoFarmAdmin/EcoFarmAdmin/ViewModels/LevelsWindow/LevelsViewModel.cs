@@ -2,7 +2,7 @@
 
 namespace EcoFarmAdmin.ViewModels;
 
-public class LevelsViewModel : DevObjectsOnLevelsViewModel
+public class LevelsViewModel : LevelsGoalsViewModel
 {
 	public LevelsViewModel() => OnSelectionChanged(Collection.First());
 }
