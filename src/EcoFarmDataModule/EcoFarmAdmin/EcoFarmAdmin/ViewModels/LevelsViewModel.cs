@@ -10,8 +10,8 @@ public class LevelsViewModel : LevelsMoverViewModel
 {
 	public LevelsViewModel() => OnSelectionChanged(Collection.First());
 
-	public DevObjectOnLevelStartup?                      SelectedDosOnStart       { get; set; }
-	public ObservableCollection<DevObjectOnLevelStartup> DevObjectOnSelectedLevel { get; set; } = null!;
+	public DevObjectOnLevelStartup?                       SelectedDosOnStart       { get; set; }
+	public ObservableCollection<DevObjectOnLevelStartup>? DevObjectOnSelectedLevel { get; set; }
 
 	public ICommand<Level> OnSelectionChangedCommand => new DelegateCommand<Level>(OnSelectionChanged);
 
@@ -44,16 +44,21 @@ public class LevelsViewModel : LevelsMoverViewModel
 
 	private void AddDevObjectOnStart()
 	{
-		var newDl = new DevObjectOnLevelStartup { Level = SelectedItem!, LevelId = SelectedItem!.Id };
+		var newDl = new DevObjectOnLevelStartup { Level = SelectedItem! };
 		DevObjectOnLevelsStartup.Add(newDl);
-		OnSelectionChanged(SelectedItem);
+		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}
 
 	private void DeleteDevObjectOnStart(DevObjectOnLevelStartup devObjectOnLevelStartup)
-		=> DevObjectOnSelectedLevel.Remove(devObjectOnLevelStartup);
+	{
+		DevObjectOnLevelsStartup.Remove(devObjectOnLevelStartup);
+		OnSelectionChanged(SelectedItem!);
+		Refresh();
+	}
 
 	private void OnSelectionChanged(Level level)
-		=> DevObjectOnSelectedLevel
-			= DevObjectOnLevelsStartup.Where((dl) => dl.LevelId == level.Id).ToObservableCollection();
+		=> DevObjectOnSelectedLevel = DevObjectOnLevelsStartup
+		                              .Where((dl) => dl.Level == level)
+		                              .ToObservableCollection();
 }
