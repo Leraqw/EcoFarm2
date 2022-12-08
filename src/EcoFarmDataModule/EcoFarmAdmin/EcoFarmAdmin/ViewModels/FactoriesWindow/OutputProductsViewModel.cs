@@ -8,41 +8,41 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class OutputProductsViewModel : InputObjectsViewModel
 {
-	public Goal? SelectedGoal { get; set; }
+	public OutputProduct? SelectedOutputProduct { get; set; }
 
-	public ObservableCollection<Goal>? GoalsOnSelectedLevel { get; set; }
-	public ICommand<object>            AddGoalCommand       => new DelegateCommand(AddGoal);
+	public ObservableCollection<OutputProduct>? OutputProductsForSelectedFactory { get; set; }
+	public ICommand<object>                     AddOutputProductCommand => new DelegateCommand(AddOutputProduct);
 
-	public ICommand<Goal> DeleteGoalCommand
-		=> new DelegateCommand<Goal>
+	public ICommand<OutputProduct> DeleteOutputProductCommand
+		=> new DelegateCommand<OutputProduct>
 		(
-			DeleteGoal,
-			(_) => IsGoalSelected
+			DeleteOutputProduct,
+			(_) => IsOutputProductSelected
 		);
 
-	public bool IsGoalSelected => SelectedGoal != null;
+	public bool IsOutputProductSelected => SelectedOutputProduct != null;
 
-	private void AddGoal()
+	private void AddOutputProduct()
 	{
-		var newGoal = new Goal { Level = SelectedItem! };
-		Goals.Add(newGoal);
+		var newOutput = new OutputProduct { Factory = SelectedItem! };
+		OutputProductsForSelectedFactory!.Add(newOutput);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}
 
-	private void DeleteGoal(Goal goal)
+	private void DeleteOutputProduct(OutputProduct outputProduct)
 	{
-		Goals.Remove(goal);
+		OutputProducts.Remove(outputProduct);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}
 
-	protected override void OnSelectionChanged(Level level)
+	protected override void OnSelectionChanged(Factory factory)
 	{
-		GoalsOnSelectedLevel = Goals
-		                       .Where((g) => g.Level == level)
-		                       .ToObservableCollection();
+		OutputProductsForSelectedFactory = OutputProducts
+		                                   .Where((op) => op.Factory == factory)
+		                                   .ToObservableCollection();
 
-		base.OnSelectionChanged(level);
+		base.OnSelectionChanged(factory);
 	}
 }

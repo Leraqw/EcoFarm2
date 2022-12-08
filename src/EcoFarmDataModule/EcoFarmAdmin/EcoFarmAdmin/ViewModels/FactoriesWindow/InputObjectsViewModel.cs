@@ -6,39 +6,39 @@ using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
 
-public class InputObjectsViewModel : TableViewModel<Level>
+public class InputObjectsViewModel : TableViewModel<Factory>
 {
-	public DevObjectOnLevelStartup? SelectedDosOnStart { get; set; }
-	public ObservableCollection<DevObjectOnLevelStartup>? DevObjectOnSelectedLevel { get; set; }
-	public ICommand<Level> OnSelectionChangedCommand => new DelegateCommand<Level>(OnSelectionChanged);
-	public ICommand<object> AddDosOnStart => new DelegateCommand(AddDevObjectOnStart);
+	public InputProduct? SelectedInputProduct { get; set; }
+	public ObservableCollection<InputProduct>? InputProductsForSelectedFactory { get; set; }
+	public ICommand<Factory> OnSelectionChangedCommand => new DelegateCommand<Factory>(OnSelectionChanged);
+	public ICommand<object> AddInputProductsCommand => new DelegateCommand(AddInputProducts);
 
-	public ICommand<DevObjectOnLevelStartup> DeleteDosOnStart
-		=> new DelegateCommand<DevObjectOnLevelStartup>
+	public ICommand<InputProduct> DeleteInputProductsCommand
+		=> new DelegateCommand<InputProduct>
 		(
-			DeleteDevObjectOnStart,
-			(_) => IsDosSelected
+			DeleteInputProducts,
+			(_) => IsInputProductSelected
 		);
 
-	public bool IsDosSelected => SelectedDosOnStart != null;
+	public bool IsInputProductSelected => SelectedInputProduct != null;
 
-	private void AddDevObjectOnStart()
+	private void AddInputProducts()
 	{
-		var newDl = new DevObjectOnLevelStartup { Level = SelectedItem! };
-		DevObjectOnLevelsStartup.Add(newDl);
+		var newInput = new InputProduct { Factory = SelectedItem! };
+		InputProductsForSelectedFactory!.Add(newInput);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}
 
-	private void DeleteDevObjectOnStart(DevObjectOnLevelStartup devObjectOnLevelStartup)
+	private void DeleteInputProducts(InputProduct inputs)
 	{
-		DevObjectOnLevelsStartup.Remove(devObjectOnLevelStartup);
+		InputProducts.Remove(inputs);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}
 
-	protected virtual void OnSelectionChanged(Level level)
-		=> DevObjectOnSelectedLevel = DevObjectOnLevelsStartup
-		                              .Where((dl) => dl.Level == level)
-		                              .ToObservableCollection();
+	protected virtual void OnSelectionChanged(Factory factory)
+		=> InputProductsForSelectedFactory = InputProducts
+		                                     .Where((ip) => ip.Factory == factory)
+		                                     .ToObservableCollection();
 }

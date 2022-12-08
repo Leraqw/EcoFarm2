@@ -134,15 +134,15 @@
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                 <Label Content="Входные продукты:" Margin="0" HorizontalAlignment="Left" />
-                <Button Content="+" Command="{Binding AddGoalCommand}" />
+                <Button Content="+" Command="{Binding AddOutputProductCommand}" />
                 <Button Content="-"
-                        Command="{Binding DeleteGoalCommand}"
-                        CommandParameter="{Binding SelectedGoal}" />
+                        Command="{Binding DeleteOutputProductCommand}"
+                        CommandParameter="{Binding SelectedOutputProduct}" />
             </StackPanel>
 
             <ListBox Grid.Row="1" Grid.Column="0"
-                     ItemsSource="{Binding GoalsOnSelectedLevel}"
-                     SelectedItem="{Binding SelectedGoal}">
+                     ItemsSource="{Binding OutputProductsForSelectedFactory}"
+                     SelectedItem="{Binding SelectedOutputProduct}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -168,17 +168,17 @@
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                         Path =  DataContext.DevObjects}"
                         DisplayMemberPath="Title"
-                        SelectedItem="{Binding SelectedGoal.DevObject}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
+                        SelectedItem="{Binding SelectedOutputProduct.DevObject}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsOutputProductSelected}" />
                 </DockPanel>
 
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
                     <TextBox
                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
-                            Path=DataContext.SelectedGoal.Quantity,
+                            Path=DataContext.SelectedOutputProduct.Quantity,
                             UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsOutputProductSelected}" />
                 </DockPanel>
             </StackPanel>
         </Grid>
@@ -198,15 +198,15 @@
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                 <Label Content="Выходные продукты:" Margin="0" HorizontalAlignment="Left" />
-                <Button Content="+" Command="{Binding AddDosOnStart}" />
+                <Button Content="+" Command="{Binding AddInputProductsCommand}" />
                 <Button Content="-"
-                        Command="{Binding DeleteDosOnStart}"
-                        CommandParameter="{Binding SelectedDosOnStart}" />
+                        Command="{Binding DeleteInputProductsCommand}"
+                        CommandParameter="{Binding SelectedInputProduct}" />
             </StackPanel>
 
             <ListBox Grid.Row="1" Grid.Column="0"
                      ItemsSource="{Binding DevObjectOnSelectedLevel}"
-                     SelectedItem="{Binding SelectedDosOnStart}">
+                     SelectedItem="{Binding SelectedInputProduct}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -232,17 +232,17 @@
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                         Path =  DataContext.DevObjects}"
                         DisplayMemberPath="Title"
-                        SelectedItem="{Binding SelectedDosOnStart.DevObject}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        SelectedItem="{Binding SelectedInputProduct.DevObject}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsInputProductSelected}" />
                 </DockPanel>
 
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
                     <TextBox
                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
-                            Path=DataContext.SelectedDosOnStart.Quantity,
+                            Path=DataContext.SelectedInputProduct.Quantity,
                             UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsInputProductSelected}" />
                 </DockPanel>
             </StackPanel>
         </Grid>

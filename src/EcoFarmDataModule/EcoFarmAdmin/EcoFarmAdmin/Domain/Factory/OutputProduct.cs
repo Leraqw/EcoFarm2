@@ -1,6 +1,6 @@
 ﻿namespace EcoFarmAdmin.Domain;
 
-public class OutputProducts
+public class OutputProduct
 {
 	public int     Id       { get; set; }
 	public Factory Factory  { get; set; }
