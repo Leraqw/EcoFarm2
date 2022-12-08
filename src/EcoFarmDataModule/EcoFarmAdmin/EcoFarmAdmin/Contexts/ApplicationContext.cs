@@ -1,4 +1,5 @@
-﻿using EcoFarmAdmin.Domain;
+﻿using System.Collections.Generic;
+using EcoFarmAdmin.Domain;
 using EcoFarmAdmin.Utils;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,9 +17,9 @@ public class ApplicationContext : DbContext
 	public DbSet<Building>                Buildings                 { get; set; } = null!;
 	public DbSet<Generator>               Generators                { get; set; } = null!;
 	public DbSet<Factory>                 Factories                 { get; set; } = null!;
-	public DbSet<InputProduct>           InputProducts             { get; set; } = null!;
-	public DbSet<OutputProduct>          OutputProducts            { get; set; } = null!;
-
+	public DbSet<InputProduct>            InputProducts             { get; set; } = null!;
+	public DbSet<OutputProduct>           OutputProducts            { get; set; } = null!;
+	
 	public ApplicationContext()
 	{
 		Table<DevObject>.Value = DevObjects;
