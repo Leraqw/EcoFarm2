@@ -207,7 +207,7 @@
             </StackPanel>
 
             <ListBox Grid.Row="1" Grid.Column="0"
-                     ItemsSource="{Binding InputProducts}"
+                     ItemsSource="{Binding InputProductsForSelectedFactory}"
                      SelectedItem="{Binding SelectedInputProduct}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

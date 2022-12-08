@@ -11,7 +11,7 @@ public class InputObjectsViewModel : TableViewModel<Factory>
 	public InputProduct? SelectedInputProduct { get; set; }
 	public ObservableCollection<InputProduct>? InputProductsForSelectedFactory { get; set; }
 	public ICommand<Factory> OnSelectionChangedCommand => new DelegateCommand<Factory>(OnSelectionChanged);
-	public ICommand<object> AddInputProductsCommand => new DelegateCommand(AddInputProducts);
+	public ICommand<object> AddInputProductsCommand => new DelegateCommand(AddInputProducts, IsSelected);
 
 	public ICommand<InputProduct> DeleteInputProductsCommand
 		=> new DelegateCommand<InputProduct>

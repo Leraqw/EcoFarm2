@@ -1,3 +1,15 @@
-﻿namespace EcoFarmAdmin.ViewModels;
+﻿using System.Linq;
+using EcoFarmAdmin.Domain;
 
-public class FactoriesViewModel : OutputProductsViewModel { }
+namespace EcoFarmAdmin.ViewModels;
+
+public class FactoriesViewModel : OutputProductsViewModel
+{
+	public FactoriesViewModel() => OnSelectionChanged(Collection.First());
+
+	protected sealed override void OnSelectionChanged(Factory factory)
+	{
+		SelectedItem = factory;
+		base.OnSelectionChanged(factory);
+	}
+}

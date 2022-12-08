@@ -11,7 +11,8 @@ public class OutputProductsViewModel : InputObjectsViewModel
 	public OutputProduct? SelectedOutputProduct { get; set; }
 
 	public ObservableCollection<OutputProduct>? OutputProductsForSelectedFactory { get; set; }
-	public ICommand<object>                     AddOutputProductCommand => new DelegateCommand(AddOutputProduct);
+
+	public ICommand<object> AddOutputProductCommand => new DelegateCommand(AddOutputProduct, IsSelected);
 
 	public ICommand<OutputProduct> DeleteOutputProductCommand
 		=> new DelegateCommand<OutputProduct>
