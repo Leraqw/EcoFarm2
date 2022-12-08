@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿namespace EcoFarmAdmin;
 
-namespace EcoFarmAdmin;
-
-public partial class ResourcesWindow : Window
+public partial class ResourcesWindow
 {
 	public ResourcesWindow()
 	{
