@@ -22,6 +22,8 @@
             <Button Content="Деревья" Command="{Binding ToTreesListWindow}" />
             <Button Content="Уровни" Command="{Binding ToLevelsListWindow}"/>
             <Button Content="Ресурсы" Command="{Binding ToResourcesListWindow}"/>
+            <Button Content="Генераторы" Command="{Binding ToGeneratorsListWindow}"/>
+            <Button Content="Фабрики" Command="{Binding ToFactoriesListWindow}"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="125" Margin="25">

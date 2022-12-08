@@ -13,6 +13,8 @@ public class ApplicationContext : DbContext
 	public DbSet<DevObjectOnLevelStartup> DevObjectsOnLevelsStartup { get; set; } = null!;
 	public DbSet<Goal>                    Goals                     { get; set; } = null!;
 	public DbSet<Resource>                Resources                 { get; set; } = null!;
+	public DbSet<Building>                Buildings                 { get; set; } = null!;
+	public DbSet<Generator>               Generators                { get; set; } = null!;
 
 	public ApplicationContext()
 	{
@@ -23,6 +25,8 @@ public class ApplicationContext : DbContext
 		Table<DevObjectOnLevelStartup>.Value = DevObjectsOnLevelsStartup;
 		Table<Goal>.Value = Goals;
 		Table<Resource>.Value = Resources;
+		Table<Building>.Value = Buildings;
+		Table<Generator>.Value = Generators;
 	}
 
 	public DbSet<T> GetTable<T>()

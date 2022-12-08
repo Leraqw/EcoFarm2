@@ -7,3 +7,5 @@ public class ProductsViewModel : TableViewModel<Product> { }
 public class TreesViewModel : TableViewModel<Tree> { }
 
 public class ResourcesViewModel : TableViewModel<Resource> { }
+
+public class GeneratorsViewModel : TableViewModel<Generator> { }
