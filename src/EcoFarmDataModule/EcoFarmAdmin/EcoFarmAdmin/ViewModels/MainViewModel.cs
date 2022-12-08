@@ -34,4 +34,18 @@ public class MainViewModel : ViewModelBase
 			WindowsTransfer.ToResourcesListWindow,
 			() => DataBaseConnection.IsConnected
 		);
+	
+	public ICommand<object> ToGeneratorsListWindow
+		=> new DelegateCommand
+		(
+			WindowsTransfer.ToGeneratorsListWindow,
+			() => DataBaseConnection.IsConnected
+		);
+	
+	public ICommand<object> ToFactoriesListWindow
+		=> new DelegateCommand
+		(
+			WindowsTransfer.ToFactoriesListWindow,
+			() => DataBaseConnection.IsConnected
+		);
 }
