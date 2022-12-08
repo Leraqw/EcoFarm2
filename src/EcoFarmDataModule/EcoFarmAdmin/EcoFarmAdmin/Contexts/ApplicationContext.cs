@@ -15,6 +15,7 @@ public class ApplicationContext : DbContext
 	public DbSet<Resource>                Resources                 { get; set; } = null!;
 	public DbSet<Building>                Buildings                 { get; set; } = null!;
 	public DbSet<Generator>               Generators                { get; set; } = null!;
+	public DbSet<Factory>                 Factories                 { get; set; } = null!;
 
 	public ApplicationContext()
 	{
@@ -27,6 +28,7 @@ public class ApplicationContext : DbContext
 		Table<Resource>.Value = Resources;
 		Table<Building>.Value = Buildings;
 		Table<Generator>.Value = Generators;
+		Table<Factory>.Value = Factories;
 	}
 
 	public DbSet<T> GetTable<T>()
