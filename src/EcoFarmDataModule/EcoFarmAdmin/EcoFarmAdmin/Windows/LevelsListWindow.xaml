@@ -88,6 +88,7 @@
                         <Button Content="-"
                                 Command="{Binding Delete}"
                                 CommandParameter="{Binding SelectedItem}" />
+
                         <Button Content="↑"
                                 Command="{Binding MoveUp}"
                                 CommandParameter="{Binding SelectedItem}" />
@@ -123,8 +124,14 @@
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
 
-            <Label Content="Объекты развития на старте:" Margin="0" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Label Content="Объекты развития на старте:" Margin="0" HorizontalAlignment="Left" />
+                <Button Content="+" Command="{Binding AddDosOnStart}" />
+                <Button Content="-"
+                        Command="{Binding DeleteDosOnStart}"
+                        CommandParameter="{Binding SelectedDosOnStart}" />
+            </StackPanel>
+
             <ListBox Grid.Row="1" Grid.Column="0"
                      ItemsSource="{Binding DevObjectOnSelectedLevel}"
                      SelectedItem="{Binding SelectedDosOnStart}">

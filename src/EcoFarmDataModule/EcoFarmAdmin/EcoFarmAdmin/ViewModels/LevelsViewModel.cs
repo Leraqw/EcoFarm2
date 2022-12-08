@@ -17,9 +17,16 @@ public class LevelsViewModel : TableViewModel<Level>
 
 	public ICommand<Level> OnSelectionChangedCommand => new DelegateCommand<Level>(OnSelectionChanged);
 
-	public ICommand<Level> MoveUp => new DelegateCommand<Level>(MoveLevelUp);
+	public ICommand<Level>  MoveUp        => new DelegateCommand<Level>(MoveLevelUp);
+	public ICommand<Level>  MoveDown      => new DelegateCommand<Level>(MoveLevelDown);
+	public ICommand<object> AddDosOnStart => new DelegateCommand(AddDevObjectOnStart);
 
-	public ICommand<Level> MoveDown => new DelegateCommand<Level>(MoveLevelDown);
+	public ICommand<DevObjectOnLevelStartup> DeleteDosOnStart
+		=> new DelegateCommand<DevObjectOnLevelStartup>
+		(
+			DeleteDevObjectOnStart,
+			(level) => level != null
+		);
 
 	protected override void AddItem()
 	{
@@ -36,6 +43,17 @@ public class LevelsViewModel : TableViewModel<Level>
 
 		Collection.Where((l) => l.Order > item.Order).ForEach((l) => l.Order--);
 	}
+
+	private void AddDevObjectOnStart()
+	{
+		var newDl = new DevObjectOnLevelStartup { Level = SelectedItem!, LevelId = SelectedItem!.Id };
+		DevObjectOnLevelsStartup.Add(newDl);
+		OnSelectionChanged(SelectedItem);
+		Refresh();
+	}
+
+	private void DeleteDevObjectOnStart(DevObjectOnLevelStartup devObjectOnLevelStartup)
+		=> DevObjectOnSelectedLevel.Remove(devObjectOnLevelStartup);
 
 	private void OnSelectionChanged(Level level)
 		=> DevObjectOnSelectedLevel
