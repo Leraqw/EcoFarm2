@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
@@ -11,14 +10,6 @@
     <Window.DataContext>
         <vm:FactoriesViewModel />
     </Window.DataContext>
-
-    <Window.Resources>
-        <CollectionViewSource x:Key="CollectionView" Source="{Binding Collection}" IsLiveSortingRequested="True">
-            <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Order" Direction="Ascending" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -37,11 +28,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <ListBox
-                    ItemsSource="{Binding Source={StaticResource CollectionView}}"
+                    ItemsSource="{Binding Collection}"
                     HorizontalContentAlignment="Stretch"
                     SelectedItem="{Binding SelectedItem}">
                     <i:Interaction.Triggers>
@@ -59,9 +50,18 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
+                                <!-- title and description -->
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Order}" FontSize="20" />
-                                    <TextBlock Text="{Binding Commentary}" FontSize="13" />
+                                    <TextBlock Text="{Binding Title}" FontSize="20" />
+                                    <TextBlock Text="{Binding Description}" FontSize="13" />
+                                </StackPanel>
+                                <!-- resource -->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Resource.Title}" FontSize="16"
+                                               HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Coefficient}" FontSize="16" HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -73,37 +73,47 @@
                 <StackPanel Grid.Row="2">
                     <StackPanel DataContext="{Binding SelectedItem}"
                                 VerticalAlignment="Center">
-                        <Label Content="Порядковый номер:" />
-                        <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}"
-                                 Style="{StaticResource EditableField}"
-                                 IsEnabled="False" />
-
-                        <Label Content="Комментарий (не будет отображаться в игре):" />
-                        <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
+                        <Label Content="Название:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource EditableField}" />
+
+                        <Label Content="Описание:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
+
+                        <Label Content="Цена:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
+
+                        <Label Content="Ресурс:" Margin="0" Padding="0" />
+                        <ComboBox
+                            ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                    Path =  DataContext.Resources}"
+                            DisplayMemberPath="Title"
+                            SelectedItem="{Binding Resource}"
+                            Style="{StaticResource EditableField}" />
+
+                        <Label Content="Коэффициент потребления:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Coefficient, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
+
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Margin="0">
                         <Button Content="+" Command="{Binding Add}"></Button>
                         <Button Content="-"
                                 Command="{Binding Delete}"
                                 CommandParameter="{Binding SelectedItem}" />
-
-                        <Button Content="↑"
-                                Command="{Binding MoveUp}"
-                                CommandParameter="{Binding SelectedItem}" />
-                        <Button Content="↓"
-                                Command="{Binding MoveDown}"
-                                CommandParameter="{Binding SelectedItem}" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="45">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="25">
                         <Label
                             Visibility="{Binding HasChangesAsVisibility}"
                             Foreground="Red"
-                            Content="Есть несохранённые изменения!" />
-                        <Button
-                            Content="Сохранить"
-                            Command="{Binding SaveChanges}" />
+                            Content="Есть несохранённые изменения!" Margin="0" Padding="0" />
+                        <Button Margin="0" Padding="0"
+                                Content="Сохранить"
+                                Command="{Binding SaveChanges}" />
                     </StackPanel>
 
                 </StackPanel>
@@ -111,70 +121,6 @@
         </DockPanel>
 
         <GridSplitter Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource HorizontalSplitter}" />
-
-        <Grid Grid.Row="0" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="5*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Label Content="Цели:" Margin="0" HorizontalAlignment="Left" />
-                <Button Content="+" Command="{Binding AddGoalCommand}" />
-                <Button Content="-"
-                        Command="{Binding DeleteGoalCommand}"
-                        CommandParameter="{Binding SelectedGoal}" />
-            </StackPanel>
-
-            <ListBox Grid.Row="1" Grid.Column="0"
-                     ItemsSource="{Binding GoalsOnSelectedLevel}"
-                     SelectedItem="{Binding SelectedGoal}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
-                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" />
-            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <DockPanel Margin="5">
-                    <Label Margin="0" Content="Объект:" />
-                    <ComboBox
-                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
-                        Path =  DataContext.DevObjects}"
-                        DisplayMemberPath="Title"
-                        SelectedItem="{Binding SelectedGoal.DevObject}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
-                </DockPanel>
-
-                <DockPanel Margin="5">
-                    <Label Margin="0" Content="Количество:" />
-                    <TextBox
-                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
-                            Path=DataContext.SelectedGoal.Quantity,
-                            UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
-                </DockPanel>
-            </StackPanel>
-        </Grid>
-
-
-        <GridSplitter Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalSplitter}" />
 
         <Grid Grid.Row="2" Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -187,16 +133,16 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Label Content="Объекты развития на старте:" Margin="0" HorizontalAlignment="Left" />
-                <Button Content="+" Command="{Binding AddDosOnStart}" />
+                <Label Content="Выходные продукты:" Margin="0" HorizontalAlignment="Left" />
+                <Button Content="+" Command="{Binding AddOutputProductCommand}" />
                 <Button Content="-"
-                        Command="{Binding DeleteDosOnStart}"
-                        CommandParameter="{Binding SelectedDosOnStart}" />
+                        Command="{Binding DeleteOutputProductCommand}"
+                        CommandParameter="{Binding SelectedOutputProduct}" />
             </StackPanel>
 
             <ListBox Grid.Row="1" Grid.Column="0"
-                     ItemsSource="{Binding DevObjectOnSelectedLevel}"
-                     SelectedItem="{Binding SelectedDosOnStart}">
+                     ItemsSource="{Binding OutputProductsForSelectedFactory}"
+                     SelectedItem="{Binding SelectedOutputProduct}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -205,7 +151,7 @@
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Product.Title}" FontSize="20" />
                                 <TextBlock Text="{Binding Quantity}" FontSize="13" />
                             </StackPanel>
                         </Grid>
@@ -213,26 +159,94 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный продукт:" Margin="0" VerticalAlignment="Bottom"
                    HorizontalAlignment="Left" />
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <DockPanel Margin="5">
-                    <Label Margin="0" Content="Объект:" />
+                    <Label Margin="0" Content="Продукт:" />
                     <ComboBox
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
-                        Path =  DataContext.DevObjects}"
+                        Path =  DataContext.Products}"
                         DisplayMemberPath="Title"
-                        SelectedItem="{Binding SelectedDosOnStart.DevObject}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        SelectedItem="{Binding SelectedOutputProduct.Product}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                            Path = DataContext.IsOutputProductSelected}" />
                 </DockPanel>
 
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
                     <TextBox
                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
-                            Path=DataContext.SelectedDosOnStart.Quantity,
+                            Path=DataContext.SelectedOutputProduct.Quantity,
                             UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                            Path = DataContext.IsOutputProductSelected}" />
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+
+
+        <GridSplitter Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalSplitter}" />
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Label Content="Входные продукты:" Margin="0" HorizontalAlignment="Left" />
+                <Button Content="+" Command="{Binding AddInputProductsCommand}" />
+                <Button Content="-"
+                        Command="{Binding DeleteInputProductsCommand}"
+                        CommandParameter="{Binding SelectedInputProduct}" />
+            </StackPanel>
+
+            <ListBox Grid.Row="1" Grid.Column="0"
+                     ItemsSource="{Binding InputProductsForSelectedFactory}"
+                     SelectedItem="{Binding SelectedInputProduct}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Product.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный продукт:" Margin="0" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" />
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Продукт:" />
+                    <ComboBox
+                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                        Path =  DataContext.Products}"
+                        DisplayMemberPath="Title"
+                        SelectedItem="{Binding SelectedInputProduct.Product}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                            Path = DataContext.IsInputProductSelected}" />
+                </DockPanel>
+
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Количество:" />
+                    <TextBox
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
+                            Path=DataContext.SelectedInputProduct.Quantity,
+                            UpdateSourceTrigger=PropertyChanged}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                            Path = DataContext.IsInputProductSelected}" />
                 </DockPanel>
             </StackPanel>
         </Grid>

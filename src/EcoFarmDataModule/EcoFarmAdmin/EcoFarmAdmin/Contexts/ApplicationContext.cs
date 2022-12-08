@@ -16,6 +16,8 @@ public class ApplicationContext : DbContext
 	public DbSet<Building>                Buildings                 { get; set; } = null!;
 	public DbSet<Generator>               Generators                { get; set; } = null!;
 	public DbSet<Factory>                 Factories                 { get; set; } = null!;
+	public DbSet<InputProduct>           InputProducts             { get; set; } = null!;
+	public DbSet<OutputProduct>          OutputProducts            { get; set; } = null!;
 
 	public ApplicationContext()
 	{
@@ -29,6 +31,8 @@ public class ApplicationContext : DbContext
 		Table<Building>.Value = Buildings;
 		Table<Generator>.Value = Generators;
 		Table<Factory>.Value = Factories;
+		Table<InputProduct>.Value = InputProducts;
+		Table<OutputProduct>.Value = OutputProducts;
 	}
 
 	public DbSet<T> GetTable<T>()

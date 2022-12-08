@@ -75,7 +75,7 @@
                 SelectedItem="{Binding Resource}"
                 Style="{StaticResource EditableField}" />
             
-            <Label Content="Коеффициент эффективности:" />
+            <Label Content="Коэффициент эффективности:" />
             <TextBox Text="{Binding Coefficient, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
 
         </StackPanel>
