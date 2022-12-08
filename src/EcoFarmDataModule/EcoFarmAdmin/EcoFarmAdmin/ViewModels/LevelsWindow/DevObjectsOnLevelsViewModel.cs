@@ -8,10 +8,10 @@ namespace EcoFarmAdmin.ViewModels;
 
 public class DevObjectsOnLevelsViewModel : LevelsMoverViewModel
 {
-	public DevObjectOnLevelStartup?                       SelectedDosOnStart        { get; set; }
-	public ObservableCollection<DevObjectOnLevelStartup>? DevObjectOnSelectedLevel  { get; set; }
-	public ICommand<Level>                                OnSelectionChangedCommand => new DelegateCommand<Level>(OnSelectionChanged);
-	public ICommand<object>                               AddDosOnStart             => new DelegateCommand(AddDevObjectOnStart);
+	public DevObjectOnLevelStartup? SelectedDosOnStart { get; set; }
+	public ObservableCollection<DevObjectOnLevelStartup>? DevObjectOnSelectedLevel { get; set; }
+	public ICommand<Level> OnSelectionChangedCommand => new DelegateCommand<Level>(OnSelectionChanged);
+	public ICommand<object> AddDosOnStart => new DelegateCommand(AddDevObjectOnStart);
 
 	public ICommand<DevObjectOnLevelStartup> DeleteDosOnStart
 		=> new DelegateCommand<DevObjectOnLevelStartup>
