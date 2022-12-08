@@ -34,6 +34,7 @@ public static class DataBaseConnection
 		_currentContext.Trees.Load();
 		_currentContext.Levels.Load();
 		_currentContext.DevObjectsOnLevelsStartup.Load();
+		_currentContext.Goals.Load();
 
 		return _currentContext;
 	}
@@ -52,6 +53,7 @@ public static class DataBaseConnection
 
 	private static bool CancelExit()
 	{
+		bool? isSaved = null;
 		if (HasChanges == false)
 		{
 			return false;
@@ -60,14 +62,14 @@ public static class DataBaseConnection
 		var result = MessageBoxUtils.SaveChangesDialog();
 		if (result == MessageBoxResult.Yes)
 		{
-			_currentContext?.SaveChanges();
+			isSaved = _currentContext?.TrySaveChanges();
 		}
 		else if (result == MessageBoxResult.Cancel)
 		{
 			return true;
 		}
-
-		return false;
+		
+		return isSaved == false;
 	}
 
 	public static bool HasChanges

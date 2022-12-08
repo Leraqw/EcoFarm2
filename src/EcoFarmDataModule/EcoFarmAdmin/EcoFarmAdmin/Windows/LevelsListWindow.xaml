@@ -112,6 +112,68 @@
 
         <GridSplitter Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource HorizontalSplitter}" />
 
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Label Content="Цели:" Margin="0" HorizontalAlignment="Left" />
+                <Button Content="+" Command="{Binding AddGoalCommand}" />
+                <Button Content="-"
+                        Command="{Binding DeleteGoalCommand}"
+                        CommandParameter="{Binding SelectedGoal}" />
+            </StackPanel>
+
+            <ListBox Grid.Row="1" Grid.Column="0"
+                     ItemsSource="{Binding GoalsOnSelectedLevel}"
+                     SelectedItem="{Binding SelectedGoal}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" />
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Объект:" />
+                    <ComboBox
+                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                        Path =  DataContext.DevObjects}"
+                        DisplayMemberPath="Title"
+                        SelectedItem="{Binding SelectedGoal.DevObject}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
+                </DockPanel>
+
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Количество:" />
+                    <TextBox
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
+                            Path=DataContext.SelectedGoal.Quantity,
+                            UpdateSourceTrigger=PropertyChanged}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+
+
         <GridSplitter Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalSplitter}" />
 
         <Grid Grid.Row="2" Grid.Column="2">

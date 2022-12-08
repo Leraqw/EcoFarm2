@@ -14,4 +14,15 @@ public static class MessageBoxUtils
 			MessageBoxImage.Warning
 		);
 	}
+
+	public static void ShowError(string message)
+	{
+		MessageBox.Show
+		(
+			message,
+			"Ошибка",
+			MessageBoxButton.OK,
+			MessageBoxImage.Error
+		);
+	}
 }
