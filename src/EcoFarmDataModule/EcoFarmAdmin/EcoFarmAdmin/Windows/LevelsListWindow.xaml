@@ -9,16 +9,8 @@
         mc:Ignorable="d"
         Title="LevelsListWindow" Height="450" Width="800">
     <Window.DataContext>
-        <vm:LevelsViewModel />
+        <vm:FactoriesViewModel />
     </Window.DataContext>
-
-    <Window.Resources>
-        <CollectionViewSource x:Key="CollectionView" Source="{Binding Collection}" IsLiveSortingRequested="True">
-            <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Order" Direction="Ascending" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -41,7 +33,7 @@
                 </Grid.RowDefinitions>
 
                 <ListBox
-                    ItemsSource="{Binding Source={StaticResource CollectionView}}"
+                    ItemsSource="{Binding Collection}"
                     HorizontalContentAlignment="Stretch"
                     SelectedItem="{Binding SelectedItem}">
                     <i:Interaction.Triggers>
@@ -59,9 +51,17 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
+                                <!-- title and description -->
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Order}" FontSize="20" />
-                                    <TextBlock Text="{Binding Commentary}" FontSize="13" />
+                                    <TextBlock Text="{Binding Title}" FontSize="20" />
+                                    <TextBlock Text="{Binding Description}" FontSize="13" />
+                                </StackPanel>
+                                <!-- resource -->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Resource.Title}" FontSize="16" HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Coefficient}" FontSize="16" HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
