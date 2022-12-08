@@ -25,7 +25,7 @@ public class InputObjectsViewModel : TableViewModel<Factory>
 	private void AddInputProducts()
 	{
 		var newInput = new InputProduct { Factory = SelectedItem! };
-		InputProductsForSelectedFactory!.Add(newInput);
+		InputProducts.Add(newInput);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}

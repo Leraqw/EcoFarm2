@@ -25,7 +25,7 @@ public class OutputProductsViewModel : InputObjectsViewModel
 	private void AddOutputProduct()
 	{
 		var newOutput = new OutputProduct { Factory = SelectedItem! };
-		OutputProductsForSelectedFactory!.Add(newOutput);
+		OutputProducts.Add(newOutput);
 		OnSelectionChanged(SelectedItem!);
 		Refresh();
 	}

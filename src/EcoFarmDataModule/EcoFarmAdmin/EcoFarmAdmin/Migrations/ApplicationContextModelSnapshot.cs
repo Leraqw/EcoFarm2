@@ -33,7 +33,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DevObjects");
+                    b.ToTable("DevObjects", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -59,7 +59,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("LevelId");
 
-                    b.ToTable("DevObjectsOnLevelsStartup");
+                    b.ToTable("DevObjectsOnLevelsStartup", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Goal", b =>
@@ -83,7 +83,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("LevelId");
 
-                    b.ToTable("Goals");
+                    b.ToTable("Goals", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.InputProducts", b =>
@@ -107,7 +107,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("InputProducts");
+                    b.ToTable("InputProducts", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Level", b =>
@@ -124,7 +124,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Levels");
+                    b.ToTable("Levels", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.OutputProducts", b =>
@@ -148,7 +148,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OutputProducts");
+                    b.ToTable("OutputProducts", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Resource", b =>
@@ -163,7 +163,7 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resources");
+                    b.ToTable("Resources", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Building", b =>
@@ -178,14 +178,14 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("ResourceId");
 
-                    b.ToTable("Buildings");
+                    b.ToTable("Buildings", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Product", b =>
                 {
                     b.HasBaseType("EcoFarmAdmin.Domain.DevObject");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Tree", b =>
@@ -197,21 +197,21 @@ namespace EcoFarmAdmin.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Trees");
+                    b.ToTable("Trees", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Factory", b =>
                 {
                     b.HasBaseType("EcoFarmAdmin.Domain.Building");
 
-                    b.ToTable("Factories");
+                    b.ToTable("Factories", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Generator", b =>
                 {
                     b.HasBaseType("EcoFarmAdmin.Domain.Building");
 
-                    b.ToTable("Generators");
+                    b.ToTable("Generators", (string)null);
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.DevObjectOnLevelStartup", b =>
