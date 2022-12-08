@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Windows;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
@@ -21,7 +22,7 @@ public static class Serializer
 		var factories = DataBaseConnection.CurrentContext.Factories.ToArray();
 		var inputProducts = DataBaseConnection.CurrentContext.InputProducts.ToArray();
 		var outputProducts = DataBaseConnection.CurrentContext.OutputProducts.ToArray();
-		
+
 		// save file dialog for .json
 		var saveFileDialog = new SaveFileDialog
 		{
@@ -55,6 +56,14 @@ public static class Serializer
 		);
 
 		File.WriteAllText(saveFileDialog.FileName, json);
+
+		MessageBox.Show
+		(
+			$"Файлы были успешно сохранены в {saveFileDialog.FileName}",
+			"Успех",
+			MessageBoxButton.OK,
+			MessageBoxImage.Information
+		);
 	}
 
 	private static string SerializeObject(object data)
