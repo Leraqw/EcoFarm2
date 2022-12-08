@@ -10,25 +10,37 @@
         <vm:MainViewModel />
     </Window.DataContext>
 
+    <Window.Resources>
+        <Style TargetType="{x:Type StackPanel}" x:Key="Column">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="110" />
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Объекты" HorizontalAlignment="Center" />
+                <Button Content="Продукты" Command="{Binding ToProductsListWindow}" />
+                <Button Content="Деревья" Command="{Binding ToTreesListWindow}" />
+            </StackPanel>
 
-        <StackPanel Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" Margin="25">
-            <Label Content="Управление данными" HorizontalAlignment="Center" />
-            <Button Content="Продукты" Command="{Binding ToProductsListWindow}" />
-            <Button Content="Деревья" Command="{Binding ToTreesListWindow}" />
-            <Button Content="Уровни" Command="{Binding ToLevelsListWindow}"/>
-            <Button Content="Ресурсы" Command="{Binding ToResourcesListWindow}"/>
-            <Button Content="Генераторы" Command="{Binding ToGeneratorsListWindow}"/>
-            <Button Content="Фабрики" Command="{Binding ToFactoriesListWindow}"/>
-        </StackPanel>
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Здания" HorizontalAlignment="Center" />
+                <Button Content="Генераторы" Command="{Binding ToGeneratorsListWindow}" />
+                <Button Content="Фабрики" Command="{Binding ToFactoriesListWindow}" />
+            </StackPanel>
+            
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Развитие" HorizontalAlignment="Center" />
+                <Button Content="Уровни" Command="{Binding ToLevelsListWindow}" />
+                <Button Content="Ресурсы" Command="{Binding ToResourcesListWindow}" />
+            </StackPanel>
 
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25">
-            <Label Content="Экспорт" HorizontalAlignment="Center" Padding="0" />
-            <Button Content="Сериализовать в json" Command="{Binding SerializeCommand}" />
-        </StackPanel>
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Экспорт" HorizontalAlignment="Center" />
+                <Button Content="В json" Command="{Binding SerializeCommand}" />
+            </StackPanel></StackPanel>
     </Grid>
 </Window>
