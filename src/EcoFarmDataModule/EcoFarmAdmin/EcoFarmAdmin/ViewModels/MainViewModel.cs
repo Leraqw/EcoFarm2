@@ -27,4 +27,11 @@ public class MainViewModel : ViewModelBase
 			WindowsTransfer.ToLevelsListWindow,
 			() => DataBaseConnection.IsConnected
 		);
+	
+	public ICommand<object> ToResourcesListWindow
+		=> new DelegateCommand
+		(
+			WindowsTransfer.ToResourcesListWindow,
+			() => DataBaseConnection.IsConnected
+		);
 }

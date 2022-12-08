@@ -35,6 +35,7 @@ public static class DataBaseConnection
 		_currentContext.Levels.Load();
 		_currentContext.DevObjectsOnLevelsStartup.Load();
 		_currentContext.Goals.Load();
+		_currentContext.Resources.Load();
 
 		return _currentContext;
 	}
