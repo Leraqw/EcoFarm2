@@ -124,15 +124,15 @@
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                 <Label Content="Цели:" Margin="0" HorizontalAlignment="Left" />
-                <Button Content="+" Command="{Binding AddGoal}" /> <!-- tutu -->
+                <Button Content="+" Command="{Binding AddGoalCommand}" />
                 <Button Content="-"
-                        Command="{Binding DeleteGoal}"
-                        CommandParameter="{Binding SelectedGoal}" /> <!-- tutu x 2 -->
+                        Command="{Binding DeleteGoalCommand}"
+                        CommandParameter="{Binding SelectedGoal}" />
             </StackPanel>
 
             <ListBox Grid.Row="1" Grid.Column="0"
                      ItemsSource="{Binding GoalsOnSelectedLevel}"
-                     SelectedItem="{Binding SelectedGoal}"> <!-- tutu x 2 -->
+                     SelectedItem="{Binding SelectedGoal}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
