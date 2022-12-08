@@ -166,7 +166,7 @@
                     <Label Margin="0" Content="Продукт:" />
                     <ComboBox
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
-                        Path =  DataContext.DevObjects}"
+                        Path =  DataContext.Products}"
                         DisplayMemberPath="Title"
                         SelectedItem="{Binding SelectedOutputProduct.Product}"
                         IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
@@ -232,7 +232,7 @@
                     <Label Margin="0" Content="Продукт:" />
                     <ComboBox
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
-                        Path =  DataContext.DevObjects}"
+                        Path =  DataContext.Products}"
                         DisplayMemberPath="Title"
                         SelectedItem="{Binding SelectedInputProduct.Product}"
                         IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
