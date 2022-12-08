@@ -17,10 +17,10 @@ public class LevelsGoalsViewModel : DevObjectsOnLevelsViewModel
 		=> new DelegateCommand<Goal>
 		(
 			DeleteGoal,
-			(_) => IsDosSelected
+			(_) => IsGoalSelected
 		);
 
-	public bool IsDosSelected => SelectedDosOnStart != null;
+	public bool IsGoalSelected => SelectedGoal != null;
 
 	private void AddGoal()
 	{

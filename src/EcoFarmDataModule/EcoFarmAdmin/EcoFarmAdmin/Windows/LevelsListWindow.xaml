@@ -158,17 +158,17 @@
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                         Path =  DataContext.DevObjects}"
                         DisplayMemberPath="Title"
-                        SelectedItem="{Binding SelectedDosOnStart.DevObject}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        SelectedItem="{Binding SelectedGoal.DevObject}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
                 </DockPanel>
 
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
                     <TextBox
                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
-                            Path=DataContext.SelectedDosOnStart.Quantity,
+                            Path=DataContext.SelectedGoal.Quantity,
                             UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsGoalSelected}" />
                 </DockPanel>
             </StackPanel>
         </Grid>
