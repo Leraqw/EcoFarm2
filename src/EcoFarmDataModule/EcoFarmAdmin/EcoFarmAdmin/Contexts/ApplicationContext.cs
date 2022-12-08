@@ -36,7 +36,11 @@ public class ApplicationContext : DbContext
 		}
 		catch (DbUpdateException)
 		{
-			MessageBoxUtils.ShowError("Не удалось сохранить изменения в базе данных.");
+			MessageBoxUtils.ShowError
+			(
+				"Не удалось сохранить изменения в базе данных. "
+				+ "Возможно вы заполнили не все поля."
+			);
 			return false;
 		}
 	}
