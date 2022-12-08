@@ -6,7 +6,7 @@ using EcoFarmAdmin.Domain;
 
 namespace EcoFarmAdmin.ViewModels;
 
-public class OutputProductsViewModel : DevObjectsOnLevelsViewModel
+public class OutputProductsViewModel : InputObjectsViewModel
 {
 	public Goal? SelectedGoal { get; set; }
 

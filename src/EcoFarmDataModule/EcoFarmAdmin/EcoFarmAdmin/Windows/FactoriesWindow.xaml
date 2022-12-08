@@ -37,7 +37,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <ListBox
@@ -73,37 +73,44 @@
                 <StackPanel Grid.Row="2">
                     <StackPanel DataContext="{Binding SelectedItem}"
                                 VerticalAlignment="Center">
-                        <Label Content="Порядковый номер:" />
-                        <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}"
-                                 Style="{StaticResource EditableField}"
-                                 IsEnabled="False" />
+                        <Label Content="Название:" Margin="0" Padding="0"/>
+                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
 
-                        <Label Content="Комментарий (не будет отображаться в игре):" />
-                        <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
+                        <Label Content="Описание:" Margin="0" Padding="0"/>
+                        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource EditableField}" />
+
+                        <Label Content="Цена:" Margin="0" Padding="0"/>
+                        <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" 
+                                 />
+
+                        <Label Content="Ресурс:" Margin="0" Padding="0"/>
+                        <ComboBox
+                            ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                    Path =  DataContext.Resources}"
+                            DisplayMemberPath="Title"
+                            SelectedItem="{Binding Resource}"
+                            Style="{StaticResource EditableField}" />
+            
+                        <Label Content="Коэффициент потребления:" Margin="0" Padding="0"/>
+                        <TextBox Text="{Binding Coefficient, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0">
                         <Button Content="+" Command="{Binding Add}"></Button>
                         <Button Content="-"
                                 Command="{Binding Delete}"
                                 CommandParameter="{Binding SelectedItem}" />
-
-                        <Button Content="↑"
-                                Command="{Binding MoveUp}"
-                                CommandParameter="{Binding SelectedItem}" />
-                        <Button Content="↓"
-                                Command="{Binding MoveDown}"
-                                CommandParameter="{Binding SelectedItem}" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="45">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="25">
                         <Label
                             Visibility="{Binding HasChangesAsVisibility}"
                             Foreground="Red"
-                            Content="Есть несохранённые изменения!" />
-                        <Button
-                            Content="Сохранить"
-                            Command="{Binding SaveChanges}" />
+                            Content="Есть несохранённые изменения!" Margin="0" Padding="0" />
+                        <Button Margin="0" Padding="0"
+                                Content="Сохранить"
+                                Command="{Binding SaveChanges}" />
                     </StackPanel>
 
                 </StackPanel>
@@ -123,7 +130,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Label Content="Цели:" Margin="0" HorizontalAlignment="Left" />
+                <Label Content="Входные продукты:" Margin="0" HorizontalAlignment="Left" />
                 <Button Content="+" Command="{Binding AddGoalCommand}" />
                 <Button Content="-"
                         Command="{Binding DeleteGoalCommand}"
@@ -149,11 +156,11 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный продукт:" Margin="0" VerticalAlignment="Bottom"
                    HorizontalAlignment="Left" />
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <DockPanel Margin="5">
-                    <Label Margin="0" Content="Объект:" />
+                    <Label Margin="0" Content="Продукт:" />
                     <ComboBox
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                         Path =  DataContext.DevObjects}"
@@ -187,7 +194,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Label Content="Объекты развития на старте:" Margin="0" HorizontalAlignment="Left" />
+                <Label Content="Выходные продукты:" Margin="0" HorizontalAlignment="Left" />
                 <Button Content="+" Command="{Binding AddDosOnStart}" />
                 <Button Content="-"
                         Command="{Binding DeleteDosOnStart}"
@@ -213,11 +220,11 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный продукт:" Margin="0" VerticalAlignment="Bottom"
                    HorizontalAlignment="Left" />
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <DockPanel Margin="5">
-                    <Label Margin="0" Content="Объект:" />
+                    <Label Margin="0" Content="Продукт:" />
                     <ComboBox
                         ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                         Path =  DataContext.DevObjects}"

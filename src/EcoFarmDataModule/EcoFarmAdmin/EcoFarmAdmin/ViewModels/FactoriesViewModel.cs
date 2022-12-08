@@ -2,4 +2,4 @@
 
 namespace EcoFarmAdmin.ViewModels;
 
-public class FactoriesViewModel : TableViewModel<Factory> { }
+public class FactoriesViewModel : OutputProductsViewModel { }
