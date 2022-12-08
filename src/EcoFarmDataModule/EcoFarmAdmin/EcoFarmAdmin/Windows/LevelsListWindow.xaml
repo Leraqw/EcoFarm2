@@ -161,16 +161,16 @@
                         Path =  DataContext.DevObjects}"
                         DisplayMemberPath="Title"
                         SelectedItem="{Binding SelectedDosOnStart.DevObject}"
-                        Style="{StaticResource EditableField}" />
-
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
                 </DockPanel>
+
                 <DockPanel Margin="5">
                     <Label Margin="0" Content="Количество:" />
                     <TextBox
                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
                             Path=DataContext.SelectedDosOnStart.Quantity,
                             UpdateSourceTrigger=PropertyChanged}"
-                        Style="{StaticResource EditableField}" />
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
                 </DockPanel>
             </StackPanel>
         </Grid>
