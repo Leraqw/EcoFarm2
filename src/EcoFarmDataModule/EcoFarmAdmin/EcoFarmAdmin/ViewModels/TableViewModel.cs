@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
+using EcoFarmAdmin.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcoFarmAdmin.ViewModels;
 
@@ -40,13 +42,18 @@ public abstract class TableViewModel<T> : ViewModelBase
 	public ICommand<object> SaveChanges
 		=> new DelegateCommand
 		(
-			() => DataBaseConnection.CurrentContext.SaveChanges(),
+			Save,
 			() =>
 			{
 				Refresh();
 				return DataBaseConnection.HasChanges;
 			}
 		);
+
+	private static void Save()
+	{
+		DataBaseConnection.CurrentContext.TrySaveChanges();
+	}
 
 	protected virtual void AddItem() => DataBaseConnection.CurrentContext.GetTable<T>().Add(new T());
 

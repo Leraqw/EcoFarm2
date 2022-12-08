@@ -53,6 +53,7 @@ public static class DataBaseConnection
 
 	private static bool CancelExit()
 	{
+		bool? isSaved = null;
 		if (HasChanges == false)
 		{
 			return false;
@@ -61,14 +62,14 @@ public static class DataBaseConnection
 		var result = MessageBoxUtils.SaveChangesDialog();
 		if (result == MessageBoxResult.Yes)
 		{
-			_currentContext?.SaveChanges();
+			isSaved = _currentContext?.TrySaveChanges();
 		}
 		else if (result == MessageBoxResult.Cancel)
 		{
 			return true;
 		}
-
-		return false;
+		
+		return isSaved == false;
 	}
 
 	public static bool HasChanges

@@ -1,4 +1,5 @@
 ﻿using EcoFarmAdmin.Domain;
+using EcoFarmAdmin.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcoFarmAdmin;
@@ -25,6 +26,20 @@ public class ApplicationContext : DbContext
 	public DbSet<T> GetTable<T>()
 		where T : class
 		=> Table<T>.Value;
+
+	public bool TrySaveChanges()
+	{
+		try
+		{
+			DataBaseConnection.CurrentContext.SaveChanges();
+			return true;
+		}
+		catch (DbUpdateException)
+		{
+			MessageBoxUtils.ShowError("Не удалось сохранить изменения в базе данных.");
+			return false;
+		}
+	}
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		=> optionsBuilder.UseSqlite("Data Source = EcoFarm.db");
