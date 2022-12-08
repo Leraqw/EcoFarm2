@@ -26,6 +26,8 @@ public abstract class TableViewModel<T> : ViewModelBase
 	public ObservableCollection<DevObjectOnLevelStartup> DevObjectOnLevelsStartup
 		=> DataBaseConnection.Observable<DevObjectOnLevelStartup>();
 
+	public ObservableCollection<Goal> Goals => DataBaseConnection.Observable<Goal>();
+
 	public ICommand<object> Add => new DelegateCommand(AddItem);
 
 	public ICommand<T> Delete
