@@ -10,6 +10,7 @@ public class ApplicationContext : DbContext
 	public DbSet<Tree>                    Trees                     { get; set; } = null!;
 	public DbSet<Level>                   Levels                    { get; set; } = null!;
 	public DbSet<DevObjectOnLevelStartup> DevObjectsOnLevelsStartup { get; set; } = null!;
+	public DbSet<Goal>                    Goals                     { get; set; } = null!;
 
 	public ApplicationContext()
 	{
@@ -18,6 +19,7 @@ public class ApplicationContext : DbContext
 		Table<Tree>.Value = Trees;
 		Table<Level>.Value = Levels;
 		Table<DevObjectOnLevelStartup>.Value = DevObjectsOnLevelsStartup;
+		Table<Goal>.Value = Goals;
 	}
 
 	public DbSet<T> GetTable<T>()

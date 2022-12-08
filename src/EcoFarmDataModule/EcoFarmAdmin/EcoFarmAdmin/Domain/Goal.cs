@@ -1,6 +1,6 @@
-﻿namespace EcoFarmAdmin.Domain;
+namespace EcoFarmAdmin.Domain;
 
-public class DevObjectOnLevelStartup
+public class Goal
 {
 	public int       Id        { get; set; }
 	public DevObject DevObject { get; set; } = null!;
