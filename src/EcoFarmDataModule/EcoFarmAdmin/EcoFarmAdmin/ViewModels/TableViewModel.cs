@@ -3,8 +3,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using DevExpress.Mvvm;
 using EcoFarmAdmin.Domain;
-using EcoFarmAdmin.Utils;
-using Microsoft.EntityFrameworkCore;
 
 namespace EcoFarmAdmin.ViewModels;
 
