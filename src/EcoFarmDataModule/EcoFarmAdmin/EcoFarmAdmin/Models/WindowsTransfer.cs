@@ -12,5 +12,5 @@ public static class WindowsTransfer
 
 	public static void ToGeneratorsListWindow() => new GeneratorsWindow().Show();
 
-	public static void ToFactoriesListWindow() => throw new System.NotImplementedException();
+	public static void ToFactoriesListWindow() => new FactoriesWindow().Show();
 }
