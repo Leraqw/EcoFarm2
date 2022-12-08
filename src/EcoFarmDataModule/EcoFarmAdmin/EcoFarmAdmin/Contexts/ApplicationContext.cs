@@ -5,10 +5,11 @@ namespace EcoFarmAdmin;
 
 public class ApplicationContext : DbContext
 {
-	public DbSet<DevObject> DevObjects { get; set; } = null!;
-	public DbSet<Product>   Products   { get; set; } = null!;
-	public DbSet<Tree>      Trees      { get; set; } = null!;
-	public DbSet<Level>     Levels      { get; set; } = null!;
+	public DbSet<DevObject>               DevObjects                { get; set; } = null!;
+	public DbSet<Product>                 Products                  { get; set; } = null!;
+	public DbSet<Tree>                    Trees                     { get; set; } = null!;
+	public DbSet<Level>                   Levels                    { get; set; } = null!;
+	public DbSet<DevObjectOnLevelStartup> DevObjectsOnLevelsStartup { get; set; } = null!;
 
 	public ApplicationContext()
 	{
@@ -16,6 +17,7 @@ public class ApplicationContext : DbContext
 		Table<Product>.Value = Products;
 		Table<Tree>.Value = Trees;
 		Table<Level>.Value = Levels;
+		Table<DevObjectOnLevelStartup>.Value = DevObjectsOnLevelsStartup;
 	}
 
 	public DbSet<T> GetTable<T>()

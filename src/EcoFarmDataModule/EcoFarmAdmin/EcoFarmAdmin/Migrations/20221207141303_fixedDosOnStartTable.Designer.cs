@@ -2,6 +2,7 @@
 using EcoFarmAdmin;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoFarmAdmin.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20221207141303_fixedDosOnStartTable")]
+    partial class fixedDosOnStartTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -40,10 +43,6 @@ namespace EcoFarmAdmin.Migrations
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.DevObjectOnLevelStartup", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("DevObjectId")
                         .HasColumnType("INTEGER");
 
@@ -53,9 +52,7 @@ namespace EcoFarmAdmin.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("DevObjectId");
+                    b.HasKey("DevObjectId", "LevelId");
 
                     b.HasIndex("LevelId");
 

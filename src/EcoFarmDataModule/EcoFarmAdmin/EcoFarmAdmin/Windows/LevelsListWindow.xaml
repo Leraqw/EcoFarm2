@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="LevelsListWindow" Height="450" Width="800">
     <Window.DataContext>
@@ -22,65 +23,156 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Row="0"
-                 ItemsSource="{Binding Source={StaticResource CollectionView}}"
-                 HorizontalContentAlignment="Stretch"
-                 SelectedItem="{Binding SelectedItem}">
+        <DockPanel Grid.RowSpan="3" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Order}" FontSize="20" />
-                            <TextBlock Text="{Binding Commentary}" FontSize="13" />
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListBox
+                    ItemsSource="{Binding Source={StaticResource CollectionView}}"
+                    HorizontalContentAlignment="Stretch"
+                    SelectedItem="{Binding SelectedItem}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction
+                                Command="{Binding OnSelectionChangedCommand}"
+                                CommandParameter="{Binding SelectedItem}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Добавить" Command="{Binding Add}"></Button>
-            <Button Content="Удалить"
-                    Command="{Binding Delete}"
-                    CommandParameter="{Binding SelectedItem}" />
-            <Button Content="↑"
-                    Command="{Binding MoveUp}"
-                    CommandParameter="{Binding SelectedItem}" />
-            <Button Content="↓"
-                    Command="{Binding MoveDown}"
-                    CommandParameter="{Binding SelectedItem}" />
-        </StackPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Order}" FontSize="20" />
+                                    <TextBlock Text="{Binding Commentary}" FontSize="13" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedItem}"
-                    VerticalAlignment="Center">
-            <Label Content="Порядковый номер:" />
-            <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" 
-                     IsEnabled="False"/>
+                <GridSplitter Grid.Row="1" Style="{StaticResource VerticalSplitter}" />
 
-            <Label Content="Комментарий (не будет отображаться в игре):" />
-            <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
-                     Style="{StaticResource EditableField}" />
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label
-                Visibility="{Binding HasChangesAsVisibility}"
-                Foreground="Red"
-                Content="Есть несохранённые изменения!" />
-            <Button
-                Content="Сохранить"
-                Command="{Binding SaveChanges}" />
-        </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <StackPanel DataContext="{Binding SelectedItem}"
+                                VerticalAlignment="Center">
+                        <Label Content="Порядковый номер:" />
+                        <TextBox Text="{Binding Order, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}"
+                                 IsEnabled="False" />
+
+                        <Label Content="Комментарий (не будет отображаться в игре):" />
+                        <TextBox Text="{Binding Commentary, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button Content="+" Command="{Binding Add}"></Button>
+                        <Button Content="-"
+                                Command="{Binding Delete}"
+                                CommandParameter="{Binding SelectedItem}" />
+
+                        <Button Content="↑"
+                                Command="{Binding MoveUp}"
+                                CommandParameter="{Binding SelectedItem}" />
+                        <Button Content="↓"
+                                Command="{Binding MoveDown}"
+                                CommandParameter="{Binding SelectedItem}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="45">
+                        <Label
+                            Visibility="{Binding HasChangesAsVisibility}"
+                            Foreground="Red"
+                            Content="Есть несохранённые изменения!" />
+                        <Button
+                            Content="Сохранить"
+                            Command="{Binding SaveChanges}" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+
+        <GridSplitter Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource HorizontalSplitter}" />
+
+        <GridSplitter Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalSplitter}" />
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Label Content="Объекты развития на старте:" Margin="0" HorizontalAlignment="Left" />
+                <Button Content="+" Command="{Binding AddDosOnStart}" />
+                <Button Content="-"
+                        Command="{Binding DeleteDosOnStart}"
+                        CommandParameter="{Binding SelectedDosOnStart}" />
+            </StackPanel>
+
+            <ListBox Grid.Row="1" Grid.Column="0"
+                     ItemsSource="{Binding DevObjectOnSelectedLevel}"
+                     SelectedItem="{Binding SelectedDosOnStart}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding DevObject.Title}" FontSize="20" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="13" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="Выбранный объект:" Margin="0" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" />
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Объект:" />
+                    <ComboBox
+                        ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
+                        Path =  DataContext.DevObjects}"
+                        DisplayMemberPath="Title"
+                        SelectedItem="{Binding SelectedDosOnStart.DevObject}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                </DockPanel>
+
+                <DockPanel Margin="5">
+                    <Label Margin="0" Content="Количество:" />
+                    <TextBox
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, 
+                            Path=DataContext.SelectedDosOnStart.Quantity,
+                            UpdateSourceTrigger=PropertyChanged}"
+                        IsEnabled="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, Path = DataContext.IsDosSelected}" />
+                </DockPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

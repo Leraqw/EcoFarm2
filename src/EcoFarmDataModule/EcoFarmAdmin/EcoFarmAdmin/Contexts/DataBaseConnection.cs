@@ -33,6 +33,7 @@ public static class DataBaseConnection
 		_currentContext.Products.Load();
 		_currentContext.Trees.Load();
 		_currentContext.Levels.Load();
+		_currentContext.DevObjectsOnLevelsStartup.Load();
 
 		return _currentContext;
 	}
