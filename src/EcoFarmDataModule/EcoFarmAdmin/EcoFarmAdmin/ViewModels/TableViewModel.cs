@@ -26,8 +26,11 @@ public abstract class TableViewModel<T> : ViewModelBase
 	public ObservableCollection<DevObjectOnLevelStartup> DevObjectOnLevelsStartup
 		=> DataBaseConnection.Observable<DevObjectOnLevelStartup>();
 
-	public ObservableCollection<Goal>     Goals     => DataBaseConnection.Observable<Goal>();
-	public ObservableCollection<Resource> Resources => DataBaseConnection.Observable<Resource>();
+	public ObservableCollection<Goal>           Goals          => DataBaseConnection.Observable<Goal>();
+	public ObservableCollection<Resource>       Resources      => DataBaseConnection.Observable<Resource>();
+	public ObservableCollection<Factory>        Factories      => DataBaseConnection.Observable<Factory>();
+	public ObservableCollection<InputProduct>  InputProducts  => DataBaseConnection.Observable<InputProduct>();
+	public ObservableCollection<OutputProduct> OutputProducts => DataBaseConnection.Observable<OutputProduct>();
 
 	public ICommand<object> Add => new DelegateCommand(AddItem);
 

@@ -38,6 +38,9 @@ public static class DataBaseConnection
 		_currentContext.Resources.Load();
 		_currentContext.Buildings.Load();
 		_currentContext.Generators.Load();
+		_currentContext.Factories.Load();
+		_currentContext.InputProducts.Load();
+		_currentContext.OutputProducts.Load();
 
 		return _currentContext;
 	}
