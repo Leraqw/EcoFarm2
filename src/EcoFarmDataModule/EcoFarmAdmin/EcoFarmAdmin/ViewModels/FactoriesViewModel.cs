@@ -1,5 +1,3 @@
-﻿using EcoFarmAdmin.Domain;
-
-namespace EcoFarmAdmin.ViewModels;
+﻿namespace EcoFarmAdmin.ViewModels;
 
 public class FactoriesViewModel : OutputProductsViewModel { }

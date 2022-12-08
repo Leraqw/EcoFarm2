@@ -11,14 +11,6 @@
     <Window.DataContext>
         <vm:FactoriesViewModel />
     </Window.DataContext>
-
-    <Window.Resources>
-        <CollectionViewSource x:Key="CollectionView" Source="{Binding Collection}" IsLiveSortingRequested="True">
-            <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Order" Direction="Ascending" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -41,7 +33,7 @@
                 </Grid.RowDefinitions>
 
                 <ListBox
-                    ItemsSource="{Binding Source={StaticResource CollectionView}}"
+                    ItemsSource="{Binding Collection}"
                     HorizontalContentAlignment="Stretch"
                     SelectedItem="{Binding SelectedItem}">
                     <i:Interaction.Triggers>
@@ -59,9 +51,17 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
+                                <!-- title and description -->
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Order}" FontSize="20" />
-                                    <TextBlock Text="{Binding Commentary}" FontSize="13" />
+                                    <TextBlock Text="{Binding Title}" FontSize="20" />
+                                    <TextBlock Text="{Binding Description}" FontSize="13" />
+                                </StackPanel>
+                                <!-- resource -->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Resource.Title}" FontSize="16" HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Coefficient}" FontSize="16" HorizontalAlignment="Right"
+                                               TextAlignment="Right" VerticalAlignment="Center" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -73,31 +73,34 @@
                 <StackPanel Grid.Row="2">
                     <StackPanel DataContext="{Binding SelectedItem}"
                                 VerticalAlignment="Center">
-                        <Label Content="Название:" Margin="0" Padding="0"/>
-                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+                        <Label Content="Название:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
 
-                        <Label Content="Описание:" Margin="0" Padding="0"/>
+                        <Label Content="Описание:" Margin="0" Padding="0" />
                         <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource EditableField}" />
 
-                        <Label Content="Цена:" Margin="0" Padding="0"/>
-                        <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" 
-                                 />
+                        <Label Content="Цена:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
 
-                        <Label Content="Ресурс:" Margin="0" Padding="0"/>
+                        <Label Content="Ресурс:" Margin="0" Padding="0" />
                         <ComboBox
                             ItemsSource="{Binding RelativeSource = {RelativeSource Mode = FindAncestor, AncestorType = Window}, 
                     Path =  DataContext.Resources}"
                             DisplayMemberPath="Title"
                             SelectedItem="{Binding Resource}"
                             Style="{StaticResource EditableField}" />
-            
-                        <Label Content="Коэффициент потребления:" Margin="0" Padding="0"/>
-                        <TextBox Text="{Binding Coefficient, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditableField}" />
+
+                        <Label Content="Коэффициент потребления:" Margin="0" Padding="0" />
+                        <TextBox Text="{Binding Coefficient, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource EditableField}" />
 
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Margin="0">
                         <Button Content="+" Command="{Binding Add}"></Button>
                         <Button Content="-"
                                 Command="{Binding Delete}"
