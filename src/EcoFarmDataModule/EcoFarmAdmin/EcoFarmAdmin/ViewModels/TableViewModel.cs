@@ -70,6 +70,10 @@ public abstract class TableViewModel<T> : ViewModelBase
 		{
 			DataBaseConnection.CurrentContext.GetTable<T>().Remove(item);
 		}
+		catch (NullReferenceException)
+		{
+			MessageBox.Show("Запись не найдена", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
 		catch (Exception e)
 		{
 			MessageBox.Show(e.Message);
