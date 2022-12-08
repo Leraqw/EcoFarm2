@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿namespace EcoFarmAdmin;
 
-namespace EcoFarmAdmin;
-
-public partial class GeneratorsWindow : Window
+public partial class GeneratorsWindow
 {
 	public GeneratorsWindow()
 	{
