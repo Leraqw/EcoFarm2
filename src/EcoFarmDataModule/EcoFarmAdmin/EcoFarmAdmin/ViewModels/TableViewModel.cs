@@ -26,9 +26,9 @@ public abstract class TableViewModel<T> : ViewModelBase
 	public ObservableCollection<DevObjectOnLevelStartup> DevObjectOnLevelsStartup
 		=> DataBaseConnection.Observable<DevObjectOnLevelStartup>();
 
-	public ObservableCollection<Goal>           Goals          => DataBaseConnection.Observable<Goal>();
-	public ObservableCollection<Resource>       Resources      => DataBaseConnection.Observable<Resource>();
-	public ObservableCollection<Factory>        Factories      => DataBaseConnection.Observable<Factory>();
+	public ObservableCollection<Goal>          Goals          => DataBaseConnection.Observable<Goal>();
+	public ObservableCollection<Resource>      Resources      => DataBaseConnection.Observable<Resource>();
+	public ObservableCollection<Factory>       Factories      => DataBaseConnection.Observable<Factory>();
 	public ObservableCollection<InputProduct>  InputProducts  => DataBaseConnection.Observable<InputProduct>();
 	public ObservableCollection<OutputProduct> OutputProducts => DataBaseConnection.Observable<OutputProduct>();
 
@@ -61,6 +61,11 @@ public abstract class TableViewModel<T> : ViewModelBase
 
 	protected virtual void DeleteItem(T item)
 	{
+		if (MessageBox.Show("Вы уверены?", "Удаление", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+		{
+			return;
+		}
+
 		try
 		{
 			DataBaseConnection.CurrentContext.GetTable<T>().Remove(item);
