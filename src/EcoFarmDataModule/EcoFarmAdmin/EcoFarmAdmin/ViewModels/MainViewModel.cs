@@ -48,4 +48,11 @@ public class MainViewModel : ViewModelBase
 			WindowsTransfer.ToFactoriesListWindow,
 			() => DataBaseConnection.IsConnected
 		);
+	
+	public ICommand<object> SerializeCommand
+		=> new DelegateCommand
+		(
+			Serializer.Serialize,
+			() => DataBaseConnection.IsConnected
+		);
 }

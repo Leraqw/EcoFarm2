@@ -26,10 +26,9 @@
             <Button Content="Фабрики" Command="{Binding ToFactoriesListWindow}"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="125" Margin="25">
-            <Label Content="Сериализация" HorizontalAlignment="Center" />
-            <Button Content="Импорт" />
-            <Button Content="Экспорт" />
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25">
+            <Label Content="Экспорт" HorizontalAlignment="Center" Padding="0" />
+            <Button Content="Сериализовать в json" Command="{Binding SerializeCommand}" />
         </StackPanel>
     </Grid>
 </Window>
