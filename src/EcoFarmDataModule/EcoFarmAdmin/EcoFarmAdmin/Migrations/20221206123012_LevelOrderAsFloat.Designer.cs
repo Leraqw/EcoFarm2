@@ -2,6 +2,7 @@
 using EcoFarmAdmin;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoFarmAdmin.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20221206123012_LevelOrderAsFloat")]
+    partial class LevelOrderAsFloat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -36,54 +39,6 @@ namespace EcoFarmAdmin.Migrations
                     b.ToTable("DevObjects");
 
                     b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("EcoFarmAdmin.Domain.DevObjectOnLevelStartup", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DevObjectId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("LevelId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DevObjectId");
-
-                    b.HasIndex("LevelId");
-
-                    b.ToTable("DevObjectsOnLevelsStartup");
-                });
-
-            modelBuilder.Entity("EcoFarmAdmin.Domain.Goal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DevObjectId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("LevelId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DevObjectId");
-
-                    b.HasIndex("LevelId");
-
-                    b.ToTable("Goals");
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Level", b =>
@@ -120,44 +75,6 @@ namespace EcoFarmAdmin.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Trees");
-                });
-
-            modelBuilder.Entity("EcoFarmAdmin.Domain.DevObjectOnLevelStartup", b =>
-                {
-                    b.HasOne("EcoFarmAdmin.Domain.DevObject", "DevObject")
-                        .WithMany()
-                        .HasForeignKey("DevObjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EcoFarmAdmin.Domain.Level", "Level")
-                        .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DevObject");
-
-                    b.Navigation("Level");
-                });
-
-            modelBuilder.Entity("EcoFarmAdmin.Domain.Goal", b =>
-                {
-                    b.HasOne("EcoFarmAdmin.Domain.DevObject", "DevObject")
-                        .WithMany()
-                        .HasForeignKey("DevObjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EcoFarmAdmin.Domain.Level", "Level")
-                        .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DevObject");
-
-                    b.Navigation("Level");
                 });
 
             modelBuilder.Entity("EcoFarmAdmin.Domain.Product", b =>
