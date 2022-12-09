@@ -1,0 +1,46 @@
+﻿<Window x:Class="EcoFarmAdmin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type StackPanel}" x:Key="Column">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="110" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Объекты" HorizontalAlignment="Center" />
+                <Button Content="Продукты" Command="{Binding ToProductsListWindow}" />
+                <Button Content="Деревья" Command="{Binding ToTreesListWindow}" />
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Здания" HorizontalAlignment="Center" />
+                <Button Content="Генераторы" Command="{Binding ToGeneratorsListWindow}" />
+                <Button Content="Фабрики" Command="{Binding ToFactoriesListWindow}" />
+            </StackPanel>
+            
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Развитие" HorizontalAlignment="Center" />
+                <Button Content="Уровни" Command="{Binding ToLevelsListWindow}" />
+                <Button Content="Ресурсы" Command="{Binding ToResourcesListWindow}" />
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource Column}">
+                <Label Content="Экспорт" HorizontalAlignment="Center" />
+                <Button Content="В json" Command="{Binding SerializeCommand}" />
+            </StackPanel></StackPanel>
+    </Grid>
+</Window>
