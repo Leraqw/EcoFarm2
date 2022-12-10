@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:vm="clr-namespace:EcoFarmAdmin.ViewModels"
         mc:Ignorable="d"
-        Title="GeneratorsWindow" Height="450" Width="800">
+        Title="Генераторы" Height="450" Width="800">
     <Window.DataContext>
         <vm:GeneratorsViewModel />
     </Window.DataContext>
