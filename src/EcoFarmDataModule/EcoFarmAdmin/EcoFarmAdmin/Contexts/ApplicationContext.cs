@@ -52,7 +52,7 @@ public class ApplicationContext : DbContext
 			MessageBoxUtils.ShowError
 			(
 				"Не удалось сохранить изменения в базе данных. "
-				+ "Возможно вы заполнили не все поля."
+				+ "\nВозможно вы заполнили не все поля."
 			);
 			return false;
 		}
