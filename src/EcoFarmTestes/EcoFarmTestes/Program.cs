@@ -1,43 +1,32 @@
-﻿using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+﻿using Code.ECS.Systems.Warehouse;
 using UnityEngine;
 using Xunit;
 
-public class TreeWateringTests
+namespace Testes;
+
+public class PickedToWarehouseTests
 {
-	private GameEntity _tree;
-	private GameEntity _bucket;
-	private GameContext _context;
+	private readonly GameEntity _entity;
+	private readonly PickedToWarehouseSystem _system;
 
-	public TreeWateringTests()
+	public PickedToWarehouseTests()
 	{
-		_context = new GameContext();
-		_tree = InitializeTree(_context);
-		_bucket = InitializeBucket(_context);
-	}
-
-	private GameEntity InitializeTree(GameContext context)
-	{
-		var entity = context.CreateEntity();
-		entity.Do((e) => e.AddDebugName("Tree"))
-		     .Do((e) => e.MakeAttachable())
-		     .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
-		     .Do((e) => e.isFruitful = true)
-		     .Do((e) => e.RemoveRequireTreeOnPosition());
-		return entity;
-	}
-
-	private GameEntity InitializeBucket(GameContext context)
-	{
-		var entity = context.CreateEntity();
-		entity.AddRadius(2);
-		entity.AddPosition(Vector2.zero);
-		return entity;
+		var contexts = new Contexts();
+		_system = new PickedToWarehouseSystem(contexts);
+		_entity = contexts.game.CreateEntity();
 	}
 
 	[Fact]
-	public void BucketDroppedNearTree()
+	public void SuccessPickedNotCollectedPickableEntity()
 	{
-		
+		// Arrange
+		_entity.isPicked = true;
+		_entity.AddPosition(Vector2.zero);
+
+		// Act
+		_system.Execute();
+
+		// Assert
+		Assert.True(_entity.isCollected);
 	}
 }

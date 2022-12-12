@@ -1,7 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cnikol_005CDocuments_005Csource_005CGitHub_005CBdKursach_005Csrc_005CShared_005CModel_005CEcoFarmModel_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\nikol\.nuget\packages\xunit.extensibility.core\2.4.2\lib\netstandard1.1\xunit.core.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d7c2d933_002D1f59_002D49c6_002Db324_002D979cfdf57e9f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::59834C47-B1EB-4B0A-BFA4-8AD1961BD48D::net7.0::TreeWateringTests.SuccessfulTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::59834C47-B1EB-4B0A-BFA4-8AD1961BD48D::net7.0::Testes.PickedToWarehouseTests.SuccessPickedNotCollectedPickableEntity&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
