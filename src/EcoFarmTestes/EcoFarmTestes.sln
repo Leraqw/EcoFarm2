@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLogic", "..\EcoFarm\Gam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontGenerate", "..\EcoFarm\DontGenerate.csproj", "{5CA7DE97-4367-AA88-905B-E18EE223CA7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoFarmModel", "..\EcoFarmDataModule\EcoFarmModel\EcoFarmModel.csproj", "{A3032CC7-C394-44C8-B1B5-37F2A162002D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{5CA7DE97-4367-AA88-905B-E18EE223CA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CA7DE97-4367-AA88-905B-E18EE223CA7B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CA7DE97-4367-AA88-905B-E18EE223CA7B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A3032CC7-C394-44C8-B1B5-37F2A162002D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3032CC7-C394-44C8-B1B5-37F2A162002D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3032CC7-C394-44C8-B1B5-37F2A162002D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3032CC7-C394-44C8-B1B5-37F2A162002D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
