@@ -15,7 +15,7 @@ public class PickableTests
         var contexts = new Contexts();
         Setup.Services(contexts);
         _entity = contexts.game.CreateEntity();
-        _system = Create.System(contexts);
+        _system = Create.PickedToWarehouseSystem(contexts);
     }
     
     [Test]
