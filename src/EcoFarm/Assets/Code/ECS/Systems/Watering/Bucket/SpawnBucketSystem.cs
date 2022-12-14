@@ -19,15 +19,17 @@ namespace Code.ECS.Systems.Watering.Bucket
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("Bucket"))
-			            .Do((e) => e.isBucket = true)
-			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Bucket))
-			            .Do((e) => e.AddSpriteToLoad(Resource.Sprite.Bucket.Filled))
-			            .Do((e) => e.AddRadius(Balance.Bucket.Radius))
-			            .Do((e) => e.isDraggable = true)
-			            .Do((e) => e.isFilled = true)
-			            .Do((e) => e.AddPosition(SpawnPointsService.Bucket))
-			            .Do((e) => e.AddSpawnPosition(e.position));
+		{
+			var e = _contexts.game.CreateEntity();
+			e.AddDebugName("Bucket");
+			e.isBucket = true;
+			e.AddViewPrefab(Resource.Prefab.Bucket);
+			e.AddSpriteToLoad(Resource.Sprite.Bucket.Filled);
+			e.AddRadius(Balance.Bucket.Radius);
+			e.isDraggable = true;
+			e.isFilled = true;
+			e.AddPosition(SpawnPointsService.Bucket);
+			e.AddSpawnPosition(e.position);
+		}
 	}
 }

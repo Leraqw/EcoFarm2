@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.ECS.Systems.Watering.Bucket;
 using Code.Services.Game.Interfaces.Config;
-using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
@@ -28,10 +27,11 @@ namespace Code.ECS.Systems.Warehouse
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(StartMoving);
 
 		private void StartMoving(GameEntity entity)
-			=> entity.Do((e) => e.isCollected = true)
-			         .Do((e) => e.AddTargetPosition(WarehousePosition))
-			         .Do((e) => e.AddDuration(Balance.Warehouse.PickupDuration))
-			         .Do((e) => e.isInFactory = false, @if: (e) => e.isInFactory)
-		/**/ ;
+		{
+			entity.isCollected = true;
+			entity.AddTargetPosition(WarehousePosition);
+			entity.AddDuration(Balance.Warehouse.PickupDuration);
+			entity.isInFactory = false;
+		}
 	}
 }
