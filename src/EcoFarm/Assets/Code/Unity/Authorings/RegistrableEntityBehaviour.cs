@@ -6,9 +6,9 @@ namespace Code
 	{
 		[SerializeField] private RegistrarBase[] _registrars;
 
-		private void Start()
+		public void Initialize(Contexts contexts)
 		{
-			var entity = Contexts.sharedInstance.game.CreateEntity();
+			var entity = contexts.game.CreateEntity();
 
 			foreach (var registrar in _registrars)
 			{

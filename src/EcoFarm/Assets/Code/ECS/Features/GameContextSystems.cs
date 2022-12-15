@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Features.Features;
+using Code.ECS.Systems.EntityBehaviours;
 using Code.Unity;
 using Code.Utils.Extensions.Entitas;
 
@@ -12,6 +13,7 @@ namespace Code.ECS.Features
 			var contexts = Contexts.sharedInstance;
 			Add(new GameplayServicesRegistrationSystems(contexts, dependencies));
 
+			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
 			Add(new GameplaySystems(contexts));
 
 			Add(new GameEventSystems(contexts));
