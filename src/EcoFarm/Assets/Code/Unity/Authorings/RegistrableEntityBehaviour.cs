@@ -6,7 +6,7 @@ namespace Code
 	{
 		[SerializeField] private RegistrarBase[] _registrars;
 
-		private void Awake()
+		private void Start()
 		{
 			var entity = Contexts.sharedInstance.game.CreateEntity();
 
