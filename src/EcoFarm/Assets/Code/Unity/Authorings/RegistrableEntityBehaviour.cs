@@ -1,10 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Code
 {
 	public class RegistrableEntityBehaviour : MonoBehaviour
 	{
 		[SerializeField] private RegistrarBase[] _registrars;
+
+		private void OnEnable()
+		{
+			_registrars = GetComponents<RegistrarBase>();
+		}
 
 		public void Initialize(Contexts contexts)
 		{
