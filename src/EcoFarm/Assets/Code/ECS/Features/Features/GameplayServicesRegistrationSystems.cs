@@ -13,12 +13,11 @@ namespace Code.ECS.Features.Features
 		public GameplayServicesRegistrationSystems(Contexts contexts, UnityDependencies dependencies)
 			: base(nameof(GlobalServicesRegistrationSystems))
 		{
-			var servicesContext = contexts.services;
 			var services = new UnityGameServices(dependencies);
 
-			Register<ISpawnPointsService>(services, servicesContext.ReplaceSceneObjectsService);
-			Register<IConfigurationService>(services, servicesContext.ReplaceConfigurationService);
-			Register<IUiService>(services, servicesContext.ReplaceUiService);
+			Register<ISpawnPointsService>(services, contexts.services.ReplaceSceneObjectsService);
+			Register<IConfigurationService>(services, contexts.services.ReplaceConfigurationService);
+			Register<IUiService>(services, contexts.services.ReplaceUiService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
