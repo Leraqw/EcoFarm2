@@ -102,13 +102,23 @@
           <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll</HintPath>
         </Reference>
         <Reference Include="System" />
+        <Reference Include="System.Collections.Immutable">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\System.Collections.Immutable.dll</HintPath>
+        </Reference>
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CoolData.cs" />
+        <Compile Include="CoolDataProvider.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\EcoFarmCustomGenerator.CodeGeneration.Attributes\EcoFarmCustomGenerator.CodeGeneration.Attributes.csproj">
+        <Project>{378dd7da-3cea-4fc3-b4d5-366fa69fbd6d}</Project>
+        <Name>EcoFarmCustomGenerator.CodeGeneration.Attributes</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
