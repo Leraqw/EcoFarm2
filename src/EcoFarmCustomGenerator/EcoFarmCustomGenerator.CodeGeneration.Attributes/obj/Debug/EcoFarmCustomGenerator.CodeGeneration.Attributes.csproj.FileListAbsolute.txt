@@ -1,0 +1,6 @@
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\bin\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\bin\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.pdb
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\obj\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.csproj.AssemblyReference.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\obj\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.csproj.CoreCompileInputs.cache
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\obj\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.dll
+C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarmCustomGenerator\EcoFarmCustomGenerator.CodeGeneration.Attributes\obj\Debug\EcoFarmCustomGenerator.CodeGeneration.Attributes.pdb
