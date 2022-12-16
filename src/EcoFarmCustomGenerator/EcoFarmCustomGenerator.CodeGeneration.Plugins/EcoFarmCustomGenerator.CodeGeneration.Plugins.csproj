@@ -112,6 +112,7 @@
     <ItemGroup>
         <Compile Include="CoolData.cs" />
         <Compile Include="CoolDataProvider.cs" />
+        <Compile Include="CoolGenerator.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
