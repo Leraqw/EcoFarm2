@@ -1,4 +1,6 @@
-﻿namespace EcoFarmCustomGenerator.CodeGeneration.Attributes
+﻿using System;
+
+namespace EcoFarmCustomGenerator.CodeGeneration.Attributes
 {
-	public class Class1 { }
+	[AttributeUsage(AttributeTargets.Class)] public class CoolAttribute : Attribute { }
 }
