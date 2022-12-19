@@ -114,6 +114,7 @@
         <Compile Include="CoolDataProvider.cs" />
         <Compile Include="CoolGenerator.cs" />
         <Compile Include="DependenciesAttribute\DependencyData.cs" />
+        <Compile Include="DependenciesAttribute\DependencyDataProvider.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

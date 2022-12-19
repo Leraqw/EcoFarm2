@@ -5,9 +5,9 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
 	public class DependencyData : CodeGeneratorData
 	{
-		public const string NameKey = "Dependency.Name";
-		public const string MemberKey = "Dependency.Members";
-		public const string DependenciesKey = "Dependency.Dependencies";
+		public string NameKey = "Dependency.Name";
+		public string MemberKey = "Dependency.Members";
+		public string DependenciesKey = "Dependency.Dependencies";
 
 		public string Name
 		{
@@ -15,7 +15,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			set => this[NameKey] = value;
 		}
 
-		public MemberData[] Members
+		public MemberData[] MemberData
 		{
 			get => (MemberData[])this[MemberKey];
 			set => this[MemberKey] = value;
