@@ -1,4 +1,5 @@
 ﻿using DesperateDevs.CodeGeneration;
+using Entitas.CodeGeneration.Plugins;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
@@ -14,15 +15,15 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			set => this[NameKey] = value;
 		}
 
-		public string Members
+		public MemberData[] Members
 		{
-			get => (string)this[MemberKey];
+			get => (MemberData[])this[MemberKey];
 			set => this[MemberKey] = value;
 		}
 
-		public string Dependencies
+		public string[] Dependencies
 		{
-			get => (string)this[DependenciesKey];
+			get => (string[])this[DependenciesKey];
 			set => this[DependenciesKey] = value;
 		}
 	}
