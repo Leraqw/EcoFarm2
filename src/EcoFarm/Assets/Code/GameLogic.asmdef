@@ -8,19 +8,9 @@
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": true,
-    "precompiledReferences": [
-        "EcoFarmCustomGenerator.CodeGeneration.Attributes.dll",
-        "EcoFarmCustomGenerator.CodeGeneration.Plugins.dll",
-        "DesperateDevs.Utils.dll",
-        "DesperateDevs.Unity.Editor.dll",
-        "EcoFarmModel.dll",
-        "Entitas.dll",
-        "Entitas.CodeGeneration.Attributes.dll",
-        "Entitas.VisualDebugging.Unity.dll",
-        "Newtonsoft.Json.dll"
-    ],
-    "autoReferenced": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
