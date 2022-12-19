@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoFarmCustomGenerator.CodeGeneration.Plugins", "EcoFarmCustomGenerator.CodeGeneration.Plugins\EcoFarmCustomGenerator.CodeGeneration.Plugins.csproj", "{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoFarmCustomGenerator.CodeGeneration.Attributes", "EcoFarmCustomGenerator.CodeGeneration.Attributes\EcoFarmCustomGenerator.CodeGeneration.Attributes.csproj", "{378DD7DA-3CEA-4FC3-B4D5-366FA69FBD6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378DD7DA-3CEA-4FC3-B4D5-366FA69FBD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378DD7DA-3CEA-4FC3-B4D5-366FA69FBD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378DD7DA-3CEA-4FC3-B4D5-366FA69FBD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378DD7DA-3CEA-4FC3-B4D5-366FA69FBD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
