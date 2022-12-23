@@ -27,6 +27,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			var fileName = Path.Combine(DirectoryName, $"{className}.cs");
 
 			var memberData = data.MemberData;
+			throw new NotImplementedException();
 		}
 	}
 }
