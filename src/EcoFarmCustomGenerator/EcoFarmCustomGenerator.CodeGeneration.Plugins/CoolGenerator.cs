@@ -10,35 +10,6 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 	{
 		private const string DirectoryName = "CoolStuff";
 
-		private const string StandardTemplate =
-			@"using UnityEngine;
-
-public class ${ClassName} : MonoBehaviour
-{
-${Fields}
-
-	public void Initialize(GameEntity entity)
-	{
-		entity.Replace${ComponentName}(${Args});
-	}
-}
-";
-
-		private const string FlagTemplate =
-			@"using UnityEngine;
-
-public class ${ClassName} : MonoBehaviour
-{
-	public void Initialize(GameEntity entity)
-	{
-		entity.is${ComponentName} = true;
-	}
-}
-";
-
-		private const string FieldTemplate = "\t[SerializeField] private ${FieldType} _${fieldName};";
-		private const string ArgTemplate = "${fieldName}";
-
 		public string name         => "Cool";
 		public int    priority     => 0;
 		public bool   runInDryMode => true;
@@ -46,10 +17,10 @@ public class ${ClassName} : MonoBehaviour
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
 			=> data
 			   .OfType<CoolData>()
-			   .Select(Generate)
+			   .Select(GenerateInner)
 			   .ToArray();
 
-		private CodeGenFile Generate(CoolData data)
+		private CodeGenFile GenerateInner(CoolData data)
 		{
 			var componentName = data.Name.ToComponentName(ignoreNamespaces: true);
 			var className = $"{componentName}Script";
@@ -57,8 +28,8 @@ public class ${ClassName} : MonoBehaviour
 
 			var memberData = data.MemberData;
 			var template = IsFlagComponent(memberData)
-				? FlagTemplate
-				: StandardTemplate;
+				? Template.FlagComponent
+				: Template.ValueComponent;
 
 			var fileContent = template
 			                  .Replace("${ClassName}", className)
@@ -71,16 +42,48 @@ public class ${ClassName} : MonoBehaviour
 
 		private static bool IsFlagComponent(MemberData[] memberData) => memberData.ToArray().Length == 0;
 
-		private string GenerateFields(MemberData[] data) => Generate(data, "\n", FieldTemplate);
+		private string GenerateFields(MemberData[] data) => Generate(data, "\n", Template.Field);
 
-		private string GenerateArgs(MemberData[] data) => Generate(data, ", ", ArgTemplate);
+		private string GenerateArgs(MemberData[] data) => Generate(data, ", ", Template.Argument);
 
 		private static string Generate(MemberData[] data, string separator, string template)
 			=> string.Join(separator, data.Select((m) => Format(template, m)).ToArray());
 
-		private static string Format(string template, MemberData m)
-			=> template.Replace("${FieldType}", m.type)
-			           .Replace("${fieldName}", m.name.LowercaseFirst())
-			           .Replace("${FieldName}", m.name);
+		private static string Format(string template, MemberData member)
+			=> template.Replace("${FieldType}", member.type)
+			           .Replace("${fieldName}", member.name.LowercaseFirst())
+			           .Replace("${FieldName}", member.name);
+
+		private static class Template
+		{
+			public const string ValueComponent =
+				@"using UnityEngine;
+
+public class ${ClassName} : MonoBehaviour
+{
+${Fields}
+
+	public void Initialize(GameEntity entity)
+	{
+		entity.Replace${ComponentName}(${Args});
+	}
+}
+";
+
+			public const string FlagComponent =
+				@"using UnityEngine;
+
+public class ${ClassName} : MonoBehaviour
+{
+	public void Initialize(GameEntity entity)
+	{
+		entity.is${ComponentName} = true;
+	}
+}
+";
+
+			public const string Field = "\t[SerializeField] private ${FieldType} _${fieldName};";
+			public const string Argument = "${fieldName}";
+		}
 	}
 }
