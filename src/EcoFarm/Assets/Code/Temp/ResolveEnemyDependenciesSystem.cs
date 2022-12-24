@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Code.Utils.ComponentsTemplates;
+using EcoFarmCustomGenerator.CodeGeneration.Attributes;
 using Entitas;
 
 namespace Code.Temp
 {
-	// [Dependency(typeof(HealthComponent), typeof(PositionComponent), typeof(MovableComponent))]
+	// [Dependencies(typeof(HealthComponent), typeof(PositionComponent), typeof(MovableComponent))]
 	[Game] public sealed class EnemyComponent : FlagComponent { }
 
 	// [DefaultValue(100)]

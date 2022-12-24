@@ -1,13 +1,13 @@
-﻿using DesperateDevs.CodeGeneration;
-using Entitas.CodeGeneration.Plugins;
+﻿using Entitas.CodeGeneration.Plugins;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
-	public class DependencyData : CodeGeneratorData
+	public class DependencyData : ComponentData
 	{
-		public string NameKey = "Dependency.Name";
-		public string MemberKey = "Dependency.Members";
-		public string DependenciesKey = "Dependency.Dependencies";
+		public const string NameKey = "Dependency.Name";
+		public const string MemberKey = "Dependency.Members";
+		public const string DependenciesKey = "Dependency.Dependencies";
+		public const string ContextKey = "Dependency.Context";
 
 		public string Name
 		{
@@ -21,10 +21,16 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			set => this[MemberKey] = value;
 		}
 
-		public string[] Dependencies
+		public ComponentClass[] Dependencies
 		{
-			get => (string[])this[DependenciesKey];
+			get => (ComponentClass[])this[DependenciesKey];
 			set => this[DependenciesKey] = value;
+		}
+
+		public string Context
+		{
+			get => (string)this[ContextKey];
+			set => this[ContextKey] = value;
 		}
 	}
 }

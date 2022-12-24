@@ -24,4 +24,6 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cnikol_005CDocuments_005Csource_005CGitHub_005CBdKursach_005Csrc_005CEcoFarm_005CJenny_005CPlugins_005CEntitas_002ERoslyn_005CMicrosoft_002ECodeAnalysis_002EWorkspaces_002EMSBuild_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\nikol\Documents\source\GitHub\BdKursach\src\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Entitas.CodeGeneration.Plugins.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Entitas/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=entites/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

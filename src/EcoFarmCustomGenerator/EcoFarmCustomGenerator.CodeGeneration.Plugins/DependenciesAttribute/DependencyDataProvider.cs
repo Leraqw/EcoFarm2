@@ -5,8 +5,6 @@ using DesperateDevs.CodeGeneration.Plugins;
 using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
-using Entitas.CodeGeneration.Plugins;
-using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
@@ -35,23 +33,11 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 				   (t) => new DependencyData
 				   {
 					   Name = t.Name,
-					   MemberData = GetData(t),
-					   Dependencies = GetDependencies(t)
+					   MemberData = t.GetData(),
+					   Dependencies = t.GetDependencies(),
+					   Context = t.GetContexts(),
 				   }
 			   )
 			   .ToArray();
-
-		private MemberData[] GetData(INamedTypeSymbol type)
-			=> type.GetMembers()
-			       .OfType<IFieldSymbol>()
-			       .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
-			       .ToArray();
-
-		private string[] GetDependencies(INamedTypeSymbol type)
-			=> type.GetAttribute<DependenciesAttribute>()
-			       .ConstructorArguments[0]
-			       .Values
-			       .Select((v) => ((INamedTypeSymbol)v.Value).Name)
-			       .ToArray();
 	}
 }
