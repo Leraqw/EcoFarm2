@@ -4,9 +4,11 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
 	public class DependencyData : ComponentData
 	{
-		public const string NameKey = "Dependency.Name";
-		public const string MemberKey = "Dependency.Members";
-		public const string DependenciesKey = "Dependency.Dependencies";
+		private const string NameKey = "Dependency.Name";
+		private const string MemberKey = "Dependency.Members";
+		private const string DependenciesKey = "Dependency.Dependencies";
+
+		public string Context { get; set; }
 
 		public string Name
 		{

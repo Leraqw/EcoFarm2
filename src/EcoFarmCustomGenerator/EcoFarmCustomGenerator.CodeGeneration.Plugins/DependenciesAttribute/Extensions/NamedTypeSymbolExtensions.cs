@@ -9,7 +9,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
 	public static class NamedTypeSymbolExtensions
 	{
-		public static string GetContexts(this INamedTypeSymbol namedTypeSymbol)
+		public static string GetContext(this INamedTypeSymbol namedTypeSymbol)
 			=> namedTypeSymbol.GetAttribute<ContextAttribute>()?.ConstructorArguments[0].Value.ToString();
 
 		public static MemberData[] GetData(this INamedTypeSymbol type)
