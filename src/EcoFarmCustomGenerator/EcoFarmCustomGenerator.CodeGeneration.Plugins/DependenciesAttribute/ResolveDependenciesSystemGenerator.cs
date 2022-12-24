@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using DesperateDevs.CodeGeneration;
@@ -30,28 +31,16 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			var fileContent = Template.System
 			(
 				component: componentName,
-				context: data.Context,
+				context: "Game",
 				isFlagComponent: data.MemberData.IsFlagComponent(),
-				resolving: Resolving(data.Dependencies)
+				resolving: Resolving(data.Dependencies, "Game")
 			);
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
 
-		private string Resolving(ComponentClass[] dependencies)
-		{
-			var stringBuilder = new StringBuilder();
-
-			foreach (var member in dependencies)
-			{
-				var resolveMember = member.IsFlag
-					? $"e.is{member.Name} = true;"
-					: $"e.Add{member.Name}(default);";
-				stringBuilder.AppendLine($"\t\t\t{resolveMember}");
-			}
-			
-			return stringBuilder.ToString();
-		}
+		private string Resolving(IEnumerable<string> dependencies, string context) 
+			=> string.Join("\n", dependencies.Select((m) => Template.ResolveMember(context, m)));
 
 		private static class Template
 		{
@@ -77,6 +66,9 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 		}}
 	}}
 }}";
+
+			public static string ResolveMember(string context, string member)
+				=> $"\t\t\tif (!e.HasComponent({context}ComponentsLookup.{member})) e.AddComponent({context}ComponentsLookup.Health, new {member}Component());";
 		}
 	}
 }

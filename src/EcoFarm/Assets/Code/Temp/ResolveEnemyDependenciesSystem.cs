@@ -27,9 +27,10 @@ namespace Code.Temp
 		{
 			foreach (var e in entites)
 			{
-				if (e.hasHealth == false) e.AddHealth(default);
-				if (e.hasPosition == false) e.AddPosition(default);
-				e.isMovable = true;
+				// add components
+				if (!e.HasComponent(GameComponentsLookup.Health)) e.AddComponent(GameComponentsLookup.Health, new HealthComponent());
+				if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Movable, new MovableComponent());
+				if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Position, new PositionComponent());
 			}
 		}
 	}

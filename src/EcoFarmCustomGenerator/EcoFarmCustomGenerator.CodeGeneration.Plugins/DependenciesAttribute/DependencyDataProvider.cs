@@ -35,7 +35,6 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 					   Name = t.Name,
 					   MemberData = t.GetData(),
 					   Dependencies = t.GetDependencies(),
-					   Context = t.GetContext(),
 				   }
 			   )
 			   .ToArray();

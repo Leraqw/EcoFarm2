@@ -18,10 +18,10 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			       .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
 			       .ToArray();
 
-		public static ComponentClass[] GetDependencies(this INamedTypeSymbol type)
+		public static string[] GetDependencies(this INamedTypeSymbol type)
 			=> type.GetAttribute<DependenciesAttribute>()
 			       .ConstructorArguments[0]
-			       .Values.Select((v) => new ComponentClass(v.GetName(), v.IsContainMembers()))
+			       .Values.Select((v) => v.GetName())
 			       .ToArray();
 
 		private static string GetName(this TypedConstant typedConstant) => ((INamedTypeSymbol)typedConstant.Value).Name;
