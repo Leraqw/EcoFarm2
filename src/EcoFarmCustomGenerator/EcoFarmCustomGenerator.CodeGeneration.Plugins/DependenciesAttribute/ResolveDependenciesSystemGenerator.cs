@@ -30,7 +30,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			var fileContent = Template.System
 			(
 				component: componentName,
-				context: data.Context,
+				context: "Game",
 				isFlagComponent: data.MemberData.IsFlagComponent(),
 				resolving: Resolving(data.Dependencies)
 			);
