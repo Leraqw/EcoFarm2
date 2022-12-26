@@ -23,7 +23,7 @@ public sealed class ResolveSomeDependenciesSystem : ReactiveSystem<Entity>
 	{
 		foreach (var e in entites)
 		{
-			if (!e.HasComponent(ComponentsLookup.NeededComponent)) e.AddComponent(ComponentsLookup.Health, new NeededComponentComponent());
+			if (!e.HasComponent(ComponentsLookup.Needed)) e.AddComponent(ComponentsLookup.Health, new NeededComponent());
 		}
 	}
 }
