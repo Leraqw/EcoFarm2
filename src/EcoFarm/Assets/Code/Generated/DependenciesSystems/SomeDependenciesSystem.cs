@@ -23,7 +23,7 @@ public sealed class ResolveSomeDependenciesSystem : ReactiveSystem<PlayerEntity>
 	{
 		foreach (var e in entites)
 		{
-			e.AddNeeded(default);
+			e.isNeeded = true;
 		}
 	}
 }
