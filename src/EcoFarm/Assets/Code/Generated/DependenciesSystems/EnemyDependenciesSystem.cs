@@ -8,26 +8,24 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Code.ECS.Components;
-using Code.Temp;
 using Entitas;
 
-public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
+public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<Entity>
 {
-	public ResolveEnemyDependenciesSystem(Contexts contexts) : base(contexts.game) { }
+	public ResolveEnemyDependenciesSystem(Contexts contexts) : base(contexts.) { }
 
-	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-		=> context.CreateCollector(GameMatcher.Enemy);
+	protected override ICollector<Entity> GetTrigger(IContext<Entity> context)
+		=> context.CreateCollector(Matcher.Enemy);
 
-	protected override bool Filter(GameEntity entity) => entity.isEnemy;
+	protected override bool Filter(Entity entity) => entity.isEnemy;
 
-	protected override void Execute(List<GameEntity> entites)
+	protected override void Execute(List<Entity> entites)
 	{
 		foreach (var e in entites)
 		{
-			if (!e.HasComponent(GameComponentsLookup.Health)) e.AddComponent(GameComponentsLookup.Health, new HealthComponent());
-			if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Health, new PositionComponent());
-			if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Health, new MovableComponent());
+			if (!e.HasComponent(ComponentsLookup.HealthComponent)) e.AddComponent(ComponentsLookup.Health, new HealthComponentComponent());
+			if (!e.HasComponent(ComponentsLookup.PositionComponent)) e.AddComponent(ComponentsLookup.Health, new PositionComponentComponent());
+			if (!e.HasComponent(ComponentsLookup.MovableComponent)) e.AddComponent(ComponentsLookup.Health, new MovableComponentComponent());
 		}
 	}
 }
