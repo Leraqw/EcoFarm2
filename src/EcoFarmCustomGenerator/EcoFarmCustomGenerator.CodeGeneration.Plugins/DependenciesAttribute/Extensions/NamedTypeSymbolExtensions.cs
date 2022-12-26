@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Immutable;
 using System.Linq;
 using DesperateDevs.Roslyn;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
@@ -9,8 +11,14 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
 	public static class NamedTypeSymbolExtensions
 	{
-		public static string GetContext(this INamedTypeSymbol namedTypeSymbol)
-			=> namedTypeSymbol.GetAttribute<ContextAttribute>()?.ConstructorArguments[0].Value.ToString();
+		public static string GetContext(this INamedTypeSymbol type)
+			=> type.GetAttributes()
+			       .Where((ad) => ad.AttributeClass.BaseType.Name == nameof(ContextAttribute))
+			       .Select((ad) => ad.AttributeClass.Name.RemoveAttributeSuffix())
+			       .Single();
+		
+		private static string RemoveAttributeSuffix(this string @this) 
+			=> @this.EndsWith("Attribute") ? @this.Substring(0, @this.Length - "Attribute".Length) : @this;
 
 		public static MemberData[] GetData(this INamedTypeSymbol type)
 			=> type.GetMembers()
@@ -21,7 +29,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		public static string[] GetDependencies(this INamedTypeSymbol type)
 			=> type.GetAttribute<DependenciesAttribute>()
 			       .ConstructorArguments[0]
-			       .Values.Select((v) => v.GetName())
+			       .Values.Select((t) => t.GetName())
 			       .ToArray();
 
 		private static string GetName(this TypedConstant typedConstant) => ((INamedTypeSymbol)typedConstant.Value).Name;

@@ -10,20 +10,20 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class ResolveSomeDependenciesSystem : ReactiveSystem<Entity>
+public sealed class ResolveSomeDependenciesSystem : ReactiveSystem<PlayerEntity>
 {
-	public ResolveSomeDependenciesSystem(Contexts contexts) : base(contexts.) { }
+	public ResolveSomeDependenciesSystem(Contexts contexts) : base(contexts.player) { }
 
-	protected override ICollector<Entity> GetTrigger(IContext<Entity> context)
-		=> context.CreateCollector(Matcher.Some);
+	protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
+		=> context.CreateCollector(PlayerMatcher.Some);
 
-	protected override bool Filter(Entity entity) => entity.isSome;
+	protected override bool Filter(PlayerEntity entity) => entity.hasSome;
 
-	protected override void Execute(List<Entity> entites)
+	protected override void Execute(List<PlayerEntity> entites)
 	{
 		foreach (var e in entites)
 		{
-			if (!e.HasComponent(ComponentsLookup.Needed)) e.AddComponent(ComponentsLookup.Health, new NeededComponent());
+			if (!e.HasComponent(PlayerComponentsLookup.Needed)) e.AddComponent(PlayerComponentsLookup.Needed, new NeededComponent());
 		}
 	}
 }
