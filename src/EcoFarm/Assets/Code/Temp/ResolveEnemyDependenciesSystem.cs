@@ -6,13 +6,6 @@ using Entitas;
 
 namespace Code.Temp
 {
-	[Dependencies(typeof(HealthComponent), typeof(PositionComponent), typeof(MovableComponent))]
-	[Game] public sealed class EnemyComponent : FlagComponent { }
-
-	// [DefaultValue(100)]
-	[Game] public sealed class HealthComponent : ValueComponent<int> { }
-
-	[Game] public sealed class MovableComponent : FlagComponent { }
 
 	public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 	{
