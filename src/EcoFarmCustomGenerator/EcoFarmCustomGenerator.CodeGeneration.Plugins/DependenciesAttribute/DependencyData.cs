@@ -9,6 +9,8 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		public const string MemberKey = "Dependency.Members";
 		public const string DependenciesKey = "Dependency.Dependencies";
 
+		public string Context { get; set; }
+
 		public string Name
 		{
 			get => (string)this[NameKey];

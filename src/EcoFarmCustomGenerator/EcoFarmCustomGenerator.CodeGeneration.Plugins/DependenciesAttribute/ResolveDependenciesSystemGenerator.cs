@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.Utils;
+using Entitas;
 using Entitas.CodeGeneration.Plugins;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
@@ -31,16 +31,19 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			var fileContent = Template.System
 			(
 				component: componentName,
-				context: "Game",
+				context: data.Context,
 				isFlagComponent: data.MemberData.IsFlagComponent(),
-				resolving: Resolving(data.Dependencies, "Game")
+				resolving: Resolving(data.Dependencies, data.Context)
 			);
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
 
-		private string Resolving(IEnumerable<string> dependencies, string context) 
-			=> string.Join("\n", dependencies.Select((m) => Template.ResolveMember(context, m)));
+		private string Resolving(IEnumerable<string> dependencies, string context)
+			=> string.Join("\n", Resolve(dependencies, context));
+
+		private static IEnumerable<string> Resolve(IEnumerable<string> dependencies, string context)
+			=> dependencies.Select((m) => Template.ResolveDependency(context, m.RemoveContextSuffix()));
 
 		private static class Template
 		{
@@ -67,7 +70,7 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 	}}
 }}";
 
-			public static string ResolveMember(string context, string member)
+			public static string ResolveDependency(string context, string member)
 				=> $"\t\t\tif (!e.HasComponent({context}ComponentsLookup.{member})) e.AddComponent({context}ComponentsLookup.Health, new {member}Component());";
 		}
 	}
