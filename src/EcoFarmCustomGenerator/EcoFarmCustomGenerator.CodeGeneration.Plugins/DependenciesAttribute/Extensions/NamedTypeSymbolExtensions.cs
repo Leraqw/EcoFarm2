@@ -1,6 +1,7 @@
 using System.Linq;
 using DesperateDevs.Roslyn;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
@@ -27,8 +28,13 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		public static string[] GetDependencies(this INamedTypeSymbol type)
 			=> type.GetAttribute<DependenciesAttribute>()
 			       .ConstructorArguments[0]
-			       .Values.Select((t) => t.GetName())
+			       .Values.Select(Resolve)
 			       .ToArray();
+
+		private static string Resolve(TypedConstant type)
+			=> type.Type.BaseType.Name == "FlagComponent"
+				? $"is{type.GetName().RemoveComponentSuffix()} = true"
+				: $"Add{type.GetName().RemoveComponentSuffix()}(default)";
 
 		private static string GetName(this TypedConstant typedConstant) => ((INamedTypeSymbol)typedConstant.Value).Name;
 
