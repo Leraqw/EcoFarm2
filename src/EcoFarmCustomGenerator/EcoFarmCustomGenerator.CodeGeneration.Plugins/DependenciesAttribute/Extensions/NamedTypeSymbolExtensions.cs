@@ -27,12 +27,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		public static string[] GetDependencies(this INamedTypeSymbol type)
 			=> type.GetAttribute<DependenciesAttribute>()
 			       .ConstructorArguments[0]
-			       .Values.Select((t) => t.GetName())
+			       .Values.Select(TypedConstantExtensions.Resolve)
 			       .ToArray();
-
-		private static string GetName(this TypedConstant typedConstant) => ((INamedTypeSymbol)typedConstant.Value).Name;
-
-		private static bool IsContainMembers(this TypedConstant typedConstant)
-			=> typedConstant.Value.GetType().GetFields().Any();
 	}
 }
