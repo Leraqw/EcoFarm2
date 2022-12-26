@@ -25,7 +25,7 @@ public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 		{
 			e.AddHealth(default);
 			e.AddPosition(default);
-			e.isMovable = true;
+			e.AddMovable(default);
 		}
 	}
 }

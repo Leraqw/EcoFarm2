@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DesperateDevs.Roslyn;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
@@ -32,9 +33,23 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			       .ToArray();
 
 		private static string Resolve(TypedConstant type)
-			=> type.Type.BaseType.Name == "FlagComponent"
+		{
+			// print type name
+			Console.WriteLine(type.GetName());
+			Console.WriteLine($"value: {type.Value}");
+			var baseType = ((INamedTypeSymbol)type.Value).BaseType;
+			Console.WriteLine($"base type: {baseType}");
+			Console.WriteLine($"base type name: {baseType.Name}");
+			var fields = baseType.GetMembers().OfType<IFieldSymbol>().Select((f) => f.Name).ToArray();
+			Console.WriteLine($"any field: {fields.Any()}");
+			Console.WriteLine($"base type fields: {string.Join("👌️ ", fields)}");
+			
+			Console.WriteLine();
+
+			return type.Type.BaseType.Name == "FlagComponent"
 				? $"is{type.GetName().RemoveComponentSuffix()} = true"
 				: $"Add{type.GetName().RemoveComponentSuffix()}(default)";
+		}
 
 		private static string GetName(this TypedConstant typedConstant) => ((INamedTypeSymbol)typedConstant.Value).Name;
 
