@@ -8,8 +8,6 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Code.ECS.Components;
-using Code.Temp;
 using Entitas;
 
 public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
@@ -19,15 +17,15 @@ public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 		=> context.CreateCollector(GameMatcher.Enemy);
 
-	protected override bool Filter(GameEntity entity) => entity.isEnemy;
+	protected override bool Filter(GameEntity entity) => true;
 
 	protected override void Execute(List<GameEntity> entites)
 	{
 		foreach (var e in entites)
 		{
 			if (!e.HasComponent(GameComponentsLookup.Health)) e.AddComponent(GameComponentsLookup.Health, new HealthComponent());
-			if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Health, new PositionComponent());
-			if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Health, new MovableComponent());
+			if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Position, new PositionComponent());
+			if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Movable, new MovableComponent());
 		}
 	}
 }
