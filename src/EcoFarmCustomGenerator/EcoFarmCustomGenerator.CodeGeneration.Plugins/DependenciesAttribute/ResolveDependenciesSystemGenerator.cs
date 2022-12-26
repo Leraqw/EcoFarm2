@@ -43,7 +43,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			=> string.Join("\n", Resolve(dependencies, context));
 
 		private static IEnumerable<string> Resolve(IEnumerable<string> dependencies, string context)
-			=> dependencies.Select((m) => Template.ResolveDependency(context, m.RemoveContextSuffix()));
+			=> dependencies.Select((m) => Template.ResolveDependency(context, m.RemoveComponentSuffix()));
 
 		private static class Template
 		{
