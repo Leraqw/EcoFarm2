@@ -117,6 +117,7 @@
         <Compile Include="DependenciesAttribute\DependencyData.cs" />
         <Compile Include="DependenciesAttribute\DependencyDataProvider.cs" />
         <Compile Include="DependenciesAttribute\Extensions\NamedTypeSymbolExtensions.cs" />
+        <Compile Include="DependenciesAttribute\Extensions\TypedConstantExtensions.cs" />
         <Compile Include="DependenciesAttribute\ResolveDependenciesSystemGenerator.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

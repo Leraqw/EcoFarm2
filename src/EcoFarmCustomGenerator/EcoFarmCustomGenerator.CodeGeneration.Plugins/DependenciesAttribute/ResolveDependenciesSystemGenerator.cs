@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.Utils;
-using Entitas;
 using Entitas.CodeGeneration.Plugins;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
@@ -32,17 +31,17 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			(
 				component: componentName,
 				context: data.Context,
-				resolving: Resolving(data.Dependencies, data.Context)
+				resolving: Resolving(data.Dependencies)
 			);
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
 
-		private string Resolving(IEnumerable<string> dependencies, string context)
-			=> string.Join("\n", Resolve(dependencies, context));
+		private string Resolving(IEnumerable<string> dependencies)
+			=> string.Join("\n", Resolve(dependencies));
 
-		private static IEnumerable<string> Resolve(IEnumerable<string> dependencies, string context)
-			=> dependencies.Select((m) => Template.ResolveDependency(context, m.RemoveComponentSuffix()));
+		private static IEnumerable<string> Resolve(IEnumerable<string> dependencies)
+			=> dependencies.Select(Template.ResolveDependency);
 
 		private static class Template
 		{
@@ -69,8 +68,8 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 	}}
 }}";
 
-			public static string ResolveDependency(string context, string member)
-				=> $"\t\t\tif (!e.HasComponent({context}ComponentsLookup.{member})) e.AddComponent({context}ComponentsLookup.{member}, new {member}Component());";
+			public static string ResolveDependency(string member)
+				=> $"\t\t\te.{member};";
 		}
 	}
 }
