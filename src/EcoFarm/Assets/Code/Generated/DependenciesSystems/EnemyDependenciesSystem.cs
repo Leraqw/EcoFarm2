@@ -24,8 +24,8 @@ public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 		foreach (var e in entites)
 		{
 			if (!e.HasComponent(GameComponentsLookup.Health)) e.AddComponent(GameComponentsLookup.Health, new HealthComponent());
-			if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Health, new PositionComponent());
-			if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Health, new MovableComponent());
+			if (!e.HasComponent(GameComponentsLookup.Position)) e.AddComponent(GameComponentsLookup.Position, new PositionComponent());
+			if (!e.HasComponent(GameComponentsLookup.Movable)) e.AddComponent(GameComponentsLookup.Movable, new MovableComponent());
 		}
 	}
 }

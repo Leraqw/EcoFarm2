@@ -71,7 +71,7 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 }}";
 
 			public static string ResolveDependency(string context, string member)
-				=> $"\t\t\tif (!e.HasComponent({context}ComponentsLookup.{member})) e.AddComponent({context}ComponentsLookup.Health, new {member}Component());";
+				=> $"\t\t\tif (!e.HasComponent({context}ComponentsLookup.{member})) e.AddComponent({context}ComponentsLookup.{member}, new {member}Component());";
 		}
 	}
 }

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Immutable;
 using System.Linq;
 using DesperateDevs.Roslyn;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
@@ -13,11 +11,11 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 	{
 		public static string GetContext(this INamedTypeSymbol type)
 			=> type.GetAttributes()
-			       .Where((ad) => ad.AttributeClass.BaseType.Name == nameof(ContextAttribute))
-			       .Select((ad) => ad.AttributeClass.Name.RemoveAttributeSuffix())
-			       .Single();
-		
-		private static string RemoveAttributeSuffix(this string @this) 
+			       .Select((ad) => ad.AttributeClass)
+			       .Single((a) => a.BaseType.Name == nameof(ContextAttribute))
+			       .Name.RemoveAttributeSuffix();
+
+		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith("Attribute") ? @this.Substring(0, @this.Length - "Attribute".Length) : @this;
 
 		public static MemberData[] GetData(this INamedTypeSymbol type)
