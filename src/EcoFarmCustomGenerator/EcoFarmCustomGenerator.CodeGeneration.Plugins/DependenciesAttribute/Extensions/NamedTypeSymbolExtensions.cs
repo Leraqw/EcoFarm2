@@ -35,14 +35,11 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		private static string Resolve(TypedConstant type)
 		{
 			// print type name
-			Console.WriteLine(type.GetName());
-			Console.WriteLine($"value: {type.Value}");
-			var baseType = ((INamedTypeSymbol)type.Value).BaseType;
-			Console.WriteLine($"base type: {baseType}");
-			Console.WriteLine($"base type name: {baseType.Name}");
-			var fields = baseType.GetMembers().OfType<IFieldSymbol>().Select((f) => f.Name).ToArray();
-			Console.WriteLine($"any field: {fields.Any()}");
-			Console.WriteLine($"base type fields: {string.Join("👌️ ", fields)}");
+			Console.WriteLine(type.GetName().RemoveComponentSuffix());
+			
+			Console.WriteLine($"full:  {((INamedTypeSymbol)type.Value).BaseType.GetMembers().OfType<IFieldSymbol>().Select((f) => f.Name).ToArray().Any()}");
+			Console.WriteLine($"short: {((INamedTypeSymbol)type.Value).BaseType.GetMembers().OfType<IFieldSymbol>().Any()}");
+			Console.WriteLine($"count: {((INamedTypeSymbol)type.Value).BaseType.GetMembers().OfType<IFieldSymbol>().Count()}");
 			
 			Console.WriteLine();
 
