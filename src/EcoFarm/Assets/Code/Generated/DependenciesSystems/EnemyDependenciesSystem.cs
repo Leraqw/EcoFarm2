@@ -17,7 +17,7 @@ public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 		=> context.CreateCollector(GameMatcher.Enemy);
 
-	protected override bool Filter(GameEntity entity) => entity.isEnemy;
+	protected override bool Filter(GameEntity entity) => true;
 
 	protected override void Execute(List<GameEntity> entites)
 	{
