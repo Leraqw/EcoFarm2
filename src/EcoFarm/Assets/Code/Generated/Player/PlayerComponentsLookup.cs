@@ -21,11 +21,13 @@ public static class PlayerComponentsLookup {
     public const int Player = 10;
     public const int SelectedLevel = 11;
     public const int SessionResult = 12;
-    public const int InteractableListener = 13;
-    public const int PlayerTextListener = 14;
-    public const int UnlockedLevelsCountListener = 15;
+    public const int Needed = 13;
+    public const int Some = 14;
+    public const int InteractableListener = 15;
+    public const int PlayerTextListener = 16;
+    public const int UnlockedLevelsCountListener = 17;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Text",
@@ -41,6 +43,8 @@ public static class PlayerComponentsLookup {
         "Player",
         "SelectedLevel",
         "SessionResult",
+        "Needed",
+        "Some",
         "InteractableListener",
         "PlayerTextListener",
         "UnlockedLevelsCountListener"
@@ -60,6 +64,8 @@ public static class PlayerComponentsLookup {
         typeof(Code.Global.PlayerContexts.Components.PlayerComponent),
         typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent),
         typeof(Code.Global.PlayerContexts.Components.SessionResultComponent),
+        typeof(Code.Temp.NeededComponent),
+        typeof(Code.Temp.SomeComponent),
         typeof(InteractableListenerComponent),
         typeof(PlayerTextListenerComponent),
         typeof(UnlockedLevelsCountListenerComponent)

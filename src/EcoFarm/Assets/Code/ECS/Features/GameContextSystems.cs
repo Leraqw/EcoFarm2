@@ -1,5 +1,6 @@
 ﻿using Code.ECS.Features.Features;
 using Code.ECS.Systems.EntityBehaviours;
+using Code.Temp;
 using Code.Unity;
 using Code.Utils.Extensions.Entitas;
 
@@ -16,6 +17,7 @@ namespace Code.ECS.Features
 			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
 			Add(new GameplaySystems(contexts));
 
+			Add(new ResolveEnemyDependenciesSystem(contexts));
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 		}
