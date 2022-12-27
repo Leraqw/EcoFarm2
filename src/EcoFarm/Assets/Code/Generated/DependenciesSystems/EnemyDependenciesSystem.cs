@@ -23,8 +23,8 @@ public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 	{
 		foreach (var e in entites)
 		{
-			e.AddHealth(default);
-			e.AddPosition(default);
+			if (!e.hasHealth) e.AddHealth(default);
+			if (!e.hasPosition) e.AddPosition(default);
 			e.isMovable = true;
 		}
 	}
