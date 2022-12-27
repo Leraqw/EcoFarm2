@@ -5,6 +5,7 @@ using DesperateDevs.CodeGeneration.Plugins;
 using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
+using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
@@ -28,7 +29,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			=> PluginUtil
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
-			   .Where((t) => t.GetAttribute<DependenciesAttribute>() != null)
+			   .Where((t) => t.HasAttribute<DependenciesAttribute>())
 			   .Select(AsDependencyData)
 			   .ToArray();
 
@@ -36,7 +37,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			=> new DependencyData
 			{
 				Name = type.Name,
-				MemberData = type.GetData(),
+				MemberData = type.BaseType.GetData(),
 				Dependencies = type.GetDependencies(),
 				Context = type.GetContext(),
 			};

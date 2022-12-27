@@ -9,6 +9,9 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 {
 	public static class NamedTypeSymbolExtensions
 	{
+		public static bool HasAttribute<T>(this INamedTypeSymbol @this)
+			=> @this.GetAttribute<T>() != null;
+		
 		public static string GetContext(this INamedTypeSymbol type)
 			=> type.GetAttributes()
 			       .Select((ad) => ad.AttributeClass)
