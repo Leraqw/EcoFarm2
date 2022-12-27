@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
 using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
+using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
@@ -28,17 +30,26 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			=> PluginUtil
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
-			   .Where((t) => t.GetAttribute<DependenciesAttribute>() != null)
+			   .Where((t) => t.HasAttribute<DependenciesAttribute>())
 			   .Select(AsDependencyData)
 			   .ToArray();
 
 		private static DependencyData AsDependencyData(INamedTypeSymbol type)
-			=> new DependencyData
+		{
+			Console.WriteLine(type.Name);
+			PrintArray(type.BaseType.GetData());
+			Console.WriteLine();
+
+			return new DependencyData
 			{
 				Name = type.Name,
-				MemberData = type.GetData(),
+				MemberData = type.BaseType.GetData(),
 				Dependencies = type.GetDependencies(),
 				Context = type.GetContext(),
 			};
+		}
+
+		private static void PrintArray<T>(IEnumerable<T> memberData)
+			=> Console.WriteLine(string.Join(", ", memberData));
 	}
 }

@@ -31,7 +31,8 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			(
 				component: componentName,
 				context: data.Context,
-				resolving: Resolving(data.Dependencies)
+				resolving: Resolving(data.Dependencies),
+				isFlag: data.MemberData.ToArray().Any() == false
 			);
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
@@ -45,7 +46,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 
 		private static class Template
 		{
-			public static string System(string component, string context, string resolving)
+			public static string System(string component, string context, string resolving, bool isFlag)
 				=> $@"
 using System.Collections.Generic;
 using Entitas;
@@ -57,7 +58,7 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 	protected override ICollector<{context}Entity> GetTrigger(IContext<{context}Entity> context)
 		=> context.CreateCollector({context}Matcher.{component});
 
-	protected override bool Filter({context}Entity entity) => true;
+	protected override bool Filter({context}Entity entity) => entity.{(isFlag ? "is" : "has")}{component};
 
 	protected override void Execute(List<{context}Entity> entites)
 	{{

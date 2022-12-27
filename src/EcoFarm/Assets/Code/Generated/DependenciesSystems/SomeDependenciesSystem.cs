@@ -17,7 +17,7 @@ public sealed class ResolveSomeDependenciesSystem : ReactiveSystem<PlayerEntity>
 	protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
 		=> context.CreateCollector(PlayerMatcher.Some);
 
-	protected override bool Filter(PlayerEntity entity) => true;
+	protected override bool Filter(PlayerEntity entity) => entity.hasSome;
 
 	protected override void Execute(List<PlayerEntity> entites)
 	{
