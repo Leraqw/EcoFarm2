@@ -38,11 +38,8 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
 
-		private string Resolving(IEnumerable<string> dependencies)
-			=> string.Join("\n", Resolve(dependencies));
-
-		private static IEnumerable<string> Resolve(IEnumerable<string> dependencies)
-			=> dependencies.Select(Template.ResolveDependency);
+		private static string Resolving(IEnumerable<string> dependencies)
+			=> string.Join("\n", dependencies.Select(Template.ResolveDependency));
 
 		private static class Template
 		{
