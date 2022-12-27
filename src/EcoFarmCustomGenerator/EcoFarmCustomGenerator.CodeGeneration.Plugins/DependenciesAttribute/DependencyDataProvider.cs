@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
@@ -35,21 +34,12 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			   .ToArray();
 
 		private static DependencyData AsDependencyData(INamedTypeSymbol type)
-		{
-			Console.WriteLine(type.Name);
-			PrintArray(type.BaseType.GetData());
-			Console.WriteLine();
-
-			return new DependencyData
+			=> new DependencyData
 			{
 				Name = type.Name,
 				MemberData = type.BaseType.GetData(),
 				Dependencies = type.GetDependencies(),
 				Context = type.GetContext(),
 			};
-		}
-
-		private static void PrintArray<T>(IEnumerable<T> memberData)
-			=> Console.WriteLine(string.Join(", ", memberData));
 	}
 }
