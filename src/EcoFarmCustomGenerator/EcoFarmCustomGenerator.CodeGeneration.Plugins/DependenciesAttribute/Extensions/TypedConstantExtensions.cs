@@ -12,8 +12,8 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 
 		private static string ResolveByType(string component, bool isFlag)
 			=> isFlag
-				? $"is{component} = true"
-				: $"Add{component}(default)";
+				? $"e.is{component} = true"
+				: $"if (!e.has{component}) e.Add{component}(default)";
 
 		private static string GetComponentName(this TypedConstant type) => type.GetName().RemoveComponentSuffix();
 		private static bool IsFlagComponent(this TypedConstant type) => type.BaseType().GetFields().Any() == false;
