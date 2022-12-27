@@ -70,7 +70,7 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 }}";
 
 			public static string ResolveDependency(string member)
-				=> $"\t\t\te.{member};";
+				=> $"\t\t\t{member};";
 		}
 	}
 }
