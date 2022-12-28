@@ -7,10 +7,8 @@ namespace Code.Utils.ComponentsTemplates
 	{
 		[EntityIndex] public T Value;
 
-		public static implicit operator T(IndexComponent<T> component)
-			=> component.Value;
+		public static implicit operator T(IndexComponent<T> component) => component.Value;
 
-		public static implicit operator string(IndexComponent<T> component)
-			=> component.Value.ToString();
+		public static implicit operator string(IndexComponent<T> component) => component.Value.ToString();
 	}
 }

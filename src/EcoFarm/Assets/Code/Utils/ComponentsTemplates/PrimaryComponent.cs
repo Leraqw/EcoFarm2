@@ -8,10 +8,8 @@ namespace Packages.Code.Ecs.Components.Workflow
 	{
 		[PrimaryEntityIndex] public T Value;
 
-		public static implicit operator T(PrimaryComponent<T> component)
-			=> component.Value;
+		public static implicit operator T(PrimaryComponent<T> component) => component.Value;
 
-		public static implicit operator string(PrimaryComponent<T> component)
-			=> component.Value.ToString();
+		public static implicit operator string(PrimaryComponent<T> component) => component.Value.ToString();
 	}
 }
