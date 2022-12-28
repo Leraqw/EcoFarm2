@@ -119,7 +119,6 @@
         <Compile Include="DependenciesAttribute\Extensions\NamedTypeSymbolExtensions.cs" />
         <Compile Include="DependenciesAttribute\Extensions\ResolveDependenciesExtensions.cs" />
         <Compile Include="DependenciesAttribute\Feature\DependencyResolvingFeatureGenerator.cs" />
-        <Compile Include="DependenciesAttribute\Feature\FeatureGeneratorExtensions.cs" />
         <Compile Include="DependenciesAttribute\ResolveDependenciesSystemGenerator.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

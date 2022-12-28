@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
+using Entitas;
 
 namespace EcoFarmCustomGenerator.CodeGeneration.Plugins.Feature
 {
@@ -26,10 +27,13 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins.Feature
 			return new CodeGenFile
 			(
 				Path.Combine(contextName, $"{className}.cs"),
-				Template.Feature(className, data.GetSystems()),
+				Template.Feature(className, SystemsAdding(data)),
 				GetType().FullName
 			);
 		}
+
+		private static string SystemsAdding(IEnumerable<DependencyData> data)
+			=> string.Join("\n", data.Select((x) => Template.AddSystem(x.Name.RemoveComponentSuffix())));
 
 		private static class Template
 		{
@@ -44,6 +48,9 @@ public sealed class {className} : Feature
     }}
 }}
 ";
+
+			public static string AddSystem(string componentName)
+				=> $"\t\tAdd(new Resolve{componentName}DependenciesSystem(contexts));";
 		}
 	}
 }
