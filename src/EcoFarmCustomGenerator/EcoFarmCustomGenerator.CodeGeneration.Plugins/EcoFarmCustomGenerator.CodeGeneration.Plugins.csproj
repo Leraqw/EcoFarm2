@@ -118,6 +118,8 @@
         <Compile Include="DependenciesAttribute\DependencyDataProvider.cs" />
         <Compile Include="DependenciesAttribute\Extensions\NamedTypeSymbolExtensions.cs" />
         <Compile Include="DependenciesAttribute\Extensions\ResolveDependenciesExtensions.cs" />
+        <Compile Include="DependenciesAttribute\Feature\DependencyResolvingFeatureGenerator.cs" />
+        <Compile Include="DependenciesAttribute\Feature\FeatureGeneratorExtensions.cs" />
         <Compile Include="DependenciesAttribute\ResolveDependenciesSystemGenerator.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
@@ -126,9 +128,6 @@
         <Project>{378dd7da-3cea-4fc3-b4d5-366fa69fbd6d}</Project>
         <Name>EcoFarmCustomGenerator.CodeGeneration.Attributes</Name>
       </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="DependenciesAttribute\Feature" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
