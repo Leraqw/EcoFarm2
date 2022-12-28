@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 
@@ -13,32 +14,31 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins.Feature
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
 			=> data
 			   .OfType<DependencyData>()
-			   .Aggregate(new Dictionary<string, List<DependencyData>>(), GetComponentsByContexts)
+			   .ToLookup((d) => d.Context)
 			   .Select(AsFile)
 			   .ToArray();
 
-		private static Dictionary<string, List<DependencyData>> GetComponentsByContexts
-			(Dictionary<string, List<DependencyData>> dictionary, DependencyData data)
-			=> dictionary.GetComponentsByContext(data);
-
-		private CodeGenFile AsFile(KeyValuePair<string, List<DependencyData>> p) => DataToFeature(p.Key, p.Value);
+		private CodeGenFile AsFile(IGrouping<string, DependencyData> p) => DataToFeature(p.Key, p.ToList());
 
 		private CodeGenFile DataToFeature(string contextName, IEnumerable<DependencyData> data)
-			=> new CodeGenFile
+		{
+			var className = $"{contextName}DependenciesFeature";
+			return new CodeGenFile
 			(
-				contextName.FileName(),
-				Template.Feature(contextName, data.GetSystems()),
+				Path.Combine(contextName, $"{className}.cs"),
+				Template.Feature(className, data.GetSystems()),
 				GetType().FullName
 			);
+		}
 
 		private static class Template
 		{
-			public static string Feature(string contextName, string systemsList)
+			public static string Feature(string className, string systemsList)
 				=> $@"
-public sealed class {contextName}CleanupSystems : Feature 
+public sealed class {className} : Feature 
 {{
-    public {contextName}CleanupSystems(Contexts contexts)
-		: base(nameof({contextName}CleanupSystems))
+    public {className}(Contexts contexts)
+		: base(nameof({className}))
 	{{
 {systemsList}
     }}
