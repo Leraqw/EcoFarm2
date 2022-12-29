@@ -24,7 +24,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 		private CodeGenFile DataToSystem(DependencyData data)
 		{
 			var componentName = data.Name.ToComponentName(ignoreNamespaces: true);
-			var fileName = Path.Combine(DirectoryName, $"{componentName}DependenciesSystem.cs");
+			var fileName = Path.Combine(DirectoryName, $"{Template.ClassName(componentName)}.cs");
 			var generatorName = GetType().FullName;
 
 			var fileContent = Template.System
@@ -48,9 +48,9 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{context}Entity>
+public sealed class {ClassName(component)} : ReactiveSystem<{context}Entity>
 {{
-	public Resolve{component}DependenciesSystem(Contexts contexts) : base(contexts.{context.LowercaseFirst()}) {{ }}
+	public {ClassName(component)}(Contexts contexts) : base(contexts.{context.LowercaseFirst()}) {{ }}
 
 	protected override ICollector<{context}Entity> GetTrigger(IContext<{context}Entity> context)
 		=> context.CreateCollector({context}Matcher.{component});
@@ -66,8 +66,9 @@ public sealed class Resolve{component}DependenciesSystem : ReactiveSystem<{conte
 	}}
 }}";
 
-			public static string ResolveDependency(string member)
-				=> $"\t\t\t{member};";
+			public static string ClassName(string component) => $"Resolve{component}DependenciesSystem";
+
+			public static string ResolveDependency(string member) => $"\t\t\t{member};";
 		}
 	}
 }
