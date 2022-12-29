@@ -110,26 +110,29 @@ public static class GameComponentsLookup {
     public const int WaterResource = 99;
     public const int WillFall = 100;
     public const int Destroy = 101;
-    public const int CoinsCountListener = 102;
-    public const int CurrentQuantityListener = 103;
-    public const int DurationListener = 104;
-    public const int FactoryListener = 105;
-    public const int GameTextListener = 106;
-    public const int GeneratorListener = 107;
-    public const int GoalCompletedListener = 108;
-    public const int GoalListener = 109;
-    public const int InventoryItemListener = 110;
-    public const int PositionListener = 111;
-    public const int ProgressBarListener = 112;
-    public const int ProportionalScaleListener = 113;
-    public const int RotationListener = 114;
-    public const int SliderMaxValueListener = 115;
-    public const int SliderValueListener = 116;
-    public const int SpriteHighListener = 117;
-    public const int SpriteListener = 118;
-    public const int WateringListener = 119;
+    public const int Enemy = 102;
+    public const int Health = 103;
+    public const int Movable = 104;
+    public const int CoinsCountListener = 105;
+    public const int CurrentQuantityListener = 106;
+    public const int DurationListener = 107;
+    public const int FactoryListener = 108;
+    public const int GameTextListener = 109;
+    public const int GeneratorListener = 110;
+    public const int GoalCompletedListener = 111;
+    public const int GoalListener = 112;
+    public const int InventoryItemListener = 113;
+    public const int PositionListener = 114;
+    public const int ProgressBarListener = 115;
+    public const int ProportionalScaleListener = 116;
+    public const int RotationListener = 117;
+    public const int SliderMaxValueListener = 118;
+    public const int SliderValueListener = 119;
+    public const int SpriteHighListener = 120;
+    public const int SpriteListener = 121;
+    public const int WateringListener = 122;
 
-    public const int TotalComponents = 120;
+    public const int TotalComponents = 123;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -234,6 +237,9 @@ public static class GameComponentsLookup {
         "WaterResource",
         "WillFall",
         "Destroy",
+        "Enemy",
+        "Health",
+        "Movable",
         "CoinsCountListener",
         "CurrentQuantityListener",
         "DurationListener",
@@ -357,6 +363,9 @@ public static class GameComponentsLookup {
         typeof(Code.ECS.Components.WaterResourceComponent),
         typeof(Code.ECS.Components.WillFallComponent),
         typeof(Code.Global.PlayerContexts.Components.DestroyComponent),
+        typeof(Code.Temp.EnemyComponent),
+        typeof(Code.Temp.HealthComponent),
+        typeof(Code.Temp.MovableComponent),
         typeof(CoinsCountListenerComponent),
         typeof(CurrentQuantityListenerComponent),
         typeof(DurationListenerComponent),

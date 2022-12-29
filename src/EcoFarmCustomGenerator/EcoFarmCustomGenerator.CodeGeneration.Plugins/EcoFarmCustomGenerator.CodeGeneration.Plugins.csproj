@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{F00B3E22-7AAE-4E2A-BDA0-CB523E308551}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>EcoFarmCustomGenerator.CodeGeneration.Plugins</RootNamespace>
+        <AssemblyName>EcoFarmCustomGenerator.CodeGeneration.Plugins</AssemblyName>
+        <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="DesperateDevs.Analytics">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Analytics.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.CodeGeneration">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.CodeGeneration.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.CodeGeneration.CodeGenerator">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.CodeGeneration.CodeGenerator.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.CodeGeneration.Plugins">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.CodeGeneration.Plugins.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.Logging">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Logging.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.Roslyn">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Roslyn.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.Roslyn.CodeGeneration.Plugins">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Roslyn.CodeGeneration.Plugins.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.Serialization">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Serialization.dll</HintPath>
+        </Reference>
+        <Reference Include="DesperateDevs.Utils">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\DesperateDevs.Utils.dll</HintPath>
+        </Reference>
+        <Reference Include="Entitas">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Entitas.dll</HintPath>
+        </Reference>
+        <Reference Include="Entitas.CodeGeneration.Attributes">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Entitas.CodeGeneration.Attributes.dll</HintPath>
+        </Reference>
+        <Reference Include="Entitas.CodeGeneration.Plugins">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Entitas.CodeGeneration.Plugins.dll</HintPath>
+        </Reference>
+        <Reference Include="Entitas.Roslyn.CodeGeneration.Plugins">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Entitas.Roslyn.CodeGeneration.Plugins.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.CSharp">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.CSharp.Scripting">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.Scripting">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.Scripting.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.VisualBasic">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.Workspaces.Desktop">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.Workspaces.Desktop.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Collections.Immutable">
+          <HintPath>..\..\EcoFarm\Jenny\Plugins\Entitas.Roslyn\System.Collections.Immutable.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="CoolData.cs" />
+        <Compile Include="CoolDataProvider.cs" />
+        <Compile Include="CoolGenerator.cs" />
+        <Compile Include="DependenciesAttribute\ComponentClass.cs" />
+        <Compile Include="DependenciesAttribute\DependencyData.cs" />
+        <Compile Include="DependenciesAttribute\DependencyDataProvider.cs" />
+        <Compile Include="DependenciesAttribute\Extensions\NamedTypeSymbolExtensions.cs" />
+        <Compile Include="DependenciesAttribute\Extensions\ResolveDependenciesExtensions.cs" />
+        <Compile Include="DependenciesAttribute\Feature\DependencyResolvingFeatureGenerator.cs" />
+        <Compile Include="DependenciesAttribute\ResolveDependenciesSystemGenerator.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\EcoFarmCustomGenerator.CodeGeneration.Attributes\EcoFarmCustomGenerator.CodeGeneration.Attributes.csproj">
+        <Project>{378dd7da-3cea-4fc3-b4d5-366fa69fbd6d}</Project>
+        <Name>EcoFarmCustomGenerator.CodeGeneration.Attributes</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
