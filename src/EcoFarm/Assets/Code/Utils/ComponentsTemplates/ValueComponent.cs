@@ -6,10 +6,8 @@ namespace Code.Utils.ComponentsTemplates
 	{
 		public T Value;
 
-		public static implicit operator T(ValueComponent<T> component)
-			=> component.Value;
+		public static implicit operator T(ValueComponent<T> component) => component.Value;
 
-		public static implicit operator string(ValueComponent<T> component)
-			=> component.Value.ToString();
+		public static implicit operator string(ValueComponent<T> component) => component.Value.ToString();
 	}
 }

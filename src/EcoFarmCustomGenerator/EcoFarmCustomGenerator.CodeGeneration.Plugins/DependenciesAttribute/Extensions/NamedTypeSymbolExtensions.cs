@@ -11,26 +11,26 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 	{
 		public static bool HasAttribute<T>(this INamedTypeSymbol @this)
 			=> @this.GetAttribute<T>() != null;
-		
-		public static string GetContext(this INamedTypeSymbol type)
-			=> type.GetAttributes()
-			       .Select((ad) => ad.AttributeClass)
-			       .Single((a) => a.BaseType.Name == nameof(ContextAttribute))
-			       .Name.RemoveAttributeSuffix();
 
 		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith("Attribute") ? @this.Substring(0, @this.Length - "Attribute".Length) : @this;
 
-		public static MemberData[] GetData(this INamedTypeSymbol type)
-			=> type.GetMembers()
+		public static string GetContext(this INamedTypeSymbol @this)
+			=> @this.GetAttributes()
+			       .Select((ad) => ad.AttributeClass)
+			       .Single((a) => a.BaseType.Name == nameof(ContextAttribute))
+			       .Name.RemoveAttributeSuffix();
+
+		public static MemberData[] GetData(this INamedTypeSymbol @this)
+			=> @this.GetMembers()
 			       .OfType<IFieldSymbol>()
 			       .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
 			       .ToArray();
 
-		public static string[] GetDependencies(this INamedTypeSymbol type)
-			=> type.GetAttribute<DependenciesAttribute>()
+		public static string[] GetDependencies(this INamedTypeSymbol @this)
+			=> @this.GetAttribute<DependenciesAttribute>()
 			       .ConstructorArguments[0]
-			       .Values.Select(TypedConstantExtensions.Resolve)
+			       .Values.Select(ResolveDependenciesExtensions.Resolve)
 			       .ToArray();
 	}
 }

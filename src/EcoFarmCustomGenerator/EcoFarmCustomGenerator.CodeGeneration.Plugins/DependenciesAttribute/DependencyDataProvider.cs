@@ -2,10 +2,8 @@
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
-using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
-using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 

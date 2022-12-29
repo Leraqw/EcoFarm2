@@ -2,10 +2,8 @@
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
-using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
-using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
@@ -29,21 +27,15 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			=> PluginUtil
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
-			   .Where((t) => t.GetAttribute<CoolAttribute>() != null)
-			   .Select
-			   (
-				   (t) => new CoolData
-				   {
-					   Name = t.Name,
-					   MemberData = GetData(t),
-				   }
-			   )
+			   .Where((t) => t.HasAttribute<CoolAttribute>())
+			   .Select(AsCoolData)
 			   .ToArray();
 
-		private MemberData[] GetData(INamedTypeSymbol type)
-			=> type.GetMembers()
-			       .OfType<IFieldSymbol>()
-			       .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
-			       .ToArray();
+		private static CoolData AsCoolData(INamedTypeSymbol t)
+			=> new CoolData
+			{
+				Name = t.Name,
+				MemberData = t.GetData(),
+			};
 	}
 }

@@ -27,7 +27,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins
 			get => (string[])this[DependenciesKey];
 			set => this[DependenciesKey] = value;
 		}
-		
+
 		public string Context
 		{
 			get => (string)this[ContextKey];
