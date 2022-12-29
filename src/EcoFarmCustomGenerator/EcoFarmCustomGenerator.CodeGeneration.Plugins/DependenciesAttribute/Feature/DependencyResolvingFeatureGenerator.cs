@@ -33,7 +33,7 @@ namespace EcoFarmCustomGenerator.CodeGeneration.Plugins.Feature
 		}
 
 		private static string SystemsAdding(IEnumerable<DependencyData> data)
-			=> string.Join("\n", data.Select((x) => Template.AddSystem(x.Name.RemoveComponentSuffix())));
+			=> string.Join("\n", data.Select((d) => Template.AddSystem(d.Name.RemoveComponentSuffix())));
 
 		private static class Template
 		{
