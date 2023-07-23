@@ -18,7 +18,7 @@ namespace Code
 
 		private static Vector2 GetNextPosition(GameEntity entity) => CalculateStep(entity) * Time.deltaTime;
 
-		private static Vector2 CalculateStep(GameEntity entity) => PositionsDifference(entity) / entity.duration;
+		private static Vector2 CalculateStep(GameEntity entity) => PositionsDifference(entity) / entity.duration.Value;
 
 		private static Vector2 PositionsDifference(GameEntity entity)
 			=> entity.targetPosition.Value - entity.position.Value;

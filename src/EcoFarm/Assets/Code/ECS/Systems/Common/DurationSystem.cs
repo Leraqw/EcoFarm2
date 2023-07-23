@@ -14,6 +14,6 @@ namespace Code
 
 		public void Execute() => _entities.ForEach(Tick);
 
-		private static void Tick(GameEntity entity) => entity.ReplaceDuration(entity.duration - Time.deltaTime);
+		private static void Tick(GameEntity entity) => entity.ReplaceDuration(entity.duration.Value - Time.deltaTime);
 	}
 }

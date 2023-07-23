@@ -18,7 +18,7 @@ namespace Code
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
 			=> SpawnPointsService

@@ -12,7 +12,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasInventoryItem;
 
-		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem);
+		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem.Value);
 
 		public void OnInventoryItem(GameEntity entity, Item value) => _text.text = value.Count.ToString();
 	}

@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICurrentQuantityListener {
-    void OnCurrentQuantity(GameEntity entity, Code.CurrentQuantityComponent value);
+    void OnCurrentQuantity(GameEntity entity, int value);
 }

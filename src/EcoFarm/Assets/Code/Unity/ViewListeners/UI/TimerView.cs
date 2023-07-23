@@ -11,7 +11,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasDuration;
 
-		protected override void UpdateValue(GameEntity entity) => OnDuration(entity, entity.duration);
+		protected override void UpdateValue(GameEntity entity) => OnDuration(entity, entity.duration.Value);
 
 		public void OnDuration(GameEntity entity, float value) => _textMesh.text = InMmSsFormat(value);
 

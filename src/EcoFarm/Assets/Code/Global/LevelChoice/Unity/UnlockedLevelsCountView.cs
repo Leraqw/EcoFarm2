@@ -19,7 +19,7 @@ namespace Code
 			
 			if (Entity.hasUnlockedLevelsCount)
 			{
-				OnUnlockedLevelsCount(Entity, Entity.unlockedLevelsCount);
+				OnUnlockedLevelsCount(Entity, Entity.unlockedLevelsCount.Value);
 			}
 		}
 

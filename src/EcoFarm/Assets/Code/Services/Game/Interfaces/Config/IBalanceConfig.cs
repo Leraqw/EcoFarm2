@@ -14,9 +14,9 @@ namespace Code
 
 		IFruitConfig Fruit { get; }
 
-		IResourceConfig Water { get; }
+		IBalanceResourceConfig Water { get; }
 
-		IResourceConfig Energy { get; }
+		IBalanceResourceConfig Energy { get; }
 		
 		IFactoryConfig Factory { get; }
 	}

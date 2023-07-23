@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ResourceComponent resource { get { return (ResourceComponent)GetComponent(GameComponentsLookup.Resource); } }
+    public Code.ResourceComponent resource { get { return (Code.ResourceComponent)GetComponent(GameComponentsLookup.Resource); } }
     public bool hasResource { get { return HasComponent(GameComponentsLookup.Resource); } }
 
-    public void AddResource(Code.ResourceComponent newValue) {
+    public void AddResource(EcoFarmModel.Resource newValue) {
         var index = GameComponentsLookup.Resource;
-        var component = (ResourceComponent)CreateComponent(index, typeof(ResourceComponent));
-        component.value = newValue;
+        var component = (Code.ResourceComponent)CreateComponent(index, typeof(Code.ResourceComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceResource(Code.ResourceComponent newValue) {
+    public void ReplaceResource(EcoFarmModel.Resource newValue) {
         var index = GameComponentsLookup.Resource;
-        var component = (ResourceComponent)CreateComponent(index, typeof(ResourceComponent));
-        component.value = newValue;
+        var component = (Code.ResourceComponent)CreateComponent(index, typeof(Code.ResourceComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -11,9 +11,8 @@
 			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
 			Add(new GameplaySystems(contexts));
 
-			Add(new ResolveEnemyDependenciesSystem(contexts));
 			Add(new GameEventSystems(contexts));
-			// Add(new GameCleanupSystems(contexts));
+			Add(new GameCleanupSystems(contexts));
 		}
 
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();

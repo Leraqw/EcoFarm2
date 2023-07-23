@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SliderValueComponent sliderValue { get { return (SliderValueComponent)GetComponent(GameComponentsLookup.SliderValue); } }
+    public Code.SliderValueComponent sliderValue { get { return (Code.SliderValueComponent)GetComponent(GameComponentsLookup.SliderValue); } }
     public bool hasSliderValue { get { return HasComponent(GameComponentsLookup.SliderValue); } }
 
-    public void AddSliderValue(Code.SliderValueComponent newValue) {
+    public void AddSliderValue(float newValue) {
         var index = GameComponentsLookup.SliderValue;
-        var component = (SliderValueComponent)CreateComponent(index, typeof(SliderValueComponent));
-        component.value = newValue;
+        var component = (Code.SliderValueComponent)CreateComponent(index, typeof(Code.SliderValueComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSliderValue(Code.SliderValueComponent newValue) {
+    public void ReplaceSliderValue(float newValue) {
         var index = GameComponentsLookup.SliderValue;
-        var component = (SliderValueComponent)CreateComponent(index, typeof(SliderValueComponent));
-        component.value = newValue;
+        var component = (Code.SliderValueComponent)CreateComponent(index, typeof(Code.SliderValueComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

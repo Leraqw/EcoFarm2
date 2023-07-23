@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public MouseDownComponent mouseDown { get { return (MouseDownComponent)GetComponent(GameComponentsLookup.MouseDown); } }
-    public bool hasMouseDown { get { return HasComponent(GameComponentsLookup.MouseDown); } }
+    static readonly Code.MouseDownComponent mouseDownComponent = new Code.MouseDownComponent();
 
-    public void AddMouseDown(Code.MouseDownComponent newValue) {
-        var index = GameComponentsLookup.MouseDown;
-        var component = (MouseDownComponent)CreateComponent(index, typeof(MouseDownComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isMouseDown {
+        get { return HasComponent(GameComponentsLookup.MouseDown); }
+        set {
+            if (value != isMouseDown) {
+                var index = GameComponentsLookup.MouseDown;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : mouseDownComponent;
 
-    public void ReplaceMouseDown(Code.MouseDownComponent newValue) {
-        var index = GameComponentsLookup.MouseDown;
-        var component = (MouseDownComponent)CreateComponent(index, typeof(MouseDownComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveMouseDown() {
-        RemoveComponent(GameComponentsLookup.MouseDown);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

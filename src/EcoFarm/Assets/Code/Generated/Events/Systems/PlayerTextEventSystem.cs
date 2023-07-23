@@ -30,7 +30,7 @@ public sealed class PlayerTextEventSystem : Entitas.ReactiveSystem<PlayerEntity>
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.playerTextListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnText(e, component.value);
+                listener.OnText(e, component.Value);
             }
         }
     }

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TargetActivityComponent targetActivity { get { return (TargetActivityComponent)GetComponent(GameComponentsLookup.TargetActivity); } }
+    public Code.TargetActivityComponent targetActivity { get { return (Code.TargetActivityComponent)GetComponent(GameComponentsLookup.TargetActivity); } }
     public bool hasTargetActivity { get { return HasComponent(GameComponentsLookup.TargetActivity); } }
 
-    public void AddTargetActivity(Code.TargetActivityComponent newValue) {
+    public void AddTargetActivity(bool newValue) {
         var index = GameComponentsLookup.TargetActivity;
-        var component = (TargetActivityComponent)CreateComponent(index, typeof(TargetActivityComponent));
-        component.value = newValue;
+        var component = (Code.TargetActivityComponent)CreateComponent(index, typeof(Code.TargetActivityComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetActivity(Code.TargetActivityComponent newValue) {
+    public void ReplaceTargetActivity(bool newValue) {
         var index = GameComponentsLookup.TargetActivity;
-        var component = (TargetActivityComponent)CreateComponent(index, typeof(TargetActivityComponent));
-        component.value = newValue;
+        var component = (Code.TargetActivityComponent)CreateComponent(index, typeof(Code.TargetActivityComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

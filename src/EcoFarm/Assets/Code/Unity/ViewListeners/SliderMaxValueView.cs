@@ -11,7 +11,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasSliderMaxValue;
 
-		protected override void UpdateValue(GameEntity entity) => OnSliderMaxValue(entity, entity.sliderMaxValue);
+		protected override void UpdateValue(GameEntity entity) => OnSliderMaxValue(entity, entity.sliderMaxValue.Value);
 
 		public void OnSliderMaxValue(GameEntity entity, float value) => _slider.maxValue = value;
 	}

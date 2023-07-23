@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public FellComponent fell { get { return (FellComponent)GetComponent(GameComponentsLookup.Fell); } }
-    public bool hasFell { get { return HasComponent(GameComponentsLookup.Fell); } }
+    static readonly Code.FellComponent fellComponent = new Code.FellComponent();
 
-    public void AddFell(Code.FellComponent newValue) {
-        var index = GameComponentsLookup.Fell;
-        var component = (FellComponent)CreateComponent(index, typeof(FellComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isFell {
+        get { return HasComponent(GameComponentsLookup.Fell); }
+        set {
+            if (value != isFell) {
+                var index = GameComponentsLookup.Fell;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : fellComponent;
 
-    public void ReplaceFell(Code.FellComponent newValue) {
-        var index = GameComponentsLookup.Fell;
-        var component = (FellComponent)CreateComponent(index, typeof(FellComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveFell() {
-        RemoveComponent(GameComponentsLookup.Fell);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

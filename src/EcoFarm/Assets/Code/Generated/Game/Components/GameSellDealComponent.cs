@@ -9,30 +9,19 @@
 public partial class GameContext {
 
     public GameEntity sellDealEntity { get { return GetGroup(GameMatcher.SellDeal).GetSingleEntity(); } }
-    public SellDealComponent sellDeal { get { return sellDealEntity.sellDeal; } }
-    public bool hasSellDeal { get { return sellDealEntity != null; } }
 
-    public GameEntity SetSellDeal(Code.SellDealComponent newValue) {
-        if (hasSellDeal) {
-            throw new Entitas.EntitasException("Could not set SellDeal!\n" + this + " already has an entity with SellDealComponent!",
-                "You should check if the context already has a sellDealEntity before setting it or use context.ReplaceSellDeal().");
+    public bool isSellDeal {
+        get { return sellDealEntity != null; }
+        set {
+            var entity = sellDealEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isSellDeal = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddSellDeal(newValue);
-        return entity;
-    }
-
-    public void ReplaceSellDeal(Code.SellDealComponent newValue) {
-        var entity = sellDealEntity;
-        if (entity == null) {
-            entity = SetSellDeal(newValue);
-        } else {
-            entity.ReplaceSellDeal(newValue);
-        }
-    }
-
-    public void RemoveSellDeal() {
-        sellDealEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SellDealComponent sellDeal { get { return (SellDealComponent)GetComponent(GameComponentsLookup.SellDeal); } }
-    public bool hasSellDeal { get { return HasComponent(GameComponentsLookup.SellDeal); } }
+    static readonly Code.SellDealComponent sellDealComponent = new Code.SellDealComponent();
 
-    public void AddSellDeal(Code.SellDealComponent newValue) {
-        var index = GameComponentsLookup.SellDeal;
-        var component = (SellDealComponent)CreateComponent(index, typeof(SellDealComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isSellDeal {
+        get { return HasComponent(GameComponentsLookup.SellDeal); }
+        set {
+            if (value != isSellDeal) {
+                var index = GameComponentsLookup.SellDeal;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : sellDealComponent;
 
-    public void ReplaceSellDeal(Code.SellDealComponent newValue) {
-        var index = GameComponentsLookup.SellDeal;
-        var component = (SellDealComponent)CreateComponent(index, typeof(SellDealComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveSellDeal() {
-        RemoveComponent(GameComponentsLookup.SellDeal);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

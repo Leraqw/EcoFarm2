@@ -17,7 +17,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasSliderValue;
 
-		protected override void UpdateValue(GameEntity entity) => OnSliderValue(entity, entity.sliderValue);
+		protected override void UpdateValue(GameEntity entity) => OnSliderValue(entity, entity.sliderValue.Value);
 
 		public void OnSliderValue(GameEntity entity, float value) => _slider.value = value;
 

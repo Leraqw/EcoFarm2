@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using SessionResult = Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
 namespace Code
 {
@@ -17,14 +16,14 @@ namespace Code
 
 		private PlayerEntity Player => _contexts.player.currentPlayerEntity;
 
-		protected override bool Filter(PlayerEntity entity) => entity.sessionResult == SessionResult.Victory;
+		protected override bool Filter(PlayerEntity entity) => entity.sessionResult.Value == SessionResult.Victory;
 
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(Save);
 
 		private void Save(PlayerEntity entity)
 		{
-			var currentLevel = Player.selectedLevel + 1;
-			if (currentLevel > Player.completedLevelsCount)
+			var currentLevel = Player.selectedLevel.Value + 1;
+			if (currentLevel > Player.completedLevelsCount.Value)
 			{
 				Player.ReplaceCompletedLevelsCount(currentLevel);
 			}

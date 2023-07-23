@@ -8,148 +8,144 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Activate = 0;
-    public const int ActivateListener = 1;
-    public const int AttachableIndex = 2;
-    public const int AttachedTo = 3;
-    public const int Bought = 4;
-    public const int Bucket = 5;
-    public const int Building = 6;
-    public const int BuildingListener = 7;
+    public const int ActivateListener = 0;
+    public const int BuildingListener = 1;
+    public const int Activate = 2;
+    public const int AttachableIndex = 3;
+    public const int AttachedTo = 4;
+    public const int Bought = 5;
+    public const int Bucket = 6;
+    public const int Building = 7;
     public const int BuildWindow = 8;
     public const int Busy = 9;
     public const int ButtonClick = 10;
     public const int CleanerGenerator = 11;
     public const int Coin = 12;
     public const int CoinsCount = 13;
-    public const int CoinsCountListener = 14;
-    public const int Collected = 15;
-    public const int Consumable = 16;
-    public const int Consumer = 17;
-    public const int ConsumptionCoefficient = 18;
-    public const int Count = 19;
-    public const int Crane = 20;
-    public const int CurrentQuantity = 21;
-    public const int CurrentQuantityListener = 22;
-    public const int DebugName = 23;
-    public const int Destroy = 24;
-    public const int DevelopmentObject = 25;
-    public const int Draggable = 26;
-    public const int Dragging = 27;
-    public const int DraggingEnd = 28;
-    public const int DraggingStart = 29;
-    public const int DroughtTimer = 30;
-    public const int Duration = 31;
-    public const int DurationListener = 32;
-    public const int DurationUp = 33;
-    public const int EfficiencyCoefficient = 34;
-    public const int Enemy = 35;
-    public const int EnergyResource = 36;
-    public const int Factory = 37;
-    public const int FactoryListener = 38;
-    public const int Fell = 39;
-    public const int Filled = 40;
-    public const int Fruitful = 41;
-    public const int FruitRequire = 42;
-    public const int GameTextListener = 43;
-    public const int Generator = 44;
-    public const int GeneratorListener = 45;
-    public const int GoalCompleted = 46;
-    public const int GoalCompletedListener = 47;
-    public const int Goal = 48;
-    public const int GoalListener = 49;
-    public const int Growth = 50;
-    public const int Health = 51;
-    public const int InFactory = 52;
-    public const int InputProducts = 53;
-    public const int Inventory = 54;
-    public const int InventoryItem = 55;
-    public const int InventoryItemListener = 56;
-    public const int LevelTimer = 57;
-    public const int MouseClick = 58;
-    public const int MouseDown = 59;
-    public const int MouseUp = 60;
-    public const int Movable = 61;
-    public const int Occupied = 62;
-    public const int PermanentGenerator = 63;
-    public const int Pickable = 64;
-    public const int Picked = 65;
-    public const int PollutionCoefficient = 66;
-    public const int Pollution = 67;
-    public const int Position = 68;
-    public const int PositionListener = 69;
-    public const int PreparationInProcess = 70;
-    public const int Prepared = 71;
-    public const int ProduceResource = 72;
-    public const int Product = 73;
-    public const int ProgressBar = 74;
-    public const int ProgressBarListener = 75;
-    public const int ProportionalScale = 76;
-    public const int ProportionalScaleListener = 77;
-    public const int Radius = 78;
-    public const int Ready = 79;
-    public const int Renew = 80;
-    public const int RenewPrice = 81;
-    public const int RequirePreparation = 82;
-    public const int RequireProduct = 83;
-    public const int RequireSprite = 84;
-    public const int RequireTreeOnPosition = 85;
-    public const int RequireView = 86;
-    public const int Resource = 87;
-    public const int Rotation = 88;
-    public const int RotationListener = 89;
-    public const int RotationSpeed = 90;
-    public const int SellCoefficient = 91;
-    public const int SellDeal = 92;
-    public const int SellWindow = 93;
-    public const int Sign = 94;
-    public const int SliderMaxValue = 95;
-    public const int SliderMaxValueListener = 96;
-    public const int SliderValue = 97;
-    public const int SliderValueListener = 98;
-    public const int SpawnPosition = 99;
-    public const int Spinner = 100;
-    public const int Sprite = 101;
-    public const int SpriteHigh = 102;
-    public const int SpriteHighListener = 103;
-    public const int SpriteListener = 104;
-    public const int SpriteToLoad = 105;
-    public const int Storage = 106;
-    public const int TargetActivity = 107;
-    public const int TargetPosition = 108;
-    public const int TargetScale = 109;
-    public const int Text = 110;
-    public const int Tree = 111;
-    public const int UiElement = 112;
-    public const int UiParent = 113;
-    public const int Used = 114;
-    public const int View = 115;
-    public const int ViewPrefab = 116;
-    public const int Watered = 117;
-    public const int Watering = 118;
+    public const int Collected = 14;
+    public const int Consumable = 15;
+    public const int Consumer = 16;
+    public const int ConsumptionCoefficient = 17;
+    public const int Count = 18;
+    public const int Crane = 19;
+    public const int CurrentQuantity = 20;
+    public const int DebugName = 21;
+    public const int Destroy = 22;
+    public const int DevelopmentObject = 23;
+    public const int Draggable = 24;
+    public const int Dragging = 25;
+    public const int DraggingEnd = 26;
+    public const int DraggingStart = 27;
+    public const int DroughtTimer = 28;
+    public const int Duration = 29;
+    public const int DurationUp = 30;
+    public const int EfficiencyCoefficient = 31;
+    public const int EnergyResource = 32;
+    public const int Factory = 33;
+    public const int Fell = 34;
+    public const int Filled = 35;
+    public const int Fruitful = 36;
+    public const int FruitRequire = 37;
+    public const int Generator = 38;
+    public const int GoalCompleted = 39;
+    public const int Goal = 40;
+    public const int Growth = 41;
+    public const int InFactory = 42;
+    public const int InputProducts = 43;
+    public const int Inventory = 44;
+    public const int InventoryItem = 45;
+    public const int LevelTimer = 46;
+    public const int MouseClick = 47;
+    public const int MouseDown = 48;
+    public const int MouseUp = 49;
+    public const int Occupied = 50;
+    public const int PermanentGenerator = 51;
+    public const int Pickable = 52;
+    public const int Picked = 53;
+    public const int PollutionCoefficient = 54;
+    public const int Pollution = 55;
+    public const int Position = 56;
+    public const int PreparationInProcess = 57;
+    public const int Prepared = 58;
+    public const int ProduceResource = 59;
+    public const int Product = 60;
+    public const int ProgressBar = 61;
+    public const int ProportionalScale = 62;
+    public const int Radius = 63;
+    public const int Ready = 64;
+    public const int Renew = 65;
+    public const int RenewPrice = 66;
+    public const int RequirePreparation = 67;
+    public const int RequireProduct = 68;
+    public const int RequireSprite = 69;
+    public const int RequireTreeOnPosition = 70;
+    public const int RequireView = 71;
+    public const int Resource = 72;
+    public const int Rotation = 73;
+    public const int RotationSpeed = 74;
+    public const int SellCoefficient = 75;
+    public const int SellDeal = 76;
+    public const int SellWindow = 77;
+    public const int Sign = 78;
+    public const int SliderMaxValue = 79;
+    public const int SliderValue = 80;
+    public const int SpawnPosition = 81;
+    public const int Spinner = 82;
+    public const int Sprite = 83;
+    public const int SpriteHigh = 84;
+    public const int SpriteToLoad = 85;
+    public const int Storage = 86;
+    public const int TargetActivity = 87;
+    public const int TargetPosition = 88;
+    public const int TargetScale = 89;
+    public const int Text = 90;
+    public const int Tree = 91;
+    public const int UiElement = 92;
+    public const int UiParent = 93;
+    public const int Used = 94;
+    public const int View = 95;
+    public const int ViewPrefab = 96;
+    public const int Watered = 97;
+    public const int Watering = 98;
+    public const int WaterResource = 99;
+    public const int WillFall = 100;
+    public const int Working = 101;
+    public const int CoinsCountListener = 102;
+    public const int CurrentQuantityListener = 103;
+    public const int DurationListener = 104;
+    public const int FactoryListener = 105;
+    public const int GameTextListener = 106;
+    public const int GeneratorListener = 107;
+    public const int GoalCompletedListener = 108;
+    public const int GoalListener = 109;
+    public const int InventoryItemListener = 110;
+    public const int PositionListener = 111;
+    public const int ProgressBarListener = 112;
+    public const int ProportionalScaleListener = 113;
+    public const int RotationListener = 114;
+    public const int SliderMaxValueListener = 115;
+    public const int SliderValueListener = 116;
+    public const int SpriteHighListener = 117;
+    public const int SpriteListener = 118;
     public const int WateringListener = 119;
-    public const int WaterResource = 120;
-    public const int WillFall = 121;
-    public const int Working = 122;
 
-    public const int TotalComponents = 123;
+    public const int TotalComponents = 120;
 
     public static readonly string[] componentNames = {
-        "Activate",
         "ActivateListener",
+        "BuildingListener",
+        "Activate",
         "AttachableIndex",
         "AttachedTo",
         "Bought",
         "Bucket",
         "Building",
-        "BuildingListener",
         "BuildWindow",
         "Busy",
         "ButtonClick",
         "CleanerGenerator",
         "Coin",
         "CoinsCount",
-        "CoinsCountListener",
         "Collected",
         "Consumable",
         "Consumer",
@@ -157,7 +153,6 @@ public static class GameComponentsLookup {
         "Count",
         "Crane",
         "CurrentQuantity",
-        "CurrentQuantityListener",
         "DebugName",
         "Destroy",
         "DevelopmentObject",
@@ -167,36 +162,26 @@ public static class GameComponentsLookup {
         "DraggingStart",
         "DroughtTimer",
         "Duration",
-        "DurationListener",
         "DurationUp",
         "EfficiencyCoefficient",
-        "Enemy",
         "EnergyResource",
         "Factory",
-        "FactoryListener",
         "Fell",
         "Filled",
         "Fruitful",
         "FruitRequire",
-        "GameTextListener",
         "Generator",
-        "GeneratorListener",
         "GoalCompleted",
-        "GoalCompletedListener",
         "Goal",
-        "GoalListener",
         "Growth",
-        "Health",
         "InFactory",
         "InputProducts",
         "Inventory",
         "InventoryItem",
-        "InventoryItemListener",
         "LevelTimer",
         "MouseClick",
         "MouseDown",
         "MouseUp",
-        "Movable",
         "Occupied",
         "PermanentGenerator",
         "Pickable",
@@ -204,15 +189,12 @@ public static class GameComponentsLookup {
         "PollutionCoefficient",
         "Pollution",
         "Position",
-        "PositionListener",
         "PreparationInProcess",
         "Prepared",
         "ProduceResource",
         "Product",
         "ProgressBar",
-        "ProgressBarListener",
         "ProportionalScale",
-        "ProportionalScaleListener",
         "Radius",
         "Ready",
         "Renew",
@@ -224,22 +206,17 @@ public static class GameComponentsLookup {
         "RequireView",
         "Resource",
         "Rotation",
-        "RotationListener",
         "RotationSpeed",
         "SellCoefficient",
         "SellDeal",
         "SellWindow",
         "Sign",
         "SliderMaxValue",
-        "SliderMaxValueListener",
         "SliderValue",
-        "SliderValueListener",
         "SpawnPosition",
         "Spinner",
         "Sprite",
         "SpriteHigh",
-        "SpriteHighListener",
-        "SpriteListener",
         "SpriteToLoad",
         "Storage",
         "TargetActivity",
@@ -254,135 +231,149 @@ public static class GameComponentsLookup {
         "ViewPrefab",
         "Watered",
         "Watering",
-        "WateringListener",
         "WaterResource",
         "WillFall",
-        "Working"
+        "Working",
+        "CoinsCountListener",
+        "CurrentQuantityListener",
+        "DurationListener",
+        "FactoryListener",
+        "GameTextListener",
+        "GeneratorListener",
+        "GoalCompletedListener",
+        "GoalListener",
+        "InventoryItemListener",
+        "PositionListener",
+        "ProgressBarListener",
+        "ProportionalScaleListener",
+        "RotationListener",
+        "SliderMaxValueListener",
+        "SliderValueListener",
+        "SpriteHighListener",
+        "SpriteListener",
+        "WateringListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(ActivateComponent),
         typeof(ActivateListenerComponent),
-        typeof(AttachableIndexComponent),
-        typeof(AttachedToComponent),
-        typeof(BoughtComponent),
-        typeof(BucketComponent),
-        typeof(BuildingComponent),
         typeof(BuildingListenerComponent),
-        typeof(BuildWindowComponent),
-        typeof(BusyComponent),
-        typeof(ButtonClickComponent),
-        typeof(CleanerGeneratorComponent),
-        typeof(CoinComponent),
-        typeof(CoinsCountComponent),
+        typeof(Code.ActivateComponent),
+        typeof(Code.AttachableIndexComponent),
+        typeof(Code.AttachedToComponent),
+        typeof(Code.BoughtComponent),
+        typeof(Code.BucketComponent),
+        typeof(Code.BuildingComponent),
+        typeof(Code.BuildWindowComponent),
+        typeof(Code.BusyComponent),
+        typeof(Code.ButtonClickComponent),
+        typeof(Code.CleanerGeneratorComponent),
+        typeof(Code.CoinComponent),
+        typeof(Code.CoinsCountComponent),
+        typeof(Code.CollectedComponent),
+        typeof(Code.ConsumableComponent),
+        typeof(Code.ConsumerComponent),
+        typeof(Code.ConsumptionCoefficientComponent),
+        typeof(Code.CountComponent),
+        typeof(Code.CraneComponent),
+        typeof(Code.CurrentQuantityComponent),
+        typeof(Code.DebugNameComponent),
+        typeof(Code.DestroyComponent),
+        typeof(Code.DevelopmentObjectComponent),
+        typeof(Code.DraggableComponent),
+        typeof(Code.DraggingComponent),
+        typeof(Code.DraggingEndComponent),
+        typeof(Code.DraggingStartComponent),
+        typeof(Code.DroughtTimerComponent),
+        typeof(Code.DurationComponent),
+        typeof(Code.DurationUpComponent),
+        typeof(Code.EfficiencyCoefficientComponent),
+        typeof(Code.EnergyResourceComponent),
+        typeof(Code.FactoryComponent),
+        typeof(Code.FellComponent),
+        typeof(Code.FilledComponent),
+        typeof(Code.FruitfulComponent),
+        typeof(Code.FruitRequireComponent),
+        typeof(Code.GeneratorComponent),
+        typeof(Code.GoalCompletedComponent),
+        typeof(Code.GoalComponent),
+        typeof(Code.GrowthComponent),
+        typeof(Code.InFactoryComponent),
+        typeof(Code.InputProductsComponent),
+        typeof(Code.InventoryComponent),
+        typeof(Code.InventoryItemComponent),
+        typeof(Code.LevelTimerComponent),
+        typeof(Code.MouseClickComponent),
+        typeof(Code.MouseDownComponent),
+        typeof(Code.MouseUpComponent),
+        typeof(Code.OccupiedComponent),
+        typeof(Code.PermanentGeneratorComponent),
+        typeof(Code.PickableComponent),
+        typeof(Code.PickedComponent),
+        typeof(Code.PollutionCoefficientComponent),
+        typeof(Code.PollutionComponent),
+        typeof(Code.PositionComponent),
+        typeof(Code.PreparationInProcessComponent),
+        typeof(Code.PreparedComponent),
+        typeof(Code.ProduceResourceComponent),
+        typeof(Code.ProductComponent),
+        typeof(Code.ProgressBarComponent),
+        typeof(Code.ProportionalScaleComponent),
+        typeof(Code.RadiusComponent),
+        typeof(Code.ReadyComponent),
+        typeof(Code.RenewComponent),
+        typeof(Code.RenewPriceComponent),
+        typeof(Code.RequirePreparationComponent),
+        typeof(Code.RequireProductComponent),
+        typeof(Code.RequireSpriteComponent),
+        typeof(Code.RequireTreeOnPositionComponent),
+        typeof(Code.RequireViewComponent),
+        typeof(Code.ResourceComponent),
+        typeof(Code.RotationComponent),
+        typeof(Code.RotationSpeedComponent),
+        typeof(Code.SellCoefficientComponent),
+        typeof(Code.SellDealComponent),
+        typeof(Code.SellWindowComponent),
+        typeof(Code.SignComponent),
+        typeof(Code.SliderMaxValueComponent),
+        typeof(Code.SliderValueComponent),
+        typeof(Code.SpawnPositionComponent),
+        typeof(Code.SpinnerComponent),
+        typeof(Code.SpriteComponent),
+        typeof(Code.SpriteHighComponent),
+        typeof(Code.SpriteToLoadComponent),
+        typeof(Code.StorageComponent),
+        typeof(Code.TargetActivityComponent),
+        typeof(Code.TargetPositionComponent),
+        typeof(Code.TargetScaleComponent),
+        typeof(Code.TextComponent),
+        typeof(Code.TreeComponent),
+        typeof(Code.UiElementComponent),
+        typeof(Code.UiParentComponent),
+        typeof(Code.UsedComponent),
+        typeof(Code.ViewComponent),
+        typeof(Code.ViewPrefabComponent),
+        typeof(Code.WateredComponent),
+        typeof(Code.WateringComponent),
+        typeof(Code.WaterResourceComponent),
+        typeof(Code.WillFallComponent),
+        typeof(Code.WorkingComponent),
         typeof(CoinsCountListenerComponent),
-        typeof(CollectedComponent),
-        typeof(ConsumableComponent),
-        typeof(ConsumerComponent),
-        typeof(ConsumptionCoefficientComponent),
-        typeof(CountComponent),
-        typeof(CraneComponent),
-        typeof(CurrentQuantityComponent),
         typeof(CurrentQuantityListenerComponent),
-        typeof(DebugNameComponent),
-        typeof(DestroyComponent),
-        typeof(DevelopmentObjectComponent),
-        typeof(DraggableComponent),
-        typeof(DraggingComponent),
-        typeof(DraggingEndComponent),
-        typeof(DraggingStartComponent),
-        typeof(DroughtTimerComponent),
-        typeof(DurationComponent),
         typeof(DurationListenerComponent),
-        typeof(DurationUpComponent),
-        typeof(EfficiencyCoefficientComponent),
-        typeof(EnemyComponent),
-        typeof(EnergyResourceComponent),
-        typeof(FactoryComponent),
         typeof(FactoryListenerComponent),
-        typeof(FellComponent),
-        typeof(FilledComponent),
-        typeof(FruitfulComponent),
-        typeof(FruitRequireComponent),
         typeof(GameTextListenerComponent),
-        typeof(GeneratorComponent),
         typeof(GeneratorListenerComponent),
-        typeof(GoalCompletedComponent),
         typeof(GoalCompletedListenerComponent),
-        typeof(GoalComponent),
         typeof(GoalListenerComponent),
-        typeof(GrowthComponent),
-        typeof(HealthComponent),
-        typeof(InFactoryComponent),
-        typeof(InputProductsComponent),
-        typeof(InventoryComponent),
-        typeof(InventoryItemComponent),
         typeof(InventoryItemListenerComponent),
-        typeof(LevelTimerComponent),
-        typeof(MouseClickComponent),
-        typeof(MouseDownComponent),
-        typeof(MouseUpComponent),
-        typeof(MovableComponent),
-        typeof(OccupiedComponent),
-        typeof(PermanentGeneratorComponent),
-        typeof(PickableComponent),
-        typeof(PickedComponent),
-        typeof(PollutionCoefficientComponent),
-        typeof(PollutionComponent),
-        typeof(PositionComponent),
         typeof(PositionListenerComponent),
-        typeof(PreparationInProcessComponent),
-        typeof(PreparedComponent),
-        typeof(ProduceResourceComponent),
-        typeof(ProductComponent),
-        typeof(ProgressBarComponent),
         typeof(ProgressBarListenerComponent),
-        typeof(ProportionalScaleComponent),
         typeof(ProportionalScaleListenerComponent),
-        typeof(RadiusComponent),
-        typeof(ReadyComponent),
-        typeof(RenewComponent),
-        typeof(RenewPriceComponent),
-        typeof(RequirePreparationComponent),
-        typeof(RequireProductComponent),
-        typeof(RequireSpriteComponent),
-        typeof(RequireTreeOnPositionComponent),
-        typeof(RequireViewComponent),
-        typeof(ResourceComponent),
-        typeof(RotationComponent),
         typeof(RotationListenerComponent),
-        typeof(RotationSpeedComponent),
-        typeof(SellCoefficientComponent),
-        typeof(SellDealComponent),
-        typeof(SellWindowComponent),
-        typeof(SignComponent),
-        typeof(SliderMaxValueComponent),
         typeof(SliderMaxValueListenerComponent),
-        typeof(SliderValueComponent),
         typeof(SliderValueListenerComponent),
-        typeof(SpawnPositionComponent),
-        typeof(SpinnerComponent),
-        typeof(SpriteComponent),
-        typeof(SpriteHighComponent),
         typeof(SpriteHighListenerComponent),
         typeof(SpriteListenerComponent),
-        typeof(SpriteToLoadComponent),
-        typeof(StorageComponent),
-        typeof(TargetActivityComponent),
-        typeof(TargetPositionComponent),
-        typeof(TargetScaleComponent),
-        typeof(TextComponent),
-        typeof(TreeComponent),
-        typeof(UiElementComponent),
-        typeof(UiParentComponent),
-        typeof(UsedComponent),
-        typeof(ViewComponent),
-        typeof(ViewPrefabComponent),
-        typeof(WateredComponent),
-        typeof(WateringComponent),
-        typeof(WateringListenerComponent),
-        typeof(WaterResourceComponent),
-        typeof(WillFallComponent),
-        typeof(WorkingComponent)
+        typeof(WateringListenerComponent)
     };
 }

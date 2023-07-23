@@ -43,10 +43,10 @@ namespace Code
 			        .Do((e) => e.SetActualDebugName());
 
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
-			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
+			=> @this.ReplaceCoinsCount(@this.coinsCount.Value + value);
 
 		public static void DecreaseCoinsCount(this GameEntity @this, int value)
-			=> @this.ReplaceCoinsCount(@this.coinsCount - value);
+			=> @this.ReplaceCoinsCount(@this.coinsCount.Value - value);
 
 		public static bool HasSameProduct(this GameEntity @this, GameEntity other)
 			=> @this.product.Value == other.product.Value;

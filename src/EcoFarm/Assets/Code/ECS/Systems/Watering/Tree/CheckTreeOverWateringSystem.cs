@@ -27,7 +27,7 @@ namespace Code
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsRotten, @if: IsOverWatered);
 
-		private bool IsOverWatered(GameEntity entity) => entity.watering > MaxWatering;
+		private bool IsOverWatered(GameEntity entity) => entity.watering.Value > MaxWatering;
 
 		private void MarkAsRotten(GameEntity entity)
 			=> entity.TreeIsDead(TreeRottenSprite);

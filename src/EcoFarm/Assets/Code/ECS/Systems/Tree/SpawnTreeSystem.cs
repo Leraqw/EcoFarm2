@@ -29,7 +29,7 @@ namespace Code
 			=> entry.Do((e) => e.AddDebugName("Tree"))
 			        .Do((e) => e.MakeAttachable())
 			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
-			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition))
+			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
 			        .Do((e) => e.AddTree(_contexts.game.storage.Value.Trees.First()))
 			        .Do((e) => e.isFruitful = true)
 			        .Do((e) => e.RemoveRequireTreeOnPosition());

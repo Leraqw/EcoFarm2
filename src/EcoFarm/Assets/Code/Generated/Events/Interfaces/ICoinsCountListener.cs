@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICoinsCountListener {
-    void OnCoinsCount(GameEntity entity, Code.CoinsCountComponent value);
+    void OnCoinsCount(GameEntity entity, int value);
 }

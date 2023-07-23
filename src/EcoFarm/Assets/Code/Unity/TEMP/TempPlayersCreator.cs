@@ -2,7 +2,6 @@
 using System.Linq;
 using EcoFarmModel;
 using static Code.TempDataCreator;
-using Constants = Code.Constants;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 

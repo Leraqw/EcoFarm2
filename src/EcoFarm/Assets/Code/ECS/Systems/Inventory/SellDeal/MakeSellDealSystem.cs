@@ -25,6 +25,6 @@ namespace Code
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseCoinsCount);
 
 		private void IncreaseCoinsCount(GameEntity deal)
-			=> Inventory.IncreaseCoinsCount(deal.count * deal.product.Value.Price);
+			=> Inventory.IncreaseCoinsCount(deal.count.Value * deal.product.Value.Price);
 	}
 }

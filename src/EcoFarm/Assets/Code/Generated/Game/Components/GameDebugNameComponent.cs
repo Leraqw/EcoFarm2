@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DebugNameComponent debugName { get { return (DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
+    public Code.DebugNameComponent debugName { get { return (Code.DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
     public bool hasDebugName { get { return HasComponent(GameComponentsLookup.DebugName); } }
 
-    public void AddDebugName(Code.DebugNameComponent newValue) {
+    public void AddDebugName(string newValue) {
         var index = GameComponentsLookup.DebugName;
-        var component = (DebugNameComponent)CreateComponent(index, typeof(DebugNameComponent));
-        component.value = newValue;
+        var component = (Code.DebugNameComponent)CreateComponent(index, typeof(Code.DebugNameComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDebugName(Code.DebugNameComponent newValue) {
+    public void ReplaceDebugName(string newValue) {
         var index = GameComponentsLookup.DebugName;
-        var component = (DebugNameComponent)CreateComponent(index, typeof(DebugNameComponent));
-        component.value = newValue;
+        var component = (Code.DebugNameComponent)CreateComponent(index, typeof(Code.DebugNameComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

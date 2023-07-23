@@ -23,7 +23,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasGoal;
 
-		protected override void UpdateValue(GameEntity entity) => OnGoal(entity, entity.goal);
+		protected override void UpdateValue(GameEntity entity) => OnGoal(entity, entity.goal.Value);
 
 		public void OnGoal(GameEntity entity, Goal value)
 		{

@@ -35,7 +35,7 @@ namespace Code
 		{
 			generator
 				.Do((e) => e.AddDuration(_contexts.GetConfiguration().Balance.Factory.WorkingDuration))
-				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient))
+				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient.Value))
 				.Do((e) => e.isWorking = true)
 				;
 

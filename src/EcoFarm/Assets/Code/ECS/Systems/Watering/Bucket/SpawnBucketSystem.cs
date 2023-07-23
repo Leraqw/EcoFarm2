@@ -28,7 +28,7 @@ namespace Code
 			e.isDraggable = true;
 			e.isFilled = true;
 			e.AddPosition(SpawnPointsService.Bucket);
-			e.AddSpawnPosition(e.position);
+			e.AddSpawnPosition(e.position.Value);
 		}
 	}
 }

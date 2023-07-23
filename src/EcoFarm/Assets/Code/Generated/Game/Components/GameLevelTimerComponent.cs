@@ -9,30 +9,19 @@
 public partial class GameContext {
 
     public GameEntity levelTimerEntity { get { return GetGroup(GameMatcher.LevelTimer).GetSingleEntity(); } }
-    public LevelTimerComponent levelTimer { get { return levelTimerEntity.levelTimer; } }
-    public bool hasLevelTimer { get { return levelTimerEntity != null; } }
 
-    public GameEntity SetLevelTimer(Code.LevelTimerComponent newValue) {
-        if (hasLevelTimer) {
-            throw new Entitas.EntitasException("Could not set LevelTimer!\n" + this + " already has an entity with LevelTimerComponent!",
-                "You should check if the context already has a levelTimerEntity before setting it or use context.ReplaceLevelTimer().");
+    public bool isLevelTimer {
+        get { return levelTimerEntity != null; }
+        set {
+            var entity = levelTimerEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isLevelTimer = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddLevelTimer(newValue);
-        return entity;
-    }
-
-    public void ReplaceLevelTimer(Code.LevelTimerComponent newValue) {
-        var entity = levelTimerEntity;
-        if (entity == null) {
-            entity = SetLevelTimer(newValue);
-        } else {
-            entity.ReplaceLevelTimer(newValue);
-        }
-    }
-
-    public void RemoveLevelTimer() {
-        levelTimerEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public LevelTimerComponent levelTimer { get { return (LevelTimerComponent)GetComponent(GameComponentsLookup.LevelTimer); } }
-    public bool hasLevelTimer { get { return HasComponent(GameComponentsLookup.LevelTimer); } }
+    static readonly Code.LevelTimerComponent levelTimerComponent = new Code.LevelTimerComponent();
 
-    public void AddLevelTimer(Code.LevelTimerComponent newValue) {
-        var index = GameComponentsLookup.LevelTimer;
-        var component = (LevelTimerComponent)CreateComponent(index, typeof(LevelTimerComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isLevelTimer {
+        get { return HasComponent(GameComponentsLookup.LevelTimer); }
+        set {
+            if (value != isLevelTimer) {
+                var index = GameComponentsLookup.LevelTimer;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : levelTimerComponent;
 
-    public void ReplaceLevelTimer(Code.LevelTimerComponent newValue) {
-        var index = GameComponentsLookup.LevelTimer;
-        var component = (LevelTimerComponent)CreateComponent(index, typeof(LevelTimerComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveLevelTimer() {
-        RemoveComponent(GameComponentsLookup.LevelTimer);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

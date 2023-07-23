@@ -1,4 +1,4 @@
-using Code.ECS.Systems.Warehouse;
+using Code;
 using Code.Tests;
 using NUnit.Framework;
 using FluentAssertions;

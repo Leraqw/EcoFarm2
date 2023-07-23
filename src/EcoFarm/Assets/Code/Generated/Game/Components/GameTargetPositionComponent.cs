@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TargetPositionComponent targetPosition { get { return (TargetPositionComponent)GetComponent(GameComponentsLookup.TargetPosition); } }
+    public Code.TargetPositionComponent targetPosition { get { return (Code.TargetPositionComponent)GetComponent(GameComponentsLookup.TargetPosition); } }
     public bool hasTargetPosition { get { return HasComponent(GameComponentsLookup.TargetPosition); } }
 
-    public void AddTargetPosition(Code.TargetPositionComponent newValue) {
+    public void AddTargetPosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.TargetPosition;
-        var component = (TargetPositionComponent)CreateComponent(index, typeof(TargetPositionComponent));
-        component.value = newValue;
+        var component = (Code.TargetPositionComponent)CreateComponent(index, typeof(Code.TargetPositionComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetPosition(Code.TargetPositionComponent newValue) {
+    public void ReplaceTargetPosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.TargetPosition;
-        var component = (TargetPositionComponent)CreateComponent(index, typeof(TargetPositionComponent));
-        component.value = newValue;
+        var component = (Code.TargetPositionComponent)CreateComponent(index, typeof(Code.TargetPositionComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

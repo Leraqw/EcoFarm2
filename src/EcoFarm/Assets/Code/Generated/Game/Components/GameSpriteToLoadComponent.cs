@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SpriteToLoadComponent spriteToLoad { get { return (SpriteToLoadComponent)GetComponent(GameComponentsLookup.SpriteToLoad); } }
+    public Code.SpriteToLoadComponent spriteToLoad { get { return (Code.SpriteToLoadComponent)GetComponent(GameComponentsLookup.SpriteToLoad); } }
     public bool hasSpriteToLoad { get { return HasComponent(GameComponentsLookup.SpriteToLoad); } }
 
-    public void AddSpriteToLoad(Code.SpriteToLoadComponent newValue) {
+    public void AddSpriteToLoad(UnityEngine.Sprite newValue) {
         var index = GameComponentsLookup.SpriteToLoad;
-        var component = (SpriteToLoadComponent)CreateComponent(index, typeof(SpriteToLoadComponent));
-        component.value = newValue;
+        var component = (Code.SpriteToLoadComponent)CreateComponent(index, typeof(Code.SpriteToLoadComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpriteToLoad(Code.SpriteToLoadComponent newValue) {
+    public void ReplaceSpriteToLoad(UnityEngine.Sprite newValue) {
         var index = GameComponentsLookup.SpriteToLoad;
-        var component = (SpriteToLoadComponent)CreateComponent(index, typeof(SpriteToLoadComponent));
-        component.value = newValue;
+        var component = (Code.SpriteToLoadComponent)CreateComponent(index, typeof(Code.SpriteToLoadComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

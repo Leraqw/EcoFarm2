@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RequireProductComponent requireProduct { get { return (RequireProductComponent)GetComponent(GameComponentsLookup.RequireProduct); } }
+    public Code.RequireProductComponent requireProduct { get { return (Code.RequireProductComponent)GetComponent(GameComponentsLookup.RequireProduct); } }
     public bool hasRequireProduct { get { return HasComponent(GameComponentsLookup.RequireProduct); } }
 
-    public void AddRequireProduct(Code.RequireProductComponent newValue) {
+    public void AddRequireProduct(EcoFarmModel.Product newValue) {
         var index = GameComponentsLookup.RequireProduct;
-        var component = (RequireProductComponent)CreateComponent(index, typeof(RequireProductComponent));
-        component.value = newValue;
+        var component = (Code.RequireProductComponent)CreateComponent(index, typeof(Code.RequireProductComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireProduct(Code.RequireProductComponent newValue) {
+    public void ReplaceRequireProduct(EcoFarmModel.Product newValue) {
         var index = GameComponentsLookup.RequireProduct;
-        var component = (RequireProductComponent)CreateComponent(index, typeof(RequireProductComponent));
-        component.value = newValue;
+        var component = (Code.RequireProductComponent)CreateComponent(index, typeof(Code.RequireProductComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IDurationListener {
-    void OnDuration(GameEntity entity, Code.DurationComponent value);
+    void OnDuration(GameEntity entity, float value);
 }

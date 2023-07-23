@@ -13,21 +13,19 @@ public static class PlayerComponentsLookup {
     public const int Destroy = 2;
     public const int ForPlayerButton = 3;
     public const int Interactable = 4;
-    public const int InteractableListener = 5;
-    public const int LevelRelatedEntity = 6;
-    public const int Needed = 7;
-    public const int Nickname = 8;
-    public const int Player = 9;
-    public const int PlayerTextListener = 10;
-    public const int SelectedLevel = 11;
-    public const int SessionResult = 12;
-    public const int Some = 13;
-    public const int Text = 14;
-    public const int UnlockedLevelsCount = 15;
-    public const int UnlockedLevelsCountListener = 16;
-    public const int View = 17;
+    public const int LevelRelatedEntity = 5;
+    public const int Nickname = 6;
+    public const int Player = 7;
+    public const int SelectedLevel = 8;
+    public const int SessionResult = 9;
+    public const int Text = 10;
+    public const int UnlockedLevelsCount = 11;
+    public const int View = 12;
+    public const int InteractableListener = 13;
+    public const int PlayerTextListener = 14;
+    public const int UnlockedLevelsCountListener = 15;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -35,39 +33,35 @@ public static class PlayerComponentsLookup {
         "Destroy",
         "ForPlayerButton",
         "Interactable",
-        "InteractableListener",
         "LevelRelatedEntity",
-        "Needed",
         "Nickname",
         "Player",
-        "PlayerTextListener",
         "SelectedLevel",
         "SessionResult",
-        "Some",
         "Text",
         "UnlockedLevelsCount",
-        "UnlockedLevelsCountListener",
-        "View"
+        "View",
+        "InteractableListener",
+        "PlayerTextListener",
+        "UnlockedLevelsCountListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(CompletedLevelsCountComponent),
-        typeof(CurrentPlayerComponent),
-        typeof(DestroyComponent),
-        typeof(ForPlayerButtonComponent),
-        typeof(InteractableComponent),
+        typeof(Code.CompletedLevelsCountComponent),
+        typeof(Code.CurrentPlayerComponent),
+        typeof(Code.DestroyComponent),
+        typeof(Code.ForPlayerButtonComponent),
+        typeof(Code.InteractableComponent),
+        typeof(Code.LevelRelatedEntityComponent),
+        typeof(Code.NicknameComponent),
+        typeof(Code.PlayerComponent),
+        typeof(Code.SelectedLevelComponent),
+        typeof(Code.SessionResultComponent),
+        typeof(Code.TextComponent),
+        typeof(Code.UnlockedLevelsCountComponent),
+        typeof(Code.ViewComponent),
         typeof(InteractableListenerComponent),
-        typeof(LevelRelatedEntityComponent),
-        typeof(NeededComponent),
-        typeof(NicknameComponent),
-        typeof(PlayerComponent),
         typeof(PlayerTextListenerComponent),
-        typeof(SelectedLevelComponent),
-        typeof(SessionResultComponent),
-        typeof(SomeComponent),
-        typeof(TextComponent),
-        typeof(UnlockedLevelsCountComponent),
-        typeof(UnlockedLevelsCountListenerComponent),
-        typeof(ViewComponent)
+        typeof(UnlockedLevelsCountListenerComponent)
     };
 }

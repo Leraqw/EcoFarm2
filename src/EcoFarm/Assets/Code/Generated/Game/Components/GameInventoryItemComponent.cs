@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public InventoryItemComponent inventoryItem { get { return (InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
+    public Code.InventoryItemComponent inventoryItem { get { return (Code.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
     public bool hasInventoryItem { get { return HasComponent(GameComponentsLookup.InventoryItem); } }
 
-    public void AddInventoryItem(Code.InventoryItemComponent newValue) {
+    public void AddInventoryItem(Code.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (InventoryItemComponent)CreateComponent(index, typeof(InventoryItemComponent));
-        component.value = newValue;
+        var component = (Code.InventoryItemComponent)CreateComponent(index, typeof(Code.InventoryItemComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInventoryItem(Code.InventoryItemComponent newValue) {
+    public void ReplaceInventoryItem(Code.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (InventoryItemComponent)CreateComponent(index, typeof(InventoryItemComponent));
-        component.value = newValue;
+        var component = (Code.InventoryItemComponent)CreateComponent(index, typeof(Code.InventoryItemComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

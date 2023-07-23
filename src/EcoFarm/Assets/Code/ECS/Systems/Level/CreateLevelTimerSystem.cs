@@ -12,7 +12,7 @@ namespace Code
 
 		private Storage Storage => _contexts.services.dataService.Value.Storage;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
 			=> _contexts.game.CreateEntity()

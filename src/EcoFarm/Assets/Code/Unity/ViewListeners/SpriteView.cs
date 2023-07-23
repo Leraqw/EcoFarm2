@@ -10,7 +10,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasSprite;
 
-		protected override void UpdateValue(GameEntity entity) => OnSprite(entity, entity.sprite);
+		protected override void UpdateValue(GameEntity entity) => OnSprite(entity, entity.sprite.Value);
 
 		public void OnSprite(GameEntity entity, Sprite value) => _spriteRenderer.sprite = value;
 	}

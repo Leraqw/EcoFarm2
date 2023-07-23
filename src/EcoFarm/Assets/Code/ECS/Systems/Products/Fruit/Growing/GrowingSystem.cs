@@ -19,9 +19,9 @@ namespace Code
 		private static float GetNextScale(GameEntity entity)
 			=> CalculateStep(entity) * Time.deltaTime;
 
-		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration;
+		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration.Value;
 
 		private static float ScalesDifference(GameEntity entity) 
-			=> entity.targetScale - entity.proportionalScale;
+			=> entity.targetScale.Value - entity.proportionalScale.Value;
 	}
 }

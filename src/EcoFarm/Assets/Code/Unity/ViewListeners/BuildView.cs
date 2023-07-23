@@ -20,7 +20,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasBuilding;
 
-		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building);
+		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building.Value);
 
 		public void OnBuilding(GameEntity entity, Building value)
 		{

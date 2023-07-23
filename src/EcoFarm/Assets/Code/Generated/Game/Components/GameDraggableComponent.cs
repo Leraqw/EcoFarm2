@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DraggableComponent draggable { get { return (DraggableComponent)GetComponent(GameComponentsLookup.Draggable); } }
-    public bool hasDraggable { get { return HasComponent(GameComponentsLookup.Draggable); } }
+    static readonly Code.DraggableComponent draggableComponent = new Code.DraggableComponent();
 
-    public void AddDraggable(Code.DraggableComponent newValue) {
-        var index = GameComponentsLookup.Draggable;
-        var component = (DraggableComponent)CreateComponent(index, typeof(DraggableComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isDraggable {
+        get { return HasComponent(GameComponentsLookup.Draggable); }
+        set {
+            if (value != isDraggable) {
+                var index = GameComponentsLookup.Draggable;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : draggableComponent;
 
-    public void ReplaceDraggable(Code.DraggableComponent newValue) {
-        var index = GameComponentsLookup.Draggable;
-        var component = (DraggableComponent)CreateComponent(index, typeof(DraggableComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveDraggable() {
-        RemoveComponent(GameComponentsLookup.Draggable);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

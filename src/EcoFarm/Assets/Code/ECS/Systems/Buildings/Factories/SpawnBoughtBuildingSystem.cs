@@ -9,9 +9,9 @@ using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants;
+using static Code.Constants;
 using static GameMatcher;
-using static Code.Utils.StaticClasses.Constants.SpriteHigh;
+using static Code.Constants.SpriteHigh;
 
 namespace Code
 {
@@ -55,7 +55,7 @@ namespace Code
 
 		private void Replace(GameEntity sign, GameEntity button)
 			=> sign
-			   .Do((e) => e.AddBuilding(button.building))
+			   .Do((e) => e.AddBuilding(button.building.Value))
 			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
 			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
 			   .Do(SetGenerator, @if: BuildingIs<Generator>)
@@ -82,7 +82,7 @@ namespace Code
 
 		private void AddProduction(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
+			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable.Value))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
 			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
 			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName))
@@ -103,7 +103,7 @@ namespace Code
 
 		private void AddConsumption(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable))
+			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable.Value))
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 
@@ -111,13 +111,13 @@ namespace Code
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddGenerator((Generator)entity.building))
+			   .Do((e) => e.AddGenerator((Generator)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 		/**/;
 
 		private static void SetFactory(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building))
+			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 			   .Do((e) => e.AddSpriteHigh(1))
 		/**/;

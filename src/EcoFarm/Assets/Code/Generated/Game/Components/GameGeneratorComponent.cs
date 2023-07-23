@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GeneratorComponent generator { get { return (GeneratorComponent)GetComponent(GameComponentsLookup.Generator); } }
+    public Code.GeneratorComponent generator { get { return (Code.GeneratorComponent)GetComponent(GameComponentsLookup.Generator); } }
     public bool hasGenerator { get { return HasComponent(GameComponentsLookup.Generator); } }
 
-    public void AddGenerator(Code.GeneratorComponent newValue) {
+    public void AddGenerator(EcoFarmModel.Generator newValue) {
         var index = GameComponentsLookup.Generator;
-        var component = (GeneratorComponent)CreateComponent(index, typeof(GeneratorComponent));
-        component.value = newValue;
+        var component = (Code.GeneratorComponent)CreateComponent(index, typeof(Code.GeneratorComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceGenerator(Code.GeneratorComponent newValue) {
+    public void ReplaceGenerator(EcoFarmModel.Generator newValue) {
         var index = GameComponentsLookup.Generator;
-        var component = (GeneratorComponent)CreateComponent(index, typeof(GeneratorComponent));
-        component.value = newValue;
+        var component = (Code.GeneratorComponent)CreateComponent(index, typeof(Code.GeneratorComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public BuildWindowComponent buildWindow { get { return (BuildWindowComponent)GetComponent(GameComponentsLookup.BuildWindow); } }
+    public Code.BuildWindowComponent buildWindow { get { return (Code.BuildWindowComponent)GetComponent(GameComponentsLookup.BuildWindow); } }
     public bool hasBuildWindow { get { return HasComponent(GameComponentsLookup.BuildWindow); } }
 
-    public void AddBuildWindow(Code.BuildWindowComponent newValue) {
+    public void AddBuildWindow(Code.WindowBuild newValue) {
         var index = GameComponentsLookup.BuildWindow;
-        var component = (BuildWindowComponent)CreateComponent(index, typeof(BuildWindowComponent));
-        component.value = newValue;
+        var component = (Code.BuildWindowComponent)CreateComponent(index, typeof(Code.BuildWindowComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceBuildWindow(Code.BuildWindowComponent newValue) {
+    public void ReplaceBuildWindow(Code.WindowBuild newValue) {
         var index = GameComponentsLookup.BuildWindow;
-        var component = (BuildWindowComponent)CreateComponent(index, typeof(BuildWindowComponent));
-        component.value = newValue;
+        var component = (Code.BuildWindowComponent)CreateComponent(index, typeof(Code.BuildWindowComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

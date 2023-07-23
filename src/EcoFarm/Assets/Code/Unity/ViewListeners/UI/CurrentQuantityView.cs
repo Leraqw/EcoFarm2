@@ -11,7 +11,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasCurrentQuantity;
 
-		protected override void UpdateValue(GameEntity entity) => OnCurrentQuantity(entity, entity.currentQuantity);
+		protected override void UpdateValue(GameEntity entity) => OnCurrentQuantity(entity, entity.currentQuantity.Value);
 
 		public void OnCurrentQuantity(GameEntity entity, int value) 
 			=> _textMesh.text = $"{value} / {entity.goal.Value.TargetQuantity}";

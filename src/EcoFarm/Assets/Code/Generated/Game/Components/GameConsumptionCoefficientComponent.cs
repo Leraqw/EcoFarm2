@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ConsumptionCoefficientComponent consumptionCoefficient { get { return (ConsumptionCoefficientComponent)GetComponent(GameComponentsLookup.ConsumptionCoefficient); } }
+    public Code.ConsumptionCoefficientComponent consumptionCoefficient { get { return (Code.ConsumptionCoefficientComponent)GetComponent(GameComponentsLookup.ConsumptionCoefficient); } }
     public bool hasConsumptionCoefficient { get { return HasComponent(GameComponentsLookup.ConsumptionCoefficient); } }
 
-    public void AddConsumptionCoefficient(Code.ConsumptionCoefficientComponent newValue) {
+    public void AddConsumptionCoefficient(int newValue) {
         var index = GameComponentsLookup.ConsumptionCoefficient;
-        var component = (ConsumptionCoefficientComponent)CreateComponent(index, typeof(ConsumptionCoefficientComponent));
-        component.value = newValue;
+        var component = (Code.ConsumptionCoefficientComponent)CreateComponent(index, typeof(Code.ConsumptionCoefficientComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceConsumptionCoefficient(Code.ConsumptionCoefficientComponent newValue) {
+    public void ReplaceConsumptionCoefficient(int newValue) {
         var index = GameComponentsLookup.ConsumptionCoefficient;
-        var component = (ConsumptionCoefficientComponent)CreateComponent(index, typeof(ConsumptionCoefficientComponent));
-        component.value = newValue;
+        var component = (Code.ConsumptionCoefficientComponent)CreateComponent(index, typeof(Code.ConsumptionCoefficientComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

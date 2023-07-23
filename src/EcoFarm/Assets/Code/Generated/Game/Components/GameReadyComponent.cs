@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ReadyComponent ready { get { return (ReadyComponent)GetComponent(GameComponentsLookup.Ready); } }
-    public bool hasReady { get { return HasComponent(GameComponentsLookup.Ready); } }
+    static readonly Code.ReadyComponent readyComponent = new Code.ReadyComponent();
 
-    public void AddReady(Code.ReadyComponent newValue) {
-        var index = GameComponentsLookup.Ready;
-        var component = (ReadyComponent)CreateComponent(index, typeof(ReadyComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isReady {
+        get { return HasComponent(GameComponentsLookup.Ready); }
+        set {
+            if (value != isReady) {
+                var index = GameComponentsLookup.Ready;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : readyComponent;
 
-    public void ReplaceReady(Code.ReadyComponent newValue) {
-        var index = GameComponentsLookup.Ready;
-        var component = (ReadyComponent)CreateComponent(index, typeof(ReadyComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveReady() {
-        RemoveComponent(GameComponentsLookup.Ready);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

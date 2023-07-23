@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SpinnerComponent spinner { get { return (SpinnerComponent)GetComponent(GameComponentsLookup.Spinner); } }
-    public bool hasSpinner { get { return HasComponent(GameComponentsLookup.Spinner); } }
+    static readonly Code.SpinnerComponent spinnerComponent = new Code.SpinnerComponent();
 
-    public void AddSpinner(Code.SpinnerComponent newValue) {
-        var index = GameComponentsLookup.Spinner;
-        var component = (SpinnerComponent)CreateComponent(index, typeof(SpinnerComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isSpinner {
+        get { return HasComponent(GameComponentsLookup.Spinner); }
+        set {
+            if (value != isSpinner) {
+                var index = GameComponentsLookup.Spinner;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : spinnerComponent;
 
-    public void ReplaceSpinner(Code.SpinnerComponent newValue) {
-        var index = GameComponentsLookup.Spinner;
-        var component = (SpinnerComponent)CreateComponent(index, typeof(SpinnerComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveSpinner() {
-        RemoveComponent(GameComponentsLookup.Spinner);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

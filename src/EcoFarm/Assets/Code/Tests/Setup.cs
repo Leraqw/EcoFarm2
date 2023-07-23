@@ -1,6 +1,4 @@
-﻿using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config;
-using NSubstitute;
+﻿using NSubstitute;
 
 namespace Code.Tests
 {

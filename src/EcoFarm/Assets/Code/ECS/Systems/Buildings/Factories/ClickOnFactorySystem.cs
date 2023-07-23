@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
-
 using Entitas;
 using EcoFarmModel;
 using static GameMatcher;
@@ -44,7 +42,7 @@ namespace Code
 
 		private static void MarkAsBusy(GameEntity entity) => entity.isBusy = true;
 
-		private void TakeEachRequiredProducts(GameEntity factory) 
+		private void TakeEachRequiredProducts(GameEntity factory)
 			=> _requiredProducts.ForEach((p) => Take(p, factory));
 
 		private void Take(KeyValuePair<Product, int> product, GameEntity factory)
@@ -56,14 +54,12 @@ namespace Code
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddRequireProduct(product.Key))
-			            .Do((e) => e.AddPosition(factory.position))
+			            .Do((e) => e.AddPosition(factory.position.Value))
 			            .Do((e) => e.AddCount(product.Value))
-			            .AttachTo(factory)
-		/**/;
+			            .AttachTo(factory);
 
 		private void DecreaseProductsCount(KeyValuePair<Product, int> product)
 			=> _contexts.game.GetInventoryItem(product.Key)
-			            .DecreaseInventoryItemCount(product.Value)
-		/**/;
+			            .DecreaseInventoryItemCount(product.Value);
 	}
 }

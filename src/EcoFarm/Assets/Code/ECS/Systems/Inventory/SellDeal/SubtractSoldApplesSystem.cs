@@ -28,6 +28,6 @@ namespace Code
 		private void SubtractFromItems(GameEntity deal)
 			=> InventoryItems.ForEach((item) => Subtract(item, deal), @if: deal.HasSameProduct);
 
-		private void Subtract(GameEntity item, GameEntity deal) => item.DecreaseInventoryItemCount(deal.count);
+		private void Subtract(GameEntity item, GameEntity deal) => item.DecreaseInventoryItemCount(deal.count.Value);
 	}
 }

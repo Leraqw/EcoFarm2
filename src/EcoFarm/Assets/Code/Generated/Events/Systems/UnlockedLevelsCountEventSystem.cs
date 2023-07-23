@@ -30,7 +30,7 @@ public sealed class UnlockedLevelsCountEventSystem : Entitas.ReactiveSystem<Play
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.unlockedLevelsCountListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnUnlockedLevelsCount(e, component.value);
+                listener.OnUnlockedLevelsCount(e, component.Value);
             }
         }
     }

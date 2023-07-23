@@ -15,7 +15,7 @@ namespace Code
 		{
 			var e = Contexts.player.CreateEntity();
 			e.isLevelRelatedEntity = true;
-			e.AddUnlockedLevelsCount(CurrentPlayer.completedLevelsCount);
+			e.AddUnlockedLevelsCount(CurrentPlayer.completedLevelsCount.Value);
 			_view.Register(e);
 			e.AddView(gameObject);
 		}

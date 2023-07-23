@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public BusyComponent busy { get { return (BusyComponent)GetComponent(GameComponentsLookup.Busy); } }
-    public bool hasBusy { get { return HasComponent(GameComponentsLookup.Busy); } }
+    static readonly Code.BusyComponent busyComponent = new Code.BusyComponent();
 
-    public void AddBusy(Code.BusyComponent newValue) {
-        var index = GameComponentsLookup.Busy;
-        var component = (BusyComponent)CreateComponent(index, typeof(BusyComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isBusy {
+        get { return HasComponent(GameComponentsLookup.Busy); }
+        set {
+            if (value != isBusy) {
+                var index = GameComponentsLookup.Busy;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : busyComponent;
 
-    public void ReplaceBusy(Code.BusyComponent newValue) {
-        var index = GameComponentsLookup.Busy;
-        var component = (BusyComponent)CreateComponent(index, typeof(BusyComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveBusy() {
-        RemoveComponent(GameComponentsLookup.Busy);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

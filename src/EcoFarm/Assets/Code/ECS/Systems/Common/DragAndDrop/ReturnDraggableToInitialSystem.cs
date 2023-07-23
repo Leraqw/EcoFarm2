@@ -16,6 +16,6 @@ namespace Code
 		private bool IsNotAtPosition(GameEntity entity) => entity.isDragging == false
 		                                                   && entity.position.Value != entity.spawnPosition.Value;
 
-		private void Return(GameEntity entity) => entity.ReplacePosition(entity.spawnPosition);
+		private void Return(GameEntity entity) => entity.ReplacePosition(entity.spawnPosition.Value);
 	}
 }

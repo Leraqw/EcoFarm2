@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GoalCompletedComponent goalCompleted { get { return (GoalCompletedComponent)GetComponent(GameComponentsLookup.GoalCompleted); } }
-    public bool hasGoalCompleted { get { return HasComponent(GameComponentsLookup.GoalCompleted); } }
+    static readonly Code.GoalCompletedComponent goalCompletedComponent = new Code.GoalCompletedComponent();
 
-    public void AddGoalCompleted(Code.GoalCompletedComponent newValue) {
-        var index = GameComponentsLookup.GoalCompleted;
-        var component = (GoalCompletedComponent)CreateComponent(index, typeof(GoalCompletedComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isGoalCompleted {
+        get { return HasComponent(GameComponentsLookup.GoalCompleted); }
+        set {
+            if (value != isGoalCompleted) {
+                var index = GameComponentsLookup.GoalCompleted;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : goalCompletedComponent;
 
-    public void ReplaceGoalCompleted(Code.GoalCompletedComponent newValue) {
-        var index = GameComponentsLookup.GoalCompleted;
-        var component = (GoalCompletedComponent)CreateComponent(index, typeof(GoalCompletedComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveGoalCompleted() {
-        RemoveComponent(GameComponentsLookup.GoalCompleted);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

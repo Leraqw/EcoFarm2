@@ -26,6 +26,6 @@ namespace Code
 		private static void WaterTree(GameEntity tree) => tree.isWatered = true;
 
 		private static bool IsNear(GameEntity tree, GameEntity bucket)
-			=> Vector2.Distance(bucket.position, tree.spawnPosition) <= bucket.radius;
+			=> Vector2.Distance(bucket.position.Value, tree.spawnPosition.Value) <= bucket.radius.Value;
 	}
 }

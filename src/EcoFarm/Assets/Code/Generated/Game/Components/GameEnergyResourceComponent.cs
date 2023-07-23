@@ -9,30 +9,19 @@
 public partial class GameContext {
 
     public GameEntity energyResourceEntity { get { return GetGroup(GameMatcher.EnergyResource).GetSingleEntity(); } }
-    public EnergyResourceComponent energyResource { get { return energyResourceEntity.energyResource; } }
-    public bool hasEnergyResource { get { return energyResourceEntity != null; } }
 
-    public GameEntity SetEnergyResource(Code.EnergyResourceComponent newValue) {
-        if (hasEnergyResource) {
-            throw new Entitas.EntitasException("Could not set EnergyResource!\n" + this + " already has an entity with EnergyResourceComponent!",
-                "You should check if the context already has a energyResourceEntity before setting it or use context.ReplaceEnergyResource().");
+    public bool isEnergyResource {
+        get { return energyResourceEntity != null; }
+        set {
+            var entity = energyResourceEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isEnergyResource = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddEnergyResource(newValue);
-        return entity;
-    }
-
-    public void ReplaceEnergyResource(Code.EnergyResourceComponent newValue) {
-        var entity = energyResourceEntity;
-        if (entity == null) {
-            entity = SetEnergyResource(newValue);
-        } else {
-            entity.ReplaceEnergyResource(newValue);
-        }
-    }
-
-    public void RemoveEnergyResource() {
-        energyResourceEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public EnergyResourceComponent energyResource { get { return (EnergyResourceComponent)GetComponent(GameComponentsLookup.EnergyResource); } }
-    public bool hasEnergyResource { get { return HasComponent(GameComponentsLookup.EnergyResource); } }
+    static readonly Code.EnergyResourceComponent energyResourceComponent = new Code.EnergyResourceComponent();
 
-    public void AddEnergyResource(Code.EnergyResourceComponent newValue) {
-        var index = GameComponentsLookup.EnergyResource;
-        var component = (EnergyResourceComponent)CreateComponent(index, typeof(EnergyResourceComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isEnergyResource {
+        get { return HasComponent(GameComponentsLookup.EnergyResource); }
+        set {
+            if (value != isEnergyResource) {
+                var index = GameComponentsLookup.EnergyResource;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : energyResourceComponent;
 
-    public void ReplaceEnergyResource(Code.EnergyResourceComponent newValue) {
-        var index = GameComponentsLookup.EnergyResource;
-        var component = (EnergyResourceComponent)CreateComponent(index, typeof(EnergyResourceComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveEnergyResource() {
-        RemoveComponent(GameComponentsLookup.EnergyResource);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

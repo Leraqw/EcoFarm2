@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GoalComponent goal { get { return (GoalComponent)GetComponent(GameComponentsLookup.Goal); } }
+    public Code.GoalComponent goal { get { return (Code.GoalComponent)GetComponent(GameComponentsLookup.Goal); } }
     public bool hasGoal { get { return HasComponent(GameComponentsLookup.Goal); } }
 
-    public void AddGoal(Code.GoalComponent newValue) {
+    public void AddGoal(EcoFarmModel.Goal newValue) {
         var index = GameComponentsLookup.Goal;
-        var component = (GoalComponent)CreateComponent(index, typeof(GoalComponent));
-        component.value = newValue;
+        var component = (Code.GoalComponent)CreateComponent(index, typeof(Code.GoalComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceGoal(Code.GoalComponent newValue) {
+    public void ReplaceGoal(EcoFarmModel.Goal newValue) {
         var index = GameComponentsLookup.Goal;
-        var component = (GoalComponent)CreateComponent(index, typeof(GoalComponent));
-        component.value = newValue;
+        var component = (Code.GoalComponent)CreateComponent(index, typeof(Code.GoalComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public InFactoryComponent inFactory { get { return (InFactoryComponent)GetComponent(GameComponentsLookup.InFactory); } }
-    public bool hasInFactory { get { return HasComponent(GameComponentsLookup.InFactory); } }
+    static readonly Code.InFactoryComponent inFactoryComponent = new Code.InFactoryComponent();
 
-    public void AddInFactory(Code.InFactoryComponent newValue) {
-        var index = GameComponentsLookup.InFactory;
-        var component = (InFactoryComponent)CreateComponent(index, typeof(InFactoryComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isInFactory {
+        get { return HasComponent(GameComponentsLookup.InFactory); }
+        set {
+            if (value != isInFactory) {
+                var index = GameComponentsLookup.InFactory;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : inFactoryComponent;
 
-    public void ReplaceInFactory(Code.InFactoryComponent newValue) {
-        var index = GameComponentsLookup.InFactory;
-        var component = (InFactoryComponent)CreateComponent(index, typeof(InFactoryComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveInFactory() {
-        RemoveComponent(GameComponentsLookup.InFactory);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

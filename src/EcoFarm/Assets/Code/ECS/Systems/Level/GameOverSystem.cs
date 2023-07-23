@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
+using static Code.SessionResult;
 using static GameMatcher;
 
 namespace Code

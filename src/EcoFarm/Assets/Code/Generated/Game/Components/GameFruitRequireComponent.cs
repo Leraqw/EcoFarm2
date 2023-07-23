@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public FruitRequireComponent fruitRequire { get { return (FruitRequireComponent)GetComponent(GameComponentsLookup.FruitRequire); } }
-    public bool hasFruitRequire { get { return HasComponent(GameComponentsLookup.FruitRequire); } }
+    static readonly Code.FruitRequireComponent fruitRequireComponent = new Code.FruitRequireComponent();
 
-    public void AddFruitRequire(Code.FruitRequireComponent newValue) {
-        var index = GameComponentsLookup.FruitRequire;
-        var component = (FruitRequireComponent)CreateComponent(index, typeof(FruitRequireComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isFruitRequire {
+        get { return HasComponent(GameComponentsLookup.FruitRequire); }
+        set {
+            if (value != isFruitRequire) {
+                var index = GameComponentsLookup.FruitRequire;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : fruitRequireComponent;
 
-    public void ReplaceFruitRequire(Code.FruitRequireComponent newValue) {
-        var index = GameComponentsLookup.FruitRequire;
-        var component = (FruitRequireComponent)CreateComponent(index, typeof(FruitRequireComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveFruitRequire() {
-        RemoveComponent(GameComponentsLookup.FruitRequire);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

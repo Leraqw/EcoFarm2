@@ -30,7 +30,7 @@ public sealed class GoalEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.goalListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnGoal(e, component.value);
+                listener.OnGoal(e, component.Value);
             }
         }
     }

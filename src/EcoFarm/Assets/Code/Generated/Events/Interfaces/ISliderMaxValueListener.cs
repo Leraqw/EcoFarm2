@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ISliderMaxValueListener {
-    void OnSliderMaxValue(GameEntity entity, Code.SliderMaxValueComponent value);
+    void OnSliderMaxValue(GameEntity entity, float value);
 }

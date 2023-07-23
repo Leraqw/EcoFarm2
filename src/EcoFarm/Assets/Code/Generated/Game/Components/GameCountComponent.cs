@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public CountComponent count { get { return (CountComponent)GetComponent(GameComponentsLookup.Count); } }
+    public Code.CountComponent count { get { return (Code.CountComponent)GetComponent(GameComponentsLookup.Count); } }
     public bool hasCount { get { return HasComponent(GameComponentsLookup.Count); } }
 
-    public void AddCount(Code.CountComponent newValue) {
+    public void AddCount(int newValue) {
         var index = GameComponentsLookup.Count;
-        var component = (CountComponent)CreateComponent(index, typeof(CountComponent));
-        component.value = newValue;
+        var component = (Code.CountComponent)CreateComponent(index, typeof(Code.CountComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCount(Code.CountComponent newValue) {
+    public void ReplaceCount(int newValue) {
         var index = GameComponentsLookup.Count;
-        var component = (CountComponent)CreateComponent(index, typeof(CountComponent));
-        component.value = newValue;
+        var component = (Code.CountComponent)CreateComponent(index, typeof(Code.CountComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

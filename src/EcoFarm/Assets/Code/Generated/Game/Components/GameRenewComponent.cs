@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RenewComponent renew { get { return (RenewComponent)GetComponent(GameComponentsLookup.Renew); } }
-    public bool hasRenew { get { return HasComponent(GameComponentsLookup.Renew); } }
+    static readonly Code.RenewComponent renewComponent = new Code.RenewComponent();
 
-    public void AddRenew(Code.RenewComponent newValue) {
-        var index = GameComponentsLookup.Renew;
-        var component = (RenewComponent)CreateComponent(index, typeof(RenewComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isRenew {
+        get { return HasComponent(GameComponentsLookup.Renew); }
+        set {
+            if (value != isRenew) {
+                var index = GameComponentsLookup.Renew;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : renewComponent;
 
-    public void ReplaceRenew(Code.RenewComponent newValue) {
-        var index = GameComponentsLookup.Renew;
-        var component = (RenewComponent)CreateComponent(index, typeof(RenewComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveRenew() {
-        RemoveComponent(GameComponentsLookup.Renew);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

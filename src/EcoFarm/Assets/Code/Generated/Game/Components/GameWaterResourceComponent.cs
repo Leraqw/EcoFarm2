@@ -9,30 +9,19 @@
 public partial class GameContext {
 
     public GameEntity waterResourceEntity { get { return GetGroup(GameMatcher.WaterResource).GetSingleEntity(); } }
-    public WaterResourceComponent waterResource { get { return waterResourceEntity.waterResource; } }
-    public bool hasWaterResource { get { return waterResourceEntity != null; } }
 
-    public GameEntity SetWaterResource(Code.WaterResourceComponent newValue) {
-        if (hasWaterResource) {
-            throw new Entitas.EntitasException("Could not set WaterResource!\n" + this + " already has an entity with WaterResourceComponent!",
-                "You should check if the context already has a waterResourceEntity before setting it or use context.ReplaceWaterResource().");
+    public bool isWaterResource {
+        get { return waterResourceEntity != null; }
+        set {
+            var entity = waterResourceEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isWaterResource = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddWaterResource(newValue);
-        return entity;
-    }
-
-    public void ReplaceWaterResource(Code.WaterResourceComponent newValue) {
-        var entity = waterResourceEntity;
-        if (entity == null) {
-            entity = SetWaterResource(newValue);
-        } else {
-            entity.ReplaceWaterResource(newValue);
-        }
-    }
-
-    public void RemoveWaterResource() {
-        waterResourceEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public WaterResourceComponent waterResource { get { return (WaterResourceComponent)GetComponent(GameComponentsLookup.WaterResource); } }
-    public bool hasWaterResource { get { return HasComponent(GameComponentsLookup.WaterResource); } }
+    static readonly Code.WaterResourceComponent waterResourceComponent = new Code.WaterResourceComponent();
 
-    public void AddWaterResource(Code.WaterResourceComponent newValue) {
-        var index = GameComponentsLookup.WaterResource;
-        var component = (WaterResourceComponent)CreateComponent(index, typeof(WaterResourceComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isWaterResource {
+        get { return HasComponent(GameComponentsLookup.WaterResource); }
+        set {
+            if (value != isWaterResource) {
+                var index = GameComponentsLookup.WaterResource;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : waterResourceComponent;
 
-    public void ReplaceWaterResource(Code.WaterResourceComponent newValue) {
-        var index = GameComponentsLookup.WaterResource;
-        var component = (WaterResourceComponent)CreateComponent(index, typeof(WaterResourceComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveWaterResource() {
-        RemoveComponent(GameComponentsLookup.WaterResource);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public ForPlayerButtonComponent forPlayerButton { get { return (ForPlayerButtonComponent)GetComponent(PlayerComponentsLookup.ForPlayerButton); } }
-    public bool hasForPlayerButton { get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); } }
+    static readonly Code.ForPlayerButtonComponent forPlayerButtonComponent = new Code.ForPlayerButtonComponent();
 
-    public void AddForPlayerButton(Code.ForPlayerButtonComponent newValue) {
-        var index = PlayerComponentsLookup.ForPlayerButton;
-        var component = (ForPlayerButtonComponent)CreateComponent(index, typeof(ForPlayerButtonComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isForPlayerButton {
+        get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); }
+        set {
+            if (value != isForPlayerButton) {
+                var index = PlayerComponentsLookup.ForPlayerButton;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : forPlayerButtonComponent;
 
-    public void ReplaceForPlayerButton(Code.ForPlayerButtonComponent newValue) {
-        var index = PlayerComponentsLookup.ForPlayerButton;
-        var component = (ForPlayerButtonComponent)CreateComponent(index, typeof(ForPlayerButtonComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveForPlayerButton() {
-        RemoveComponent(PlayerComponentsLookup.ForPlayerButton);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

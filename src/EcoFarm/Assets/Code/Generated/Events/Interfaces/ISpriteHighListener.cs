@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ISpriteHighListener {
-    void OnSpriteHigh(GameEntity entity, Code.SpriteHighComponent value);
+    void OnSpriteHigh(GameEntity entity, float value);
 }

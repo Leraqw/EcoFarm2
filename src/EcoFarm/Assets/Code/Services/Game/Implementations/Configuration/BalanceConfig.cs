@@ -14,8 +14,8 @@ namespace Code
 		[SerializeField] private BucketConfig _bucket;
 		[SerializeField] private WarehouseConfig _warehouse;
 		[SerializeField] private FruitConfig _fruit;
-		[SerializeField] private ResourceConfig _water;
-		[SerializeField] private ResourceConfig _energy;
+		[SerializeField] private ResourceBalanceConfig _water;
+		[SerializeField] private ResourceBalanceConfig _energy;
 		[SerializeField] private FactoryConfig _factory;
 
 		public IWateringConfig Watering => _watering;
@@ -28,9 +28,9 @@ namespace Code
 
 		public IFruitConfig Fruit => _fruit;
 
-		public IResourceConfig Water => _water;
+		public IBalanceResourceConfig Water => _water;
 
-		public IResourceConfig Energy => _energy;
+		public IBalanceResourceConfig Energy => _energy;
 
 		public IFactoryConfig Factory => _factory;
 	}

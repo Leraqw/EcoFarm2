@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameTextListener {
-    void OnText(GameEntity entity, Code.TextComponent value);
+    void OnText(GameEntity entity, string value);
 }

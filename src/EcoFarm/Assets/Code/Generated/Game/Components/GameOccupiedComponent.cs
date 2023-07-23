@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public OccupiedComponent occupied { get { return (OccupiedComponent)GetComponent(GameComponentsLookup.Occupied); } }
-    public bool hasOccupied { get { return HasComponent(GameComponentsLookup.Occupied); } }
+    static readonly Code.OccupiedComponent occupiedComponent = new Code.OccupiedComponent();
 
-    public void AddOccupied(Code.OccupiedComponent newValue) {
-        var index = GameComponentsLookup.Occupied;
-        var component = (OccupiedComponent)CreateComponent(index, typeof(OccupiedComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isOccupied {
+        get { return HasComponent(GameComponentsLookup.Occupied); }
+        set {
+            if (value != isOccupied) {
+                var index = GameComponentsLookup.Occupied;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : occupiedComponent;
 
-    public void ReplaceOccupied(Code.OccupiedComponent newValue) {
-        var index = GameComponentsLookup.Occupied;
-        var component = (OccupiedComponent)CreateComponent(index, typeof(OccupiedComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveOccupied() {
-        RemoveComponent(GameComponentsLookup.Occupied);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

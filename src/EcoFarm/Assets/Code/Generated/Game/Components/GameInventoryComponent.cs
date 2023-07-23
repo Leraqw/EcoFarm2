@@ -9,30 +9,19 @@
 public partial class GameContext {
 
     public GameEntity inventoryEntity { get { return GetGroup(GameMatcher.Inventory).GetSingleEntity(); } }
-    public InventoryComponent inventory { get { return inventoryEntity.inventory; } }
-    public bool hasInventory { get { return inventoryEntity != null; } }
 
-    public GameEntity SetInventory(Code.InventoryComponent newValue) {
-        if (hasInventory) {
-            throw new Entitas.EntitasException("Could not set Inventory!\n" + this + " already has an entity with InventoryComponent!",
-                "You should check if the context already has a inventoryEntity before setting it or use context.ReplaceInventory().");
+    public bool isInventory {
+        get { return inventoryEntity != null; }
+        set {
+            var entity = inventoryEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isInventory = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddInventory(newValue);
-        return entity;
-    }
-
-    public void ReplaceInventory(Code.InventoryComponent newValue) {
-        var entity = inventoryEntity;
-        if (entity == null) {
-            entity = SetInventory(newValue);
-        } else {
-            entity.ReplaceInventory(newValue);
-        }
-    }
-
-    public void RemoveInventory() {
-        inventoryEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public InventoryComponent inventory { get { return (InventoryComponent)GetComponent(GameComponentsLookup.Inventory); } }
-    public bool hasInventory { get { return HasComponent(GameComponentsLookup.Inventory); } }
+    static readonly Code.InventoryComponent inventoryComponent = new Code.InventoryComponent();
 
-    public void AddInventory(Code.InventoryComponent newValue) {
-        var index = GameComponentsLookup.Inventory;
-        var component = (InventoryComponent)CreateComponent(index, typeof(InventoryComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isInventory {
+        get { return HasComponent(GameComponentsLookup.Inventory); }
+        set {
+            if (value != isInventory) {
+                var index = GameComponentsLookup.Inventory;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : inventoryComponent;
 
-    public void ReplaceInventory(Code.InventoryComponent newValue) {
-        var index = GameComponentsLookup.Inventory;
-        var component = (InventoryComponent)CreateComponent(index, typeof(InventoryComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveInventory() {
-        RemoveComponent(GameComponentsLookup.Inventory);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

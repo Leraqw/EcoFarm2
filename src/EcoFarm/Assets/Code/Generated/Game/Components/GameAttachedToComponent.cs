@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public AttachedToComponent attachedTo { get { return (AttachedToComponent)GetComponent(GameComponentsLookup.AttachedTo); } }
+    public Code.AttachedToComponent attachedTo { get { return (Code.AttachedToComponent)GetComponent(GameComponentsLookup.AttachedTo); } }
     public bool hasAttachedTo { get { return HasComponent(GameComponentsLookup.AttachedTo); } }
 
-    public void AddAttachedTo(Code.AttachedToComponent newValue) {
+    public void AddAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
-        var component = (AttachedToComponent)CreateComponent(index, typeof(AttachedToComponent));
-        component.value = newValue;
+        var component = (Code.AttachedToComponent)CreateComponent(index, typeof(Code.AttachedToComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceAttachedTo(Code.AttachedToComponent newValue) {
+    public void ReplaceAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
-        var component = (AttachedToComponent)CreateComponent(index, typeof(AttachedToComponent));
-        component.value = newValue;
+        var component = (Code.AttachedToComponent)CreateComponent(index, typeof(Code.AttachedToComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

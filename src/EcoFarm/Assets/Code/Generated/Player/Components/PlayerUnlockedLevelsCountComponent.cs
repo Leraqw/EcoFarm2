@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public UnlockedLevelsCountComponent unlockedLevelsCount { get { return (UnlockedLevelsCountComponent)GetComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
+    public Code.UnlockedLevelsCountComponent unlockedLevelsCount { get { return (Code.UnlockedLevelsCountComponent)GetComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
     public bool hasUnlockedLevelsCount { get { return HasComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
 
-    public void AddUnlockedLevelsCount(Code.UnlockedLevelsCountComponent newValue) {
+    public void AddUnlockedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.UnlockedLevelsCount;
-        var component = (UnlockedLevelsCountComponent)CreateComponent(index, typeof(UnlockedLevelsCountComponent));
-        component.value = newValue;
+        var component = (Code.UnlockedLevelsCountComponent)CreateComponent(index, typeof(Code.UnlockedLevelsCountComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceUnlockedLevelsCount(Code.UnlockedLevelsCountComponent newValue) {
+    public void ReplaceUnlockedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.UnlockedLevelsCount;
-        var component = (UnlockedLevelsCountComponent)CreateComponent(index, typeof(UnlockedLevelsCountComponent));
-        component.value = newValue;
+        var component = (Code.UnlockedLevelsCountComponent)CreateComponent(index, typeof(Code.UnlockedLevelsCountComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

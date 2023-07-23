@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public SelectedLevelComponent selectedLevel { get { return (SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
+    public Code.SelectedLevelComponent selectedLevel { get { return (Code.SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
     public bool hasSelectedLevel { get { return HasComponent(PlayerComponentsLookup.SelectedLevel); } }
 
-    public void AddSelectedLevel(Code.SelectedLevelComponent newValue) {
+    public void AddSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (SelectedLevelComponent)CreateComponent(index, typeof(SelectedLevelComponent));
-        component.value = newValue;
+        var component = (Code.SelectedLevelComponent)CreateComponent(index, typeof(Code.SelectedLevelComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSelectedLevel(Code.SelectedLevelComponent newValue) {
+    public void ReplaceSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (SelectedLevelComponent)CreateComponent(index, typeof(SelectedLevelComponent));
-        component.value = newValue;
+        var component = (Code.SelectedLevelComponent)CreateComponent(index, typeof(Code.SelectedLevelComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RotationSpeedComponent rotationSpeed { get { return (RotationSpeedComponent)GetComponent(GameComponentsLookup.RotationSpeed); } }
+    public Code.RotationSpeedComponent rotationSpeed { get { return (Code.RotationSpeedComponent)GetComponent(GameComponentsLookup.RotationSpeed); } }
     public bool hasRotationSpeed { get { return HasComponent(GameComponentsLookup.RotationSpeed); } }
 
-    public void AddRotationSpeed(Code.RotationSpeedComponent newValue) {
+    public void AddRotationSpeed(float newValue) {
         var index = GameComponentsLookup.RotationSpeed;
-        var component = (RotationSpeedComponent)CreateComponent(index, typeof(RotationSpeedComponent));
-        component.value = newValue;
+        var component = (Code.RotationSpeedComponent)CreateComponent(index, typeof(Code.RotationSpeedComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRotationSpeed(Code.RotationSpeedComponent newValue) {
+    public void ReplaceRotationSpeed(float newValue) {
         var index = GameComponentsLookup.RotationSpeed;
-        var component = (RotationSpeedComponent)CreateComponent(index, typeof(RotationSpeedComponent));
-        component.value = newValue;
+        var component = (Code.RotationSpeedComponent)CreateComponent(index, typeof(Code.RotationSpeedComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

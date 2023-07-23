@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RenewPriceComponent renewPrice { get { return (RenewPriceComponent)GetComponent(GameComponentsLookup.RenewPrice); } }
+    public Code.RenewPriceComponent renewPrice { get { return (Code.RenewPriceComponent)GetComponent(GameComponentsLookup.RenewPrice); } }
     public bool hasRenewPrice { get { return HasComponent(GameComponentsLookup.RenewPrice); } }
 
-    public void AddRenewPrice(Code.RenewPriceComponent newValue) {
+    public void AddRenewPrice(int newValue) {
         var index = GameComponentsLookup.RenewPrice;
-        var component = (RenewPriceComponent)CreateComponent(index, typeof(RenewPriceComponent));
-        component.value = newValue;
+        var component = (Code.RenewPriceComponent)CreateComponent(index, typeof(Code.RenewPriceComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRenewPrice(Code.RenewPriceComponent newValue) {
+    public void ReplaceRenewPrice(int newValue) {
         var index = GameComponentsLookup.RenewPrice;
-        var component = (RenewPriceComponent)CreateComponent(index, typeof(RenewPriceComponent));
-        component.value = newValue;
+        var component = (Code.RenewPriceComponent)CreateComponent(index, typeof(Code.RenewPriceComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

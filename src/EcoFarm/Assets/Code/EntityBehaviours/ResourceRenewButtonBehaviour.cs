@@ -10,6 +10,6 @@ namespace Code
 
 		protected override bool ReadyForInitialization() => _progressBarView.Entity != null;
 
-		protected override void Initialize() => _progressBarView.Entity.Do((e) => e.AddText(e.renewPrice));
+		protected override void Initialize() => _progressBarView.Entity.Do((e) => e.AddText(e.renewPrice.Value.ToString()));
 	}
 }

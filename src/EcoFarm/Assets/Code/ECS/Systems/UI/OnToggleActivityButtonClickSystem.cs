@@ -21,14 +21,14 @@ namespace Code
 			var activity = request.targetActivity;
 			var window = request.GetAttachableEntity();
 
-			if (activity == true
+			if (activity.Value
 			    && window.isRequirePreparation)
 			{
 				window.isPreparationInProcess = true;
 				return;
 			}
 
-			window.ReplaceActivate(activity);
+			window.ReplaceActivate(activity.Value);
 			request.isDestroy = true;
 		}
 	}

@@ -9,12 +9,12 @@
 public partial class GameContext {
 
     public GameEntity storageEntity { get { return GetGroup(GameMatcher.Storage).GetSingleEntity(); } }
-    public StorageComponent storage { get { return storageEntity.storage; } }
+    public Code.StorageComponent storage { get { return storageEntity.storage; } }
     public bool hasStorage { get { return storageEntity != null; } }
 
-    public GameEntity SetStorage(Code.StorageComponent newValue) {
+    public GameEntity SetStorage(EcoFarmModel.Storage newValue) {
         if (hasStorage) {
-            throw new Entitas.EntitasException("Could not set Storage!\n" + this + " already has an entity with StorageComponent!",
+            throw new Entitas.EntitasException("Could not set Storage!\n" + this + " already has an entity with Code.StorageComponent!",
                 "You should check if the context already has a storageEntity before setting it or use context.ReplaceStorage().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceStorage(Code.StorageComponent newValue) {
+    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
         var entity = storageEntity;
         if (entity == null) {
             entity = SetStorage(newValue);
@@ -46,20 +46,20 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public StorageComponent storage { get { return (StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
+    public Code.StorageComponent storage { get { return (Code.StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
     public bool hasStorage { get { return HasComponent(GameComponentsLookup.Storage); } }
 
-    public void AddStorage(Code.StorageComponent newValue) {
+    public void AddStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
-        var component = (StorageComponent)CreateComponent(index, typeof(StorageComponent));
-        component.value = newValue;
+        var component = (Code.StorageComponent)CreateComponent(index, typeof(Code.StorageComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceStorage(Code.StorageComponent newValue) {
+    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
-        var component = (StorageComponent)CreateComponent(index, typeof(StorageComponent));
-        component.value = newValue;
+        var component = (Code.StorageComponent)CreateComponent(index, typeof(Code.StorageComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

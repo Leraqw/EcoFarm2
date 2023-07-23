@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public CurrentQuantityComponent currentQuantity { get { return (CurrentQuantityComponent)GetComponent(GameComponentsLookup.CurrentQuantity); } }
+    public Code.CurrentQuantityComponent currentQuantity { get { return (Code.CurrentQuantityComponent)GetComponent(GameComponentsLookup.CurrentQuantity); } }
     public bool hasCurrentQuantity { get { return HasComponent(GameComponentsLookup.CurrentQuantity); } }
 
-    public void AddCurrentQuantity(Code.CurrentQuantityComponent newValue) {
+    public void AddCurrentQuantity(int newValue) {
         var index = GameComponentsLookup.CurrentQuantity;
-        var component = (CurrentQuantityComponent)CreateComponent(index, typeof(CurrentQuantityComponent));
-        component.value = newValue;
+        var component = (Code.CurrentQuantityComponent)CreateComponent(index, typeof(Code.CurrentQuantityComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCurrentQuantity(Code.CurrentQuantityComponent newValue) {
+    public void ReplaceCurrentQuantity(int newValue) {
         var index = GameComponentsLookup.CurrentQuantity;
-        var component = (CurrentQuantityComponent)CreateComponent(index, typeof(CurrentQuantityComponent));
-        component.value = newValue;
+        var component = (Code.CurrentQuantityComponent)CreateComponent(index, typeof(Code.CurrentQuantityComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using Entitas;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
+using static Code.SessionResult;
 
 namespace Code
 {
@@ -18,7 +18,7 @@ namespace Code
 
 		private ISceneTransferService SceneTransfer => _contexts.services.sceneTransferService.Value;
 
-		protected override bool Filter(PlayerEntity entity) => entity.sessionResult != None;
+		protected override bool Filter(PlayerEntity entity) => entity.sessionResult.Value != None;
 
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(OnEnd);
 

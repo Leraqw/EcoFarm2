@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RequirePreparationComponent requirePreparation { get { return (RequirePreparationComponent)GetComponent(GameComponentsLookup.RequirePreparation); } }
-    public bool hasRequirePreparation { get { return HasComponent(GameComponentsLookup.RequirePreparation); } }
+    static readonly Code.RequirePreparationComponent requirePreparationComponent = new Code.RequirePreparationComponent();
 
-    public void AddRequirePreparation(Code.RequirePreparationComponent newValue) {
-        var index = GameComponentsLookup.RequirePreparation;
-        var component = (RequirePreparationComponent)CreateComponent(index, typeof(RequirePreparationComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isRequirePreparation {
+        get { return HasComponent(GameComponentsLookup.RequirePreparation); }
+        set {
+            if (value != isRequirePreparation) {
+                var index = GameComponentsLookup.RequirePreparation;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : requirePreparationComponent;
 
-    public void ReplaceRequirePreparation(Code.RequirePreparationComponent newValue) {
-        var index = GameComponentsLookup.RequirePreparation;
-        var component = (RequirePreparationComponent)CreateComponent(index, typeof(RequirePreparationComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveRequirePreparation() {
-        RemoveComponent(GameComponentsLookup.RequirePreparation);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

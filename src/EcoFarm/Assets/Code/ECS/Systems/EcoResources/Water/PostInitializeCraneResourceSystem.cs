@@ -21,7 +21,7 @@ namespace Code
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Initialize);
 
 		private void Initialize(GameEntity crane)
-			=> crane.Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable))
+			=> crane.Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable.Value))
 			        .Do((e) => e.AddConsumptionCoefficient(BalanceBucket.WaterConsumption))
 		/**/;
 	}

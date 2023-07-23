@@ -9,30 +9,19 @@
 public partial class PlayerContext {
 
     public PlayerEntity currentPlayerEntity { get { return GetGroup(PlayerMatcher.CurrentPlayer).GetSingleEntity(); } }
-    public CurrentPlayerComponent currentPlayer { get { return currentPlayerEntity.currentPlayer; } }
-    public bool hasCurrentPlayer { get { return currentPlayerEntity != null; } }
 
-    public PlayerEntity SetCurrentPlayer(Code.CurrentPlayerComponent newValue) {
-        if (hasCurrentPlayer) {
-            throw new Entitas.EntitasException("Could not set CurrentPlayer!\n" + this + " already has an entity with CurrentPlayerComponent!",
-                "You should check if the context already has a currentPlayerEntity before setting it or use context.ReplaceCurrentPlayer().");
+    public bool isCurrentPlayer {
+        get { return currentPlayerEntity != null; }
+        set {
+            var entity = currentPlayerEntity;
+            if (value != (entity != null)) {
+                if (value) {
+                    CreateEntity().isCurrentPlayer = true;
+                } else {
+                    entity.Destroy();
+                }
+            }
         }
-        var entity = CreateEntity();
-        entity.AddCurrentPlayer(newValue);
-        return entity;
-    }
-
-    public void ReplaceCurrentPlayer(Code.CurrentPlayerComponent newValue) {
-        var entity = currentPlayerEntity;
-        if (entity == null) {
-            entity = SetCurrentPlayer(newValue);
-        } else {
-            entity.ReplaceCurrentPlayer(newValue);
-        }
-    }
-
-    public void RemoveCurrentPlayer() {
-        currentPlayerEntity.Destroy();
     }
 }
 
@@ -46,25 +35,25 @@ public partial class PlayerContext {
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public CurrentPlayerComponent currentPlayer { get { return (CurrentPlayerComponent)GetComponent(PlayerComponentsLookup.CurrentPlayer); } }
-    public bool hasCurrentPlayer { get { return HasComponent(PlayerComponentsLookup.CurrentPlayer); } }
+    static readonly Code.CurrentPlayerComponent currentPlayerComponent = new Code.CurrentPlayerComponent();
 
-    public void AddCurrentPlayer(Code.CurrentPlayerComponent newValue) {
-        var index = PlayerComponentsLookup.CurrentPlayer;
-        var component = (CurrentPlayerComponent)CreateComponent(index, typeof(CurrentPlayerComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isCurrentPlayer {
+        get { return HasComponent(PlayerComponentsLookup.CurrentPlayer); }
+        set {
+            if (value != isCurrentPlayer) {
+                var index = PlayerComponentsLookup.CurrentPlayer;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : currentPlayerComponent;
 
-    public void ReplaceCurrentPlayer(Code.CurrentPlayerComponent newValue) {
-        var index = PlayerComponentsLookup.CurrentPlayer;
-        var component = (CurrentPlayerComponent)CreateComponent(index, typeof(CurrentPlayerComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveCurrentPlayer() {
-        RemoveComponent(PlayerComponentsLookup.CurrentPlayer);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

@@ -41,7 +41,7 @@ namespace Code
 				@false: MarkAsPerformed
 			);
 
-		private static bool LeftProductsToSend(GameEntity e) => e.count > 0;
+		private static bool LeftProductsToSend(GameEntity e) => e.count.Value > 0;
 
 		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
 
@@ -58,7 +58,7 @@ namespace Code
 
 		private void WaitBeforeSendNext(GameEntity request)
 			=> request
-			   .Do((e) => e.ReplaceCount(request.count - 1))
+			   .Do((e) => e.ReplaceCount(request.count.Value - 1))
 			   .Do((e) => e.ReplaceDuration(SendProductToFactoryDelay))
 		/**/;
 
@@ -71,7 +71,7 @@ namespace Code
 
 		private void Send(GameEntity request, GameEntity product)
 			=> product
-			   .Do((e) => e.ReplaceTargetPosition(request.position))
+			   .Do((e) => e.ReplaceTargetPosition(request.position.Value))
 			   .Do((e) => e.ReplaceDuration(RoadToFactoryDuration))
 			   .Do((e) => e.isInFactory = true)
 		/**/;

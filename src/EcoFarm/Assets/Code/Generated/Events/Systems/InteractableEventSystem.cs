@@ -30,7 +30,7 @@ public sealed class InteractableEventSystem : Entitas.ReactiveSystem<PlayerEntit
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.interactableListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnInteractable(e, component.value);
+                listener.OnInteractable(e, component.Value);
             }
         }
     }

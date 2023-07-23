@@ -30,7 +30,7 @@ public sealed class RotationEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.rotationListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnRotation(e, component.value);
+                listener.OnRotation(e, component.Value);
             }
         }
     }

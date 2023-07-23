@@ -8,7 +8,7 @@ namespace Code
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasProportionalScale;
 
-		protected override void UpdateValue(GameEntity e) => OnProportionalScale(e, e.proportionalScale);
+		protected override void UpdateValue(GameEntity e) => OnProportionalScale(e, e.proportionalScale.Value);
 
 		public void OnProportionalScale(GameEntity entity, float value) => transform.localScale = Vector3.one * value;
 	}

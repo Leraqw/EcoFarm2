@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IWateringListener {
-    void OnWatering(GameEntity entity, Code.WateringComponent value);
+    void OnWatering(GameEntity entity, int value);
 }

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DestroyComponent destroy { get { return (DestroyComponent)GetComponent(GameComponentsLookup.Destroy); } }
-    public bool hasDestroy { get { return HasComponent(GameComponentsLookup.Destroy); } }
+    static readonly Code.DestroyComponent destroyComponent = new Code.DestroyComponent();
 
-    public void AddDestroy(Code.DestroyComponent newValue) {
-        var index = GameComponentsLookup.Destroy;
-        var component = (DestroyComponent)CreateComponent(index, typeof(DestroyComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isDestroy {
+        get { return HasComponent(GameComponentsLookup.Destroy); }
+        set {
+            if (value != isDestroy) {
+                var index = GameComponentsLookup.Destroy;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : destroyComponent;
 
-    public void ReplaceDestroy(Code.DestroyComponent newValue) {
-        var index = GameComponentsLookup.Destroy;
-        var component = (DestroyComponent)CreateComponent(index, typeof(DestroyComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveDestroy() {
-        RemoveComponent(GameComponentsLookup.Destroy);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

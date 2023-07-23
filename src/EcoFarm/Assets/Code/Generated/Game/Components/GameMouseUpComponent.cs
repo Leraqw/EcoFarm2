@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public MouseUpComponent mouseUp { get { return (MouseUpComponent)GetComponent(GameComponentsLookup.MouseUp); } }
-    public bool hasMouseUp { get { return HasComponent(GameComponentsLookup.MouseUp); } }
+    static readonly Code.MouseUpComponent mouseUpComponent = new Code.MouseUpComponent();
 
-    public void AddMouseUp(Code.MouseUpComponent newValue) {
-        var index = GameComponentsLookup.MouseUp;
-        var component = (MouseUpComponent)CreateComponent(index, typeof(MouseUpComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isMouseUp {
+        get { return HasComponent(GameComponentsLookup.MouseUp); }
+        set {
+            if (value != isMouseUp) {
+                var index = GameComponentsLookup.MouseUp;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : mouseUpComponent;
 
-    public void ReplaceMouseUp(Code.MouseUpComponent newValue) {
-        var index = GameComponentsLookup.MouseUp;
-        var component = (MouseUpComponent)CreateComponent(index, typeof(MouseUpComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveMouseUp() {
-        RemoveComponent(GameComponentsLookup.MouseUp);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

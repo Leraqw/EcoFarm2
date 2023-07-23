@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public WateringComponent watering { get { return (WateringComponent)GetComponent(GameComponentsLookup.Watering); } }
+    public Code.WateringComponent watering { get { return (Code.WateringComponent)GetComponent(GameComponentsLookup.Watering); } }
     public bool hasWatering { get { return HasComponent(GameComponentsLookup.Watering); } }
 
-    public void AddWatering(Code.WateringComponent newValue) {
+    public void AddWatering(int newValue) {
         var index = GameComponentsLookup.Watering;
-        var component = (WateringComponent)CreateComponent(index, typeof(WateringComponent));
-        component.value = newValue;
+        var component = (Code.WateringComponent)CreateComponent(index, typeof(Code.WateringComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceWatering(Code.WateringComponent newValue) {
+    public void ReplaceWatering(int newValue) {
         var index = GameComponentsLookup.Watering;
-        var component = (WateringComponent)CreateComponent(index, typeof(WateringComponent));
-        component.value = newValue;
+        var component = (Code.WateringComponent)CreateComponent(index, typeof(Code.WateringComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

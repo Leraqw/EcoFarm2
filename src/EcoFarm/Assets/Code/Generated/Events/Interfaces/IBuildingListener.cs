@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IBuildingListener {
-    void OnBuilding(GameEntity entity, Code.BuildingComponent value);
+    void OnBuilding(GameEntity entity, EcoFarmModel.Building value);
 }

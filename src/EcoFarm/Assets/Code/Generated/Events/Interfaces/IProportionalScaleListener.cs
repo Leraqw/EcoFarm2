@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IProportionalScaleListener {
-    void OnProportionalScale(GameEntity entity, Code.ProportionalScaleComponent value);
+    void OnProportionalScale(GameEntity entity, float value);
 }

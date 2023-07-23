@@ -30,7 +30,7 @@ public sealed class DurationEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.durationListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnDuration(e, component.value);
+                listener.OnDuration(e, component.Value);
             }
         }
     }

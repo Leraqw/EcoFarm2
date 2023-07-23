@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DevelopmentObjectComponent developmentObject { get { return (DevelopmentObjectComponent)GetComponent(GameComponentsLookup.DevelopmentObject); } }
+    public Code.DevelopmentObjectComponent developmentObject { get { return (Code.DevelopmentObjectComponent)GetComponent(GameComponentsLookup.DevelopmentObject); } }
     public bool hasDevelopmentObject { get { return HasComponent(GameComponentsLookup.DevelopmentObject); } }
 
-    public void AddDevelopmentObject(Code.DevelopmentObjectComponent newValue) {
+    public void AddDevelopmentObject(EcoFarmModel.DevelopmentObject newValue) {
         var index = GameComponentsLookup.DevelopmentObject;
-        var component = (DevelopmentObjectComponent)CreateComponent(index, typeof(DevelopmentObjectComponent));
-        component.value = newValue;
+        var component = (Code.DevelopmentObjectComponent)CreateComponent(index, typeof(Code.DevelopmentObjectComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDevelopmentObject(Code.DevelopmentObjectComponent newValue) {
+    public void ReplaceDevelopmentObject(EcoFarmModel.DevelopmentObject newValue) {
         var index = GameComponentsLookup.DevelopmentObject;
-        var component = (DevelopmentObjectComponent)CreateComponent(index, typeof(DevelopmentObjectComponent));
-        component.value = newValue;
+        var component = (Code.DevelopmentObjectComponent)CreateComponent(index, typeof(Code.DevelopmentObjectComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

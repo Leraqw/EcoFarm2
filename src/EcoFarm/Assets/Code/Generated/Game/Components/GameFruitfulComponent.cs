@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public FruitfulComponent fruitful { get { return (FruitfulComponent)GetComponent(GameComponentsLookup.Fruitful); } }
-    public bool hasFruitful { get { return HasComponent(GameComponentsLookup.Fruitful); } }
+    static readonly Code.FruitfulComponent fruitfulComponent = new Code.FruitfulComponent();
 
-    public void AddFruitful(Code.FruitfulComponent newValue) {
-        var index = GameComponentsLookup.Fruitful;
-        var component = (FruitfulComponent)CreateComponent(index, typeof(FruitfulComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isFruitful {
+        get { return HasComponent(GameComponentsLookup.Fruitful); }
+        set {
+            if (value != isFruitful) {
+                var index = GameComponentsLookup.Fruitful;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : fruitfulComponent;
 
-    public void ReplaceFruitful(Code.FruitfulComponent newValue) {
-        var index = GameComponentsLookup.Fruitful;
-        var component = (FruitfulComponent)CreateComponent(index, typeof(FruitfulComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveFruitful() {
-        RemoveComponent(GameComponentsLookup.Fruitful);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

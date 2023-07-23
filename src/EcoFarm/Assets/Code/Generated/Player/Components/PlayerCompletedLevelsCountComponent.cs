@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public CompletedLevelsCountComponent completedLevelsCount { get { return (CompletedLevelsCountComponent)GetComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
+    public Code.CompletedLevelsCountComponent completedLevelsCount { get { return (Code.CompletedLevelsCountComponent)GetComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
     public bool hasCompletedLevelsCount { get { return HasComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
 
-    public void AddCompletedLevelsCount(Code.CompletedLevelsCountComponent newValue) {
+    public void AddCompletedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.CompletedLevelsCount;
-        var component = (CompletedLevelsCountComponent)CreateComponent(index, typeof(CompletedLevelsCountComponent));
-        component.value = newValue;
+        var component = (Code.CompletedLevelsCountComponent)CreateComponent(index, typeof(Code.CompletedLevelsCountComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCompletedLevelsCount(Code.CompletedLevelsCountComponent newValue) {
+    public void ReplaceCompletedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.CompletedLevelsCount;
-        var component = (CompletedLevelsCountComponent)CreateComponent(index, typeof(CompletedLevelsCountComponent));
-        component.value = newValue;
+        var component = (Code.CompletedLevelsCountComponent)CreateComponent(index, typeof(Code.CompletedLevelsCountComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

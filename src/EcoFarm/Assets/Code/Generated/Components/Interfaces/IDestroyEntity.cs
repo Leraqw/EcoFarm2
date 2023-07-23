@@ -7,11 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public partial interface IDestroyEntity {
-
-    DestroyComponent destroy { get; }
-    bool hasDestroy { get; }
-
-    void AddDestroy(Code.DestroyComponent newValue);
-    void ReplaceDestroy(Code.DestroyComponent newValue);
-    void RemoveDestroy();
+    bool isDestroy { get; set; }
 }

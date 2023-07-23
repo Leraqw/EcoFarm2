@@ -16,7 +16,7 @@ namespace Code
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize() => Storage.Levels[SelectedLevel].Goals.ForEach(Create);
 

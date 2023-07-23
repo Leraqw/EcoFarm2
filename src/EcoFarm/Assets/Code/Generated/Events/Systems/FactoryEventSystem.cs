@@ -30,7 +30,7 @@ public sealed class FactoryEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.factoryListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnFactory(e, component.value);
+                listener.OnFactory(e, component.Value);
             }
         }
     }

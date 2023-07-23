@@ -51,7 +51,7 @@ namespace Code
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
-			            .Do((e) => e.AddPosition(window.position))
+			            .Do((e) => e.AddPosition(window.position.Value))
 			            .AttachTo(window)
 		/**/;
 

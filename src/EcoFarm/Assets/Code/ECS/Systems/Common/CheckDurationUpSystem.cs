@@ -16,7 +16,7 @@ namespace Code
 
 		private static void Check(GameEntity entity) => entity.Do(SetDurationUp, DurationIsUp);
 
-		private static bool DurationIsUp(GameEntity entity) => entity.duration <= 0;
+		private static bool DurationIsUp(GameEntity entity) => entity.duration.Value <= 0;
 
 		private static void SetDurationUp(GameEntity entity)
 			=> entity.Do((e) => e.isDurationUp = true)

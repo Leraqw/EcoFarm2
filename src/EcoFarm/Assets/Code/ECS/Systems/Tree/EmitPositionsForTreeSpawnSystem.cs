@@ -17,7 +17,7 @@ namespace Code
 
 		private LevelData[] Levels => _contexts.game.storage.Value.Levels;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
 			=> SpawnPointsService

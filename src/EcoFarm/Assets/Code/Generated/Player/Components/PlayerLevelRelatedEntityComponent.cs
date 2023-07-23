@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public LevelRelatedEntityComponent levelRelatedEntity { get { return (LevelRelatedEntityComponent)GetComponent(PlayerComponentsLookup.LevelRelatedEntity); } }
-    public bool hasLevelRelatedEntity { get { return HasComponent(PlayerComponentsLookup.LevelRelatedEntity); } }
+    static readonly Code.LevelRelatedEntityComponent levelRelatedEntityComponent = new Code.LevelRelatedEntityComponent();
 
-    public void AddLevelRelatedEntity(Code.LevelRelatedEntityComponent newValue) {
-        var index = PlayerComponentsLookup.LevelRelatedEntity;
-        var component = (LevelRelatedEntityComponent)CreateComponent(index, typeof(LevelRelatedEntityComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isLevelRelatedEntity {
+        get { return HasComponent(PlayerComponentsLookup.LevelRelatedEntity); }
+        set {
+            if (value != isLevelRelatedEntity) {
+                var index = PlayerComponentsLookup.LevelRelatedEntity;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : levelRelatedEntityComponent;
 
-    public void ReplaceLevelRelatedEntity(Code.LevelRelatedEntityComponent newValue) {
-        var index = PlayerComponentsLookup.LevelRelatedEntity;
-        var component = (LevelRelatedEntityComponent)CreateComponent(index, typeof(LevelRelatedEntityComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveLevelRelatedEntity() {
-        RemoveComponent(PlayerComponentsLookup.LevelRelatedEntity);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

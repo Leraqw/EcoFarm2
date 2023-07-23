@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ProgressBarComponent progressBar { get { return (ProgressBarComponent)GetComponent(GameComponentsLookup.ProgressBar); } }
+    public Code.ProgressBarComponent progressBar { get { return (Code.ProgressBarComponent)GetComponent(GameComponentsLookup.ProgressBar); } }
     public bool hasProgressBar { get { return HasComponent(GameComponentsLookup.ProgressBar); } }
 
-    public void AddProgressBar(Code.ProgressBarComponent newValue) {
+    public void AddProgressBar(Code.ProgressBarValues newValue) {
         var index = GameComponentsLookup.ProgressBar;
-        var component = (ProgressBarComponent)CreateComponent(index, typeof(ProgressBarComponent));
-        component.value = newValue;
+        var component = (Code.ProgressBarComponent)CreateComponent(index, typeof(Code.ProgressBarComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceProgressBar(Code.ProgressBarComponent newValue) {
+    public void ReplaceProgressBar(Code.ProgressBarValues newValue) {
         var index = GameComponentsLookup.ProgressBar;
-        var component = (ProgressBarComponent)CreateComponent(index, typeof(ProgressBarComponent));
-        component.value = newValue;
+        var component = (Code.ProgressBarComponent)CreateComponent(index, typeof(Code.ProgressBarComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

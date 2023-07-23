@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInventoryItemListener {
-    void OnInventoryItem(GameEntity entity, Code.InventoryItemComponent value);
+    void OnInventoryItem(GameEntity entity, Code.Item value);
 }

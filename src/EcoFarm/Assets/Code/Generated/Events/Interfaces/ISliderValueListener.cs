@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ISliderValueListener {
-    void OnSliderValue(GameEntity entity, Code.SliderValueComponent value);
+    void OnSliderValue(GameEntity entity, float value);
 }

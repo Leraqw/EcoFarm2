@@ -30,7 +30,7 @@ public sealed class BuildingEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.buildingListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnBuilding(e, component.value);
+                listener.OnBuilding(e, component.Value);
             }
         }
     }

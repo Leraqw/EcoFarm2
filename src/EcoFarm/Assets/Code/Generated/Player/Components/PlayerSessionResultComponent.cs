@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public SessionResultComponent sessionResult { get { return (SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public Code.SessionResultComponent sessionResult { get { return (Code.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(Code.SessionResultComponent newValue) {
+    public void AddSessionResult(Code.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
-        component.value = newValue;
+        var component = (Code.SessionResultComponent)CreateComponent(index, typeof(Code.SessionResultComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(Code.SessionResultComponent newValue) {
+    public void ReplaceSessionResult(Code.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
-        component.value = newValue;
+        var component = (Code.SessionResultComponent)CreateComponent(index, typeof(Code.SessionResultComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

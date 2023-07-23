@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RequireViewComponent requireView { get { return (RequireViewComponent)GetComponent(GameComponentsLookup.RequireView); } }
+    public Code.RequireViewComponent requireView { get { return (Code.RequireViewComponent)GetComponent(GameComponentsLookup.RequireView); } }
     public bool hasRequireView { get { return HasComponent(GameComponentsLookup.RequireView); } }
 
-    public void AddRequireView(Code.RequireViewComponent newValue) {
+    public void AddRequireView(string newValue) {
         var index = GameComponentsLookup.RequireView;
-        var component = (RequireViewComponent)CreateComponent(index, typeof(RequireViewComponent));
-        component.value = newValue;
+        var component = (Code.RequireViewComponent)CreateComponent(index, typeof(Code.RequireViewComponent));
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireView(Code.RequireViewComponent newValue) {
+    public void ReplaceRequireView(string newValue) {
         var index = GameComponentsLookup.RequireView;
-        var component = (RequireViewComponent)CreateComponent(index, typeof(RequireViewComponent));
-        component.value = newValue;
+        var component = (Code.RequireViewComponent)CreateComponent(index, typeof(Code.RequireViewComponent));
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

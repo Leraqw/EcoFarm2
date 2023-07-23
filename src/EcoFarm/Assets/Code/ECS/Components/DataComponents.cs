@@ -21,7 +21,7 @@ namespace Code
 
 	[Game] [Event(Self)] public sealed class GeneratorComponent : IComponent { public Generator Value; }
 
-	[Game] public sealed class InputProductsComponent : ValueComponent<Product[]> { }
+	[Game] public sealed class InputProductsComponent : IComponent { public Product[] Value; }
 
 	[Game] public sealed class ResourceComponent : IComponent { [PrimaryEntityIndex] public Resource Value; }
 }

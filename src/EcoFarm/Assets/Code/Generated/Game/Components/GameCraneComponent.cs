@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public CraneComponent crane { get { return (CraneComponent)GetComponent(GameComponentsLookup.Crane); } }
-    public bool hasCrane { get { return HasComponent(GameComponentsLookup.Crane); } }
+    static readonly Code.CraneComponent craneComponent = new Code.CraneComponent();
 
-    public void AddCrane(Code.CraneComponent newValue) {
-        var index = GameComponentsLookup.Crane;
-        var component = (CraneComponent)CreateComponent(index, typeof(CraneComponent));
-        component.value = newValue;
-        AddComponent(index, component);
-    }
+    public bool isCrane {
+        get { return HasComponent(GameComponentsLookup.Crane); }
+        set {
+            if (value != isCrane) {
+                var index = GameComponentsLookup.Crane;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : craneComponent;
 
-    public void ReplaceCrane(Code.CraneComponent newValue) {
-        var index = GameComponentsLookup.Crane;
-        var component = (CraneComponent)CreateComponent(index, typeof(CraneComponent));
-        component.value = newValue;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveCrane() {
-        RemoveComponent(GameComponentsLookup.Crane);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

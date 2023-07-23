@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IRotationListener {
-    void OnRotation(GameEntity entity, Code.RotationComponent value);
+    void OnRotation(GameEntity entity, float value);
 }

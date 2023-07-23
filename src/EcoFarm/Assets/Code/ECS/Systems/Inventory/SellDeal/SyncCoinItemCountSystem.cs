@@ -20,6 +20,6 @@ namespace Code
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
 		private void Sync(GameEntity entity) 
-			=> _contexts.game.coinEntity.UpdateInventoryItemCount(entity.coinsCount);
+			=> _contexts.game.coinEntity.UpdateInventoryItemCount(entity.coinsCount.Value);
 	}
 }
