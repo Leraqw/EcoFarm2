@@ -1,13 +1,10 @@
-﻿
-using EcoFarmCustomGenerator.CodeGeneration.Attributes;
+﻿using EcoFarmCustomGenerator.CodeGeneration.Attributes;
+using Entitas;
 
 namespace Code
 {
-	[Game] public sealed class FilledComponent : FlagComponent { }
-
-	[Game] public sealed class RadiusComponent : ValueComponent<float> { }
-
-	[Game] [Cool] public sealed class CraneComponent : FlagComponent { }
-	
-	[Game] public sealed class BucketComponent : FlagComponent { }
+	[Game] public sealed class FilledComponent : IComponent { }
+	[Game] public sealed class RadiusComponent : IComponent { public float Value; }
+	[Game] [Cool] public sealed class CraneComponent : IComponent { }
+	[Game] public sealed class BucketComponent : IComponent { }
 }

@@ -1,26 +1,27 @@
-﻿using EcoFarmModel;
+using EcoFarmModel;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code
 {
-	[Game] [Unique] public sealed class StorageComponent : ValueComponent<Storage> { }
+	[Game] [Unique] public sealed class StorageComponent : IComponent { public Storage Value; }
 
-	[Game] public sealed class ProductComponent : ValueComponent<Product> { }
+	[Game] public sealed class ProductComponent : IComponent { public Product Value; }
 
-	[Game] public sealed class TreeComponent : ValueComponent<Tree> { }
+	[Game] public sealed class TreeComponent : IComponent { public Tree Value; }
 
-	[Game] [Event(Self)] public sealed class GoalComponent : ValueComponent<Goal> { }
+	[Game] [Event(Self)] public sealed class GoalComponent : IComponent { public Goal Value; }
 
-	[Game] public sealed class DevelopmentObjectComponent : ValueComponent<DevelopmentObject> { }
+	[Game] public sealed class DevelopmentObjectComponent : IComponent { public DevelopmentObject Value; }
 
-	[Game] [Event(Self)] public sealed class BuildingComponent : ValueComponent<Building> { }
+	[Game] [Event(Self)] public sealed class BuildingComponent : IComponent { public Building Value; }
 
-	[Game] [Event(Self)] public sealed class FactoryComponent : ValueComponent<FactoryBuilding> { }
+	[Game] [Event(Self)] public sealed class FactoryComponent : IComponent { public FactoryBuilding Value; }
 
-	[Game] [Event(Self)] public sealed class GeneratorComponent : ValueComponent<Generator> { }
+	[Game] [Event(Self)] public sealed class GeneratorComponent : IComponent { public Generator Value; }
 
 	[Game] public sealed class InputProductsComponent : ValueComponent<Product[]> { }
 
-	[Game] public sealed class ResourceComponent : PrimaryComponent<Resource> { }
+	[Game] public sealed class ResourceComponent : IComponent { [PrimaryEntityIndex] public Resource Value; }
 }

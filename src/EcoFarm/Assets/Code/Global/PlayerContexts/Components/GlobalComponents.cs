@@ -1,4 +1,4 @@
-﻿using Entitas;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
@@ -10,11 +10,11 @@ namespace Code
 
 	[Player] public sealed class PlayerComponent : IComponent { }
 
-	[Player] public sealed class SessionResultComponent : ValueComponent<SessionResult> { }
+[Player] public sealed class SessionResultComponent : IComponent { public SessionResult Value; }
 
-	[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : FlagComponent { }
+[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : IComponent { }
 
-	[Player] public sealed class SelectedLevelComponent : ValueComponent<int> { }
+[Player] public sealed class SelectedLevelComponent : IComponent { public int Value; }
 
-	[Player] public sealed class CompletedLevelsCountComponent : ValueComponent<int> { }
+[Player] public sealed class CompletedLevelsCountComponent : IComponent { public int Value; }
 }
