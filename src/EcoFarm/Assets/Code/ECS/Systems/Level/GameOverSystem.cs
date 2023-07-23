@@ -3,7 +3,7 @@ using Entitas;
 using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Level
+namespace Code
 {
 	public sealed class GameOverSystem : ReactiveSystem<GameEntity>
 	{

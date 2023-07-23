@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.WateredComponent wateredComponent = new Code.ECS.Components.WateredComponent();
+    public WateredComponent watered { get { return (WateredComponent)GetComponent(GameComponentsLookup.Watered); } }
+    public bool hasWatered { get { return HasComponent(GameComponentsLookup.Watered); } }
 
-    public bool isWatered {
-        get { return HasComponent(GameComponentsLookup.Watered); }
-        set {
-            if (value != isWatered) {
-                var index = GameComponentsLookup.Watered;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : wateredComponent;
+    public void AddWatered(Code.WateredComponent newValue) {
+        var index = GameComponentsLookup.Watered;
+        var component = (WateredComponent)CreateComponent(index, typeof(WateredComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceWatered(Code.WateredComponent newValue) {
+        var index = GameComponentsLookup.Watered;
+        var component = (WateredComponent)CreateComponent(index, typeof(WateredComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveWatered() {
+        RemoveComponent(GameComponentsLookup.Watered);
     }
 }
 

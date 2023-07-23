@@ -1,8 +1,8 @@
-﻿using Code.Utils.Extensions;
+﻿
 using EcoFarmModel;
 using Entitas;
 
-namespace Code.ECS.Systems.Level
+namespace Code
 {
 	public sealed class CreateLevelTimerSystem : IInitializeSystem
 	{

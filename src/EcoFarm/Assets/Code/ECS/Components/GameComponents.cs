@@ -1,16 +1,14 @@
-﻿using Code.Utils.ComponentsTemplates;
-using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
+﻿using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] public sealed class RequireViewComponent : ValueComponent<string> { }
 
 	[Game] public sealed class ViewPrefabComponent : ValueComponent<GameObject> { }
-	
+
 	[Game, Player] public sealed class ViewComponent : ValueComponent<GameObject> { }
 
 	[Game] public sealed class SpawnPositionComponent : ValueComponent<Vector2> { }
@@ -36,8 +34,8 @@ namespace Code.ECS.Components
 	[Game] public sealed class DroughtTimerComponent : FlagComponent { }
 
 	[Game] public sealed class RequireSpriteComponent : ValueComponent<string> { }
-	
+
 	[Game] public sealed class SpriteToLoadComponent : ValueComponent<Sprite> { }
-	
+
 	[Game] [Event(Self)] public sealed class SpriteComponent : ValueComponent<Sprite> { }
 }

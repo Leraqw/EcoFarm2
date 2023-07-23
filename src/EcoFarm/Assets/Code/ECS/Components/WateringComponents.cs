@@ -1,7 +1,7 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] public sealed class FilledComponent : FlagComponent { }
 

@@ -1,10 +1,8 @@
-﻿using Code.Utils.ComponentsTemplates;
-using EcoFarmModel;
+﻿using EcoFarmModel;
 using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] [Unique] public sealed class StorageComponent : ValueComponent<Storage> { }
 

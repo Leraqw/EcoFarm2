@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.CoinsCountComponent coinsCount { get { return (Code.ECS.Components.CoinsCountComponent)GetComponent(GameComponentsLookup.CoinsCount); } }
+    public CoinsCountComponent coinsCount { get { return (CoinsCountComponent)GetComponent(GameComponentsLookup.CoinsCount); } }
     public bool hasCoinsCount { get { return HasComponent(GameComponentsLookup.CoinsCount); } }
 
-    public void AddCoinsCount(int newValue) {
+    public void AddCoinsCount(Code.CoinsCountComponent newValue) {
         var index = GameComponentsLookup.CoinsCount;
-        var component = (Code.ECS.Components.CoinsCountComponent)CreateComponent(index, typeof(Code.ECS.Components.CoinsCountComponent));
-        component.Value = newValue;
+        var component = (CoinsCountComponent)CreateComponent(index, typeof(CoinsCountComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCoinsCount(int newValue) {
+    public void ReplaceCoinsCount(Code.CoinsCountComponent newValue) {
         var index = GameComponentsLookup.CoinsCount;
-        var component = (Code.ECS.Components.CoinsCountComponent)CreateComponent(index, typeof(Code.ECS.Components.CoinsCountComponent));
-        component.Value = newValue;
+        var component = (CoinsCountComponent)CreateComponent(index, typeof(CoinsCountComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

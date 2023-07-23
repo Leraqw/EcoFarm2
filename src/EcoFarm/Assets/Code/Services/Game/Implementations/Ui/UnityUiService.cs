@@ -1,9 +1,9 @@
 ﻿using System;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Unity.ViewListeners;
+
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Ui
+namespace Code
 {
 	[Serializable]
 	public class UnityUiService : IUiService

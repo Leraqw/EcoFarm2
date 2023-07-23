@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Generators
+namespace Code
 {
 	public sealed class PermanentProduceResourceSystem : ReactiveSystem<GameEntity>
 	{

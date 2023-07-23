@@ -1,6 +1,6 @@
-﻿using Code.Services.Game.Implementations.Configuration.ResourcesConfigs;
+﻿
 
-namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
+namespace Code
 {
 	public interface ISpriteConfig
 	{

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DraggingComponent draggingComponent = new Code.ECS.Components.DraggingComponent();
+    public DraggingComponent dragging { get { return (DraggingComponent)GetComponent(GameComponentsLookup.Dragging); } }
+    public bool hasDragging { get { return HasComponent(GameComponentsLookup.Dragging); } }
 
-    public bool isDragging {
-        get { return HasComponent(GameComponentsLookup.Dragging); }
-        set {
-            if (value != isDragging) {
-                var index = GameComponentsLookup.Dragging;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : draggingComponent;
+    public void AddDragging(Code.DraggingComponent newValue) {
+        var index = GameComponentsLookup.Dragging;
+        var component = (DraggingComponent)CreateComponent(index, typeof(DraggingComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceDragging(Code.DraggingComponent newValue) {
+        var index = GameComponentsLookup.Dragging;
+        var component = (DraggingComponent)CreateComponent(index, typeof(DraggingComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveDragging() {
+        RemoveComponent(GameComponentsLookup.Dragging);
     }
 }
 

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Code.Utils.Extensions;
+
 using Entitas;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace Code
 {
 	public sealed class InitializeSellDealSystem : IInitializeSystem
 	{

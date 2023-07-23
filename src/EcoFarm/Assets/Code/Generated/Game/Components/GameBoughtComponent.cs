@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.BoughtComponent boughtComponent = new Code.ECS.Components.Buildings.BoughtComponent();
+    public BoughtComponent bought { get { return (BoughtComponent)GetComponent(GameComponentsLookup.Bought); } }
+    public bool hasBought { get { return HasComponent(GameComponentsLookup.Bought); } }
 
-    public bool isBought {
-        get { return HasComponent(GameComponentsLookup.Bought); }
-        set {
-            if (value != isBought) {
-                var index = GameComponentsLookup.Bought;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : boughtComponent;
+    public void AddBought(Code.BoughtComponent newValue) {
+        var index = GameComponentsLookup.Bought;
+        var component = (BoughtComponent)CreateComponent(index, typeof(BoughtComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceBought(Code.BoughtComponent newValue) {
+        var index = GameComponentsLookup.Bought;
+        var component = (BoughtComponent)CreateComponent(index, typeof(BoughtComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveBought() {
+        RemoveComponent(GameComponentsLookup.Bought);
     }
 }
 

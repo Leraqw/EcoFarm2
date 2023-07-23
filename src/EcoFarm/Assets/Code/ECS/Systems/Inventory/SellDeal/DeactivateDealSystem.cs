@@ -2,7 +2,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace Code
 {
 	public sealed class DeactivateDealSystem : ReactiveSystem<GameEntity>
 	{

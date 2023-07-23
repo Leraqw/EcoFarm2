@@ -1,7 +1,7 @@
-﻿using Code.Unity.ViewListeners.UI;
+﻿
 using UnityEngine;
 
-namespace Code.Unity.Containers
+namespace Code
 {
 	public class WindowResources : MonoBehaviour
 	{

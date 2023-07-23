@@ -1,16 +1,14 @@
-﻿using Code.Global.PlayerContexts.CustomTypes;
-using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code.Global.PlayerContexts.Components
+namespace Code
 {
-	[Player] public sealed class NicknameComponent : PrimaryComponent<string> { }
+	[Player] public sealed class NicknameComponent : IComponent { [PrimaryEntityIndex] public string Value;}
 
-	[Player] [Unique] public sealed class CurrentPlayerComponent : FlagComponent { }
-	
-	[Player] public sealed class PlayerComponent : FlagComponent { }
+	[Player] [Unique] public sealed class CurrentPlayerComponent : IComponent { }
+
+	[Player] public sealed class PlayerComponent : IComponent { }
 
 	[Player] public sealed class SessionResultComponent : ValueComponent<SessionResult> { }
 

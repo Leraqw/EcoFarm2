@@ -1,10 +1,10 @@
-﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Utils.Extensions;
+﻿
+
+
+
 using Entitas;
 
-namespace Code.ECS.Systems.Watering.WaterCrane
+namespace Code
 {
 	public sealed class SpawnCraneSystem : IInitializeSystem
 	{

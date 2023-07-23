@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace Code
 {
 	public sealed class MakeSellDealSystem : ReactiveSystem<GameEntity>
 	{

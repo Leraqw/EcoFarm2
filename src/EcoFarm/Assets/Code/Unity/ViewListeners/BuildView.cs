@@ -1,11 +1,11 @@
-﻿using Code.Data.ToUnity;
-using Code.ECS.Systems.Watering.Bucket;
+﻿
+
 using EcoFarmModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public class BuildView : BaseViewListener, IBuildingListener
 	{

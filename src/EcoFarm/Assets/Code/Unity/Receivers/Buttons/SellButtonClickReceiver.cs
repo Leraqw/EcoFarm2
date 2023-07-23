@@ -1,7 +1,7 @@
-﻿using Code.Unity.ViewListeners;
+﻿
 using UnityEngine;
 
-namespace Code.Unity.Receivers.Buttons
+namespace Code
 {
 	public class SellButtonClickReceiver : BaseButtonClickReceiver
 	{

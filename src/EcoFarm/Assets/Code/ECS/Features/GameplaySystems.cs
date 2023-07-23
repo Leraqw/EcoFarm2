@@ -1,18 +1,4 @@
-﻿using Code.ECS.Features.Initialization;
-using Code.ECS.Features.Updatables;
-using Code.ECS.Features.Updatables.Cleanup;
-using Code.ECS.Features.Updatables.Gameplay;
-using Code.ECS.Systems.Buildings;
-using Code.ECS.Systems.Buildings.Common;
-using Code.ECS.Systems.Buildings.Factories;
-using Code.ECS.Systems.Buildings.Generators;
-using Code.ECS.Systems.Buildings.Generators.WaterCleaner;
-using Code.ECS.Systems.Buildings.Generators.Windmill;
-using Code.ECS.Systems.Goals;
-using Code.ECS.Systems.Level;
-using Code.ECS.Systems.TearDown;
-
-namespace Code.ECS.Features
+﻿namespace Code
 {
 	public sealed class GameplaySystems : Feature
 	{
@@ -43,11 +29,11 @@ namespace Code.ECS.Features
 			Add(new StartCleaningPollutionSystem(contexts));
 			Add(new ReplaceSpriteWhileWorkingSystem(contexts));
 			Add(new GenerateCleanedResourceSystem(contexts));
-			
+
 			// Dancing
 			Add(new DanceWhileWorkingSystem(contexts));
 			Add(new ResetNormalScaleSystem(contexts));
-			
+
 			// Rotating
 			Add(new RotateSpinnersSystem(contexts));
 

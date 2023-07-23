@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IUnlockedLevelsCountListener {
-    void OnUnlockedLevelsCount(PlayerEntity entity, int value);
+    void OnUnlockedLevelsCount(PlayerEntity entity, Code.UnlockedLevelsCountComponent value);
 }

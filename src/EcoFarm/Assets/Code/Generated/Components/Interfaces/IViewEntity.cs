@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 public partial interface IViewEntity {
 
-    Code.ECS.Components.ViewComponent view { get; }
+    ViewComponent view { get; }
     bool hasView { get; }
 
-    void AddView(UnityEngine.GameObject newValue);
-    void ReplaceView(UnityEngine.GameObject newValue);
+    void AddView(Code.ViewComponent newValue);
+    void ReplaceView(Code.ViewComponent newValue);
     void RemoveView();
 }

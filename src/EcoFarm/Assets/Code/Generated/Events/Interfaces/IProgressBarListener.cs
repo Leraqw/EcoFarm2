@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IProgressBarListener {
-    void OnProgressBar(GameEntity entity, Code.ECS.Components.ComplexComponentTypes.ProgressBarValues value);
+    void OnProgressBar(GameEntity entity, Code.ProgressBarComponent value);
 }

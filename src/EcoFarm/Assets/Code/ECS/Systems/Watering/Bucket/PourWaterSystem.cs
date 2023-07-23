@@ -2,7 +2,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Watering.Bucket
+namespace Code
 {
 	public sealed class PourWaterSystem : ReactiveSystem<GameEntity>
 	{

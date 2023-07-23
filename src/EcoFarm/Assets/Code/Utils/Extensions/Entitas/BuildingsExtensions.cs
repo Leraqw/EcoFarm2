@@ -1,4 +1,4 @@
-﻿namespace Code.Utils.Extensions.Entitas
+﻿namespace Code
 {
 	public static class BuildingsExtensions
 	{

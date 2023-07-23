@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.MouseClickComponent mouseClick { get { return (Code.ECS.Components.MouseClickComponent)GetComponent(GameComponentsLookup.MouseClick); } }
+    public MouseClickComponent mouseClick { get { return (MouseClickComponent)GetComponent(GameComponentsLookup.MouseClick); } }
     public bool hasMouseClick { get { return HasComponent(GameComponentsLookup.MouseClick); } }
 
-    public void AddMouseClick(GameEntity newValue) {
+    public void AddMouseClick(Code.MouseClickComponent newValue) {
         var index = GameComponentsLookup.MouseClick;
-        var component = (Code.ECS.Components.MouseClickComponent)CreateComponent(index, typeof(Code.ECS.Components.MouseClickComponent));
-        component.Value = newValue;
+        var component = (MouseClickComponent)CreateComponent(index, typeof(MouseClickComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceMouseClick(GameEntity newValue) {
+    public void ReplaceMouseClick(Code.MouseClickComponent newValue) {
         var index = GameComponentsLookup.MouseClick;
-        var component = (Code.ECS.Components.MouseClickComponent)CreateComponent(index, typeof(Code.ECS.Components.MouseClickComponent));
-        component.Value = newValue;
+        var component = (MouseClickComponent)CreateComponent(index, typeof(MouseClickComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -1,12 +1,7 @@
-﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Buildings
+namespace Code
 {
 	public sealed class SpawnSignsSystem : IInitializeSystem
 	{
@@ -26,7 +21,6 @@ namespace Code.ECS.Systems.Buildings
 			            .Do((e) => e.AddPosition(position))
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))
 			            .Do((e) => e.isSign = true)
-			            .MakeAttachable()
-			/**/;
+			            .MakeAttachable();
 	}
 }

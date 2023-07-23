@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DevelopmentObjectComponent developmentObject { get { return (Code.ECS.Components.DevelopmentObjectComponent)GetComponent(GameComponentsLookup.DevelopmentObject); } }
+    public DevelopmentObjectComponent developmentObject { get { return (DevelopmentObjectComponent)GetComponent(GameComponentsLookup.DevelopmentObject); } }
     public bool hasDevelopmentObject { get { return HasComponent(GameComponentsLookup.DevelopmentObject); } }
 
-    public void AddDevelopmentObject(EcoFarmModel.DevelopmentObject newValue) {
+    public void AddDevelopmentObject(Code.DevelopmentObjectComponent newValue) {
         var index = GameComponentsLookup.DevelopmentObject;
-        var component = (Code.ECS.Components.DevelopmentObjectComponent)CreateComponent(index, typeof(Code.ECS.Components.DevelopmentObjectComponent));
-        component.Value = newValue;
+        var component = (DevelopmentObjectComponent)CreateComponent(index, typeof(DevelopmentObjectComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDevelopmentObject(EcoFarmModel.DevelopmentObject newValue) {
+    public void ReplaceDevelopmentObject(Code.DevelopmentObjectComponent newValue) {
         var index = GameComponentsLookup.DevelopmentObject;
-        var component = (Code.ECS.Components.DevelopmentObjectComponent)CreateComponent(index, typeof(Code.ECS.Components.DevelopmentObjectComponent));
-        component.Value = newValue;
+        var component = (DevelopmentObjectComponent)CreateComponent(index, typeof(DevelopmentObjectComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

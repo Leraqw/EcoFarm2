@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Services.Game.Interfaces;
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations
+namespace Code
 {
 	[Serializable]
 	public class UnitySpawnPointsService : ISpawnPointsService

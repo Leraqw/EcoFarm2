@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class AttachExtensions
 	{

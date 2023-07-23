@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Ui
+namespace Code
 {
 	public interface IButtonsCollection
 	{

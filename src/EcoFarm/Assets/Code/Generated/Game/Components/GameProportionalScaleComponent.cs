@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ProportionalScaleComponent proportionalScale { get { return (Code.ECS.Components.ProportionalScaleComponent)GetComponent(GameComponentsLookup.ProportionalScale); } }
+    public ProportionalScaleComponent proportionalScale { get { return (ProportionalScaleComponent)GetComponent(GameComponentsLookup.ProportionalScale); } }
     public bool hasProportionalScale { get { return HasComponent(GameComponentsLookup.ProportionalScale); } }
 
-    public void AddProportionalScale(float newValue) {
+    public void AddProportionalScale(Code.ProportionalScaleComponent newValue) {
         var index = GameComponentsLookup.ProportionalScale;
-        var component = (Code.ECS.Components.ProportionalScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.ProportionalScaleComponent));
-        component.Value = newValue;
+        var component = (ProportionalScaleComponent)CreateComponent(index, typeof(ProportionalScaleComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceProportionalScale(float newValue) {
+    public void ReplaceProportionalScale(Code.ProportionalScaleComponent newValue) {
         var index = GameComponentsLookup.ProportionalScale;
-        var component = (Code.ECS.Components.ProportionalScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.ProportionalScaleComponent));
-        component.Value = newValue;
+        var component = (ProportionalScaleComponent)CreateComponent(index, typeof(ProportionalScaleComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

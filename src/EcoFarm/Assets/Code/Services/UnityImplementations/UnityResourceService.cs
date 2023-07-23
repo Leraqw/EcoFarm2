@@ -1,7 +1,7 @@
-﻿using Code.Services.Interfaces;
+﻿
 using UnityEngine;
 
-namespace Code.Services.UnityImplementations
+namespace Code
 {
 	public class UnityResourceService : IResourcesService
 	{

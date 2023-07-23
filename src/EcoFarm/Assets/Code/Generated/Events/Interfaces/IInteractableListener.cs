@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInteractableListener {
-    void OnInteractable(PlayerEntity entity, bool value);
+    void OnInteractable(PlayerEntity entity, Code.InteractableComponent value);
 }

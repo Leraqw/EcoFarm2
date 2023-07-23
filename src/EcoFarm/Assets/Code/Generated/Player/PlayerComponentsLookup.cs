@@ -8,66 +8,66 @@
 //------------------------------------------------------------------------------
 public static class PlayerComponentsLookup {
 
-    public const int Text = 0;
-    public const int View = 1;
-    public const int LevelRelatedEntity = 2;
-    public const int UnlockedLevelsCount = 3;
-    public const int ForPlayerButton = 4;
-    public const int Interactable = 5;
-    public const int CompletedLevelsCount = 6;
-    public const int CurrentPlayer = 7;
-    public const int Destroy = 8;
-    public const int Nickname = 9;
-    public const int Player = 10;
+    public const int CompletedLevelsCount = 0;
+    public const int CurrentPlayer = 1;
+    public const int Destroy = 2;
+    public const int ForPlayerButton = 3;
+    public const int Interactable = 4;
+    public const int InteractableListener = 5;
+    public const int LevelRelatedEntity = 6;
+    public const int Needed = 7;
+    public const int Nickname = 8;
+    public const int Player = 9;
+    public const int PlayerTextListener = 10;
     public const int SelectedLevel = 11;
     public const int SessionResult = 12;
-    public const int Needed = 13;
-    public const int Some = 14;
-    public const int InteractableListener = 15;
-    public const int PlayerTextListener = 16;
-    public const int UnlockedLevelsCountListener = 17;
+    public const int Some = 13;
+    public const int Text = 14;
+    public const int UnlockedLevelsCount = 15;
+    public const int UnlockedLevelsCountListener = 16;
+    public const int View = 17;
 
     public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
-        "Text",
-        "View",
-        "LevelRelatedEntity",
-        "UnlockedLevelsCount",
-        "ForPlayerButton",
-        "Interactable",
         "CompletedLevelsCount",
         "CurrentPlayer",
         "Destroy",
+        "ForPlayerButton",
+        "Interactable",
+        "InteractableListener",
+        "LevelRelatedEntity",
+        "Needed",
         "Nickname",
         "Player",
+        "PlayerTextListener",
         "SelectedLevel",
         "SessionResult",
-        "Needed",
         "Some",
-        "InteractableListener",
-        "PlayerTextListener",
-        "UnlockedLevelsCountListener"
+        "Text",
+        "UnlockedLevelsCount",
+        "UnlockedLevelsCountListener",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.TextComponent),
-        typeof(Code.ECS.Components.ViewComponent),
-        typeof(Code.Global.LevelChoice.LevelRelatedEntityComponent),
-        typeof(Code.Global.LevelChoice.UnlockedLevelsCountComponent),
-        typeof(Code.Global.MainMenu.Components.ForPlayerButtonComponent),
-        typeof(Code.Global.MainMenu.Components.InteractableComponent),
-        typeof(Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent),
-        typeof(Code.Global.PlayerContexts.Components.CurrentPlayerComponent),
-        typeof(Code.Global.PlayerContexts.Components.DestroyComponent),
-        typeof(Code.Global.PlayerContexts.Components.NicknameComponent),
-        typeof(Code.Global.PlayerContexts.Components.PlayerComponent),
-        typeof(Code.Global.PlayerContexts.Components.SelectedLevelComponent),
-        typeof(Code.Global.PlayerContexts.Components.SessionResultComponent),
-        typeof(Code.Temp.NeededComponent),
-        typeof(Code.Temp.SomeComponent),
+        typeof(CompletedLevelsCountComponent),
+        typeof(CurrentPlayerComponent),
+        typeof(DestroyComponent),
+        typeof(ForPlayerButtonComponent),
+        typeof(InteractableComponent),
         typeof(InteractableListenerComponent),
+        typeof(LevelRelatedEntityComponent),
+        typeof(NeededComponent),
+        typeof(NicknameComponent),
+        typeof(PlayerComponent),
         typeof(PlayerTextListenerComponent),
-        typeof(UnlockedLevelsCountListenerComponent)
+        typeof(SelectedLevelComponent),
+        typeof(SessionResultComponent),
+        typeof(SomeComponent),
+        typeof(TextComponent),
+        typeof(UnlockedLevelsCountComponent),
+        typeof(UnlockedLevelsCountListenerComponent),
+        typeof(ViewComponent)
     };
 }

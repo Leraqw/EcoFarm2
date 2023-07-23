@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 public partial interface ITextEntity {
 
-    Code.ECS.Components.TextComponent text { get; }
+    TextComponent text { get; }
     bool hasText { get; }
 
-    void AddText(string newValue);
-    void ReplaceText(string newValue);
+    void AddText(Code.TextComponent newValue);
+    void ReplaceText(Code.TextComponent newValue);
     void RemoveText();
 }

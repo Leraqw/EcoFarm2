@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DraggingEndComponent draggingEnd { get { return (Code.ECS.Components.DraggingEndComponent)GetComponent(GameComponentsLookup.DraggingEnd); } }
+    public DraggingEndComponent draggingEnd { get { return (DraggingEndComponent)GetComponent(GameComponentsLookup.DraggingEnd); } }
     public bool hasDraggingEnd { get { return HasComponent(GameComponentsLookup.DraggingEnd); } }
 
-    public void AddDraggingEnd(UnityEngine.Vector2 newValue) {
+    public void AddDraggingEnd(Code.DraggingEndComponent newValue) {
         var index = GameComponentsLookup.DraggingEnd;
-        var component = (Code.ECS.Components.DraggingEndComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingEndComponent));
-        component.Value = newValue;
+        var component = (DraggingEndComponent)CreateComponent(index, typeof(DraggingEndComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDraggingEnd(UnityEngine.Vector2 newValue) {
+    public void ReplaceDraggingEnd(Code.DraggingEndComponent newValue) {
         var index = GameComponentsLookup.DraggingEnd;
-        var component = (Code.ECS.Components.DraggingEndComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingEndComponent));
-        component.Value = newValue;
+        var component = (DraggingEndComponent)CreateComponent(index, typeof(DraggingEndComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

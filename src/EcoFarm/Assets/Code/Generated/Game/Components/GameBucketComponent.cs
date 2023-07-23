@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.BucketComponent bucketComponent = new Code.ECS.Components.BucketComponent();
+    public BucketComponent bucket { get { return (BucketComponent)GetComponent(GameComponentsLookup.Bucket); } }
+    public bool hasBucket { get { return HasComponent(GameComponentsLookup.Bucket); } }
 
-    public bool isBucket {
-        get { return HasComponent(GameComponentsLookup.Bucket); }
-        set {
-            if (value != isBucket) {
-                var index = GameComponentsLookup.Bucket;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : bucketComponent;
+    public void AddBucket(Code.BucketComponent newValue) {
+        var index = GameComponentsLookup.Bucket;
+        var component = (BucketComponent)CreateComponent(index, typeof(BucketComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceBucket(Code.BucketComponent newValue) {
+        var index = GameComponentsLookup.Bucket;
+        var component = (BucketComponent)CreateComponent(index, typeof(BucketComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveBucket() {
+        RemoveComponent(GameComponentsLookup.Bucket);
     }
 }
 

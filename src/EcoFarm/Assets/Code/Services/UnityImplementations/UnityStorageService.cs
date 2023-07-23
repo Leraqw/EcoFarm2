@@ -1,7 +1,7 @@
-﻿using Code.Data.Config;
-using Code.Services.Interfaces;
+﻿
 
-namespace Code.Services.UnityImplementations
+
+namespace Code
 {
 	public class UnityStorageService : UnityJsonStorage, IStorageService { }
 }

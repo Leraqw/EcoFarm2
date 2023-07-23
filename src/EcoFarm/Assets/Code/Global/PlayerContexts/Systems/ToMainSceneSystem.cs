@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Global.PlayerContexts.Systems
+namespace Code
 {
 	public sealed class ToMainSceneSystem : IInitializeSystem
 	{

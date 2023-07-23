@@ -30,7 +30,7 @@ public sealed class SliderValueEventSystem : Entitas.ReactiveSystem<GameEntity> 
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.sliderValueListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnSliderValue(e, component.Value);
+                listener.OnSliderValue(e, component.value);
             }
         }
     }

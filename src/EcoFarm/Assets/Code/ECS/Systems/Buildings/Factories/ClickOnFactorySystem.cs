@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using Entitas;
 using EcoFarmModel;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace Code
 {
 	public sealed class ClickOnFactorySystem : ReactiveSystem<GameEntity>
 	{

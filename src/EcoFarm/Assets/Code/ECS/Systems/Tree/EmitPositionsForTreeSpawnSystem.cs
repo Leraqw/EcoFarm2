@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using Code.Services.Game.Interfaces;
-using Code.Utils.Extensions;
+
+
 using Entitas;
 using UnityEngine;
 using LevelData = EcoFarmModel.Level;
 
-namespace Code.ECS.Systems.Tree
+namespace Code
 {
 	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
 	{

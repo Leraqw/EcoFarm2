@@ -1,7 +1,7 @@
-﻿using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Ui;
+﻿
 
-namespace Code.Services.Game.Interfaces
+
+namespace Code
 {
 	public interface IGameServices
 		: ISpawnPointsService,

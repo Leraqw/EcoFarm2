@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.CleanerGeneratorComponent cleanerGeneratorComponent = new Code.ECS.Components.Buildings.CleanerGeneratorComponent();
+    public CleanerGeneratorComponent cleanerGenerator { get { return (CleanerGeneratorComponent)GetComponent(GameComponentsLookup.CleanerGenerator); } }
+    public bool hasCleanerGenerator { get { return HasComponent(GameComponentsLookup.CleanerGenerator); } }
 
-    public bool isCleanerGenerator {
-        get { return HasComponent(GameComponentsLookup.CleanerGenerator); }
-        set {
-            if (value != isCleanerGenerator) {
-                var index = GameComponentsLookup.CleanerGenerator;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : cleanerGeneratorComponent;
+    public void AddCleanerGenerator(Code.CleanerGeneratorComponent newValue) {
+        var index = GameComponentsLookup.CleanerGenerator;
+        var component = (CleanerGeneratorComponent)CreateComponent(index, typeof(CleanerGeneratorComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceCleanerGenerator(Code.CleanerGeneratorComponent newValue) {
+        var index = GameComponentsLookup.CleanerGenerator;
+        var component = (CleanerGeneratorComponent)CreateComponent(index, typeof(CleanerGeneratorComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveCleanerGenerator() {
+        RemoveComponent(GameComponentsLookup.CleanerGenerator);
     }
 }
 

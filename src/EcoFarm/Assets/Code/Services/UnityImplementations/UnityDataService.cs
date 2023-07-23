@@ -1,4 +1,4 @@
-﻿namespace Code.Services.UnityImplementations
+﻿namespace Code
 {
 	public class UnityDataService
 	{

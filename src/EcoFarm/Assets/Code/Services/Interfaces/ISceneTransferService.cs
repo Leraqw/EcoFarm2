@@ -1,5 +1,5 @@
 ﻿
-namespace Code.Services.Interfaces
+namespace Code
 {
 	public interface ISceneTransferService : IService
 	{

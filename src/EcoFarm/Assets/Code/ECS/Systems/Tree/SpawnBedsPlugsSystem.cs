@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Utils.Extensions;
+
+
+
+
 using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Tree
+namespace Code
 {
 	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{

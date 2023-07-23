@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SpriteComponent sprite { get { return (Code.ECS.Components.SpriteComponent)GetComponent(GameComponentsLookup.Sprite); } }
+    public SpriteComponent sprite { get { return (SpriteComponent)GetComponent(GameComponentsLookup.Sprite); } }
     public bool hasSprite { get { return HasComponent(GameComponentsLookup.Sprite); } }
 
-    public void AddSprite(UnityEngine.Sprite newValue) {
+    public void AddSprite(Code.SpriteComponent newValue) {
         var index = GameComponentsLookup.Sprite;
-        var component = (Code.ECS.Components.SpriteComponent)CreateComponent(index, typeof(Code.ECS.Components.SpriteComponent));
-        component.Value = newValue;
+        var component = (SpriteComponent)CreateComponent(index, typeof(SpriteComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSprite(UnityEngine.Sprite newValue) {
+    public void ReplaceSprite(Code.SpriteComponent newValue) {
         var index = GameComponentsLookup.Sprite;
-        var component = (Code.ECS.Components.SpriteComponent)CreateComponent(index, typeof(Code.ECS.Components.SpriteComponent));
-        component.Value = newValue;
+        var component = (SpriteComponent)CreateComponent(index, typeof(SpriteComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

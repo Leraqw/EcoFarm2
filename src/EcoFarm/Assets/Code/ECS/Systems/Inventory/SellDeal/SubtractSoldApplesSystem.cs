@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace Code
 {
 	public sealed class SubtractSoldApplesSystem : ReactiveSystem<GameEntity>
 	{

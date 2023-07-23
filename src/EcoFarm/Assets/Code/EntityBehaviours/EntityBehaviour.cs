@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Code.EntityBehaviours
+namespace Code
 {
 	public abstract class EntityBehaviour : MonoBehaviour
 	{

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.GrowthComponent growthComponent = new Code.ECS.Components.GrowthComponent();
+    public GrowthComponent growth { get { return (GrowthComponent)GetComponent(GameComponentsLookup.Growth); } }
+    public bool hasGrowth { get { return HasComponent(GameComponentsLookup.Growth); } }
 
-    public bool isGrowth {
-        get { return HasComponent(GameComponentsLookup.Growth); }
-        set {
-            if (value != isGrowth) {
-                var index = GameComponentsLookup.Growth;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : growthComponent;
+    public void AddGrowth(Code.GrowthComponent newValue) {
+        var index = GameComponentsLookup.Growth;
+        var component = (GrowthComponent)CreateComponent(index, typeof(GrowthComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceGrowth(Code.GrowthComponent newValue) {
+        var index = GameComponentsLookup.Growth;
+        var component = (GrowthComponent)CreateComponent(index, typeof(GrowthComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveGrowth() {
+        RemoveComponent(GameComponentsLookup.Growth);
     }
 }
 

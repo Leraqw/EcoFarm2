@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.TargetScaleComponent targetScale { get { return (Code.ECS.Components.TargetScaleComponent)GetComponent(GameComponentsLookup.TargetScale); } }
+    public TargetScaleComponent targetScale { get { return (TargetScaleComponent)GetComponent(GameComponentsLookup.TargetScale); } }
     public bool hasTargetScale { get { return HasComponent(GameComponentsLookup.TargetScale); } }
 
-    public void AddTargetScale(float newValue) {
+    public void AddTargetScale(Code.TargetScaleComponent newValue) {
         var index = GameComponentsLookup.TargetScale;
-        var component = (Code.ECS.Components.TargetScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.TargetScaleComponent));
-        component.Value = newValue;
+        var component = (TargetScaleComponent)CreateComponent(index, typeof(TargetScaleComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetScale(float newValue) {
+    public void ReplaceTargetScale(Code.TargetScaleComponent newValue) {
         var index = GameComponentsLookup.TargetScale;
-        var component = (Code.ECS.Components.TargetScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.TargetScaleComponent));
-        component.Value = newValue;
+        var component = (TargetScaleComponent)CreateComponent(index, typeof(TargetScaleComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

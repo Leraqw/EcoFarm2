@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Temp.HealthComponent health { get { return (Code.Temp.HealthComponent)GetComponent(GameComponentsLookup.Health); } }
+    public HealthComponent health { get { return (HealthComponent)GetComponent(GameComponentsLookup.Health); } }
     public bool hasHealth { get { return HasComponent(GameComponentsLookup.Health); } }
 
-    public void AddHealth(int newValue) {
+    public void AddHealth(Code.HealthComponent newValue) {
         var index = GameComponentsLookup.Health;
-        var component = (Code.Temp.HealthComponent)CreateComponent(index, typeof(Code.Temp.HealthComponent));
-        component.Value = newValue;
+        var component = (HealthComponent)CreateComponent(index, typeof(HealthComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceHealth(int newValue) {
+    public void ReplaceHealth(Code.HealthComponent newValue) {
         var index = GameComponentsLookup.Health;
-        var component = (Code.Temp.HealthComponent)CreateComponent(index, typeof(Code.Temp.HealthComponent));
-        component.Value = newValue;
+        var component = (HealthComponent)CreateComponent(index, typeof(HealthComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

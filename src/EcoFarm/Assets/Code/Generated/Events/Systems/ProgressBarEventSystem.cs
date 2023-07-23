@@ -30,7 +30,7 @@ public sealed class ProgressBarEventSystem : Entitas.ReactiveSystem<GameEntity> 
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.progressBarListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnProgressBar(e, component.Value);
+                listener.OnProgressBar(e, component.value);
             }
         }
     }

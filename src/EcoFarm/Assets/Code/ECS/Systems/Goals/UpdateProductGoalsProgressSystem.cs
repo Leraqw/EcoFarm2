@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using Code.Utils.Extensions.Entitas;
+
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Goals
+namespace Code
 {
 	public sealed class UpdateProductGoalsProgressSystem : ReactiveSystem<GameEntity>
 	{

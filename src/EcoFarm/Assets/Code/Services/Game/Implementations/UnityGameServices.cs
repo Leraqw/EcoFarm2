@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Unity;
-using Code.Unity.ViewListeners;
+
+
+
+
+
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations
+namespace Code
 {
 	public class UnityGameServices : IGameServices
 	{

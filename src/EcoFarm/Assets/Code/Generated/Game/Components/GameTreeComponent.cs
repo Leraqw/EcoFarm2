@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.TreeComponent tree { get { return (Code.ECS.Components.TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
+    public TreeComponent tree { get { return (TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
     public bool hasTree { get { return HasComponent(GameComponentsLookup.Tree); } }
 
-    public void AddTree(EcoFarmModel.Tree newValue) {
+    public void AddTree(Code.TreeComponent newValue) {
         var index = GameComponentsLookup.Tree;
-        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
-        component.Value = newValue;
+        var component = (TreeComponent)CreateComponent(index, typeof(TreeComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTree(EcoFarmModel.Tree newValue) {
+    public void ReplaceTree(Code.TreeComponent newValue) {
         var index = GameComponentsLookup.Tree;
-        var component = (Code.ECS.Components.TreeComponent)CreateComponent(index, typeof(Code.ECS.Components.TreeComponent));
-        component.Value = newValue;
+        var component = (TreeComponent)CreateComponent(index, typeof(TreeComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ConsumerComponent consumer { get { return (Code.ECS.Components.ConsumerComponent)GetComponent(GameComponentsLookup.Consumer); } }
+    public ConsumerComponent consumer { get { return (ConsumerComponent)GetComponent(GameComponentsLookup.Consumer); } }
     public bool hasConsumer { get { return HasComponent(GameComponentsLookup.Consumer); } }
 
-    public void AddConsumer(int newValue) {
+    public void AddConsumer(Code.ConsumerComponent newValue) {
         var index = GameComponentsLookup.Consumer;
-        var component = (Code.ECS.Components.ConsumerComponent)CreateComponent(index, typeof(Code.ECS.Components.ConsumerComponent));
-        component.Value = newValue;
+        var component = (ConsumerComponent)CreateComponent(index, typeof(ConsumerComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceConsumer(int newValue) {
+    public void ReplaceConsumer(Code.ConsumerComponent newValue) {
         var index = GameComponentsLookup.Consumer;
-        var component = (Code.ECS.Components.ConsumerComponent)CreateComponent(index, typeof(Code.ECS.Components.ConsumerComponent));
-        component.Value = newValue;
+        var component = (ConsumerComponent)CreateComponent(index, typeof(ConsumerComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

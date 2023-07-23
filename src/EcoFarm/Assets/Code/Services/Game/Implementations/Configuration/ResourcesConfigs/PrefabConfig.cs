@@ -1,8 +1,8 @@
 ﻿using System;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace Code
 {
 	[Serializable]
 	public class PrefabConfig : IPrefabConfig

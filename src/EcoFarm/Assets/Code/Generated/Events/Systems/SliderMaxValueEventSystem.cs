@@ -30,7 +30,7 @@ public sealed class SliderMaxValueEventSystem : Entitas.ReactiveSystem<GameEntit
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.sliderMaxValueListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnSliderMaxValue(e, component.Value);
+                listener.OnSliderMaxValue(e, component.value);
             }
         }
     }

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Global.MainMenu.Components.ForPlayerButtonComponent forPlayerButtonComponent = new Code.Global.MainMenu.Components.ForPlayerButtonComponent();
+    public ForPlayerButtonComponent forPlayerButton { get { return (ForPlayerButtonComponent)GetComponent(PlayerComponentsLookup.ForPlayerButton); } }
+    public bool hasForPlayerButton { get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); } }
 
-    public bool isForPlayerButton {
-        get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); }
-        set {
-            if (value != isForPlayerButton) {
-                var index = PlayerComponentsLookup.ForPlayerButton;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : forPlayerButtonComponent;
+    public void AddForPlayerButton(Code.ForPlayerButtonComponent newValue) {
+        var index = PlayerComponentsLookup.ForPlayerButton;
+        var component = (ForPlayerButtonComponent)CreateComponent(index, typeof(ForPlayerButtonComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceForPlayerButton(Code.ForPlayerButtonComponent newValue) {
+        var index = PlayerComponentsLookup.ForPlayerButton;
+        var component = (ForPlayerButtonComponent)CreateComponent(index, typeof(ForPlayerButtonComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveForPlayerButton() {
+        RemoveComponent(PlayerComponentsLookup.ForPlayerButton);
     }
 }
 

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SellCoefficientComponent sellCoefficient { get { return (Code.ECS.Components.SellCoefficientComponent)GetComponent(GameComponentsLookup.SellCoefficient); } }
+    public SellCoefficientComponent sellCoefficient { get { return (SellCoefficientComponent)GetComponent(GameComponentsLookup.SellCoefficient); } }
     public bool hasSellCoefficient { get { return HasComponent(GameComponentsLookup.SellCoefficient); } }
 
-    public void AddSellCoefficient(float newValue) {
+    public void AddSellCoefficient(Code.SellCoefficientComponent newValue) {
         var index = GameComponentsLookup.SellCoefficient;
-        var component = (Code.ECS.Components.SellCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.SellCoefficientComponent));
-        component.Value = newValue;
+        var component = (SellCoefficientComponent)CreateComponent(index, typeof(SellCoefficientComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSellCoefficient(float newValue) {
+    public void ReplaceSellCoefficient(Code.SellCoefficientComponent newValue) {
         var index = GameComponentsLookup.SellCoefficient;
-        var component = (Code.ECS.Components.SellCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.SellCoefficientComponent));
-        component.Value = newValue;
+        var component = (SellCoefficientComponent)CreateComponent(index, typeof(SellCoefficientComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -1,12 +1,9 @@
 ﻿using System.IO;
-using Code.Services.Interfaces;
-using Code.Unity.TEMP;
-using Code.Utils.StaticClasses;
 using EcoFarmModel;
 using Newtonsoft.Json;
-using static Code.Data.StorageJson.JsonUtils;
+using static Code.JsonUtils;
 
-namespace Code.Data.StorageJson
+namespace Code
 {
 	public class StorageAccess : IDataService
 	{

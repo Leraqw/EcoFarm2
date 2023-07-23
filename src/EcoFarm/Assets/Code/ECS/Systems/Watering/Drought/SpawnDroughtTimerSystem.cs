@@ -1,8 +1,8 @@
-﻿using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+﻿
+
 using Entitas;
 
-namespace Code.ECS.Systems.Watering.Drought
+namespace Code
 {
 	public sealed class SpawnDroughtTimerSystem : IInitializeSystem
 	{

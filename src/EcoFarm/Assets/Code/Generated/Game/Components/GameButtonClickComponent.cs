@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.ButtonClickComponent buttonClickComponent = new Code.ECS.Components.ButtonClickComponent();
+    public ButtonClickComponent buttonClick { get { return (ButtonClickComponent)GetComponent(GameComponentsLookup.ButtonClick); } }
+    public bool hasButtonClick { get { return HasComponent(GameComponentsLookup.ButtonClick); } }
 
-    public bool isButtonClick {
-        get { return HasComponent(GameComponentsLookup.ButtonClick); }
-        set {
-            if (value != isButtonClick) {
-                var index = GameComponentsLookup.ButtonClick;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : buttonClickComponent;
+    public void AddButtonClick(Code.ButtonClickComponent newValue) {
+        var index = GameComponentsLookup.ButtonClick;
+        var component = (ButtonClickComponent)CreateComponent(index, typeof(ButtonClickComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceButtonClick(Code.ButtonClickComponent newValue) {
+        var index = GameComponentsLookup.ButtonClick;
+        var component = (ButtonClickComponent)CreateComponent(index, typeof(ButtonClickComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveButtonClick() {
+        RemoveComponent(GameComponentsLookup.ButtonClick);
     }
 }
 

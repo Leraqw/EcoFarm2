@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
+using static Code.SessionResult;
 
-namespace Code.Unity.TEMP
+namespace Code
 {
 	public class GameResultMenu : MonoBehaviour
 	{

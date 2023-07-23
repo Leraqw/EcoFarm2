@@ -1,10 +1,10 @@
-﻿using Code.ECS.Features.Features;
-using Code.Global.MainMenu.Systems;
-using Code.Global.PlayerContexts.Systems;
-using Code.Services.Interfaces;
-using Code.Utils.Extensions.Entitas;
+﻿
 
-namespace Code.Global.PlayerContexts.Features
+
+
+
+
+namespace Code
 {
 	public sealed class GlobalSystems : Feature
 	{

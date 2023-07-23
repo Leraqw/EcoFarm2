@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Cooldown
+namespace Code
 {
 	public sealed class WaitAfterGrowingSystem : ReactiveSystem<GameEntity>
 	{

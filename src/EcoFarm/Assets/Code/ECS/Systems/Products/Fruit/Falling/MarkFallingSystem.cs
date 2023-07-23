@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
+
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Falling
+namespace Code
 {
 	public sealed class MarkFallingSystem : ReactiveSystem<GameEntity>
 	{

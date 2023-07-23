@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IPlayerTextListener {
-    void OnText(PlayerEntity entity, string value);
+    void OnText(PlayerEntity entity, Code.TextComponent value);
 }

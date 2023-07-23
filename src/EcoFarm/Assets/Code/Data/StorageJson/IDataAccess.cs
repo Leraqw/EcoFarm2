@@ -1,6 +1,6 @@
 using EcoFarmModel;
 
-namespace Code.Data.StorageJson
+namespace Code
 {
 	public interface IDataAccess
 	{

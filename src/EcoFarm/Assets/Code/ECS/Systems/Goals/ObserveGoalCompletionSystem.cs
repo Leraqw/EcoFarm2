@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Utils.Extensions;
+
 using Entitas;
 using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Goals
+namespace Code
 {
 	public sealed class ObserveGoalCompletionSystem : ReactiveSystem<GameEntity>
 	{

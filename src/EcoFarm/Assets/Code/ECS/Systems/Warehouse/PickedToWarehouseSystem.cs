@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config;
+
+
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Warehouse
+namespace Code
 {
 	public sealed class PickedToWarehouseSystem : ReactiveSystem<GameEntity>
 	{

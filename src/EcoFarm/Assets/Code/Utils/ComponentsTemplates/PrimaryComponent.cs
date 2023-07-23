@@ -2,7 +2,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 // ReSharper disable All
 
-namespace Packages.Code.Ecs.Components.Workflow
+namespace Code
 {
 	public class PrimaryComponent<T> : IComponent
 	{

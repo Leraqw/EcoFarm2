@@ -1,8 +1,8 @@
-﻿using Code.Unity.ViewListeners;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Menus.UiBehaviours.Buttons
+namespace Code
 {
 	public class ButtonClickReceiver : MonoBehaviour
 	{

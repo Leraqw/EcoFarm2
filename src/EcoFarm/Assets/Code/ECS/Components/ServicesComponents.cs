@@ -1,27 +1,15 @@
-﻿using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Services.Interfaces;
-using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace Code.ECS.Components
+namespace Code
 {
-	[Services] [Unique] public sealed class ResourcesServiceComponent : ValueComponent<IResourcesService> { }
-
-	[Services] [Unique] public sealed class SceneObjectsServiceComponent : ValueComponent<ISpawnPointsService> { }
-
-	[Services] [Unique] public sealed class StorageServiceComponent : ValueComponent<IStorageService> { }
-
-	[Services] [Unique] public sealed class DataServiceComponent : ValueComponent<IDataService> { }
-
-	[Services] [Unique] public sealed class CameraServiceComponent : ValueComponent<ICameraService> { }
-
-	[Services] [Unique] public sealed class InputServiceComponent : ValueComponent<IInputService> { }
-
-	[Services] [Unique] public sealed class ConfigurationServiceComponent : ValueComponent<IConfigurationService> { }
-
-	[Services] [Unique] public sealed class UiServiceComponent : ValueComponent<IUiService> { }
-
-	[Services] [Unique] public sealed class SceneTransferServiceComponent : ValueComponent<ISceneTransferService> { }
+	[Services] [Unique] public sealed class ResourcesServiceComponent : IComponent { public IResourcesService Value; }
+	[Services] [Unique] public sealed class SceneObjectsServiceComponent : IComponent { public ISpawnPointsService Value; }
+	[Services] [Unique] public sealed class StorageServiceComponent : IComponent { public IStorageService Value; }
+	[Services] [Unique] public sealed class DataServiceComponent : IComponent { public IDataService Value; }
+	[Services] [Unique] public sealed class CameraServiceComponent : IComponent { public ICameraService Value; }
+	[Services] [Unique] public sealed class InputServiceComponent : IComponent { public IInputService Value; }
+	[Services] [Unique] public sealed class ConfigurationServiceComponent : IComponent { public IConfigurationService Value; }
+	[Services] [Unique] public sealed class UiServiceComponent : IComponent { public IUiService Value; }
+	[Services] [Unique] public sealed class SceneTransferServiceComponent : IComponent { public ISceneTransferService Value; }
 }

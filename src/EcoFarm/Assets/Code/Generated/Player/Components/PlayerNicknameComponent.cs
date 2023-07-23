@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContexts.Components.NicknameComponent nickname { get { return (Code.Global.PlayerContexts.Components.NicknameComponent)GetComponent(PlayerComponentsLookup.Nickname); } }
+    public NicknameComponent nickname { get { return (NicknameComponent)GetComponent(PlayerComponentsLookup.Nickname); } }
     public bool hasNickname { get { return HasComponent(PlayerComponentsLookup.Nickname); } }
 
-    public void AddNickname(string newValue) {
+    public void AddNickname(Code.NicknameComponent newValue) {
         var index = PlayerComponentsLookup.Nickname;
-        var component = (Code.Global.PlayerContexts.Components.NicknameComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.NicknameComponent));
-        component.Value = newValue;
+        var component = (NicknameComponent)CreateComponent(index, typeof(NicknameComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceNickname(string newValue) {
+    public void ReplaceNickname(Code.NicknameComponent newValue) {
         var index = PlayerComponentsLookup.Nickname;
-        var component = (Code.Global.PlayerContexts.Components.NicknameComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.NicknameComponent));
-        component.Value = newValue;
+        var component = (NicknameComponent)CreateComponent(index, typeof(NicknameComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

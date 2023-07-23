@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IActivateListener {
-    void OnActivate(GameEntity entity, bool value);
+    void OnActivate(GameEntity entity, Code.ActivateComponent value);
 }

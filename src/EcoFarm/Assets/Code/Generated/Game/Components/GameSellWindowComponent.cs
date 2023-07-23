@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SellWindowComponent sellWindow { get { return (Code.ECS.Components.SellWindowComponent)GetComponent(GameComponentsLookup.SellWindow); } }
+    public SellWindowComponent sellWindow { get { return (SellWindowComponent)GetComponent(GameComponentsLookup.SellWindow); } }
     public bool hasSellWindow { get { return HasComponent(GameComponentsLookup.SellWindow); } }
 
-    public void AddSellWindow(Code.Unity.Containers.WindowSell newValue) {
+    public void AddSellWindow(Code.SellWindowComponent newValue) {
         var index = GameComponentsLookup.SellWindow;
-        var component = (Code.ECS.Components.SellWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.SellWindowComponent));
-        component.Value = newValue;
+        var component = (SellWindowComponent)CreateComponent(index, typeof(SellWindowComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSellWindow(Code.Unity.Containers.WindowSell newValue) {
+    public void ReplaceSellWindow(Code.SellWindowComponent newValue) {
         var index = GameComponentsLookup.SellWindow;
-        var component = (Code.ECS.Components.SellWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.SellWindowComponent));
-        component.Value = newValue;
+        var component = (SellWindowComponent)CreateComponent(index, typeof(SellWindowComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

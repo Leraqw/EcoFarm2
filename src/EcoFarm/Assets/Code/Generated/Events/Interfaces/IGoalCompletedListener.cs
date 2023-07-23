@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGoalCompletedListener {
-    void OnGoalCompleted(GameEntity entity);
+    void OnGoalCompleted(GameEntity entity, Code.GoalCompletedComponent value);
 }

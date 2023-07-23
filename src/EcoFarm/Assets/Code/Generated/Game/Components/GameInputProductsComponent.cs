@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.InputProductsComponent inputProducts { get { return (Code.ECS.Components.InputProductsComponent)GetComponent(GameComponentsLookup.InputProducts); } }
+    public InputProductsComponent inputProducts { get { return (InputProductsComponent)GetComponent(GameComponentsLookup.InputProducts); } }
     public bool hasInputProducts { get { return HasComponent(GameComponentsLookup.InputProducts); } }
 
-    public void AddInputProducts(EcoFarmModel.Product[] newValue) {
+    public void AddInputProducts(Code.InputProductsComponent newValue) {
         var index = GameComponentsLookup.InputProducts;
-        var component = (Code.ECS.Components.InputProductsComponent)CreateComponent(index, typeof(Code.ECS.Components.InputProductsComponent));
-        component.Value = newValue;
+        var component = (InputProductsComponent)CreateComponent(index, typeof(InputProductsComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputProducts(EcoFarmModel.Product[] newValue) {
+    public void ReplaceInputProducts(Code.InputProductsComponent newValue) {
         var index = GameComponentsLookup.InputProducts;
-        var component = (Code.ECS.Components.InputProductsComponent)CreateComponent(index, typeof(Code.ECS.Components.InputProductsComponent));
-        component.Value = newValue;
+        var component = (InputProductsComponent)CreateComponent(index, typeof(InputProductsComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

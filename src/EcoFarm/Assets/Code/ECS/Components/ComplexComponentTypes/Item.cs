@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Code.ECS.Components.ComplexComponentTypes
+namespace Code
 {
 	[Serializable]
 	public class Item

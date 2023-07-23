@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.WillFallComponent willFallComponent = new Code.ECS.Components.WillFallComponent();
+    public WillFallComponent willFall { get { return (WillFallComponent)GetComponent(GameComponentsLookup.WillFall); } }
+    public bool hasWillFall { get { return HasComponent(GameComponentsLookup.WillFall); } }
 
-    public bool isWillFall {
-        get { return HasComponent(GameComponentsLookup.WillFall); }
-        set {
-            if (value != isWillFall) {
-                var index = GameComponentsLookup.WillFall;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : willFallComponent;
+    public void AddWillFall(Code.WillFallComponent newValue) {
+        var index = GameComponentsLookup.WillFall;
+        var component = (WillFallComponent)CreateComponent(index, typeof(WillFallComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceWillFall(Code.WillFallComponent newValue) {
+        var index = GameComponentsLookup.WillFall;
+        var component = (WillFallComponent)CreateComponent(index, typeof(WillFallComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveWillFall() {
+        RemoveComponent(GameComponentsLookup.WillFall);
     }
 }
 

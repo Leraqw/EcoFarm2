@@ -21,16 +21,16 @@ public sealed class GoalCompletedEventSystem : Entitas.ReactiveSystem<GameEntity
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.isGoalCompleted && entity.hasGoalCompletedListener;
+        return entity.hasGoalCompleted && entity.hasGoalCompletedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.goalCompleted;
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.goalCompletedListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnGoalCompleted(e);
+                listener.OnGoalCompleted(e, component.value);
             }
         }
     }

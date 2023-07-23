@@ -3,7 +3,7 @@ using UnityEngine;
 using static System.IO.Path;
 using static UnityEngine.Application;
 
-namespace Code.Utils.StaticClasses
+namespace Code
 {
 	public static class Constants
 	{

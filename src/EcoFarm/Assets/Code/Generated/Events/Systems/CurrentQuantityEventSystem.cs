@@ -30,7 +30,7 @@ public sealed class CurrentQuantityEventSystem : Entitas.ReactiveSystem<GameEnti
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.currentQuantityListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnCurrentQuantity(e, component.Value);
+                listener.OnCurrentQuantity(e, component.value);
             }
         }
     }

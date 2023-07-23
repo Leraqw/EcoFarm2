@@ -1,7 +1,7 @@
-﻿using Code.ECS.Components.ComplexComponentTypes;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
+﻿
 
-namespace Code.Utils.Extensions.Entitas
+
+namespace Code
 {
 	public static class ResourcesExtensions
 	{

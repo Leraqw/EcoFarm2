@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DroughtTimerComponent droughtTimerComponent = new Code.ECS.Components.DroughtTimerComponent();
+    public DroughtTimerComponent droughtTimer { get { return (DroughtTimerComponent)GetComponent(GameComponentsLookup.DroughtTimer); } }
+    public bool hasDroughtTimer { get { return HasComponent(GameComponentsLookup.DroughtTimer); } }
 
-    public bool isDroughtTimer {
-        get { return HasComponent(GameComponentsLookup.DroughtTimer); }
-        set {
-            if (value != isDroughtTimer) {
-                var index = GameComponentsLookup.DroughtTimer;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : droughtTimerComponent;
+    public void AddDroughtTimer(Code.DroughtTimerComponent newValue) {
+        var index = GameComponentsLookup.DroughtTimer;
+        var component = (DroughtTimerComponent)CreateComponent(index, typeof(DroughtTimerComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceDroughtTimer(Code.DroughtTimerComponent newValue) {
+        var index = GameComponentsLookup.DroughtTimer;
+        var component = (DroughtTimerComponent)CreateComponent(index, typeof(DroughtTimerComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveDroughtTimer() {
+        RemoveComponent(GameComponentsLookup.DroughtTimer);
     }
 }
 

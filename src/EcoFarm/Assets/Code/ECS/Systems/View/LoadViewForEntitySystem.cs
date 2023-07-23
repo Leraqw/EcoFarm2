@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Interfaces;
-using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
+
+
+
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.View
+namespace Code
 {
 	public sealed class LoadViewForEntitySystem : ReactiveSystem<GameEntity>
 	{

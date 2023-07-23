@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SliderValueComponent sliderValue { get { return (Code.ECS.Components.SliderValueComponent)GetComponent(GameComponentsLookup.SliderValue); } }
+    public SliderValueComponent sliderValue { get { return (SliderValueComponent)GetComponent(GameComponentsLookup.SliderValue); } }
     public bool hasSliderValue { get { return HasComponent(GameComponentsLookup.SliderValue); } }
 
-    public void AddSliderValue(float newValue) {
+    public void AddSliderValue(Code.SliderValueComponent newValue) {
         var index = GameComponentsLookup.SliderValue;
-        var component = (Code.ECS.Components.SliderValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderValueComponent));
-        component.Value = newValue;
+        var component = (SliderValueComponent)CreateComponent(index, typeof(SliderValueComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSliderValue(float newValue) {
+    public void ReplaceSliderValue(Code.SliderValueComponent newValue) {
         var index = GameComponentsLookup.SliderValue;
-        var component = (Code.ECS.Components.SliderValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderValueComponent));
-        component.Value = newValue;
+        var component = (SliderValueComponent)CreateComponent(index, typeof(SliderValueComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

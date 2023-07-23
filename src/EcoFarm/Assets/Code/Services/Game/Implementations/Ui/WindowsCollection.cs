@@ -1,9 +1,9 @@
 ﻿using System;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Unity.Containers;
+
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Ui
+namespace Code
 {
 	[Serializable]
 	public class WindowsCollection : IWindowsCollection

@@ -1,10 +1,4 @@
-﻿using Code.ECS.Features.Features;
-using Code.ECS.Systems.EntityBehaviours;
-using Code.Temp;
-using Code.Unity;
-using Code.Utils.Extensions.Entitas;
-
-namespace Code.ECS.Features
+﻿namespace Code
 {
 	public sealed class GameContextSystems : Feature
 	{
@@ -19,7 +13,7 @@ namespace Code.ECS.Features
 
 			Add(new ResolveEnemyDependenciesSystem(contexts));
 			Add(new GameEventSystems(contexts));
-			Add(new GameCleanupSystems(contexts));
+			// Add(new GameCleanupSystems(contexts));
 		}
 
 		public void OnUpdate() => this.ExecuteAnd().Cleanup();

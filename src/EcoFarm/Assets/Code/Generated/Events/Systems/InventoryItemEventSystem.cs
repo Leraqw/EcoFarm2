@@ -30,7 +30,7 @@ public sealed class InventoryItemEventSystem : Entitas.ReactiveSystem<GameEntity
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.inventoryItemListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnInventoryItem(e, component.Value);
+                listener.OnInventoryItem(e, component.value);
             }
         }
     }

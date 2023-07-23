@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Code.Unity.ViewListeners.UI
+namespace Code
 {
 	public class TextView : BaseViewListener, IGameTextListener, IPlayerTextListener
 	{

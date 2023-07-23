@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Unity.ViewListeners;
-using Code.Utils.Extensions;
+
+
 using Entitas;
 
-namespace Code.ECS.Systems.View
+namespace Code
 {
 	public sealed class BindViewsSystem : ReactiveSystem<GameEntity>
 	{

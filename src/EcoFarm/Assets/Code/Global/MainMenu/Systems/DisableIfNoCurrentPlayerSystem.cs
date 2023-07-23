@@ -2,7 +2,7 @@
 using Entitas;
 using static PlayerMatcher;
 
-namespace Code.Global.MainMenu.Systems
+namespace Code
 {
 	public sealed class DisableIfNoCurrentPlayerSystem : ReactiveSystem<PlayerEntity>
 	{

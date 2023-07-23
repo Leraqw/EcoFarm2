@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.Containers
+namespace Code
 {
 	public class WindowSell : MonoBehaviour
 	{

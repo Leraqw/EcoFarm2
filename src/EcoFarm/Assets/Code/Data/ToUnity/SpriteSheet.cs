@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Data.StorageJson;
+
 using EcoFarmModel;
 using UnityEngine;
-using Code.Utils.Extensions;
 
-namespace Code.Data.ToUnity
+
+namespace Code
 {
 	[CreateAssetMenu(fileName = "SpriteSheet", menuName = "ScriptableObject/SpriteSheet")]
 	public class SpriteSheet : ScriptableObject

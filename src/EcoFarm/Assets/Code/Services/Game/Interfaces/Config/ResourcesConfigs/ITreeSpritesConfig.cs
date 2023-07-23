@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
+namespace Code
 {
 	public interface ITreeSpritesConfig
 	{

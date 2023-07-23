@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace Code
 {
 	public interface IWaterCleanerConfig
 	{

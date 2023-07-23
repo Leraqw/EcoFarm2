@@ -1,6 +1,4 @@
-﻿using Code.ECS.Systems.Tree;
-
-namespace Code.ECS.Features.Initialization
+﻿namespace Code
 {
 	public sealed class DataBaseLoadSystems : Feature
 	{

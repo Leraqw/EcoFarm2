@@ -1,6 +1,6 @@
-﻿using Code.ECS.Systems.Common;
+﻿
 
-namespace Code.ECS.Features.Updatables
+namespace Code
 {
 	public sealed class DurationSystems : Feature
 	{

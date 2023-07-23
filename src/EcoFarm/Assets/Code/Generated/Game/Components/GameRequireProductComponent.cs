@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.Buildings.RequireProductComponent requireProduct { get { return (Code.ECS.Components.Buildings.RequireProductComponent)GetComponent(GameComponentsLookup.RequireProduct); } }
+    public RequireProductComponent requireProduct { get { return (RequireProductComponent)GetComponent(GameComponentsLookup.RequireProduct); } }
     public bool hasRequireProduct { get { return HasComponent(GameComponentsLookup.RequireProduct); } }
 
-    public void AddRequireProduct(EcoFarmModel.Product newValue) {
+    public void AddRequireProduct(Code.RequireProductComponent newValue) {
         var index = GameComponentsLookup.RequireProduct;
-        var component = (Code.ECS.Components.Buildings.RequireProductComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RequireProductComponent));
-        component.Value = newValue;
+        var component = (RequireProductComponent)CreateComponent(index, typeof(RequireProductComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireProduct(EcoFarmModel.Product newValue) {
+    public void ReplaceRequireProduct(Code.RequireProductComponent newValue) {
         var index = GameComponentsLookup.RequireProduct;
-        var component = (Code.ECS.Components.Buildings.RequireProductComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RequireProductComponent));
-        component.Value = newValue;
+        var component = (RequireProductComponent)CreateComponent(index, typeof(RequireProductComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

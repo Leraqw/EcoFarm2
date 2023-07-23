@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.RequireSpriteComponent requireSprite { get { return (Code.ECS.Components.RequireSpriteComponent)GetComponent(GameComponentsLookup.RequireSprite); } }
+    public RequireSpriteComponent requireSprite { get { return (RequireSpriteComponent)GetComponent(GameComponentsLookup.RequireSprite); } }
     public bool hasRequireSprite { get { return HasComponent(GameComponentsLookup.RequireSprite); } }
 
-    public void AddRequireSprite(string newValue) {
+    public void AddRequireSprite(Code.RequireSpriteComponent newValue) {
         var index = GameComponentsLookup.RequireSprite;
-        var component = (Code.ECS.Components.RequireSpriteComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireSpriteComponent));
-        component.Value = newValue;
+        var component = (RequireSpriteComponent)CreateComponent(index, typeof(RequireSpriteComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireSprite(string newValue) {
+    public void ReplaceRequireSprite(Code.RequireSpriteComponent newValue) {
         var index = GameComponentsLookup.RequireSprite;
-        var component = (Code.ECS.Components.RequireSpriteComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireSpriteComponent));
-        component.Value = newValue;
+        var component = (RequireSpriteComponent)CreateComponent(index, typeof(RequireSpriteComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SpawnPositionComponent spawnPosition { get { return (Code.ECS.Components.SpawnPositionComponent)GetComponent(GameComponentsLookup.SpawnPosition); } }
+    public SpawnPositionComponent spawnPosition { get { return (SpawnPositionComponent)GetComponent(GameComponentsLookup.SpawnPosition); } }
     public bool hasSpawnPosition { get { return HasComponent(GameComponentsLookup.SpawnPosition); } }
 
-    public void AddSpawnPosition(UnityEngine.Vector2 newValue) {
+    public void AddSpawnPosition(Code.SpawnPositionComponent newValue) {
         var index = GameComponentsLookup.SpawnPosition;
-        var component = (Code.ECS.Components.SpawnPositionComponent)CreateComponent(index, typeof(Code.ECS.Components.SpawnPositionComponent));
-        component.Value = newValue;
+        var component = (SpawnPositionComponent)CreateComponent(index, typeof(SpawnPositionComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpawnPosition(UnityEngine.Vector2 newValue) {
+    public void ReplaceSpawnPosition(Code.SpawnPositionComponent newValue) {
         var index = GameComponentsLookup.SpawnPosition;
-        var component = (Code.ECS.Components.SpawnPositionComponent)CreateComponent(index, typeof(Code.ECS.Components.SpawnPositionComponent));
-        component.Value = newValue;
+        var component = (SpawnPositionComponent)CreateComponent(index, typeof(SpawnPositionComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

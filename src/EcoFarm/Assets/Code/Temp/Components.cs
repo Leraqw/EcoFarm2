@@ -1,8 +1,8 @@
-﻿using Code.ECS.Components;
-using Code.Utils.ComponentsTemplates;
+﻿
+
 using EcoFarmCustomGenerator.CodeGeneration.Attributes;
 
-namespace Code.Temp
+namespace Code
 {
 	[Dependencies(typeof(HealthComponent), typeof(PositionComponent), typeof(MovableComponent))]
 	[Game] public sealed class EnemyComponent : FlagComponent { }

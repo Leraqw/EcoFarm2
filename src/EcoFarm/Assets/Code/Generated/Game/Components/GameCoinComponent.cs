@@ -9,19 +9,30 @@
 public partial class GameContext {
 
     public GameEntity coinEntity { get { return GetGroup(GameMatcher.Coin).GetSingleEntity(); } }
+    public CoinComponent coin { get { return coinEntity.coin; } }
+    public bool hasCoin { get { return coinEntity != null; } }
 
-    public bool isCoin {
-        get { return coinEntity != null; }
-        set {
-            var entity = coinEntity;
-            if (value != (entity != null)) {
-                if (value) {
-                    CreateEntity().isCoin = true;
-                } else {
-                    entity.Destroy();
-                }
-            }
+    public GameEntity SetCoin(Code.CoinComponent newValue) {
+        if (hasCoin) {
+            throw new Entitas.EntitasException("Could not set Coin!\n" + this + " already has an entity with CoinComponent!",
+                "You should check if the context already has a coinEntity before setting it or use context.ReplaceCoin().");
         }
+        var entity = CreateEntity();
+        entity.AddCoin(newValue);
+        return entity;
+    }
+
+    public void ReplaceCoin(Code.CoinComponent newValue) {
+        var entity = coinEntity;
+        if (entity == null) {
+            entity = SetCoin(newValue);
+        } else {
+            entity.ReplaceCoin(newValue);
+        }
+    }
+
+    public void RemoveCoin() {
+        coinEntity.Destroy();
     }
 }
 
@@ -35,25 +46,25 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.CoinComponent coinComponent = new Code.ECS.Components.CoinComponent();
+    public CoinComponent coin { get { return (CoinComponent)GetComponent(GameComponentsLookup.Coin); } }
+    public bool hasCoin { get { return HasComponent(GameComponentsLookup.Coin); } }
 
-    public bool isCoin {
-        get { return HasComponent(GameComponentsLookup.Coin); }
-        set {
-            if (value != isCoin) {
-                var index = GameComponentsLookup.Coin;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : coinComponent;
+    public void AddCoin(Code.CoinComponent newValue) {
+        var index = GameComponentsLookup.Coin;
+        var component = (CoinComponent)CreateComponent(index, typeof(CoinComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceCoin(Code.CoinComponent newValue) {
+        var index = GameComponentsLookup.Coin;
+        var component = (CoinComponent)CreateComponent(index, typeof(CoinComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveCoin() {
+        RemoveComponent(GameComponentsLookup.Coin);
     }
 }
 

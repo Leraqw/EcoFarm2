@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.PermanentGeneratorComponent permanentGeneratorComponent = new Code.ECS.Components.Buildings.PermanentGeneratorComponent();
+    public PermanentGeneratorComponent permanentGenerator { get { return (PermanentGeneratorComponent)GetComponent(GameComponentsLookup.PermanentGenerator); } }
+    public bool hasPermanentGenerator { get { return HasComponent(GameComponentsLookup.PermanentGenerator); } }
 
-    public bool isPermanentGenerator {
-        get { return HasComponent(GameComponentsLookup.PermanentGenerator); }
-        set {
-            if (value != isPermanentGenerator) {
-                var index = GameComponentsLookup.PermanentGenerator;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : permanentGeneratorComponent;
+    public void AddPermanentGenerator(Code.PermanentGeneratorComponent newValue) {
+        var index = GameComponentsLookup.PermanentGenerator;
+        var component = (PermanentGeneratorComponent)CreateComponent(index, typeof(PermanentGeneratorComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePermanentGenerator(Code.PermanentGeneratorComponent newValue) {
+        var index = GameComponentsLookup.PermanentGenerator;
+        var component = (PermanentGeneratorComponent)CreateComponent(index, typeof(PermanentGeneratorComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePermanentGenerator() {
+        RemoveComponent(GameComponentsLookup.PermanentGenerator);
     }
 }
 

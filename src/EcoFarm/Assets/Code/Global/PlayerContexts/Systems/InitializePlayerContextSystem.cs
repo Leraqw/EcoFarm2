@@ -1,8 +1,8 @@
-﻿using Code.Utils.Extensions;
+﻿
 using Entitas;
 using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
-namespace Code.Global.PlayerContexts.Systems
+namespace Code
 {
 	public class InitializePlayerContextSystem : IInitializeSystem
 	{

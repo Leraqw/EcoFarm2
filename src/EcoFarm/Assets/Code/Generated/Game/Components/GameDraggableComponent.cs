@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DraggableComponent draggableComponent = new Code.ECS.Components.DraggableComponent();
+    public DraggableComponent draggable { get { return (DraggableComponent)GetComponent(GameComponentsLookup.Draggable); } }
+    public bool hasDraggable { get { return HasComponent(GameComponentsLookup.Draggable); } }
 
-    public bool isDraggable {
-        get { return HasComponent(GameComponentsLookup.Draggable); }
-        set {
-            if (value != isDraggable) {
-                var index = GameComponentsLookup.Draggable;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : draggableComponent;
+    public void AddDraggable(Code.DraggableComponent newValue) {
+        var index = GameComponentsLookup.Draggable;
+        var component = (DraggableComponent)CreateComponent(index, typeof(DraggableComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceDraggable(Code.DraggableComponent newValue) {
+        var index = GameComponentsLookup.Draggable;
+        var component = (DraggableComponent)CreateComponent(index, typeof(DraggableComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveDraggable() {
+        RemoveComponent(GameComponentsLookup.Draggable);
     }
 }
 

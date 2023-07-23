@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ISpriteListener {
-    void OnSprite(GameEntity entity, UnityEngine.Sprite value);
+    void OnSprite(GameEntity entity, Code.SpriteComponent value);
 }

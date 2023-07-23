@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IPositionListener {
-    void OnPosition(GameEntity entity, UnityEngine.Vector2 value);
+    void OnPosition(GameEntity entity, Code.PositionComponent value);
 }

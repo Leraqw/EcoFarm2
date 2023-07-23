@@ -1,5 +1,5 @@
 ﻿
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public class EnabledView : BaseViewListener, IActivateListener
 	{

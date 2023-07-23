@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.ECS.Components.ComplexComponentTypes;
+
 using EcoFarmModel;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class InventoryExtensions
 	{

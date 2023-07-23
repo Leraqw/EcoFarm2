@@ -30,7 +30,7 @@ public sealed class ActivateEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.activateListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnActivate(e, component.Value);
+                listener.OnActivate(e, component.value);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.ECS.Systems.EntityBehaviours
+namespace Code
 {
 	public sealed class InitializeSceneBehavioursSystems : IInitializeSystem
 	{

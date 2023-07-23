@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContexts.Components.SessionResultComponent sessionResult { get { return (Code.Global.PlayerContexts.Components.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public SessionResultComponent sessionResult { get { return (SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
+    public void AddSessionResult(Code.SessionResultComponent newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
-        component.Value = newValue;
+        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
+    public void ReplaceSessionResult(Code.SessionResultComponent newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
-        component.Value = newValue;
+        var component = (SessionResultComponent)CreateComponent(index, typeof(SessionResultComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

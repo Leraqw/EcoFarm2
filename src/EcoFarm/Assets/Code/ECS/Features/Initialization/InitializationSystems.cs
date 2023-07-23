@@ -1,15 +1,4 @@
-﻿using Code.ECS.Systems.Buildings;
-using Code.ECS.Systems.Data;
-using Code.ECS.Systems.Goals;
-using Code.ECS.Systems.Level;
-using Code.ECS.Systems.Products;
-using Code.ECS.Systems.Tree;
-using Code.ECS.Systems.Warehouse;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.ECS.Systems.Watering.Tree;
-using Code.ECS.Systems.Watering.WaterCrane;
-
-namespace Code.ECS.Features.Initialization
+﻿namespace Code
 {
 	public sealed class InitializationSystems : Feature
 	{
@@ -20,7 +9,7 @@ namespace Code.ECS.Features.Initialization
 			Add(new DataBaseLoadSystems(contexts));
 			Add(new CreateGoalForLevelSystem(contexts));
 			Add(new CreateLevelTimerSystem(contexts));
-			
+
 			Add(new InventoryInitializationSystems(contexts));
 
 			Add(new SpawnTreeSystem(contexts));

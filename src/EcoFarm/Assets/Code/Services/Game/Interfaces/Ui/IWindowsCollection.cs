@@ -1,7 +1,7 @@
-﻿using Code.Unity.Containers;
+﻿
 using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Ui
+namespace Code
 {
 	public interface IWindowsCollection
 	{

@@ -1,6 +1,6 @@
-﻿using Code.Utils.Extensions;
+﻿
 
-namespace Code.ECS.Systems.Products.Fruit.Growing
+namespace Code
 {
 	public static class GameEntityTargetExtensions
 	{

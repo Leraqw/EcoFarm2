@@ -1,8 +1,8 @@
-using Code.Unity.ViewListeners.UI;
-using Code.Utils.Extensions;
+
+
 using UnityEngine;
 
-namespace Code.EntityBehaviours
+namespace Code
 {
 	public class ResourceRenewButtonBehaviour : EntityBehaviour
 	{

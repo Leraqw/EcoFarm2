@@ -1,10 +1,10 @@
-﻿using Code.Data.StorageJson;
-using Code.Data.Config;
-using Code.Services.Interfaces;
+﻿
+
+
 using EcoFarmModel;
 using UnityEngine;
 
-namespace Code.Services.UnityImplementations
+namespace Code
 {
 	public class UnityGlobalServices : IGlobalServices
 	{

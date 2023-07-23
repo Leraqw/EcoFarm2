@@ -1,4 +1,4 @@
-namespace Code.EntityBehaviours
+namespace Code
 {
 	public class SpinnerBehaviour : EntityBehaviour
 	{

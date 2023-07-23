@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.InventoryItemComponent inventoryItem { get { return (Code.ECS.Components.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
+    public InventoryItemComponent inventoryItem { get { return (InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
     public bool hasInventoryItem { get { return HasComponent(GameComponentsLookup.InventoryItem); } }
 
-    public void AddInventoryItem(Code.ECS.Components.ComplexComponentTypes.Item newValue) {
+    public void AddInventoryItem(Code.InventoryItemComponent newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.ECS.Components.InventoryItemComponent)CreateComponent(index, typeof(Code.ECS.Components.InventoryItemComponent));
-        component.Value = newValue;
+        var component = (InventoryItemComponent)CreateComponent(index, typeof(InventoryItemComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInventoryItem(Code.ECS.Components.ComplexComponentTypes.Item newValue) {
+    public void ReplaceInventoryItem(Code.InventoryItemComponent newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.ECS.Components.InventoryItemComponent)CreateComponent(index, typeof(Code.ECS.Components.InventoryItemComponent));
-        component.Value = newValue;
+        var component = (InventoryItemComponent)CreateComponent(index, typeof(InventoryItemComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

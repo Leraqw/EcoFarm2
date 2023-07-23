@@ -1,8 +1,8 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code.ECS.Components
+namespace Code
 {
 
 	[Game] public sealed class FruitRequireComponent : FlagComponent { }

@@ -1,10 +1,10 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] public sealed class RequireTreeOnPositionComponent : ValueComponent<Vector2> { }
 

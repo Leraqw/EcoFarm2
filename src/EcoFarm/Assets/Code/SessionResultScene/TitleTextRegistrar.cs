@@ -1,9 +1,7 @@
-﻿using Code.Unity.ViewListeners.UI;
-using Code.Utils.Extensions;
-using UnityEngine;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
+﻿using UnityEngine;
+using static Code.SessionResult;
 
-namespace Code.SessionResultScene
+namespace Code
 {
 	public class TitleTextRegistrar : MonoBehaviour
 	{

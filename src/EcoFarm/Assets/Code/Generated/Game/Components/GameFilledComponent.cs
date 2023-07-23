@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.FilledComponent filledComponent = new Code.ECS.Components.FilledComponent();
+    public FilledComponent filled { get { return (FilledComponent)GetComponent(GameComponentsLookup.Filled); } }
+    public bool hasFilled { get { return HasComponent(GameComponentsLookup.Filled); } }
 
-    public bool isFilled {
-        get { return HasComponent(GameComponentsLookup.Filled); }
-        set {
-            if (value != isFilled) {
-                var index = GameComponentsLookup.Filled;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : filledComponent;
+    public void AddFilled(Code.FilledComponent newValue) {
+        var index = GameComponentsLookup.Filled;
+        var component = (FilledComponent)CreateComponent(index, typeof(FilledComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceFilled(Code.FilledComponent newValue) {
+        var index = GameComponentsLookup.Filled;
+        var component = (FilledComponent)CreateComponent(index, typeof(FilledComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveFilled() {
+        RemoveComponent(GameComponentsLookup.Filled);
     }
 }
 

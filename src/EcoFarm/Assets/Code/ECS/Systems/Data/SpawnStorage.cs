@@ -1,8 +1,8 @@
-﻿using Code.Utils.Extensions;
+﻿
 using EcoFarmModel;
 using Entitas;
 
-namespace Code.ECS.Systems.Data
+namespace Code
 {
 	public sealed class SpawnStorage : IInitializeSystem
 	{

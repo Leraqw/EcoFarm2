@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.UiParentComponent uiParent { get { return (Code.ECS.Components.UiParentComponent)GetComponent(GameComponentsLookup.UiParent); } }
+    public UiParentComponent uiParent { get { return (UiParentComponent)GetComponent(GameComponentsLookup.UiParent); } }
     public bool hasUiParent { get { return HasComponent(GameComponentsLookup.UiParent); } }
 
-    public void AddUiParent(UnityEngine.RectTransform newValue) {
+    public void AddUiParent(Code.UiParentComponent newValue) {
         var index = GameComponentsLookup.UiParent;
-        var component = (Code.ECS.Components.UiParentComponent)CreateComponent(index, typeof(Code.ECS.Components.UiParentComponent));
-        component.Value = newValue;
+        var component = (UiParentComponent)CreateComponent(index, typeof(UiParentComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceUiParent(UnityEngine.RectTransform newValue) {
+    public void ReplaceUiParent(Code.UiParentComponent newValue) {
         var index = GameComponentsLookup.UiParent;
-        var component = (Code.ECS.Components.UiParentComponent)CreateComponent(index, typeof(Code.ECS.Components.UiParentComponent));
-        component.Value = newValue;
+        var component = (UiParentComponent)CreateComponent(index, typeof(UiParentComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

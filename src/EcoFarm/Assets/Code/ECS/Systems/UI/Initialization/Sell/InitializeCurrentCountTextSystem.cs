@@ -1,8 +1,8 @@
-﻿using Code.Services.Game.Interfaces.Ui;
-using Code.Utils.Extensions;
+﻿
+
 using Entitas;
 
-namespace Code.ECS.Systems.UI.Initialization.Sell
+namespace Code
 {
 	public sealed class InitializeCurrentCountTextSystem : IInitializeSystem
 	{

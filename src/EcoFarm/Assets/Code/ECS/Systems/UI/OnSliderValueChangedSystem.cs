@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using static System.Globalization.CultureInfo;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.UI
+namespace Code
 {
 	public sealed class OnSliderValueChangedSystem : ReactiveSystem<GameEntity>
 	{

@@ -1,8 +1,8 @@
-﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config;
+﻿
+
 using static Contexts;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class DroughtTimerExtensions
 	{

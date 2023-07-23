@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.UI
+namespace Code
 {
 	public sealed class ActualizeCountToSellSliderMaxValueSystem : ReactiveSystem<GameEntity>
 	{

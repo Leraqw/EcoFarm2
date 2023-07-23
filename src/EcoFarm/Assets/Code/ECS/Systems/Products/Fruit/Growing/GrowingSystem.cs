@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Growing
+namespace Code
 {
 	public sealed class GrowingSystem : IExecuteSystem
 	{

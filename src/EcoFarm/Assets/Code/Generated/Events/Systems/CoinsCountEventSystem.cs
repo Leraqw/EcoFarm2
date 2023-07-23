@@ -30,7 +30,7 @@ public sealed class CoinsCountEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.coinsCountListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnCoinsCount(e, component.Value);
+                listener.OnCoinsCount(e, component.value);
             }
         }
     }

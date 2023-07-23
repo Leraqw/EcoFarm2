@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Temp.SomeComponent some { get { return (Code.Temp.SomeComponent)GetComponent(PlayerComponentsLookup.Some); } }
+    public SomeComponent some { get { return (SomeComponent)GetComponent(PlayerComponentsLookup.Some); } }
     public bool hasSome { get { return HasComponent(PlayerComponentsLookup.Some); } }
 
-    public void AddSome(int newValue) {
+    public void AddSome(Code.SomeComponent newValue) {
         var index = PlayerComponentsLookup.Some;
-        var component = (Code.Temp.SomeComponent)CreateComponent(index, typeof(Code.Temp.SomeComponent));
-        component.Value = newValue;
+        var component = (SomeComponent)CreateComponent(index, typeof(SomeComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSome(int newValue) {
+    public void ReplaceSome(Code.SomeComponent newValue) {
         var index = PlayerComponentsLookup.Some;
-        var component = (Code.Temp.SomeComponent)CreateComponent(index, typeof(Code.Temp.SomeComponent));
-        component.Value = newValue;
+        var component = (SomeComponent)CreateComponent(index, typeof(SomeComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

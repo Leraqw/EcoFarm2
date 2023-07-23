@@ -1,6 +1,6 @@
 using Entitas;
 
-namespace Code.Utils.ComponentsTemplates
+namespace Code
 {
 	public class FlagComponent : IComponent { }
 }

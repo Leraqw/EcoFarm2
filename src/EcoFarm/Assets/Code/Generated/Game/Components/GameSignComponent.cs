@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.SignComponent signComponent = new Code.ECS.Components.Buildings.SignComponent();
+    public SignComponent sign { get { return (SignComponent)GetComponent(GameComponentsLookup.Sign); } }
+    public bool hasSign { get { return HasComponent(GameComponentsLookup.Sign); } }
 
-    public bool isSign {
-        get { return HasComponent(GameComponentsLookup.Sign); }
-        set {
-            if (value != isSign) {
-                var index = GameComponentsLookup.Sign;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : signComponent;
+    public void AddSign(Code.SignComponent newValue) {
+        var index = GameComponentsLookup.Sign;
+        var component = (SignComponent)CreateComponent(index, typeof(SignComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceSign(Code.SignComponent newValue) {
+        var index = GameComponentsLookup.Sign;
+        var component = (SignComponent)CreateComponent(index, typeof(SignComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveSign() {
+        RemoveComponent(GameComponentsLookup.Sign);
     }
 }
 

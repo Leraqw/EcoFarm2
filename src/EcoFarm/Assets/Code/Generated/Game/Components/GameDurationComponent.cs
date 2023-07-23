@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DurationComponent duration { get { return (Code.ECS.Components.DurationComponent)GetComponent(GameComponentsLookup.Duration); } }
+    public DurationComponent duration { get { return (DurationComponent)GetComponent(GameComponentsLookup.Duration); } }
     public bool hasDuration { get { return HasComponent(GameComponentsLookup.Duration); } }
 
-    public void AddDuration(float newValue) {
+    public void AddDuration(Code.DurationComponent newValue) {
         var index = GameComponentsLookup.Duration;
-        var component = (Code.ECS.Components.DurationComponent)CreateComponent(index, typeof(Code.ECS.Components.DurationComponent));
-        component.Value = newValue;
+        var component = (DurationComponent)CreateComponent(index, typeof(DurationComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDuration(float newValue) {
+    public void ReplaceDuration(Code.DurationComponent newValue) {
         var index = GameComponentsLookup.Duration;
-        var component = (Code.ECS.Components.DurationComponent)CreateComponent(index, typeof(Code.ECS.Components.DurationComponent));
-        component.Value = newValue;
+        var component = (DurationComponent)CreateComponent(index, typeof(DurationComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -30,7 +30,7 @@ public sealed class GameTextEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.gameTextListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnText(e, component.Value);
+                listener.OnText(e, component.value);
             }
         }
     }

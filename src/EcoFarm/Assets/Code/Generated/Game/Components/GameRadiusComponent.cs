@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.RadiusComponent radius { get { return (Code.ECS.Components.RadiusComponent)GetComponent(GameComponentsLookup.Radius); } }
+    public RadiusComponent radius { get { return (RadiusComponent)GetComponent(GameComponentsLookup.Radius); } }
     public bool hasRadius { get { return HasComponent(GameComponentsLookup.Radius); } }
 
-    public void AddRadius(float newValue) {
+    public void AddRadius(Code.RadiusComponent newValue) {
         var index = GameComponentsLookup.Radius;
-        var component = (Code.ECS.Components.RadiusComponent)CreateComponent(index, typeof(Code.ECS.Components.RadiusComponent));
-        component.Value = newValue;
+        var component = (RadiusComponent)CreateComponent(index, typeof(RadiusComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRadius(float newValue) {
+    public void ReplaceRadius(Code.RadiusComponent newValue) {
         var index = GameComponentsLookup.Radius;
-        var component = (Code.ECS.Components.RadiusComponent)CreateComponent(index, typeof(Code.ECS.Components.RadiusComponent));
-        component.Value = newValue;
+        var component = (RadiusComponent)CreateComponent(index, typeof(RadiusComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

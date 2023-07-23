@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.WorkingComponent workingComponent = new Code.ECS.Components.Buildings.WorkingComponent();
+    public WorkingComponent working { get { return (WorkingComponent)GetComponent(GameComponentsLookup.Working); } }
+    public bool hasWorking { get { return HasComponent(GameComponentsLookup.Working); } }
 
-    public bool isWorking {
-        get { return HasComponent(GameComponentsLookup.Working); }
-        set {
-            if (value != isWorking) {
-                var index = GameComponentsLookup.Working;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : workingComponent;
+    public void AddWorking(Code.WorkingComponent newValue) {
+        var index = GameComponentsLookup.Working;
+        var component = (WorkingComponent)CreateComponent(index, typeof(WorkingComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceWorking(Code.WorkingComponent newValue) {
+        var index = GameComponentsLookup.Working;
+        var component = (WorkingComponent)CreateComponent(index, typeof(WorkingComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveWorking() {
+        RemoveComponent(GameComponentsLookup.Working);
     }
 }
 

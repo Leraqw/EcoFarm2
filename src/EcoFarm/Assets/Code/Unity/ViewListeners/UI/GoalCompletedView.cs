@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions;
+﻿
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.ViewListeners.UI
+namespace Code
 {
 	public class GoalCompletedView : BaseViewListener, IGoalCompletedListener
 	{

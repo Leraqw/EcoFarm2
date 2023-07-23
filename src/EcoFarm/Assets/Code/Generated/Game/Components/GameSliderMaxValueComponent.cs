@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SliderMaxValueComponent sliderMaxValue { get { return (Code.ECS.Components.SliderMaxValueComponent)GetComponent(GameComponentsLookup.SliderMaxValue); } }
+    public SliderMaxValueComponent sliderMaxValue { get { return (SliderMaxValueComponent)GetComponent(GameComponentsLookup.SliderMaxValue); } }
     public bool hasSliderMaxValue { get { return HasComponent(GameComponentsLookup.SliderMaxValue); } }
 
-    public void AddSliderMaxValue(float newValue) {
+    public void AddSliderMaxValue(Code.SliderMaxValueComponent newValue) {
         var index = GameComponentsLookup.SliderMaxValue;
-        var component = (Code.ECS.Components.SliderMaxValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderMaxValueComponent));
-        component.Value = newValue;
+        var component = (SliderMaxValueComponent)CreateComponent(index, typeof(SliderMaxValueComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSliderMaxValue(float newValue) {
+    public void ReplaceSliderMaxValue(Code.SliderMaxValueComponent newValue) {
         var index = GameComponentsLookup.SliderMaxValue;
-        var component = (Code.ECS.Components.SliderMaxValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderMaxValueComponent));
-        component.Value = newValue;
+        var component = (SliderMaxValueComponent)CreateComponent(index, typeof(SliderMaxValueComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

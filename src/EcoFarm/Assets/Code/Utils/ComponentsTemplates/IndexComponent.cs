@@ -1,7 +1,7 @@
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace Code.Utils.ComponentsTemplates
+namespace Code
 {
 	public class IndexComponent<T> : IComponent
 	{

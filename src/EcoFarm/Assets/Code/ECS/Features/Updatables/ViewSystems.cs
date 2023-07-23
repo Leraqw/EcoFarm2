@@ -1,6 +1,6 @@
-﻿using Code.ECS.Systems.View;
+﻿
 
-namespace Code.ECS.Features.Updatables
+namespace Code
 {
 	public sealed class ViewSystems : Feature
 	{

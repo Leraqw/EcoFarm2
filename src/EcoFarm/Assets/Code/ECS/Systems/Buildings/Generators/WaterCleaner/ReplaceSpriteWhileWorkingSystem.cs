@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Implementations.Configuration.ResourcesConfigs;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Generators.WaterCleaner
+namespace Code
 {
 	public sealed class ReplaceSpriteWhileWorkingSystem : ReactiveSystem<GameEntity>
 	{

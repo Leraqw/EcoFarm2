@@ -1,8 +1,8 @@
-﻿using Code.ECS.Components.ComplexComponentTypes;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.ViewListeners.UI
+namespace Code
 {
 	public class ProgressBarView : BaseViewListener, IProgressBarListener
 	{

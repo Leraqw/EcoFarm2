@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Code.Data.StorageJson
+namespace Code
 {
 	public static class JsonUtils
 	{

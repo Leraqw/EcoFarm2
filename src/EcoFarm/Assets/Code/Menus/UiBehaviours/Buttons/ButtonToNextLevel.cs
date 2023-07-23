@@ -1,4 +1,4 @@
-﻿namespace Code.Menus.UiBehaviours.Buttons
+﻿namespace Code
 {
 	public class ButtonToNextLevel : ButtonToGameplay
 	{

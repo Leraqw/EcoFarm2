@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners.View
+namespace Code
 {
 	public class RotationView : BaseViewListener, IRotationListener
 	{

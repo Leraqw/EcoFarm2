@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Watering.Bucket
+namespace Code
 {
 	public sealed class WaterNearTreeSystem : ReactiveSystem<GameEntity>
 	{

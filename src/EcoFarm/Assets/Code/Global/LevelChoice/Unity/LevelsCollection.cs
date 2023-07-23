@@ -1,7 +1,7 @@
-﻿using Code.EntityBehaviours;
+﻿
 using UnityEngine;
 
-namespace Code.Global.LevelChoice.Unity
+namespace Code
 {
 	public class LevelsCollection : EntityBehaviour
 	{

@@ -1,7 +1,7 @@
-﻿using Code.Services.Interfaces;
+﻿
 using UnityEngine.SceneManagement;
 
-namespace Code.Services.UnityImplementations
+namespace Code
 {
 	public class UnitySceneTransferService : ISceneTransferService
 	{

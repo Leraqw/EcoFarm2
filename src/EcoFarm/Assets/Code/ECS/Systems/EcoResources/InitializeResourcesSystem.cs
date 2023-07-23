@@ -1,12 +1,12 @@
-﻿using Code.Services.Game.Interfaces.Config;
-using Code.Unity.Containers;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
+﻿
+
+
+
+
 using EcoFarmModel;
 using Entitas;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code
 {
 	public sealed class InitializeResourcesSystem : IInitializeSystem
 	{

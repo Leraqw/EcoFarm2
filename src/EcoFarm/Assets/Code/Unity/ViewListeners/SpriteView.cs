@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public class SpriteView : BaseViewListener, ISpriteListener
 	{

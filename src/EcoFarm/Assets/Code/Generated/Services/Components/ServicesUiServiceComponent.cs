@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity uiServiceEntity { get { return GetGroup(ServicesMatcher.UiService).GetSingleEntity(); } }
-    public Code.ECS.Components.UiServiceComponent uiService { get { return uiServiceEntity.uiService; } }
+    public Code.UiServiceComponent uiService { get { return uiServiceEntity.uiService; } }
     public bool hasUiService { get { return uiServiceEntity != null; } }
 
-    public ServicesEntity SetUiService(Code.Services.Game.Interfaces.Ui.IUiService newValue) {
+    public ServicesEntity SetUiService(Code.IUiService newValue) {
         if (hasUiService) {
-            throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with Code.ECS.Components.UiServiceComponent!",
+            throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with Code.UiServiceComponent!",
                 "You should check if the context already has a uiServiceEntity before setting it or use context.ReplaceUiService().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceUiService(Code.Services.Game.Interfaces.Ui.IUiService newValue) {
+    public void ReplaceUiService(Code.IUiService newValue) {
         var entity = uiServiceEntity;
         if (entity == null) {
             entity = SetUiService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ECS.Components.UiServiceComponent uiService { get { return (Code.ECS.Components.UiServiceComponent)GetComponent(ServicesComponentsLookup.UiService); } }
+    public Code.UiServiceComponent uiService { get { return (Code.UiServiceComponent)GetComponent(ServicesComponentsLookup.UiService); } }
     public bool hasUiService { get { return HasComponent(ServicesComponentsLookup.UiService); } }
 
-    public void AddUiService(Code.Services.Game.Interfaces.Ui.IUiService newValue) {
+    public void AddUiService(Code.IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
-        var component = (Code.ECS.Components.UiServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.UiServiceComponent));
+        var component = (Code.UiServiceComponent)CreateComponent(index, typeof(Code.UiServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceUiService(Code.Services.Game.Interfaces.Ui.IUiService newValue) {
+    public void ReplaceUiService(Code.IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
-        var component = (Code.ECS.Components.UiServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.UiServiceComponent));
+        var component = (Code.UiServiceComponent)CreateComponent(index, typeof(Code.UiServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

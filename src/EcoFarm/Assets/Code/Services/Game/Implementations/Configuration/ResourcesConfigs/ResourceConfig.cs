@@ -1,9 +1,9 @@
 ﻿using System;
-using Code.Data.ToUnity;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
+
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace Code
 {
 	[Serializable]
 	public class ResourceConfig : IResourceConfig

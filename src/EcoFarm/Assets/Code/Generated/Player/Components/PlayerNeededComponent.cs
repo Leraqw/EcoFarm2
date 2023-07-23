@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Temp.NeededComponent neededComponent = new Code.Temp.NeededComponent();
+    public NeededComponent needed { get { return (NeededComponent)GetComponent(PlayerComponentsLookup.Needed); } }
+    public bool hasNeeded { get { return HasComponent(PlayerComponentsLookup.Needed); } }
 
-    public bool isNeeded {
-        get { return HasComponent(PlayerComponentsLookup.Needed); }
-        set {
-            if (value != isNeeded) {
-                var index = PlayerComponentsLookup.Needed;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : neededComponent;
+    public void AddNeeded(Code.NeededComponent newValue) {
+        var index = PlayerComponentsLookup.Needed;
+        var component = (NeededComponent)CreateComponent(index, typeof(NeededComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceNeeded(Code.NeededComponent newValue) {
+        var index = PlayerComponentsLookup.Needed;
+        var component = (NeededComponent)CreateComponent(index, typeof(NeededComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveNeeded() {
+        RemoveComponent(PlayerComponentsLookup.Needed);
     }
 }
 

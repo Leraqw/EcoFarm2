@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.Buildings.SpriteHighComponent spriteHigh { get { return (Code.ECS.Components.Buildings.SpriteHighComponent)GetComponent(GameComponentsLookup.SpriteHigh); } }
+    public SpriteHighComponent spriteHigh { get { return (SpriteHighComponent)GetComponent(GameComponentsLookup.SpriteHigh); } }
     public bool hasSpriteHigh { get { return HasComponent(GameComponentsLookup.SpriteHigh); } }
 
-    public void AddSpriteHigh(float newValue) {
+    public void AddSpriteHigh(Code.SpriteHighComponent newValue) {
         var index = GameComponentsLookup.SpriteHigh;
-        var component = (Code.ECS.Components.Buildings.SpriteHighComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.SpriteHighComponent));
-        component.Value = newValue;
+        var component = (SpriteHighComponent)CreateComponent(index, typeof(SpriteHighComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpriteHigh(float newValue) {
+    public void ReplaceSpriteHigh(Code.SpriteHighComponent newValue) {
         var index = GameComponentsLookup.SpriteHigh;
-        var component = (Code.ECS.Components.Buildings.SpriteHighComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.SpriteHighComponent));
-        component.Value = newValue;
+        var component = (SpriteHighComponent)CreateComponent(index, typeof(SpriteHighComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

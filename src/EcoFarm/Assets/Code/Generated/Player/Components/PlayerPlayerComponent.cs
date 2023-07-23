@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Global.PlayerContexts.Components.PlayerComponent playerComponent = new Code.Global.PlayerContexts.Components.PlayerComponent();
+    public PlayerComponent player { get { return (PlayerComponent)GetComponent(PlayerComponentsLookup.Player); } }
+    public bool hasPlayer { get { return HasComponent(PlayerComponentsLookup.Player); } }
 
-    public bool isPlayer {
-        get { return HasComponent(PlayerComponentsLookup.Player); }
-        set {
-            if (value != isPlayer) {
-                var index = PlayerComponentsLookup.Player;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : playerComponent;
+    public void AddPlayer(Code.PlayerComponent newValue) {
+        var index = PlayerComponentsLookup.Player;
+        var component = (PlayerComponent)CreateComponent(index, typeof(PlayerComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePlayer(Code.PlayerComponent newValue) {
+        var index = PlayerComponentsLookup.Player;
+        var component = (PlayerComponent)CreateComponent(index, typeof(PlayerComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePlayer() {
+        RemoveComponent(PlayerComponentsLookup.Player);
     }
 }
 

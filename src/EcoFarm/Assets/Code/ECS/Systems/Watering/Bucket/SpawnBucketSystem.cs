@@ -1,9 +1,9 @@
-﻿using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
+﻿
+
+
 using Entitas;
 
-namespace Code.ECS.Systems.Watering.Bucket
+namespace Code
 {
 	public sealed class SpawnBucketSystem : IInitializeSystem
 	{

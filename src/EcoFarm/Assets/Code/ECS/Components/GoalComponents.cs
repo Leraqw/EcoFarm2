@@ -1,8 +1,8 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] [Event(Self)] public sealed class GoalCompletedComponent : FlagComponent { }
 

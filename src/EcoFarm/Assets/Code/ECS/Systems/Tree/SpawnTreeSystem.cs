@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
+
 using Entitas;
 
-namespace Code.ECS.Systems.Tree
+namespace Code
 {
 	public sealed class SpawnTreeSystem : ReactiveSystem<GameEntity>
 	{

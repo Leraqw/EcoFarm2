@@ -33,14 +33,14 @@ public static class ServicesComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.ECS.Components.CameraServiceComponent),
-        typeof(Code.ECS.Components.ConfigurationServiceComponent),
-        typeof(Code.ECS.Components.DataServiceComponent),
-        typeof(Code.ECS.Components.InputServiceComponent),
-        typeof(Code.ECS.Components.ResourcesServiceComponent),
-        typeof(Code.ECS.Components.SceneObjectsServiceComponent),
-        typeof(Code.ECS.Components.SceneTransferServiceComponent),
-        typeof(Code.ECS.Components.StorageServiceComponent),
-        typeof(Code.ECS.Components.UiServiceComponent)
+        typeof(Code.CameraServiceComponent),
+        typeof(Code.ConfigurationServiceComponent),
+        typeof(Code.DataServiceComponent),
+        typeof(Code.InputServiceComponent),
+        typeof(Code.ResourcesServiceComponent),
+        typeof(Code.SceneObjectsServiceComponent),
+        typeof(Code.SceneTransferServiceComponent),
+        typeof(Code.StorageServiceComponent),
+        typeof(Code.UiServiceComponent)
     };
 }

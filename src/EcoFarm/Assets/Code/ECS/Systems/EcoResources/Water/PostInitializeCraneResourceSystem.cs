@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources.Water
+namespace Code
 {
 	public sealed class PostInitializeCraneResourceSystem : ReactiveSystem<GameEntity>
 	{

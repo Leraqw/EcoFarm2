@@ -2,7 +2,7 @@
 using Entitas;
 using SessionResult = Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
-namespace Code.Global.PlayerContexts.Systems
+namespace Code
 {
 	public sealed class SaveProgressSystem : ReactiveSystem<PlayerEntity>
 	{

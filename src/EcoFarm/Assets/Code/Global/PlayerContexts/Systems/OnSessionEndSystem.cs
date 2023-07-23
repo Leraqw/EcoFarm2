@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Interfaces;
+
 using Entitas;
 using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
-namespace Code.Global.PlayerContexts.Systems
+namespace Code
 {
 	public sealed class OnSessionEndSystem : ReactiveSystem<PlayerEntity>
 	{

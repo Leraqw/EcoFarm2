@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.RequireTreeOnPositionComponent requireTreeOnPosition { get { return (Code.ECS.Components.RequireTreeOnPositionComponent)GetComponent(GameComponentsLookup.RequireTreeOnPosition); } }
+    public RequireTreeOnPositionComponent requireTreeOnPosition { get { return (RequireTreeOnPositionComponent)GetComponent(GameComponentsLookup.RequireTreeOnPosition); } }
     public bool hasRequireTreeOnPosition { get { return HasComponent(GameComponentsLookup.RequireTreeOnPosition); } }
 
-    public void AddRequireTreeOnPosition(UnityEngine.Vector2 newValue) {
+    public void AddRequireTreeOnPosition(Code.RequireTreeOnPositionComponent newValue) {
         var index = GameComponentsLookup.RequireTreeOnPosition;
-        var component = (Code.ECS.Components.RequireTreeOnPositionComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireTreeOnPositionComponent));
-        component.Value = newValue;
+        var component = (RequireTreeOnPositionComponent)CreateComponent(index, typeof(RequireTreeOnPositionComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceRequireTreeOnPosition(UnityEngine.Vector2 newValue) {
+    public void ReplaceRequireTreeOnPosition(Code.RequireTreeOnPositionComponent newValue) {
         var index = GameComponentsLookup.RequireTreeOnPosition;
-        var component = (Code.ECS.Components.RequireTreeOnPositionComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireTreeOnPositionComponent));
-        component.Value = newValue;
+        var component = (RequireTreeOnPositionComponent)CreateComponent(index, typeof(RequireTreeOnPositionComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

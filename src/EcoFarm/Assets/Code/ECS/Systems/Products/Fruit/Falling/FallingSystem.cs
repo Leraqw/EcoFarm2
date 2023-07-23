@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Falling
+namespace Code
 {
 	public sealed class FallingSystem : IExecuteSystem
 	{

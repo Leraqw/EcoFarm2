@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.UsedComponent usedComponent = new Code.ECS.Components.UsedComponent();
+    public UsedComponent used { get { return (UsedComponent)GetComponent(GameComponentsLookup.Used); } }
+    public bool hasUsed { get { return HasComponent(GameComponentsLookup.Used); } }
 
-    public bool isUsed {
-        get { return HasComponent(GameComponentsLookup.Used); }
-        set {
-            if (value != isUsed) {
-                var index = GameComponentsLookup.Used;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : usedComponent;
+    public void AddUsed(Code.UsedComponent newValue) {
+        var index = GameComponentsLookup.Used;
+        var component = (UsedComponent)CreateComponent(index, typeof(UsedComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceUsed(Code.UsedComponent newValue) {
+        var index = GameComponentsLookup.Used;
+        var component = (UsedComponent)CreateComponent(index, typeof(UsedComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveUsed() {
+        RemoveComponent(GameComponentsLookup.Used);
     }
 }
 

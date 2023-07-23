@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.ECS.Components.TextComponent text { get { return (Code.ECS.Components.TextComponent)GetComponent(PlayerComponentsLookup.Text); } }
+    public TextComponent text { get { return (TextComponent)GetComponent(PlayerComponentsLookup.Text); } }
     public bool hasText { get { return HasComponent(PlayerComponentsLookup.Text); } }
 
-    public void AddText(string newValue) {
+    public void AddText(Code.TextComponent newValue) {
         var index = PlayerComponentsLookup.Text;
-        var component = (Code.ECS.Components.TextComponent)CreateComponent(index, typeof(Code.ECS.Components.TextComponent));
-        component.Value = newValue;
+        var component = (TextComponent)CreateComponent(index, typeof(TextComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceText(string newValue) {
+    public void ReplaceText(Code.TextComponent newValue) {
         var index = PlayerComponentsLookup.Text;
-        var component = (Code.ECS.Components.TextComponent)CreateComponent(index, typeof(Code.ECS.Components.TextComponent));
-        component.Value = newValue;
+        var component = (TextComponent)CreateComponent(index, typeof(TextComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

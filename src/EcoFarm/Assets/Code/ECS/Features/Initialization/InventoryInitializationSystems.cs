@@ -1,7 +1,4 @@
-﻿using Code.ECS.Systems.Inventory;
-using Code.ECS.Systems.Inventory.SellDeal;
-
-namespace Code.ECS.Features.Initialization
+﻿namespace Code
 {
 	public sealed class InventoryInitializationSystems : Feature
 	{

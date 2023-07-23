@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.GoalCompletedComponent goalCompletedComponent = new Code.ECS.Components.GoalCompletedComponent();
+    public GoalCompletedComponent goalCompleted { get { return (GoalCompletedComponent)GetComponent(GameComponentsLookup.GoalCompleted); } }
+    public bool hasGoalCompleted { get { return HasComponent(GameComponentsLookup.GoalCompleted); } }
 
-    public bool isGoalCompleted {
-        get { return HasComponent(GameComponentsLookup.GoalCompleted); }
-        set {
-            if (value != isGoalCompleted) {
-                var index = GameComponentsLookup.GoalCompleted;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : goalCompletedComponent;
+    public void AddGoalCompleted(Code.GoalCompletedComponent newValue) {
+        var index = GameComponentsLookup.GoalCompleted;
+        var component = (GoalCompletedComponent)CreateComponent(index, typeof(GoalCompletedComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceGoalCompleted(Code.GoalCompletedComponent newValue) {
+        var index = GameComponentsLookup.GoalCompleted;
+        var component = (GoalCompletedComponent)CreateComponent(index, typeof(GoalCompletedComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveGoalCompleted() {
+        RemoveComponent(GameComponentsLookup.GoalCompleted);
     }
 }
 

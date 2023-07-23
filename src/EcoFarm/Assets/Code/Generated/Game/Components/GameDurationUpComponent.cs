@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DurationUpComponent durationUpComponent = new Code.ECS.Components.DurationUpComponent();
+    public DurationUpComponent durationUp { get { return (DurationUpComponent)GetComponent(GameComponentsLookup.DurationUp); } }
+    public bool hasDurationUp { get { return HasComponent(GameComponentsLookup.DurationUp); } }
 
-    public bool isDurationUp {
-        get { return HasComponent(GameComponentsLookup.DurationUp); }
-        set {
-            if (value != isDurationUp) {
-                var index = GameComponentsLookup.DurationUp;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : durationUpComponent;
+    public void AddDurationUp(Code.DurationUpComponent newValue) {
+        var index = GameComponentsLookup.DurationUp;
+        var component = (DurationUpComponent)CreateComponent(index, typeof(DurationUpComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceDurationUp(Code.DurationUpComponent newValue) {
+        var index = GameComponentsLookup.DurationUp;
+        var component = (DurationUpComponent)CreateComponent(index, typeof(DurationUpComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveDurationUp() {
+        RemoveComponent(GameComponentsLookup.DurationUp);
     }
 }
 

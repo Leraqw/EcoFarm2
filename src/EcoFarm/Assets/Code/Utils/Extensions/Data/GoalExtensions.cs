@@ -1,6 +1,6 @@
 using EcoFarmModel;
 
-namespace Code.Utils.Extensions.Data
+namespace Code
 {
 	public static class GoalExtensions
 	{

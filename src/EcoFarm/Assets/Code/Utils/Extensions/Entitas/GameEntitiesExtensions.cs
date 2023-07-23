@@ -1,7 +1,7 @@
 using System;
 using Entitas;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class GameEntitiesExtensions
 	{

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Utils.Extensions;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Input
+namespace Code
 {
 	public sealed class ClickAtSignSystem : ReactiveSystem<GameEntity>
 	{

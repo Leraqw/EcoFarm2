@@ -30,7 +30,7 @@ public sealed class WateringEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.wateringListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnWatering(e, component.Value);
+                listener.OnWatering(e, component.value);
             }
         }
     }

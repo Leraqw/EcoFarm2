@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Watering.Tree
+namespace Code
 {
 	public sealed class CheckTreeUnderWateringSystem : ReactiveSystem<GameEntity>
 	{

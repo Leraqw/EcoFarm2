@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components.ComplexComponentTypes;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace Code
 {
 	public sealed class OnResourceButtonClickSystem : ReactiveSystem<GameEntity>
 	{

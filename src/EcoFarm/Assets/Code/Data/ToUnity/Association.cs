@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Code.Data.ToUnity
+namespace Code
 {
 	[Serializable]
 	public class Association

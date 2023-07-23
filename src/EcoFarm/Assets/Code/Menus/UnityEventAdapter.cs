@@ -2,7 +2,7 @@
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Code.Menus
+namespace Code
 {
 	public abstract class UnityEventAdapter : MonoBehaviour
 	{

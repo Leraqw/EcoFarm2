@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components;
+
 using Entitas;
 
-namespace Code.Temp
+namespace Code
 {
 	public sealed class ResolveEnemyDependenciesSystem : ReactiveSystem<GameEntity>
 	{

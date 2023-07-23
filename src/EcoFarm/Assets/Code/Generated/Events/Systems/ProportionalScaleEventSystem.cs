@@ -30,7 +30,7 @@ public sealed class ProportionalScaleEventSystem : Entitas.ReactiveSystem<GameEn
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.proportionalScaleListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnProportionalScale(e, component.Value);
+                listener.OnProportionalScale(e, component.value);
             }
         }
     }

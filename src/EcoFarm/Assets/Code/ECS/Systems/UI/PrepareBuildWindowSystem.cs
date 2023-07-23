@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Unity.ViewListeners;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.UI
+namespace Code
 {
 	public sealed class PrepareBuildWindowSystem : ReactiveSystem<GameEntity>
 	{

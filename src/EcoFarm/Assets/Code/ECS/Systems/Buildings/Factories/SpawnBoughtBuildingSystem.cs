@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Unity.Containers;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
+
+
 using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
@@ -13,7 +13,7 @@ using static Code.Utils.StaticClasses.Constants;
 using static GameMatcher;
 using static Code.Utils.StaticClasses.Constants.SpriteHigh;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace Code
 {
 	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{

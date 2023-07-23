@@ -1,8 +1,8 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components.Buildings
+namespace Code
 {
 	[Game] public sealed class SpinnerComponent : FlagComponent { }
 

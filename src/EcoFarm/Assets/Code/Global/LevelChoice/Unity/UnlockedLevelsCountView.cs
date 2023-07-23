@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Menus.LevelSelectorScreen;
-using Code.Utils.Extensions;
+
+
 using UnityEngine;
 
-namespace Code.Global.LevelChoice.Unity
+namespace Code
 {
 	public class UnlockedLevelsCountView : MonoBehaviour, IUnlockedLevelsCountListener
 	{

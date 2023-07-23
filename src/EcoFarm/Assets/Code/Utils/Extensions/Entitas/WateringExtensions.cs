@@ -1,10 +1,10 @@
 ﻿using System;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
+
+
+
 using UnityEngine;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class WateringExtensions
 	{

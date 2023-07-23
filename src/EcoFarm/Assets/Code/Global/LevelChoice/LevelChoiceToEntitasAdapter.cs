@@ -1,7 +1,7 @@
-﻿using Code.Global.LevelChoice.Systems;
+﻿
 using UnityEngine;
 
-namespace Code.Global.LevelChoice
+namespace Code
 {
 	public class LevelChoiceToEntitasAdapter : MonoBehaviour
 	{

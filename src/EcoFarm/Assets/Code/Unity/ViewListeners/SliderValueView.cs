@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public class SliderValueView : BaseViewListener, ISliderValueListener
 	{

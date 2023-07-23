@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
+
 using Entitas;
 
-namespace Code.ECS.Systems.UI
+namespace Code
 {
 	public sealed class EnablePreparedWindow : ReactiveSystem<GameEntity>
 	{

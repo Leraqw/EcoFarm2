@@ -1,8 +1,8 @@
-﻿using Code.ECS.Components.ComplexComponentTypes;
+﻿
 using TMPro;
 using UnityEngine;
 
-namespace Code.Unity.ViewListeners.UI
+namespace Code
 {
 	public class ApplesInInventoryView : BaseViewListener, IInventoryItemListener
 	{

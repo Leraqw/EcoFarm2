@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace Code
 {
 	[Serializable]
 	public class WaterCleanerConfig : IWaterCleanerConfig

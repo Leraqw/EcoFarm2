@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Utils.StaticClasses
+namespace Code
 {
 	public static class GameObjectUtils
 	{

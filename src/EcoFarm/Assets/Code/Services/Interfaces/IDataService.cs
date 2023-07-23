@@ -1,6 +1,6 @@
 ﻿using EcoFarmModel;
 
-namespace Code.Services.Interfaces
+namespace Code
 {
 	public interface IDataService : IService
 	{

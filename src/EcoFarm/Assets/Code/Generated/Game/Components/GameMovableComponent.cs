@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Temp.MovableComponent movableComponent = new Code.Temp.MovableComponent();
+    public MovableComponent movable { get { return (MovableComponent)GetComponent(GameComponentsLookup.Movable); } }
+    public bool hasMovable { get { return HasComponent(GameComponentsLookup.Movable); } }
 
-    public bool isMovable {
-        get { return HasComponent(GameComponentsLookup.Movable); }
-        set {
-            if (value != isMovable) {
-                var index = GameComponentsLookup.Movable;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : movableComponent;
+    public void AddMovable(Code.MovableComponent newValue) {
+        var index = GameComponentsLookup.Movable;
+        var component = (MovableComponent)CreateComponent(index, typeof(MovableComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceMovable(Code.MovableComponent newValue) {
+        var index = GameComponentsLookup.Movable;
+        var component = (MovableComponent)CreateComponent(index, typeof(MovableComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveMovable() {
+        RemoveComponent(GameComponentsLookup.Movable);
     }
 }
 

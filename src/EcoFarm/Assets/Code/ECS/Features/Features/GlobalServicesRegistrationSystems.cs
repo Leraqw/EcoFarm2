@@ -1,8 +1,6 @@
 ﻿using System;
-using Code.ECS.Systems.Services;
-using Code.Services.Interfaces;
 
-namespace Code.ECS.Features.Features
+namespace Code
 {
 	public sealed class GlobalServicesRegistrationSystems : Feature
 	{

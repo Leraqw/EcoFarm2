@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public class PositionView : BaseViewListener, IPositionListener
 	{

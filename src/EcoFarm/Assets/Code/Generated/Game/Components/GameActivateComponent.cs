@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ActivateComponent activate { get { return (Code.ECS.Components.ActivateComponent)GetComponent(GameComponentsLookup.Activate); } }
+    public ActivateComponent activate { get { return (ActivateComponent)GetComponent(GameComponentsLookup.Activate); } }
     public bool hasActivate { get { return HasComponent(GameComponentsLookup.Activate); } }
 
-    public void AddActivate(bool newValue) {
+    public void AddActivate(Code.ActivateComponent newValue) {
         var index = GameComponentsLookup.Activate;
-        var component = (Code.ECS.Components.ActivateComponent)CreateComponent(index, typeof(Code.ECS.Components.ActivateComponent));
-        component.Value = newValue;
+        var component = (ActivateComponent)CreateComponent(index, typeof(ActivateComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceActivate(bool newValue) {
+    public void ReplaceActivate(Code.ActivateComponent newValue) {
         var index = GameComponentsLookup.Activate;
-        var component = (Code.ECS.Components.ActivateComponent)CreateComponent(index, typeof(Code.ECS.Components.ActivateComponent));
-        component.Value = newValue;
+        var component = (ActivateComponent)CreateComponent(index, typeof(ActivateComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

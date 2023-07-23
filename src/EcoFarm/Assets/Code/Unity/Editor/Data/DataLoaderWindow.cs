@@ -1,6 +1,5 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
 using Code.Unity.Editor.Common;
-using Code.Unity.TEMP;
 using UnityEditor;
 using static Code.Unity.Editor.Common.EditorGUILayoutUtils;
 using static UnityEditor.EditorUtility;
@@ -31,15 +30,14 @@ namespace Code.Unity.Editor.Data
 			AsHorizontalGroupAlignCenter(ButtonCreatePlayers);
 		}
 
-		private void ButtonCreatePlayers() 
+		private void ButtonCreatePlayers()
 			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.CreateTest);
 
 		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
 
 		private void CopyDlls() => FilesWorker.CopyDlls(_pathToDlls);
 
-		private void DllPathLabel() => Label("Dll path");
-
+		private void DllPathLabel()     => Label("Dll path");
 		private void DllPathTextField() => _pathToDlls = TextField(_pathToDlls, Width(PathTextFieldWidth));
 
 		private void DllPathOpenFileButton() => Button("Open file").OnPress(GetPathToDll);

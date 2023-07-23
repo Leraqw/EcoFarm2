@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.PreparationInProcessComponent preparationInProcessComponent = new Code.ECS.Components.PreparationInProcessComponent();
+    public PreparationInProcessComponent preparationInProcess { get { return (PreparationInProcessComponent)GetComponent(GameComponentsLookup.PreparationInProcess); } }
+    public bool hasPreparationInProcess { get { return HasComponent(GameComponentsLookup.PreparationInProcess); } }
 
-    public bool isPreparationInProcess {
-        get { return HasComponent(GameComponentsLookup.PreparationInProcess); }
-        set {
-            if (value != isPreparationInProcess) {
-                var index = GameComponentsLookup.PreparationInProcess;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : preparationInProcessComponent;
+    public void AddPreparationInProcess(Code.PreparationInProcessComponent newValue) {
+        var index = GameComponentsLookup.PreparationInProcess;
+        var component = (PreparationInProcessComponent)CreateComponent(index, typeof(PreparationInProcessComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePreparationInProcess(Code.PreparationInProcessComponent newValue) {
+        var index = GameComponentsLookup.PreparationInProcess;
+        var component = (PreparationInProcessComponent)CreateComponent(index, typeof(PreparationInProcessComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePreparationInProcess() {
+        RemoveComponent(GameComponentsLookup.PreparationInProcess);
     }
 }
 

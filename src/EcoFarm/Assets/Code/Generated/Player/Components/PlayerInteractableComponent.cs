@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.MainMenu.Components.InteractableComponent interactable { get { return (Code.Global.MainMenu.Components.InteractableComponent)GetComponent(PlayerComponentsLookup.Interactable); } }
+    public InteractableComponent interactable { get { return (InteractableComponent)GetComponent(PlayerComponentsLookup.Interactable); } }
     public bool hasInteractable { get { return HasComponent(PlayerComponentsLookup.Interactable); } }
 
-    public void AddInteractable(bool newValue) {
+    public void AddInteractable(Code.InteractableComponent newValue) {
         var index = PlayerComponentsLookup.Interactable;
-        var component = (Code.Global.MainMenu.Components.InteractableComponent)CreateComponent(index, typeof(Code.Global.MainMenu.Components.InteractableComponent));
-        component.Value = newValue;
+        var component = (InteractableComponent)CreateComponent(index, typeof(InteractableComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInteractable(bool newValue) {
+    public void ReplaceInteractable(Code.InteractableComponent newValue) {
         var index = PlayerComponentsLookup.Interactable;
-        var component = (Code.Global.MainMenu.Components.InteractableComponent)CreateComponent(index, typeof(Code.Global.MainMenu.Components.InteractableComponent));
-        component.Value = newValue;
+        var component = (InteractableComponent)CreateComponent(index, typeof(InteractableComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -1,10 +1,10 @@
-﻿using Code.Services.Game.Interfaces.Ui;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Data;
+﻿
+
+
 using EcoFarmModel;
 using Entitas;
 
-namespace Code.ECS.Systems.Goals
+namespace Code
 {
 	public sealed class CreateGoalForLevelSystem : IInitializeSystem
 	{

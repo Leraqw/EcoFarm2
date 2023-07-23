@@ -30,7 +30,7 @@ public sealed class GeneratorEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.generatorListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnGenerator(e, component.Value);
+                listener.OnGenerator(e, component.value);
             }
         }
     }

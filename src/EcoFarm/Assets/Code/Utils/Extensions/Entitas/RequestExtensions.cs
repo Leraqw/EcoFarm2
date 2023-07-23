@@ -2,7 +2,7 @@
 using System.Linq;
 using EcoFarmModel;
 
-namespace Code.Utils.Extensions.Entitas
+namespace Code
 {
 	public static class RequestExtensions
 	{

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.PickableComponent pickableComponent = new Code.ECS.Components.PickableComponent();
+    public PickableComponent pickable { get { return (PickableComponent)GetComponent(GameComponentsLookup.Pickable); } }
+    public bool hasPickable { get { return HasComponent(GameComponentsLookup.Pickable); } }
 
-    public bool isPickable {
-        get { return HasComponent(GameComponentsLookup.Pickable); }
-        set {
-            if (value != isPickable) {
-                var index = GameComponentsLookup.Pickable;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : pickableComponent;
+    public void AddPickable(Code.PickableComponent newValue) {
+        var index = GameComponentsLookup.Pickable;
+        var component = (PickableComponent)CreateComponent(index, typeof(PickableComponent));
+        component.value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePickable(Code.PickableComponent newValue) {
+        var index = GameComponentsLookup.Pickable;
+        var component = (PickableComponent)CreateComponent(index, typeof(PickableComponent));
+        component.value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePickable() {
+        RemoveComponent(GameComponentsLookup.Pickable);
     }
 }
 

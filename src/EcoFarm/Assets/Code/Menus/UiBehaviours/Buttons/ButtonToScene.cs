@@ -1,6 +1,6 @@
-﻿using Code.Services.Interfaces;
+﻿
 
-namespace Code.Menus.UiBehaviours.Buttons
+namespace Code
 {
 	public abstract class ButtonToScene : UnityEventAdapter
 	{

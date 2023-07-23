@@ -1,12 +1,12 @@
-using Code.ECS.Components.ComplexComponentTypes;
-using Code.Unity.Containers;
-using Code.Utils.ComponentsTemplates;
+
+
+
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace Code
 {
 	[Game] [Event(Self)] public sealed class ActivateComponent : ValueComponent<bool> { }
 

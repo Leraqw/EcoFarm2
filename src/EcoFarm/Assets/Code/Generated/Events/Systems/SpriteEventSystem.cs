@@ -30,7 +30,7 @@ public sealed class SpriteEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.spriteListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnSprite(e, component.Value);
+                listener.OnSprite(e, component.value);
             }
         }
     }

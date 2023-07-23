@@ -1,7 +1,7 @@
-﻿using Code.Utils.Extensions;
+﻿
 using UnityEngine;
 
-namespace Code.Unity.ViewListeners
+namespace Code
 {
 	public abstract class BaseViewListener : MonoBehaviour
 	{

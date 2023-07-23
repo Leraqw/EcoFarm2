@@ -8,20 +8,20 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ViewPrefabComponent viewPrefab { get { return (Code.ECS.Components.ViewPrefabComponent)GetComponent(GameComponentsLookup.ViewPrefab); } }
+    public ViewPrefabComponent viewPrefab { get { return (ViewPrefabComponent)GetComponent(GameComponentsLookup.ViewPrefab); } }
     public bool hasViewPrefab { get { return HasComponent(GameComponentsLookup.ViewPrefab); } }
 
-    public void AddViewPrefab(UnityEngine.GameObject newValue) {
+    public void AddViewPrefab(Code.ViewPrefabComponent newValue) {
         var index = GameComponentsLookup.ViewPrefab;
-        var component = (Code.ECS.Components.ViewPrefabComponent)CreateComponent(index, typeof(Code.ECS.Components.ViewPrefabComponent));
-        component.Value = newValue;
+        var component = (ViewPrefabComponent)CreateComponent(index, typeof(ViewPrefabComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceViewPrefab(UnityEngine.GameObject newValue) {
+    public void ReplaceViewPrefab(Code.ViewPrefabComponent newValue) {
         var index = GameComponentsLookup.ViewPrefab;
-        var component = (Code.ECS.Components.ViewPrefabComponent)CreateComponent(index, typeof(Code.ECS.Components.ViewPrefabComponent));
-        component.Value = newValue;
+        var component = (ViewPrefabComponent)CreateComponent(index, typeof(ViewPrefabComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

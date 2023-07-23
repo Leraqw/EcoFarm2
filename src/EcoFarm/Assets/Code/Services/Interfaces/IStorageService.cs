@@ -1,6 +1,6 @@
-﻿using Code.Data.Config;
+﻿
 
-namespace Code.Services.Interfaces
+namespace Code
 {
 	public interface IStorageService : IService, IStorage { }
 }

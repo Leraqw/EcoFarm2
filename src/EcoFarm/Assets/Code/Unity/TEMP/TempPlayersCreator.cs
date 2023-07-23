@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EcoFarmModel;
-using static Code.Unity.TEMP.TempDataCreator;
-using Constants = Code.Utils.StaticClasses.Constants;
+using static Code.TempDataCreator;
+using Constants = Code.Constants;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 
-namespace Code.Unity.TEMP
+namespace Code
 {
 	public static class TempPlayersCreator
 	{

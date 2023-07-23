@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Common
+namespace Code
 {
 	public sealed class DurationSystem : IExecuteSystem
 	{

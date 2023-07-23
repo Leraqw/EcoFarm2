@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Code.Utils.Extensions
+namespace Code
 {
 	public static class GenericExtensions
 	{
