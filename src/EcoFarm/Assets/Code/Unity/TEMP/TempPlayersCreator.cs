@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EcoFarmModel;
-using static Code.TempDataCreator;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 
@@ -17,7 +16,7 @@ namespace Code
 		{
 			_array = value.Select((p) => p.Value).ToArray();
 
-			Serialize(_array, Constants.PathToPlayers);
+			TempDataCreator.Serialize(_array, Constants.PathToPlayers);
 		}
 
 		private static Player[] _array;
@@ -35,7 +34,7 @@ namespace Code
 
 			RefillDictionary();
 
-			Serialize(_array, Constants.PathToPlayers);
+			TempDataCreator.Serialize(_array, Constants.PathToPlayers);
 		}
 
 		public static void CreateTest()
@@ -51,7 +50,7 @@ namespace Code
 
 			RefillDictionary();
 
-			Serialize(_array, Constants.PathToPlayers);
+			TempDataCreator.Serialize(_array, Constants.PathToPlayers);
 		}
 
 		private static void RefillDictionary()

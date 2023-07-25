@@ -1,7 +1,4 @@
-﻿
-
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code
 {
@@ -12,7 +9,7 @@ namespace Code
 		private void Start()
 		{
 			DontDestroyOnLoad(gameObject);
-			
+
 			IGlobalServices resources = new UnityGlobalServices();
 
 			_systems = new GlobalSystems(resources);
@@ -22,6 +19,5 @@ namespace Code
 		private void Update() => _systems.OnUpdate();
 
 		private void OnDestroy() => _systems.TearDown();
-
 	}
 }

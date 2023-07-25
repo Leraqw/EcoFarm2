@@ -15,6 +15,8 @@ namespace Code
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);
+			
+			servicesContext.ReplaceDataProvider(new JsonDataProviderService());
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

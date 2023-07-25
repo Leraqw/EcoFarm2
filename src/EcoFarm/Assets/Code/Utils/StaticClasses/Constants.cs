@@ -1,14 +1,14 @@
-﻿using EcoFarmModel;
+﻿using System.IO;
+using EcoFarmModel;
 using UnityEngine;
-using static System.IO.Path;
 using static UnityEngine.Application;
 
 namespace Code
 {
 	public static class Constants
 	{
-		public static string PathToStorage => Combine(persistentDataPath, $"{nameof(Storage)}.json");
-		public static string PathToPlayers => Combine(persistentDataPath, "Players.json");
+		public static string PathToStorage => Path.Combine(persistentDataPath, $"{nameof(Storage)}.json");
+		public static string PathToPlayers => Path.Combine(persistentDataPath, "Players.json");
 
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
 		public const int FactoryPollution = 25;

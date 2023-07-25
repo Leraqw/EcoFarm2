@@ -10,19 +10,21 @@ public static class ServicesComponentsLookup {
 
     public const int CameraService = 0;
     public const int ConfigurationService = 1;
-    public const int DataService = 2;
-    public const int InputService = 3;
-    public const int ResourcesService = 4;
-    public const int SceneObjectsService = 5;
-    public const int SceneTransferService = 6;
-    public const int StorageService = 7;
-    public const int UiService = 8;
+    public const int DataProvider = 2;
+    public const int DataService = 3;
+    public const int InputService = 4;
+    public const int ResourcesService = 5;
+    public const int SceneObjectsService = 6;
+    public const int SceneTransferService = 7;
+    public const int StorageService = 8;
+    public const int UiService = 9;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "CameraService",
         "ConfigurationService",
+        "DataProvider",
         "DataService",
         "InputService",
         "ResourcesService",
@@ -35,6 +37,7 @@ public static class ServicesComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.CameraServiceComponent),
         typeof(Code.ConfigurationServiceComponent),
+        typeof(Code.DataProviderComponent),
         typeof(Code.DataServiceComponent),
         typeof(Code.InputServiceComponent),
         typeof(Code.ResourcesServiceComponent),

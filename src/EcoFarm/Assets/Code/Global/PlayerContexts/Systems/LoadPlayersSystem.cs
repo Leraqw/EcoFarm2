@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using EcoFarmModel;
 using Entitas;
-using Newtonsoft.Json;
-using static Code.JsonUtils;
 
 namespace Code
 {
@@ -15,12 +11,10 @@ namespace Code
 		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
-		{
-			Deserialize()
-				.Select(ToEntity)
-				.First()
-				.isCurrentPlayer = true;
-		}
+			=> ServicesMediator.DataProvider.Players
+			                   .Select(ToEntity)
+			                   .First()
+			                   .isCurrentPlayer = true;
 
 		private PlayerEntity ToEntity(Player player)
 		{
@@ -30,18 +24,6 @@ namespace Code
 			e.AddCompletedLevelsCount(player.CompletedLevelsCount);
 			e.AddSessionResult(SessionResult.None);
 			return e;
-		}
-
-		private static IEnumerable<Player> Deserialize()
-		{
-			var path = Constants.PathToPlayers;
-			if (File.Exists(path) == false)
-			{
-				TempPlayersCreator.CreateEmpty();
-			}
-
-			var json = File.ReadAllText(path);
-			return JsonConvert.DeserializeObject<Player[]>(json, WithReferences);
 		}
 	}
 }
