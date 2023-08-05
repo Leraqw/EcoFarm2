@@ -9,6 +9,7 @@
 			Add(new GlobalServicesRegistrationSystems(contexts, services));
 
 			Add(new LoadPlayersSystem(contexts));
+			Add(new SetFirstPlayerAsCurrentSystem(contexts));
 
 			Add(new OnSessionEndSystem(contexts));
 			Add(new SaveProgressSystem(contexts));

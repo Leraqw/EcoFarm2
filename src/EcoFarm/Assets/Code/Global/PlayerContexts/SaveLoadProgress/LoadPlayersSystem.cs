@@ -10,20 +10,15 @@ namespace Code
 
 		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize()
-			=> ServicesMediator.DataProvider.Players
-			                   .Select(ToEntity)
-			                   .First()
-			                   .isCurrentPlayer = true;
+		public void Initialize() => ServicesMediator.DataProvider.Players.ForEach(ToEntity);
 
-		private PlayerEntity ToEntity(Player player)
+		private void ToEntity(Player player)
 		{
 			var e = _contexts.player.CreateEntity();
 			e.isPlayer = true;
 			e.AddNickname(player.Nickname);
 			e.AddCompletedLevelsCount(player.CompletedLevelsCount);
 			e.AddSessionResult(SessionResult.None);
-			return e;
 		}
 	}
 }
