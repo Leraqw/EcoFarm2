@@ -1,6 +1,4 @@
 ﻿using System;
-
-
 using EcoFarmModel;
 using TMPro;
 using UnityEngine;

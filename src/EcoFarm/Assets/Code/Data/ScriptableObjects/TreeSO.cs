@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EcoFarm
 {
 	[Serializable]
-	public class TreeSO : DevelopmentObjectSO
+	public class TreeSO : DevObjectSO
 	{
 		[field: SerializeField] public ProductSO Product { get; private set; }
 	}
