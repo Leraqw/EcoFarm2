@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity sceneObjectsServiceEntity { get { return GetGroup(ServicesMatcher.SceneObjectsService).GetSingleEntity(); } }
-    public Code.SceneObjectsServiceComponent sceneObjectsService { get { return sceneObjectsServiceEntity.sceneObjectsService; } }
+    public EcoFarm.SceneObjectsServiceComponent sceneObjectsService { get { return sceneObjectsServiceEntity.sceneObjectsService; } }
     public bool hasSceneObjectsService { get { return sceneObjectsServiceEntity != null; } }
 
-    public ServicesEntity SetSceneObjectsService(Code.ISpawnPointsService newValue) {
+    public ServicesEntity SetSceneObjectsService(EcoFarm.ISpawnPointsService newValue) {
         if (hasSceneObjectsService) {
             throw new Entitas.EntitasException("Could not set SceneObjectsService!\n" + this + " already has an entity with Code.SceneObjectsServiceComponent!",
                 "You should check if the context already has a sceneObjectsServiceEntity before setting it or use context.ReplaceSceneObjectsService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceSceneObjectsService(Code.ISpawnPointsService newValue) {
+    public void ReplaceSceneObjectsService(EcoFarm.ISpawnPointsService newValue) {
         var entity = sceneObjectsServiceEntity;
         if (entity == null) {
             entity = SetSceneObjectsService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.SceneObjectsServiceComponent sceneObjectsService { get { return (Code.SceneObjectsServiceComponent)GetComponent(ServicesComponentsLookup.SceneObjectsService); } }
+    public EcoFarm.SceneObjectsServiceComponent sceneObjectsService { get { return (EcoFarm.SceneObjectsServiceComponent)GetComponent(ServicesComponentsLookup.SceneObjectsService); } }
     public bool hasSceneObjectsService { get { return HasComponent(ServicesComponentsLookup.SceneObjectsService); } }
 
-    public void AddSceneObjectsService(Code.ISpawnPointsService newValue) {
+    public void AddSceneObjectsService(EcoFarm.ISpawnPointsService newValue) {
         var index = ServicesComponentsLookup.SceneObjectsService;
-        var component = (Code.SceneObjectsServiceComponent)CreateComponent(index, typeof(Code.SceneObjectsServiceComponent));
+        var component = (EcoFarm.SceneObjectsServiceComponent)CreateComponent(index, typeof(EcoFarm.SceneObjectsServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSceneObjectsService(Code.ISpawnPointsService newValue) {
+    public void ReplaceSceneObjectsService(EcoFarm.ISpawnPointsService newValue) {
         var index = ServicesComponentsLookup.SceneObjectsService;
-        var component = (Code.SceneObjectsServiceComponent)CreateComponent(index, typeof(Code.SceneObjectsServiceComponent));
+        var component = (EcoFarm.SceneObjectsServiceComponent)CreateComponent(index, typeof(EcoFarm.SceneObjectsServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

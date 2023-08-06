@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ConsumableComponent consumable { get { return (Code.ConsumableComponent)GetComponent(GameComponentsLookup.Consumable); } }
+    public EcoFarm.ConsumableComponent consumable { get { return (EcoFarm.ConsumableComponent)GetComponent(GameComponentsLookup.Consumable); } }
     public bool hasConsumable { get { return HasComponent(GameComponentsLookup.Consumable); } }
 
     public void AddConsumable(int newValue) {
         var index = GameComponentsLookup.Consumable;
-        var component = (Code.ConsumableComponent)CreateComponent(index, typeof(Code.ConsumableComponent));
+        var component = (EcoFarm.ConsumableComponent)CreateComponent(index, typeof(EcoFarm.ConsumableComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceConsumable(int newValue) {
         var index = GameComponentsLookup.Consumable;
-        var component = (Code.ConsumableComponent)CreateComponent(index, typeof(Code.ConsumableComponent));
+        var component = (EcoFarm.ConsumableComponent)CreateComponent(index, typeof(EcoFarm.ConsumableComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

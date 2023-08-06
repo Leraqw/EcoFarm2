@@ -2,7 +2,7 @@
 
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class SyncItemValueWithDebugSystem : ReactiveSystem<GameEntity>
 	{

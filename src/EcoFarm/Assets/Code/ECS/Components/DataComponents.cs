@@ -3,7 +3,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] [Unique] public sealed class StorageComponent : IComponent { public Storage Value; }
 

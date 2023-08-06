@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code
+namespace EcoFarm
 {
 	public abstract class BaseButtonClickReceiver : MonoBehaviour
 	{

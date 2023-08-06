@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entitas;
-using static Code.Constants;
+using static EcoFarm.Constants;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class ProduceProductSystem : ReactiveSystem<GameEntity>
 	{

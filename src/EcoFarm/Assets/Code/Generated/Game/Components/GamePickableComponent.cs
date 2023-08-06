@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.PickableComponent pickableComponent = new Code.PickableComponent();
+    static readonly EcoFarm.PickableComponent pickableComponent = new EcoFarm.PickableComponent();
 
     public bool isPickable {
         get { return HasComponent(GameComponentsLookup.Pickable); }

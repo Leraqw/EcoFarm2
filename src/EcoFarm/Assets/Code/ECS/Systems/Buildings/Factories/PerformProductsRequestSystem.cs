@@ -7,7 +7,7 @@ using System.Linq;
 using Entitas;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class PerformProductsRequestSystem : ReactiveSystem<GameEntity>
 	{

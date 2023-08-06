@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.DestroyComponent destroyComponent = new Code.DestroyComponent();
+    static readonly EcoFarm.DestroyComponent destroyComponent = new EcoFarm.DestroyComponent();
 
     public bool isDestroy {
         get { return HasComponent(PlayerComponentsLookup.Destroy); }

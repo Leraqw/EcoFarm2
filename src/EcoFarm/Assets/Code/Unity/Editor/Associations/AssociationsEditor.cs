@@ -1,9 +1,9 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
-using Code.Unity.Editor.Common;
+using EcoFarm.Unity.Editor.Common;
 using UnityEditor;
 using static UnityEngine.GUILayout;
 
-namespace Code.Unity.Editor.Associations
+namespace EcoFarm.Unity.Editor.Associations
 {
 	[CustomEditor(typeof(SpriteSheet))]
 	public class AssociationsEditor : UnityEditor.Editor

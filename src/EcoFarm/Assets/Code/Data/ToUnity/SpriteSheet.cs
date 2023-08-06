@@ -3,7 +3,7 @@ using System.Linq;
 using EcoFarmModel;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[CreateAssetMenu(fileName = "SpriteSheet", menuName = "ScriptableObject/SpriteSheet")]
 	public class SpriteSheet : ScriptableObject

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.MouseClickComponent mouseClick { get { return (Code.MouseClickComponent)GetComponent(GameComponentsLookup.MouseClick); } }
+    public EcoFarm.MouseClickComponent mouseClick { get { return (EcoFarm.MouseClickComponent)GetComponent(GameComponentsLookup.MouseClick); } }
     public bool hasMouseClick { get { return HasComponent(GameComponentsLookup.MouseClick); } }
 
     public void AddMouseClick(GameEntity newValue) {
         var index = GameComponentsLookup.MouseClick;
-        var component = (Code.MouseClickComponent)CreateComponent(index, typeof(Code.MouseClickComponent));
+        var component = (EcoFarm.MouseClickComponent)CreateComponent(index, typeof(EcoFarm.MouseClickComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceMouseClick(GameEntity newValue) {
         var index = GameComponentsLookup.MouseClick;
-        var component = (Code.MouseClickComponent)CreateComponent(index, typeof(Code.MouseClickComponent));
+        var component = (EcoFarm.MouseClickComponent)CreateComponent(index, typeof(EcoFarm.MouseClickComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

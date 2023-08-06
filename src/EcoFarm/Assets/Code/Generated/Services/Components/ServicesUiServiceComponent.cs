@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity uiServiceEntity { get { return GetGroup(ServicesMatcher.UiService).GetSingleEntity(); } }
-    public Code.UiServiceComponent uiService { get { return uiServiceEntity.uiService; } }
+    public EcoFarm.UiServiceComponent uiService { get { return uiServiceEntity.uiService; } }
     public bool hasUiService { get { return uiServiceEntity != null; } }
 
-    public ServicesEntity SetUiService(Code.IUiService newValue) {
+    public ServicesEntity SetUiService(EcoFarm.IUiService newValue) {
         if (hasUiService) {
             throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with Code.UiServiceComponent!",
                 "You should check if the context already has a uiServiceEntity before setting it or use context.ReplaceUiService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceUiService(Code.IUiService newValue) {
+    public void ReplaceUiService(EcoFarm.IUiService newValue) {
         var entity = uiServiceEntity;
         if (entity == null) {
             entity = SetUiService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.UiServiceComponent uiService { get { return (Code.UiServiceComponent)GetComponent(ServicesComponentsLookup.UiService); } }
+    public EcoFarm.UiServiceComponent uiService { get { return (EcoFarm.UiServiceComponent)GetComponent(ServicesComponentsLookup.UiService); } }
     public bool hasUiService { get { return HasComponent(ServicesComponentsLookup.UiService); } }
 
-    public void AddUiService(Code.IUiService newValue) {
+    public void AddUiService(EcoFarm.IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
-        var component = (Code.UiServiceComponent)CreateComponent(index, typeof(Code.UiServiceComponent));
+        var component = (EcoFarm.UiServiceComponent)CreateComponent(index, typeof(EcoFarm.UiServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceUiService(Code.IUiService newValue) {
+    public void ReplaceUiService(EcoFarm.IUiService newValue) {
         var index = ServicesComponentsLookup.UiService;
-        var component = (Code.UiServiceComponent)CreateComponent(index, typeof(Code.UiServiceComponent));
+        var component = (EcoFarm.UiServiceComponent)CreateComponent(index, typeof(EcoFarm.UiServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

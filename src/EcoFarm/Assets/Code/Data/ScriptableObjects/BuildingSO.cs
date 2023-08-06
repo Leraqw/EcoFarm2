@@ -1,6 +1,6 @@
 using System;
 
-namespace Code
+namespace EcoFarm
 {
 	[Serializable]
 	public abstract class BuildingSO : DevelopmentObjectSO { }

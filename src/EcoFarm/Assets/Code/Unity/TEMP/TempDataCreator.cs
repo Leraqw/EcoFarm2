@@ -2,11 +2,11 @@
 using EcoFarmModel;
 using Newtonsoft.Json;
 using UnityEngine;
-using static Code.JsonUtils;
-using static Code.Constants;
+using static EcoFarm.JsonUtils;
+using static EcoFarm.Constants;
 using Tree = EcoFarmModel.Tree;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class TempDataCreator
 	{

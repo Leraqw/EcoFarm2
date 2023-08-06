@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity storageServiceEntity { get { return GetGroup(ServicesMatcher.StorageService).GetSingleEntity(); } }
-    public Code.StorageServiceComponent storageService { get { return storageServiceEntity.storageService; } }
+    public EcoFarm.StorageServiceComponent storageService { get { return storageServiceEntity.storageService; } }
     public bool hasStorageService { get { return storageServiceEntity != null; } }
 
-    public ServicesEntity SetStorageService(Code.IStorageService newValue) {
+    public ServicesEntity SetStorageService(EcoFarm.IStorageService newValue) {
         if (hasStorageService) {
             throw new Entitas.EntitasException("Could not set StorageService!\n" + this + " already has an entity with Code.StorageServiceComponent!",
                 "You should check if the context already has a storageServiceEntity before setting it or use context.ReplaceStorageService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceStorageService(Code.IStorageService newValue) {
+    public void ReplaceStorageService(EcoFarm.IStorageService newValue) {
         var entity = storageServiceEntity;
         if (entity == null) {
             entity = SetStorageService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.StorageServiceComponent storageService { get { return (Code.StorageServiceComponent)GetComponent(ServicesComponentsLookup.StorageService); } }
+    public EcoFarm.StorageServiceComponent storageService { get { return (EcoFarm.StorageServiceComponent)GetComponent(ServicesComponentsLookup.StorageService); } }
     public bool hasStorageService { get { return HasComponent(ServicesComponentsLookup.StorageService); } }
 
-    public void AddStorageService(Code.IStorageService newValue) {
+    public void AddStorageService(EcoFarm.IStorageService newValue) {
         var index = ServicesComponentsLookup.StorageService;
-        var component = (Code.StorageServiceComponent)CreateComponent(index, typeof(Code.StorageServiceComponent));
+        var component = (EcoFarm.StorageServiceComponent)CreateComponent(index, typeof(EcoFarm.StorageServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceStorageService(Code.IStorageService newValue) {
+    public void ReplaceStorageService(EcoFarm.IStorageService newValue) {
         var index = ServicesComponentsLookup.StorageService;
-        var component = (Code.StorageServiceComponent)CreateComponent(index, typeof(Code.StorageServiceComponent));
+        var component = (EcoFarm.StorageServiceComponent)CreateComponent(index, typeof(EcoFarm.StorageServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

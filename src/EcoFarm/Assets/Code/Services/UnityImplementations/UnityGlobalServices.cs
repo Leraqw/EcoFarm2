@@ -1,7 +1,7 @@
 ﻿using EcoFarmModel;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public class UnityGlobalServices : IGlobalServices
 	{

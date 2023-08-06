@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial interface ITextEntity {
 
-    Code.TextComponent text { get; }
+    EcoFarm.TextComponent text { get; }
     bool hasText { get; }
 
     void AddText(string newValue);

@@ -1,11 +1,11 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
-using Code.Unity.Editor.Common;
+using EcoFarm.Unity.Editor.Common;
 using UnityEditor;
-using static Code.Unity.Editor.Common.EditorGUILayoutUtils;
+using static EcoFarm.Unity.Editor.Common.EditorGUILayoutUtils;
 using static UnityEditor.EditorUtility;
 using static UnityEngine.GUILayout;
 
-namespace Code.Unity.Editor.Data
+namespace EcoFarm.Unity.Editor.Data
 {
 	public class DataLoaderWindow : EditorWindow
 	{

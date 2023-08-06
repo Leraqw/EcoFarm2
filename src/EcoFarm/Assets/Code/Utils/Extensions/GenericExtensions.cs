@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class GenericExtensions
 	{

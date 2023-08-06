@@ -1,9 +1,9 @@
 ﻿using Entitas;
 using UnityEngine;
-using static Code.Constants.SpriteHigh;
+using static EcoFarm.Constants.SpriteHigh;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class DanceWhileWorkingSystem : IExecuteSystem
 	{

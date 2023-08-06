@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.LevelTimerComponent levelTimerComponent = new Code.LevelTimerComponent();
+    static readonly EcoFarm.LevelTimerComponent levelTimerComponent = new EcoFarm.LevelTimerComponent();
 
     public bool isLevelTimer {
         get { return HasComponent(GameComponentsLookup.LevelTimer); }

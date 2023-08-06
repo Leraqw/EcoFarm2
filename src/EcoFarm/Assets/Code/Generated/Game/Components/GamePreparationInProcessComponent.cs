@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.PreparationInProcessComponent preparationInProcessComponent = new Code.PreparationInProcessComponent();
+    static readonly EcoFarm.PreparationInProcessComponent preparationInProcessComponent = new EcoFarm.PreparationInProcessComponent();
 
     public bool isPreparationInProcess {
         get { return HasComponent(GameComponentsLookup.PreparationInProcess); }

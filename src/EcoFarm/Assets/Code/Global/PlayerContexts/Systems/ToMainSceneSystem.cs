@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class ToMainSceneSystem : IInitializeSystem
 	{

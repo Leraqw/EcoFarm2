@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity dataServiceEntity { get { return GetGroup(ServicesMatcher.DataService).GetSingleEntity(); } }
-    public Code.DataServiceComponent dataService { get { return dataServiceEntity.dataService; } }
+    public EcoFarm.DataServiceComponent dataService { get { return dataServiceEntity.dataService; } }
     public bool hasDataService { get { return dataServiceEntity != null; } }
 
-    public ServicesEntity SetDataService(Code.IDataService newValue) {
+    public ServicesEntity SetDataService(EcoFarm.IDataService newValue) {
         if (hasDataService) {
             throw new Entitas.EntitasException("Could not set DataService!\n" + this + " already has an entity with Code.DataServiceComponent!",
                 "You should check if the context already has a dataServiceEntity before setting it or use context.ReplaceDataService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceDataService(Code.IDataService newValue) {
+    public void ReplaceDataService(EcoFarm.IDataService newValue) {
         var entity = dataServiceEntity;
         if (entity == null) {
             entity = SetDataService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.DataServiceComponent dataService { get { return (Code.DataServiceComponent)GetComponent(ServicesComponentsLookup.DataService); } }
+    public EcoFarm.DataServiceComponent dataService { get { return (EcoFarm.DataServiceComponent)GetComponent(ServicesComponentsLookup.DataService); } }
     public bool hasDataService { get { return HasComponent(ServicesComponentsLookup.DataService); } }
 
-    public void AddDataService(Code.IDataService newValue) {
+    public void AddDataService(EcoFarm.IDataService newValue) {
         var index = ServicesComponentsLookup.DataService;
-        var component = (Code.DataServiceComponent)CreateComponent(index, typeof(Code.DataServiceComponent));
+        var component = (EcoFarm.DataServiceComponent)CreateComponent(index, typeof(EcoFarm.DataServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDataService(Code.IDataService newValue) {
+    public void ReplaceDataService(EcoFarm.IDataService newValue) {
         var index = ServicesComponentsLookup.DataService;
-        var component = (Code.DataServiceComponent)CreateComponent(index, typeof(Code.DataServiceComponent));
+        var component = (EcoFarm.DataServiceComponent)CreateComponent(index, typeof(EcoFarm.DataServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

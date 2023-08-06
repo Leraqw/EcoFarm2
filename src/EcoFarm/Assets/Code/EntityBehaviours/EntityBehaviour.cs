@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public abstract class EntityBehaviour : MonoBehaviour
 	{

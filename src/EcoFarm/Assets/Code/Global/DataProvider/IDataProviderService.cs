@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using EcoFarmModel;
 
-namespace Code
+namespace EcoFarm
 {
 	public interface IDataProviderService
 	{

@@ -1,7 +1,7 @@
 ﻿using EcoFarmModel;
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class LoadPlayersSystem : IInitializeSystem
 	{

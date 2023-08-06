@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[CreateAssetMenu(fileName = "Configuration", menuName = "ScriptableObject/Configuration")]
 	public class UnityConfiguration : ScriptableObject, IConfigurationService

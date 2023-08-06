@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.DraggableComponent draggableComponent = new Code.DraggableComponent();
+    static readonly EcoFarm.DraggableComponent draggableComponent = new EcoFarm.DraggableComponent();
 
     public bool isDraggable {
         get { return HasComponent(GameComponentsLookup.Draggable); }

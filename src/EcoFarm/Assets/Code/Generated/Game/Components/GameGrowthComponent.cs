@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.GrowthComponent growthComponent = new Code.GrowthComponent();
+    static readonly EcoFarm.GrowthComponent growthComponent = new EcoFarm.GrowthComponent();
 
     public bool isGrowth {
         get { return HasComponent(GameComponentsLookup.Growth); }

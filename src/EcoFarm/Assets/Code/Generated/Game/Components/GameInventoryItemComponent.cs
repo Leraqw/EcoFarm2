@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.InventoryItemComponent inventoryItem { get { return (Code.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
+    public EcoFarm.InventoryItemComponent inventoryItem { get { return (EcoFarm.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
     public bool hasInventoryItem { get { return HasComponent(GameComponentsLookup.InventoryItem); } }
 
-    public void AddInventoryItem(Code.Item newValue) {
+    public void AddInventoryItem(EcoFarm.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.InventoryItemComponent)CreateComponent(index, typeof(Code.InventoryItemComponent));
+        var component = (EcoFarm.InventoryItemComponent)CreateComponent(index, typeof(EcoFarm.InventoryItemComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInventoryItem(Code.Item newValue) {
+    public void ReplaceInventoryItem(EcoFarm.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.InventoryItemComponent)CreateComponent(index, typeof(Code.InventoryItemComponent));
+        var component = (EcoFarm.InventoryItemComponent)CreateComponent(index, typeof(EcoFarm.InventoryItemComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

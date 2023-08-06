@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[CreateAssetMenu(fileName = "Storage", menuName = "EcoFarm/Storage")]
 	public class StorageSO : ScriptableObject

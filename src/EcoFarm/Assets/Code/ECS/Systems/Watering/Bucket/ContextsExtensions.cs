@@ -1,6 +1,6 @@
 ﻿
 
-namespace Code
+namespace EcoFarm
 {
 	public static class ContextsExtensions
 	{

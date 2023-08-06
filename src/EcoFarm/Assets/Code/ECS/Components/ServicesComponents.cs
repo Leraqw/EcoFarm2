@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace Code
+namespace EcoFarm
 {
 	[Services] [Unique] public sealed class ResourcesServiceComponent : IComponent { public IResourcesService Value; }
 	[Services] [Unique] public sealed class SceneObjectsServiceComponent : IComponent { public ISpawnPointsService Value; }

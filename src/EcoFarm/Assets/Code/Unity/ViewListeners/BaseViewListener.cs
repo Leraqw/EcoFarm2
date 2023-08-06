@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public abstract class BaseViewListener : MonoBehaviour
 	{

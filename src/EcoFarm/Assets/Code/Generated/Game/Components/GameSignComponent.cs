@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.SignComponent signComponent = new Code.SignComponent();
+    static readonly EcoFarm.SignComponent signComponent = new EcoFarm.SignComponent();
 
     public bool isSign {
         get { return HasComponent(GameComponentsLookup.Sign); }

@@ -1,5 +1,5 @@
-﻿using Code;
-using Code.Tests;
+﻿using EcoFarm;
+using EcoFarm.Tests;
 using FluentAssertions;
 using NUnit.Framework;
 

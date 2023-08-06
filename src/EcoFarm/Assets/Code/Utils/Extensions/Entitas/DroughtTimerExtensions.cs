@@ -2,7 +2,7 @@
 
 using static Contexts;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class DroughtTimerExtensions
 	{

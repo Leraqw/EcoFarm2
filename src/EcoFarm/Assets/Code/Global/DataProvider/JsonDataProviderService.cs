@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.IO;
 using EcoFarmModel;
 using Newtonsoft.Json;
-using static Code.JsonUtils;
+using static EcoFarm.JsonUtils;
 
-namespace Code
+namespace EcoFarm
 {
 	public class JsonDataProviderService : IDataProviderService
 	{

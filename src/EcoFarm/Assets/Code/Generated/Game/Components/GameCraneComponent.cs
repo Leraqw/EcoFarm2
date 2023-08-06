@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.CraneComponent craneComponent = new Code.CraneComponent();
+    static readonly EcoFarm.CraneComponent craneComponent = new EcoFarm.CraneComponent();
 
     public bool isCrane {
         get { return HasComponent(GameComponentsLookup.Crane); }

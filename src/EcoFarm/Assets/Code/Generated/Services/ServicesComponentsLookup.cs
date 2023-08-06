@@ -35,15 +35,15 @@ public static class ServicesComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.CameraServiceComponent),
-        typeof(Code.ConfigurationServiceComponent),
-        typeof(Code.DataProviderComponent),
-        typeof(Code.DataServiceComponent),
-        typeof(Code.InputServiceComponent),
-        typeof(Code.ResourcesServiceComponent),
-        typeof(Code.SceneObjectsServiceComponent),
-        typeof(Code.SceneTransferServiceComponent),
-        typeof(Code.StorageServiceComponent),
-        typeof(Code.UiServiceComponent)
+        typeof(EcoFarm.CameraServiceComponent),
+        typeof(EcoFarm.ConfigurationServiceComponent),
+        typeof(EcoFarm.DataProviderComponent),
+        typeof(EcoFarm.DataServiceComponent),
+        typeof(EcoFarm.InputServiceComponent),
+        typeof(EcoFarm.ResourcesServiceComponent),
+        typeof(EcoFarm.SceneObjectsServiceComponent),
+        typeof(EcoFarm.SceneTransferServiceComponent),
+        typeof(EcoFarm.StorageServiceComponent),
+        typeof(EcoFarm.UiServiceComponent)
     };
 }

@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity resourcesServiceEntity { get { return GetGroup(ServicesMatcher.ResourcesService).GetSingleEntity(); } }
-    public Code.ResourcesServiceComponent resourcesService { get { return resourcesServiceEntity.resourcesService; } }
+    public EcoFarm.ResourcesServiceComponent resourcesService { get { return resourcesServiceEntity.resourcesService; } }
     public bool hasResourcesService { get { return resourcesServiceEntity != null; } }
 
-    public ServicesEntity SetResourcesService(Code.IResourcesService newValue) {
+    public ServicesEntity SetResourcesService(EcoFarm.IResourcesService newValue) {
         if (hasResourcesService) {
             throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with Code.ResourcesServiceComponent!",
                 "You should check if the context already has a resourcesServiceEntity before setting it or use context.ReplaceResourcesService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceResourcesService(Code.IResourcesService newValue) {
+    public void ReplaceResourcesService(EcoFarm.IResourcesService newValue) {
         var entity = resourcesServiceEntity;
         if (entity == null) {
             entity = SetResourcesService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ResourcesServiceComponent resourcesService { get { return (Code.ResourcesServiceComponent)GetComponent(ServicesComponentsLookup.ResourcesService); } }
+    public EcoFarm.ResourcesServiceComponent resourcesService { get { return (EcoFarm.ResourcesServiceComponent)GetComponent(ServicesComponentsLookup.ResourcesService); } }
     public bool hasResourcesService { get { return HasComponent(ServicesComponentsLookup.ResourcesService); } }
 
-    public void AddResourcesService(Code.IResourcesService newValue) {
+    public void AddResourcesService(EcoFarm.IResourcesService newValue) {
         var index = ServicesComponentsLookup.ResourcesService;
-        var component = (Code.ResourcesServiceComponent)CreateComponent(index, typeof(Code.ResourcesServiceComponent));
+        var component = (EcoFarm.ResourcesServiceComponent)CreateComponent(index, typeof(EcoFarm.ResourcesServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceResourcesService(Code.IResourcesService newValue) {
+    public void ReplaceResourcesService(EcoFarm.IResourcesService newValue) {
         var index = ServicesComponentsLookup.ResourcesService;
-        var component = (Code.ResourcesServiceComponent)CreateComponent(index, typeof(Code.ResourcesServiceComponent));
+        var component = (EcoFarm.ResourcesServiceComponent)CreateComponent(index, typeof(EcoFarm.ResourcesServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

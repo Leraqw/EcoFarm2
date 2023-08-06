@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IProgressBarListener {
-    void OnProgressBar(GameEntity entity, Code.ProgressBarValues value);
+    void OnProgressBar(GameEntity entity, EcoFarm.ProgressBarValues value);
 }

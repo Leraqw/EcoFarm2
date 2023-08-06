@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.FruitRequireComponent fruitRequireComponent = new Code.FruitRequireComponent();
+    static readonly EcoFarm.FruitRequireComponent fruitRequireComponent = new EcoFarm.FruitRequireComponent();
 
     public bool isFruitRequire {
         get { return HasComponent(GameComponentsLookup.FruitRequire); }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class Vector3Extensions
 	{

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.WateredComponent wateredComponent = new Code.WateredComponent();
+    static readonly EcoFarm.WateredComponent wateredComponent = new EcoFarm.WateredComponent();
 
     public bool isWatered {
         get { return HasComponent(GameComponentsLookup.Watered); }

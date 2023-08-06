@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.RenewComponent renewComponent = new Code.RenewComponent();
+    static readonly EcoFarm.RenewComponent renewComponent = new EcoFarm.RenewComponent();
 
     public bool isRenew {
         get { return HasComponent(GameComponentsLookup.Renew); }

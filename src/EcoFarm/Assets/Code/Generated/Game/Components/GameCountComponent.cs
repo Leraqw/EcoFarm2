@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.CountComponent count { get { return (Code.CountComponent)GetComponent(GameComponentsLookup.Count); } }
+    public EcoFarm.CountComponent count { get { return (EcoFarm.CountComponent)GetComponent(GameComponentsLookup.Count); } }
     public bool hasCount { get { return HasComponent(GameComponentsLookup.Count); } }
 
     public void AddCount(int newValue) {
         var index = GameComponentsLookup.Count;
-        var component = (Code.CountComponent)CreateComponent(index, typeof(Code.CountComponent));
+        var component = (EcoFarm.CountComponent)CreateComponent(index, typeof(EcoFarm.CountComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceCount(int newValue) {
         var index = GameComponentsLookup.Count;
-        var component = (Code.CountComponent)CreateComponent(index, typeof(Code.CountComponent));
+        var component = (EcoFarm.CountComponent)CreateComponent(index, typeof(EcoFarm.CountComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

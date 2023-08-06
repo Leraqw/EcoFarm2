@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.RotationComponent rotation { get { return (Code.RotationComponent)GetComponent(GameComponentsLookup.Rotation); } }
+    public EcoFarm.RotationComponent rotation { get { return (EcoFarm.RotationComponent)GetComponent(GameComponentsLookup.Rotation); } }
     public bool hasRotation { get { return HasComponent(GameComponentsLookup.Rotation); } }
 
     public void AddRotation(float newValue) {
         var index = GameComponentsLookup.Rotation;
-        var component = (Code.RotationComponent)CreateComponent(index, typeof(Code.RotationComponent));
+        var component = (EcoFarm.RotationComponent)CreateComponent(index, typeof(EcoFarm.RotationComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRotation(float newValue) {
         var index = GameComponentsLookup.Rotation;
-        var component = (Code.RotationComponent)CreateComponent(index, typeof(Code.RotationComponent));
+        var component = (EcoFarm.RotationComponent)CreateComponent(index, typeof(EcoFarm.RotationComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

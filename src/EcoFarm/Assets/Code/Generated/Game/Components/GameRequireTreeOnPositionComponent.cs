@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.RequireTreeOnPositionComponent requireTreeOnPosition { get { return (Code.RequireTreeOnPositionComponent)GetComponent(GameComponentsLookup.RequireTreeOnPosition); } }
+    public EcoFarm.RequireTreeOnPositionComponent requireTreeOnPosition { get { return (EcoFarm.RequireTreeOnPositionComponent)GetComponent(GameComponentsLookup.RequireTreeOnPosition); } }
     public bool hasRequireTreeOnPosition { get { return HasComponent(GameComponentsLookup.RequireTreeOnPosition); } }
 
     public void AddRequireTreeOnPosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.RequireTreeOnPosition;
-        var component = (Code.RequireTreeOnPositionComponent)CreateComponent(index, typeof(Code.RequireTreeOnPositionComponent));
+        var component = (EcoFarm.RequireTreeOnPositionComponent)CreateComponent(index, typeof(EcoFarm.RequireTreeOnPositionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRequireTreeOnPosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.RequireTreeOnPosition;
-        var component = (Code.RequireTreeOnPositionComponent)CreateComponent(index, typeof(Code.RequireTreeOnPositionComponent));
+        var component = (EcoFarm.RequireTreeOnPositionComponent)CreateComponent(index, typeof(EcoFarm.RequireTreeOnPositionComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public class UnityJsonStorage : IStorage
 	{

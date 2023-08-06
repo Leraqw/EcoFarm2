@@ -3,7 +3,7 @@ using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] [Cleanup(DestroyEntity)] public sealed class MouseClickComponent : IComponent { public GameEntity Value; }
 

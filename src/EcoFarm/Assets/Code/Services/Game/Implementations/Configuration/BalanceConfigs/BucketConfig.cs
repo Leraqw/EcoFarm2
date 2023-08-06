@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[Serializable]
 	public class BucketConfig : IBucketConfig

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.DebugNameComponent debugName { get { return (Code.DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
+    public EcoFarm.DebugNameComponent debugName { get { return (EcoFarm.DebugNameComponent)GetComponent(GameComponentsLookup.DebugName); } }
     public bool hasDebugName { get { return HasComponent(GameComponentsLookup.DebugName); } }
 
     public void AddDebugName(string newValue) {
         var index = GameComponentsLookup.DebugName;
-        var component = (Code.DebugNameComponent)CreateComponent(index, typeof(Code.DebugNameComponent));
+        var component = (EcoFarm.DebugNameComponent)CreateComponent(index, typeof(EcoFarm.DebugNameComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDebugName(string newValue) {
         var index = GameComponentsLookup.DebugName;
-        var component = (Code.DebugNameComponent)CreateComponent(index, typeof(Code.DebugNameComponent));
+        var component = (EcoFarm.DebugNameComponent)CreateComponent(index, typeof(EcoFarm.DebugNameComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.AttachedToComponent attachedTo { get { return (Code.AttachedToComponent)GetComponent(GameComponentsLookup.AttachedTo); } }
+    public EcoFarm.AttachedToComponent attachedTo { get { return (EcoFarm.AttachedToComponent)GetComponent(GameComponentsLookup.AttachedTo); } }
     public bool hasAttachedTo { get { return HasComponent(GameComponentsLookup.AttachedTo); } }
 
     public void AddAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
-        var component = (Code.AttachedToComponent)CreateComponent(index, typeof(Code.AttachedToComponent));
+        var component = (EcoFarm.AttachedToComponent)CreateComponent(index, typeof(EcoFarm.AttachedToComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceAttachedTo(int newValue) {
         var index = GameComponentsLookup.AttachedTo;
-        var component = (Code.AttachedToComponent)CreateComponent(index, typeof(Code.AttachedToComponent));
+        var component = (EcoFarm.AttachedToComponent)CreateComponent(index, typeof(EcoFarm.AttachedToComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

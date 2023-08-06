@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.BucketComponent bucketComponent = new Code.BucketComponent();
+    static readonly EcoFarm.BucketComponent bucketComponent = new EcoFarm.BucketComponent();
 
     public bool isBucket {
         get { return HasComponent(GameComponentsLookup.Bucket); }

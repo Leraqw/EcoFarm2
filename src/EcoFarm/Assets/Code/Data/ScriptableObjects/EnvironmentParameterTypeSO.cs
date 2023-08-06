@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[Serializable]
 	// ReSharper disable once InconsistentNaming – it's temporary name

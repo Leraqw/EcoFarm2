@@ -2,7 +2,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code
+namespace EcoFarm
 {
 	[Player] public sealed class NicknameComponent : IComponent { [PrimaryEntityIndex] public string Value;}
 

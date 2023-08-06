@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial interface IViewEntity {
 
-    Code.ViewComponent view { get; }
+    EcoFarm.ViewComponent view { get; }
     bool hasView { get; }
 
     void AddView(UnityEngine.GameObject newValue);

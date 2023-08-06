@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.RequirePreparationComponent requirePreparationComponent = new Code.RequirePreparationComponent();
+    static readonly EcoFarm.RequirePreparationComponent requirePreparationComponent = new EcoFarm.RequirePreparationComponent();
 
     public bool isRequirePreparation {
         get { return HasComponent(GameComponentsLookup.RequirePreparation); }

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.FactoryComponent factory { get { return (Code.FactoryComponent)GetComponent(GameComponentsLookup.Factory); } }
+    public EcoFarm.FactoryComponent factory { get { return (EcoFarm.FactoryComponent)GetComponent(GameComponentsLookup.Factory); } }
     public bool hasFactory { get { return HasComponent(GameComponentsLookup.Factory); } }
 
     public void AddFactory(EcoFarmModel.FactoryBuilding newValue) {
         var index = GameComponentsLookup.Factory;
-        var component = (Code.FactoryComponent)CreateComponent(index, typeof(Code.FactoryComponent));
+        var component = (EcoFarm.FactoryComponent)CreateComponent(index, typeof(EcoFarm.FactoryComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceFactory(EcoFarmModel.FactoryBuilding newValue) {
         var index = GameComponentsLookup.Factory;
-        var component = (Code.FactoryComponent)CreateComponent(index, typeof(Code.FactoryComponent));
+        var component = (EcoFarm.FactoryComponent)CreateComponent(index, typeof(EcoFarm.FactoryComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

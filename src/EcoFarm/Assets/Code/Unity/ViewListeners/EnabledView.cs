@@ -1,5 +1,5 @@
 ﻿
-namespace Code
+namespace EcoFarm
 {
 	public class EnabledView : BaseViewListener, IActivateListener
 	{

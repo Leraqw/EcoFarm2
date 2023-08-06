@@ -1,6 +1,6 @@
 ﻿
 
-namespace Code
+namespace EcoFarm
 {
 	public abstract class ButtonToScene : UnityEventAdapter
 	{

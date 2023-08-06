@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.NicknameComponent nickname { get { return (Code.NicknameComponent)GetComponent(PlayerComponentsLookup.Nickname); } }
+    public EcoFarm.NicknameComponent nickname { get { return (EcoFarm.NicknameComponent)GetComponent(PlayerComponentsLookup.Nickname); } }
     public bool hasNickname { get { return HasComponent(PlayerComponentsLookup.Nickname); } }
 
     public void AddNickname(string newValue) {
         var index = PlayerComponentsLookup.Nickname;
-        var component = (Code.NicknameComponent)CreateComponent(index, typeof(Code.NicknameComponent));
+        var component = (EcoFarm.NicknameComponent)CreateComponent(index, typeof(EcoFarm.NicknameComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceNickname(string newValue) {
         var index = PlayerComponentsLookup.Nickname;
-        var component = (Code.NicknameComponent)CreateComponent(index, typeof(Code.NicknameComponent));
+        var component = (EcoFarm.NicknameComponent)CreateComponent(index, typeof(EcoFarm.NicknameComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

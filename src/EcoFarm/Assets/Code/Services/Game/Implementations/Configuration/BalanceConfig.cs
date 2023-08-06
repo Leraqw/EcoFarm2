@@ -4,7 +4,7 @@
 
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	[Serializable]
 	public class BalanceConfig : IBalanceConfig

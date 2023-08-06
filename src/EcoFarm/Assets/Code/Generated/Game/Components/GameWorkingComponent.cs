@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.WorkingComponent workingComponent = new Code.WorkingComponent();
+    static readonly EcoFarm.WorkingComponent workingComponent = new EcoFarm.WorkingComponent();
 
     public bool isWorking {
         get { return HasComponent(GameComponentsLookup.Working); }

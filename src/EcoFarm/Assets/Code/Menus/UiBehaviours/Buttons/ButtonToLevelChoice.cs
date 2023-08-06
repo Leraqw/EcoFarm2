@@ -1,4 +1,4 @@
-﻿namespace Code
+﻿namespace EcoFarm
 {
 	public class ButtonToLevelChoice : ButtonToScene
 	{

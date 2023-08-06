@@ -9,7 +9,7 @@
 public partial class GameContext {
 
     public GameEntity storageEntity { get { return GetGroup(GameMatcher.Storage).GetSingleEntity(); } }
-    public Code.StorageComponent storage { get { return storageEntity.storage; } }
+    public EcoFarm.StorageComponent storage { get { return storageEntity.storage; } }
     public bool hasStorage { get { return storageEntity != null; } }
 
     public GameEntity SetStorage(EcoFarmModel.Storage newValue) {
@@ -46,19 +46,19 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.StorageComponent storage { get { return (Code.StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
+    public EcoFarm.StorageComponent storage { get { return (EcoFarm.StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
     public bool hasStorage { get { return HasComponent(GameComponentsLookup.Storage); } }
 
     public void AddStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
-        var component = (Code.StorageComponent)CreateComponent(index, typeof(Code.StorageComponent));
+        var component = (EcoFarm.StorageComponent)CreateComponent(index, typeof(EcoFarm.StorageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceStorage(EcoFarmModel.Storage newValue) {
         var index = GameComponentsLookup.Storage;
-        var component = (Code.StorageComponent)CreateComponent(index, typeof(Code.StorageComponent));
+        var component = (EcoFarm.StorageComponent)CreateComponent(index, typeof(EcoFarm.StorageComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

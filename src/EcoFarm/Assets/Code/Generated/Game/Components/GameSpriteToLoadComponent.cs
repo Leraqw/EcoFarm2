@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.SpriteToLoadComponent spriteToLoad { get { return (Code.SpriteToLoadComponent)GetComponent(GameComponentsLookup.SpriteToLoad); } }
+    public EcoFarm.SpriteToLoadComponent spriteToLoad { get { return (EcoFarm.SpriteToLoadComponent)GetComponent(GameComponentsLookup.SpriteToLoad); } }
     public bool hasSpriteToLoad { get { return HasComponent(GameComponentsLookup.SpriteToLoad); } }
 
     public void AddSpriteToLoad(UnityEngine.Sprite newValue) {
         var index = GameComponentsLookup.SpriteToLoad;
-        var component = (Code.SpriteToLoadComponent)CreateComponent(index, typeof(Code.SpriteToLoadComponent));
+        var component = (EcoFarm.SpriteToLoadComponent)CreateComponent(index, typeof(EcoFarm.SpriteToLoadComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSpriteToLoad(UnityEngine.Sprite newValue) {
         var index = GameComponentsLookup.SpriteToLoad;
-        var component = (Code.SpriteToLoadComponent)CreateComponent(index, typeof(Code.SpriteToLoadComponent));
+        var component = (EcoFarm.SpriteToLoadComponent)CreateComponent(index, typeof(EcoFarm.SpriteToLoadComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] public sealed class RequireViewComponent : IComponent { public string Value; }
 	[Game] public sealed class ViewPrefabComponent : IComponent { public GameObject Value; }

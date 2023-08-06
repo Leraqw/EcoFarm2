@@ -5,7 +5,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class CheckTreeUnderWateringSystem : ReactiveSystem<GameEntity>
 	{

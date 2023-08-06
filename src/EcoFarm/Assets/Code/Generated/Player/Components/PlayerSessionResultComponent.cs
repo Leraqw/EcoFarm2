@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.SessionResultComponent sessionResult { get { return (Code.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public EcoFarm.SessionResultComponent sessionResult { get { return (EcoFarm.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(Code.SessionResult newValue) {
+    public void AddSessionResult(EcoFarm.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.SessionResultComponent)CreateComponent(index, typeof(Code.SessionResultComponent));
+        var component = (EcoFarm.SessionResultComponent)CreateComponent(index, typeof(EcoFarm.SessionResultComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(Code.SessionResult newValue) {
+    public void ReplaceSessionResult(EcoFarm.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.SessionResultComponent)CreateComponent(index, typeof(Code.SessionResultComponent));
+        var component = (EcoFarm.SessionResultComponent)CreateComponent(index, typeof(EcoFarm.SessionResultComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

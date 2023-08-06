@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class SaveProgressSystem : ReactiveSystem<PlayerEntity>
 	{

@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity configurationServiceEntity { get { return GetGroup(ServicesMatcher.ConfigurationService).GetSingleEntity(); } }
-    public Code.ConfigurationServiceComponent configurationService { get { return configurationServiceEntity.configurationService; } }
+    public EcoFarm.ConfigurationServiceComponent configurationService { get { return configurationServiceEntity.configurationService; } }
     public bool hasConfigurationService { get { return configurationServiceEntity != null; } }
 
-    public ServicesEntity SetConfigurationService(Code.IConfigurationService newValue) {
+    public ServicesEntity SetConfigurationService(EcoFarm.IConfigurationService newValue) {
         if (hasConfigurationService) {
             throw new Entitas.EntitasException("Could not set ConfigurationService!\n" + this + " already has an entity with Code.ConfigurationServiceComponent!",
                 "You should check if the context already has a configurationServiceEntity before setting it or use context.ReplaceConfigurationService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceConfigurationService(Code.IConfigurationService newValue) {
+    public void ReplaceConfigurationService(EcoFarm.IConfigurationService newValue) {
         var entity = configurationServiceEntity;
         if (entity == null) {
             entity = SetConfigurationService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ConfigurationServiceComponent configurationService { get { return (Code.ConfigurationServiceComponent)GetComponent(ServicesComponentsLookup.ConfigurationService); } }
+    public EcoFarm.ConfigurationServiceComponent configurationService { get { return (EcoFarm.ConfigurationServiceComponent)GetComponent(ServicesComponentsLookup.ConfigurationService); } }
     public bool hasConfigurationService { get { return HasComponent(ServicesComponentsLookup.ConfigurationService); } }
 
-    public void AddConfigurationService(Code.IConfigurationService newValue) {
+    public void AddConfigurationService(EcoFarm.IConfigurationService newValue) {
         var index = ServicesComponentsLookup.ConfigurationService;
-        var component = (Code.ConfigurationServiceComponent)CreateComponent(index, typeof(Code.ConfigurationServiceComponent));
+        var component = (EcoFarm.ConfigurationServiceComponent)CreateComponent(index, typeof(EcoFarm.ConfigurationServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceConfigurationService(Code.IConfigurationService newValue) {
+    public void ReplaceConfigurationService(EcoFarm.IConfigurationService newValue) {
         var index = ServicesComponentsLookup.ConfigurationService;
-        var component = (Code.ConfigurationServiceComponent)CreateComponent(index, typeof(Code.ConfigurationServiceComponent));
+        var component = (EcoFarm.ConfigurationServiceComponent)CreateComponent(index, typeof(EcoFarm.ConfigurationServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

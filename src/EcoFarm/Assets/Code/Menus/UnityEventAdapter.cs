@@ -2,7 +2,7 @@
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Code
+namespace EcoFarm
 {
 	public abstract class UnityEventAdapter : MonoBehaviour
 	{

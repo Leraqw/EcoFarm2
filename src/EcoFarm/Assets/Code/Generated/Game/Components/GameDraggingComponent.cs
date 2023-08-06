@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.DraggingComponent draggingComponent = new Code.DraggingComponent();
+    static readonly EcoFarm.DraggingComponent draggingComponent = new EcoFarm.DraggingComponent();
 
     public bool isDragging {
         get { return HasComponent(GameComponentsLookup.Dragging); }

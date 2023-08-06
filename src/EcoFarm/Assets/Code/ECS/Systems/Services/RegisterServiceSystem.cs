@@ -1,7 +1,7 @@
 ﻿using System;
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class RegisterServiceSystem<TService> : IInitializeSystem
 	{

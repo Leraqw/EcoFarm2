@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity dataProviderEntity { get { return GetGroup(ServicesMatcher.DataProvider).GetSingleEntity(); } }
-    public Code.DataProviderComponent dataProvider { get { return dataProviderEntity.dataProvider; } }
+    public EcoFarm.DataProviderComponent dataProvider { get { return dataProviderEntity.dataProvider; } }
     public bool hasDataProvider { get { return dataProviderEntity != null; } }
 
-    public ServicesEntity SetDataProvider(Code.IDataProviderService newValue) {
+    public ServicesEntity SetDataProvider(EcoFarm.IDataProviderService newValue) {
         if (hasDataProvider) {
             throw new Entitas.EntitasException("Could not set DataProvider!\n" + this + " already has an entity with Code.DataProviderComponent!",
                 "You should check if the context already has a dataProviderEntity before setting it or use context.ReplaceDataProvider().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceDataProvider(Code.IDataProviderService newValue) {
+    public void ReplaceDataProvider(EcoFarm.IDataProviderService newValue) {
         var entity = dataProviderEntity;
         if (entity == null) {
             entity = SetDataProvider(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.DataProviderComponent dataProvider { get { return (Code.DataProviderComponent)GetComponent(ServicesComponentsLookup.DataProvider); } }
+    public EcoFarm.DataProviderComponent dataProvider { get { return (EcoFarm.DataProviderComponent)GetComponent(ServicesComponentsLookup.DataProvider); } }
     public bool hasDataProvider { get { return HasComponent(ServicesComponentsLookup.DataProvider); } }
 
-    public void AddDataProvider(Code.IDataProviderService newValue) {
+    public void AddDataProvider(EcoFarm.IDataProviderService newValue) {
         var index = ServicesComponentsLookup.DataProvider;
-        var component = (Code.DataProviderComponent)CreateComponent(index, typeof(Code.DataProviderComponent));
+        var component = (EcoFarm.DataProviderComponent)CreateComponent(index, typeof(EcoFarm.DataProviderComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDataProvider(Code.IDataProviderService newValue) {
+    public void ReplaceDataProvider(EcoFarm.IDataProviderService newValue) {
         var index = ServicesComponentsLookup.DataProvider;
-        var component = (Code.DataProviderComponent)CreateComponent(index, typeof(Code.DataProviderComponent));
+        var component = (EcoFarm.DataProviderComponent)CreateComponent(index, typeof(EcoFarm.DataProviderComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

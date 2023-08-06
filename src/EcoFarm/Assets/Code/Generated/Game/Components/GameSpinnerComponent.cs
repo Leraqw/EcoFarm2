@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.SpinnerComponent spinnerComponent = new Code.SpinnerComponent();
+    static readonly EcoFarm.SpinnerComponent spinnerComponent = new EcoFarm.SpinnerComponent();
 
     public bool isSpinner {
         get { return HasComponent(GameComponentsLookup.Spinner); }

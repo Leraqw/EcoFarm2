@@ -1,7 +1,7 @@
 ﻿using EcoFarmCustomGenerator.CodeGeneration.Attributes;
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] public sealed class FilledComponent : IComponent { }
 	[Game] public sealed class RadiusComponent : IComponent { public float Value; }

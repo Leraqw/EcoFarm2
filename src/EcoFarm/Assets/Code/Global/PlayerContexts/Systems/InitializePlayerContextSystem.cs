@@ -1,8 +1,8 @@
 ﻿
 using Entitas;
-using static Code.SessionResult;
+using static EcoFarm.SessionResult;
 
-namespace Code
+namespace EcoFarm
 {
 	public class InitializePlayerContextSystem : IInitializeSystem
 	{

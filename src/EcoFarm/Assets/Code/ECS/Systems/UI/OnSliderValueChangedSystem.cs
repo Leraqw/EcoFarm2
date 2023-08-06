@@ -4,7 +4,7 @@ using Entitas;
 using static System.Globalization.CultureInfo;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class OnSliderValueChangedSystem : ReactiveSystem<GameEntity>
 	{

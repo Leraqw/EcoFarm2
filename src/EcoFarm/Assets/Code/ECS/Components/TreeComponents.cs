@@ -4,7 +4,7 @@ using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] public sealed class RequireTreeOnPositionComponent : IComponent { public Vector2 Value; }
 

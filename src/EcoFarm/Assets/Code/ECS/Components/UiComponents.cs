@@ -4,7 +4,7 @@ using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] [Event(Self)] public sealed class ActivateComponent : IComponent { public bool Value; }
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : IComponent { }

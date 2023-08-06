@@ -1,6 +1,6 @@
 ﻿using NSubstitute;
 
-namespace Code.Tests
+namespace EcoFarm.Tests
 {
 	public class Setup
 	{

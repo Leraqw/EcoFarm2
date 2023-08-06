@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.SellWindowComponent sellWindow { get { return (Code.SellWindowComponent)GetComponent(GameComponentsLookup.SellWindow); } }
+    public EcoFarm.SellWindowComponent sellWindow { get { return (EcoFarm.SellWindowComponent)GetComponent(GameComponentsLookup.SellWindow); } }
     public bool hasSellWindow { get { return HasComponent(GameComponentsLookup.SellWindow); } }
 
-    public void AddSellWindow(Code.WindowSell newValue) {
+    public void AddSellWindow(EcoFarm.WindowSell newValue) {
         var index = GameComponentsLookup.SellWindow;
-        var component = (Code.SellWindowComponent)CreateComponent(index, typeof(Code.SellWindowComponent));
+        var component = (EcoFarm.SellWindowComponent)CreateComponent(index, typeof(EcoFarm.SellWindowComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSellWindow(Code.WindowSell newValue) {
+    public void ReplaceSellWindow(EcoFarm.WindowSell newValue) {
         var index = GameComponentsLookup.SellWindow;
-        var component = (Code.SellWindowComponent)CreateComponent(index, typeof(Code.SellWindowComponent));
+        var component = (EcoFarm.SellWindowComponent)CreateComponent(index, typeof(EcoFarm.SellWindowComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

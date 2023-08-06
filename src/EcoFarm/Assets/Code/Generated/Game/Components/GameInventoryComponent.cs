@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.InventoryComponent inventoryComponent = new Code.InventoryComponent();
+    static readonly EcoFarm.InventoryComponent inventoryComponent = new EcoFarm.InventoryComponent();
 
     public bool isInventory {
         get { return HasComponent(GameComponentsLookup.Inventory); }

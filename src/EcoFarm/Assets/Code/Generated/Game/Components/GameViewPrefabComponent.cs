@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ViewPrefabComponent viewPrefab { get { return (Code.ViewPrefabComponent)GetComponent(GameComponentsLookup.ViewPrefab); } }
+    public EcoFarm.ViewPrefabComponent viewPrefab { get { return (EcoFarm.ViewPrefabComponent)GetComponent(GameComponentsLookup.ViewPrefab); } }
     public bool hasViewPrefab { get { return HasComponent(GameComponentsLookup.ViewPrefab); } }
 
     public void AddViewPrefab(UnityEngine.GameObject newValue) {
         var index = GameComponentsLookup.ViewPrefab;
-        var component = (Code.ViewPrefabComponent)CreateComponent(index, typeof(Code.ViewPrefabComponent));
+        var component = (EcoFarm.ViewPrefabComponent)CreateComponent(index, typeof(EcoFarm.ViewPrefabComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceViewPrefab(UnityEngine.GameObject newValue) {
         var index = GameComponentsLookup.ViewPrefab;
-        var component = (Code.ViewPrefabComponent)CreateComponent(index, typeof(Code.ViewPrefabComponent));
+        var component = (EcoFarm.ViewPrefabComponent)CreateComponent(index, typeof(EcoFarm.ViewPrefabComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

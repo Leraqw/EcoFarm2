@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using static Code.SessionResult;
+using static EcoFarm.SessionResult;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class GameOverSystem : ReactiveSystem<GameEntity>
 	{

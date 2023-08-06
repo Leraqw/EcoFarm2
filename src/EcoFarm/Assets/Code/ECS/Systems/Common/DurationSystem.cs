@@ -3,7 +3,7 @@ using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class DurationSystem : IExecuteSystem
 	{

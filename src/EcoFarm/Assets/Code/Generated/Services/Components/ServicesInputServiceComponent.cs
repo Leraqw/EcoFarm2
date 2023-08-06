@@ -9,10 +9,10 @@
 public partial class ServicesContext {
 
     public ServicesEntity inputServiceEntity { get { return GetGroup(ServicesMatcher.InputService).GetSingleEntity(); } }
-    public Code.InputServiceComponent inputService { get { return inputServiceEntity.inputService; } }
+    public EcoFarm.InputServiceComponent inputService { get { return inputServiceEntity.inputService; } }
     public bool hasInputService { get { return inputServiceEntity != null; } }
 
-    public ServicesEntity SetInputService(Code.IInputService newValue) {
+    public ServicesEntity SetInputService(EcoFarm.IInputService newValue) {
         if (hasInputService) {
             throw new Entitas.EntitasException("Could not set InputService!\n" + this + " already has an entity with Code.InputServiceComponent!",
                 "You should check if the context already has a inputServiceEntity before setting it or use context.ReplaceInputService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceInputService(Code.IInputService newValue) {
+    public void ReplaceInputService(EcoFarm.IInputService newValue) {
         var entity = inputServiceEntity;
         if (entity == null) {
             entity = SetInputService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.InputServiceComponent inputService { get { return (Code.InputServiceComponent)GetComponent(ServicesComponentsLookup.InputService); } }
+    public EcoFarm.InputServiceComponent inputService { get { return (EcoFarm.InputServiceComponent)GetComponent(ServicesComponentsLookup.InputService); } }
     public bool hasInputService { get { return HasComponent(ServicesComponentsLookup.InputService); } }
 
-    public void AddInputService(Code.IInputService newValue) {
+    public void AddInputService(EcoFarm.IInputService newValue) {
         var index = ServicesComponentsLookup.InputService;
-        var component = (Code.InputServiceComponent)CreateComponent(index, typeof(Code.InputServiceComponent));
+        var component = (EcoFarm.InputServiceComponent)CreateComponent(index, typeof(EcoFarm.InputServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputService(Code.IInputService newValue) {
+    public void ReplaceInputService(EcoFarm.IInputService newValue) {
         var index = ServicesComponentsLookup.InputService;
-        var component = (Code.InputServiceComponent)CreateComponent(index, typeof(Code.InputServiceComponent));
+        var component = (EcoFarm.InputServiceComponent)CreateComponent(index, typeof(EcoFarm.InputServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,4 +1,4 @@
-﻿namespace Code.Unity.Editor.Common
+﻿namespace EcoFarm.Unity.Editor.Common
 {
 	public static class EditorExtensions
 	{

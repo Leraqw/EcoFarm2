@@ -3,7 +3,7 @@
 
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class TreePostInitializationSystem : ReactiveSystem<GameEntity>
 	{

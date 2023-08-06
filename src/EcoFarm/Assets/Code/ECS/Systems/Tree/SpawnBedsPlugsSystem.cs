@@ -6,7 +6,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Contexts;
 
-namespace Code
+namespace EcoFarm
 {
 	public class WateringView : BaseViewListener, IWateringListener
 	{

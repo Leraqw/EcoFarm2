@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code
+namespace EcoFarm
 {
 	public class GoalCompletedView : BaseViewListener, IGoalCompletedListener
 	{

@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine.SceneManagement;
 
-namespace Code
+namespace EcoFarm
 {
 	public class UnitySceneTransferService : ISceneTransferService
 	{

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.GoalCompletedComponent goalCompletedComponent = new Code.GoalCompletedComponent();
+    static readonly EcoFarm.GoalCompletedComponent goalCompletedComponent = new EcoFarm.GoalCompletedComponent();
 
     public bool isGoalCompleted {
         get { return HasComponent(GameComponentsLookup.GoalCompleted); }

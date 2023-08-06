@@ -9,7 +9,7 @@ using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class PrepareBuildWindowSystem : ReactiveSystem<GameEntity>
 	{

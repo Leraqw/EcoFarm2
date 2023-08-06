@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.FilledComponent filledComponent = new Code.FilledComponent();
+    static readonly EcoFarm.FilledComponent filledComponent = new EcoFarm.FilledComponent();
 
     public bool isFilled {
         get { return HasComponent(GameComponentsLookup.Filled); }

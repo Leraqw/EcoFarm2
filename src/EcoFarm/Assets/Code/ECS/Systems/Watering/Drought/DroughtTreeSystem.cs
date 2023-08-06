@@ -5,7 +5,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class DroughtTreeSystem : ReactiveSystem<GameEntity>
 	{

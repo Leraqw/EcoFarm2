@@ -2,10 +2,10 @@
 using System.Linq;
 
 using Entitas;
-using static Code.SessionResult;
+using static EcoFarm.SessionResult;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class ObserveGoalCompletionSystem : ReactiveSystem<GameEntity>
 	{

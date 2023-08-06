@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public class ButtonPlayBehaviour : EntityBehaviour
 	{

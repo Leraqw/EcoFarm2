@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.SelectedLevelComponent selectedLevel { get { return (Code.SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
+    public EcoFarm.SelectedLevelComponent selectedLevel { get { return (EcoFarm.SelectedLevelComponent)GetComponent(PlayerComponentsLookup.SelectedLevel); } }
     public bool hasSelectedLevel { get { return HasComponent(PlayerComponentsLookup.SelectedLevel); } }
 
     public void AddSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (Code.SelectedLevelComponent)CreateComponent(index, typeof(Code.SelectedLevelComponent));
+        var component = (EcoFarm.SelectedLevelComponent)CreateComponent(index, typeof(EcoFarm.SelectedLevelComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSelectedLevel(int newValue) {
         var index = PlayerComponentsLookup.SelectedLevel;
-        var component = (Code.SelectedLevelComponent)CreateComponent(index, typeof(Code.SelectedLevelComponent));
+        var component = (EcoFarm.SelectedLevelComponent)CreateComponent(index, typeof(EcoFarm.SelectedLevelComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3009cd52e0648929cb70203fa72324b, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
-  Resources: []
-  Products: []
-  Levels: []
-  Trees: []
+  <Resources>k__BackingField: []
+  <Products>k__BackingField: []
+  <Levels>k__BackingField: []
+  <Trees>k__BackingField: []
+  <Buildings>k__BackingField: []

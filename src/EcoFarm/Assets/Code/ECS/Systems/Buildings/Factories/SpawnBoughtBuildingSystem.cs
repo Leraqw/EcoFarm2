@@ -9,11 +9,11 @@ using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
-using static Code.Constants;
+using static EcoFarm.Constants;
 using static GameMatcher;
-using static Code.Constants.SpriteHigh;
+using static EcoFarm.Constants.SpriteHigh;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{

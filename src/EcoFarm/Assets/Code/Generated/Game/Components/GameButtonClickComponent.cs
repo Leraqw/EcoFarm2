@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ButtonClickComponent buttonClickComponent = new Code.ButtonClickComponent();
+    static readonly EcoFarm.ButtonClickComponent buttonClickComponent = new EcoFarm.ButtonClickComponent();
 
     public bool isButtonClick {
         get { return HasComponent(GameComponentsLookup.ButtonClick); }

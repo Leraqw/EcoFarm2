@@ -5,7 +5,7 @@ using Entitas;
 using UnityEngine;
 using LevelData = EcoFarmModel.Level;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
 	{

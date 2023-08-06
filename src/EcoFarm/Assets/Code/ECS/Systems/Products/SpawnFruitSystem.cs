@@ -6,7 +6,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class SpawnFruitSystem : IExecuteSystem
 	{

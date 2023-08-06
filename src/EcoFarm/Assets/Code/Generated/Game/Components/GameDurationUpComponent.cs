@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.DurationUpComponent durationUpComponent = new Code.DurationUpComponent();
+    static readonly EcoFarm.DurationUpComponent durationUpComponent = new EcoFarm.DurationUpComponent();
 
     public bool isDurationUp {
         get { return HasComponent(GameComponentsLookup.DurationUp); }

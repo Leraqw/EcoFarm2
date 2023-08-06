@@ -4,7 +4,7 @@ using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] public sealed class SignComponent : IComponent { }
 

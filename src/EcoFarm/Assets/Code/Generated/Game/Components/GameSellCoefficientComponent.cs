@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.SellCoefficientComponent sellCoefficient { get { return (Code.SellCoefficientComponent)GetComponent(GameComponentsLookup.SellCoefficient); } }
+    public EcoFarm.SellCoefficientComponent sellCoefficient { get { return (EcoFarm.SellCoefficientComponent)GetComponent(GameComponentsLookup.SellCoefficient); } }
     public bool hasSellCoefficient { get { return HasComponent(GameComponentsLookup.SellCoefficient); } }
 
     public void AddSellCoefficient(float newValue) {
         var index = GameComponentsLookup.SellCoefficient;
-        var component = (Code.SellCoefficientComponent)CreateComponent(index, typeof(Code.SellCoefficientComponent));
+        var component = (EcoFarm.SellCoefficientComponent)CreateComponent(index, typeof(EcoFarm.SellCoefficientComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSellCoefficient(float newValue) {
         var index = GameComponentsLookup.SellCoefficient;
-        var component = (Code.SellCoefficientComponent)CreateComponent(index, typeof(Code.SellCoefficientComponent));
+        var component = (EcoFarm.SellCoefficientComponent)CreateComponent(index, typeof(EcoFarm.SellCoefficientComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

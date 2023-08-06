@@ -4,7 +4,7 @@ using EcoFarmModel;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 
-namespace Code
+namespace EcoFarm
 {
 	public static class TempPlayersCreator
 	{

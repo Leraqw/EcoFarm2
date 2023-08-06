@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class CollectingSystems : Feature
 	{

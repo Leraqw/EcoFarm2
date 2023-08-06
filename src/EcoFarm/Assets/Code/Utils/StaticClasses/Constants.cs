@@ -3,7 +3,7 @@ using EcoFarmModel;
 using UnityEngine;
 using static UnityEngine.Application;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class Constants
 	{

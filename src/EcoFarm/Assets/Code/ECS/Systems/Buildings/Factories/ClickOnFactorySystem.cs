@@ -4,7 +4,7 @@ using Entitas;
 using EcoFarmModel;
 using static GameMatcher;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class ClickOnFactorySystem : ReactiveSystem<GameEntity>
 	{

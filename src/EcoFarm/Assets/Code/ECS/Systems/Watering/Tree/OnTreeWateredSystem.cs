@@ -4,7 +4,7 @@
 
 using Entitas;
 
-namespace Code
+namespace EcoFarm
 {
 	public sealed class OnTreeWateredSystem : ReactiveSystem<GameEntity>
 	{

@@ -35,7 +35,7 @@ public partial class PlayerContext {
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.CurrentPlayerComponent currentPlayerComponent = new Code.CurrentPlayerComponent();
+    static readonly EcoFarm.CurrentPlayerComponent currentPlayerComponent = new EcoFarm.CurrentPlayerComponent();
 
     public bool isCurrentPlayer {
         get { return HasComponent(PlayerComponentsLookup.CurrentPlayer); }

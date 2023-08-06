@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using static Code.SessionResult;
+using static EcoFarm.SessionResult;
 
-namespace Code
+namespace EcoFarm
 {
 	public class GameResultMenu : MonoBehaviour
 	{

@@ -75,37 +75,37 @@ public partial class Contexts {
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
             AttachableIndex,
             game.GetGroup(GameMatcher.AttachableIndex),
-            (e, c) => ((Code.AttachableIndexComponent)c).Value));
+            (e, c) => ((EcoFarm.AttachableIndexComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             AttachedTo,
             game.GetGroup(GameMatcher.AttachedTo),
-            (e, c) => ((Code.AttachedToComponent)c).Value));
+            (e, c) => ((EcoFarm.AttachedToComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
             Consumable,
             game.GetGroup(GameMatcher.Consumable),
-            (e, c) => ((Code.ConsumableComponent)c).Value));
+            (e, c) => ((EcoFarm.ConsumableComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             Consumer,
             game.GetGroup(GameMatcher.Consumer),
-            (e, c) => ((Code.ConsumerComponent)c).Value));
+            (e, c) => ((EcoFarm.ConsumerComponent)c).Value));
 
         player.AddEntityIndex(new Entitas.PrimaryEntityIndex<PlayerEntity, string>(
             Nickname,
             player.GetGroup(PlayerMatcher.Nickname),
-            (e, c) => ((Code.NicknameComponent)c).Value));
+            (e, c) => ((EcoFarm.NicknameComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             ProduceResource,
             game.GetGroup(GameMatcher.ProduceResource),
-            (e, c) => ((Code.ProduceResourceComponent)c).Value));
+            (e, c) => ((EcoFarm.ProduceResourceComponent)c).Value));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, EcoFarmModel.Resource>(
             Resource,
             game.GetGroup(GameMatcher.Resource),
-            (e, c) => ((Code.ResourceComponent)c).Value));
+            (e, c) => ((EcoFarm.ResourceComponent)c).Value));
     }
 }
 

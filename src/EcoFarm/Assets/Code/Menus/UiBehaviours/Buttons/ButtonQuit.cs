@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
 	public class ButtonQuit : UnityEventAdapter
 	{

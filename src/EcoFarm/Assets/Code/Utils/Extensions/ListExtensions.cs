@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Code
+namespace EcoFarm
 {
 	public static class ListExtensions
 	{

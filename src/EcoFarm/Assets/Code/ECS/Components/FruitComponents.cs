@@ -2,7 +2,7 @@
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code
+namespace EcoFarm
 {
 	[Game] public sealed class FruitRequireComponent : IComponent { }
 
