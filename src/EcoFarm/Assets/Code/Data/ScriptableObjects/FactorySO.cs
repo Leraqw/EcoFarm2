@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace EcoFarm
 {
-	[Serializable]
-	public class FactoryBuildingSO : BuildingSO
+	[CreateAssetMenu(fileName = nameof(FactorySO), menuName = nameof(EcoFarm) + "/" + nameof(FactorySO))]
+	public class FactorySO : BuildingSO
 	{
 		[field: SerializeField] public ProductSO[] InputProducts                  { get; private set; }
 		[field: SerializeField] public ProductSO[] OutputProducts                 { get; private set; }
