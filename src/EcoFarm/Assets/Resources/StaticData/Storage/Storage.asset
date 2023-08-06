@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3009cd52e0648929cb70203fa72324b, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
-  <Resources>k__BackingField: []
+  <Resources>k__BackingField:
+  - {fileID: 11400000, guid: 953de6ba5bf8e1766b921c6c42fb6d36, type: 2}
   <Products>k__BackingField: []
   <Levels>k__BackingField: []
   <Trees>k__BackingField: []
   <Buildings>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3f46996a9ba221066ba056aef222d2e6, type: 2}

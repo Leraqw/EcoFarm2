@@ -1,8 +1,7 @@
-using System;
+using UnityEngine;
 
 namespace EcoFarm
 {
-	// ReSharper disable once InconsistentNaming – it's temporary name
-	[Serializable]
-	public class ResourceSO : EnvironmentParameterTypeSO { }
+	[CreateAssetMenu(fileName = nameof(ResourceSO), menuName = nameof(EcoFarm) + "/" + nameof(ResourceSO))]
+	public class ResourceSO : EnvironmentParameterSO { }
 }
