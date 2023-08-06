@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 
 namespace EcoFarm
 {
-	[Serializable]
 	public abstract class DevelopmentObjectSO : ScriptableObject
 	{
 		[field: SerializeField] public string Title       { get; private set; }

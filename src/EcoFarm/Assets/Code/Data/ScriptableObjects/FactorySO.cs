@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EcoFarm
 {
-	[CreateAssetMenu(fileName = nameof(FactorySO), menuName = nameof(EcoFarm) + "/" + nameof(FactorySO))]
+	[CreateAssetMenu(fileName = nameof(FactorySO), menuName = Constants.RootNamespace + nameof(FactorySO))]
 	public class FactorySO : BuildingSO
 	{
 		[field: SerializeField] public ProductSO[] InputProducts                  { get; private set; }

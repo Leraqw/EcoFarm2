@@ -1,7 +1,7 @@
-using System;
+using UnityEngine;
 
 namespace EcoFarm
 {
-	[Serializable]
+	[CreateAssetMenu(fileName = nameof(ProductSO), menuName = Constants.RootNamespace + nameof(ProductSO))]
 	public class ProductSO : DevelopmentObjectSO { }
 }
