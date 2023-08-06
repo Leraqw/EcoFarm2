@@ -1,7 +1,4 @@
-﻿
-
-
-namespace Code
+﻿namespace Code
 {
 	public class UnityStorageService : UnityJsonStorage, IStorageService { }
 }

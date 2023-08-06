@@ -1,3 +1,4 @@
+using EcoFarmModel;
 using UnityEngine;
 
 namespace Code
@@ -9,6 +10,7 @@ namespace Code
 		public static IDataProviderService DataProvider  => Context.dataProvider.Value;
 		public static ICameraService       CameraService => Context.cameraService.Value;
 		public static IInputService        InputService  => Context.inputService.Value;
+		public static Storage              Storage       => Context.dataService.Value.Storage;
 
 		public static Vector2 MouseWorldPosition => CameraService.ScreenToWorldPoint(InputService.MousePosition);
 	}
