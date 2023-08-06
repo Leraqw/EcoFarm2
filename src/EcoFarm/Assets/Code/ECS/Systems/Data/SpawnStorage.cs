@@ -11,7 +11,7 @@ namespace Code
 
 		public void Initialize()
 		{
-			_context.ReplaceStorage(ServicesMediator.Storage);
+			_context.ReplaceStorage(ServicesMediator.DataProvider.Storage);
 			_context.storageEntity.ReplaceDebugName(nameof(Storage));
 		}
 	}

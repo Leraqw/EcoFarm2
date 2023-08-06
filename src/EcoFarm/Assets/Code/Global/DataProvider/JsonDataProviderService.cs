@@ -2,24 +2,23 @@ using System.Collections.Generic;
 using System.IO;
 using EcoFarmModel;
 using Newtonsoft.Json;
+using static Code.JsonUtils;
 
 namespace Code
 {
 	public class JsonDataProviderService : IDataProviderService
 	{
-		public IEnumerable<Player> Players
-		{
-			get
-			{
-				var path = Constants.PathToPlayers;
-				if (File.Exists(path) == false)
-				{
-					TempPlayersCreator.CreateEmpty();
-				}
+		public IEnumerable<Player> Players => Deserialize<Player[]>(Constants.PathToPlayers);
 
-				var json = File.ReadAllText(path);
-				return JsonConvert.DeserializeObject<Player[]>(json, JsonUtils.WithReferences);
-			}
+		public Storage Storage => Deserialize<Storage>(Constants.PathToStorage);
+
+		private static T Deserialize<T>(string path)
+		{
+			if (File.Exists(path) == false)
+				TempDataCreator.Create();
+
+			var json = File.ReadAllText(path);
+			return JsonConvert.DeserializeObject<T>(json, WithReferences);
 		}
 	}
 }

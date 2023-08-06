@@ -5,12 +5,10 @@ namespace Code
 {
 	public sealed class DraggingSystem : IExecuteSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _entities;
 
 		public DraggingSystem(Contexts contexts)
 		{
-			_contexts = contexts;
 			_entities = contexts.game.GetGroup(AllOf(Dragging, Position));
 		}
 

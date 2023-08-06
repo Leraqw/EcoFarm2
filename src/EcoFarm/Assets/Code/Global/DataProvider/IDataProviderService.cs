@@ -6,5 +6,7 @@ namespace Code
 	public interface IDataProviderService
 	{
 		IEnumerable<Player> Players { get; }
+
+		Storage Storage { get; }
 	}
 }
