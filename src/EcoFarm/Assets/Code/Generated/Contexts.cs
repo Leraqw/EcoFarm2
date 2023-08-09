@@ -102,7 +102,7 @@ public partial class Contexts {
             game.GetGroup(GameMatcher.ProduceResource),
             (e, c) => ((EcoFarm.ProduceResourceComponent)c).Value));
 
-        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, EcoFarmModel.Resource>(
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, EcoFarm.ResourceSO>(
             Resource,
             game.GetGroup(GameMatcher.Resource),
             (e, c) => ((EcoFarm.ResourceComponent)c).Value));
@@ -135,8 +135,8 @@ public static class ContextsExtensions {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.ProduceResource)).GetEntities(Value);
     }
 
-    public static GameEntity GetEntityWithResource(this GameContext context, EcoFarmModel.Resource Value) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, EcoFarmModel.Resource>)context.GetEntityIndex(Contexts.Resource)).GetEntity(Value);
+    public static GameEntity GetEntityWithResource(this GameContext context, EcoFarm.ResourceSO Value) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, EcoFarm.ResourceSO>)context.GetEntityIndex(Contexts.Resource)).GetEntity(Value);
     }
 }
 //------------------------------------------------------------------------------

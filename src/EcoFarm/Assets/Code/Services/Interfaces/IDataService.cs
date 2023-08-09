@@ -4,6 +4,6 @@ namespace EcoFarm
 {
 	public interface IDataService : IService
 	{
-		Storage Storage { get; }
+		StorageSO Storage { get; }
 	}
 }

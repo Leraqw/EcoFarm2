@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using EcoFarmModel;
 using Newtonsoft.Json;
+using UnityEngine;
 using static EcoFarm.JsonUtils;
 
 namespace EcoFarm
@@ -10,7 +11,7 @@ namespace EcoFarm
 	{
 		public IEnumerable<Player> Players => Deserialize<Player[]>(Constants.PathToPlayers);
 
-		public Storage Storage => Deserialize<Storage>(Constants.PathToStorage);
+		public StorageSO Storage => Resources.Load<StorageSO>("StaticData/Storage/Storage");
 
 		private static T Deserialize<T>(string path)
 		{

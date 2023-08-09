@@ -11,14 +11,14 @@ public partial class GameEntity {
     public EcoFarm.GeneratorComponent generator { get { return (EcoFarm.GeneratorComponent)GetComponent(GameComponentsLookup.Generator); } }
     public bool hasGenerator { get { return HasComponent(GameComponentsLookup.Generator); } }
 
-    public void AddGenerator(EcoFarmModel.Generator newValue) {
+    public void AddGenerator(EcoFarm.GeneratorSO newValue) {
         var index = GameComponentsLookup.Generator;
         var component = (EcoFarm.GeneratorComponent)CreateComponent(index, typeof(EcoFarm.GeneratorComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceGenerator(EcoFarmModel.Generator newValue) {
+    public void ReplaceGenerator(EcoFarm.GeneratorSO newValue) {
         var index = GameComponentsLookup.Generator;
         var component = (EcoFarm.GeneratorComponent)CreateComponent(index, typeof(EcoFarm.GeneratorComponent));
         component.Value = newValue;

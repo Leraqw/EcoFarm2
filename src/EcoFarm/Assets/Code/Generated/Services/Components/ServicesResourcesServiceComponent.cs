@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetResourcesService(EcoFarm.IResourcesService newValue) {
         if (hasResourcesService) {
-            throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with Code.ResourcesServiceComponent!",
+            throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with EcoFarm.ResourcesServiceComponent!",
                 "You should check if the context already has a resourcesServiceEntity before setting it or use context.ReplaceResourcesService().");
         }
         var entity = CreateEntity();

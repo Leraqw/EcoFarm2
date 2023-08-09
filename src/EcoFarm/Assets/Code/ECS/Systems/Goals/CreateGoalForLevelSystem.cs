@@ -1,7 +1,4 @@
-﻿
-
-
-using EcoFarmModel;
+﻿using EcoFarmModel;
 using Entitas;
 
 namespace EcoFarm
@@ -12,7 +9,7 @@ namespace EcoFarm
 
 		public CreateGoalForLevelSystem(Contexts contexts) => _contexts = contexts;
 
-		private Storage Storage => _contexts.game.storage.Value;
+		private StorageSO Storage => _contexts.game.storage.Value;
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
@@ -20,14 +17,18 @@ namespace EcoFarm
 
 		public void Initialize() => Storage.Levels[SelectedLevel].Goals.ForEach(Create);
 
-		private void Create(Goal goal)
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddGoal(goal))
-			            .Do((e) => e.isUiElement = true)
-			            .MarkGoal()
-			            .Do((e) => e.AddCurrentQuantity(0))
-			            .Do((e) => e.AddUiParent(UIService.GoalsGroup))
-			            .Do((e) => e.AddViewPrefab(UIService.GoalPrefab))
-			            .Do((e) => e.AddDebugName($"Goal {goal.TargetQuantity} – {goal.GetType().Name}"));
+		private void Create(GoalSO goal)
+		{
+			var e = _contexts.game.CreateEntity();
+			e.AddGoal(goal);
+			e.isUiElement = true;
+			e.MarkGoal();
+			e.AddCurrentQuantity(0);
+			e.AddUiParent(UIService.GoalsGroup);
+			e.AddViewPrefab(UIService.GoalPrefab);
+
+			if (goal is GoalByDevObjectSO goalByDevObjectSo)
+				e.AddDebugName($"Goal {goalByDevObjectSo.TargetQuantity} – {goalByDevObjectSo.GetType().Name}");
+		}
 	}
 }

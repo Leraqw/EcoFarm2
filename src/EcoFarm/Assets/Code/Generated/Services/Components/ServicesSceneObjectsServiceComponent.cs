@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetSceneObjectsService(EcoFarm.ISpawnPointsService newValue) {
         if (hasSceneObjectsService) {
-            throw new Entitas.EntitasException("Could not set SceneObjectsService!\n" + this + " already has an entity with Code.SceneObjectsServiceComponent!",
+            throw new Entitas.EntitasException("Could not set SceneObjectsService!\n" + this + " already has an entity with EcoFarm.SceneObjectsServiceComponent!",
                 "You should check if the context already has a sceneObjectsServiceEntity before setting it or use context.ReplaceSceneObjectsService().");
         }
         var entity = CreateEntity();

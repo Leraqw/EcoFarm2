@@ -1,6 +1,4 @@
-﻿
-
-using EcoFarmModel;
+﻿using EcoFarmModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +20,7 @@ namespace EcoFarm
 
 		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building.Value);
 
-		public void OnBuilding(GameEntity entity, Building value)
+		public void OnBuilding(GameEntity entity, BuildingSO value)
 		{
 			_titleTextMesh.text = value.Title;
 			_descriptionTextMesh.text = value.Description;

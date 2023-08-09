@@ -12,9 +12,9 @@ public partial class GameContext {
     public EcoFarm.StorageComponent storage { get { return storageEntity.storage; } }
     public bool hasStorage { get { return storageEntity != null; } }
 
-    public GameEntity SetStorage(EcoFarmModel.Storage newValue) {
+    public GameEntity SetStorage(EcoFarm.StorageSO newValue) {
         if (hasStorage) {
-            throw new Entitas.EntitasException("Could not set Storage!\n" + this + " already has an entity with Code.StorageComponent!",
+            throw new Entitas.EntitasException("Could not set Storage!\n" + this + " already has an entity with EcoFarm.StorageComponent!",
                 "You should check if the context already has a storageEntity before setting it or use context.ReplaceStorage().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
+    public void ReplaceStorage(EcoFarm.StorageSO newValue) {
         var entity = storageEntity;
         if (entity == null) {
             entity = SetStorage(newValue);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public EcoFarm.StorageComponent storage { get { return (EcoFarm.StorageComponent)GetComponent(GameComponentsLookup.Storage); } }
     public bool hasStorage { get { return HasComponent(GameComponentsLookup.Storage); } }
 
-    public void AddStorage(EcoFarmModel.Storage newValue) {
+    public void AddStorage(EcoFarm.StorageSO newValue) {
         var index = GameComponentsLookup.Storage;
         var component = (EcoFarm.StorageComponent)CreateComponent(index, typeof(EcoFarm.StorageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceStorage(EcoFarmModel.Storage newValue) {
+    public void ReplaceStorage(EcoFarm.StorageSO newValue) {
         var index = GameComponentsLookup.Storage;
         var component = (EcoFarm.StorageComponent)CreateComponent(index, typeof(EcoFarm.StorageComponent));
         component.Value = newValue;

@@ -1,5 +1,4 @@
 ﻿using System;
-using EcoFarmModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,10 +22,10 @@ namespace EcoFarm
 
 		protected override void UpdateValue(GameEntity entity) => OnGoal(entity, entity.goal.Value);
 
-		public void OnGoal(GameEntity entity, Goal value)
+		public void OnGoal(GameEntity entity, GoalSO value)
 		{
 			_image.sprite = SpriteForGoal(entity);
-			_targetValue = value.TargetQuantity.ToString();
+			_targetValue = ((GoalByDevObjectSO)value).TargetQuantity.ToString();
 			_currentValue = entity.currentQuantity.Value.ToString();
 			_textMesh.text = $"{_currentValue} / {_targetValue}";
 		}

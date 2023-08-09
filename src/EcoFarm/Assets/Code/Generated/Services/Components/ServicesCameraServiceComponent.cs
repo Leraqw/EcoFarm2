@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetCameraService(EcoFarm.ICameraService newValue) {
         if (hasCameraService) {
-            throw new Entitas.EntitasException("Could not set CameraService!\n" + this + " already has an entity with Code.CameraServiceComponent!",
+            throw new Entitas.EntitasException("Could not set CameraService!\n" + this + " already has an entity with EcoFarm.CameraServiceComponent!",
                 "You should check if the context already has a cameraServiceEntity before setting it or use context.ReplaceCameraService().");
         }
         var entity = CreateEntity();

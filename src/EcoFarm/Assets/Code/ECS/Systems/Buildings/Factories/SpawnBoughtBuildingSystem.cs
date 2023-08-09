@@ -111,13 +111,13 @@ namespace EcoFarm
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddGenerator((Generator)entity.building.Value))
+			   .Do((e) => e.AddGenerator((GeneratorSO)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 		/**/;
 
 		private static void SetFactory(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building.Value))
+			   .Do((e) => e.AddFactory((FactorySO)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 			   .Do((e) => e.AddSpriteHigh(1))
 		/**/;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using Entitas;
 using static GameMatcher;
 
@@ -18,7 +17,7 @@ namespace EcoFarm
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Mark, @if: IsCompleted);
 
 		private static bool IsCompleted(GameEntity goal)
-			=> goal.currentQuantity.Value >= goal.goal.Value.TargetQuantity;
+			=> goal.currentQuantity.Value >= ((GoalByDevObjectSO)goal.goal.Value).TargetQuantity;
 
 		private static void Mark(GameEntity goal) => goal.isGoalCompleted = true;
 	}

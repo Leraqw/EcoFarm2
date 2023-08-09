@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetInputService(EcoFarm.IInputService newValue) {
         if (hasInputService) {
-            throw new Entitas.EntitasException("Could not set InputService!\n" + this + " already has an entity with Code.InputServiceComponent!",
+            throw new Entitas.EntitasException("Could not set InputService!\n" + this + " already has an entity with EcoFarm.InputServiceComponent!",
                 "You should check if the context already has a inputServiceEntity before setting it or use context.ReplaceInputService().");
         }
         var entity = CreateEntity();

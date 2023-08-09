@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetDataService(EcoFarm.IDataService newValue) {
         if (hasDataService) {
-            throw new Entitas.EntitasException("Could not set DataService!\n" + this + " already has an entity with Code.DataServiceComponent!",
+            throw new Entitas.EntitasException("Could not set DataService!\n" + this + " already has an entity with EcoFarm.DataServiceComponent!",
                 "You should check if the context already has a dataServiceEntity before setting it or use context.ReplaceDataService().");
         }
         var entity = CreateEntity();

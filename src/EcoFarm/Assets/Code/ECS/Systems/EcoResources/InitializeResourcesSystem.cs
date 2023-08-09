@@ -15,7 +15,7 @@ namespace EcoFarm
 
 		public void Initialize() => _contexts.game.storage.Value.Resources.ForEach(Create);
 
-		private void Create(Resource resource)
+		private void Create(ResourceSO resource)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddDebugName($"Resource – {resource.Title}"))
 			            .Do((e) => e.AddResource(resource))

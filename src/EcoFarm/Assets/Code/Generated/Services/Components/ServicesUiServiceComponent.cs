@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetUiService(EcoFarm.IUiService newValue) {
         if (hasUiService) {
-            throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with Code.UiServiceComponent!",
+            throw new Entitas.EntitasException("Could not set UiService!\n" + this + " already has an entity with EcoFarm.UiServiceComponent!",
                 "You should check if the context already has a uiServiceEntity before setting it or use context.ReplaceUiService().");
         }
         var entity = CreateEntity();

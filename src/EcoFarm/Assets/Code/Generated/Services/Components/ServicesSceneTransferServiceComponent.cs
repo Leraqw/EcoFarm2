@@ -14,7 +14,7 @@ public partial class ServicesContext {
 
     public ServicesEntity SetSceneTransferService(EcoFarm.ISceneTransferService newValue) {
         if (hasSceneTransferService) {
-            throw new Entitas.EntitasException("Could not set SceneTransferService!\n" + this + " already has an entity with Code.SceneTransferServiceComponent!",
+            throw new Entitas.EntitasException("Could not set SceneTransferService!\n" + this + " already has an entity with EcoFarm.SceneTransferServiceComponent!",
                 "You should check if the context already has a sceneTransferServiceEntity before setting it or use context.ReplaceSceneTransferService().");
         }
         var entity = CreateEntity();

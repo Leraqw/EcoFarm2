@@ -1,9 +1,6 @@
 ﻿using System.Linq;
-
-
 using Entitas;
 using UnityEngine;
-using LevelData = EcoFarmModel.Level;
 
 namespace EcoFarm
 {
@@ -15,7 +12,7 @@ namespace EcoFarm
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private LevelData[] Levels => _contexts.game.storage.Value.Levels;
+		private LevelSO[] Levels => _contexts.game.storage.Value.Levels;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 

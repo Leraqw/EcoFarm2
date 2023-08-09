@@ -7,6 +7,6 @@ namespace EcoFarm
 	{
 		IEnumerable<Player> Players { get; }
 
-		Storage Storage { get; }
+		StorageSO Storage { get; }
 	}
 }
