@@ -46,7 +46,7 @@ namespace EcoFarm
 				{
 					new Tree
 					{
-						Title = "Яблыня",
+						Title = "Яблоня",
 						Description = "Даёт яблоки",
 						Product = apple,
 					},

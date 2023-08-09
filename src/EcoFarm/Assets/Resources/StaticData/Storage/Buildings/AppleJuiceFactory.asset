@@ -18,12 +18,13 @@ MonoBehaviour:
     1 \u0431\u0443\u0442\u044B\u043B\u043A\u0443 \u0441\u043E\u043A\u0430 \u0438\u0437
     5 \u044F\u0431\u043B\u043E\u043A"
   <Price>k__BackingField: 20
-  <InputProducts>k__BackingField: []
+  <InputProducts>k__BackingField:
+  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
   <OutputProducts>k__BackingField:
-  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
-  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
-  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
-  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
-  - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  - {fileID: 11400000, guid: fdd5d159037cedb12b038b8d4a8c578e, type: 2}
   <Resource>k__BackingField: {fileID: 11400000, guid: 953de6ba5bf8e1766b921c6c42fb6d36, type: 2}
   <ResourceConsumptionCoefficient>k__BackingField: 20
