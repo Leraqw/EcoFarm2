@@ -16,7 +16,7 @@ namespace EcoFarm
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);
 			
-			servicesContext.ReplaceDataProvider(new JsonDataProviderService());
+			servicesContext.ReplaceDataProvider(new SerializableObjectDataProvider());
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

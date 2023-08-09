@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using EcoFarmModel;
-using Newtonsoft.Json;
 using UnityEngine;
 using static EcoFarm.JsonUtils;
 using static EcoFarm.Constants;
@@ -18,8 +18,8 @@ namespace EcoFarm
 			Debug.Log($"File created on {path}");
 		}
 
-		private static string SerializeObject(object data)
-			=> JsonConvert.SerializeObject(data, Formatting.Indented, WithReferences);
+		private static string SerializeObject(object _)
+			=> throw new NotImplementedException();
 
 		private static Storage NewStorage()
 		{
