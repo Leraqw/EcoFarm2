@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using EcoFarmModel;
 using UnityEngine;
 
 namespace EcoFarm
@@ -7,10 +6,6 @@ namespace EcoFarm
 	public static class Constants
 	{
 		public const string RootNamespace = nameof(EcoFarm) + "/";
-		public static string PathToStorage => SaveFolder($"{nameof(Storage)}.json");
-		public static string PathToPlayers => SaveFolder("Players.json");
-
-		private static string SaveFolder(string fileName) => Path.Combine(Application.persistentDataPath, fileName);
 
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
 		public const int FactoryPollution = 25;

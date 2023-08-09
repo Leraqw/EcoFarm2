@@ -1,5 +1,4 @@
-﻿using EcoFarmModel;
-using Entitas;
+﻿using Entitas;
 
 namespace EcoFarm
 {
@@ -12,7 +11,7 @@ namespace EcoFarm
 		public void Initialize()
 		{
 			_context.ReplaceStorage(ServicesMediator.DataProvider.Storage);
-			_context.storageEntity.ReplaceDebugName(nameof(Storage));
+			_context.storageEntity.ReplaceDebugName(nameof(StorageSO));
 		}
 	}
 }

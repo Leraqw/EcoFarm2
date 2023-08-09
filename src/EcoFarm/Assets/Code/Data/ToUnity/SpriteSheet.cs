@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EcoFarmModel;
 using UnityEngine;
 
 namespace EcoFarm

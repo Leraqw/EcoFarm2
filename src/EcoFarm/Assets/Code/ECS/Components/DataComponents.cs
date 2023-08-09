@@ -1,4 +1,3 @@
-using EcoFarmModel;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;

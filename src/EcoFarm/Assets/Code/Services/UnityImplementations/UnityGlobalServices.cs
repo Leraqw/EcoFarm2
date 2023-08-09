@@ -1,5 +1,4 @@
-﻿using EcoFarmModel;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EcoFarm
 {

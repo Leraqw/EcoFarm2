@@ -1,5 +1,4 @@
-﻿using EcoFarmModel;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

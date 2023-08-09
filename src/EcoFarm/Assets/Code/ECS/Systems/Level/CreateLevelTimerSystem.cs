@@ -1,6 +1,4 @@
-﻿
-using EcoFarmModel;
-using Entitas;
+﻿using Entitas;
 
 namespace EcoFarm
 {

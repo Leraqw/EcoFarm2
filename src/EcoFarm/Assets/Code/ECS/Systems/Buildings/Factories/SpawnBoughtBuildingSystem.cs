@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
-
-
-
-
-using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
@@ -57,8 +51,8 @@ namespace EcoFarm
 			=> sign
 			   .Do((e) => e.AddBuilding(button.building.Value))
 			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
-			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
-			   .Do(SetGenerator, @if: BuildingIs<Generator>)
+			   .Do(SetFactory, @if: BuildingIs<FactorySO>)
+			   .Do(SetGenerator, @if: BuildingIs<GeneratorSO>)
 			   .Do(DestroySign)
 			   .Do(AddRelativeView)
 			   .Do((e) => e.isOccupied = true)
