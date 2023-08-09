@@ -2,5 +2,5 @@ using UnityEngine;
 
 namespace EcoFarm
 {
-	public abstract class GoalSO : ScriptableObject { }
+	public abstract class Goal : ScriptableObject { }
 }

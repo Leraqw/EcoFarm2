@@ -22,10 +22,10 @@ namespace EcoFarm
 
 		protected override void UpdateValue(GameEntity entity) => OnGoal(entity, entity.goal.Value);
 
-		public void OnGoal(GameEntity entity, GoalSO value)
+		public void OnGoal(GameEntity entity, Goal value)
 		{
 			_image.sprite = SpriteForGoal(entity);
-			_targetValue = ((GoalByDevObjectSO)value).TargetQuantity.ToString();
+			_targetValue = ((GoalByDevObject)value).TargetQuantity.ToString();
 			_currentValue = entity.currentQuantity.Value.ToString();
 			_textMesh.text = $"{_currentValue} / {_targetValue}";
 		}

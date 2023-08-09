@@ -8,7 +8,7 @@ namespace EcoFarm
 
 		public CreateLevelTimerSystem(Contexts contexts) => _contexts = contexts;
 
-		private StorageSO Storage => _contexts.services.dataService.Value.Storage;
+		private Storage Storage => _contexts.services.dataService.Value.Storage;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 

@@ -3,5 +3,5 @@ using System;
 namespace EcoFarm
 {
 	[Serializable]
-	public abstract class BuildingSO : DevObjectSO { }
+	public abstract class Building : DevObject { }
 }

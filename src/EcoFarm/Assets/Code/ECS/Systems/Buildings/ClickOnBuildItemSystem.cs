@@ -18,7 +18,7 @@ namespace EcoFarm
 		private Item Coins => _contexts.game.coinEntity.inventoryItem.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(UiElement, MouseDown, Building));
+			=> context.CreateCollector(AllOf(UiElement, MouseDown, GameMatcher.Building));
 
 		protected override bool Filter(GameEntity entity) => true;
 

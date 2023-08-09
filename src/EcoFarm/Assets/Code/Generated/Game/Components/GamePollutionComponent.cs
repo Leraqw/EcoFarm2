@@ -11,14 +11,14 @@ public partial class GameEntity {
     public EcoFarm.PollutionComponent pollution { get { return (EcoFarm.PollutionComponent)GetComponent(GameComponentsLookup.Pollution); } }
     public bool hasPollution { get { return HasComponent(GameComponentsLookup.Pollution); } }
 
-    public void AddPollution(EcoFarm.ResourceSO newValue) {
+    public void AddPollution(EcoFarm.Resource newValue) {
         var index = GameComponentsLookup.Pollution;
         var component = (EcoFarm.PollutionComponent)CreateComponent(index, typeof(EcoFarm.PollutionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePollution(EcoFarm.ResourceSO newValue) {
+    public void ReplacePollution(EcoFarm.Resource newValue) {
         var index = GameComponentsLookup.Pollution;
         var component = (EcoFarm.PollutionComponent)CreateComponent(index, typeof(EcoFarm.PollutionComponent));
         component.Value = newValue;

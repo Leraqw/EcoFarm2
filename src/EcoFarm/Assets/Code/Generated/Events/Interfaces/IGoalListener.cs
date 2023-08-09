@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGoalListener {
-    void OnGoal(GameEntity entity, EcoFarm.GoalSO value);
+    void OnGoal(GameEntity entity, EcoFarm.Goal value);
 }

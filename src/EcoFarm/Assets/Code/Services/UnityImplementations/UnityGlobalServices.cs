@@ -31,7 +31,7 @@ namespace EcoFarm
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
 
-		StorageSO IDataService.Storage => _data.Storage;
+		Storage IDataService.Storage => _data.Storage;
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 

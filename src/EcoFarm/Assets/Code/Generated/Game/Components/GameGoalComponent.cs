@@ -11,14 +11,14 @@ public partial class GameEntity {
     public EcoFarm.GoalComponent goal { get { return (EcoFarm.GoalComponent)GetComponent(GameComponentsLookup.Goal); } }
     public bool hasGoal { get { return HasComponent(GameComponentsLookup.Goal); } }
 
-    public void AddGoal(EcoFarm.GoalSO newValue) {
+    public void AddGoal(EcoFarm.Goal newValue) {
         var index = GameComponentsLookup.Goal;
         var component = (EcoFarm.GoalComponent)CreateComponent(index, typeof(EcoFarm.GoalComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceGoal(EcoFarm.GoalSO newValue) {
+    public void ReplaceGoal(EcoFarm.Goal newValue) {
         var index = GameComponentsLookup.Goal;
         var component = (EcoFarm.GoalComponent)CreateComponent(index, typeof(EcoFarm.GoalComponent));
         component.Value = newValue;

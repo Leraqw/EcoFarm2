@@ -17,7 +17,7 @@ namespace EcoFarm
 		public PerformProductsRequestSystem(Contexts contexts) : base(contexts.game)
 		{
 			_contexts = contexts;
-			_products = contexts.game.GetGroup(AllOf(Product, Collected).NoneOf(InFactory));
+			_products = contexts.game.GetGroup(AllOf(GameMatcher.Product, Collected).NoneOf(InFactory));
 		}
 
 		private float RoadToFactoryDuration => Balance.RoadToFactoryDuration;

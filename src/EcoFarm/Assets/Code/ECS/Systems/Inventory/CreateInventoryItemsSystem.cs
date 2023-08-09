@@ -10,11 +10,11 @@ namespace EcoFarm
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
-		private StorageSO Storage => _contexts.game.storage.Value;
+		private Storage Storage => _contexts.game.storage.Value;
 
 		public void Initialize() => Storage.Products.ForEach(Create);
 
-		private void Create(ProductSO product)
+		private void Create(Product product)
 			=> _contexts.game.CreateInventoryItem(product)
 			            .Do((e) => e.AddView(UIService.AppleView));
 	}

@@ -10,7 +10,7 @@ namespace EcoFarm
 
 		public void Initialize() => ServicesMediator.DataProvider.Players.ForEach(ToEntity);
 
-		private void ToEntity(PlayerSO player)
+		private void ToEntity(Player player)
 		{
 			var e = _contexts.player.CreateEntity();
 			e.isPlayer = true;

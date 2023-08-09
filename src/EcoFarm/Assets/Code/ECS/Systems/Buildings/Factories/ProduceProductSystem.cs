@@ -14,7 +14,7 @@ namespace EcoFarm
 		private IPrefabConfig Prefab => _contexts.GetConfiguration().Resource.Prefab;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Working, DurationUp).NoneOf(Duration));
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, Working, DurationUp).NoneOf(Duration));
 
 		protected override bool Filter(GameEntity factory) => factory.hasDuration == false;
 

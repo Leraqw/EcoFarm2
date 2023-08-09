@@ -12,7 +12,7 @@ namespace EcoFarm
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private LevelSO[] Levels => _contexts.game.storage.Value.Levels;
+		private Level[] Levels => _contexts.game.storage.Value.Levels;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 

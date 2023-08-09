@@ -14,6 +14,6 @@ namespace EcoFarm
 		protected override void UpdateValue(GameEntity entity) => OnCurrentQuantity(entity, entity.currentQuantity.Value);
 
 		public void OnCurrentQuantity(GameEntity entity, int value) 
-			=> _textMesh.text = $"{value} / {((GoalByDevObjectSO)entity.goal.Value).TargetQuantity}";
+			=> _textMesh.text = $"{value} / {((GoalByDevObject)entity.goal.Value).TargetQuantity}";
 	}
 }

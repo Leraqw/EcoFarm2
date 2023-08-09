@@ -16,7 +16,7 @@ namespace EcoFarm
 		private IFactoryConfig Balance => _contexts.GetConfiguration().Balance.Factory;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp).NoneOf(Duration));
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, Ready, DurationUp).NoneOf(Duration));
 
 		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
 

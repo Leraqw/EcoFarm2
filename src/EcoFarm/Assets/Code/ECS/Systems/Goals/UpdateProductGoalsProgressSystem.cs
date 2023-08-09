@@ -11,7 +11,7 @@ namespace EcoFarm
 
 		public UpdateProductGoalsProgressSystem(Contexts contexts)
 			: base(contexts.game)
-			=> _goals = contexts.game.GetGroup(AllOf(Goal, Product).NoneOf(GoalCompleted));
+			=> _goals = contexts.game.GetGroup(AllOf(GameMatcher.Goal, Product).NoneOf(GoalCompleted));
 
 		private static IMatcher<GameEntity> Product => GameMatcher.Product;
 

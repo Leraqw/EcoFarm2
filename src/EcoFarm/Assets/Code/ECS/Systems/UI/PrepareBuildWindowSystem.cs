@@ -15,7 +15,7 @@ namespace EcoFarm
 			: base(contexts.game)
 			=> _contexts = contexts;
 
-		private IEnumerable<BuildingSO> Buildings => _contexts.game.storage.Value.Buildings;
+		private IEnumerable<Building> Buildings => _contexts.game.storage.Value.Buildings;
 
 		private BuildView BuildViewPrefab => _contexts.services.uiService.Value.BuildView;
 
@@ -41,7 +41,7 @@ namespace EcoFarm
 		private void FillBuildingsList(GameEntity window)
 			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildViewPrefab, window));
 
-		private void BindBuildingButtonView(BuildingSO building, Component prefab, GameEntity window)
+		private void BindBuildingButtonView(Building building, Component prefab, GameEntity window)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.isUiElement = true)
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))

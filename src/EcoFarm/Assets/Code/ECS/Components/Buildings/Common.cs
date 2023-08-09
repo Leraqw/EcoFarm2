@@ -11,7 +11,7 @@ namespace EcoFarm
 
 	[Game] public sealed class BoughtComponent : IComponent { }
 
-	[Game] public sealed class RequireProductComponent : IComponent { public ProductSO Value; }
+	[Game] public sealed class RequireProductComponent : IComponent { public Product Value; }
 	[Game] public sealed class ReadyComponent : IComponent { }
 
 	[Game] public sealed class InFactoryComponent : IComponent { }
@@ -26,7 +26,7 @@ namespace EcoFarm
 
 	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : IComponent { public int Value; }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : IComponent { public ResourceSO Value; }
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : IComponent { public Resource Value; }
 
 	[Game] [Event(Self)] public sealed class SpriteHighComponent : IComponent { public float Value; }
 }

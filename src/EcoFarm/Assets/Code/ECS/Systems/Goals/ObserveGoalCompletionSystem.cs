@@ -15,7 +15,7 @@ namespace EcoFarm
 		public ObserveGoalCompletionSystem(Contexts contexts)
 			: base(contexts.game)
 		{
-			_notCompletedGoals = contexts.game.GetGroup(AllOf(Goal).NoneOf(GoalCompleted));
+			_notCompletedGoals = contexts.game.GetGroup(AllOf(GameMatcher.Goal).NoneOf(GoalCompleted));
 			_contexts = contexts;
 		}
 

@@ -2,9 +2,9 @@ namespace EcoFarm
 {
 	public static class GoalExtensions
 	{
-		public static GameEntity AddGoalTarget(this GameEntity entity, GoalSO goal)
+		public static GameEntity AddGoalTarget(this GameEntity entity, Goal goal)
 		{
-			if (goal is GoalByDevObjectSO goalByDevelopmentObject)
+			if (goal is GoalByDevObject goalByDevelopmentObject)
 			{
 				entity.AddDevelopmentObject(goalByDevelopmentObject.DevObject);
 			}
@@ -14,7 +14,7 @@ namespace EcoFarm
 
 		public static GameEntity MarkGoal(this GameEntity @this)
 		{
-			if (@this.goal.Value is GoalByDevObjectSO { DevObject: ProductSO product })
+			if (@this.goal.Value is GoalByDevObject { DevObject: Product product })
 			{
 				@this.AddProduct(product);
 			}

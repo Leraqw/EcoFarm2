@@ -20,12 +20,12 @@ namespace EcoFarm
 			   .Do((e) => e.Products.ForEach(AddNew, @if: IsNotAlreadyInDictionary))
 			   .Do((e) => e.Buildings.ForEach(AddNew, @if: IsNotAlreadyInDictionary));
 
-		private bool IsNotAlreadyInDictionary(BuildingSO building) => _buildings.All((b) => building.Title != b.Title);
+		private bool IsNotAlreadyInDictionary(Building building) => _buildings.All((b) => building.Title != b.Title);
 
-		private bool IsNotAlreadyInDictionary(ProductSO product) => _products.All((p) => product.Title != p.Title);
+		private bool IsNotAlreadyInDictionary(Product product) => _products.All((p) => product.Title != p.Title);
 
-		private void AddNew(BuildingSO building) => _buildings.Add(new Association(building.Title));
+		private void AddNew(Building building) => _buildings.Add(new Association(building.Title));
 
-		private void AddNew(ProductSO product) => _products.Add(new Association(product.Title));
+		private void AddNew(Product product) => _products.Add(new Association(product.Title));
 	}
 }

@@ -51,8 +51,8 @@ namespace EcoFarm
 			=> sign
 			   .Do((e) => e.AddBuilding(button.building.Value))
 			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
-			   .Do(SetFactory, @if: BuildingIs<FactorySO>)
-			   .Do(SetGenerator, @if: BuildingIs<GeneratorSO>)
+			   .Do(SetFactory, @if: BuildingIs<Factory>)
+			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)
 			   .Do(AddRelativeView)
 			   .Do((e) => e.isOccupied = true)
@@ -105,13 +105,13 @@ namespace EcoFarm
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddGenerator((GeneratorSO)entity.building.Value))
+			   .Do((e) => e.AddGenerator((Generator)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 		/**/;
 
 		private static void SetFactory(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddFactory((FactorySO)entity.building.Value))
+			   .Do((e) => e.AddFactory((Factory)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 			   .Do((e) => e.AddSpriteHigh(1))
 		/**/;

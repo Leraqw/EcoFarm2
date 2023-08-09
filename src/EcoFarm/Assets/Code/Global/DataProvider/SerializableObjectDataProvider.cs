@@ -5,8 +5,8 @@ namespace EcoFarm
 {
 	public class SerializableObjectDataProvider : IDataProviderService
 	{
-		public IEnumerable<PlayerSO> Players => Resources.Load<PlayersList>("StaticData/Players").Players;
+		public IEnumerable<Player> Players => Resources.Load<PlayersList>("StaticData/Players").Players;
 
-		public StorageSO Storage => Resources.Load<StorageSO>("StaticData/Storage/Storage");
+		public Storage Storage => Resources.Load<Storage>("StaticData/Storage/Storage");
 	}
 }

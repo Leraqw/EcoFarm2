@@ -9,16 +9,16 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 
-		private Dictionary<ProductSO, int> _requiredProducts;
+		private Dictionary<Product, int> _requiredProducts;
 
 		public ClickOnFactorySystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
 
-		private Dictionary<ProductSO, int> AvailableProducts
+		private Dictionary<Product, int> AvailableProducts
 			=> _contexts.game.GetInventoryItems()
 			            .ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, MouseDown).NoneOf(Busy));
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, MouseDown).NoneOf(Busy));
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -44,20 +44,20 @@ namespace EcoFarm
 		private void TakeEachRequiredProducts(GameEntity factory)
 			=> _requiredProducts.ForEach((p) => Take(p, factory));
 
-		private void Take(KeyValuePair<ProductSO, int> product, GameEntity factory)
+		private void Take(KeyValuePair<Product, int> product, GameEntity factory)
 		{
 			CreateRequest(product, factory);
 			DecreaseProductsCount(product);
 		}
 
-		private void CreateRequest(KeyValuePair<ProductSO, int> product, GameEntity factory)
+		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddRequireProduct(product.Key))
 			            .Do((e) => e.AddPosition(factory.position.Value))
 			            .Do((e) => e.AddCount(product.Value))
 			            .AttachTo(factory);
 
-		private void DecreaseProductsCount(KeyValuePair<ProductSO, int> product)
+		private void DecreaseProductsCount(KeyValuePair<Product, int> product)
 			=> _contexts.game.GetInventoryItem(product.Key)
 			            .DecreaseInventoryItemCount(product.Value);
 	}

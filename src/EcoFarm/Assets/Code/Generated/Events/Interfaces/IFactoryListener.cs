@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IFactoryListener {
-    void OnFactory(GameEntity entity, EcoFarm.FactorySO value);
+    void OnFactory(GameEntity entity, EcoFarm.Factory value);
 }

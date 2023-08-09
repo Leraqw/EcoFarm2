@@ -12,7 +12,7 @@ namespace EcoFarm
 		private static void ReplaceDebugName(this GameEntity @this, Item item)
 			=> @this.ReplaceDebugName($"Item: {item.Name} ({item.Count})");
 
-		public static GameEntity CreateInventoryItem(this GameContext @this, ProductSO product)
+		public static GameEntity CreateInventoryItem(this GameContext @this, Product product)
 			=> @this.CreateEntity()
 			        .Do((e) => e.AddInventoryItem(new Item(product.Title)))
 			        .Do((e) => e.SetActualDebugName())
@@ -23,7 +23,7 @@ namespace EcoFarm
 			=> @this.inventoryEntity.GetAttachedEntities()
 			        .Where((e) => e.hasInventoryItem);
 
-		public static GameEntity GetInventoryItem(this GameContext @this, ProductSO product)
+		public static GameEntity GetInventoryItem(this GameContext @this, Product product)
 			=> @this.GetInventoryItems().Single((e) => e.product.Value == product);
 
 		public static void IncreaseInventoryItemCount(this GameEntity @this, int count)

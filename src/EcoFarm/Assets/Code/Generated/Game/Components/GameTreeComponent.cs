@@ -11,14 +11,14 @@ public partial class GameEntity {
     public EcoFarm.TreeComponent tree { get { return (EcoFarm.TreeComponent)GetComponent(GameComponentsLookup.Tree); } }
     public bool hasTree { get { return HasComponent(GameComponentsLookup.Tree); } }
 
-    public void AddTree(EcoFarm.TreeSO newValue) {
+    public void AddTree(EcoFarm.Tree newValue) {
         var index = GameComponentsLookup.Tree;
         var component = (EcoFarm.TreeComponent)CreateComponent(index, typeof(EcoFarm.TreeComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTree(EcoFarm.TreeSO newValue) {
+    public void ReplaceTree(EcoFarm.Tree newValue) {
         var index = GameComponentsLookup.Tree;
         var component = (EcoFarm.TreeComponent)CreateComponent(index, typeof(EcoFarm.TreeComponent));
         component.Value = newValue;

@@ -19,7 +19,7 @@ namespace EcoFarm
 
 		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building.Value);
 
-		public void OnBuilding(GameEntity entity, BuildingSO value)
+		public void OnBuilding(GameEntity entity, Building value)
 		{
 			_titleTextMesh.text = value.Title;
 			_descriptionTextMesh.text = value.Description;

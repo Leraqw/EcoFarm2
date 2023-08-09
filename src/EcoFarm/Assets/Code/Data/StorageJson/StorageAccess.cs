@@ -4,6 +4,6 @@ namespace EcoFarm
 {
 	public class StorageAccess : IDataService
 	{
-		public StorageSO Storage => Resources.Load<StorageSO>("StaticData/Storage/Storage");
+		public Storage Storage => Resources.Load<Storage>("StaticData/Storage/Storage");
 	}
 }

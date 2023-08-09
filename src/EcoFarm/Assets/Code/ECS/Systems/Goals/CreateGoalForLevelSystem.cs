@@ -8,7 +8,7 @@ namespace EcoFarm
 
 		public CreateGoalForLevelSystem(Contexts contexts) => _contexts = contexts;
 
-		private StorageSO Storage => _contexts.game.storage.Value;
+		private Storage Storage => _contexts.game.storage.Value;
 
 		private IUiService UIService => _contexts.services.uiService.Value;
 
@@ -16,7 +16,7 @@ namespace EcoFarm
 
 		public void Initialize() => Storage.Levels[SelectedLevel].Goals.ForEach(Create);
 
-		private void Create(GoalSO goal)
+		private void Create(Goal goal)
 		{
 			var e = _contexts.game.CreateEntity();
 			e.AddGoal(goal);
@@ -26,7 +26,7 @@ namespace EcoFarm
 			e.AddUiParent(UIService.GoalsGroup);
 			e.AddViewPrefab(UIService.GoalPrefab);
 
-			if (goal is GoalByDevObjectSO goalByDevObjectSo)
+			if (goal is GoalByDevObject goalByDevObjectSo)
 				e.AddDebugName($"Goal {goalByDevObjectSo.TargetQuantity} – {goalByDevObjectSo.GetType().Name}");
 		}
 	}

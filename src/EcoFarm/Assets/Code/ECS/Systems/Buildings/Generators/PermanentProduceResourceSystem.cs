@@ -11,7 +11,7 @@ namespace EcoFarm
 		public PermanentProduceResourceSystem(Contexts contexts) : base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Generator, EfficiencyCoefficient, PermanentGenerator, DurationUp));
+			=> context.CreateCollector(AllOf(GameMatcher.Generator, EfficiencyCoefficient, PermanentGenerator, DurationUp));
 
 		protected override bool Filter(GameEntity entity) => true;
 
