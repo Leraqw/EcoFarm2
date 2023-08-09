@@ -1,4 +1,5 @@
 ﻿// ReSharper disable Unity.PerformanceCriticalCodeInvocation - we don't care about performance in the editor
+using System;
 using EcoFarm.Unity.Editor.Common;
 using UnityEditor;
 using static EcoFarm.Unity.Editor.Common.EditorGUILayoutUtils;
@@ -31,7 +32,7 @@ namespace EcoFarm.Unity.Editor.Data
 		}
 
 		private void ButtonCreatePlayers()
-			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(TempPlayersCreator.CreateTest);
+			=> Button("Crate Players", Width(WindowWidth / 2)).OnPress(Obsolete);
 
 		private void ButtonCopy() => Button("Copy", Width(WindowWidth / 2)).OnPress(CopyDlls);
 
@@ -42,8 +43,10 @@ namespace EcoFarm.Unity.Editor.Data
 
 		private void DllPathOpenFileButton() => Button("Open file").OnPress(GetPathToDll);
 
-		private void ButtonGenerate() => Button("Generate", Width(WindowWidth / 2)).OnPress(TempDataCreator.Create);
+		private void ButtonGenerate() => Button("Generate", Width(WindowWidth / 2)).OnPress(Obsolete);
 
 		private void GetPathToDll() => _pathToDlls = OpenFolderPanel("Open folder", string.Empty, string.Empty);
+
+		private static void Obsolete() => throw new NotImplementedException("this functionality is obsolete");
 	}
 }

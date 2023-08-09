@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Services;
 using UnityEngine;
 
 namespace EcoFarm
@@ -15,10 +16,10 @@ namespace EcoFarm
 		public Dictionary<string, Sprite> Buildings => _buildings.ToDictionary((x) => x.Title, (x) => x.Sprite);
 
 		public void UpdateResources()
-			=> new StorageAccess()
-			   .Storage
-			   .Do((e) => e.Products.ForEach(AddNew, @if: IsNotAlreadyInDictionary))
-			   .Do((e) => e.Buildings.ForEach(AddNew, @if: IsNotAlreadyInDictionary));
+			=> SingletonServices.Instance.DataProvider
+			                    .Storage
+			                    .Do((e) => e.Products.ForEach(AddNew, @if: IsNotAlreadyInDictionary))
+			                    .Do((e) => e.Buildings.ForEach(AddNew, @if: IsNotAlreadyInDictionary));
 
 		private bool IsNotAlreadyInDictionary(Building building) => _buildings.All((b) => building.Title != b.Title);
 

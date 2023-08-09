@@ -6,7 +6,6 @@ namespace EcoFarm
 	{
 		private readonly IResourcesService _resourceLoader;
 		private readonly IStorageService _storage;
-		private readonly IDataService _data;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly ISceneTransferService _scene;
@@ -15,7 +14,6 @@ namespace EcoFarm
 		{
 			_resourceLoader = new UnityResourceService();
 			_storage = new UnityStorageService();
-			_data = new StorageAccess();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
 			_scene = new UnitySceneTransferService();
@@ -30,8 +28,6 @@ namespace EcoFarm
 		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);
 
 		void IStorage.Delete<T>() => _storage.Delete<T>();
-
-		Storage IDataService.Storage => _data.Storage;
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 

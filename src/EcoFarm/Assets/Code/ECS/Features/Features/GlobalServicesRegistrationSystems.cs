@@ -11,7 +11,6 @@ namespace EcoFarm
 
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
 			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
-			Register<IDataService>(services, servicesContext.ReplaceDataService);
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);

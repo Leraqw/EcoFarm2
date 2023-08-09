@@ -6,7 +6,6 @@ namespace EcoFarm
 	[Services] [Unique] public sealed class ResourcesServiceComponent : IComponent { public IResourcesService Value; }
 	[Services] [Unique] public sealed class SceneObjectsServiceComponent : IComponent { public ISpawnPointsService Value; }
 	[Services] [Unique] public sealed class StorageServiceComponent : IComponent { public IStorageService Value; }
-	[Services] [Unique] public sealed class DataServiceComponent : IComponent { public IDataService Value; }
 	[Services] [Unique] public sealed class CameraServiceComponent : IComponent { public ICameraService Value; }
 	[Services] [Unique] public sealed class InputServiceComponent : IComponent { public IInputService Value; }
 	[Services] [Unique] public sealed class ConfigurationServiceComponent : IComponent { public IConfigurationService Value; }
