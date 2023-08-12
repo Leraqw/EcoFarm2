@@ -6,7 +6,7 @@
 			: base(nameof(GameContextSystems))
 		{
 			var contexts = Contexts.sharedInstance;
-			Add(new GameplayServicesRegistrationSystems(contexts, dependencies));
+			Add(new GameplayServicesRegistrationSystem(contexts, dependencies));
 
 			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
 			Add(new GameplaySystems(contexts));
