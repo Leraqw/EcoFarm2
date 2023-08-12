@@ -1,6 +1,4 @@
 ﻿using System;
-
-
 using UnityEngine;
 
 namespace EcoFarm
@@ -14,7 +12,5 @@ namespace EcoFarm
 		public IPrefabConfig Prefab => _prefab;
 
 		public ISpriteConfig Sprite => _sprite;
-
-		[field: SerializeField] public SpriteSheet SpriteSheet { get; private set; }
 	}
 }
