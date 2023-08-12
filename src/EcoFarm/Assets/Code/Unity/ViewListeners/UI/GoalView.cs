@@ -13,9 +13,6 @@ namespace EcoFarm
 		private string _targetValue;
 		private string _currentValue;
 
-		private SpriteSheet ResourceAssociations
-			=> Contexts.sharedInstance.GetConfiguration().Resource.SpriteSheet;
-
 		protected override void AddListener(GameEntity entity) => entity.AddGoalListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasGoal;
@@ -24,15 +21,13 @@ namespace EcoFarm
 
 		public void OnGoal(GameEntity entity, Goal value)
 		{
-			_image.sprite = SpriteForGoal(entity);
-			_targetValue = ((GoalByDevObject)value).TargetQuantity.ToString();
+			if (value is not GoalByDevObject goal)
+				throw new NotImplementedException();
+
+			_image.sprite = goal.DevObject.Sprite;
+			_targetValue = goal.TargetQuantity.ToString();
 			_currentValue = entity.currentQuantity.Value.ToString();
 			_textMesh.text = $"{_currentValue} / {_targetValue}";
 		}
-
-		private Sprite SpriteForGoal(GameEntity entity)
-			=> entity.hasProduct
-				? ResourceAssociations.Products[entity.product.Value.Title]
-				: throw new NotImplementedException("No sprite for GoalByResource");
 	}
 }

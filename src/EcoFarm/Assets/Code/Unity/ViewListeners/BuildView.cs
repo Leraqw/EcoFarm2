@@ -11,8 +11,6 @@ namespace EcoFarm
 		[SerializeField] private Image _image;
 		[SerializeField] private TextMeshProUGUI _priceTextMesh;
 
-		private static SpriteSheet SpriteSheet => Contexts.sharedInstance.GetConfiguration().Resource.SpriteSheet;
-
 		protected override void AddListener(GameEntity entity) => entity.AddBuildingListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasBuilding;
@@ -24,7 +22,7 @@ namespace EcoFarm
 			_titleTextMesh.text = value.Title;
 			_descriptionTextMesh.text = value.Description;
 			_priceTextMesh.text = value.Price.ToString();
-			_image.sprite = SpriteSheet.Buildings[value.Title];
+			_image.sprite = value.Sprite;
 		}
 	}
 }

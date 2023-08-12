@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EcoFarm
 {
@@ -8,10 +7,13 @@ namespace EcoFarm
 		public GameEntity Entity { get; private set; }
 
 		public void Register(GameEntity entity)
-			=> entity
-			   .Do((e) => Entity = e)
-			   .Do(AddListener)
-			   .Do(UpdateValue, @if: HasComponent);
+		{
+			Entity = entity;
+			AddListener(entity);
+
+			if (HasComponent(entity))
+				UpdateValue(entity);
+		}
 
 		protected abstract void AddListener(GameEntity entity);
 
