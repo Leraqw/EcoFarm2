@@ -8,7 +8,7 @@ namespace EcoFarm
 		float BeforeGrowingTime { get; }
 		float AfterGrowingTime { get; }
 		float FallTime { get; }
-		Vector2 SpawnHeight { get; }
+		Vector2 SpawnOffset { get; }
 		float InitialScale { get; }
 		float FullScale { get; }
 	}

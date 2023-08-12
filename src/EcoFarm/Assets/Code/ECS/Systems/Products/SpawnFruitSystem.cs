@@ -32,7 +32,7 @@ namespace EcoFarm
 			           .Do((e) => e.AddDebugName("Fruit"))
 			           .Do((e) => e.AddProduct(tree.tree.Value.Product))
 			           .AttachTo(tree)
-			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
+			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnOffset))
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
 			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime))

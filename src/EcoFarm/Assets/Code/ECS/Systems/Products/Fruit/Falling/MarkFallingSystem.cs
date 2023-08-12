@@ -32,6 +32,6 @@ namespace EcoFarm
 			         .Do((e) => e.AddDuration(FruitConfig.FallTime));
 
 		private Vector2 OnGroundPosition(GameEntity entity)
-			=> entity.GetActualPosition() - FruitConfig.SpawnHeight;
+			=> entity.GetActualPosition() - FruitConfig.SpawnOffset;
 	}
 }
