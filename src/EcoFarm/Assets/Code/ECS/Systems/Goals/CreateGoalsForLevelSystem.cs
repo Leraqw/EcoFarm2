@@ -2,11 +2,11 @@
 
 namespace EcoFarm
 {
-	public sealed class CreateGoalForLevelSystem : IInitializeSystem
+	public sealed class CreateGoalsForLevelSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public CreateGoalForLevelSystem(Contexts contexts) => _contexts = contexts;
+		public CreateGoalsForLevelSystem(Contexts contexts) => _contexts = contexts;
 
 		private Storage Storage => _contexts.game.storage.Value;
 

@@ -6,14 +6,13 @@
 			: base(nameof(InitializationSystems))
 		{
 			Add(new SpawnStorage(contexts));
-			Add(new DataBaseLoadSystems(contexts));
-			Add(new CreateGoalForLevelSystem(contexts));
+			Add(new EmitPositionsForTreeSpawnSystem(contexts));
+			Add(new CreateGoalsForLevelSystem(contexts));
 			Add(new CreateLevelTimerSystem(contexts));
 
 			Add(new InventoryInitializationSystems(contexts));
 
 			Add(new SpawnTreeSystem(contexts));
-			Add(new TreePostInitializationSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));

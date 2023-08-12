@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
-
-
-
 using Entitas;
 
 namespace EcoFarm
@@ -18,6 +14,8 @@ namespace EcoFarm
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
+		private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
+
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.RequireTreeOnPosition);
 
@@ -25,13 +23,16 @@ namespace EcoFarm
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Spawn);
 
-		private void Spawn(GameEntity entry)
-			=> entry.Do((e) => e.AddDebugName("Tree"))
-			        .Do((e) => e.MakeAttachable())
-			        .Do((e) => e.AddViewPrefab(Resource.Prefab.Tree))
-			        .Do((e) => e.AddSpawnPosition(e.requireTreeOnPosition.Value))
-			        .Do((e) => e.AddTree(_contexts.game.storage.Value.Trees.First()))
-			        .Do((e) => e.isFruitful = true)
-			        .Do((e) => e.RemoveRequireTreeOnPosition());
+		private void Spawn(GameEntity e)
+		{
+			e.AddDebugName("Tree");
+			e.MakeAttachable();
+			e.AddViewPrefab(Resource.Prefab.Tree);
+			e.AddSpawnPosition(e.requireTreeOnPosition.Value);
+			e.AddTree(_contexts.game.storage.Value.Trees.First());
+			e.isFruitful = true;
+			e.RemoveRequireTreeOnPosition();
+			e.AddWatering(Configuration.InitialWatering);
+		}
 	}
 }
