@@ -10,7 +10,6 @@ namespace EcoFarm
 			var servicesContext = contexts.services;
 
 			Register<IResourcesService>(services, servicesContext.ReplaceResourcesService);
-			Register<IStorageService>(services, servicesContext.ReplaceStorageService);
 			Register<ICameraService>(services, servicesContext.ReplaceCameraService);
 			Register<IInputService>(services, servicesContext.ReplaceInputService);
 			Register<ISceneTransferService>(services, servicesContext.ReplaceSceneTransferService);

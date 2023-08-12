@@ -5,7 +5,6 @@ namespace EcoFarm
 	public class UnityGlobalServices : IGlobalServices
 	{
 		private readonly IResourcesService _resourceLoader;
-		private readonly IStorageService _storage;
 		private readonly ICameraService _camera;
 		private readonly IInputService _input;
 		private readonly ISceneTransferService _scene;
@@ -13,7 +12,6 @@ namespace EcoFarm
 		public UnityGlobalServices()
 		{
 			_resourceLoader = new UnityResourceService();
-			_storage = new UnityStorageService();
 			_camera = new UnityCameraService();
 			_input = new UnityInputService();
 			_scene = new UnitySceneTransferService();
@@ -22,12 +20,6 @@ namespace EcoFarm
 		GameObject IResourcesService.LoadGameObject(string path) => _resourceLoader.LoadGameObject(path);
 
 		Sprite IResourcesService.LoadSprite(string path) => _resourceLoader.LoadSprite(path);
-
-		void IStorage.Save<T>(T data) => _storage.Save(data);
-
-		T IStorage.Load<T>(T defaultValue) => _storage.Load(defaultValue);
-
-		void IStorage.Delete<T>() => _storage.Delete<T>();
 
 		Vector2 ICameraService.ScreenToWorldPoint(Vector2 value) => _camera.ScreenToWorldPoint(value);
 
