@@ -10,9 +10,7 @@ namespace EcoFarm
 		{
 			DontDestroyOnLoad(gameObject);
 
-			IGlobalServices resources = new UnityGlobalServices();
-
-			_systems = new GlobalSystems(resources);
+			_systems = new GlobalSystems();
 			_systems.Initialize();
 		}
 

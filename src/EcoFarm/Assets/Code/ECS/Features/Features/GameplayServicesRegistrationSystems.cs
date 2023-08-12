@@ -5,7 +5,7 @@ namespace EcoFarm
 	public sealed class GameplayServicesRegistrationSystems : Feature
 	{
 		public GameplayServicesRegistrationSystems(Contexts contexts, UnityDependencies dependencies)
-			: base(nameof(GlobalServicesRegistrationSystems))
+			: base(nameof(GlobalServicesRegistrationSystem))
 		{
 			var services = new UnityGameServices(dependencies);
 

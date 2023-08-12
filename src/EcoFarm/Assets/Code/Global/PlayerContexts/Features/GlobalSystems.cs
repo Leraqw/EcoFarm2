@@ -2,11 +2,11 @@
 {
 	public sealed class GlobalSystems : Feature
 	{
-		public GlobalSystems(IGlobalServices services)
+		public GlobalSystems()
 		{
 			var contexts = Contexts.sharedInstance;
 
-			Add(new GlobalServicesRegistrationSystems(contexts, services));
+			Add(new GlobalServicesRegistrationSystem(contexts));
 
 			Add(new LoadPlayersSystem(contexts));
 			Add(new SetFirstPlayerAsCurrentSystem(contexts));
