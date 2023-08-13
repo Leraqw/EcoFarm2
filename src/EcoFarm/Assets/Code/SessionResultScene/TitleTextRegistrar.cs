@@ -3,21 +3,23 @@ using static EcoFarm.SessionResult;
 
 namespace EcoFarm
 {
-	public class TitleTextRegistrar : MonoBehaviour
+	public class TitleTextRegistrar : StartEntityBehaviour
 	{
 		[SerializeField] private TextView _textListener;
 
-		private static PlayerContext Context => Contexts.sharedInstance.player;
+		private static PlayerContext Context => Contexts.player;
 
-		private void Start()
-			=> Context.CreateEntity()
-			          .Do((e) => e.AddText(GetTextByResult()))
-			          .Do((e) => e.AddPlayerTextListener(_textListener))
-			          .Do((e) => e.isDestroy = true);
-
-		private static string GetTextByResult()
+		private static string TextByResult
 			=> Context.currentPlayerEntity.sessionResult.Value is Victory
 				? "Победа!"
 				: "Поражение:(";
+
+		protected override void Initialize()
+		{
+			var e = Context.CreateEntity();
+			e.AddText(TextByResult);
+			e.AddPlayerTextListener(_textListener);
+			e.isDestroy = true;
+		}
 	}
 }
