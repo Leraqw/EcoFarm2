@@ -16,5 +16,6 @@ MonoBehaviour:
   <Description>k__BackingField: "\u0412\u044B\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442
     \u044D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u0442\u0432\u043E"
   <Price>k__BackingField: 25
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 9516e27ae608aa14e96d2236b8b954d8, type: 3}
   <Resource>k__BackingField: {fileID: 11400000, guid: 953de6ba5bf8e1766b921c6c42fb6d36, type: 2}
   <EfficiencyCoefficient>k__BackingField: 2

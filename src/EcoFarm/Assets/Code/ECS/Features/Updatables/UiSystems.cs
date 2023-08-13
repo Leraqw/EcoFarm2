@@ -15,6 +15,8 @@ namespace EcoFarm
 			Add(new InitializeCountToSellSliderSystem(contexts));
 			Add(new InitializeCurrentCountTextSystem(contexts));
 			Add(new InitializeCoinsReceiveCountTextSystem(contexts));
+
+			Add(new TreeHighlightSystem(contexts));
 			
 			Add(new OnToggleActivityButtonClickSystem(contexts));
 			Add(new OnSliderValueChangedSystem(contexts));
