@@ -2,7 +2,7 @@
 
 namespace EcoFarm
 {
-	public class PositionAuthoring : RegistrarBase
+	public class PositionAuthoring : AuthoringBase
 	{
 		[SerializeField] private Transform _transform;
 

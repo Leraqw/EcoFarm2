@@ -1,14 +1,10 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EcoFarm
 {
-	public class ButtonPlayBehaviour : EntityBehaviour
+	public class ButtonPlayBehaviour : StartEntityBehaviour
 	{
 		[SerializeField] private InteractableView _interactableView;
-
-		protected override bool ReadyForInitialization() => true;
 
 		protected override void Initialize()
 		{

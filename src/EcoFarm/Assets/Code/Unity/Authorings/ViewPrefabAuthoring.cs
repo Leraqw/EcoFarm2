@@ -2,7 +2,7 @@
 
 namespace EcoFarm
 {
-	public class ViewPrefabAuthoring : RegistrarBase
+	public class ViewPrefabAuthoring : AuthoringBase
 	{
 		[SerializeField] private GameObject _value;
 

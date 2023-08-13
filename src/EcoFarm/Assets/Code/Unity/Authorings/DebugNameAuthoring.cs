@@ -2,7 +2,7 @@
 
 namespace EcoFarm
 {
-	public class DebugNameAuthoring : RegistrarBase
+	public class DebugNameAuthoring : AuthoringBase
 	{
 		[SerializeField] private string _value;
 

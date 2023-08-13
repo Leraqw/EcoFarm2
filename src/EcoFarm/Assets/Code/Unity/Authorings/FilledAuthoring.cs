@@ -1,6 +1,6 @@
 ﻿namespace EcoFarm
 {
-	public class FilledAuthoring : RegistrarBase
+	public class FilledAuthoring : AuthoringBase
 	{
 		public override void Register(ref GameEntity entity) => entity.isFilled = true;
 	}

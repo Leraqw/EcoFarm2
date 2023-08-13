@@ -1,4 +1,6 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
+using UnityEngine;
 
 namespace EcoFarm
 {
@@ -20,5 +22,16 @@ namespace EcoFarm
 				behaviour.Initialize(_contexts);
 			}
 		}
+	}
+
+	public interface IEntityBehavioursProvider
+	{
+		IEnumerable<RegistrableEntityBehaviour> Behaviours { get; }
+	}
+
+	public class FindBehavioursProvider : IEntityBehavioursProvider
+	{
+		public IEnumerable<RegistrableEntityBehaviour> Behaviours
+			=> Object.FindObjectsOfType<RegistrableEntityBehaviour>();
 	}
 }

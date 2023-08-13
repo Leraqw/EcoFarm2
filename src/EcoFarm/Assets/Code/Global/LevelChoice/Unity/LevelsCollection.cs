@@ -1,15 +1,12 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EcoFarm
 {
-	public class LevelsCollection : EntityBehaviour
+	public class LevelsCollection : StartEntityBehaviour
 	{
 		[SerializeField] private UnlockedLevelsCountView _view;
 
-		private PlayerEntity CurrentPlayer => Contexts.player.currentPlayerEntity;
-
-		protected override bool ReadyForInitialization() => true;
+		private static PlayerEntity CurrentPlayer => Contexts.player.currentPlayerEntity;
 
 		protected override void Initialize()
 		{
