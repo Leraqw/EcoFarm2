@@ -1,6 +1,6 @@
-﻿using Code.ECS.Systems.View;
+﻿
 
-namespace Code.ECS.Features.Updatables
+namespace EcoFarm
 {
 	public sealed class ViewSystems : Feature
 	{

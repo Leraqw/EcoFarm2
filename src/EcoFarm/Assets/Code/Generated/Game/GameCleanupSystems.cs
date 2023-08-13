@@ -9,17 +9,17 @@
 public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
-        Add(new RemovePollutionCoefficientGameSystem(contexts));
-        Add(new RemovePollutionGameSystem(contexts));
-        Add(new RemovePickedGameSystem(contexts));
         Add(new RemoveUsedGameSystem(contexts));
         Add(new RemoveRenewGameSystem(contexts));
-        Add(new RemoveDurationUpGameSystem(contexts));
-        Add(new RemoveWateredGameSystem(contexts));
         Add(new DestroyMouseClickGameSystem(contexts));
         Add(new RemoveMouseDownGameSystem(contexts));
         Add(new RemoveMouseUpGameSystem(contexts));
         Add(new RemoveButtonClickGameSystem(contexts));
+        Add(new RemovePollutionCoefficientGameSystem(contexts));
+        Add(new RemovePollutionGameSystem(contexts));
+        Add(new RemoveWateredGameSystem(contexts));
+        Add(new RemoveDurationUpGameSystem(contexts));
         Add(new DestroyDestroyGameSystem(contexts));
+        Add(new RemovePickedGameSystem(contexts));
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Interfaces;
-using Entitas;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
 
-namespace Code.Global.PlayerContexts.Systems
+using Entitas;
+using static EcoFarm.SessionResult;
+
+namespace EcoFarm
 {
 	public sealed class OnSessionEndSystem : ReactiveSystem<PlayerEntity>
 	{
@@ -18,7 +18,7 @@ namespace Code.Global.PlayerContexts.Systems
 
 		private ISceneTransferService SceneTransfer => _contexts.services.sceneTransferService.Value;
 
-		protected override bool Filter(PlayerEntity entity) => entity.sessionResult != None;
+		protected override bool Filter(PlayerEntity entity) => entity.sessionResult.Value != None;
 
 		protected override void Execute(List<PlayerEntity> entites) => entites.ForEach(OnEnd);
 

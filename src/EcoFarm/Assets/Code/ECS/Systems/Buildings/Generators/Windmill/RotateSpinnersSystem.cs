@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Buildings.Generators.Windmill
+namespace EcoFarm
 {
 	public sealed class RotateSpinnersSystem : IExecuteSystem
 	{

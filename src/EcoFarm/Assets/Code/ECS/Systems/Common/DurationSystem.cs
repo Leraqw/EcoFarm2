@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Common
+namespace EcoFarm
 {
 	public sealed class DurationSystem : IExecuteSystem
 	{
@@ -14,6 +14,6 @@ namespace Code.ECS.Systems.Common
 
 		public void Execute() => _entities.ForEach(Tick);
 
-		private static void Tick(GameEntity entity) => entity.ReplaceDuration(entity.duration - Time.deltaTime);
+		private static void Tick(GameEntity entity) => entity.ReplaceDuration(entity.duration.Value - Time.deltaTime);
 	}
 }

@@ -1,6 +1,6 @@
-﻿namespace Code.Services.Game.Interfaces.Config.BalanceConfigs
+﻿namespace EcoFarm
 {
-	public interface IResourceConfig
+	public interface IBalanceResourceConfig
 	{
 		int MaxValue   { get; }
 		int StartValue { get; }

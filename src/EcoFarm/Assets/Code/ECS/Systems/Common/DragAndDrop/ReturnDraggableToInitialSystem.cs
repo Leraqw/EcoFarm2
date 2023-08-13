@@ -1,8 +1,8 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Common.DragAndDrop
+namespace EcoFarm
 {
 	public sealed class ReturnDraggableToInitialSystem : ICleanupSystem
 	{
@@ -16,6 +16,6 @@ namespace Code.ECS.Systems.Common.DragAndDrop
 		private bool IsNotAtPosition(GameEntity entity) => entity.isDragging == false
 		                                                   && entity.position.Value != entity.spawnPosition.Value;
 
-		private void Return(GameEntity entity) => entity.ReplacePosition(entity.spawnPosition);
+		private void Return(GameEntity entity) => entity.ReplacePosition(entity.spawnPosition.Value);
 	}
 }

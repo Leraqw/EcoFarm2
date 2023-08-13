@@ -1,9 +1,7 @@
 ﻿using System;
-using Code.Data.ToUnity;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace EcoFarm
 {
 	[Serializable]
 	public class ResourceConfig : IResourceConfig
@@ -14,7 +12,5 @@ namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
 		public IPrefabConfig Prefab => _prefab;
 
 		public ISpriteConfig Sprite => _sprite;
-
-		[field: SerializeField] public SpriteSheet SpriteSheet { get; private set; }
 	}
 }

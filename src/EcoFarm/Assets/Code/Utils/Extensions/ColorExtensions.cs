@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Utils.Extensions
+namespace EcoFarm
 {
 	public static class ColorExtensions
 	{

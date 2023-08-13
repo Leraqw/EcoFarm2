@@ -1,21 +1,18 @@
-﻿using Code.EntityBehaviours;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Global.LevelChoice.Unity
+namespace EcoFarm
 {
-	public class LevelsCollection : EntityBehaviour
+	public class LevelsCollection : StartEntityBehaviour
 	{
 		[SerializeField] private UnlockedLevelsCountView _view;
 
-		private PlayerEntity CurrentPlayer => Contexts.player.currentPlayerEntity;
-
-		protected override bool ReadyForInitialization() => true;
+		private static PlayerEntity CurrentPlayer => Contexts.player.currentPlayerEntity;
 
 		protected override void Initialize()
 		{
 			var e = Contexts.player.CreateEntity();
 			e.isLevelRelatedEntity = true;
-			e.AddUnlockedLevelsCount(CurrentPlayer.completedLevelsCount);
+			e.AddUnlockedLevelsCount(CurrentPlayer.completedLevelsCount.Value);
 			_view.Register(e);
 			e.AddView(gameObject);
 		}

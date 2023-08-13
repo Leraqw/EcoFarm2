@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Generators
+namespace EcoFarm
 {
 	public sealed class PermanentProduceResourceSystem : ReactiveSystem<GameEntity>
 	{
 		public PermanentProduceResourceSystem(Contexts contexts) : base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Generator, EfficiencyCoefficient, PermanentGenerator, DurationUp));
+			=> context.CreateCollector(AllOf(GameMatcher.Generator, EfficiencyCoefficient, PermanentGenerator, DurationUp));
 
 		protected override bool Filter(GameEntity entity) => true;
 

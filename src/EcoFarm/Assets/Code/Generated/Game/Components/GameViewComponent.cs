@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ViewComponent view { get { return (Code.ECS.Components.ViewComponent)GetComponent(GameComponentsLookup.View); } }
+    public EcoFarm.ViewComponent view { get { return (EcoFarm.ViewComponent)GetComponent(GameComponentsLookup.View); } }
     public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
     public void AddView(UnityEngine.GameObject newValue) {
         var index = GameComponentsLookup.View;
-        var component = (Code.ECS.Components.ViewComponent)CreateComponent(index, typeof(Code.ECS.Components.ViewComponent));
+        var component = (EcoFarm.ViewComponent)CreateComponent(index, typeof(EcoFarm.ViewComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceView(UnityEngine.GameObject newValue) {
         var index = GameComponentsLookup.View;
-        var component = (Code.ECS.Components.ViewComponent)CreateComponent(index, typeof(Code.ECS.Components.ViewComponent));
+        var component = (EcoFarm.ViewComponent)CreateComponent(index, typeof(EcoFarm.ViewComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

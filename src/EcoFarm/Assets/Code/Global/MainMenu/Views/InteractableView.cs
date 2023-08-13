@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Global.MainMenu.Views
+namespace EcoFarm
 {
 	public class InteractableView : MonoBehaviour, IInteractableListener
 	{

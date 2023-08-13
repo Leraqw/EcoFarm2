@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Watering.Drought
+namespace EcoFarm
 {
 	public sealed class DroughtTreeSystem : ReactiveSystem<GameEntity>
 	{

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.UI
+namespace EcoFarm
 {
 	public sealed class OnToggleActivityButtonClickSystem : ReactiveSystem<GameEntity>
 	{
@@ -21,14 +21,14 @@ namespace Code.ECS.Systems.UI
 			var activity = request.targetActivity;
 			var window = request.GetAttachableEntity();
 
-			if (activity == true
+			if (activity.Value
 			    && window.isRequirePreparation)
 			{
 				window.isPreparationInProcess = true;
 				return;
 			}
 
-			window.ReplaceActivate(activity);
+			window.ReplaceActivate(activity.Value);
 			request.isDestroy = true;
 		}
 	}

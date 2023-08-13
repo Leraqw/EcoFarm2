@@ -1,8 +1,8 @@
-﻿using Code.ECS.Systems.UI;
-using Code.ECS.Systems.UI.Initialization;
-using Code.ECS.Systems.UI.Initialization.Sell;
+﻿
 
-namespace Code.ECS.Features.Updatables
+
+
+namespace EcoFarm
 {
 	public sealed class UiSystems : Feature
 	{

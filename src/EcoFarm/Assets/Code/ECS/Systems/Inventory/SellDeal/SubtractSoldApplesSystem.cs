@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace EcoFarm
 {
 	public sealed class SubtractSoldApplesSystem : ReactiveSystem<GameEntity>
 	{
@@ -28,6 +28,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		private void SubtractFromItems(GameEntity deal)
 			=> InventoryItems.ForEach((item) => Subtract(item, deal), @if: deal.HasSameProduct);
 
-		private void Subtract(GameEntity item, GameEntity deal) => item.DecreaseInventoryItemCount(deal.count);
+		private void Subtract(GameEntity item, GameEntity deal) => item.DecreaseInventoryItemCount(deal.count.Value);
 	}
 }

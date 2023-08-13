@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners.View
+namespace EcoFarm
 {
 	public class HighView : BaseViewListener, ISpriteHighListener
 	{

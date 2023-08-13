@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Unity.ViewListeners;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
-using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.UI
+namespace EcoFarm
 {
 	public sealed class PrepareBuildWindowSystem : ReactiveSystem<GameEntity>
 	{
@@ -51,7 +47,7 @@ namespace Code.ECS.Systems.UI
 			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
-			            .Do((e) => e.AddPosition(window.position))
+			            .Do((e) => e.AddPosition(window.position.Value))
 			            .AttachTo(window)
 		/**/;
 

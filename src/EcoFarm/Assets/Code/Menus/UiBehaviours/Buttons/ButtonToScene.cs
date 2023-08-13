@@ -1,6 +1,6 @@
-﻿using Code.Services.Interfaces;
+﻿
 
-namespace Code.Menus.UiBehaviours.Buttons
+namespace EcoFarm
 {
 	public abstract class ButtonToScene : UnityEventAdapter
 	{

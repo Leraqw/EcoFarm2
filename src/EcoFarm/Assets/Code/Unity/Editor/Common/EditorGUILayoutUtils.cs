@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Code.Unity.Editor.Common
+namespace EcoFarm.Unity.Editor.Common
 {
 	public static class EditorGUILayoutUtils
 	{

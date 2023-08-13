@@ -2,7 +2,7 @@
 using Entitas;
 using static PlayerMatcher;
 
-namespace Code.Global.MainMenu.Systems
+namespace EcoFarm
 {
 	public sealed class DisableIfNoCurrentPlayerSystem : ReactiveSystem<PlayerEntity>
 	{

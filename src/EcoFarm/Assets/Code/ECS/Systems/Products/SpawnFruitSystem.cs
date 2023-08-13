@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products
+namespace EcoFarm
 {
 	public sealed class SpawnFruitSystem : IExecuteSystem
 	{
@@ -32,7 +32,7 @@ namespace Code.ECS.Systems.Products
 			           .Do((e) => e.AddDebugName("Fruit"))
 			           .Do((e) => e.AddProduct(tree.tree.Value.Product))
 			           .AttachTo(tree)
-			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnHeight))
+			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnOffset))
 			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
 			           .Do((e) => e.isFruitRequire = true)
 			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime))

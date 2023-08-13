@@ -1,7 +1,7 @@
-﻿using Code.ECS.Systems.Products.Fruit.Cooldown;
-using Code.ECS.Systems.Products.Fruit.Growing;
+﻿
 
-namespace Code.ECS.Features.Updatables.Gameplay
+
+namespace EcoFarm
 {
 	public sealed class GrowingSystems : Feature
 	{

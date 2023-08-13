@@ -1,7 +1,7 @@
-﻿using Code.ECS.Systems.Inventory;
-using Code.ECS.Systems.Warehouse;
+﻿
 
-namespace Code.ECS.Features.Updatables.Gameplay
+
+namespace EcoFarm
 {
 	public sealed class CollectingSystems : Feature
 	{

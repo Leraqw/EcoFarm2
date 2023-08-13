@@ -1,7 +1,7 @@
-﻿using Code.ECS.Features;
+﻿
 using UnityEngine;
 
-namespace Code.Unity
+namespace EcoFarm
 {
 	public class GameplayEntitasAdapter : MonoBehaviour
 	{

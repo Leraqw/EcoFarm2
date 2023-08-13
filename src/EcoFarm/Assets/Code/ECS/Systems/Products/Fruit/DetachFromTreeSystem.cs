@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit
+namespace EcoFarm
 {
 	public sealed class DetachFromTreeSystem : ReactiveSystem<GameEntity>
 	{

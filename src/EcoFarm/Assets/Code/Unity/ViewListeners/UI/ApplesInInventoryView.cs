@@ -1,8 +1,8 @@
-﻿using Code.ECS.Components.ComplexComponentTypes;
+﻿
 using TMPro;
 using UnityEngine;
 
-namespace Code.Unity.ViewListeners.UI
+namespace EcoFarm
 {
 	public class ApplesInInventoryView : BaseViewListener, IInventoryItemListener
 	{
@@ -12,7 +12,7 @@ namespace Code.Unity.ViewListeners.UI
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasInventoryItem;
 
-		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem);
+		protected override void UpdateValue(GameEntity entity) => OnInventoryItem(entity, entity.inventoryItem.Value);
 
 		public void OnInventoryItem(GameEntity entity, Item value) => _text.text = value.Count.ToString();
 	}

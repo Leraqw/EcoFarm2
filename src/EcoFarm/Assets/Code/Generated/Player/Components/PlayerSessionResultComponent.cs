@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContexts.Components.SessionResultComponent sessionResult { get { return (Code.Global.PlayerContexts.Components.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
+    public EcoFarm.SessionResultComponent sessionResult { get { return (EcoFarm.SessionResultComponent)GetComponent(PlayerComponentsLookup.SessionResult); } }
     public bool hasSessionResult { get { return HasComponent(PlayerComponentsLookup.SessionResult); } }
 
-    public void AddSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
+    public void AddSessionResult(EcoFarm.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
+        var component = (EcoFarm.SessionResultComponent)CreateComponent(index, typeof(EcoFarm.SessionResultComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSessionResult(Code.Global.PlayerContexts.CustomTypes.SessionResult newValue) {
+    public void ReplaceSessionResult(EcoFarm.SessionResult newValue) {
         var index = PlayerComponentsLookup.SessionResult;
-        var component = (Code.Global.PlayerContexts.Components.SessionResultComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.SessionResultComponent));
+        var component = (EcoFarm.SessionResultComponent)CreateComponent(index, typeof(EcoFarm.SessionResultComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.UsedComponent usedComponent = new Code.ECS.Components.UsedComponent();
+    static readonly EcoFarm.UsedComponent usedComponent = new EcoFarm.UsedComponent();
 
     public bool isUsed {
         get { return HasComponent(GameComponentsLookup.Used); }

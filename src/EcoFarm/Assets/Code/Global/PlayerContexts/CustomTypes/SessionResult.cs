@@ -1,4 +1,4 @@
-﻿namespace Code.Global.PlayerContexts.CustomTypes
+﻿namespace EcoFarm
 {
 	public enum SessionResult
 	{

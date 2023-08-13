@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Utils.Extensions;
+
+
+
+
 using Entitas;
 using UnityEngine;
 
-namespace Code.ECS.Systems.Tree
+namespace EcoFarm
 {
 	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{
@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Tree
 
 		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
 			=> SpawnPointsService

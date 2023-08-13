@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources.Water
+namespace EcoFarm
 {
 	public sealed class PostInitializeCraneResourceSystem : ReactiveSystem<GameEntity>
 	{
@@ -21,7 +21,7 @@ namespace Code.ECS.Systems.EcoResources.Water
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Initialize);
 
 		private void Initialize(GameEntity crane)
-			=> crane.Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable))
+			=> crane.Do((e) => e.AddConsumer(_contexts.game.waterResourceEntity.consumable.Value))
 			        .Do((e) => e.AddConsumptionCoefficient(BalanceBucket.WaterConsumption))
 		/**/;
 	}

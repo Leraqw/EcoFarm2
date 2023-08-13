@@ -1,9 +1,6 @@
-﻿using Code.Services.Game.Implementations;
-using Code.Services.Game.Implementations.Configuration;
-using Code.Services.Game.Implementations.Ui;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Unity
+namespace EcoFarm
 {
 	public class UnityDependencies : MonoBehaviour
 	{

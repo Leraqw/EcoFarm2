@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Code.Utils.Extensions
+namespace EcoFarm
 {
 	public static class GenericExtensions
 	{

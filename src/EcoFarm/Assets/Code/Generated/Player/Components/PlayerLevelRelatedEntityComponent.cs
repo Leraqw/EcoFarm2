@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Global.LevelChoice.LevelRelatedEntityComponent levelRelatedEntityComponent = new Code.Global.LevelChoice.LevelRelatedEntityComponent();
+    static readonly EcoFarm.LevelRelatedEntityComponent levelRelatedEntityComponent = new EcoFarm.LevelRelatedEntityComponent();
 
     public bool isLevelRelatedEntity {
         get { return HasComponent(PlayerComponentsLookup.LevelRelatedEntity); }

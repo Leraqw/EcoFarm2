@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Code.ECS.Components.ComplexComponentTypes
+namespace EcoFarm
 {
 	[Serializable]
 	public class ProgressBarValues

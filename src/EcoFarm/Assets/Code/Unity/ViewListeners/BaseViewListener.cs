@@ -1,17 +1,19 @@
-﻿using Code.Utils.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners
+namespace EcoFarm
 {
 	public abstract class BaseViewListener : MonoBehaviour
 	{
 		public GameEntity Entity { get; private set; }
 
 		public void Register(GameEntity entity)
-			=> entity
-			   .Do((e) => Entity = e)
-			   .Do(AddListener)
-			   .Do(UpdateValue, @if: HasComponent);
+		{
+			Entity = entity;
+			AddListener(entity);
+
+			if (HasComponent(entity))
+				UpdateValue(entity);
+		}
 
 		protected abstract void AddListener(GameEntity entity);
 

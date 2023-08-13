@@ -1,5 +1,5 @@
 ﻿
-namespace Code.Services.Interfaces
+namespace EcoFarm
 {
 	public interface ISceneTransferService : IService
 	{

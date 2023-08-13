@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
+
 using Entitas;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Watering.Tree
+namespace EcoFarm
 {
 	public sealed class CheckTreeOverWateringSystem : ReactiveSystem<GameEntity>
 	{
@@ -27,7 +27,7 @@ namespace Code.ECS.Systems.Watering.Tree
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(MarkAsRotten, @if: IsOverWatered);
 
-		private bool IsOverWatered(GameEntity entity) => entity.watering > MaxWatering;
+		private bool IsOverWatered(GameEntity entity) => entity.watering.Value > MaxWatering;
 
 		private void MarkAsRotten(GameEntity entity)
 			=> entity.TreeIsDead(TreeRottenSprite);

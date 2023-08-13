@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.View
+namespace EcoFarm
 {
 	public sealed class LoadRequiredSpriteSystem : ReactiveSystem<GameEntity>
 	{
@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.View
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Load);
 
 		private void Load(GameEntity entity)
-			=> entity.Do((e) => e.ReplaceSprite(entity.spriteToLoad))
+			=> entity.Do((e) => e.ReplaceSprite(entity.spriteToLoad.Value))
 			         .Do((e) => e.RemoveSpriteToLoad());
 	}
 }

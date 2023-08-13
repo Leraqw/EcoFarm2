@@ -1,38 +1,23 @@
-using Code.ECS.Components.ComplexComponentTypes;
-using Code.Unity.Containers;
-using Code.Utils.ComponentsTemplates;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace EcoFarm
 {
-	[Game] [Event(Self)] public sealed class ActivateComponent : ValueComponent<bool> { }
-
-	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : FlagComponent { }
-
-	[Game] public sealed class SellWindowComponent : ValueComponent<WindowSell> { }
-	
-	[Game] public sealed class BuildWindowComponent : ValueComponent<WindowBuild> { }
-
-	[Game] public sealed class TargetActivityComponent : ValueComponent<bool> { }
-
-	[Game] [Event(Self)] public sealed class SliderMaxValueComponent : ValueComponent<float> { }
-
-	[Game] [Event(Self)] public sealed class SliderValueComponent : ValueComponent<float> { }
-
-	[Game] public sealed class RequirePreparationComponent : FlagComponent { }
-
-	[Game] public sealed class PreparationInProcessComponent : FlagComponent { }
-
-	[Game] public sealed class PreparedComponent : FlagComponent { }
-
-	[Game, Player] [Event(Self)] public sealed class TextComponent : ValueComponent<string> { }
-
-	[Game] public sealed class UiElementComponent : FlagComponent { }
-
-	[Game] public sealed class UiParentComponent : ValueComponent<RectTransform> { }
-
-	[Game] [Event(Self)] public sealed class ProgressBarComponent : ValueComponent<ProgressBarValues> { }
+	[Game] [Event(Self)] public sealed class ActivateComponent : IComponent { public bool Value; }
+	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : IComponent { }
+	[Game] public sealed class SellWindowComponent : IComponent { public WindowSell Value; }
+	[Game] public sealed class BuildWindowComponent : IComponent { public WindowBuild Value; }
+	[Game] public sealed class TargetActivityComponent : IComponent { public bool Value; }
+	[Game] [Event(Self)] public sealed class SliderMaxValueComponent : IComponent { public float Value; }
+	[Game] [Event(Self)] public sealed class SliderValueComponent : IComponent { public float Value; }
+	[Game] public sealed class RequirePreparationComponent : IComponent { }
+	[Game] public sealed class PreparationInProcessComponent : IComponent { }
+	[Game] public sealed class PreparedComponent : IComponent { }
+	[Game, Player] [Event(Self)] public sealed class TextComponent : IComponent { public string Value; }
+	[Game] public sealed class UiElementComponent : IComponent { }
+	[Game] public sealed class UiParentComponent : IComponent { public RectTransform Value; }
+	[Game] [Event(Self)] public sealed class ProgressBarComponent : IComponent { public ProgressBarValues Value; }
 }

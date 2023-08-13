@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.InFactoryComponent inFactoryComponent = new Code.ECS.Components.Buildings.InFactoryComponent();
+    static readonly EcoFarm.InFactoryComponent inFactoryComponent = new EcoFarm.InFactoryComponent();
 
     public bool isInFactory {
         get { return HasComponent(GameComponentsLookup.InFactory); }

@@ -1,9 +1,6 @@
-﻿using Code.Global.PlayerContexts.Features;
-using Code.Services.Interfaces;
-using Code.Services.UnityImplementations;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Global.PlayerContexts.Unity
+namespace EcoFarm
 {
 	public class GlobalEntitasAdapter : MonoBehaviour
 	{
@@ -12,16 +9,13 @@ namespace Code.Global.PlayerContexts.Unity
 		private void Start()
 		{
 			DontDestroyOnLoad(gameObject);
-			
-			IGlobalServices resources = new UnityGlobalServices();
 
-			_systems = new GlobalSystems(resources);
+			_systems = new GlobalSystems();
 			_systems.Initialize();
 		}
 
 		private void Update() => _systems.OnUpdate();
 
 		private void OnDestroy() => _systems.TearDown();
-
 	}
 }

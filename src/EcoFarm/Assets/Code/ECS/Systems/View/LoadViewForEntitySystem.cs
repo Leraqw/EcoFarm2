@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Code.Services.Interfaces;
-using Code.Utils.Extensions.Entitas;
-using Code.Utils.StaticClasses;
+
+
+
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.View
+namespace EcoFarm
 {
 	public sealed class LoadViewForEntitySystem : ReactiveSystem<GameEntity>
 	{
@@ -36,10 +36,10 @@ namespace Code.ECS.Systems.View
 
 		private GameObject Instantiate(GameEntity e)
 			=> e.isUiElement
-				? Object.Instantiate(LoadPrefab(e), e.hasUiParent ? e.uiParent : UiRoot)
+				? Object.Instantiate(LoadPrefab(e), e.hasUiParent ? e.uiParent.Value : UiRoot)
 				: GameObjectUtils.Instantiate(LoadPrefab(e), e.GetActualSpawnPosition(), _viewRoot);
 
 		private GameObject LoadPrefab(GameEntity e)
-			=> e.hasViewPrefab ? e.viewPrefab : Resources.LoadGameObject(e.requireView.Value);
+			=> e.hasViewPrefab ? e.viewPrefab.Value : Resources.LoadGameObject(e.requireView.Value);
 	}
 }

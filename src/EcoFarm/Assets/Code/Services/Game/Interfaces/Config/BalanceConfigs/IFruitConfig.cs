@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Config.BalanceConfigs
+namespace EcoFarm
 {
 	public interface IFruitConfig
 	{
@@ -8,7 +8,7 @@ namespace Code.Services.Game.Interfaces.Config.BalanceConfigs
 		float BeforeGrowingTime { get; }
 		float AfterGrowingTime { get; }
 		float FallTime { get; }
-		Vector2 SpawnHeight { get; }
+		Vector2 SpawnOffset { get; }
 		float InitialScale { get; }
 		float FullScale { get; }
 	}

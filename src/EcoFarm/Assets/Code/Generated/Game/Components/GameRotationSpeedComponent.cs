@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.Buildings.RotationSpeedComponent rotationSpeed { get { return (Code.ECS.Components.Buildings.RotationSpeedComponent)GetComponent(GameComponentsLookup.RotationSpeed); } }
+    public EcoFarm.RotationSpeedComponent rotationSpeed { get { return (EcoFarm.RotationSpeedComponent)GetComponent(GameComponentsLookup.RotationSpeed); } }
     public bool hasRotationSpeed { get { return HasComponent(GameComponentsLookup.RotationSpeed); } }
 
     public void AddRotationSpeed(float newValue) {
         var index = GameComponentsLookup.RotationSpeed;
-        var component = (Code.ECS.Components.Buildings.RotationSpeedComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RotationSpeedComponent));
+        var component = (EcoFarm.RotationSpeedComponent)CreateComponent(index, typeof(EcoFarm.RotationSpeedComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRotationSpeed(float newValue) {
         var index = GameComponentsLookup.RotationSpeed;
-        var component = (Code.ECS.Components.Buildings.RotationSpeedComponent)CreateComponent(index, typeof(Code.ECS.Components.Buildings.RotationSpeedComponent));
+        var component = (EcoFarm.RotationSpeedComponent)CreateComponent(index, typeof(EcoFarm.RotationSpeedComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,9 +1,9 @@
 ﻿using Entitas;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants.SpriteHigh;
+using static EcoFarm.Constants.SpriteHigh;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Common
+namespace EcoFarm
 {
 	public sealed class DanceWhileWorkingSystem : IExecuteSystem
 	{
@@ -18,11 +18,15 @@ namespace Code.ECS.Systems.Buildings.Common
 		{
 			foreach (var e in _entities)
 			{
-				// Change high by sinusoid
-				var delta = 0.1f;
-				var timeScale = 10;
-				e.ReplaceSpriteHigh(Normal + Mathf.Sin(Time.time * timeScale) * delta);
+				ChangeHighBySinusoid(e);
 			}
+		}
+
+		private static void ChangeHighBySinusoid(GameEntity e)
+		{
+			const float delta = 0.1f;
+			const int timeScale = 10;
+			e.ReplaceSpriteHigh(Normal + Mathf.Sin(Time.time * timeScale) * delta);
 		}
 	}
 }

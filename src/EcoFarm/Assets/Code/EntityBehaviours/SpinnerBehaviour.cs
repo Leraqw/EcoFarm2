@@ -1,9 +1,7 @@
-namespace Code.EntityBehaviours
+namespace EcoFarm
 {
-	public class SpinnerBehaviour : EntityBehaviour
+	public class SpinnerBehaviour : StartEntityBehaviour
 	{
-		protected override bool ReadyForInitialization() => true;
-
 		protected override void Initialize()
 		{
 			var e = Contexts.game.CreateEntity();

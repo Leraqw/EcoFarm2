@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.SellDealComponent sellDealComponent = new Code.ECS.Components.SellDealComponent();
+    static readonly EcoFarm.SellDealComponent sellDealComponent = new EcoFarm.SellDealComponent();
 
     public bool isSellDeal {
         get { return HasComponent(GameComponentsLookup.SellDeal); }

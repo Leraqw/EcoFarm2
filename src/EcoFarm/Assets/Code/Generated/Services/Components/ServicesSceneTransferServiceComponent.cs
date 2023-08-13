@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity sceneTransferServiceEntity { get { return GetGroup(ServicesMatcher.SceneTransferService).GetSingleEntity(); } }
-    public Code.ECS.Components.SceneTransferServiceComponent sceneTransferService { get { return sceneTransferServiceEntity.sceneTransferService; } }
+    public EcoFarm.SceneTransferServiceComponent sceneTransferService { get { return sceneTransferServiceEntity.sceneTransferService; } }
     public bool hasSceneTransferService { get { return sceneTransferServiceEntity != null; } }
 
-    public ServicesEntity SetSceneTransferService(Code.Services.Interfaces.ISceneTransferService newValue) {
+    public ServicesEntity SetSceneTransferService(EcoFarm.ISceneTransferService newValue) {
         if (hasSceneTransferService) {
-            throw new Entitas.EntitasException("Could not set SceneTransferService!\n" + this + " already has an entity with Code.ECS.Components.SceneTransferServiceComponent!",
+            throw new Entitas.EntitasException("Could not set SceneTransferService!\n" + this + " already has an entity with EcoFarm.SceneTransferServiceComponent!",
                 "You should check if the context already has a sceneTransferServiceEntity before setting it or use context.ReplaceSceneTransferService().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceSceneTransferService(Code.Services.Interfaces.ISceneTransferService newValue) {
+    public void ReplaceSceneTransferService(EcoFarm.ISceneTransferService newValue) {
         var entity = sceneTransferServiceEntity;
         if (entity == null) {
             entity = SetSceneTransferService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ECS.Components.SceneTransferServiceComponent sceneTransferService { get { return (Code.ECS.Components.SceneTransferServiceComponent)GetComponent(ServicesComponentsLookup.SceneTransferService); } }
+    public EcoFarm.SceneTransferServiceComponent sceneTransferService { get { return (EcoFarm.SceneTransferServiceComponent)GetComponent(ServicesComponentsLookup.SceneTransferService); } }
     public bool hasSceneTransferService { get { return HasComponent(ServicesComponentsLookup.SceneTransferService); } }
 
-    public void AddSceneTransferService(Code.Services.Interfaces.ISceneTransferService newValue) {
+    public void AddSceneTransferService(EcoFarm.ISceneTransferService newValue) {
         var index = ServicesComponentsLookup.SceneTransferService;
-        var component = (Code.ECS.Components.SceneTransferServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.SceneTransferServiceComponent));
+        var component = (EcoFarm.SceneTransferServiceComponent)CreateComponent(index, typeof(EcoFarm.SceneTransferServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSceneTransferService(Code.Services.Interfaces.ISceneTransferService newValue) {
+    public void ReplaceSceneTransferService(EcoFarm.ISceneTransferService newValue) {
         var index = ServicesComponentsLookup.SceneTransferService;
-        var component = (Code.ECS.Components.SceneTransferServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.SceneTransferServiceComponent));
+        var component = (EcoFarm.SceneTransferServiceComponent)CreateComponent(index, typeof(EcoFarm.SceneTransferServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Utils.Extensions.Entitas
+namespace EcoFarm
 {
 	public static class GameEntityExtensions
 	{

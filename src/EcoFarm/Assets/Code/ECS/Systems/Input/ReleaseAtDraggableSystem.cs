@@ -2,7 +2,7 @@
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Input
+namespace EcoFarm
 {
 	public sealed class ReleaseAtDraggableSystem : ReactiveSystem<GameEntity>
 	{

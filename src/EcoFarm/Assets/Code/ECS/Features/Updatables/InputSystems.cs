@@ -1,6 +1,6 @@
-﻿using Code.ECS.Systems.Input;
+﻿
 
-namespace Code.ECS.Features.Updatables
+namespace EcoFarm
 {
 	public sealed class InputSystems : Feature
 	{

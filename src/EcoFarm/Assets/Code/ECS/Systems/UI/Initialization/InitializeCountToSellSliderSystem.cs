@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Code.Services.Game.Interfaces.Ui;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 
-namespace Code.ECS.Systems.UI.Initialization
+namespace EcoFarm
 {
 	public sealed class InitializeCountToSellSliderSystem : IInitializeSystem
 	{

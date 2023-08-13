@@ -1,7 +1,7 @@
-﻿using Code.ECS.Systems.Products.Fruit;
-using Code.ECS.Systems.Products.Fruit.Falling;
+﻿
 
-namespace Code.ECS.Features.Updatables.Gameplay
+
+namespace EcoFarm
 {
 	public sealed class FallingSystems : Feature
 	{

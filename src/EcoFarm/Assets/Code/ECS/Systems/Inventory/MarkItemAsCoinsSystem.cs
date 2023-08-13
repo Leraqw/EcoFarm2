@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.StaticClasses;
+
 using Entitas;
 
-namespace Code.ECS.Systems.Inventory
+namespace EcoFarm
 {
 	public sealed class MarkItemAsCoinsSystem : ReactiveSystem<GameEntity>
 	{

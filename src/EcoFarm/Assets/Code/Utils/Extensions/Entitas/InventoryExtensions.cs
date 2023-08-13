@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.ECS.Components.ComplexComponentTypes;
-using EcoFarmModel;
 
-namespace Code.Utils.Extensions.Entitas
+namespace EcoFarm
 {
 	public static class InventoryExtensions
 	{
@@ -24,7 +22,7 @@ namespace Code.Utils.Extensions.Entitas
 		public static IEnumerable<GameEntity> GetInventoryItems(this GameContext @this)
 			=> @this.inventoryEntity.GetAttachedEntities()
 			        .Where((e) => e.hasInventoryItem);
-		
+
 		public static GameEntity GetInventoryItem(this GameContext @this, Product product)
 			=> @this.GetInventoryItems().Single((e) => e.product.Value == product);
 
@@ -43,10 +41,10 @@ namespace Code.Utils.Extensions.Entitas
 			        .Do((e) => e.SetActualDebugName());
 
 		public static void IncreaseCoinsCount(this GameEntity @this, int value)
-			=> @this.ReplaceCoinsCount(@this.coinsCount + value);
+			=> @this.ReplaceCoinsCount(@this.coinsCount.Value + value);
 
 		public static void DecreaseCoinsCount(this GameEntity @this, int value)
-			=> @this.ReplaceCoinsCount(@this.coinsCount - value);
+			=> @this.ReplaceCoinsCount(@this.coinsCount.Value - value);
 
 		public static bool HasSameProduct(this GameEntity @this, GameEntity other)
 			=> @this.product.Value == other.product.Value;

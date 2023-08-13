@@ -1,5 +1,5 @@
 ﻿
-namespace Code.Unity.ViewListeners
+namespace EcoFarm
 {
 	public class EnabledView : BaseViewListener, IActivateListener
 	{

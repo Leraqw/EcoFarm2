@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent completedLevelsCount { get { return (Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent)GetComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
+    public EcoFarm.CompletedLevelsCountComponent completedLevelsCount { get { return (EcoFarm.CompletedLevelsCountComponent)GetComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
     public bool hasCompletedLevelsCount { get { return HasComponent(PlayerComponentsLookup.CompletedLevelsCount); } }
 
     public void AddCompletedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.CompletedLevelsCount;
-        var component = (Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent));
+        var component = (EcoFarm.CompletedLevelsCountComponent)CreateComponent(index, typeof(EcoFarm.CompletedLevelsCountComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceCompletedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.CompletedLevelsCount;
-        var component = (Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent)CreateComponent(index, typeof(Code.Global.PlayerContexts.Components.CompletedLevelsCountComponent));
+        var component = (EcoFarm.CompletedLevelsCountComponent)CreateComponent(index, typeof(EcoFarm.CompletedLevelsCountComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

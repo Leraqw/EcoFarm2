@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.PermanentGeneratorComponent permanentGeneratorComponent = new Code.ECS.Components.Buildings.PermanentGeneratorComponent();
+    static readonly EcoFarm.PermanentGeneratorComponent permanentGeneratorComponent = new EcoFarm.PermanentGeneratorComponent();
 
     public bool isPermanentGenerator {
         get { return HasComponent(GameComponentsLookup.PermanentGenerator); }

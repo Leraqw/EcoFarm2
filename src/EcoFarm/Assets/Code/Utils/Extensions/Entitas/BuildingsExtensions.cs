@@ -1,4 +1,4 @@
-﻿namespace Code.Utils.Extensions.Entitas
+﻿namespace EcoFarm
 {
 	public static class BuildingsExtensions
 	{

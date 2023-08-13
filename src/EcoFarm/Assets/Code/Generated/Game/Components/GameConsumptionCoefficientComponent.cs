@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ConsumptionCoefficientComponent consumptionCoefficient { get { return (Code.ECS.Components.ConsumptionCoefficientComponent)GetComponent(GameComponentsLookup.ConsumptionCoefficient); } }
+    public EcoFarm.ConsumptionCoefficientComponent consumptionCoefficient { get { return (EcoFarm.ConsumptionCoefficientComponent)GetComponent(GameComponentsLookup.ConsumptionCoefficient); } }
     public bool hasConsumptionCoefficient { get { return HasComponent(GameComponentsLookup.ConsumptionCoefficient); } }
 
     public void AddConsumptionCoefficient(int newValue) {
         var index = GameComponentsLookup.ConsumptionCoefficient;
-        var component = (Code.ECS.Components.ConsumptionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.ConsumptionCoefficientComponent));
+        var component = (EcoFarm.ConsumptionCoefficientComponent)CreateComponent(index, typeof(EcoFarm.ConsumptionCoefficientComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceConsumptionCoefficient(int newValue) {
         var index = GameComponentsLookup.ConsumptionCoefficient;
-        var component = (Code.ECS.Components.ConsumptionCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.ConsumptionCoefficientComponent));
+        var component = (EcoFarm.ConsumptionCoefficientComponent)CreateComponent(index, typeof(EcoFarm.ConsumptionCoefficientComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

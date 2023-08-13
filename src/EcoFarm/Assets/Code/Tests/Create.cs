@@ -1,7 +1,4 @@
-﻿using Code.ECS.Systems.Warehouse;
-using Code.ECS.Systems.Watering.Bucket;
-
-namespace Code.Tests
+﻿namespace EcoFarm.Tests
 {
 	public class Create
 	{

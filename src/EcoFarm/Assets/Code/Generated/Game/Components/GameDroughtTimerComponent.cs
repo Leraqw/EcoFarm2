@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.DroughtTimerComponent droughtTimerComponent = new Code.ECS.Components.DroughtTimerComponent();
+    static readonly EcoFarm.DroughtTimerComponent droughtTimerComponent = new EcoFarm.DroughtTimerComponent();
 
     public bool isDroughtTimer {
         get { return HasComponent(GameComponentsLookup.DroughtTimer); }

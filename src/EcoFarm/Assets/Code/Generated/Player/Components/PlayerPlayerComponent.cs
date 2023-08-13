@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Global.PlayerContexts.Components.PlayerComponent playerComponent = new Code.Global.PlayerContexts.Components.PlayerComponent();
+    static readonly EcoFarm.PlayerComponent playerComponent = new EcoFarm.PlayerComponent();
 
     public bool isPlayer {
         get { return HasComponent(PlayerComponentsLookup.Player); }

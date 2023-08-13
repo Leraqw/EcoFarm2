@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.InventoryItemComponent inventoryItem { get { return (Code.ECS.Components.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
+    public EcoFarm.InventoryItemComponent inventoryItem { get { return (EcoFarm.InventoryItemComponent)GetComponent(GameComponentsLookup.InventoryItem); } }
     public bool hasInventoryItem { get { return HasComponent(GameComponentsLookup.InventoryItem); } }
 
-    public void AddInventoryItem(Code.ECS.Components.ComplexComponentTypes.Item newValue) {
+    public void AddInventoryItem(EcoFarm.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.ECS.Components.InventoryItemComponent)CreateComponent(index, typeof(Code.ECS.Components.InventoryItemComponent));
+        var component = (EcoFarm.InventoryItemComponent)CreateComponent(index, typeof(EcoFarm.InventoryItemComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInventoryItem(Code.ECS.Components.ComplexComponentTypes.Item newValue) {
+    public void ReplaceInventoryItem(EcoFarm.Item newValue) {
         var index = GameComponentsLookup.InventoryItem;
-        var component = (Code.ECS.Components.InventoryItemComponent)CreateComponent(index, typeof(Code.ECS.Components.InventoryItemComponent));
+        var component = (EcoFarm.InventoryItemComponent)CreateComponent(index, typeof(EcoFarm.InventoryItemComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

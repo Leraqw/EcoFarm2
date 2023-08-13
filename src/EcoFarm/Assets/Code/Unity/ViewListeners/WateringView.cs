@@ -1,10 +1,10 @@
-﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
+﻿
+
 using UnityEngine;
 using UnityEngine.UI;
 using static Contexts;
 
-namespace Code.Unity.ViewListeners
+namespace EcoFarm
 {
 	public class WateringView : BaseViewListener, IWateringListener
 	{

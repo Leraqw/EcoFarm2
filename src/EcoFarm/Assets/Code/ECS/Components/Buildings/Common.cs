@@ -1,34 +1,32 @@
-﻿using Code.Utils.ComponentsTemplates;
-using EcoFarmModel;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components.Buildings
+namespace EcoFarm
 {
-	[Game] public sealed class SignComponent : FlagComponent { }
+	[Game] public sealed class SignComponent : IComponent { }
 
-	[Game] public sealed class OccupiedComponent : FlagComponent { }
+	[Game] public sealed class OccupiedComponent : IComponent { }
 
-	[Game] public sealed class BoughtComponent : FlagComponent { }
+	[Game] public sealed class BoughtComponent : IComponent { }
 
-	[Game] public sealed class RequireProductComponent : ValueComponent<Product> { }
+	[Game] public sealed class RequireProductComponent : IComponent { public Product Value; }
+	[Game] public sealed class ReadyComponent : IComponent { }
 
-	[Game] public sealed class ReadyComponent : FlagComponent { }
+	[Game] public sealed class InFactoryComponent : IComponent { }
 
-	[Game] public sealed class InFactoryComponent : FlagComponent { }
+	[Game] public sealed class WorkingComponent : IComponent { }
 
-	[Game] public sealed class WorkingComponent : FlagComponent { }
+	[Game] public sealed class BusyComponent : IComponent { }
 
-	[Game] public sealed class BusyComponent : FlagComponent { }
+	[Game] public sealed class PermanentGeneratorComponent : IComponent { }
 
-	[Game] public sealed class PermanentGeneratorComponent : FlagComponent { }
+	[Game] public sealed class CleanerGeneratorComponent : IComponent { }
 
-	[Game] public sealed class CleanerGeneratorComponent : FlagComponent { }
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : IComponent { public int Value; }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionCoefficientComponent : ValueComponent<int> { }
+	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : IComponent { public Resource Value; }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class PollutionComponent : ValueComponent<Resource> { }
-
-	[Game] [Event(Self)] public sealed class SpriteHighComponent : ValueComponent<float> { }
+	[Game] [Event(Self)] public sealed class SpriteHighComponent : IComponent { public float Value; }
 }

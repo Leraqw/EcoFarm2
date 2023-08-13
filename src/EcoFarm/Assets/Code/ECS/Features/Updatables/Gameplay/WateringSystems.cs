@@ -1,9 +1,9 @@
-﻿using Code.ECS.Systems.Watering.Bucket;
-using Code.ECS.Systems.Watering.Drought;
-using Code.ECS.Systems.Watering.Tree;
-using Code.ECS.Systems.Watering.WaterCrane;
+﻿
 
-namespace Code.ECS.Features.Updatables.Gameplay
+
+
+
+namespace EcoFarm
 {
 	public sealed class WateringSystems : Feature
 	{

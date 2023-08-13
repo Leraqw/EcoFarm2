@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.ProgressBarComponent progressBar { get { return (Code.ECS.Components.ProgressBarComponent)GetComponent(GameComponentsLookup.ProgressBar); } }
+    public EcoFarm.ProgressBarComponent progressBar { get { return (EcoFarm.ProgressBarComponent)GetComponent(GameComponentsLookup.ProgressBar); } }
     public bool hasProgressBar { get { return HasComponent(GameComponentsLookup.ProgressBar); } }
 
-    public void AddProgressBar(Code.ECS.Components.ComplexComponentTypes.ProgressBarValues newValue) {
+    public void AddProgressBar(EcoFarm.ProgressBarValues newValue) {
         var index = GameComponentsLookup.ProgressBar;
-        var component = (Code.ECS.Components.ProgressBarComponent)CreateComponent(index, typeof(Code.ECS.Components.ProgressBarComponent));
+        var component = (EcoFarm.ProgressBarComponent)CreateComponent(index, typeof(EcoFarm.ProgressBarComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceProgressBar(Code.ECS.Components.ComplexComponentTypes.ProgressBarValues newValue) {
+    public void ReplaceProgressBar(EcoFarm.ProgressBarValues newValue) {
         var index = GameComponentsLookup.ProgressBar;
-        var component = (Code.ECS.Components.ProgressBarComponent)CreateComponent(index, typeof(Code.ECS.Components.ProgressBarComponent));
+        var component = (EcoFarm.ProgressBarComponent)CreateComponent(index, typeof(EcoFarm.ProgressBarComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

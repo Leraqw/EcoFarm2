@@ -1,6 +1,6 @@
-﻿using Code.ECS.Systems.Common;
+﻿
 
-namespace Code.ECS.Features.Updatables
+namespace EcoFarm
 {
 	public sealed class DurationSystems : Feature
 	{

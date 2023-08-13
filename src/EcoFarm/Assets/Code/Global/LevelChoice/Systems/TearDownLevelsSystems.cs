@@ -1,7 +1,7 @@
-﻿using Code.Utils.Extensions;
+﻿
 using Entitas;
 
-namespace Code.Global.LevelChoice.Systems
+namespace EcoFarm
 {
 	public class TearDownLevelsSystems : ITearDownSystem
 	{

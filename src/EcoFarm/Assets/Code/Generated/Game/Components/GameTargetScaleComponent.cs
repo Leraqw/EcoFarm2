@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.TargetScaleComponent targetScale { get { return (Code.ECS.Components.TargetScaleComponent)GetComponent(GameComponentsLookup.TargetScale); } }
+    public EcoFarm.TargetScaleComponent targetScale { get { return (EcoFarm.TargetScaleComponent)GetComponent(GameComponentsLookup.TargetScale); } }
     public bool hasTargetScale { get { return HasComponent(GameComponentsLookup.TargetScale); } }
 
     public void AddTargetScale(float newValue) {
         var index = GameComponentsLookup.TargetScale;
-        var component = (Code.ECS.Components.TargetScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.TargetScaleComponent));
+        var component = (EcoFarm.TargetScaleComponent)CreateComponent(index, typeof(EcoFarm.TargetScaleComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceTargetScale(float newValue) {
         var index = GameComponentsLookup.TargetScale;
-        var component = (Code.ECS.Components.TargetScaleComponent)CreateComponent(index, typeof(Code.ECS.Components.TargetScaleComponent));
+        var component = (EcoFarm.TargetScaleComponent)CreateComponent(index, typeof(EcoFarm.TargetScaleComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

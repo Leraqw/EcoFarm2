@@ -1,15 +1,16 @@
-using Code.Unity.ViewListeners.UI;
-using Code.Utils.Extensions;
 using UnityEngine;
 
-namespace Code.EntityBehaviours
+namespace EcoFarm
 {
-	public class ResourceRenewButtonBehaviour : EntityBehaviour
+	public class ResourceRenewButtonBehaviour : StartEntityBehaviour
 	{
 		[SerializeField] private ProgressBarView _progressBarView;
 
-		protected override bool ReadyForInitialization() => _progressBarView.Entity != null;
+		protected override bool IsReadyForInitialization => ProgressBarEntity != null;
 
-		protected override void Initialize() => _progressBarView.Entity.Do((e) => e.AddText(e.renewPrice));
+		private GameEntity ProgressBarEntity => _progressBarView.Entity;
+
+		protected override void Initialize()
+			=> ProgressBarEntity.AddText(ProgressBarEntity.renewPrice.Value.ToString());
 	}
 }

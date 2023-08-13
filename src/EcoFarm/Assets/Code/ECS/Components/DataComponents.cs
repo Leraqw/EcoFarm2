@@ -1,28 +1,26 @@
-﻿using Code.Utils.ComponentsTemplates;
-using EcoFarmModel;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace EcoFarm
 {
-	[Game] [Unique] public sealed class StorageComponent : ValueComponent<Storage> { }
+	[Game] [Unique] public sealed class StorageComponent : IComponent { public Storage Value; }
 
-	[Game] public sealed class ProductComponent : ValueComponent<Product> { }
+	[Game] public sealed class ProductComponent : IComponent { public Product Value; }
 
-	[Game] public sealed class TreeComponent : ValueComponent<Tree> { }
+	[Game] public sealed class TreeComponent : IComponent { public Tree Value; }
 
-	[Game] [Event(Self)] public sealed class GoalComponent : ValueComponent<Goal> { }
+	[Game] [Event(Self)] public sealed class GoalComponent : IComponent { public Goal Value; }
 
-	[Game] public sealed class DevelopmentObjectComponent : ValueComponent<DevelopmentObject> { }
+	[Game] public sealed class DevelopmentObjectComponent : IComponent { public DevObject Value; }
 
-	[Game] [Event(Self)] public sealed class BuildingComponent : ValueComponent<Building> { }
+	[Game] [Event(Self)] public sealed class BuildingComponent : IComponent { public Building Value; }
 
-	[Game] [Event(Self)] public sealed class FactoryComponent : ValueComponent<FactoryBuilding> { }
+	[Game] [Event(Self)] public sealed class FactoryComponent : IComponent { public Factory Value; }
 
-	[Game] [Event(Self)] public sealed class GeneratorComponent : ValueComponent<Generator> { }
+	[Game] [Event(Self)] public sealed class GeneratorComponent : IComponent { public Generator Value; }
 
-	[Game] public sealed class InputProductsComponent : ValueComponent<Product[]> { }
+	[Game] public sealed class InputProductsComponent : IComponent { public Product[] Value; }
 
-	[Game] public sealed class ResourceComponent : PrimaryComponent<Resource> { }
+	[Game] public sealed class ResourceComponent : IComponent { [PrimaryEntityIndex] public Resource Value; }
 }

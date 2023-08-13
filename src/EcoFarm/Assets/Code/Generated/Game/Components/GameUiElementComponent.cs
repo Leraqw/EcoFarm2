@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.UiElementComponent uiElementComponent = new Code.ECS.Components.UiElementComponent();
+    static readonly EcoFarm.UiElementComponent uiElementComponent = new EcoFarm.UiElementComponent();
 
     public bool isUiElement {
         get { return HasComponent(GameComponentsLookup.UiElement); }

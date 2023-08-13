@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.BusyComponent busyComponent = new Code.ECS.Components.Buildings.BusyComponent();
+    static readonly EcoFarm.BusyComponent busyComponent = new EcoFarm.BusyComponent();
 
     public bool isBusy {
         get { return HasComponent(GameComponentsLookup.Busy); }

@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.CoinComponent coinComponent = new Code.ECS.Components.CoinComponent();
+    static readonly EcoFarm.CoinComponent coinComponent = new EcoFarm.CoinComponent();
 
     public bool isCoin {
         get { return HasComponent(GameComponentsLookup.Coin); }

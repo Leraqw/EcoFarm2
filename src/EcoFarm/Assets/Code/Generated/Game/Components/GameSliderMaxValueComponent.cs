@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.SliderMaxValueComponent sliderMaxValue { get { return (Code.ECS.Components.SliderMaxValueComponent)GetComponent(GameComponentsLookup.SliderMaxValue); } }
+    public EcoFarm.SliderMaxValueComponent sliderMaxValue { get { return (EcoFarm.SliderMaxValueComponent)GetComponent(GameComponentsLookup.SliderMaxValue); } }
     public bool hasSliderMaxValue { get { return HasComponent(GameComponentsLookup.SliderMaxValue); } }
 
     public void AddSliderMaxValue(float newValue) {
         var index = GameComponentsLookup.SliderMaxValue;
-        var component = (Code.ECS.Components.SliderMaxValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderMaxValueComponent));
+        var component = (EcoFarm.SliderMaxValueComponent)CreateComponent(index, typeof(EcoFarm.SliderMaxValueComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSliderMaxValue(float newValue) {
         var index = GameComponentsLookup.SliderMaxValue;
-        var component = (Code.ECS.Components.SliderMaxValueComponent)CreateComponent(index, typeof(Code.ECS.Components.SliderMaxValueComponent));
+        var component = (EcoFarm.SliderMaxValueComponent)CreateComponent(index, typeof(EcoFarm.SliderMaxValueComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

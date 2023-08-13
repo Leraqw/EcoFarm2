@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
-	public class SpriteToLoadAuthoring : RegistrarBase
+	public class SpriteToLoadAuthoring : AuthoringBase
 	{
 		[SerializeField] private Sprite _value;
 

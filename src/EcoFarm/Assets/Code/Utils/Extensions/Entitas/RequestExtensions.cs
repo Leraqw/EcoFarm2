@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EcoFarmModel;
 
-namespace Code.Utils.Extensions.Entitas
+namespace EcoFarm
 {
 	public static class RequestExtensions
 	{
@@ -12,7 +11,7 @@ namespace Code.Utils.Extensions.Entitas
 		private static IEnumerable<IGrouping<Product, Product>> GetGroups(this GameEntity @this)
 			=> @this.factory.Value.InputProducts.GroupBy((x) => x);
 
-		private static Dictionary<Product, int> AsDictionary(this IEnumerable<IGrouping<Product, Product>> @this)
+		private static Dictionary<T, int> AsDictionary<T>(this IEnumerable<IGrouping<T, T>> @this)
 			=> @this.ToDictionary(x => x.Key, x => x.Count());
 	}
 }

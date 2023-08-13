@@ -1,19 +1,17 @@
-﻿using Code.Utils.Extensions;
-using EcoFarmModel;
-using Entitas;
+﻿using Entitas;
 
-namespace Code.ECS.Systems.Data
+namespace EcoFarm
 {
 	public sealed class SpawnStorage : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
+		private readonly GameContext _context;
 
-		public SpawnStorage(Contexts contexts) => _contexts = contexts;
-
-		private Storage Storage => _contexts.services.dataService.Value.Storage;
+		public SpawnStorage(Contexts contexts) => _context = contexts.game;
 
 		public void Initialize()
-			=> _contexts.game.Do((c) => c.ReplaceStorage(Storage))
-			            .storageEntity.Do((e) => e.ReplaceDebugName(nameof(Storage)));
+		{
+			_context.ReplaceStorage(ServicesMediator.DataProvider.Storage);
+			_context.storageEntity.ReplaceDebugName(nameof(Storage));
+		}
 	}
 }

@@ -1,6 +1,6 @@
-﻿using Code.Services.Game.Interfaces.Config;
+﻿
 
-namespace Code.ECS.Systems.Watering.Bucket
+namespace EcoFarm
 {
 	public static class ContextsExtensions
 	{

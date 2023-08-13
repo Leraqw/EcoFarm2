@@ -1,4 +1,4 @@
-﻿namespace Code.Services.Game.Interfaces.Config.BalanceConfigs
+﻿namespace EcoFarm
 {
 	public interface IWarehouseConfig
 	{

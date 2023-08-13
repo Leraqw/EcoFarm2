@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 
-namespace Code.ECS.Systems.Inventory
+namespace EcoFarm
 {
 	public sealed class SyncItemValueWithDebugSystem : ReactiveSystem<GameEntity>
 	{

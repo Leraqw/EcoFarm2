@@ -1,7 +1,7 @@
-﻿using Code.Services.Interfaces;
+﻿
 using UnityEngine.SceneManagement;
 
-namespace Code.Services.UnityImplementations
+namespace EcoFarm
 {
 	public class UnitySceneTransferService : ISceneTransferService
 	{

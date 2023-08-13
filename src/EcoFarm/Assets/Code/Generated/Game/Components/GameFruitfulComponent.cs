@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.FruitfulComponent fruitfulComponent = new Code.ECS.Components.FruitfulComponent();
+    static readonly EcoFarm.FruitfulComponent fruitfulComponent = new EcoFarm.FruitfulComponent();
 
     public bool isFruitful {
         get { return HasComponent(GameComponentsLookup.Fruitful); }

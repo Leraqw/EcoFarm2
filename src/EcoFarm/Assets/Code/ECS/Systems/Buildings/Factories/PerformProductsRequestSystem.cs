@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace EcoFarm
 {
 	public sealed class PerformProductsRequestSystem : ReactiveSystem<GameEntity>
 	{
@@ -17,7 +12,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		public PerformProductsRequestSystem(Contexts contexts) : base(contexts.game)
 		{
 			_contexts = contexts;
-			_products = contexts.game.GetGroup(AllOf(Product, Collected).NoneOf(InFactory));
+			_products = contexts.game.GetGroup(AllOf(GameMatcher.Product, Collected).NoneOf(InFactory));
 		}
 
 		private float RoadToFactoryDuration => Balance.RoadToFactoryDuration;
@@ -34,46 +29,43 @@ namespace Code.ECS.Systems.Buildings.Factories
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Perform);
 
 		private void Perform(GameEntity request)
-			=> request.Do
-			(
-				@if: LeftProductsToSend,
-				@true: SendWithCoolDown,
-				@false: MarkAsPerformed
-			);
+		{
+			if (LeftProductsToSend(request))
+				SendWithCoolDown(request);
+			else
+				MarkAsPerformed(request);
+		}
 
-		private static bool LeftProductsToSend(GameEntity e) => e.count > 0;
+		private static bool LeftProductsToSend(GameEntity entity) => entity.count.Value > 0;
 
-		private void SendWithCoolDown(GameEntity entity) => entity.Do(SendFirstMatch).Do(WaitBeforeSendNext);
+		private void SendWithCoolDown(GameEntity entity)
+		{
+			SendFirstMatch(entity);
+			WaitBeforeSendNext(entity);
+		}
 
-		private void MarkAsPerformed(GameEntity entity)
-			=> entity
-			   .Do
-			   (
-				   (r) => r.GetAttachableEntity()
-				           .Do((factory) => factory.isReady = true)
-				           .Do((factory) => factory.AddDuration(RoadToFactoryDuration))
-			   )
-			   .Do((e) => e.isDestroy = true)
-		/**/;
+		private void MarkAsPerformed(GameEntity request)
+		{
+			var factory = request.GetAttachableEntity();
+			factory.isReady = true;
+			factory.AddDuration(RoadToFactoryDuration);
+
+			request.isDestroy = true;
+		}
 
 		private void WaitBeforeSendNext(GameEntity request)
-			=> request
-			   .Do((e) => e.ReplaceCount(request.count - 1))
-			   .Do((e) => e.ReplaceDuration(SendProductToFactoryDelay))
-		/**/;
+		{
+			request.ReplaceCount(request.count.Value - 1);
+			request.ReplaceDuration(SendProductToFactoryDelay);
+		}
 
-		private void SendFirstMatch(GameEntity request)
-			=> _products
-			   .GetEntities()
-			   .First((e) => e.product.Value == request.requireProduct.Value)
-			   .Do((product) => Send(request, product))
-		/**/;
+		private void SendFirstMatch(GameEntity request) => Send(request, _products.FirstProductFor(request));
 
-		private void Send(GameEntity request, GameEntity product)
-			=> product
-			   .Do((e) => e.ReplaceTargetPosition(request.position))
-			   .Do((e) => e.ReplaceDuration(RoadToFactoryDuration))
-			   .Do((e) => e.isInFactory = true)
-		/**/;
+		private void Send(GameEntity request, GameEntity e)
+		{
+			e.ReplaceTargetPosition(request.position.Value);
+			e.ReplaceDuration(RoadToFactoryDuration);
+			e.isInFactory = true;
+		}
 	}
 }

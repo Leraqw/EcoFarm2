@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
-using Code.Utils.Extensions;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace EcoFarm
 {
 	public sealed class FactoryWorkingStateSystem : ReactiveSystem<GameEntity>
 	{
@@ -16,7 +16,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private IFactoryConfig Balance => _contexts.GetConfiguration().Balance.Factory;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, Ready, DurationUp).NoneOf(Duration));
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, Ready, DurationUp).NoneOf(Duration));
 
 		protected override bool Filter(GameEntity entity) => entity.hasDuration == false;
 

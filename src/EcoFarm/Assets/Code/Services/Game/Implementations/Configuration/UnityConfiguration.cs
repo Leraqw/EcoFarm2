@@ -1,9 +1,6 @@
-﻿using Code.Services.Game.Implementations.Configuration.ResourcesConfigs;
-using Code.Services.Game.Interfaces.Config;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration
+namespace EcoFarm
 {
 	[CreateAssetMenu(fileName = "Configuration", menuName = "ScriptableObject/Configuration")]
 	public class UnityConfiguration : ScriptableObject, IConfigurationService

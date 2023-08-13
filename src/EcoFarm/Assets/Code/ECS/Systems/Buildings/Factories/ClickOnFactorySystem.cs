@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
 using Entitas;
-using EcoFarmModel;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace EcoFarm
 {
 	public sealed class ClickOnFactorySystem : ReactiveSystem<GameEntity>
 	{
@@ -21,7 +18,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 			            .ToDictionary((i) => i.product.Value, (i) => i.inventoryItem.Value.Count);
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Factory, MouseDown).NoneOf(Busy));
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, MouseDown).NoneOf(Busy));
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -44,7 +41,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private static void MarkAsBusy(GameEntity entity) => entity.isBusy = true;
 
-		private void TakeEachRequiredProducts(GameEntity factory) 
+		private void TakeEachRequiredProducts(GameEntity factory)
 			=> _requiredProducts.ForEach((p) => Take(p, factory));
 
 		private void Take(KeyValuePair<Product, int> product, GameEntity factory)
@@ -56,14 +53,12 @@ namespace Code.ECS.Systems.Buildings.Factories
 		private void CreateRequest(KeyValuePair<Product, int> product, GameEntity factory)
 			=> _contexts.game.CreateEntity()
 			            .Do((e) => e.AddRequireProduct(product.Key))
-			            .Do((e) => e.AddPosition(factory.position))
+			            .Do((e) => e.AddPosition(factory.position.Value))
 			            .Do((e) => e.AddCount(product.Value))
-			            .AttachTo(factory)
-		/**/;
+			            .AttachTo(factory);
 
 		private void DecreaseProductsCount(KeyValuePair<Product, int> product)
 			=> _contexts.game.GetInventoryItem(product.Key)
-			            .DecreaseInventoryItemCount(product.Value)
-		/**/;
+			            .DecreaseInventoryItemCount(product.Value);
 	}
 }

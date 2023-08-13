@@ -1,4 +1,4 @@
-﻿namespace Code.Global.LevelChoice.Systems
+﻿namespace EcoFarm
 {
 	public sealed class LevelChoiceSystems : Feature
 	{

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly Code.Global.MainMenu.Components.ForPlayerButtonComponent forPlayerButtonComponent = new Code.Global.MainMenu.Components.ForPlayerButtonComponent();
+    static readonly EcoFarm.ForPlayerButtonComponent forPlayerButtonComponent = new EcoFarm.ForPlayerButtonComponent();
 
     public bool isForPlayerButton {
         get { return HasComponent(PlayerComponentsLookup.ForPlayerButton); }

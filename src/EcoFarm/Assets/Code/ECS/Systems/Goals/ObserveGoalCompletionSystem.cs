@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Utils.Extensions;
+
 using Entitas;
-using static Code.Global.PlayerContexts.CustomTypes.SessionResult;
+using static EcoFarm.SessionResult;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Goals
+namespace EcoFarm
 {
 	public sealed class ObserveGoalCompletionSystem : ReactiveSystem<GameEntity>
 	{
@@ -15,7 +15,7 @@ namespace Code.ECS.Systems.Goals
 		public ObserveGoalCompletionSystem(Contexts contexts)
 			: base(contexts.game)
 		{
-			_notCompletedGoals = contexts.game.GetGroup(AllOf(Goal).NoneOf(GoalCompleted));
+			_notCompletedGoals = contexts.game.GetGroup(AllOf(GameMatcher.Goal).NoneOf(GoalCompleted));
 			_contexts = contexts;
 		}
 

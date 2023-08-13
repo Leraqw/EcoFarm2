@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Utils.StaticClasses
+namespace EcoFarm
 {
 	public static class GameObjectUtils
 	{

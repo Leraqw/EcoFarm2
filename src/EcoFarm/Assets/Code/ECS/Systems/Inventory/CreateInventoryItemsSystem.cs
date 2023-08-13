@@ -1,10 +1,6 @@
-﻿using Code.Services.Game.Interfaces.Ui;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
-using EcoFarmModel;
-using Entitas;
+﻿using Entitas;
 
-namespace Code.ECS.Systems.Inventory
+namespace EcoFarm
 {
 	public sealed class CreateInventoryItemsSystem : IInitializeSystem
 	{

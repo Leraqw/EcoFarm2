@@ -1,4 +1,4 @@
-﻿namespace Code.Menus.UiBehaviours.Buttons
+﻿namespace EcoFarm
 {
 	public class ButtonToLevelChoice : ButtonToScene
 	{

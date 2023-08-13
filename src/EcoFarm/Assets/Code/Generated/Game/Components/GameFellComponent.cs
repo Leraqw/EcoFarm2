@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.FellComponent fellComponent = new Code.ECS.Components.FellComponent();
+    static readonly EcoFarm.FellComponent fellComponent = new EcoFarm.FellComponent();
 
     public bool isFell {
         get { return HasComponent(GameComponentsLookup.Fell); }

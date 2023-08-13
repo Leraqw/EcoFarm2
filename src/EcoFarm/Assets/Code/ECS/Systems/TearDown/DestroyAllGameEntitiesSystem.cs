@@ -1,7 +1,7 @@
-﻿using Code.Utils.Extensions;
+﻿
 using Entitas;
 
-namespace Code.ECS.Systems.TearDown
+namespace EcoFarm
 {
 	public sealed class DestroyAllGameEntitiesSystem : ITearDownSystem
 	{

@@ -1,11 +1,8 @@
-﻿using Code.Data.ToUnity;
-using Code.ECS.Systems.Watering.Bucket;
-using EcoFarmModel;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.ViewListeners
+namespace EcoFarm
 {
 	public class BuildView : BaseViewListener, IBuildingListener
 	{
@@ -14,20 +11,18 @@ namespace Code.Unity.ViewListeners
 		[SerializeField] private Image _image;
 		[SerializeField] private TextMeshProUGUI _priceTextMesh;
 
-		private static SpriteSheet SpriteSheet => Contexts.sharedInstance.GetConfiguration().Resource.SpriteSheet;
-
 		protected override void AddListener(GameEntity entity) => entity.AddBuildingListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasBuilding;
 
-		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building);
+		protected override void UpdateValue(GameEntity entity) => OnBuilding(entity, entity.building.Value);
 
 		public void OnBuilding(GameEntity entity, Building value)
 		{
 			_titleTextMesh.text = value.Title;
 			_descriptionTextMesh.text = value.Description;
 			_priceTextMesh.text = value.Price.ToString();
-			_image.sprite = SpriteSheet.Buildings[value.Title];
+			_image.sprite = value.Sprite;
 		}
 	}
 }

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.RequireViewComponent requireView { get { return (Code.ECS.Components.RequireViewComponent)GetComponent(GameComponentsLookup.RequireView); } }
+    public EcoFarm.RequireViewComponent requireView { get { return (EcoFarm.RequireViewComponent)GetComponent(GameComponentsLookup.RequireView); } }
     public bool hasRequireView { get { return HasComponent(GameComponentsLookup.RequireView); } }
 
     public void AddRequireView(string newValue) {
         var index = GameComponentsLookup.RequireView;
-        var component = (Code.ECS.Components.RequireViewComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireViewComponent));
+        var component = (EcoFarm.RequireViewComponent)CreateComponent(index, typeof(EcoFarm.RequireViewComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRequireView(string newValue) {
         var index = GameComponentsLookup.RequireView;
-        var component = (Code.ECS.Components.RequireViewComponent)CreateComponent(index, typeof(Code.ECS.Components.RequireViewComponent));
+        var component = (EcoFarm.RequireViewComponent)CreateComponent(index, typeof(EcoFarm.RequireViewComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

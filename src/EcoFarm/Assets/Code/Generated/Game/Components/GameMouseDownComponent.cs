@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.MouseDownComponent mouseDownComponent = new Code.ECS.Components.MouseDownComponent();
+    static readonly EcoFarm.MouseDownComponent mouseDownComponent = new EcoFarm.MouseDownComponent();
 
     public bool isMouseDown {
         get { return HasComponent(GameComponentsLookup.MouseDown); }

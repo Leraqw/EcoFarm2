@@ -1,13 +1,12 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components.Buildings
+namespace EcoFarm
 {
-	[Game] public sealed class SpinnerComponent : FlagComponent { }
+	[Game] public sealed class SpinnerComponent : IComponent { }
 
-	[Game] public sealed class RotationSpeedComponent : ValueComponent<float> { }
+	[Game] public sealed class RotationSpeedComponent : IComponent { public float Value; }
 
-	[Game] [Event(Self)] public sealed class RotationComponent : ValueComponent<float> { }
-
+	[Game] [Event(Self)] public sealed class RotationComponent : IComponent { public float Value; }
 }

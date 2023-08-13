@@ -1,7 +1,7 @@
-﻿using Code.Unity.ViewListeners.UI;
+﻿
 using UnityEngine;
 
-namespace Code.Unity.Containers
+namespace EcoFarm
 {
 	public class WindowResources : MonoBehaviour
 	{

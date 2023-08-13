@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Menus.LevelSelectorScreen
+namespace EcoFarm
 {
 	public class LevelButton : UnityEventAdapter
 	{

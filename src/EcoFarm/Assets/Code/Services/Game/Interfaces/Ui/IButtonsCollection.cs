@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Ui
+namespace EcoFarm
 {
 	public interface IButtonsCollection
 	{

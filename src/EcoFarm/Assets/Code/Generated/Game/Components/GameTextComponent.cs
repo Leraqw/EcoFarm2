@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.TextComponent text { get { return (Code.ECS.Components.TextComponent)GetComponent(GameComponentsLookup.Text); } }
+    public EcoFarm.TextComponent text { get { return (EcoFarm.TextComponent)GetComponent(GameComponentsLookup.Text); } }
     public bool hasText { get { return HasComponent(GameComponentsLookup.Text); } }
 
     public void AddText(string newValue) {
         var index = GameComponentsLookup.Text;
-        var component = (Code.ECS.Components.TextComponent)CreateComponent(index, typeof(Code.ECS.Components.TextComponent));
+        var component = (EcoFarm.TextComponent)CreateComponent(index, typeof(EcoFarm.TextComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceText(string newValue) {
         var index = GameComponentsLookup.Text;
-        var component = (Code.ECS.Components.TextComponent)CreateComponent(index, typeof(Code.ECS.Components.TextComponent));
+        var component = (EcoFarm.TextComponent)CreateComponent(index, typeof(EcoFarm.TextComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

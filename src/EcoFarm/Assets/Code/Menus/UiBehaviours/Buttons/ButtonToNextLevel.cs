@@ -1,15 +1,17 @@
-﻿namespace Code.Menus.UiBehaviours.Buttons
+﻿namespace EcoFarm
 {
 	public class ButtonToNextLevel : ButtonToGameplay
 	{
+		private const int LastLevelNumber = 7;
+
 		protected override void OnButtonClick()
 		{
 			var selectedLevel = Contexts.sharedInstance.player.currentPlayerEntity.selectedLevel;
 			selectedLevel.Value++;
 
-			if (selectedLevel > 7)
+			if (selectedLevel.Value > LastLevelNumber)
 			{
-				selectedLevel.Value = 7;
+				selectedLevel.Value = LastLevelNumber;
 			}
 			
 			base.OnButtonClick();

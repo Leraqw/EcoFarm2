@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace EcoFarm
 {
 	public sealed class MakeSellDealSystem : ReactiveSystem<GameEntity>
 	{
@@ -25,6 +25,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseCoinsCount);
 
 		private void IncreaseCoinsCount(GameEntity deal)
-			=> Inventory.IncreaseCoinsCount(deal.count * deal.product.Value.Price);
+			=> Inventory.IncreaseCoinsCount(deal.count.Value * deal.product.Value.Price);
 	}
 }

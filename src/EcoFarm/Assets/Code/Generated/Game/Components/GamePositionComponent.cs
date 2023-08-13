@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.PositionComponent position { get { return (Code.ECS.Components.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
+    public EcoFarm.PositionComponent position { get { return (EcoFarm.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
     public bool hasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
 
     public void AddPosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.Position;
-        var component = (Code.ECS.Components.PositionComponent)CreateComponent(index, typeof(Code.ECS.Components.PositionComponent));
+        var component = (EcoFarm.PositionComponent)CreateComponent(index, typeof(EcoFarm.PositionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePosition(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.Position;
-        var component = (Code.ECS.Components.PositionComponent)CreateComponent(index, typeof(Code.ECS.Components.PositionComponent));
+        var component = (EcoFarm.PositionComponent)CreateComponent(index, typeof(EcoFarm.PositionComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

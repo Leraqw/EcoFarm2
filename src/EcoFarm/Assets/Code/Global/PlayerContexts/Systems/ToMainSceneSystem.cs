@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Global.PlayerContexts.Systems
+namespace EcoFarm
 {
 	public sealed class ToMainSceneSystem : IInitializeSystem
 	{

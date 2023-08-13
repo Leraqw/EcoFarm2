@@ -1,22 +1,20 @@
-﻿using Code.Global.PlayerContexts.CustomTypes;
-using Code.Utils.ComponentsTemplates;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code.Global.PlayerContexts.Components
+namespace EcoFarm
 {
-	[Player] public sealed class NicknameComponent : PrimaryComponent<string> { }
+	[Player] public sealed class NicknameComponent : IComponent { [PrimaryEntityIndex] public string Value;}
 
-	[Player] [Unique] public sealed class CurrentPlayerComponent : FlagComponent { }
-	
-	[Player] public sealed class PlayerComponent : FlagComponent { }
+	[Player] [Unique] public sealed class CurrentPlayerComponent : IComponent { }
 
-	[Player] public sealed class SessionResultComponent : ValueComponent<SessionResult> { }
+	[Player] public sealed class PlayerComponent : IComponent { }
 
-	[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : FlagComponent { }
+[Player] public sealed class SessionResultComponent : IComponent { public SessionResult Value; }
 
-	[Player] public sealed class SelectedLevelComponent : ValueComponent<int> { }
+[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : IComponent { }
 
-	[Player] public sealed class CompletedLevelsCountComponent : ValueComponent<int> { }
+[Player] public sealed class SelectedLevelComponent : IComponent { public int Value; }
+
+[Player] public sealed class CompletedLevelsCountComponent : IComponent { public int Value; }
 }

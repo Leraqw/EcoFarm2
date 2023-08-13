@@ -1,8 +1,8 @@
 ﻿using System;
-using Code.Services.Game.Interfaces.Config.BalanceConfigs;
+
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.BalanceConfigs
+namespace EcoFarm
 {
 	[Serializable]
 	public class FactoryConfig : IFactoryConfig

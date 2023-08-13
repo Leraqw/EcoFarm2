@@ -1,12 +1,10 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.ECS.Components
+namespace EcoFarm
 {
-	[Game] [Event(Self)] public sealed class GoalCompletedComponent : FlagComponent { }
-
-	[Game] [Event(Self)] public sealed class CurrentQuantityComponent : ValueComponent<int> { }
-
-	[Game] [Unique] public sealed class LevelTimerComponent : FlagComponent { }
+	[Game] [Event(Self)] public sealed class GoalCompletedComponent : IComponent { }
+	[Game] [Event(Self)] public sealed class CurrentQuantityComponent : IComponent { public int Value; }
+	[Game] [Unique] public sealed class LevelTimerComponent : IComponent { }
 }

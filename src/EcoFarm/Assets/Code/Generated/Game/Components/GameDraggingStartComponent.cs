@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.DraggingStartComponent draggingStart { get { return (Code.ECS.Components.DraggingStartComponent)GetComponent(GameComponentsLookup.DraggingStart); } }
+    public EcoFarm.DraggingStartComponent draggingStart { get { return (EcoFarm.DraggingStartComponent)GetComponent(GameComponentsLookup.DraggingStart); } }
     public bool hasDraggingStart { get { return HasComponent(GameComponentsLookup.DraggingStart); } }
 
     public void AddDraggingStart(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.DraggingStart;
-        var component = (Code.ECS.Components.DraggingStartComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingStartComponent));
+        var component = (EcoFarm.DraggingStartComponent)CreateComponent(index, typeof(EcoFarm.DraggingStartComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDraggingStart(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.DraggingStart;
-        var component = (Code.ECS.Components.DraggingStartComponent)CreateComponent(index, typeof(Code.ECS.Components.DraggingStartComponent));
+        var component = (EcoFarm.DraggingStartComponent)CreateComponent(index, typeof(EcoFarm.DraggingStartComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

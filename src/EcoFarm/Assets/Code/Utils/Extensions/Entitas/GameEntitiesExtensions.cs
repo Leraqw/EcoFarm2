@@ -1,7 +1,7 @@
 using System;
 using Entitas;
 
-namespace Code.Utils.Extensions.Entitas
+namespace EcoFarm
 {
 	public static class GameEntitiesExtensions
 	{

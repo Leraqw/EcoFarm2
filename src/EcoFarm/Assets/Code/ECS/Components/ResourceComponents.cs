@@ -1,27 +1,26 @@
-﻿using Code.Utils.ComponentsTemplates;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
-using Packages.Code.Ecs.Components.Workflow;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
-namespace Code.ECS.Components
+namespace EcoFarm
 {
-	[Game] [Unique] public sealed class WaterResourceComponent : FlagComponent { }
+	[Game] [Unique] public sealed class WaterResourceComponent : IComponent { }
 
-	[Game] [Unique] public sealed class EnergyResourceComponent : FlagComponent { }
+	[Game] [Unique] public sealed class EnergyResourceComponent : IComponent { }
 
-	[Game] public sealed class RenewPriceComponent : ValueComponent<int> { }
+	[Game] public sealed class RenewPriceComponent : IComponent { public int Value; }
 
-	[Game] public sealed class ConsumableComponent : PrimaryComponent<int> { }
+	[Game] public sealed class ConsumableComponent : IComponent { [PrimaryEntityIndex] public int Value; }
 
-	[Game] public sealed class ConsumerComponent : IndexComponent<int> { }
-	
-	[Game] public sealed class ProduceResourceComponent : IndexComponent<int> { }
+	[Game] public sealed class ConsumerComponent : IComponent { [EntityIndex] public int Value; }
 
-	[Game] public sealed class ConsumptionCoefficientComponent : ValueComponent<int> { }
-	
-	[Game] public sealed class EfficiencyCoefficientComponent : ValueComponent<int> { }
+	[Game] public sealed class ProduceResourceComponent : IComponent { [EntityIndex] public int Value; }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class UsedComponent : FlagComponent { }
+	[Game] public sealed class ConsumptionCoefficientComponent : IComponent { public int Value; }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class RenewComponent : FlagComponent { }
+	[Game] public sealed class EfficiencyCoefficientComponent : IComponent { public int Value; }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class UsedComponent : IComponent { }
+
+	[Game] [Cleanup(RemoveComponent)] public sealed class RenewComponent : IComponent { }
 }

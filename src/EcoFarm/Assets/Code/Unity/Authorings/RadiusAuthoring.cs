@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Code
+namespace EcoFarm
 {
-	public class RadiusAuthoring : RegistrarBase
+	public class RadiusAuthoring : AuthoringBase
 	{
 		[SerializeField] private float _value;
 

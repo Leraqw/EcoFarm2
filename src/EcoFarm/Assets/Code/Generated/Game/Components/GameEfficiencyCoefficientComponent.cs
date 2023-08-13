@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.EfficiencyCoefficientComponent efficiencyCoefficient { get { return (Code.ECS.Components.EfficiencyCoefficientComponent)GetComponent(GameComponentsLookup.EfficiencyCoefficient); } }
+    public EcoFarm.EfficiencyCoefficientComponent efficiencyCoefficient { get { return (EcoFarm.EfficiencyCoefficientComponent)GetComponent(GameComponentsLookup.EfficiencyCoefficient); } }
     public bool hasEfficiencyCoefficient { get { return HasComponent(GameComponentsLookup.EfficiencyCoefficient); } }
 
     public void AddEfficiencyCoefficient(int newValue) {
         var index = GameComponentsLookup.EfficiencyCoefficient;
-        var component = (Code.ECS.Components.EfficiencyCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.EfficiencyCoefficientComponent));
+        var component = (EcoFarm.EfficiencyCoefficientComponent)CreateComponent(index, typeof(EcoFarm.EfficiencyCoefficientComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceEfficiencyCoefficient(int newValue) {
         var index = GameComponentsLookup.EfficiencyCoefficient;
-        var component = (Code.ECS.Components.EfficiencyCoefficientComponent)CreateComponent(index, typeof(Code.ECS.Components.EfficiencyCoefficientComponent));
+        var component = (EcoFarm.EfficiencyCoefficientComponent)CreateComponent(index, typeof(EcoFarm.EfficiencyCoefficientComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

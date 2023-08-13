@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Unity.Containers
+namespace EcoFarm
 {
 	public class BuildViewContainer : MonoBehaviour
 	{

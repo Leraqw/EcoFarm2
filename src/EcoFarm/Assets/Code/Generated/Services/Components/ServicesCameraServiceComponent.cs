@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity cameraServiceEntity { get { return GetGroup(ServicesMatcher.CameraService).GetSingleEntity(); } }
-    public Code.ECS.Components.CameraServiceComponent cameraService { get { return cameraServiceEntity.cameraService; } }
+    public EcoFarm.CameraServiceComponent cameraService { get { return cameraServiceEntity.cameraService; } }
     public bool hasCameraService { get { return cameraServiceEntity != null; } }
 
-    public ServicesEntity SetCameraService(Code.Services.Interfaces.ICameraService newValue) {
+    public ServicesEntity SetCameraService(EcoFarm.ICameraService newValue) {
         if (hasCameraService) {
-            throw new Entitas.EntitasException("Could not set CameraService!\n" + this + " already has an entity with Code.ECS.Components.CameraServiceComponent!",
+            throw new Entitas.EntitasException("Could not set CameraService!\n" + this + " already has an entity with EcoFarm.CameraServiceComponent!",
                 "You should check if the context already has a cameraServiceEntity before setting it or use context.ReplaceCameraService().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceCameraService(Code.Services.Interfaces.ICameraService newValue) {
+    public void ReplaceCameraService(EcoFarm.ICameraService newValue) {
         var entity = cameraServiceEntity;
         if (entity == null) {
             entity = SetCameraService(newValue);
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.ECS.Components.CameraServiceComponent cameraService { get { return (Code.ECS.Components.CameraServiceComponent)GetComponent(ServicesComponentsLookup.CameraService); } }
+    public EcoFarm.CameraServiceComponent cameraService { get { return (EcoFarm.CameraServiceComponent)GetComponent(ServicesComponentsLookup.CameraService); } }
     public bool hasCameraService { get { return HasComponent(ServicesComponentsLookup.CameraService); } }
 
-    public void AddCameraService(Code.Services.Interfaces.ICameraService newValue) {
+    public void AddCameraService(EcoFarm.ICameraService newValue) {
         var index = ServicesComponentsLookup.CameraService;
-        var component = (Code.ECS.Components.CameraServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.CameraServiceComponent));
+        var component = (EcoFarm.CameraServiceComponent)CreateComponent(index, typeof(EcoFarm.CameraServiceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCameraService(Code.Services.Interfaces.ICameraService newValue) {
+    public void ReplaceCameraService(EcoFarm.ICameraService newValue) {
         var index = ServicesComponentsLookup.CameraService;
-        var component = (Code.ECS.Components.CameraServiceComponent)CreateComponent(index, typeof(Code.ECS.Components.CameraServiceComponent));
+        var component = (EcoFarm.CameraServiceComponent)CreateComponent(index, typeof(EcoFarm.CameraServiceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

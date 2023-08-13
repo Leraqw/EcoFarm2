@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    public Code.Global.LevelChoice.UnlockedLevelsCountComponent unlockedLevelsCount { get { return (Code.Global.LevelChoice.UnlockedLevelsCountComponent)GetComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
+    public EcoFarm.UnlockedLevelsCountComponent unlockedLevelsCount { get { return (EcoFarm.UnlockedLevelsCountComponent)GetComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
     public bool hasUnlockedLevelsCount { get { return HasComponent(PlayerComponentsLookup.UnlockedLevelsCount); } }
 
     public void AddUnlockedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.UnlockedLevelsCount;
-        var component = (Code.Global.LevelChoice.UnlockedLevelsCountComponent)CreateComponent(index, typeof(Code.Global.LevelChoice.UnlockedLevelsCountComponent));
+        var component = (EcoFarm.UnlockedLevelsCountComponent)CreateComponent(index, typeof(EcoFarm.UnlockedLevelsCountComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceUnlockedLevelsCount(int newValue) {
         var index = PlayerComponentsLookup.UnlockedLevelsCount;
-        var component = (Code.Global.LevelChoice.UnlockedLevelsCountComponent)CreateComponent(index, typeof(Code.Global.LevelChoice.UnlockedLevelsCountComponent));
+        var component = (EcoFarm.UnlockedLevelsCountComponent)CreateComponent(index, typeof(EcoFarm.UnlockedLevelsCountComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

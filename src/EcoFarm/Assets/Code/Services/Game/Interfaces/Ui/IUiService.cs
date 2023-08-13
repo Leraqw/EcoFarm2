@@ -1,7 +1,7 @@
-﻿using Code.Unity.ViewListeners;
+﻿
 using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Ui
+namespace EcoFarm
 {
 	public interface IUiService
 	{

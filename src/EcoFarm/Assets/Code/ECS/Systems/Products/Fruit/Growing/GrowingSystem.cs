@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Growing
+namespace EcoFarm
 {
 	public sealed class GrowingSystem : IExecuteSystem
 	{
@@ -19,9 +19,9 @@ namespace Code.ECS.Systems.Products.Fruit.Growing
 		private static float GetNextScale(GameEntity entity)
 			=> CalculateStep(entity) * Time.deltaTime;
 
-		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration;
+		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration.Value;
 
 		private static float ScalesDifference(GameEntity entity) 
-			=> entity.targetScale - entity.proportionalScale;
+			=> entity.targetScale.Value - entity.proportionalScale.Value;
 	}
 }

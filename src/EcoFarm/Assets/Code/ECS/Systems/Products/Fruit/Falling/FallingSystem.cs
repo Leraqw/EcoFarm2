@@ -1,9 +1,9 @@
-﻿using Code.Utils.Extensions.Entitas;
+﻿
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Products.Fruit.Falling
+namespace EcoFarm
 {
 	public sealed class FallingSystem : IExecuteSystem
 	{
@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Products.Fruit.Falling
 
 		private static Vector2 GetNextPosition(GameEntity entity) => CalculateStep(entity) * Time.deltaTime;
 
-		private static Vector2 CalculateStep(GameEntity entity) => PositionsDifference(entity) / entity.duration;
+		private static Vector2 CalculateStep(GameEntity entity) => PositionsDifference(entity) / entity.duration.Value;
 
 		private static Vector2 PositionsDifference(GameEntity entity)
 			=> entity.targetPosition.Value - entity.position.Value;

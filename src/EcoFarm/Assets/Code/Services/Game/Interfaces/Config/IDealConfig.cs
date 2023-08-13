@@ -1,4 +1,4 @@
-﻿namespace Code.Services.Game.Interfaces.Config
+﻿namespace EcoFarm
 {
 	public interface IDealConfig
 	{

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.StaticClasses;
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Common
+namespace EcoFarm
 {
 	public sealed class ResetNormalScaleSystem : ReactiveSystem<GameEntity>
 	{

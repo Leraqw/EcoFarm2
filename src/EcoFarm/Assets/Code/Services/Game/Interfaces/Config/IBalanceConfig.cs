@@ -1,6 +1,6 @@
-﻿using Code.Services.Game.Interfaces.Config.BalanceConfigs;
+﻿
 
-namespace Code.Services.Game.Interfaces.Config
+namespace EcoFarm
 {
 	public interface IBalanceConfig
 	{
@@ -14,9 +14,9 @@ namespace Code.Services.Game.Interfaces.Config
 
 		IFruitConfig Fruit { get; }
 
-		IResourceConfig Water { get; }
+		IBalanceResourceConfig Water { get; }
 
-		IResourceConfig Energy { get; }
+		IBalanceResourceConfig Energy { get; }
 		
 		IFactoryConfig Factory { get; }
 	}

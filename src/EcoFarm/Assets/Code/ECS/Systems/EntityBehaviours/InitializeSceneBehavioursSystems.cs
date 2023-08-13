@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.ECS.Systems.EntityBehaviours
+namespace EcoFarm
 {
 	public sealed class InitializeSceneBehavioursSystems : IInitializeSystem
 	{

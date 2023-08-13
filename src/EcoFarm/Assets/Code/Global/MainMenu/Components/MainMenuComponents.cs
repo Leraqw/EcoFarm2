@@ -1,10 +1,9 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.Global.MainMenu.Components
+namespace EcoFarm
 {
-	[Player] public sealed class ForPlayerButtonComponent : FlagComponent { }
-
-	[Player] [Event(Self)] public sealed class InteractableComponent : ValueComponent<bool> { }
+	[Player] public sealed class ForPlayerButtonComponent : IComponent { }
+	[Player] [Event(Self)] public sealed class InteractableComponent : IComponent { public bool Value; }
 }

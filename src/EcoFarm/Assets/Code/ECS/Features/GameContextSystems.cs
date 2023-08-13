@@ -1,10 +1,4 @@
-﻿using Code.ECS.Features.Features;
-using Code.ECS.Systems.EntityBehaviours;
-using Code.Temp;
-using Code.Unity;
-using Code.Utils.Extensions.Entitas;
-
-namespace Code.ECS.Features
+﻿namespace EcoFarm
 {
 	public sealed class GameContextSystems : Feature
 	{
@@ -12,12 +6,11 @@ namespace Code.ECS.Features
 			: base(nameof(GameContextSystems))
 		{
 			var contexts = Contexts.sharedInstance;
-			Add(new GameplayServicesRegistrationSystems(contexts, dependencies));
+			Add(new GameplayServicesRegistrationSystem(contexts, dependencies));
 
 			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
 			Add(new GameplaySystems(contexts));
 
-			Add(new ResolveEnemyDependenciesSystem(contexts));
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 		}

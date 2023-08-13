@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.EnergyResourceComponent energyResourceComponent = new Code.ECS.Components.EnergyResourceComponent();
+    static readonly EcoFarm.EnergyResourceComponent energyResourceComponent = new EcoFarm.EnergyResourceComponent();
 
     public bool isEnergyResource {
         get { return HasComponent(GameComponentsLookup.EnergyResource); }

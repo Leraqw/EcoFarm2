@@ -1,15 +1,4 @@
-﻿using Code.ECS.Systems.Buildings;
-using Code.ECS.Systems.Data;
-using Code.ECS.Systems.Goals;
-using Code.ECS.Systems.Level;
-using Code.ECS.Systems.Products;
-using Code.ECS.Systems.Tree;
-using Code.ECS.Systems.Warehouse;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.ECS.Systems.Watering.Tree;
-using Code.ECS.Systems.Watering.WaterCrane;
-
-namespace Code.ECS.Features.Initialization
+﻿namespace EcoFarm
 {
 	public sealed class InitializationSystems : Feature
 	{
@@ -17,14 +6,13 @@ namespace Code.ECS.Features.Initialization
 			: base(nameof(InitializationSystems))
 		{
 			Add(new SpawnStorage(contexts));
-			Add(new DataBaseLoadSystems(contexts));
-			Add(new CreateGoalForLevelSystem(contexts));
+			Add(new EmitPositionsForTreeSpawnSystem(contexts));
+			Add(new CreateGoalsForLevelSystem(contexts));
 			Add(new CreateLevelTimerSystem(contexts));
-			
+
 			Add(new InventoryInitializationSystems(contexts));
 
 			Add(new SpawnTreeSystem(contexts));
-			Add(new TreePostInitializationSystem(contexts));
 			Add(new SpawnFruitSystem(contexts));
 			Add(new SpawnBedsPlugsSystem(contexts));
 			Add(new SpawnWarehouseSystem(contexts));

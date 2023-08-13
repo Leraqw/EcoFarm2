@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Services.Interfaces
+namespace EcoFarm
 {
 	public interface ICameraService
 	{

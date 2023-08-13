@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.Buildings.CleanerGeneratorComponent cleanerGeneratorComponent = new Code.ECS.Components.Buildings.CleanerGeneratorComponent();
+    static readonly EcoFarm.CleanerGeneratorComponent cleanerGeneratorComponent = new EcoFarm.CleanerGeneratorComponent();
 
     public bool isCleanerGenerator {
         get { return HasComponent(GameComponentsLookup.CleanerGenerator); }

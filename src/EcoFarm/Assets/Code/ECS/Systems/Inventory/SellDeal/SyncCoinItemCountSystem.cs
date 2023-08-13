@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Utils.Extensions.Entitas;
+
 using Entitas;
 
-namespace Code.ECS.Systems.Inventory.SellDeal
+namespace EcoFarm
 {
 	public sealed class SyncCoinItemCountSystem : ReactiveSystem<GameEntity>
 	{
@@ -20,6 +20,6 @@ namespace Code.ECS.Systems.Inventory.SellDeal
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
 		private void Sync(GameEntity entity) 
-			=> _contexts.game.coinEntity.UpdateInventoryItemCount(entity.coinsCount);
+			=> _contexts.game.coinEntity.UpdateInventoryItemCount(entity.coinsCount.Value);
 	}
 }

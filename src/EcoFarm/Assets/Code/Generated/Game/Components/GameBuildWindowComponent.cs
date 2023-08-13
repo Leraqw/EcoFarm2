@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.BuildWindowComponent buildWindow { get { return (Code.ECS.Components.BuildWindowComponent)GetComponent(GameComponentsLookup.BuildWindow); } }
+    public EcoFarm.BuildWindowComponent buildWindow { get { return (EcoFarm.BuildWindowComponent)GetComponent(GameComponentsLookup.BuildWindow); } }
     public bool hasBuildWindow { get { return HasComponent(GameComponentsLookup.BuildWindow); } }
 
-    public void AddBuildWindow(Code.Unity.Containers.WindowBuild newValue) {
+    public void AddBuildWindow(EcoFarm.WindowBuild newValue) {
         var index = GameComponentsLookup.BuildWindow;
-        var component = (Code.ECS.Components.BuildWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.BuildWindowComponent));
+        var component = (EcoFarm.BuildWindowComponent)CreateComponent(index, typeof(EcoFarm.BuildWindowComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceBuildWindow(Code.Unity.Containers.WindowBuild newValue) {
+    public void ReplaceBuildWindow(EcoFarm.WindowBuild newValue) {
         var index = GameComponentsLookup.BuildWindow;
-        var component = (Code.ECS.Components.BuildWindowComponent)CreateComponent(index, typeof(Code.ECS.Components.BuildWindowComponent));
+        var component = (EcoFarm.BuildWindowComponent)CreateComponent(index, typeof(EcoFarm.BuildWindowComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,9 +1,9 @@
-﻿using Code.Unity.ViewListeners;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+﻿
+
+
 using UnityEngine;
 
-namespace Code.Unity.Receivers.Buttons
+namespace EcoFarm
 {
 	public class ToggleActivityButtonReceiver : BaseButtonClickReceiver
 	{

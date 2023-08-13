@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components.ComplexComponentTypes;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.EcoResources
+namespace EcoFarm
 {
 	public sealed class OnResourceButtonClickSystem : ReactiveSystem<GameEntity>
 	{
@@ -21,10 +21,10 @@ namespace Code.ECS.Systems.EcoResources
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Renew, @if: EnoughMoney);
 
-		private bool EnoughMoney(GameEntity resource) => Coins.Count >= resource.renewPrice;
+		private bool EnoughMoney(GameEntity resource) => Coins.Count >= resource.renewPrice.Value;
 
 		private void Renew(GameEntity resource)
 			=> resource.Do((e) => e.UpdateResourceCurrentValue(e.progressBar.Value.Max))
-			           .Do((e) => _contexts.game.inventoryEntity.DecreaseCoinsCount(e.renewPrice));
+			           .Do((e) => _contexts.game.inventoryEntity.DecreaseCoinsCount(e.renewPrice.Value));
 	}
 }

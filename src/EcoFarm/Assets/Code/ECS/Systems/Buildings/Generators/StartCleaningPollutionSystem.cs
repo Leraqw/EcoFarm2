@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings.Generators
+namespace EcoFarm
 {
 	public sealed class StartCleaningPollutionSystem : ReactiveSystem<GameEntity>
 	{
@@ -35,7 +35,7 @@ namespace Code.ECS.Systems.Buildings.Generators
 		{
 			generator
 				.Do((e) => e.AddDuration(_contexts.GetConfiguration().Balance.Factory.WorkingDuration))
-				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient))
+				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient.Value))
 				.Do((e) => e.isWorking = true)
 				;
 

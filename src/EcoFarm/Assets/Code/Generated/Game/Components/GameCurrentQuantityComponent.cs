@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.CurrentQuantityComponent currentQuantity { get { return (Code.ECS.Components.CurrentQuantityComponent)GetComponent(GameComponentsLookup.CurrentQuantity); } }
+    public EcoFarm.CurrentQuantityComponent currentQuantity { get { return (EcoFarm.CurrentQuantityComponent)GetComponent(GameComponentsLookup.CurrentQuantity); } }
     public bool hasCurrentQuantity { get { return HasComponent(GameComponentsLookup.CurrentQuantity); } }
 
     public void AddCurrentQuantity(int newValue) {
         var index = GameComponentsLookup.CurrentQuantity;
-        var component = (Code.ECS.Components.CurrentQuantityComponent)CreateComponent(index, typeof(Code.ECS.Components.CurrentQuantityComponent));
+        var component = (EcoFarm.CurrentQuantityComponent)CreateComponent(index, typeof(EcoFarm.CurrentQuantityComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceCurrentQuantity(int newValue) {
         var index = GameComponentsLookup.CurrentQuantity;
-        var component = (Code.ECS.Components.CurrentQuantityComponent)CreateComponent(index, typeof(Code.ECS.Components.CurrentQuantityComponent));
+        var component = (EcoFarm.CurrentQuantityComponent)CreateComponent(index, typeof(EcoFarm.CurrentQuantityComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Services.Game.Implementations.Configuration.ResourcesConfigs
+namespace EcoFarm
 {
 	public interface IWaterCleanerConfig
 	{

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Code.Menus.LevelSelectorScreen;
-using Code.Utils.Extensions;
+
+
 using UnityEngine;
 
-namespace Code.Global.LevelChoice.Unity
+namespace EcoFarm
 {
 	public class UnlockedLevelsCountView : MonoBehaviour, IUnlockedLevelsCountListener
 	{
@@ -19,7 +19,7 @@ namespace Code.Global.LevelChoice.Unity
 			
 			if (Entity.hasUnlockedLevelsCount)
 			{
-				OnUnlockedLevelsCount(Entity, Entity.unlockedLevelsCount);
+				OnUnlockedLevelsCount(Entity, Entity.unlockedLevelsCount.Value);
 			}
 		}
 

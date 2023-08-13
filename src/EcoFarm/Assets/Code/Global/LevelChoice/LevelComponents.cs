@@ -1,10 +1,9 @@
-﻿using Code.Utils.ComponentsTemplates;
+﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
-namespace Code.Global.LevelChoice
+namespace EcoFarm
 {
-	[Player] public sealed class LevelRelatedEntityComponent : FlagComponent { }
-
-	[Player] [Event(Self)] public sealed class UnlockedLevelsCountComponent : ValueComponent<int> { }
+	[Player] public sealed class LevelRelatedEntityComponent : IComponent { }
+	[Player] [Event(Self)] public sealed class UnlockedLevelsCountComponent : IComponent { public int Value; }
 }

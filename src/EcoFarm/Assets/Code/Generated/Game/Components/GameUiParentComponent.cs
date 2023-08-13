@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.ECS.Components.UiParentComponent uiParent { get { return (Code.ECS.Components.UiParentComponent)GetComponent(GameComponentsLookup.UiParent); } }
+    public EcoFarm.UiParentComponent uiParent { get { return (EcoFarm.UiParentComponent)GetComponent(GameComponentsLookup.UiParent); } }
     public bool hasUiParent { get { return HasComponent(GameComponentsLookup.UiParent); } }
 
     public void AddUiParent(UnityEngine.RectTransform newValue) {
         var index = GameComponentsLookup.UiParent;
-        var component = (Code.ECS.Components.UiParentComponent)CreateComponent(index, typeof(Code.ECS.Components.UiParentComponent));
+        var component = (EcoFarm.UiParentComponent)CreateComponent(index, typeof(EcoFarm.UiParentComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceUiParent(UnityEngine.RectTransform newValue) {
         var index = GameComponentsLookup.UiParent;
-        var component = (Code.ECS.Components.UiParentComponent)CreateComponent(index, typeof(Code.ECS.Components.UiParentComponent));
+        var component = (EcoFarm.UiParentComponent)CreateComponent(index, typeof(EcoFarm.UiParentComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

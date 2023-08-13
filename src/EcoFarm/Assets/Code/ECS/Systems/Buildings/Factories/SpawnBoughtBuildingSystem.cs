@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Code.ECS.Systems.Watering.Bucket;
-using Code.Services.Game.Interfaces.Config.ResourcesConfigs;
-using Code.Unity.Containers;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
-using EcoFarmModel;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
-using static Code.Utils.StaticClasses.Constants;
+using static EcoFarm.Constants;
 using static GameMatcher;
-using static Code.Utils.StaticClasses.Constants.SpriteHigh;
+using static EcoFarm.Constants.SpriteHigh;
 
-namespace Code.ECS.Systems.Buildings.Factories
+namespace EcoFarm
 {
 	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{
@@ -55,9 +49,9 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void Replace(GameEntity sign, GameEntity button)
 			=> sign
-			   .Do((e) => e.AddBuilding(button.building))
+			   .Do((e) => e.AddBuilding(button.building.Value))
 			   .Do((e) => e.ReplaceDebugName($"Building {e.building.Value.Title}"))
-			   .Do(SetFactory, @if: BuildingIs<FactoryBuilding>)
+			   .Do(SetFactory, @if: BuildingIs<Factory>)
 			   .Do(SetGenerator, @if: BuildingIs<Generator>)
 			   .Do(DestroySign)
 			   .Do(AddRelativeView)
@@ -82,7 +76,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void AddProduction(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable))
+			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable.Value))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
 			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
 			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName))
@@ -103,7 +97,7 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private void AddConsumption(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable))
+			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable.Value))
 			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
 		/**/;
 
@@ -111,13 +105,13 @@ namespace Code.ECS.Systems.Buildings.Factories
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddGenerator((Generator)entity.building))
+			   .Do((e) => e.AddGenerator((Generator)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 		/**/;
 
 		private static void SetFactory(GameEntity entity)
 			=> entity
-			   .Do((e) => e.AddFactory((FactoryBuilding)entity.building))
+			   .Do((e) => e.AddFactory((Factory)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
 			   .Do((e) => e.AddSpriteHigh(1))
 		/**/;

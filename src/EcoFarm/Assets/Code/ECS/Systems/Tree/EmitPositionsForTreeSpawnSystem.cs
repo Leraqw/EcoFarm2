@@ -1,11 +1,8 @@
 ﻿using System.Linq;
-using Code.Services.Game.Interfaces;
-using Code.Utils.Extensions;
 using Entitas;
 using UnityEngine;
-using LevelData = EcoFarmModel.Level;
 
-namespace Code.ECS.Systems.Tree
+namespace EcoFarm
 {
 	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
 	{
@@ -15,9 +12,9 @@ namespace Code.ECS.Systems.Tree
 
 		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
 
-		private LevelData[] Levels => _contexts.game.storage.Value.Levels;
+		private Level[] Levels => _contexts.game.storage.Value.Levels;
 
-		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel;
+		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
 			=> SpawnPointsService

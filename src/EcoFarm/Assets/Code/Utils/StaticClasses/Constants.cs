@@ -1,14 +1,10 @@
-﻿using EcoFarmModel;
-using UnityEngine;
-using static System.IO.Path;
-using static UnityEngine.Application;
+﻿using UnityEngine;
 
-namespace Code.Utils.StaticClasses
+namespace EcoFarm
 {
 	public static class Constants
 	{
-		public static string PathToStorage => Combine(persistentDataPath, $"{nameof(Storage)}.json");
-		public static string PathToPlayers => Combine(persistentDataPath, "Players.json");
+		public const string RootNamespace = nameof(EcoFarm) + "/";
 
 		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
 		public const int FactoryPollution = 25;
@@ -25,6 +21,5 @@ namespace Code.Utils.StaticClasses
 			public const float DeltaMax = 0.25f;
 			public const float Normal = 1f;
 		}
-
 	}
 }

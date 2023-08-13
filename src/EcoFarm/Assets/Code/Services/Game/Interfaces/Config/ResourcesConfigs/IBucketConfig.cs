@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Services.Game.Interfaces.Config.ResourcesConfigs
+namespace EcoFarm
 {
 	public interface IBucketSpritesConfig
 	{

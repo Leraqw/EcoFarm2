@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.ECS.Components.ComplexComponentTypes;
-using Code.Utils.Extensions;
-using Code.Utils.Extensions.Entitas;
+
+
+
 using Entitas;
 using static GameMatcher;
 
-namespace Code.ECS.Systems.Buildings
+namespace EcoFarm
 {
 	public sealed class ClickOnBuildItemSystem : ReactiveSystem<GameEntity>
 	{
@@ -18,7 +18,7 @@ namespace Code.ECS.Systems.Buildings
 		private Item Coins => _contexts.game.coinEntity.inventoryItem.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(UiElement, MouseDown, Building));
+			=> context.CreateCollector(AllOf(UiElement, MouseDown, GameMatcher.Building));
 
 		protected override bool Filter(GameEntity entity) => true;
 

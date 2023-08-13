@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.ECS.Components.WillFallComponent willFallComponent = new Code.ECS.Components.WillFallComponent();
+    static readonly EcoFarm.WillFallComponent willFallComponent = new EcoFarm.WillFallComponent();
 
     public bool isWillFall {
         get { return HasComponent(GameComponentsLookup.WillFall); }

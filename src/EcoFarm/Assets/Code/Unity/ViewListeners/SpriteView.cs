@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Unity.ViewListeners
+namespace EcoFarm
 {
 	public class SpriteView : BaseViewListener, ISpriteListener
 	{
@@ -10,7 +10,7 @@ namespace Code.Unity.ViewListeners
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasSprite;
 
-		protected override void UpdateValue(GameEntity entity) => OnSprite(entity, entity.sprite);
+		protected override void UpdateValue(GameEntity entity) => OnSprite(entity, entity.sprite.Value);
 
 		public void OnSprite(GameEntity entity, Sprite value) => _spriteRenderer.sprite = value;
 	}
