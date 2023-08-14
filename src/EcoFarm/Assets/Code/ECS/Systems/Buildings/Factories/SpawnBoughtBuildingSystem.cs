@@ -42,7 +42,8 @@ namespace EcoFarm
 				;
 		}
 
-		private void Spawn(GameEntity button) => _signs.ForEach((s) => Replace(s, button), @if: (s) => Fits(s, button));
+		private void Spawn(GameEntity button) 
+			=> _signs.ForEach((s) => Replace(s, button), @if: (s) => Fits(s, button));
 
 		private bool Fits(GameEntity sign, GameEntity button)
 			=> sign.isOccupied == false && sign.HasSamePosition(button);
@@ -57,20 +58,17 @@ namespace EcoFarm
 			   .Do(AddRelativeView)
 			   .Do((e) => e.isOccupied = true)
 			   .Do(AddConsumption, @if: (e) => e.hasFactory)
-			   .Do(AddProduction, @if: (e) => e.hasGenerator)
-		/**/;
+			   .Do(AddProduction, @if: (e) => e.hasGenerator);
 
 		private void AddRelativeView(GameEntity entity)
 			=> entity
 			   .Do((e) => e.ReplaceViewPrefab(Resource.Prefab.Factory), @if: (e) => e.hasFactory)
-			   .Do(RelativeGeneratorView, @if: (e) => e.hasGenerator)
-		/**/;
+			   .Do(RelativeGeneratorView, @if: (e) => e.hasGenerator);
 
 		private void RelativeGeneratorView(GameEntity generator)
 			=> generator
 			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
-			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName))
-		/**/;
+			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName));
 
 		private static Action<GameEntity> SetPrefab(GameObject prefab) => (e) => e.ReplaceViewPrefab(prefab);
 
@@ -79,8 +77,7 @@ namespace EcoFarm
 			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable.Value))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
 			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
-			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName))
-		/**/;
+			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName));
 
 		private void InitializeAsWaterCleaner(GameEntity e)
 		{
@@ -98,30 +95,26 @@ namespace EcoFarm
 		private void AddConsumption(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddConsumer(e.GetFactoryResource().consumable.Value))
-			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient))
-		/**/;
+			   .Do((e) => e.AddConsumptionCoefficient(e.factory.Value.ResourceConsumptionCoefficient));
 
 		private static bool BuildingIs<T>(GameEntity entity) => entity.hasBuilding && entity.building.Value is T;
 
 		private static void SetGenerator(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddGenerator((Generator)entity.building.Value))
-			   .Do((e) => e.RemoveBuilding())
-		/**/;
+			   .Do((e) => e.RemoveBuilding());
 
 		private static void SetFactory(GameEntity entity)
 			=> entity
 			   .Do((e) => e.AddFactory((Factory)entity.building.Value))
 			   .Do((e) => e.RemoveBuilding())
-			   .Do((e) => e.AddSpriteHigh(1))
-		/**/;
+			   .Do((e) => e.AddSpriteHigh(1));
 
 		private static void DestroySign(GameEntity entity)
 			=> entity
 			   .Do((e) => e.view.Value.DestroyGameObject())
 			   .Do((e) => e.RemovePositionListener())
 			   .Do((e) => e.RemoveView())
-			   .Do((e) => e.isSign = false)
-		/**/;
+			   .Do((e) => e.isSign = false);
 	}
 }

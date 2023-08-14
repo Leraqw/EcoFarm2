@@ -15,9 +15,7 @@ namespace EcoFarm
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(SellDeal, Count));
-
-		private static IMatcher<GameEntity> SellDeal => GameMatcher.SellDeal;
-
+        
 		private GameEntity Inventory => _contexts.game.inventoryEntity;
 
 		protected override bool Filter(GameEntity entity) => true;

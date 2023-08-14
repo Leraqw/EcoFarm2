@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entitas;
-using UnityEngine;
 using static EcoFarm.Constants;
 using static GameMatcher;
 
@@ -33,19 +32,18 @@ namespace EcoFarm
 
         private void SpawnProduct(GameEntity factory)
         {
-            if (factory.GetAttachedEntities() is null)
-            {
-                Debug.Log("nothing is attached to fabrica");
-            }
+            var e = _contexts.game.CreateEntity();
+            e.AddDebugName("Product");
+            e.AddProduct(factory.factory.Value.OutputProducts.First());
+            e.AttachTo(factory);
+            e.AddViewPrefab(Prefab.AppleJuice);
+            e.isPickable = true;
+            e.isInFactory = true;
 
-            _contexts.game.CreateEntity()
-                .Do((p) => p.AddDebugName("Product"))
-                .Do((p) => p.AddProduct(factory.factory.Value.OutputProducts.First()))
-                .AttachTo(factory)
-                .Do((p) => p.AddPosition(factory.GetActualPosition() + ProductSpawnOffset))
-                .Do((p) => p.AddViewPrefab(Prefab.AppleJuice))
-                .Do((p) => p.isPickable = true)
-                .Do((p) => p.isInFactory = true);
+            var notPickedProductsNumber = factory.GetAttachedEntities().Count();
+            var offset = ProductFabricOffset + ProductsOffset * notPickedProductsNumber;
+
+            e.AddPosition(factory.GetActualPosition() + offset);
         }
     }
 }

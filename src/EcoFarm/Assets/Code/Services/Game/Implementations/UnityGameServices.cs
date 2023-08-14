@@ -1,13 +1,4 @@
-﻿using System.Collections.Generic;
-
-
-
-
-
-
-using UnityEngine;
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
 /*
 	public class UnityGameServices : IGameServices
