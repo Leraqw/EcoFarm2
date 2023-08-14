@@ -6,7 +6,8 @@ namespace EcoFarm
 	{
 		public const string RootNamespace = nameof(EcoFarm) + "/";
 
-		public static Vector2 ProductSpawnOffset => new(1f, -0.5f);
+		public static Vector2 ProductFabricOffset => new(1f, 0f);
+		public static Vector2 ProductsOffset => new(-0.1f, -0.1f);
 		public const int FactoryPollution = 25;
 
 		public const string CoinItemName = "Монета";

@@ -27,6 +27,6 @@ namespace EcoFarm
 			   .Do((e) => e.isReady = false)
 			   .Do((e) => e.isWorking = true)
 			   .Do((e) => e.AddDuration(Balance.WorkingDuration))
-		/**/;
+		;
 	}
 }

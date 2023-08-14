@@ -1,14 +1,6 @@
-﻿using System.Collections.Generic;
-
-
-
-
-
-
-using UnityEngine;
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
+/*
 	public class UnityGameServices : IGameServices
 	{
 		private readonly ISpawnPointsService _spawnPoints;
@@ -56,4 +48,5 @@ namespace EcoFarm
 
 		BuildView IUiService.BuildView => _ui.BuildView;
 	}
+*/
 }
