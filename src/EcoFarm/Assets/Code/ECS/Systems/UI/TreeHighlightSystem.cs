@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using UnityEngine;
+using static GameMatcher;
 
 namespace EcoFarm
 {
@@ -14,7 +15,7 @@ namespace EcoFarm
         public TreeHighlightSystem(Contexts contexts)
         {
             _trees = contexts.game.GetGroup(GameMatcher.Tree);
-            _buckets = contexts.game.GetGroup(GameMatcher.Bucket);
+            _buckets = contexts.game.GetGroup(Bucket);
         }
 
         public void Execute() => _buckets.ForEach(WaterNearTree);
@@ -23,13 +24,13 @@ namespace EcoFarm
 
         private void WaterNearTree(GameEntity bucket)
         {
-            foreach (var tree in _trees)
-            {
-                ReplaceTreeMaterial(tree, tree.IsInRadius(bucket) && tree.isFruitful
+            _trees.ForEach((tree)
+                => ReplaceTreeMaterial(tree, CanBeOutlined(tree, bucket)
                     ? OutlineMaterial
-                    : DefaultMaterial);
-            }
+                    : DefaultMaterial));
         }
-        
+
+        private static bool CanBeOutlined(GameEntity tree, GameEntity bucket)
+            => tree.IsInRadius(bucket) && tree.isFruitful && bucket.isFilled;
     }
 }

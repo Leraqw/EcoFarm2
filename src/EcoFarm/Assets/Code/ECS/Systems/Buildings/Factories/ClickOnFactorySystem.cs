@@ -27,17 +27,21 @@ namespace EcoFarm
 		private void Handle(GameEntity factory)
 			=> factory
 			   .Do((e) => _requiredProducts = e.RequiredProducts())
-			   .Do(TakeProducts, @if: IsEnoughOnWarehouse)
-		/**/;
+			   .Do(TakeProducts, @if: IsEnoughOnWarehouse);
 
 		private bool IsEnoughOnWarehouse(GameEntity factory)
-			=> _requiredProducts.All((p) => AvailableProducts[p.Key] >= p.Value);
+			=> _requiredProducts.All((p) => AvailableProducts[p.Key] >= p.Value);	
+		
+		// private bool IsEnoughEnergy(GameEntity factory)
+		// {
+		// 	IBalanceConfig Balance = _contexts.services.configurationService.Value.Balance;
+		// 	Balance.Energy;
+		// }
 
 		private void TakeProducts(GameEntity factory)
 			=> factory
 			   .Do(MarkAsBusy)
-			   .Do(TakeEachRequiredProducts)
-		/**/;
+			   .Do(TakeEachRequiredProducts);
 
 		private static void MarkAsBusy(GameEntity entity) => entity.isBusy = true;
 
