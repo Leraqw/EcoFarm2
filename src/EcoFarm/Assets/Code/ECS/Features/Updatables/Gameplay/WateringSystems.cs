@@ -11,6 +11,9 @@ namespace EcoFarm
 			: base(nameof(WateringSystems))
 		{
 			Add(new PourWaterSystem(contexts));
+			
+			Add(new TreeHighlightSystem(contexts));
+
 			Add(new WaterNearTreeSystem(contexts));
 			Add(new OnTreeWateredSystem(contexts));
 			Add(new CheckTreeUnderWateringSystem(contexts));

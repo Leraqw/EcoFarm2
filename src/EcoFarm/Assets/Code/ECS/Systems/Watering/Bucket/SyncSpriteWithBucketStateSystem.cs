@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
-
 using Entitas;
 using static GameMatcher;
 
 namespace EcoFarm
 {
-	public sealed class SyncSpriteWithBucketStateSystem : ReactiveSystem<GameEntity>
-	{
-		public SyncSpriteWithBucketStateSystem(Contexts contexts)
-			: base(contexts.game) { }
+    public sealed class SyncSpriteWithBucketStateSystem : ReactiveSystem<GameEntity>
+    {
+        public SyncSpriteWithBucketStateSystem(Contexts contexts)
+            : base(contexts.game)
+        {
+        }
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(Filled.AddedOrRemoved());
+        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+            => context.CreateCollector(Filled.AddedOrRemoved());
 
-		protected override bool Filter(GameEntity entity) => entity.hasSprite && entity.hasRequireSprite == false;
+        protected override bool Filter(GameEntity entity) => entity.hasSprite && entity.hasRequireSprite == false;
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
+        protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
 
-		private static void Sync(GameEntity entity) => entity.AddSpriteToLoad(entity.GetActualBucketSprite());
-	}
+        private static void Sync(GameEntity entity) => entity.AddSpriteToLoad(entity.GetActualBucketSprite());
+    }
 }
