@@ -20,14 +20,11 @@ namespace EcoFarm
 
         protected override void Execute(List<GameEntity> entites) => entites.ForEach(WaterNearTrees);
 
-        private void WaterNearTrees(GameEntity bucket) => _trees.ForEach(HighlightTree, @if: (t) => IsNear(t, bucket));
+        private void WaterNearTrees(GameEntity bucket) =>
+            _trees.ForEach(HighlightTree, @if: bucket.IsInRadius);
 
         private static void HighlightTree(GameEntity tree)
         {
-            
         }
-
-        private static bool IsNear(GameEntity tree, GameEntity bucket)
-            => Vector2.Distance(bucket.position.Value, tree.spawnPosition.Value) <= bucket.radius.Value;
     }
 }
