@@ -18,23 +18,16 @@ namespace EcoFarm
         }
 
         public void Execute() => _buckets.ForEach(WaterNearTree);
-        
-        private void HighlightTree(GameEntity tree) => tree.ReplaceMaterial(OutlineMaterial);
-        
-        private void RemoveHighlightTree(GameEntity tree) => tree.ReplaceMaterial(DefaultMaterial);
-        
+
+        private void ReplaceTreeMaterial(GameEntity tree, Material material) => tree.ReplaceMaterial(material);
+
         private void WaterNearTree(GameEntity bucket)
         {
             foreach (var tree in _trees)
             {
-                if (tree.IsInRadius(bucket))
-                {
-                    HighlightTree(tree);
-                }
-                else
-                {
-                    RemoveHighlightTree(tree);
-                }
+                ReplaceTreeMaterial(tree, tree.IsInRadius(bucket) && tree.isFruitful
+                    ? OutlineMaterial
+                    : DefaultMaterial);
             }
         }
         
