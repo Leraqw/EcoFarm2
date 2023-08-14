@@ -27,11 +27,11 @@ MonoBehaviour:
     _warehouse:
       <PickupDuration>k__BackingField: 0.5
     _fruit:
-      <GrowingTime>k__BackingField: 0.5
       <BeforeGrowingTime>k__BackingField: 1
+      <GrowingTime>k__BackingField: 0.5
       <AfterGrowingTime>k__BackingField: 0.5
       <FallTime>k__BackingField: 0.25
-      <SpawnHeight>k__BackingField: {x: 0, y: 1}
+      <SpawnOffset>k__BackingField: {x: 0, y: 1}
       <InitialScale>k__BackingField: 0
       <FullScale>k__BackingField: 1
     _water:
@@ -72,4 +72,6 @@ MonoBehaviour:
       _waterCleaner:
         <Clean>k__BackingField: {fileID: 21300000, guid: 3c6d6c819b55917459345eb51d5d3953, type: 3}
         <Dirty>k__BackingField: {fileID: 21300000, guid: dca490567be604d4085298d2876522ba, type: 3}
-    <SpriteSheet>k__BackingField: {fileID: 11400000, guid: b36f7bdfe08b0624fbefd8698cf3e093, type: 2}
+    _material:
+      <Outline>k__BackingField: {fileID: 2100000, guid: a6c1cd3bc1c6ffd41934bf3bb664f447, type: 2}
+      <Default>k__BackingField: {fileID: 2100000, guid: cb319a1110ff127428a6dc3554a398e9, type: 2}
