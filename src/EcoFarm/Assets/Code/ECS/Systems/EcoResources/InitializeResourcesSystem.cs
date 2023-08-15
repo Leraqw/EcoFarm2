@@ -19,21 +19,18 @@ namespace EcoFarm
 			            .Do((e) => e.AddDebugName($"Resource – {resource.Title}"))
 			            .Do((e) => e.AddResource(resource))
 			            .Do(InitializeEnergy, @if: resource.Title == Constants.ElectricityName)
-			            .Do(InitializeWater, @if: resource.Title == Constants.WaterName)
-		/**/;
+			            .Do(InitializeWater, @if: resource.Title == Constants.WaterName);
 
 		private void InitializeEnergy(GameEntity entity)
 			=> entity
 			   .Do((e) => e.InitializeAsResource(Balance.Energy))
 			   .Do((e) => e.isEnergyResource = true)
-			   .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject))
-		/**/;
+			   .Do((e) => e.AddView(WindowsResources.EnergyIndicator.gameObject));
 
 		private void InitializeWater(GameEntity context)
 			=> context
 			   .Do((e) => e.InitializeAsResource(Balance.Water))
 			   .Do((e) => e.isWaterResource = true)
-			   .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject))
-		/**/;
+			   .Do((e) => e.AddView(WindowsResources.WaterIndicator.gameObject));
 	}
 }

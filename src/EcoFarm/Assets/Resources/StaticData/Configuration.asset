@@ -74,4 +74,4 @@ MonoBehaviour:
         <Dirty>k__BackingField: {fileID: 21300000, guid: dca490567be604d4085298d2876522ba, type: 3}
     _material:
       <Outline>k__BackingField: {fileID: 2100000, guid: a6c1cd3bc1c6ffd41934bf3bb664f447, type: 2}
-      <Default>k__BackingField: {fileID: 2100000, guid: cb319a1110ff127428a6dc3554a398e9, type: 2}
+      <Default>k__BackingField: {fileID: 2100000, guid: 4181f769fee978f43beb6e1ebc3ce0ed, type: 2}

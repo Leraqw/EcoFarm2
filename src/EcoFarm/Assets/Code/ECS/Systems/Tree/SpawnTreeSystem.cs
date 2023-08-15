@@ -16,8 +16,11 @@ namespace EcoFarm
 
         private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
 
-        private ITreeConfig Configuration => _contexts.GetConfiguration().Balance.Tree;
+        private ITreeConfig TreeConfiguration => _contexts.GetConfiguration().Balance.Tree;
 
+        private static IConfigurationService ConfigurationService => Contexts.sharedInstance.GetConfiguration();
+        private static Material DefaultMaterial => ConfigurationService.Resource.Material.Default;
+        
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
             => context.CreateCollector(GameMatcher.RequireTreeOnPosition);
 
@@ -35,9 +38,9 @@ namespace EcoFarm
             e.isFruitful = true;
             e.isIsInRadius = false;
             e.RemoveRequireTreeOnPosition();
-            e.AddWatering(Configuration.InitialWatering);
+            e.AddWatering(TreeConfiguration.InitialWatering);
             e.AddRadius(Radius);
-            e.AddMaterial(Resources.Load<Material>("Materials/Tree-Sprite-Default"));
+            e.AddMaterial(DefaultMaterial);
         }
     }
 }
