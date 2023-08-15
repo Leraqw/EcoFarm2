@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace EcoFarm
@@ -8,14 +9,14 @@ namespace EcoFarm
         [SerializeField] private TextView _textListener;
 
         private static PlayerContext Context => Contexts.player;
-        private static IEnumerable<Player> Players => ServicesMediator.DataProvider.Players;
-
-        private static string PlayerName => Players.ToString();
+        private static IEnumerable<Player> Players => ServicesMediator.DataProvider.Players.ToList();
         
         protected override void Initialize()
         {
+            var playersNames= Players.Aggregate("", (current, p) => current + p.Nickname + "\n");
+            
             var e = Context.CreateEntity();
-            e.AddText(PlayerName);
+            e.AddText(playersNames);
             e.AddPlayerTextListener(_textListener);
             e.isDestroy = true;
         }
