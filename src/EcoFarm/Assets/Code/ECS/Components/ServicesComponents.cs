@@ -13,4 +13,7 @@ namespace EcoFarm
 	[Services] [Unique] public sealed class SceneObjectsServiceComponent : IComponent { public ISpawnPointsService Value; }
 	[Services] [Unique] public sealed class ConfigurationServiceComponent : IComponent { public IConfigurationService Value; }
 	[Services] [Unique] public sealed class UiServiceComponent : IComponent { public IUiService Value; }
+	
+	// Main menu
+	[Services] [Unique] public sealed class UiMainMenuServiceComponent : IComponent { public IMainMenuUiService Value; }
 }
