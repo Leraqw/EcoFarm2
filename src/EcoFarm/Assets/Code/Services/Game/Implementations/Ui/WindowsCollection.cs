@@ -10,6 +10,6 @@ namespace EcoFarm
         [field: SerializeField] public GameObject Pause { get; private set; }
         [field: SerializeField] public WindowScroll Build { get; private set; }
         [field: SerializeField] public WindowResources Resources { get; private set; }
-        [field: SerializeField] public WindowPlayers Players { get; private set; }
+        [field: SerializeField] public WindowScroll Players { get; private set; }
     }
 }

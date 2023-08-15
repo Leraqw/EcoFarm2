@@ -10,9 +10,9 @@ namespace EcoFarm
 		GameObject         GoalPrefab { get; }
 		RectTransform      UiRoot     { get; }
 		IWindowsCollection Windows    { get; }
-		IButtonsCollection Buttons    { get; }
 		RectTransform      GoalsGroup { get; }
 		GameObject         TimerView  { get; }
 		BuildView          BuildView  { get; }
+		PlayerChoiceView PlayerChoiceView { get; }
 	}
 }
