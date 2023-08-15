@@ -17,6 +17,8 @@
 
 			// Main Menu Systems
 			Add(new DisableIfNoCurrentPlayerSystem(contexts));
+			//Player Choice
+			Add(new OnToggleActivityButtonClickSystem(contexts));
 
 			Add(new PlayerEventSystems(contexts));
 			Add(new PlayerCleanupSystems(contexts));
