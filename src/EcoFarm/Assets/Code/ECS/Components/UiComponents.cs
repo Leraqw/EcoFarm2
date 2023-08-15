@@ -10,6 +10,7 @@ namespace EcoFarm
 	[Game] [Cleanup(RemoveComponent)] public sealed class ButtonClickComponent : IComponent { }
 	[Game] public sealed class SellWindowComponent : IComponent { public WindowSell Value; }
 	[Game] public sealed class BuildWindowComponent : IComponent { public WindowScroll Value; }
+	[Game] public sealed class PlayerChoiceWindowComponent : IComponent { public WindowScroll Value; }
 	[Game] public sealed class TargetActivityComponent : IComponent { public bool Value; }
 	[Game] [Event(Self)] public sealed class SliderMaxValueComponent : IComponent { public float Value; }
 	[Game] [Event(Self)] public sealed class SliderValueComponent : IComponent { public float Value; }
