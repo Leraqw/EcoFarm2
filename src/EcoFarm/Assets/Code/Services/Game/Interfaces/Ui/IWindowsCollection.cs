@@ -7,7 +7,7 @@ namespace EcoFarm
 	{
 		WindowSell      Sell      { get; }
 		GameObject      Pause     { get; }
-		WindowBuild     Build     { get; }
+		WindowScroll     Build     { get; }
 		WindowResources Resources { get; }
 	}
 }

@@ -10,7 +10,7 @@ namespace EcoFarm
 	{
 		[field: SerializeField] public WindowSell      Sell      { get; private set; }
 		[field: SerializeField] public GameObject      Pause     { get; private set; }
-		[field: SerializeField] public WindowBuild     Build     { get; private set; }
+		[field: SerializeField] public WindowScroll     Build     { get; private set; }
 		[field: SerializeField] public WindowResources Resources { get; private set; }
 	}
 }
