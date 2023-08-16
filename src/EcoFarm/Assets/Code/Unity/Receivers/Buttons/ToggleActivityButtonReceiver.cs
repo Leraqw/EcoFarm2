@@ -15,6 +15,6 @@ namespace EcoFarm
 			          .AttachTo(_window.Entity)
 			          .Do((e) => e.AddTargetActivity(_targetActivity))
 			          .Do((e) => e.isDestroy = true)
-		/**/;
+		;
 	}
 }
