@@ -16,9 +16,10 @@ public static class ServicesComponentsLookup {
     public const int ResourcesService = 5;
     public const int SceneObjectsService = 6;
     public const int SceneTransferService = 7;
-    public const int UiService = 8;
+    public const int UiMainMenuService = 8;
+    public const int UiService = 9;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "CameraService",
@@ -29,6 +30,7 @@ public static class ServicesComponentsLookup {
         "ResourcesService",
         "SceneObjectsService",
         "SceneTransferService",
+        "UiMainMenuService",
         "UiService"
     };
 
@@ -41,6 +43,7 @@ public static class ServicesComponentsLookup {
         typeof(EcoFarm.ResourcesServiceComponent),
         typeof(EcoFarm.SceneObjectsServiceComponent),
         typeof(EcoFarm.SceneTransferServiceComponent),
+        typeof(EcoFarm.UiMainMenuServiceComponent),
         typeof(EcoFarm.UiServiceComponent)
     };
 }

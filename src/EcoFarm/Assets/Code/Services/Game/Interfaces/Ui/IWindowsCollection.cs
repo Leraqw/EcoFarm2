@@ -9,6 +9,5 @@ namespace EcoFarm
 		GameObject      Pause     { get; }
 		WindowScroll     Build     { get; }
 		WindowResources Resources { get; }
-		WindowScroll Players { get; }
 	}
 }
