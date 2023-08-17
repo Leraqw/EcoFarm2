@@ -35,8 +35,7 @@ namespace EcoFarm
 			=> window.GetAttachedEntities()
 			         .Where((e) => e.hasView)
 			         .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
-			         .Do((entities) => entities.ForEach((e) => e.view.Value.DestroyGameObject()))
-		/**/;
+			         .Do((entities) => entities.ForEach((e) => e.view.Value.DestroyGameObject()));
 
 		private void FillBuildingsList(GameEntity window)
 			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildViewPrefab, window));
@@ -48,8 +47,7 @@ namespace EcoFarm
 			            .Do((e) => e.AddBuilding(building))
 			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
 			            .Do((e) => e.AddPosition(window.position.Value))
-			            .AttachTo(window)
-		/**/;
+			            .AttachTo(window);
 
 		private static void EndPreparations(GameEntity window)
 			=> window.Do((e) => e.isPreparationInProcess = false)

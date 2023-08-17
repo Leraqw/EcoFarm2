@@ -12,21 +12,19 @@ public static class ServicesComponentsLookup {
     public const int ConfigurationService = 1;
     public const int DataProvider = 2;
     public const int InputService = 3;
-    public const int PrefabProvider = 4;
-    public const int ResourcesService = 5;
-    public const int SceneObjectsService = 6;
-    public const int SceneTransferService = 7;
-    public const int UiMainMenuService = 8;
-    public const int UiService = 9;
+    public const int ResourcesService = 4;
+    public const int SceneObjectsService = 5;
+    public const int SceneTransferService = 6;
+    public const int UiMainMenuService = 7;
+    public const int UiService = 8;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
         "CameraService",
         "ConfigurationService",
         "DataProvider",
         "InputService",
-        "PrefabProvider",
         "ResourcesService",
         "SceneObjectsService",
         "SceneTransferService",
@@ -39,7 +37,6 @@ public static class ServicesComponentsLookup {
         typeof(EcoFarm.ConfigurationServiceComponent),
         typeof(EcoFarm.DataProviderComponent),
         typeof(EcoFarm.InputServiceComponent),
-        typeof(EcoFarm.PrefabProviderComponent),
         typeof(EcoFarm.ResourcesServiceComponent),
         typeof(EcoFarm.SceneObjectsServiceComponent),
         typeof(EcoFarm.SceneTransferServiceComponent),

@@ -7,7 +7,6 @@ namespace EcoFarm
 		private static ServicesContext Context => Contexts.sharedInstance.services;
 
 		public static IDataProviderService DataProvider  => Context.dataProvider.Value;
-		public static IPrefabDataProvider PrefabProvider  => Context.prefabProvider.Value;
 		public static ICameraService       CameraService => Context.cameraService.Value;
 		public static IInputService        InputService  => Context.inputService.Value;
 

@@ -23,7 +23,6 @@
             Add(new PlayerChoiceButtonClickSystem(contexts));
 
             //	Add(new PlayerChoiceActivateSystem(contexts));
-            //  Add(new OnToggleActivityButtonClickSystem(contexts));
 
             Add(new PlayerEventSystems(contexts));
             Add(new PlayerCleanupSystems(contexts));
