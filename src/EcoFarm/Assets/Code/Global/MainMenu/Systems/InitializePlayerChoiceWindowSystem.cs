@@ -7,7 +7,7 @@ namespace EcoFarm
         public InitializePlayerChoiceWindowSystem(Contexts contexts)
         {
         }
-
+        
         public void Initialize()
         {
             var e = Contexts.sharedInstance.game.CreateEntity();
@@ -16,6 +16,7 @@ namespace EcoFarm
             e.isToggled = false;
             e.MakeAttachable();
             e.AddActivate(false);
+            e.isRequirePreparation = true;
         }
     }
 }

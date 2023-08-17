@@ -14,9 +14,4 @@ namespace EcoFarm
 		GameObject         TimerView  { get; }
 		BuildView          BuildView  { get; }
 	}
-	
-	public interface IMainMenuUiService
-	{
-		PlayerChoiceView PlayerChoiceView { get; }
-	}
 }
