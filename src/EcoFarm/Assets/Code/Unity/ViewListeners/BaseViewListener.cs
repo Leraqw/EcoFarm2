@@ -11,10 +11,7 @@ namespace EcoFarm
 		{
 			Entity = entity;
 			AddListener(entity);
-		}
-
-		private void Update()
-		{
+			
 			if (HasComponent(Entity))
 				UpdateValue(Entity);
 		}

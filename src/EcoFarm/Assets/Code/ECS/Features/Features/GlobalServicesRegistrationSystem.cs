@@ -15,8 +15,6 @@ namespace EcoFarm
 			_context.ReplaceCameraService(new UnityCameraService());
 			_context.ReplaceInputService(new UnityInputService());
 			_context.ReplaceSceneTransferService(new UnitySceneTransferService());
-			
-			_context.ReplacePrefabProvider(new PrefabDataProvider());
 		}
 	}
 }

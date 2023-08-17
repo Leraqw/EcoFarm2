@@ -19,6 +19,7 @@
             Add(new DisableIfNoCurrentPlayerSystem(contexts));
             
             Add(new InitializePlayerChoiceWindowSystem(contexts));
+            Add(new BindViewsSystem(contexts));
             Add(new PlayerChoiceButtonClickSystem(contexts));
 
             //	Add(new PlayerChoiceActivateSystem(contexts));
