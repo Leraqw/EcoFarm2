@@ -67,72 +67,74 @@ public static class GameComponentsLookup {
     public const int PermanentGenerator = 56;
     public const int Pickable = 57;
     public const int Picked = 58;
-    public const int PollutionCoefficient = 59;
-    public const int Pollution = 60;
-    public const int Position = 61;
-    public const int PreparationInProcess = 62;
-    public const int Prepared = 63;
-    public const int ProduceResource = 64;
-    public const int Product = 65;
-    public const int ProgressBar = 66;
-    public const int ProportionalScale = 67;
-    public const int Radius = 68;
-    public const int Ready = 69;
-    public const int Renew = 70;
-    public const int RenewPrice = 71;
-    public const int RequirePreparation = 72;
-    public const int RequireProduct = 73;
-    public const int RequireSprite = 74;
-    public const int RequireTreeOnPosition = 75;
-    public const int RequireView = 76;
-    public const int Resource = 77;
-    public const int Rotation = 78;
-    public const int RotationSpeed = 79;
-    public const int SellCoefficient = 80;
-    public const int SellDeal = 81;
-    public const int SellWindow = 82;
-    public const int Sign = 83;
-    public const int SliderMaxValue = 84;
-    public const int SliderValue = 85;
-    public const int SpawnPosition = 86;
-    public const int Spinner = 87;
-    public const int Sprite = 88;
-    public const int SpriteHigh = 89;
-    public const int SpriteToLoad = 90;
-    public const int Storage = 91;
-    public const int TargetActivity = 92;
-    public const int TargetPosition = 93;
-    public const int TargetScale = 94;
-    public const int Text = 95;
-    public const int Tree = 96;
-    public const int UiElement = 97;
-    public const int UiParent = 98;
-    public const int Used = 99;
-    public const int View = 100;
-    public const int ViewPrefab = 101;
-    public const int Watered = 102;
-    public const int Watering = 103;
-    public const int WaterResource = 104;
-    public const int WillFall = 105;
-    public const int Working = 106;
-    public const int FactoryListener = 107;
-    public const int GameTextListener = 108;
-    public const int GeneratorListener = 109;
-    public const int GoalCompletedListener = 110;
-    public const int GoalListener = 111;
-    public const int InventoryItemListener = 112;
-    public const int MaterialListener = 113;
-    public const int PositionListener = 114;
-    public const int ProgressBarListener = 115;
-    public const int ProportionalScaleListener = 116;
-    public const int RotationListener = 117;
-    public const int SliderMaxValueListener = 118;
-    public const int SliderValueListener = 119;
-    public const int SpriteHighListener = 120;
-    public const int SpriteListener = 121;
-    public const int WateringListener = 122;
+    public const int PlayerChoiceWindow = 59;
+    public const int PollutionCoefficient = 60;
+    public const int Pollution = 61;
+    public const int Position = 62;
+    public const int PreparationInProcess = 63;
+    public const int Prepared = 64;
+    public const int ProduceResource = 65;
+    public const int Product = 66;
+    public const int ProgressBar = 67;
+    public const int ProportionalScale = 68;
+    public const int Radius = 69;
+    public const int Ready = 70;
+    public const int Renew = 71;
+    public const int RenewPrice = 72;
+    public const int RequirePreparation = 73;
+    public const int RequireProduct = 74;
+    public const int RequireSprite = 75;
+    public const int RequireTreeOnPosition = 76;
+    public const int RequireView = 77;
+    public const int Resource = 78;
+    public const int Rotation = 79;
+    public const int RotationSpeed = 80;
+    public const int SellCoefficient = 81;
+    public const int SellDeal = 82;
+    public const int SellWindow = 83;
+    public const int Sign = 84;
+    public const int SliderMaxValue = 85;
+    public const int SliderValue = 86;
+    public const int SpawnPosition = 87;
+    public const int Spinner = 88;
+    public const int Sprite = 89;
+    public const int SpriteHigh = 90;
+    public const int SpriteToLoad = 91;
+    public const int Storage = 92;
+    public const int TargetActivity = 93;
+    public const int TargetPosition = 94;
+    public const int TargetScale = 95;
+    public const int Text = 96;
+    public const int Toggled = 97;
+    public const int Tree = 98;
+    public const int UiElement = 99;
+    public const int UiParent = 100;
+    public const int Used = 101;
+    public const int View = 102;
+    public const int ViewPrefab = 103;
+    public const int Watered = 104;
+    public const int Watering = 105;
+    public const int WaterResource = 106;
+    public const int WillFall = 107;
+    public const int Working = 108;
+    public const int FactoryListener = 109;
+    public const int GameTextListener = 110;
+    public const int GeneratorListener = 111;
+    public const int GoalCompletedListener = 112;
+    public const int GoalListener = 113;
+    public const int InventoryItemListener = 114;
+    public const int MaterialListener = 115;
+    public const int PositionListener = 116;
+    public const int ProgressBarListener = 117;
+    public const int ProportionalScaleListener = 118;
+    public const int RotationListener = 119;
+    public const int SliderMaxValueListener = 120;
+    public const int SliderValueListener = 121;
+    public const int SpriteHighListener = 122;
+    public const int SpriteListener = 123;
+    public const int WateringListener = 124;
 
-    public const int TotalComponents = 123;
+    public const int TotalComponents = 125;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -194,6 +196,7 @@ public static class GameComponentsLookup {
         "PermanentGenerator",
         "Pickable",
         "Picked",
+        "PlayerChoiceWindow",
         "PollutionCoefficient",
         "Pollution",
         "Position",
@@ -231,6 +234,7 @@ public static class GameComponentsLookup {
         "TargetPosition",
         "TargetScale",
         "Text",
+        "Toggled",
         "Tree",
         "UiElement",
         "UiParent",
@@ -320,6 +324,7 @@ public static class GameComponentsLookup {
         typeof(EcoFarm.PermanentGeneratorComponent),
         typeof(EcoFarm.PickableComponent),
         typeof(EcoFarm.PickedComponent),
+        typeof(EcoFarm.PlayerChoiceWindowComponent),
         typeof(EcoFarm.PollutionCoefficientComponent),
         typeof(EcoFarm.PollutionComponent),
         typeof(EcoFarm.PositionComponent),
@@ -357,6 +362,7 @@ public static class GameComponentsLookup {
         typeof(EcoFarm.TargetPositionComponent),
         typeof(EcoFarm.TargetScaleComponent),
         typeof(EcoFarm.TextComponent),
+        typeof(EcoFarm.ToggledComponent),
         typeof(EcoFarm.TreeComponent),
         typeof(EcoFarm.UiElementComponent),
         typeof(EcoFarm.UiParentComponent),

@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace EcoFarm
 {
 	public class EnabledView : BaseViewListener, IActivateListener

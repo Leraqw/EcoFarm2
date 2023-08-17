@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace EcoFarm
@@ -27,8 +28,11 @@ namespace EcoFarm
 				window.isPreparationInProcess = true;
 				return;
 			}
-
+            
 			window.ReplaceActivate(activity.Value);
+			Debug.Log($"wind activity: {window.activate.Value}");
+
+
 			request.isDestroy = true;
 		}
 	}

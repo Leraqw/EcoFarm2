@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 namespace EcoFarm
 {
-	public abstract class UnityEventAdapter : MonoBehaviour
-	{
-		[FormerlySerializedAs("_button")] [SerializeField] protected Button Button;
+    public abstract class UnityEventAdapter : MonoBehaviour
+    {
+        [FormerlySerializedAs("Button")] [SerializeField] protected Button _button;
 
-		private void OnEnable() => Button.onClick.AddListener(OnButtonClick);
-		
-		private void OnDisable() => Button.onClick.RemoveListener(OnButtonClick);
+        private void OnEnable() => _button.onClick.AddListener(OnButtonClick);
 
-		protected abstract void OnButtonClick();
-	}
+        private void OnDisable() => _button.onClick.RemoveListener(OnButtonClick);
+
+        protected abstract void OnButtonClick();
+    }
 }

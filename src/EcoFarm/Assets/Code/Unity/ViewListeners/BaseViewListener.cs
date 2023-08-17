@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace EcoFarm
 {
@@ -10,9 +11,12 @@ namespace EcoFarm
 		{
 			Entity = entity;
 			AddListener(entity);
+		}
 
-			if (HasComponent(entity))
-				UpdateValue(entity);
+		private void Update()
+		{
+			if (HasComponent(Entity))
+				UpdateValue(Entity);
 		}
 
 		protected abstract void AddListener(GameEntity entity);

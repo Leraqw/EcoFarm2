@@ -1,17 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Entitas;
 
 namespace EcoFarm
 {
-    public class ButtonPlayerChoiceBehaviour : StartEntityBehaviour
+    public class ButtonPlayerChoiceBehaviour : BaseButtonClickReceiver
     {
-        [SerializeField] private InteractableView _interactableView;
+        private GameEntity Window => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
 
-        protected override void Initialize()
-        {
-            var e = Contexts.player.CreateEntity();
-            e.AddView(gameObject);
-            e.AddInteractable(true);
-            _interactableView.Register(e);
-        }
+        protected override void OnButtonClick() => Window.isToggled = true;
     }
 }

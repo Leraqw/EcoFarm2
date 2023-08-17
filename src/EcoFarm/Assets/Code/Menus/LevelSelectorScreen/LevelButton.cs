@@ -21,6 +21,6 @@ namespace EcoFarm
 			Contexts.services.sceneTransferService.Value.ToGameplayScene();
 		}
 
-		public void SetButtonEnabled(bool value) => Button.interactable = value;
+		public void SetButtonEnabled(bool value) => _button.interactable = value;
 	}
 }
