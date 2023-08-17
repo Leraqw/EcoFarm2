@@ -20,6 +20,7 @@ public sealed class GameEventSystems : Feature {
         Add(new GoalCompletedEventSystem(contexts)); // priority: 0
         Add(new InventoryItemEventSystem(contexts)); // priority: 0
         Add(new MaterialEventSystem(contexts)); // priority: 0
+        Add(new PlayerToChooseEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
         Add(new ProgressBarEventSystem(contexts)); // priority: 0
         Add(new ProportionalScaleEventSystem(contexts)); // priority: 0

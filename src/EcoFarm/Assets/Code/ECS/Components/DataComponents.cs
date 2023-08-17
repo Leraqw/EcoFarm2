@@ -15,6 +15,7 @@ namespace EcoFarm
 	[Game] public sealed class DevelopmentObjectComponent : IComponent { public DevObject Value; }
 
 	[Game] [Event(Self)] public sealed class BuildingComponent : IComponent { public Building Value; }
+	[Game] [Event(Self)] public sealed class PlayerToChooseComponent : IComponent { public Player Value; }
 
 	[Game] [Event(Self)] public sealed class FactoryComponent : IComponent { public Factory Value; }
 
