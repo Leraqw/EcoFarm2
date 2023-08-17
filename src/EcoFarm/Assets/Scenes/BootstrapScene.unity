@@ -261,8 +261,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1274885369}
   - component: {fileID: 1274885368}
-  - component: {fileID: 1274885371}
-  - component: {fileID: 1274885370}
   m_Layer: 0
   m_Name: Entitas Adapter
   m_TagString: Untagged
@@ -298,39 +296,6 @@ Transform:
   - {fileID: 800149644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1274885370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274885367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb03d2e774f45ba8aa70fa2fecb6092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <UiService>k__BackingField:
-    _windows:
-      <Sell>k__BackingField: {fileID: 0}
-      <Pause>k__BackingField: {fileID: 0}
-      <Build>k__BackingField: {fileID: 0}
-      <Resources>k__BackingField: {fileID: 0}
-      <Players>k__BackingField: {fileID: 6370453115625487482, guid: 4d99187edd7da3c47b000a0aa9c98f59, type: 3}
-    <PlayerChoiceView>k__BackingField: {fileID: 714880398002270157, guid: 258d8a1424bb74448aa5df78a3b5c0f2, type: 3}
---- !u!114 &1274885371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274885367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27239b832184907a09bc88767851bd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dependencies: {fileID: 1274885370}
 --- !u!1 &1349549892
 GameObject:
   m_ObjectHideFlags: 0

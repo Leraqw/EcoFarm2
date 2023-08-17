@@ -17,15 +17,17 @@
 
             // Main Menu Systems
             Add(new DisableIfNoCurrentPlayerSystem(contexts));
-            
-            Add(new InitializePlayerChoiceWindowSystem(contexts));
-            Add(new BindViewsSystem(contexts));
-            Add(new PlayerChoiceButtonClickSystem(contexts));
 
-            //	Add(new PlayerChoiceActivateSystem(contexts));
+            Add(new InitializePlayerChoiceWindowSystem(contexts));
+           // Add(new AddViewSystem(contexts));
+            Add(new PreparePlayerChoiceWindowSystem(contexts));
+            Add(new PlayerChoiceButtonClickSystem(contexts));
+            Add(new BindViewsSystem(contexts));
+           // Add(new LoadViewForEntitySystem(contexts));
 
             Add(new PlayerEventSystems(contexts));
             Add(new PlayerCleanupSystems(contexts));
+            Add(new DestroyDestroyGameSystem(contexts));
         }
 
         public void OnUpdate() => this.ExecuteAnd().Cleanup();

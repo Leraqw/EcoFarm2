@@ -15,5 +15,5 @@ namespace EcoFarm
 	[Services] [Unique] public sealed class UiServiceComponent : IComponent { public IUiService Value; }
 	
 	// Main menu
-	[Services] [Unique] public sealed class UiMainMenuServiceComponent : IComponent { public IMainMenuUiService Value; }
+//	[Services] [Unique] public sealed class UiMainMenuServiceComponent : IComponent { public IMainMenuUiService Value; }
 }
