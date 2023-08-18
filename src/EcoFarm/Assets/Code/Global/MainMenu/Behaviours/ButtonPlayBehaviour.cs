@@ -10,7 +10,7 @@ namespace EcoFarm
 		{
 			var e = Contexts.player.CreateEntity();
 			e.AddView(gameObject);
-			e.AddInteractable(true);
+			e.AddInteractable(false);
 			e.isForPlayerButton = true;
 			_interactableView.Register(e);
 		}
