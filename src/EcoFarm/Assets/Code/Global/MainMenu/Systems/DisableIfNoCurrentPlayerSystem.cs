@@ -16,7 +16,7 @@ namespace EcoFarm
 		}
 
 		protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-			=> context.CreateCollector(CurrentPlayer.AddedOrRemoved());
+			=> context.CreateCollector(CurrentPlayer);
 
 		protected override bool Filter(PlayerEntity entity) => true;
 

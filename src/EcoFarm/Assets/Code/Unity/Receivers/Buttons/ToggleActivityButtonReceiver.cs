@@ -1,20 +1,17 @@
-﻿
-
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EcoFarm
 {
-	public class ToggleActivityButtonReceiver : BaseButtonClickReceiver
-	{
-		[SerializeField] private BaseViewListener _window;
-		[SerializeField] private bool _targetActivity;
+    public class ToggleActivityButtonReceiver : BaseButtonClickReceiver
+    {
+        [SerializeField] private BaseViewListener _window;
+        [SerializeField] private bool _targetActivity;
 
-		protected override void OnButtonClick()
-			=> Context.CreateEntity()
-			          .AttachTo(_window.Entity)
-			          .Do((e) => e.AddTargetActivity(_targetActivity))
-			          .Do((e) => e.isDestroy = true)
-		/**/;
-	}
+        protected override void OnButtonClick()
+        {
+           Context.CreateEntity()
+                .Do((e) => e.AddAttachedTo(_window.Entity.attachableIndex.Value))
+                .Do((e) => e.AddTargetActivity(_targetActivity));
+        }
+    }
 }

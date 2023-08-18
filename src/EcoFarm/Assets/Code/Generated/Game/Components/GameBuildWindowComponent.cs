@@ -11,14 +11,14 @@ public partial class GameEntity {
     public EcoFarm.BuildWindowComponent buildWindow { get { return (EcoFarm.BuildWindowComponent)GetComponent(GameComponentsLookup.BuildWindow); } }
     public bool hasBuildWindow { get { return HasComponent(GameComponentsLookup.BuildWindow); } }
 
-    public void AddBuildWindow(EcoFarm.WindowBuild newValue) {
+    public void AddBuildWindow(EcoFarm.WindowScroll newValue) {
         var index = GameComponentsLookup.BuildWindow;
         var component = (EcoFarm.BuildWindowComponent)CreateComponent(index, typeof(EcoFarm.BuildWindowComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceBuildWindow(EcoFarm.WindowBuild newValue) {
+    public void ReplaceBuildWindow(EcoFarm.WindowScroll newValue) {
         var index = GameComponentsLookup.BuildWindow;
         var component = (EcoFarm.BuildWindowComponent)CreateComponent(index, typeof(EcoFarm.BuildWindowComponent));
         component.Value = newValue;

@@ -10,9 +10,9 @@ namespace EcoFarm
 		{
 			Entity = entity;
 			AddListener(entity);
-
-			if (HasComponent(entity))
-				UpdateValue(entity);
+			
+			if (HasComponent(Entity))
+				UpdateValue(Entity);
 		}
 
 		protected abstract void AddListener(GameEntity entity);

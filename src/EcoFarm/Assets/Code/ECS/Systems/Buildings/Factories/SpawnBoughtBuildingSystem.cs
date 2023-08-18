@@ -25,7 +25,7 @@ namespace EcoFarm
 
 		private static IMatcher<GameEntity> Building => GameMatcher.Building;
 
-		private WindowBuild Window => _contexts.services.uiService.Value.Windows.Build;
+		private WindowScroll Window => _contexts.services.uiService.Value.Windows.Build;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, Bought, Building));

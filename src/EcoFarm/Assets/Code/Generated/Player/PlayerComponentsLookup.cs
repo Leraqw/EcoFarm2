@@ -15,17 +15,18 @@ public static class PlayerComponentsLookup {
     public const int Interactable = 4;
     public const int LevelRelatedEntity = 5;
     public const int Nickname = 6;
-    public const int Player = 7;
-    public const int SelectedLevel = 8;
-    public const int SessionResult = 9;
-    public const int Text = 10;
-    public const int UnlockedLevelsCount = 11;
-    public const int View = 12;
-    public const int InteractableListener = 13;
-    public const int PlayerTextListener = 14;
-    public const int UnlockedLevelsCountListener = 15;
+    public const int PlayerChoiceButton = 7;
+    public const int Player = 8;
+    public const int SelectedLevel = 9;
+    public const int SessionResult = 10;
+    public const int Text = 11;
+    public const int UnlockedLevelsCount = 12;
+    public const int View = 13;
+    public const int InteractableListener = 14;
+    public const int PlayerTextListener = 15;
+    public const int UnlockedLevelsCountListener = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -35,6 +36,7 @@ public static class PlayerComponentsLookup {
         "Interactable",
         "LevelRelatedEntity",
         "Nickname",
+        "PlayerChoiceButton",
         "Player",
         "SelectedLevel",
         "SessionResult",
@@ -54,6 +56,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.InteractableComponent),
         typeof(EcoFarm.LevelRelatedEntityComponent),
         typeof(EcoFarm.NicknameComponent),
+        typeof(EcoFarm.PlayerChoiceButtonComponent),
         typeof(EcoFarm.PlayerComponent),
         typeof(EcoFarm.SelectedLevelComponent),
         typeof(EcoFarm.SessionResultComponent),
