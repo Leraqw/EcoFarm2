@@ -10,17 +10,13 @@ namespace EcoFarm
 {
     public sealed class PreparePlayerChoiceWindowSystem : ReactiveSystem<GameEntity>
     {
-        private readonly GameContext _context;
+        private readonly Contexts _context;
 
-        public PreparePlayerChoiceWindowSystem(Contexts contexts)
-            : base(contexts.game)
-            => _context = contexts.game;
-
+        public PreparePlayerChoiceWindowSystem(Contexts contexts) : base(contexts.game) => _context = contexts;
         private static IEnumerable<Player> Players => ServicesMediator.DataProvider.Players;
 
         private static PlayerView PlayerViewPrefab => ServicesMediator.DataProvider.PlayerView;
-
-
+        
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
             => context.CreateCollector(AllOf(PlayerChoiceWindow, Toggled, RequirePreparation));
 
@@ -43,17 +39,15 @@ namespace EcoFarm
 
         private void BindPlayerChoiceView(Player player, BaseViewListener prefab, GameEntity window)
         {
-            var e = _context.CreateEntity();
-            
+            var e = _context.game.CreateEntity();
+
             e.AddPlayerToChoose(player);
             prefab.Register(e);
             e.AttachTo(window);
             e.AddDebugName($"playerItem_{player.Nickname}");
-           // e.AddUiParent(window.playerWindow.Value);
-           
-            var viewPrefab = Object.Instantiate(prefab.gameObject, window.playerWindow.Value);
+
+            var viewPrefab = Object.Instantiate(prefab.gameObject, window.playerWindowContent.Value);
             e.AddViewPrefab(viewPrefab);
-            
         }
 
         private static void EndPreparations(GameEntity window)

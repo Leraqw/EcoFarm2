@@ -13,7 +13,7 @@ namespace EcoFarm
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(TargetActivity, AttachedTo));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasTargetActivity;
 
 		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Toggle);
 
@@ -21,7 +21,7 @@ namespace EcoFarm
 		{
 			var activity = request.targetActivity;
 			var window = request.GetAttachableEntity();
-
+			
 			if (activity.Value
 			    && window.isRequirePreparation)
 			{
@@ -30,9 +30,6 @@ namespace EcoFarm
 			}
             
 			window.ReplaceActivate(activity.Value);
-			Debug.Log($"wind activity: {window.activate.Value}");
-
-
 			request.isDestroy = true;
 		}
 	}

@@ -8,14 +8,11 @@ namespace EcoFarm
 
 		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => ServicesMediator.DataProvider.Players.ForEach(ToEntity);
-
-		private void ToEntity(Player player)
+		public void Initialize()
 		{
 			var e = _contexts.player.CreateEntity();
 			e.isPlayer = true;
-			e.AddNickname(player.Nickname);
-			e.AddCompletedLevelsCount(player.CompletedLevelsCount);
+			e.isCurrentPlayer = true;
 			e.AddSessionResult(SessionResult.None);
 		}
 	}

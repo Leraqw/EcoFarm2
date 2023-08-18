@@ -8,9 +8,10 @@ namespace EcoFarm
         [SerializeField] private bool _targetActivity;
 
         protected override void OnButtonClick()
-            => Context.CreateEntity()
-                .AttachTo(_window.Entity)
-                .Do((e) => e.AddTargetActivity(_targetActivity))
-                .Do((e) => e.isDestroy = true);
+        {
+           Context.CreateEntity()
+                .Do((e) => e.AddAttachedTo(_window.Entity.attachableIndex.Value))
+                .Do((e) => e.AddTargetActivity(_targetActivity));
+        }
     }
 }

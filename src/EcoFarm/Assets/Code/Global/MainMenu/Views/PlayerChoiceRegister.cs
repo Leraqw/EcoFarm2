@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using static GameMatcher;
 
 namespace EcoFarm
 {
-    public class PlayerChoiceRegister : MonoBehaviour
+    public class PlayerChoiceRegister : StartEntityBehaviour
     {
         [SerializeField] private GameObject _playerChoicePrefab;
-        [SerializeField] private RectTransform _playerChoiceRectTransform;
+        [SerializeField] private RectTransform _content;
 
-        public void Start()
+        protected override void Initialize()
         {
+            var e = Contexts.sharedInstance.game.CreateEntity();
+            e.AddDebugName("PlayerChoiceWindow");
+            e.isPlayerChoiceWindow = true;
+            e.isToggled = false;
+            e.MakeAttachable();
+            e.isRequirePreparation = true;
             var entity = Contexts.sharedInstance.game.GetGroup(PlayerChoiceWindow).GetSingleEntity();
-            entity.AddView(_playerChoicePrefab);
-            entity.AddPlayerWindow(_playerChoiceRectTransform);
+            entity.ReplaceView(_playerChoicePrefab);
+            entity.ReplacePlayerWindowContent(_content);
         }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940451347485497454}
-  - component: {fileID: 5048166455071004448}
+  - component: {fileID: 5466659192538460048}
   m_Layer: 0
   m_Name: Receiver
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6990952128768807886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5048166455071004448
+--- !u!114 &5466659192538460048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124573633497563857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eec544f713244aa5bf3a37ca15601fdf, type: 3}
+  m_Script: {fileID: 11500000, guid: d69f7b14ed654ea69f23b947f966552e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewListener: {fileID: 0}
   _button: {fileID: 1343498409546176822}
+  _playerViewPrefab: {fileID: 572332236841881317}
 --- !u!1 &6990952128768807887
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +184,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 4053838945677730353}
   _nickname: {fileID: 2359793845834655781}
+  <Player>k__BackingField:
+    <Nickname>k__BackingField: 
+    <CompletedLevelsCount>k__BackingField: 0
 --- !u!1001 &960267124030077711
 PrefabInstance:
   m_ObjectHideFlags: 0

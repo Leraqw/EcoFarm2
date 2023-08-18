@@ -5,10 +5,12 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace EcoFarm
 {
+	[Game] public sealed class PlayerChoiceWindowComponent : IComponent { }
+	[Game] public sealed class PlayerWindowContentComponent : IComponent { public RectTransform Value; }
+	[Game] public sealed class ToggledComponent : IComponent { }
+	[Game] public sealed class ChosenComponent : IComponent { }
 	[Player] public sealed class ForPlayerButtonComponent : IComponent { }
 	[Player] public sealed class PlayerChoiceButtonComponent : IComponent { }
-	[Game] public sealed class PlayerChoiceWindowComponent : IComponent { }
-	[Game] public sealed class PlayerWindowComponent : IComponent { public RectTransform Value; }
-	[Game] public sealed class ToggledComponent : IComponent { }
 	[Player] [Event(Self)] public sealed class InteractableComponent : IComponent { public bool Value; }
+	[Game] [Event(Self)] public sealed class PlayerToChooseComponent : IComponent { public Player Value; }
 }

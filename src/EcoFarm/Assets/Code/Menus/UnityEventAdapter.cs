@@ -6,11 +6,11 @@ namespace EcoFarm
 {
     public abstract class UnityEventAdapter : MonoBehaviour
     {
-        [FormerlySerializedAs("Button")] [SerializeField] protected Button _button;
+        [FormerlySerializedAs("_button")] [SerializeField] protected Button Button;
 
-        private void OnEnable() => _button.onClick.AddListener(OnButtonClick);
+        private void OnEnable() => Button.onClick.AddListener(OnButtonClick);
 
-        private void OnDisable() => _button.onClick.RemoveListener(OnButtonClick);
+        private void OnDisable() => Button.onClick.RemoveListener(OnButtonClick);
 
         protected abstract void OnButtonClick();
     }

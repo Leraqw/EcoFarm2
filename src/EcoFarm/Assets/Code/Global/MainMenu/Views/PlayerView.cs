@@ -7,6 +7,7 @@ namespace EcoFarm
     {
         [SerializeField] private TextMeshProUGUI _level;
         [SerializeField] private TextMeshProUGUI _nickname;
+        [field: SerializeField] public Player Player { get; private set; }
 
         protected override void AddListener(GameEntity entity) => entity.AddPlayerToChooseListener(this);
 
@@ -18,6 +19,7 @@ namespace EcoFarm
         {
             _level.text = value.CompletedLevelsCount.ToString();
             _nickname.text = value.Nickname;
+            Player = value;
         }
     }
 }

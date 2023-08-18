@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerChoicePrefab: {fileID: 1894083441}
-  _playerChoiceRectTransform: {fileID: 1894083442}
+  _content: {fileID: 1894083442}
 --- !u!1001 &8894802266133476435
 PrefabInstance:
   m_ObjectHideFlags: 0

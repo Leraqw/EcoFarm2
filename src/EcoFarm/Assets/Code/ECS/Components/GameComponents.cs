@@ -14,10 +14,10 @@ namespace EcoFarm
 	[Game] [Event(Self)] public sealed class DurationComponent : IComponent { public float Value; }
 	[Game] [Cleanup(RemoveComponent)] public sealed class DurationUpComponent : IComponent { }
 	[Game] public sealed class DebugNameComponent : IComponent { public string Value; }
-	[Game] [Event(Self)] public sealed class ProportionalScaleComponent : IComponent { public float Value; }
+	[Game] [Event(Self)] public sealed class ProportionalScaleComponent : IComponent { public float Value; }  
 	[Game] public sealed class TargetScaleComponent : IComponent { public float Value; }
 	[Game] public sealed class TargetPositionComponent : IComponent { public Vector2 Value; }
-	[Game] public sealed class AttachableIndexComponent : IComponent { [PrimaryEntityIndex] public int Value; }
+	[Game] public sealed class AttachableIndexComponent : IComponent { [PrimaryEntityIndex] public int Value; }     
 	[Game] public sealed class AttachedToComponent : IComponent { [EntityIndex] public int Value; }
 	[Game] public sealed class DroughtTimerComponent : IComponent { }
 	[Game] public sealed class RequireSpriteComponent : IComponent { public string Value; }
