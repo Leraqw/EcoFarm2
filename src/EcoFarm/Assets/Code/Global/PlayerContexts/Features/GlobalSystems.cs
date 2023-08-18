@@ -18,10 +18,9 @@
             // Main Menu Systems
             Add(new DisableIfNoCurrentPlayerSystem(contexts));
 
-          //  Add(new InitializePlayerChoiceWindowSystem(contexts));
             Add(new PreparePlayerChoiceWindowSystem(contexts));
             Add(new ToggleActivityButtonSystem(contexts));
-          //  Add(new ChooseCurrentPlayerSystem(contexts));
+          // Add(new ChooseCurrentPlayerSystem(contexts));
             Add(new BindViewsSystem(contexts));
 
             Add(new PlayerEventSystems(contexts));

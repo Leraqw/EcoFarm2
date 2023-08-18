@@ -12,10 +12,11 @@ namespace EcoFarm
         [SerializeField] private PlayerView _playerViewPrefab;
 
         private static PlayerEntity Player =>
-            Contexts.sharedInstance.player.GetEntities(AllOf(PlayerMatcher.Player, CurrentPlayer)).First();
+            Contexts.sharedInstance.player.GetEntities(AllOf(PlayerMatcher.Player)).First();
 
         protected override void OnButtonClick()
         {
+            Player.isCurrentPlayer = true;
             Player.ReplaceNickname(_playerViewPrefab.Player.Nickname);
             Player.ReplaceCompletedLevelsCount(_playerViewPrefab.Player.CompletedLevelsCount);
 
