@@ -3,12 +3,12 @@ using static GameMatcher;
 
 namespace EcoFarm
 {
-    public class PlayerChoiceRegister : StartEntityBehaviour
+    public class PlayerChoiceEntityRegister : MonoBehaviour
     {
         [SerializeField] private GameObject _playerChoicePrefab;
         [SerializeField] private RectTransform _content;
 
-        protected override void Initialize()
+        private void Start()
         {
             var e = Contexts.sharedInstance.game.CreateEntity();
             e.AddDebugName("PlayerChoiceWindow");

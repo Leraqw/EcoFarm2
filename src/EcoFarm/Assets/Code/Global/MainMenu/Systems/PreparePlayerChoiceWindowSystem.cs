@@ -16,7 +16,7 @@ namespace EcoFarm
         private static IEnumerable<Player> Players => ServicesMediator.DataProvider.Players;
 
         private static PlayerView PlayerViewPrefab => ServicesMediator.DataProvider.PlayerView;
-        
+
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
             => context.CreateCollector(AllOf(PlayerChoiceWindow, Toggled, RequirePreparation));
 

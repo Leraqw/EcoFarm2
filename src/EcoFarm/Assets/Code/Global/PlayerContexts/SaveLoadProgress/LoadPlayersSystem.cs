@@ -12,7 +12,6 @@ namespace EcoFarm
 		{
 			var e = _contexts.player.CreateEntity();
 			e.isPlayer = true;
-			e.isCurrentPlayer = true;
 			e.AddSessionResult(SessionResult.None);
 		}
 	}
