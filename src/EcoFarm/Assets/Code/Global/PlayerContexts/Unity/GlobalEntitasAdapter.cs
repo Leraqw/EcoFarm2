@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -6,11 +7,14 @@ namespace EcoFarm
 	{
 		private GlobalSystems _systems;
 
+		[Inject]
+		public void Construct(GlobalSystems systems)
+		{
+			_systems = systems;
+		}
+		
 		private void Start()
 		{
-			DontDestroyOnLoad(gameObject);
-
-			_systems = new GlobalSystems();
 			_systems.Initialize();
 		}
 

@@ -1,8 +1,7 @@
-using EcoFarm;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure
+namespace EcoFarm
 {
 	public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 	{
@@ -11,6 +10,20 @@ namespace Infrastructure
 		public override void InstallBindings()
 		{
 			BindAdapter();
+			BindContexts();
+
+			Container.Bind<GlobalSystems>().AsSingle();
+		}
+
+		private void BindContexts()
+		{
+			var contexts = Contexts.sharedInstance;
+
+			Container.Bind<Contexts>().FromInstance(contexts).AsSingle();
+			Container.Bind<GameContext>().FromInstance(contexts.game).AsSingle();
+			Container.Bind<InputContext>().FromInstance(contexts.input).AsSingle();
+			Container.Bind<ServicesContext>().FromInstance(contexts.services).AsSingle();
+			Container.Bind<PlayerContext>().FromInstance(contexts.player).AsSingle();
 		}
 
 		private void BindAdapter()
