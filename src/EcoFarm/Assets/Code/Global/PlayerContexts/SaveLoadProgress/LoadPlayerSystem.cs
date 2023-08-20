@@ -2,11 +2,11 @@
 
 namespace EcoFarm
 {
-	public sealed class LoadPlayersSystem : IInitializeSystem
+	public sealed class LoadPlayerSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
+		public LoadPlayerSystem(Contexts contexts) => _contexts = contexts;
 
 		public void Initialize()
 		{

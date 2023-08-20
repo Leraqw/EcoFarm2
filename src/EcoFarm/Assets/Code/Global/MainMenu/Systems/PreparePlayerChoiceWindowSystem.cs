@@ -13,7 +13,7 @@ namespace EcoFarm
         private readonly Contexts _context;
 
         public PreparePlayerChoiceWindowSystem(Contexts contexts) : base(contexts.game) => _context = contexts;
-        private static IEnumerable<Player> Players => ServicesMediator.DataProvider.Players;
+        private static IEnumerable<Player> Players => ServicesMediator.DataProvider.PlayersList.Players;
 
         private static PlayerView PlayerViewPrefab => ServicesMediator.DataProvider.PlayerView;
 
