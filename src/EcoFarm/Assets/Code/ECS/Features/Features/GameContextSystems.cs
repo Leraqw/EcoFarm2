@@ -14,7 +14,5 @@
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 		}
-
-		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }

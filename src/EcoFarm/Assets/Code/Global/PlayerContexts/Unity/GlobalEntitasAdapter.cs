@@ -12,9 +12,11 @@ namespace EcoFarm
 		{
 			_systems = systems;
 		}
-		
+
 		private void Start()
 		{
+			DontDestroyOnLoad(gameObject);
+
 			_systems.Initialize();
 		}
 
