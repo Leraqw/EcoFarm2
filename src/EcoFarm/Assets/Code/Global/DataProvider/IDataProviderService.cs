@@ -4,7 +4,7 @@ namespace EcoFarm
 {
 	public interface IDataProviderService
 	{
-		IEnumerable<Player> Players { get; }
+		PlayersList PlayersList { get; }
 		PlayerView PlayerView { get; }
 
 		Storage Storage { get; }

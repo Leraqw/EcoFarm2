@@ -8,7 +8,7 @@
 
             Add(new GlobalServicesRegistrationSystem(contexts));
 
-            Add(new LoadPlayersSystem(contexts));
+            Add(new LoadPlayerSystem(contexts));
             //  Add(new SetFirstPlayerAsCurrentSystem(contexts));
 
             Add(new OnSessionEndSystem(contexts));
