@@ -2,37 +2,32 @@
 
 namespace EcoFarm
 {
-	public sealed class GlobalSystems : Feature
+	public sealed class GlobalSystems : FeatureBase
 	{
 		[Inject]
-		public GlobalSystems(Contexts contexts)
+		public GlobalSystems(SystemsFactory factory)
+			: base(nameof(GlobalSystems), factory)
 		{
-			Add(new GlobalServicesRegistrationSystem(contexts));
+			Add<GlobalServicesRegistrationSystem>();
 
-			Add(new LoadPlayersSystem(contexts));
-			// Add(new SetFirstPlayerAsCurrentSystem(contexts));
+			Add<LoadPlayersSystem>();
+			// Add<SetFirstPlayerAsCurrentSystem>();
 
-			Add(new OnSessionEndSystem(contexts));
-			Add(new SaveProgressSystem(contexts));
-			Add(new ToMainSceneSystem(contexts));
+			Add<OnSessionEndSystem>();
+			Add<SaveProgressSystem>();
+			Add<ToMainSceneSystem>();
 
 			// Main Menu Systems
-			Add(new DisableIfNoCurrentPlayerSystem(contexts));
+			Add<DisableIfNoCurrentPlayerSystem>();
 
-			Add(new PreparePlayerChoiceWindowSystem(contexts));
-			Add(new ToggleActivityButtonSystem(contexts));
-			// Add(new ChooseCurrentPlayerSystem(contexts));
-			Add(new BindViewsSystem(contexts));
+			Add<PreparePlayerChoiceWindowSystem>();
+			Add<ToggleActivityButtonSystem>();
+			// Add<ChooseCurrentPlayerSystem>();
+			Add<BindViewsSystem>();
 
-			Add(new PlayerEventSystems(contexts));
-			Add(new PlayerCleanupSystems(contexts));
-			Add(new DestroyDestroyGameSystem(contexts));
-		}
-
-		public void OnUpdate()
-		{
-			Execute();
-			Cleanup();
+			Add<PlayerEventSystems>();
+			Add<PlayerCleanupSystems>();
+			Add<DestroyDestroyGameSystem>();
 		}
 	}
 }

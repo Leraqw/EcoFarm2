@@ -18,7 +18,11 @@ namespace EcoFarm
 			_systems.Initialize();
 		}
 
-		private void Update() => _systems.OnUpdate();
+		private void Update()
+		{
+			_systems.Execute();
+			_systems.Cleanup();
+		}
 
 		private void OnDestroy() => _systems.TearDown();
 	}

@@ -13,6 +13,7 @@ namespace EcoFarm
 			BindContexts();
 
 			Container.Bind<GlobalSystems>().AsSingle();
+			Container.Bind<SystemsFactory>().AsSingle();
 		}
 
 		private void BindContexts()
