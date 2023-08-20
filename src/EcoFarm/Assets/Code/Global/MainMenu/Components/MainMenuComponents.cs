@@ -5,6 +5,8 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace EcoFarm
 {
+	[Game] public sealed class WindowComponent : IComponent { }
+	[Game] public sealed class CreateNewPlayerWindowComponent : IComponent { }
 	[Game] public sealed class PlayerChoiceWindowComponent : IComponent { }
 	[Game] public sealed class PlayerWindowContentComponent : IComponent { public RectTransform Value; }
 	[Game] public sealed class ToggledComponent : IComponent { }

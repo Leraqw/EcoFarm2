@@ -3,7 +3,7 @@ using Entitas;
 
 namespace EcoFarm
 {
-    public class ButtonTogglePlayerChoiceWindowBehaviour : BaseButtonClickReceiver
+    public class ButtonTogglePlayerChoiceWindowReceiver : BaseButtonClickReceiver
     {
         private GameEntity Window => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
 

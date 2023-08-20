@@ -7,7 +7,7 @@ using static PlayerMatcher;
 
 namespace EcoFarm
 {
-    public class ButtonPlayerToChooseBehaviour : BaseButtonClickReceiver
+    public class ButtonPlayerToChooseReceiver : BaseButtonClickReceiver
     {
         [SerializeField] private PlayerView _playerViewPrefab;
 

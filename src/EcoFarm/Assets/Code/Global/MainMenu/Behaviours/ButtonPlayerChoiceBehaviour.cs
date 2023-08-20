@@ -13,6 +13,7 @@ namespace EcoFarm
             var e = Contexts.sharedInstance.game.CreateEntity();
             e.AddDebugName("PlayerChoiceWindow");
             e.isPlayerChoiceWindow = true;
+            e.isWindow = true;
             e.isToggled = false;
             e.MakeAttachable();
             e.isRequirePreparation = true;
