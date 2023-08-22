@@ -1,16 +1,21 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
 	public class LevelChoiceToEntitasAdapter : MonoBehaviour
 	{
 		private LevelChoiceSystems _systems;
-		
+
+		[Inject]
+		public void Construct(LevelChoiceSystems systems)
+		{
+			_systems = systems;
+		}
+
 		private void Start()
 		{
-			_systems = new LevelChoiceSystems();
-			_systems.Initialize();			
+			_systems.Initialize();
 		}
 
 		private void Update()
