@@ -1,17 +1,14 @@
-﻿
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class GrowingSystems : Feature
+	public sealed class GrowingSystems : FeatureBase
 	{
-		public GrowingSystems(Contexts contexts)
-			: base(nameof(GrowingSystems))
+		public GrowingSystems(SystemsFactory factory)
+			: base(nameof(GrowingSystems), factory)
 		{
-			Add(new WaitBeforeGrowingSystem(contexts));
-			Add(new GrowingSystem(contexts));
-			Add(new WaitAfterGrowingSystem(contexts));
-			Add(new CheckGrowthUpSystem(contexts));
+			Add<WaitBeforeGrowingSystem>();
+			Add<GrowingSystem>();
+			Add<WaitAfterGrowingSystem>();
+			Add<CheckGrowthUpSystem>();
 		}
 	}
 }

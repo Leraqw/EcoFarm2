@@ -1,50 +1,50 @@
 ﻿namespace EcoFarm
 {
-	public sealed class GameplaySystems : Feature
+	public sealed class GameplaySystems : FeatureBase
 	{
-		public GameplaySystems(Contexts contexts)
-			: base(nameof(GameplaySystems))
+		public GameplaySystems(SystemsFactory factory)
+			: base(nameof(GameplaySystems), factory)
 		{
-			Add(new InitializationSystems(contexts));
-			Add(new UiSystems(contexts));
+			Add<InitializationSystems>();
+			Add<UiSystems>();
 
-			Add(new InputSystems(contexts));
-			Add(new CollectingSystems(contexts));
-			Add(new DraggingSystems(contexts));
-			Add(new ViewSystems(contexts));
-			Add(new GrowingSystems(contexts));
-			Add(new FallingSystems(contexts));
-			Add(new ResourcesSystems(contexts));
-			Add(new WateringSystems(contexts));
-			Add(new DurationSystems(contexts));
-			Add(new InventorySystems(contexts));
+			Add<InputSystems>();
+			Add<CollectingSystems>();
+			Add<DraggingSystems>();
+			Add<ViewSystems>();
+			Add<GrowingSystems>();
+			Add<FallingSystems>();
+			Add<ResourcesSystems>();
+			Add<WateringSystems>();
+			Add<DurationSystems>();
+			Add<InventorySystems>();
 
 			// TODO: Add BuildingSystems
-			Add(new ClickOnBuildItemSystem(contexts));
-			Add(new SpawnBoughtBuildingSystem(contexts));
-			Add(new ClickOnFactorySystem(contexts));
-			Add(new PerformProductsRequestSystem(contexts));
-			Add(new FactoryWorkingStateSystem(contexts));
-			Add(new ProduceProductSystem(contexts));
-			Add(new StartCleaningPollutionSystem(contexts));
-			Add(new ReplaceSpriteWhileWorkingSystem(contexts));
-			Add(new GenerateCleanedResourceSystem(contexts));
+			Add<ClickOnBuildItemSystem>();
+			Add<SpawnBoughtBuildingSystem>();
+			Add<ClickOnFactorySystem>();
+			Add<PerformProductsRequestSystem>();
+			Add<FactoryWorkingStateSystem>();
+			Add<ProduceProductSystem>();
+			Add<StartCleaningPollutionSystem>();
+			Add<ReplaceSpriteWhileWorkingSystem>();
+			Add<GenerateCleanedResourceSystem>();
 
 			// Dancing
-			Add(new DanceWhileWorkingSystem(contexts));
-			Add(new ResetNormalScaleSystem(contexts));
+			Add<DanceWhileWorkingSystem>();
+			Add<ResetNormalScaleSystem>();
 
 			// Rotating
-			Add(new RotateSpinnersSystem(contexts));
+			Add<RotateSpinnersSystem>();
 
 			// TODO: Add GameCycleSystems 
-			Add(new ObserveGoalCompletionSystem(contexts));
-			Add(new GameOverSystem(contexts));
+			Add<ObserveGoalCompletionSystem>();
+			Add<GameOverSystem>();
 
 			// TODO: Add GameOverSystems
-			Add(new DestroyAllGameEntitiesSystem(contexts));
+			Add<DestroyAllGameEntitiesSystem>();
 
-			Add(new CleanupSystems(contexts));
+			Add<CleanupSystems>();
 		}
 	}
 }

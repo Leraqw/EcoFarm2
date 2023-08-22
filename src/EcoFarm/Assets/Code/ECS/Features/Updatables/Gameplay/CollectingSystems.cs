@@ -1,16 +1,13 @@
-﻿
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class CollectingSystems : Feature
+	public sealed class CollectingSystems : FeatureBase
 	{
-		public CollectingSystems(Contexts contexts)
-			: base(nameof(CollectingSystems))
+		public CollectingSystems(SystemsFactory factory)
+			: base(nameof(CollectingSystems), factory)
 		{
-			Add(new PickedToWarehouseSystem(contexts));
-			Add(new CollectedToInventorySystem(contexts));
-			Add(new SyncItemValueWithDebugSystem(contexts));
+			Add<PickedToWarehouseSystem>();
+			Add<CollectedToInventorySystem>();
+			Add<SyncItemValueWithDebugSystem>();
 		}
 	}
 }

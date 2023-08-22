@@ -2,11 +2,11 @@
 
 namespace EcoFarm
 {
-	public sealed class SpawnStorage : IInitializeSystem
+	public sealed class SpawnStorageSystem : IInitializeSystem
 	{
 		private readonly GameContext _context;
 
-		public SpawnStorage(Contexts contexts) => _context = contexts.game;
+		public SpawnStorageSystem(Contexts contexts) => _context = contexts.game;
 
 		public void Initialize()
 		{

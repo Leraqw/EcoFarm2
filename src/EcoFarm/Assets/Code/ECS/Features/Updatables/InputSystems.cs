@@ -1,16 +1,14 @@
-﻿
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class InputSystems : Feature
+	public sealed class InputSystems : FeatureBase
 	{
-		public InputSystems(Contexts contexts)
-			: base(nameof(InputSystems))
+		public InputSystems(SystemsFactory factory)
+			: base(nameof(InputSystems), factory)
 		{
-			Add(new ClickAtPickableSystem(contexts));
-			Add(new ClickAtDraggableSystem(contexts));
+			Add<ClickAtPickableSystem>();
+			Add<ClickAtDraggableSystem>();
 
-			Add(new ClickAtSignSystem(contexts));
+			Add<ClickAtSignSystem>();
 		}
 	}
 }

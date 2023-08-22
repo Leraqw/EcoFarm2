@@ -1,14 +1,12 @@
-﻿
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class DurationSystems : Feature
+	public sealed class DurationSystems : FeatureBase
 	{
-		public DurationSystems(Contexts contexts)
-			: base(nameof(DurationSystems))
+		public DurationSystems(SystemsFactory factory)
+			: base(nameof(DurationSystems), factory)
 		{
-			Add(new DurationSystem(contexts));
-			Add(new CheckDurationUpSystem(contexts));
+			Add<DurationSystem>();
+			Add<CheckDurationUpSystem>();
 		}
 	}
 }

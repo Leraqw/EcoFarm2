@@ -1,15 +1,16 @@
 ﻿namespace EcoFarm
 {
-	public sealed class ResourcesSystems : Feature
+	public sealed class ResourcesSystems : FeatureBase
 	{
-		public ResourcesSystems(Contexts contexts)
+		public ResourcesSystems(SystemsFactory factory)
+			: base(nameof(ResourcesSystems), factory)
 		{
-			Add(new InitializeResourcesSystem(contexts));
-			Add(new PostInitializeCraneResourceSystem(contexts));
-			Add(new ConsumeUsedResourcesSystem(contexts));
-			Add(new PermanentProduceResourceSystem(contexts));
-			Add(new UseCraneSystem(contexts));
-			Add(new OnResourceButtonClickSystem(contexts));
+			Add<InitializeResourcesSystem>();
+			Add<PostInitializeCraneResourceSystem>();
+			Add<ConsumeUsedResourcesSystem>();
+			Add<PermanentProduceResourceSystem>();
+			Add<UseCraneSystem>();
+			Add<OnResourceButtonClickSystem>();
 		}
 	}
 }
