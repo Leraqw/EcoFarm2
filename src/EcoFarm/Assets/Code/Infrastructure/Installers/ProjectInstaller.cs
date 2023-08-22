@@ -5,8 +5,6 @@ namespace EcoFarm
 {
 	public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 	{
-		[SerializeField] private GlobalEntitasAdapter _globalEntitasAdapter;
-
 		public override void InstallBindings()
 		{
 			BindAdapter();
@@ -14,23 +12,34 @@ namespace EcoFarm
 
 			Container.Bind<GlobalSystems>().AsSingle();
 			Container.Bind<SystemsFactory>().AsSingle();
+
+			BindServices();
 		}
+
+		private void BindAdapter()
+			=> Container.Bind<GlobalEntitasAdapter>()
+			            .FromNewComponentOnNewGameObject()
+			            .AsSingle()
+			            .NonLazy();
 
 		private void BindContexts()
 		{
 			var contexts = Contexts.sharedInstance;
 
-			Container.Bind<Contexts>().FromInstance(contexts).AsSingle();
-			Container.Bind<GameContext>().FromInstance(contexts.game).AsSingle();
-			Container.Bind<InputContext>().FromInstance(contexts.input).AsSingle();
-			Container.Bind<ServicesContext>().FromInstance(contexts.services).AsSingle();
-			Container.Bind<PlayerContext>().FromInstance(contexts.player).AsSingle();
+			Container.BindInstance(contexts).AsSingle();
+			Container.BindInstance(contexts.game).AsSingle();
+			Container.BindInstance(contexts.input).AsSingle();
+			Container.BindInstance(contexts.services).AsSingle();
+			Container.BindInstance(contexts.player).AsSingle();
 		}
 
-		private void BindAdapter()
-			=> Container.Bind<GlobalEntitasAdapter>()
-			            .FromNewComponentOnNewPrefab(_globalEntitasAdapter)
-			            .AsSingle()
-			            .NonLazy();
+		private void BindServices()
+		{
+			Container.BindInstance<IDataProviderService>(new SerializableObjectDataProvider()).AsSingle();
+			Container.BindInstance<IResourcesService>(new UnityResourceService()).AsSingle();
+			Container.BindInstance<ICameraService>(new UnityCameraService()).AsSingle();
+			Container.BindInstance<IInputService>(new UnityInputService()).AsSingle();
+			Container.BindInstance<ISceneTransferService>(new UnitySceneTransferService()).AsSingle();
+		}
 	}
 }
