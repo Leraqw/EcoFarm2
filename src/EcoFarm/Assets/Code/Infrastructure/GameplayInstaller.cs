@@ -11,7 +11,10 @@ namespace EcoFarm
 		{
 			BindAdapter();
 
-			Container.Bind<UnityDependencies>().FromInstance(_unityDependencies).AsSingle();
+			Container.Rebind<SystemsFactory>().AsSingle();
+			Container.BindInstance(_unityDependencies).AsSingle();
+			Container.BindInstance(_unityDependencies.EntityBehaviours).AsSingle();
+
 			Container.Bind<GameContextSystems>().AsSingle();
 		}
 
