@@ -1,23 +1,36 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class GameplayServicesRegistrationSystem : IInitializeSystem
 	{
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly IConfigurationService _configurationService;
+		private readonly IUiService _uiService;
 		private readonly ServicesContext _context;
-		private readonly UnityDependencies _dependencies;
 
-		public GameplayServicesRegistrationSystem(Contexts contexts, UnityDependencies dependencies)
+		[Inject]
+		public GameplayServicesRegistrationSystem
+		(
+			ServicesContext context,
+			ISpawnPointsService spawnPointsService,
+			IConfigurationService configurationService,
+			IUiService uiService
+		)
 		{
-			_dependencies = dependencies;
-			_context = contexts.services;
+			_context = context;
+
+			_spawnPointsService = spawnPointsService;
+			_configurationService = configurationService;
+			_uiService = uiService;
 		}
 
 		public void Initialize()
 		{
-			_context.ReplaceSceneObjectsService(_dependencies.SpawnPoints);
-			_context.ReplaceConfigurationService(_dependencies.UnityConfiguration);
-			_context.ReplaceUiService(_dependencies.UiService);
+			_context.ReplaceSceneObjectsService(_spawnPointsService);
+			_context.ReplaceConfigurationService(_configurationService);
+			_context.ReplaceUiService(_uiService);
 		}
 	}
 }

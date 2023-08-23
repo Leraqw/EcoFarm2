@@ -5,17 +5,18 @@ namespace EcoFarm
 {
 	public class GameplayInstaller : MonoInstaller<GameplayInstaller>
 	{
-		[SerializeField] private UnityDependencies _unityDependencies;
+		[SerializeField] private UnityDependencies _dependencies;
 
 		public override void InstallBindings()
 		{
 			BindAdapter();
 
 			Container.Rebind<SystemsFactory>().AsSingle();
-			Container.BindInstance(_unityDependencies).AsSingle();
-			Container.BindInstance(_unityDependencies.EntityBehaviours).AsSingle();
+			Container.BindInstance(_dependencies.EntityBehaviours).AsSingle();
 
 			Container.Bind<GameContextSystems>().AsSingle();
+
+			BindServices();
 		}
 
 		private void BindAdapter()
@@ -23,5 +24,12 @@ namespace EcoFarm
 			            .FromNewComponentOnNewGameObject()
 			            .AsSingle()
 			            .NonLazy();
+
+		private void BindServices()
+		{
+			Container.BindInstance<ISpawnPointsService>(_dependencies.SpawnPoints).AsSingle();
+			Container.BindInstance<IConfigurationService>(_dependencies.UnityConfiguration).AsSingle();
+			Container.BindInstance<IUiService>(_dependencies.UiService).AsSingle();
+		}
 	}
 }
