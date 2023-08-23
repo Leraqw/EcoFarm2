@@ -12,7 +12,7 @@ namespace EcoFarm
         [SerializeField] private TMP_InputField _inputField;
         private readonly PlayerContext _context = Contexts.sharedInstance.player;
         private static PlayersList PlayersList => ServicesMediator.DataProvider.PlayersList;
-        private static List<Player> Players => ServicesMediator.DataProvider.PlayersList.Players as List<Player>;
+        private static List<Player> Players => ServicesMediator.DataProvider.PlayersList.Players;
 
         protected override void OnButtonClick()
         {

@@ -18,6 +18,7 @@ public sealed class GameEventSystems : Feature {
         Add(new GeneratorEventSystem(contexts)); // priority: 0
         Add(new GoalEventSystem(contexts)); // priority: 0
         Add(new GoalCompletedEventSystem(contexts)); // priority: 0
+        Add(new GreetingNicknameEventSystem(contexts)); // priority: 0
         Add(new InventoryItemEventSystem(contexts)); // priority: 0
         Add(new MaterialEventSystem(contexts)); // priority: 0
         Add(new PlayerToChooseEventSystem(contexts)); // priority: 0

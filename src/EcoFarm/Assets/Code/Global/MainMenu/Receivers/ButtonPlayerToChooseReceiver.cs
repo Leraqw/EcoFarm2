@@ -15,7 +15,6 @@ namespace EcoFarm
             Contexts.sharedInstance.player.GetEntities(AllOf(PlayerMatcher.Player)).First();
         private GameEntity Window => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
 
-
         protected override void OnButtonClick()
         {
             Player.isCurrentPlayer = true;
