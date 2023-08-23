@@ -510,7 +510,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5997163250435477927}
-  - component: {fileID: 736753646}
   m_Layer: 0
   m_Name: CreateNewPlayer
   m_TagString: Untagged
@@ -540,18 +539,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &736753646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5997163250435477926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d574392eea14fad90f6b1045fc7d7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8430413615459446861
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 274897263053987346}
-  _window: {fileID: 736753646}
+  _window: {fileID: 0}
   _targetActivity: 0
 --- !u!224 &274897263053987345 stripped
 RectTransform:
@@ -902,7 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 246814633557854113}
-  _window: {fileID: 736753646}
+  _window: {fileID: 0}
   _targetActivity: 0
 --- !u!1001 &5997163249893453962
 PrefabInstance:

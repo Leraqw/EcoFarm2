@@ -20,6 +20,9 @@
 
             Add(new PreparePlayerChoiceWindowSystem(contexts));
             Add(new ToggleActivityButtonSystem(contexts));
+            
+            Add(new ShowGreetingSystem(contexts));
+          
             Add(new BindViewsSystem(contexts));
 
             Add(new PlayerEventSystems(contexts));
