@@ -11,9 +11,6 @@ namespace EcoFarm
         {
         }
 
-        private static GameEntity Greeting =>
-            Contexts.sharedInstance.game.GetEntities(GameMatcher.GreetingNickname).First();
-
         protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
             => context.CreateCollector(AllOf(CurrentPlayer, Nickname));
 
@@ -23,10 +20,14 @@ namespace EcoFarm
 
         private void ReplaceGreetingNickname(PlayerEntity player)
         {
-            Greeting.ReplaceGreetingNickname("Привет, " + player.nickname.Value);
+            var greeting = Contexts.sharedInstance.game.GetEntities(GameMatcher.GreetingNickname).First();
+
+            greeting.ReplaceGreetingNickname("Привет, " + player.nickname.Value);
+
+            greeting.view.Value.GetComponent<IGreetingNicknameListener>()
+                .OnGreetingNickname(greeting, greeting.greetingNickname.Value);
             
-            Greeting.view.Value.GetComponent<IGreetingNicknameListener>()
-                .OnGreetingNickname(Greeting, Greeting.greetingNickname.Value);
+            greeting.view.Value.SetActive(true);
         }
     }
 }

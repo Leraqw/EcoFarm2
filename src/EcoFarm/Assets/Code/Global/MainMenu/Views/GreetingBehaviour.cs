@@ -1,26 +1,25 @@
-﻿using Entitas;
+﻿using System.Linq;
+using Entitas;
 using TMPro;
 using UnityEngine;
 
 namespace EcoFarm
 {
-    public class InitializeGreeting : MonoBehaviour, IGreetingNicknameListener
+    public class GreetingBehaviour : MonoBehaviour, IGreetingNicknameListener
     {
         [SerializeField] private TextMeshProUGUI _nickname;
-
-        public InitializeGreeting(Contexts _)
-        {
-        }
 
         private void Start()
         {
             var greeting = Contexts.sharedInstance.game.CreateEntity();
-            greeting.AddGreetingNickname("hello player");
-            greeting.AddView(gameObject);
+            greeting.AddGreetingNickname("");
             greeting.AddDebugName("greeting");
+            greeting.AddView(gameObject);
             greeting.AddGreetingNicknameListener(this);
+
+            greeting.view.Value.SetActive(false);
         }
- 
+
         public void OnGreetingNickname(GameEntity entity, string value) =>
             _nickname.text = entity.greetingNickname.Value;
     }

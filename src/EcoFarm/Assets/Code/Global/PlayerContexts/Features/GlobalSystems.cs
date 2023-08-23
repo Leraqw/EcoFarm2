@@ -21,7 +21,6 @@
             Add(new PreparePlayerChoiceWindowSystem(contexts));
             Add(new ToggleActivityButtonSystem(contexts));
             
-           // Add(new InitializeGreeting(contexts));
             Add(new ShowGreetingSystem(contexts));
           
             Add(new BindViewsSystem(contexts));
