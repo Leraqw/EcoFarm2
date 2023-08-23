@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Entitas;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace EcoFarm
