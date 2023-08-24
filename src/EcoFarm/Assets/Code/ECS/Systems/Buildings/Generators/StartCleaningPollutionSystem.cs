@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-
-
-
 using Entitas;
 using static GameMatcher;
 
@@ -9,12 +6,13 @@ namespace EcoFarm
 {
 	public sealed class StartCleaningPollutionSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _generators;
+		private readonly IConfigurationService _configurationService;
 
-		public StartCleaningPollutionSystem(Contexts contexts) : base(contexts.game)
+		public StartCleaningPollutionSystem(Contexts contexts, IConfigurationService configurationService)
+			: base(contexts.game)
 		{
-			_contexts = contexts;
+			_configurationService = configurationService;
 			_generators = contexts.game.GetGroup(CleanerGenerator);
 		}
 
@@ -34,7 +32,7 @@ namespace EcoFarm
 		private void StartCleaning(GameEntity generator, GameEntity pollute)
 		{
 			generator
-				.Do((e) => e.AddDuration(_contexts.GetConfiguration().Balance.Factory.WorkingDuration))
+				.Do((e) => e.AddDuration(_configurationService.Balance.Factory.WorkingDuration))
 				.Do((e) => e.ReplaceEfficiencyCoefficient(pollute.pollutionCoefficient.Value))
 				.Do((e) => e.isWorking = true)
 				;

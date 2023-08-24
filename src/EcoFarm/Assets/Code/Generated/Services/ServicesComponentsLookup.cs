@@ -8,36 +8,15 @@
 //------------------------------------------------------------------------------
 public static class ServicesComponentsLookup {
 
-    public const int CameraService = 0;
-    public const int ConfigurationService = 1;
-    public const int DataProvider = 2;
-    public const int InputService = 3;
-    public const int ResourcesService = 4;
-    public const int SceneObjectsService = 5;
-    public const int SceneTransferService = 6;
-    public const int UiService = 7;
 
-    public const int TotalComponents = 8;
+
+    public const int TotalComponents = 0;
 
     public static readonly string[] componentNames = {
-        "CameraService",
-        "ConfigurationService",
-        "DataProvider",
-        "InputService",
-        "ResourcesService",
-        "SceneObjectsService",
-        "SceneTransferService",
-        "UiService"
+
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(EcoFarm.CameraServiceComponent),
-        typeof(EcoFarm.ConfigurationServiceComponent),
-        typeof(EcoFarm.DataProviderComponent),
-        typeof(EcoFarm.InputServiceComponent),
-        typeof(EcoFarm.ResourcesServiceComponent),
-        typeof(EcoFarm.SceneObjectsServiceComponent),
-        typeof(EcoFarm.SceneTransferServiceComponent),
-        typeof(EcoFarm.UiServiceComponent)
+
     };
 }

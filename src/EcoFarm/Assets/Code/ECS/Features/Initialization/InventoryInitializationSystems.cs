@@ -1,14 +1,14 @@
 ﻿namespace EcoFarm
 {
-	public sealed class InventoryInitializationSystems : Feature
+	public sealed class InventoryInitializationSystems : FeatureBase
 	{
-		public InventoryInitializationSystems(Contexts contexts)
-			: base(nameof(InventoryInitializationSystems))
+		public InventoryInitializationSystems(SystemsFactory factory)
+			: base(nameof(InventoryInitializationSystems), factory)
 		{
-			Add(new CreateInventorySystem(contexts));
-			Add(new CreateInventoryItemsSystem(contexts));
-			Add(new MarkItemAsCoinsSystem(contexts));
-			Add(new InitializeSellDealSystem(contexts));
+			Add<CreateInventorySystem>();
+			Add<CreateInventoryItemsSystem>();
+			Add<MarkItemAsCoinsSystem>();
+			Add<InitializeSellDealSystem>();
 		}
 	}
 }

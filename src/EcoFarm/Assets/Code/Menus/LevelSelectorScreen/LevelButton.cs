@@ -2,7 +2,7 @@
 
 namespace EcoFarm
 {
-	public class LevelButton : UnityEventAdapter
+	public class LevelButton : ButtonToScene
 	{
 		[SerializeField] private int _levelIndex;
 		[SerializeField] private GameObject _completedView;
@@ -18,7 +18,7 @@ namespace EcoFarm
 		protected override void OnButtonClick()
 		{
 			Contexts.player.currentPlayerEntity.ReplaceSelectedLevel(_levelIndex);
-			Contexts.services.sceneTransferService.Value.ToGameplayScene();
+			SceneTransfer.ToGameplayScene();
 		}
 
 		public void SetButtonEnabled(bool value) => Button.interactable = value;

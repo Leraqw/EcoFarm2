@@ -1,8 +1,4 @@
 ﻿using System.Linq;
-
-
-
-
 using Entitas;
 using UnityEngine;
 
@@ -11,17 +7,27 @@ namespace EcoFarm
 	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly IConfigurationService _configurationService;
 
-		public SpawnBedsPlugsSystem(Contexts contexts) => _contexts = contexts;
+		public SpawnBedsPlugsSystem
+		(
+			Contexts contexts,
+			ISpawnPointsService spawnPointsService,
+			IConfigurationService configurationService
+		)
+		{
+			_contexts = contexts;
+			_spawnPointsService = spawnPointsService;
+			_configurationService = configurationService;
+		}
 
-		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
-
-		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
+		private IResourceConfig Resource => _configurationService.Resource;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
-			=> SpawnPointsService
+			=> _spawnPointsService
 			   .Trees
 			   .Skip(_contexts.game.storage.Value.Levels[SelectedLevel].TreesCount)
 			   .ForEach(SpawnPlug);

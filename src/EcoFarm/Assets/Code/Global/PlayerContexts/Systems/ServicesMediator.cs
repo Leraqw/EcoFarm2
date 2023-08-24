@@ -2,14 +2,17 @@ using UnityEngine;
 
 namespace EcoFarm
 {
-	public static class ServicesMediator
+	public class ServicesMediator
 	{
-		private static ServicesContext Context => Contexts.sharedInstance.services;
+		private readonly ICameraService _cameraService;
+		private readonly IInputService _inputService;
 
-		public static IDataProviderService DataProvider  => Context.dataProvider.Value;
-		public static ICameraService       CameraService => Context.cameraService.Value;
-		public static IInputService        InputService  => Context.inputService.Value;
+		public ServicesMediator(ICameraService cameraService, IInputService inputService)
+		{
+			_inputService = inputService;
+			_cameraService = cameraService;
+		}
 
-		public static Vector2 MouseWorldPosition => CameraService.ScreenToWorldPoint(InputService.MousePosition);
+		public Vector2 MouseWorldPosition => _cameraService.ScreenToWorldPoint(_inputService.MousePosition);
 	}
 }

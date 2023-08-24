@@ -10,14 +10,18 @@ namespace EcoFarm
 	public sealed class PrepareBuildWindowSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
+		private readonly IUiService _uiService;
 
-		public PrepareBuildWindowSystem(Contexts contexts)
+		public PrepareBuildWindowSystem(Contexts contexts, IUiService uiService)
 			: base(contexts.game)
-			=> _contexts = contexts;
+		{
+			_contexts = contexts;
+			_uiService = uiService;
+		}
 
 		private IEnumerable<Building> Buildings => _contexts.game.storage.Value.Buildings;
 
-		private BuildView BuildViewPrefab => _contexts.services.uiService.Value.BuildView;
+		private BuildView BuildViewPrefab => _uiService.BuildView;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PreparationInProcess, BuildWindow));

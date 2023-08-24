@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-
-
 using Entitas;
 using static GameMatcher;
 
@@ -8,13 +6,15 @@ namespace EcoFarm
 {
 	public sealed class ClickAtSignSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly IUiService _uiService;
 
-		public ClickAtSignSystem(Contexts contexts)
+		public ClickAtSignSystem(Contexts contexts, IUiService uiService)
 			: base(contexts.game)
-			=> _contexts = contexts;
+		{
+			_uiService = uiService;
+		}
 
-		private IWindowsCollection Windows => _contexts.services.uiService.Value.Windows;
+		private IWindowsCollection Windows => _uiService.Windows;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(MouseDown, Sign));

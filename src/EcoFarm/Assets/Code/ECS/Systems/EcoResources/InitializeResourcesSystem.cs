@@ -5,12 +5,24 @@ namespace EcoFarm
 	public sealed class InitializeResourcesSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly IUiService _uiService;
+		private readonly IConfigurationService _configurationService;
 
-		public InitializeResourcesSystem(Contexts contexts) => _contexts = contexts;
+		public InitializeResourcesSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			IConfigurationService configurationService
+		)
+		{
+			_contexts = contexts;
+			_uiService = uiService;
+			_configurationService = configurationService;
+		}
 
-		private WindowResources WindowsResources => _contexts.services.uiService.Value.Windows.Resources;
+		private WindowResources WindowsResources => _uiService.Windows.Resources;
 
-		private IBalanceConfig Balance => _contexts.services.configurationService.Value.Balance;
+		private IBalanceConfig Balance => _configurationService.Balance;
 
 		public void Initialize() => _contexts.game.storage.Value.Resources.ForEach(Create);
 

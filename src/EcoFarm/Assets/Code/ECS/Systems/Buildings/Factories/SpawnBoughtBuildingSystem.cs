@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
+using Zenject;
 using static EcoFarm.Constants;
 using static GameMatcher;
 using static EcoFarm.Constants.SpriteHigh;
@@ -12,20 +13,31 @@ namespace EcoFarm
 	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 		private readonly IGroup<GameEntity> _signs;
+		private readonly IUiService _uiService;
 
-		public SpawnBoughtBuildingSystem(Contexts contexts)
+		[Inject]
+		public SpawnBoughtBuildingSystem
+		(
+			Contexts contexts,
+			IConfigurationService configurationService,
+			IUiService uiService
+		)
 			: base(contexts.game)
 		{
 			_contexts = contexts;
+			_configurationService = configurationService;
+			_uiService = uiService;
+
 			_signs = contexts.game.GetGroup(Sign);
 		}
 
-		private IResourceConfig Resource => _contexts.services.configurationService.Value.Resource;
+		private IResourceConfig Resource => _configurationService.Resource;
 
 		private static IMatcher<GameEntity> Building => GameMatcher.Building;
 
-		private WindowScroll Window => _contexts.services.uiService.Value.Windows.Build;
+		private WindowScroll Window => _uiService.Windows.Build;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(UiElement, Bought, Building));
@@ -42,7 +54,7 @@ namespace EcoFarm
 				;
 		}
 
-		private void Spawn(GameEntity button) 
+		private void Spawn(GameEntity button)
 			=> _signs.ForEach((s) => Replace(s, button), @if: (s) => Fits(s, button));
 
 		private bool Fits(GameEntity sign, GameEntity button)
@@ -82,7 +94,7 @@ namespace EcoFarm
 		private void InitializeAsWaterCleaner(GameEntity e)
 		{
 			e.isCleanerGenerator = true;
-			e.AddSprite(_contexts.GetConfiguration().Resource.Sprite.WaterCleaner.Clean);
+			e.AddSprite(_configurationService.Resource.Sprite.WaterCleaner.Clean);
 			e.AddSpriteHigh(Normal);
 		}
 

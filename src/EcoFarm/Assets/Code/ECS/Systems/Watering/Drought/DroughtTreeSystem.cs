@@ -1,25 +1,24 @@
 ﻿using System.Collections.Generic;
-
-
-
 using Entitas;
+using Zenject;
 using static GameMatcher;
 
 namespace EcoFarm
 {
 	public sealed class DroughtTreeSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _trees;
+		private readonly IConfigurationService _configurationService;
 
-		public DroughtTreeSystem(Contexts contexts)
-			: base(contexts.game)
+		[Inject]
+		public DroughtTreeSystem(GameContext context, IConfigurationService configurationService)
+			: base(context)
 		{
-			_contexts = contexts;
-			_trees = contexts.game.GetGroup(AllOf(GameMatcher.Tree, GameMatcher.Watering));
+			_trees = context.GetGroup(AllOf(GameMatcher.Tree, Watering));
+			_configurationService = configurationService;
 		}
 
-		private IWateringConfig Configuration => _contexts.GetConfiguration().Balance.Watering;
+		private IWateringConfig Configuration => _configurationService.Balance.Watering;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(DroughtTimer, DurationUp));

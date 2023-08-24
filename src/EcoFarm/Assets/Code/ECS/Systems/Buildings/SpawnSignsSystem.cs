@@ -6,14 +6,24 @@ namespace EcoFarm
 	public sealed class SpawnSignsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
+		private readonly ISpawnPointsService _spawnPointsService;
 
-		public SpawnSignsSystem(Contexts contexts) => _contexts = contexts;
+		public SpawnSignsSystem
+		(
+			Contexts contexts,
+			IConfigurationService configurationService,
+			ISpawnPointsService spawnPointsService
+		)
+		{
+			_contexts = contexts;
+			_configurationService = configurationService;
+			_spawnPointsService = spawnPointsService;
+		}
 
-		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
+		private IResourceConfig Resource => _configurationService.Resource;
 
-		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
-
-		public void Initialize() => SpawnPointsService.Buildings.ForEach(Spawn);
+		public void Initialize() => _spawnPointsService.Buildings.ForEach(Spawn);
 
 		private void Spawn(Vector2 position)
 			=> _contexts.game.CreateEntity()

@@ -6,44 +6,51 @@ using static GameMatcher;
 
 namespace EcoFarm
 {
-    public sealed class ProduceProductSystem : ReactiveSystem<GameEntity>
-    {
-        private readonly Contexts _contexts;
-        public ProduceProductSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+	public sealed class ProduceProductSystem : ReactiveSystem<GameEntity>
+	{
+		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 
-        private IPrefabConfig Prefab => _contexts.GetConfiguration().Resource.Prefab;
+		public ProduceProductSystem(Contexts contexts, IConfigurationService configurationService)
+			: base(contexts.game)
+		{
+			_configurationService = configurationService;
+			_contexts = contexts;
+		}
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-            => context.CreateCollector(AllOf(GameMatcher.Factory, Working, DurationUp).NoneOf(Duration));
+		private IPrefabConfig Prefab => _configurationService.Resource.Prefab;
 
-        protected override bool Filter(GameEntity factory) => factory.hasDuration == false;
+		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+			=> context.CreateCollector(AllOf(GameMatcher.Factory, Working, DurationUp).NoneOf(Duration));
 
-        protected override void Execute(List<GameEntity> entites) => entites.ForEach(Produce);
+		protected override bool Filter(GameEntity factory) => factory.hasDuration == false;
 
-        private void Produce(GameEntity e)
-        {
-            e.isWorking = false;
-            e.isUsed = true;
-            e.isBusy = false;
-            SpawnProduct(e);
-            e.AddPollution(_contexts.game.waterResourceEntity.resource.Value);
-            e.AddPollutionCoefficient(FactoryPollution);
-        }
+		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Produce);
 
-        private void SpawnProduct(GameEntity factory)
-        {
-            var e = _contexts.game.CreateEntity();
-            e.AddDebugName("Product");
-            e.AddProduct(factory.factory.Value.OutputProducts.First());
-            e.AttachTo(factory);
-            e.AddViewPrefab(Prefab.AppleJuice);
-            e.isPickable = true;
-            e.isInFactory = true;
+		private void Produce(GameEntity e)
+		{
+			e.isWorking = false;
+			e.isUsed = true;
+			e.isBusy = false;
+			SpawnProduct(e);
+			e.AddPollution(_contexts.game.waterResourceEntity.resource.Value);
+			e.AddPollutionCoefficient(FactoryPollution);
+		}
 
-            var notPickedProductsNumber = factory.GetAttachedEntities().Count();
-            var offset = ProductFabricOffset + ProductsOffset * notPickedProductsNumber;
+		private void SpawnProduct(GameEntity factory)
+		{
+			var e = _contexts.game.CreateEntity();
+			e.AddDebugName("Product");
+			e.AddProduct(factory.factory.Value.OutputProducts.First());
+			e.AttachTo(factory);
+			e.AddViewPrefab(Prefab.AppleJuice);
+			e.isPickable = true;
+			e.isInFactory = true;
 
-            e.AddPosition(factory.GetActualPosition() + offset);
-        }
-    }
+			var notPickedProductsNumber = factory.GetAttachedEntities().Count();
+			var offset = ProductFabricOffset + ProductsOffset * notPickedProductsNumber;
+
+			e.AddPosition(factory.GetActualPosition() + offset);
+		}
+	}
 }

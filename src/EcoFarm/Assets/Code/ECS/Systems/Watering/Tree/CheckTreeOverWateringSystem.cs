@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-
 using Entitas;
-
-
 using UnityEngine;
 using static GameMatcher;
 
@@ -10,15 +7,15 @@ namespace EcoFarm
 {
 	public sealed class CheckTreeOverWateringSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 
-		public CheckTreeOverWateringSystem(Contexts contexts)
-			: base(contexts.game)
-			=> _contexts = contexts;
+		public CheckTreeOverWateringSystem(GameContext context, IConfigurationService configurationService)
+			: base(context)
+			=> _configurationService = configurationService;
 
-		private int MaxWatering => _contexts.GetConfiguration().Balance.Tree.MaxWatering;
+		private int MaxWatering => _configurationService.Balance.Tree.MaxWatering;
 
-		private Sprite TreeRottenSprite => _contexts.GetConfiguration().Resource.Sprite.Tree.Rotten;
+		private Sprite TreeRottenSprite => _configurationService.Resource.Sprite.Tree.Rotten;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(Watered);
@@ -29,7 +26,6 @@ namespace EcoFarm
 
 		private bool IsOverWatered(GameEntity entity) => entity.watering.Value > MaxWatering;
 
-		private void MarkAsRotten(GameEntity entity)
-			=> entity.TreeIsDead(TreeRottenSprite);
+		private void MarkAsRotten(GameEntity entity) => entity.TreeIsDead(TreeRottenSprite);
 	}
 }

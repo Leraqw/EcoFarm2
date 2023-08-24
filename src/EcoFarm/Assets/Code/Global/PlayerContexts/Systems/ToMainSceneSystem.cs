@@ -1,13 +1,16 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class ToMainSceneSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
+		private readonly ISceneTransferService _sceneTransferService;
 
-		public ToMainSceneSystem(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public ToMainSceneSystem(ISceneTransferService sceneTransferService)
+			=> _sceneTransferService = sceneTransferService;
 
-		public void Initialize() => _contexts.services.sceneTransferService.Value.ToMainMenuScene();
+		public void Initialize() => _sceneTransferService.ToMainMenuScene();
 	}
 }

@@ -34,11 +34,11 @@ namespace EcoFarm
 
 		public void Initialize()
 		{
-			_context.ReplaceDataProvider(_dataProviderService);
-			_context.ReplaceResourcesService(_resourcesService);
-			_context.ReplaceCameraService(_cameraService);
-			_context.ReplaceInputService(_inputService);
-			_context.ReplaceSceneTransferService(_sceneTransferService);
+			// _context.ReplaceDataProvider(_dataProviderService);
+			// _context.ReplaceResourcesService(_resourcesService);
+			// _context.ReplaceCameraService(_cameraService);
+			// _context.ReplaceInputService(_inputService);
+			// _context.ReplaceSceneTransferService(_sceneTransferService);
 		}
 	}
 }

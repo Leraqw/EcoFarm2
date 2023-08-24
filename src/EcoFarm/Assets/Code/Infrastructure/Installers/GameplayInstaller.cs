@@ -17,6 +17,8 @@ namespace EcoFarm
 			Container.Bind<GameContextSystems>().AsSingle();
 
 			BindServices();
+
+			Container.Bind<ServicesSingleton>().AsSingle().NonLazy();
 		}
 
 		private void BindAdapter()

@@ -1,26 +1,22 @@
-﻿
-
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class UiSystems : Feature
+	public sealed class UiSystems : FeatureBase
 	{
-		public UiSystems(Contexts contexts)
-			: base(nameof(UiSystems))
+		public UiSystems(SystemsFactory factory)
+			: base(nameof(UiSystems), factory)
 		{
-			Add(new InitializeSellWindowSystem(contexts));
-			Add(new InitializeBuildWindowSystem(contexts));
-			Add(new InitializePauseWindowSystem(contexts));
-			Add(new InitializeCountToSellSliderSystem(contexts));
-			Add(new InitializeCurrentCountTextSystem(contexts));
-			Add(new InitializeCoinsReceiveCountTextSystem(contexts));
-			
-			Add(new OnToggleActivityButtonClickSystem(contexts));
-			Add(new OnSliderValueChangedSystem(contexts));
-			Add(new PrepareSellWindowSystem(contexts));
-			Add(new PrepareBuildWindowSystem(contexts));
-			Add(new EnablePreparedWindow(contexts));
+			Add<InitializeSellWindowSystem>();
+			Add<InitializeBuildWindowSystem>();
+			Add<InitializePauseWindowSystem>();
+			Add<InitializeCountToSellSliderSystem>();
+			Add<InitializeCurrentCountTextSystem>();
+			Add<InitializeCoinsReceiveCountTextSystem>();
+
+			Add<OnToggleActivityButtonClickSystem>();
+			Add<OnSliderValueChangedSystem>();
+			Add<PrepareSellWindowSystem>();
+			Add<PrepareBuildWindowSystem>();
+			Add<EnablePreparedWindow>();
 		}
 	}
 }

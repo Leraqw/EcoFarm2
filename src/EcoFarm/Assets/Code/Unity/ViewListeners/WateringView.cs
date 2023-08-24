@@ -1,7 +1,6 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using static Contexts;
 
 namespace EcoFarm
@@ -9,9 +8,16 @@ namespace EcoFarm
 	public class WateringView : BaseViewListener, IWateringListener
 	{
 		[SerializeField] private Slider _slider;
+		private IConfigurationService _configurationService;
 
-		private static ITreeConfig ConfigurationTree => sharedInstance.GetConfiguration().Balance.Tree;
-		
+		private ITreeConfig ConfigurationTree => _configurationService.Balance.Tree;
+
+		[Inject]
+		public void Construct(IConfigurationService configurationService)
+		{
+			_configurationService = configurationService;
+		}
+
 		protected override void AddListener(GameEntity entity) => entity.AddWateringListener(this);
 
 		protected override bool HasComponent(GameEntity entity) => entity.hasWatering;

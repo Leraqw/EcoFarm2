@@ -1,20 +1,17 @@
 ﻿using System.Collections.Generic;
-
-
-
 using Entitas;
 
 namespace EcoFarm
 {
 	public sealed class OnTreeWateredSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 
-		public OnTreeWateredSystem(Contexts contexts)
+		public OnTreeWateredSystem(Contexts contexts, IConfigurationService configurationService)
 			: base(contexts.game)
-			=> _contexts = contexts;
+			=> _configurationService = configurationService;
 
-		private IWateringConfig Configuration => _contexts.GetConfiguration().Balance.Watering;
+		private IWateringConfig Configuration => _configurationService.Balance.Watering;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Watered);

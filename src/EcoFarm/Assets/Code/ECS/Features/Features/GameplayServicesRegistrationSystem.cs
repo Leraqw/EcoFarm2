@@ -28,9 +28,9 @@ namespace EcoFarm
 
 		public void Initialize()
 		{
-			_context.ReplaceSceneObjectsService(_spawnPointsService);
-			_context.ReplaceConfigurationService(_configurationService);
-			_context.ReplaceUiService(_uiService);
+			// _context.ReplaceSceneObjectsService(_spawnPointsService);
+			// _context.ReplaceConfigurationService(_configurationService);
+			// _context.ReplaceUiService(_uiService);
 		}
 	}
 }

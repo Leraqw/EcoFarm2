@@ -13,15 +13,17 @@ namespace EcoFarm
 		private readonly GameContext _context;
 		private readonly IGroup<GameEntity> _entities;
 		private readonly Contexts _contexts;
+		private IConfigurationService _configurationService;
 
-		public SpawnFruitSystem(Contexts contexts)
+		public SpawnFruitSystem(Contexts contexts, IConfigurationService configurationService)
 		{
+			_configurationService = configurationService;
 			_contexts = contexts;
 			_context = contexts.game;
 			_entities = _context.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
 		}
 
-		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
+		private IFruitConfig FruitConfig => _configurationService.Balance.Fruit;
 
 		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
 
