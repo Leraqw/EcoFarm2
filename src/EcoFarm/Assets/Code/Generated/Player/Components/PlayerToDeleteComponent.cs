@@ -6,20 +6,20 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class PlayerEntity {
 
-    static readonly EcoFarm.CreateNewPlayerWindowComponent createNewPlayerWindowComponent = new EcoFarm.CreateNewPlayerWindowComponent();
+    static readonly EcoFarm.ToDeleteComponent toDeleteComponent = new EcoFarm.ToDeleteComponent();
 
-    public bool isCreateNewPlayerWindow {
-        get { return HasComponent(GameComponentsLookup.CreateNewPlayerWindow); }
+    public bool isToDelete {
+        get { return HasComponent(PlayerComponentsLookup.ToDelete); }
         set {
-            if (value != isCreateNewPlayerWindow) {
-                var index = GameComponentsLookup.CreateNewPlayerWindow;
+            if (value != isToDelete) {
+                var index = PlayerComponentsLookup.ToDelete;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : createNewPlayerWindowComponent;
+                            : toDeleteComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -38,19 +38,19 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class PlayerMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCreateNewPlayerWindow;
+    static Entitas.IMatcher<PlayerEntity> _matcherToDelete;
 
-    public static Entitas.IMatcher<GameEntity> CreateNewPlayerWindow {
+    public static Entitas.IMatcher<PlayerEntity> ToDelete {
         get {
-            if (_matcherCreateNewPlayerWindow == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CreateNewPlayerWindow);
-                matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCreateNewPlayerWindow = matcher;
+            if (_matcherToDelete == null) {
+                var matcher = (Entitas.Matcher<PlayerEntity>)Entitas.Matcher<PlayerEntity>.AllOf(PlayerComponentsLookup.ToDelete);
+                matcher.componentNames = PlayerComponentsLookup.componentNames;
+                _matcherToDelete = matcher;
             }
 
-            return _matcherCreateNewPlayerWindow;
+            return _matcherToDelete;
         }
     }
 }

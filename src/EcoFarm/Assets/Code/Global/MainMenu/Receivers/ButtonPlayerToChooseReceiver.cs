@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using Entitas;
-using Entitas.Unity;
 using UnityEngine;
-using UnityEngine.Serialization;
 using static PlayerMatcher;
 
 namespace EcoFarm

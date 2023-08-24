@@ -9,6 +9,7 @@
 public sealed class PlayerEventSystems : Feature {
 
     public PlayerEventSystems(Contexts contexts) {
+        Add(new EditModeEventSystem(contexts)); // priority: 0
         Add(new InteractableEventSystem(contexts)); // priority: 0
         Add(new PlayerTextEventSystem(contexts)); // priority: 0
         Add(new UnlockedLevelsCountEventSystem(contexts)); // priority: 0

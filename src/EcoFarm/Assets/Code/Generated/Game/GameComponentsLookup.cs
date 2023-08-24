@@ -32,37 +32,37 @@ public static class GameComponentsLookup {
     public const int ConsumptionCoefficient = 21;
     public const int Count = 22;
     public const int Crane = 23;
-    public const int CreateNewPlayerWindow = 24;
-    public const int CurrentQuantity = 25;
-    public const int DebugName = 26;
-    public const int Destroy = 27;
-    public const int DevelopmentObject = 28;
-    public const int Draggable = 29;
-    public const int Dragging = 30;
-    public const int DraggingEnd = 31;
-    public const int DraggingStart = 32;
-    public const int DroughtTimer = 33;
-    public const int Duration = 34;
-    public const int DurationUp = 35;
-    public const int EfficiencyCoefficient = 36;
-    public const int EnergyResource = 37;
-    public const int Factory = 38;
-    public const int Fell = 39;
-    public const int Filled = 40;
-    public const int Fruitful = 41;
-    public const int FruitRequire = 42;
-    public const int Generator = 43;
-    public const int GoalCompleted = 44;
-    public const int Goal = 45;
-    public const int GreetingNickname = 46;
-    public const int Growth = 47;
-    public const int InFactory = 48;
-    public const int InputProducts = 49;
-    public const int Inventory = 50;
-    public const int InventoryItem = 51;
-    public const int IsInRadius = 52;
-    public const int LevelTimer = 53;
-    public const int Material = 54;
+    public const int CurrentQuantity = 24;
+    public const int DebugName = 25;
+    public const int Destroy = 26;
+    public const int DevelopmentObject = 27;
+    public const int Draggable = 28;
+    public const int Dragging = 29;
+    public const int DraggingEnd = 30;
+    public const int DraggingStart = 31;
+    public const int DroughtTimer = 32;
+    public const int Duration = 33;
+    public const int DurationUp = 34;
+    public const int EfficiencyCoefficient = 35;
+    public const int EnergyResource = 36;
+    public const int Factory = 37;
+    public const int Fell = 38;
+    public const int Filled = 39;
+    public const int Fruitful = 40;
+    public const int FruitRequire = 41;
+    public const int Generator = 42;
+    public const int GoalCompleted = 43;
+    public const int Goal = 44;
+    public const int GreetingNickname = 45;
+    public const int Growth = 46;
+    public const int InFactory = 47;
+    public const int InputProducts = 48;
+    public const int Inventory = 49;
+    public const int InventoryItem = 50;
+    public const int IsInRadius = 51;
+    public const int LevelTimer = 52;
+    public const int Material = 53;
+    public const int ModeButtons = 54;
     public const int MouseClick = 55;
     public const int MouseDown = 56;
     public const int MouseUp = 57;
@@ -131,18 +131,19 @@ public static class GameComponentsLookup {
     public const int GreetingNicknameListener = 120;
     public const int InventoryItemListener = 121;
     public const int MaterialListener = 122;
-    public const int PlayerToChooseListener = 123;
-    public const int PositionListener = 124;
-    public const int ProgressBarListener = 125;
-    public const int ProportionalScaleListener = 126;
-    public const int RotationListener = 127;
-    public const int SliderMaxValueListener = 128;
-    public const int SliderValueListener = 129;
-    public const int SpriteHighListener = 130;
-    public const int SpriteListener = 131;
-    public const int WateringListener = 132;
+    public const int ModeButtonsListener = 123;
+    public const int PlayerToChooseListener = 124;
+    public const int PositionListener = 125;
+    public const int ProgressBarListener = 126;
+    public const int ProportionalScaleListener = 127;
+    public const int RotationListener = 128;
+    public const int SliderMaxValueListener = 129;
+    public const int SliderValueListener = 130;
+    public const int SpriteHighListener = 131;
+    public const int SpriteListener = 132;
+    public const int WateringListener = 133;
 
-    public const int TotalComponents = 133;
+    public const int TotalComponents = 134;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -169,7 +170,6 @@ public static class GameComponentsLookup {
         "ConsumptionCoefficient",
         "Count",
         "Crane",
-        "CreateNewPlayerWindow",
         "CurrentQuantity",
         "DebugName",
         "Destroy",
@@ -200,6 +200,7 @@ public static class GameComponentsLookup {
         "IsInRadius",
         "LevelTimer",
         "Material",
+        "ModeButtons",
         "MouseClick",
         "MouseDown",
         "MouseUp",
@@ -268,6 +269,7 @@ public static class GameComponentsLookup {
         "GreetingNicknameListener",
         "InventoryItemListener",
         "MaterialListener",
+        "ModeButtonsListener",
         "PlayerToChooseListener",
         "PositionListener",
         "ProgressBarListener",
@@ -305,7 +307,6 @@ public static class GameComponentsLookup {
         typeof(EcoFarm.ConsumptionCoefficientComponent),
         typeof(EcoFarm.CountComponent),
         typeof(EcoFarm.CraneComponent),
-        typeof(EcoFarm.CreateNewPlayerWindowComponent),
         typeof(EcoFarm.CurrentQuantityComponent),
         typeof(EcoFarm.DebugNameComponent),
         typeof(EcoFarm.DestroyComponent),
@@ -336,6 +337,7 @@ public static class GameComponentsLookup {
         typeof(EcoFarm.IsInRadiusComponent),
         typeof(EcoFarm.LevelTimerComponent),
         typeof(EcoFarm.MaterialComponent),
+        typeof(EcoFarm.ModeButtonsComponent),
         typeof(EcoFarm.MouseClickComponent),
         typeof(EcoFarm.MouseDownComponent),
         typeof(EcoFarm.MouseUpComponent),
@@ -404,6 +406,7 @@ public static class GameComponentsLookup {
         typeof(GreetingNicknameListenerComponent),
         typeof(InventoryItemListenerComponent),
         typeof(MaterialListenerComponent),
+        typeof(ModeButtonsListenerComponent),
         typeof(PlayerToChooseListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ProgressBarListenerComponent),

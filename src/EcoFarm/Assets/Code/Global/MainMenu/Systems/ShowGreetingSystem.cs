@@ -18,15 +18,12 @@ namespace EcoFarm
 
         protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(ReplaceGreetingNickname);
 
-        private void ReplaceGreetingNickname(PlayerEntity player)
+        private static void ReplaceGreetingNickname(PlayerEntity player)
         {
             var greeting = Contexts.sharedInstance.game.GetEntities(GameMatcher.GreetingNickname).First();
 
             greeting.ReplaceGreetingNickname("Привет, " + player.nickname.Value);
 
-            greeting.view.Value.GetComponent<IGreetingNicknameListener>()
-                .OnGreetingNickname(greeting, greeting.greetingNickname.Value);
-            
             greeting.view.Value.SetActive(true);
         }
     }

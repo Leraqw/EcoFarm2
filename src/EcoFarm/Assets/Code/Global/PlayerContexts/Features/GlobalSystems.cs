@@ -22,10 +22,15 @@
             Add(new ToggleActivityButtonSystem(contexts));
             
             Add(new ShowGreetingSystem(contexts));
+            
+            Add(new DeletePlayerSystem(contexts));
+            Add(new EditPlayerDataSystem(contexts));
+            Add(new ChangeModeSystem(contexts));
           
             Add(new BindViewsSystem(contexts));
 
             Add(new PlayerEventSystems(contexts));
+            Add(new GameEventSystems(contexts));
             Add(new PlayerCleanupSystems(contexts));
             Add(new DestroyDestroyGameSystem(contexts));
         }

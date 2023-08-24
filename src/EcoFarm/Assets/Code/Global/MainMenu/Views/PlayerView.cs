@@ -8,6 +8,7 @@ namespace EcoFarm
         [SerializeField] private TextMeshProUGUI _level;
         [SerializeField] private TextMeshProUGUI _nickname;
         [field: SerializeField] public Player Player { get; private set; }
+        [field: SerializeField] public ModeButtons ModeButtons { get; private set; }
 
         protected override void AddListener(GameEntity entity) => entity.AddPlayerToChooseListener(this);
 

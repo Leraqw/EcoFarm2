@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace EcoFarm
 {
 	public interface IDataProviderService

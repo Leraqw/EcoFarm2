@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Entitas;
-using Entitas.Unity;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static GameMatcher;
@@ -48,9 +46,15 @@ namespace EcoFarm
 
             var viewPrefab = Object.Instantiate(prefab.gameObject, window.playerWindowContent.Value);
             e.AddViewPrefab(viewPrefab);
+            
+            EnabledReceivers enabled;
+            var color = new ModeButtonColorBlocks();
+
+            enabled.PlayerToChoose = true;
+            enabled.PlayerToEdit = false;
+            e.ReplaceModeButtons(enabled, color.ModeButtonColorBlock);
         }
 
-        private static void EndPreparations(GameEntity window)
-            => window.Do((e) => e.isPrepared = true);
+        private static void EndPreparations(GameEntity window) => window.Do((e) => e.isPrepared = true);
     }
 }
