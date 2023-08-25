@@ -2,6 +2,7 @@
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
+using static EcoFarm.PlayerExtensions;
 using static PlayerMatcher;
 
 namespace EcoFarm
@@ -22,11 +23,13 @@ namespace EcoFarm
 
         protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Delete);
 
-        private void Delete(PlayerEntity player)
+        private static void Delete(PlayerEntity entity)
         {
-            var playerView = player.playerToEdit.Value;
-            Debug.Log($"{playerView.Player.Nickname} delete him");
-            Players.Remove(playerView.Player);
+            var playerView = entity.playerToEdit.Value;
+
+            var index = FindPlayerIndex(playerView.Player);
+            if (index != -1) Players.Remove(Players[index]);
+            Debug.Log($"{Players[index].Nickname} delete him");
             PlayersList.SaveChanges();
             playerView.gameObject.DestroyGameObject();
         }

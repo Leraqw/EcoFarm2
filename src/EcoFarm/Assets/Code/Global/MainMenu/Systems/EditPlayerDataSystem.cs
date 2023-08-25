@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
+using static EcoFarm.PlayerExtensions;
 using static PlayerMatcher;
 
 namespace EcoFarm
@@ -21,15 +21,13 @@ namespace EcoFarm
 
         protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Edit);
 
-        private void Edit(PlayerEntity player)
+        private static void Edit(PlayerEntity entity)
         {
-            var playerView = player.playerToEdit.Value;
-            Debug.Log($"{playerView.Player} edit him");
-            
-            var p = Players.Find(p => p.Equals(playerView.Player));
-            Debug.Log($"{p.Nickname}");
-            if (p != null) p = player.editedPlayerData.Value;
- 
+            var player = entity.playerToEdit.Value.Player;
+
+            var index = FindPlayerIndex(player);
+            if (index != -1) Players[index] = entity.editedPlayerData.Value;
+
             PlayersList.SaveChanges();
         }
     }

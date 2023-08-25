@@ -29,9 +29,10 @@ public static class PlayerComponentsLookup {
     public const int EditModeListener = 18;
     public const int InteractableListener = 19;
     public const int PlayerTextListener = 20;
-    public const int UnlockedLevelsCountListener = 21;
+    public const int PlayerToEditListener = 21;
+    public const int UnlockedLevelsCountListener = 22;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -55,6 +56,7 @@ public static class PlayerComponentsLookup {
         "EditModeListener",
         "InteractableListener",
         "PlayerTextListener",
+        "PlayerToEditListener",
         "UnlockedLevelsCountListener"
     };
 
@@ -80,6 +82,7 @@ public static class PlayerComponentsLookup {
         typeof(EditModeListenerComponent),
         typeof(InteractableListenerComponent),
         typeof(PlayerTextListenerComponent),
+        typeof(PlayerToEditListenerComponent),
         typeof(UnlockedLevelsCountListenerComponent)
     };
 }

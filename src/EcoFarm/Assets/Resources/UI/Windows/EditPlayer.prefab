@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_Name
-      value: Button Edit
+      value: Button Save
       objectReference: {fileID: 0}
     - target: {fileID: 2787566652448513151, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       propertyPath: m_text
@@ -703,27 +703,45 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7355155329114348588}
+      addedObject: {fileID: 6460163780433701775}
+    - targetCorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3208551120484681672}
   m_SourcePrefab: {fileID: 100100000, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
 --- !u!1 &2875709724003220880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
   m_PrefabInstance: {fileID: 92323636773341325}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7355155329114348588
+--- !u!114 &6460163780433701775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2875709724003220880}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83181233a654f6e80fdda08f34e791f, type: 3}
+  m_Script: {fileID: 11500000, guid: 83dcb89e57864d86b839d75383b73891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 2875709724003220882}
-  _playerViewPrefab: {fileID: 0}
+  _inputField: {fileID: 1375004052007572762}
+--- !u!114 &3208551120484681672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875709724003220880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6a684ee992460b85294028763c9cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Button>k__BackingField: {fileID: 2875709724003220882}
+  _window: {fileID: 4582828912275703941}
+  _targetActivity: 0
 --- !u!224 &2875709724003220881 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2787566651835839772, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}

@@ -15,7 +15,8 @@ namespace EcoFarm
                 .GetEntities(PlayerMatcher.PlayerToEdit)
                 .First();
             
-            var newPlayerData = new Player(_inputField.text, playerEntity.completedLevelsCount.Value);
+            var player = playerEntity.playerToEdit.Value.Player;
+            var newPlayerData = new Player(_inputField.text, player.CompletedLevelsCount);
             playerEntity.AddEditedPlayerData(newPlayerData);
         }
     }

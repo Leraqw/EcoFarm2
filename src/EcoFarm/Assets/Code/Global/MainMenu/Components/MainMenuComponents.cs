@@ -17,7 +17,7 @@ namespace EcoFarm
 	//[Player] public sealed class ToEditPlayerDataComponent : IComponent { }
 	//[Player] public sealed class ButtonPlayerToEditComponent : IComponent { public BaseButtonClickReceiver Value;}
 	[Player] [Event(Self)] public sealed class EditModeComponent : IComponent { public bool Value; }
-	[Player] public sealed class PlayerToEditComponent : IComponent { public PlayerView Value; }
+	[Player] [Event(Self)] public sealed class PlayerToEditComponent : IComponent { public PlayerView Value; }
 	[Game] [Event(Self)]  public sealed class ModeButtonsComponent : IComponent { 
 		public EnabledReceivers Enabled;
 		public ColorBlock Color;

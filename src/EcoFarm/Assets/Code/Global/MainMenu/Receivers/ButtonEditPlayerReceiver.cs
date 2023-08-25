@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Entitas;
+using UnityEngine;
+using static PlayerMatcher;
 
 namespace EcoFarm
 {
@@ -6,11 +9,10 @@ namespace EcoFarm
     {
         [SerializeField] private PlayerView _playerViewPrefab;
 
-        protected override void OnButtonClick()
-        {
-            Debug.Log($"{_playerViewPrefab.Player.Nickname}");
-            var e = Contexts.sharedInstance.player.CreateEntity();
-            e.AddPlayerToEdit(_playerViewPrefab);
-        }
+        protected override void OnButtonClick() =>
+            Contexts.sharedInstance.player
+                .GetEntities(EditMode)
+                .First()
+                .ReplacePlayerToEdit(_playerViewPrefab);
     }
-} 
+}

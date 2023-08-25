@@ -6,24 +6,23 @@ using static PlayerMatcher;
 
 namespace EcoFarm
 {
-    public class ModeButtonsReceiver : MonoBehaviour, IEditModeListener
+    public class ModeButtonsBehaviour : MonoBehaviour, IEditModeListener
     {
-        [SerializeField] private List<GameObject> _editModeButtons;
-        [SerializeField] private List<GameObject> _chooseModeButtons;
+        [field: SerializeField] public List<GameObject> EditModeButtons { get; private set; }
+        [field: SerializeField] public List<GameObject> ChooseModeButtons { get; private set; }
 
         private void Start()
         {
             var e = Contexts.sharedInstance.player
                 .GetEntities(EditMode)
                 .First();
-
             e.AddEditModeListener(this);
         }
 
         public void OnEditMode(PlayerEntity entity, bool value)
         {
-            _editModeButtons.ForEach(e => e.SetActive(value));
-            _chooseModeButtons.ForEach(e => e.SetActive(!value));
+            EditModeButtons.ForEach(e => e.SetActive(value));
+            ChooseModeButtons.ForEach(e => e.SetActive(!value));
         }
     }
 }
