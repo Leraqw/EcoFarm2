@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Entitas;
 using UnityEngine;
 using static PlayerMatcher;
@@ -9,18 +10,20 @@ namespace EcoFarm
     {
         [SerializeField] private PlayerView _playerViewPrefab;
 
-        private static PlayerEntity Player =>
+        private static PlayerEntity PlayerEntity =>
             Contexts.sharedInstance.player.GetEntities(AllOf(PlayerMatcher.Player)).First();
-        private GameEntity Window => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
-
+        private static GameEntity Window => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
+        private static List<Player> PlayerList => ServicesMediator.DataProvider.PlayersList.Players;
+        
         protected override void OnButtonClick()
         {
-            Player.isCurrentPlayer = true;
-            Player.ReplaceNickname(_playerViewPrefab.Player.Nickname);
-            Player.ReplaceCompletedLevelsCount(_playerViewPrefab.Player.CompletedLevelsCount);
+            var player = _playerViewPrefab.Player;
+            
+            PlayerEntity.ReplaceNickname(player.Nickname);
+            PlayerEntity.ReplaceCompletedLevelsCount(player.CompletedLevelsCount);
+            PlayerList.MovePlayerToTop(player);
             
             Window.isToggled = true;
-            Debug.Log(Player.nickname.Value);
         }
     }
 }

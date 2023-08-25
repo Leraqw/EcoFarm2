@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
-using UnityEngine;
-using static EcoFarm.PlayerExtensions;
 using static PlayerMatcher;
 
 namespace EcoFarm
@@ -14,7 +12,6 @@ namespace EcoFarm
         }
 
         private static PlayersList PlayersList => ServicesMediator.DataProvider.PlayersList;
-        private static List<Player> Players => ServicesMediator.DataProvider.PlayersList.Players;
 
         protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
             => context.CreateCollector(AllOf(PlayerToEdit, ToDelete));
@@ -27,12 +24,10 @@ namespace EcoFarm
         {
             var playerView = entity.playerToEdit.Value;
 
-            var index = FindPlayerIndex(playerView.Player);
-            if (index != -1) Players.Remove(Players[index]);
-            PlayersList.SaveChanges();
+            PlayersList.RemovePlayer(playerView.Player);
+            
             playerView.gameObject.DestroyGameObject();
-
-          entity.isToDelete = false;
+            entity.isToDelete = false;
         }
     }
 }

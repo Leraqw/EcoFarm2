@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   <Players>k__BackingField:
+  - <Nickname>k__BackingField: Karina
+    <CompletedLevelsCount>k__BackingField: 0
+  - <Nickname>k__BackingField: Katya
+    <CompletedLevelsCount>k__BackingField: 0
   - <Nickname>k__BackingField: Lera
     <CompletedLevelsCount>k__BackingField: 0
   - <Nickname>k__BackingField: Kola

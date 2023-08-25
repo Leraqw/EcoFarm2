@@ -18,7 +18,6 @@ namespace EcoFarm
             greeting.view.Value.SetActive(false);
         }
 
-        public void OnGreetingNickname(GameEntity entity, string value) =>
-            _nickname.text = value;
+        public void OnGreetingNickname(GameEntity entity, string value) => _nickname.text = value;
     }
 }

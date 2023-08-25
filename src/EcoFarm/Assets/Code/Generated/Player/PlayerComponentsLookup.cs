@@ -19,21 +19,23 @@ public static class PlayerComponentsLookup {
     public const int Nickname = 8;
     public const int PlayerChoiceButton = 9;
     public const int Player = 10;
-    public const int PlayerToEdit = 11;
-    public const int SelectedLevel = 12;
-    public const int SessionResult = 13;
-    public const int Text = 14;
-    public const int ToChangeData = 15;
-    public const int ToDelete = 16;
-    public const int UnlockedLevelsCount = 17;
-    public const int View = 18;
-    public const int EditModeListener = 19;
-    public const int InteractableListener = 20;
-    public const int PlayerTextListener = 21;
-    public const int PlayerToEditListener = 22;
-    public const int UnlockedLevelsCountListener = 23;
+    public const int PlayerListLengthChanged = 11;
+    public const int PlayerToEdit = 12;
+    public const int SelectedLevel = 13;
+    public const int SessionResult = 14;
+    public const int Text = 15;
+    public const int ToChangeData = 16;
+    public const int ToDelete = 17;
+    public const int UnlockedLevelsCount = 18;
+    public const int View = 19;
+    public const int EditModeListener = 20;
+    public const int InteractableListener = 21;
+    public const int PlayerListLengthChangedListener = 22;
+    public const int PlayerTextListener = 23;
+    public const int PlayerToEditListener = 24;
+    public const int UnlockedLevelsCountListener = 25;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -47,6 +49,7 @@ public static class PlayerComponentsLookup {
         "Nickname",
         "PlayerChoiceButton",
         "Player",
+        "PlayerListLengthChanged",
         "PlayerToEdit",
         "SelectedLevel",
         "SessionResult",
@@ -57,6 +60,7 @@ public static class PlayerComponentsLookup {
         "View",
         "EditModeListener",
         "InteractableListener",
+        "PlayerListLengthChangedListener",
         "PlayerTextListener",
         "PlayerToEditListener",
         "UnlockedLevelsCountListener"
@@ -74,6 +78,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.NicknameComponent),
         typeof(EcoFarm.PlayerChoiceButtonComponent),
         typeof(EcoFarm.PlayerComponent),
+        typeof(EcoFarm.PlayerListLengthChangedComponent),
         typeof(EcoFarm.PlayerToEditComponent),
         typeof(EcoFarm.SelectedLevelComponent),
         typeof(EcoFarm.SessionResultComponent),
@@ -84,6 +89,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.ViewComponent),
         typeof(EditModeListenerComponent),
         typeof(InteractableListenerComponent),
+        typeof(PlayerListLengthChangedListenerComponent),
         typeof(PlayerTextListenerComponent),
         typeof(PlayerToEditListenerComponent),
         typeof(UnlockedLevelsCountListenerComponent)
