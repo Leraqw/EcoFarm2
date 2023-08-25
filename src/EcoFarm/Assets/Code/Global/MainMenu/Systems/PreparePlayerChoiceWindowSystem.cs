@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entitas;
-using Entitas.Unity;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using static GameMatcher;
@@ -29,8 +28,8 @@ namespace EcoFarm
                 .Do(FillPlayerList)
                 .Do(EndPreparations);
 
-        private static void CleanPlayerList(GameEntity window)
-            => window.GetAttachedEntities()
+        private static void CleanPlayerList(GameEntity window) =>
+            window.GetAttachedEntities()
                 .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
                 .Do((entities) => entities.ForEach((e) => e.viewPrefab.Value.DestroyGameObject()));
 
@@ -48,9 +47,20 @@ namespace EcoFarm
 
             var viewPrefab = Object.Instantiate(prefab.gameObject, window.playerWindowContent.Value);
             e.AddViewPrefab(viewPrefab);
+
+            ReplaceModeButtons(e);
         }
 
-        private static void EndPreparations(GameEntity window)
-            => window.Do((e) => e.isPrepared = true);
+        private static void ReplaceModeButtons(GameEntity e)
+        {
+            EnabledReceivers enabled;
+            var color = new ModeButtonColorBlocks();
+
+            enabled.PlayerToChoose = true;
+            enabled.PlayerToEdit = false;
+            e.ReplaceModeButtons(enabled, color.ModeButtonColorBlock);
+        }
+
+        private static void EndPreparations(GameEntity window) => window.Do((e) => e.isPrepared = true);
     }
 }

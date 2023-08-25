@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Entitas;
+﻿using Entitas;
 
 namespace EcoFarm
 {

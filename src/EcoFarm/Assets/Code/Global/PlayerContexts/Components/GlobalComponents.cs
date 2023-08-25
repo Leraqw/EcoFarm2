@@ -4,7 +4,7 @@ using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace EcoFarm
 {
-	[Player] public sealed class NicknameComponent : IComponent { [PrimaryEntityIndex] public string Value;}
+	[Player] public sealed class NicknameComponent : IComponent { public string Value;}
 
 	[Player] [Unique] public sealed class CurrentPlayerComponent : IComponent { }
 
