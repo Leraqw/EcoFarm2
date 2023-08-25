@@ -9,8 +9,8 @@ namespace EcoFarm
         protected override void OnButtonClick()
         {
             Debug.Log($"{_playerViewPrefab.Player.Nickname}");
-            // var e = Contexts.sharedInstance.player.CreateEntity();
-            // e.AddPlayerToEdit(_playerViewPrefab);
+            var e = Contexts.sharedInstance.player.CreateEntity();
+            e.AddPlayerToEdit(_playerViewPrefab);
         }
     }
-}
+} 

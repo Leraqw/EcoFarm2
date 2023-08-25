@@ -11,19 +11,19 @@ public static class PlayerComponentsLookup {
     public const int CompletedLevelsCount = 0;
     public const int CurrentPlayer = 1;
     public const int Destroy = 2;
-    public const int EditMode = 3;
-    public const int ForPlayerButton = 4;
-    public const int Interactable = 5;
-    public const int LevelRelatedEntity = 6;
-    public const int Nickname = 7;
-    public const int PlayerChoiceButton = 8;
-    public const int Player = 9;
-    public const int PlayerToEdit = 10;
-    public const int SelectedLevel = 11;
-    public const int SessionResult = 12;
-    public const int Text = 13;
-    public const int ToDelete = 14;
-    public const int ToEditPlayerData = 15;
+    public const int EditedPlayerData = 3;
+    public const int EditMode = 4;
+    public const int ForPlayerButton = 5;
+    public const int Interactable = 6;
+    public const int LevelRelatedEntity = 7;
+    public const int Nickname = 8;
+    public const int PlayerChoiceButton = 9;
+    public const int Player = 10;
+    public const int PlayerToEdit = 11;
+    public const int SelectedLevel = 12;
+    public const int SessionResult = 13;
+    public const int Text = 14;
+    public const int ToDelete = 15;
     public const int UnlockedLevelsCount = 16;
     public const int View = 17;
     public const int EditModeListener = 18;
@@ -37,6 +37,7 @@ public static class PlayerComponentsLookup {
         "CompletedLevelsCount",
         "CurrentPlayer",
         "Destroy",
+        "EditedPlayerData",
         "EditMode",
         "ForPlayerButton",
         "Interactable",
@@ -49,7 +50,6 @@ public static class PlayerComponentsLookup {
         "SessionResult",
         "Text",
         "ToDelete",
-        "ToEditPlayerData",
         "UnlockedLevelsCount",
         "View",
         "EditModeListener",
@@ -62,6 +62,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.CompletedLevelsCountComponent),
         typeof(EcoFarm.CurrentPlayerComponent),
         typeof(EcoFarm.DestroyComponent),
+        typeof(EcoFarm.EditedPlayerDataComponent),
         typeof(EcoFarm.EditModeComponent),
         typeof(EcoFarm.ForPlayerButtonComponent),
         typeof(EcoFarm.InteractableComponent),
@@ -74,7 +75,6 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.SessionResultComponent),
         typeof(EcoFarm.TextComponent),
         typeof(EcoFarm.ToDeleteComponent),
-        typeof(EcoFarm.ToEditPlayerDataComponent),
         typeof(EcoFarm.UnlockedLevelsCountComponent),
         typeof(EcoFarm.ViewComponent),
         typeof(EditModeListenerComponent),

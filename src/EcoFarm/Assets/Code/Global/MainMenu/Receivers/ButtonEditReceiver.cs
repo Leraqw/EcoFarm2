@@ -6,12 +6,10 @@ namespace EcoFarm
 {
     public class ButtonEditReceiver : BaseButtonClickReceiver
     {
-        protected override void OnButtonClick()
-        {
-            var e = Contexts.sharedInstance.player
+        protected override void OnButtonClick() =>
+            Contexts.sharedInstance.player
                 .GetEntities(EditMode)
-                .First();
-            e.ReplaceEditMode(true);
-        }
+                .First()
+                .ReplaceEditMode(true);
     }
 }
