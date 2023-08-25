@@ -697,6 +697,14 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 4236179238189872719, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+      propertyPath: _window
+      value: 
+      objectReference: {fileID: 4582828912275703941}
+    - target: {fileID: 4236179238189872719, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+      propertyPath: <Button>k__BackingField
+      value: 
+      objectReference: {fileID: 2875709724003220882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -706,7 +714,7 @@ PrefabInstance:
       addedObject: {fileID: 6460163780433701775}
     - targetCorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3208551120484681672}
+      addedObject: {fileID: 4363686897448303292}
   m_SourcePrefab: {fileID: 100100000, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
 --- !u!1 &2875709724003220880 stripped
 GameObject:
@@ -727,7 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 2875709724003220882}
   _inputField: {fileID: 1375004052007572762}
---- !u!114 &3208551120484681672
+--- !u!114 &4363686897448303292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -862,13 +870,21 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 4236179238189872719, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+      propertyPath: _window
+      value: 
+      objectReference: {fileID: 4582828912275703941}
+    - target: {fileID: 4236179238189872719, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
+      propertyPath: <Button>k__BackingField
+      value: 
+      objectReference: {fileID: 521694463685533709}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2784129040350958045}
+      addedObject: {fileID: 4254402316376400106}
   m_SourcePrefab: {fileID: 100100000, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
 --- !u!114 &521694463685533709 stripped
 MonoBehaviour:
@@ -891,7 +907,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2787566651835839773, guid: a150dc09e96a5e448bfca57a837959d2, type: 3}
   m_PrefabInstance: {fileID: 2418999523316978962}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2784129040350958045
+--- !u!114 &4254402316376400106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

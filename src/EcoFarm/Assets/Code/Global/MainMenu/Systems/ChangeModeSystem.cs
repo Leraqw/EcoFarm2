@@ -27,32 +27,34 @@ namespace EcoFarm
                 .ToList();
 
             EnabledReceivers enabled;
+            ColorBlock selectedColor;
 
             if (entity.editMode.Value)
             {
                 enabled.PlayerToChoose = false;
                 enabled.PlayerToEdit = true;
-                var selectedColor = new ModeButtonColorBlocks(Color.red).ModeButtonColorBlock;
+                selectedColor = new ModeButtonColorBlocks(Color.red).ModeButtonColorBlock;
                 modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
             }
             else
             {
                 enabled.PlayerToChoose = true;
                 enabled.PlayerToEdit = false;
-                var selectedColor = new ModeButtonColorBlocks(Color.white).ModeButtonColorBlock;
+                selectedColor = new ModeButtonColorBlocks(Color.white).ModeButtonColorBlock;
                 modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
             }
 
-            modeButtonEntity.ForEach(UpdateModeButtonView);
-            Debug.Log($"edit: {entity.editMode.Value}");
+            //    modeButtonEntity.ForEach(UpdateModeButtonView);
         }
-        
+
         private static void TurnModeOn(GameEntity e, EnabledReceivers enabled, ColorBlock color)
             => e.ReplaceModeButtons(enabled, color);
 
-        private static void UpdateModeButtonView(GameEntity e) =>
+        private static void UpdateModeButtonView(GameEntity e)
+        {
             e.viewPrefab.Value.gameObject
                 .GetComponent<IModeButtonsListener>()
                 .OnModeButtons(e, e.modeButtons.Enabled, e.modeButtons.Color);
+        }
     }
 }

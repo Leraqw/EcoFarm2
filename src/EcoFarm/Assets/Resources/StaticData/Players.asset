@@ -14,14 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Players>k__BackingField:
   - <Nickname>k__BackingField: Lera
-    <CompletedLevelsCount>k__BackingField: 8
+    <CompletedLevelsCount>k__BackingField: 0
   - <Nickname>k__BackingField: Kola
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: Karina
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: Katya
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: lalala
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: blabla
     <CompletedLevelsCount>k__BackingField: 0

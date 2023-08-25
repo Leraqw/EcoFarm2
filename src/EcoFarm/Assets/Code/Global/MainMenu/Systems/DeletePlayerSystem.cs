@@ -29,9 +29,10 @@ namespace EcoFarm
 
             var index = FindPlayerIndex(playerView.Player);
             if (index != -1) Players.Remove(Players[index]);
-            Debug.Log($"{Players[index].Nickname} delete him");
             PlayersList.SaveChanges();
             playerView.gameObject.DestroyGameObject();
+
+          entity.isToDelete = false;
         }
     }
 }

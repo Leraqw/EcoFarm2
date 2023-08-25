@@ -23,16 +23,17 @@ public static class PlayerComponentsLookup {
     public const int SelectedLevel = 12;
     public const int SessionResult = 13;
     public const int Text = 14;
-    public const int ToDelete = 15;
-    public const int UnlockedLevelsCount = 16;
-    public const int View = 17;
-    public const int EditModeListener = 18;
-    public const int InteractableListener = 19;
-    public const int PlayerTextListener = 20;
-    public const int PlayerToEditListener = 21;
-    public const int UnlockedLevelsCountListener = 22;
+    public const int ToChangeData = 15;
+    public const int ToDelete = 16;
+    public const int UnlockedLevelsCount = 17;
+    public const int View = 18;
+    public const int EditModeListener = 19;
+    public const int InteractableListener = 20;
+    public const int PlayerTextListener = 21;
+    public const int PlayerToEditListener = 22;
+    public const int UnlockedLevelsCountListener = 23;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -50,6 +51,7 @@ public static class PlayerComponentsLookup {
         "SelectedLevel",
         "SessionResult",
         "Text",
+        "ToChangeData",
         "ToDelete",
         "UnlockedLevelsCount",
         "View",
@@ -76,6 +78,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.SelectedLevelComponent),
         typeof(EcoFarm.SessionResultComponent),
         typeof(EcoFarm.TextComponent),
+        typeof(EcoFarm.ToChangeDataComponent),
         typeof(EcoFarm.ToDeleteComponent),
         typeof(EcoFarm.UnlockedLevelsCountComponent),
         typeof(EcoFarm.ViewComponent),

@@ -5,9 +5,9 @@ using static PlayerMatcher;
 
 namespace EcoFarm
 {
-    public class EditPlayerDataSystem : ReactiveSystem<PlayerEntity>
+    public class ChangePlayerDataSystem : ReactiveSystem<PlayerEntity>
     {
-        public EditPlayerDataSystem(Contexts contexts) : base(contexts.player)
+        public ChangePlayerDataSystem(Contexts contexts) : base(contexts.player)
         {
         }
 
@@ -29,6 +29,8 @@ namespace EcoFarm
             if (index != -1) Players[index] = entity.editedPlayerData.Value;
 
             PlayersList.SaveChanges();
+
+            entity.RemoveEditedPlayerData();
         }
     }
 }

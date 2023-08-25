@@ -14,8 +14,7 @@ namespace EcoFarm
 	[Player] public sealed class ForPlayerButtonComponent : IComponent { }
 	[Player] public sealed class PlayerChoiceButtonComponent : IComponent { }
 	[Player] public sealed class ToDeleteComponent : IComponent { }
-	//[Player] public sealed class ToEditPlayerDataComponent : IComponent { }
-	//[Player] public sealed class ButtonPlayerToEditComponent : IComponent { public BaseButtonClickReceiver Value;}
+	[Player] public sealed class ToChangeDataComponent : IComponent { }
 	[Player] [Event(Self)] public sealed class EditModeComponent : IComponent { public bool Value; }
 	[Player] [Event(Self)] public sealed class PlayerToEditComponent : IComponent { public PlayerView Value; }
 	[Game] [Event(Self)]  public sealed class ModeButtonsComponent : IComponent { 
@@ -26,5 +25,4 @@ namespace EcoFarm
 	[Game] [Event(Self)] public sealed class PlayerToChooseComponent : IComponent { public Player Value; }
 	[Player] public sealed class EditedPlayerDataComponent : IComponent { public Player Value; }
 	[Game] [Event(Self)] public sealed class GreetingNicknameComponent : IComponent { public string Value;}
-	//[Player] [Event(Self)] public sealed class ToggleEditModeButtonsComponent : IComponent { public bool Value;}
 }

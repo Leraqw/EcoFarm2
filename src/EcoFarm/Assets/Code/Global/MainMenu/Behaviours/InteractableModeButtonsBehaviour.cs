@@ -16,7 +16,7 @@ namespace EcoFarm
                 .GetEntities(EditMode)
                 .First();
             entity.AddPlayerToEditListener(this);
-            entity.AddInteractable(false);
+           // entity.AddInteractable(false);
             _interactableView.ForEach(e => e.Register(entity));
         }
 

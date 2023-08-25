@@ -19,12 +19,12 @@
             Add(new DisableIfNoCurrentPlayerSystem(contexts));
 
             Add(new PreparePlayerChoiceWindowSystem(contexts));
-            Add(new ToggleActivityButtonSystem(contexts));
+            Add(new ToggleWindowActivityButtonSystem(contexts));
             
             Add(new ShowGreetingSystem(contexts));
             
             Add(new DeletePlayerSystem(contexts));
-            Add(new EditPlayerDataSystem(contexts));
+            Add(new ChangePlayerDataSystem(contexts));
             Add(new ChangeModeSystem(contexts));
           
             Add(new BindViewsSystem(contexts));

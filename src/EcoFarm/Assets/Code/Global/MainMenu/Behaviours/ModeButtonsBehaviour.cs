@@ -11,13 +11,11 @@ namespace EcoFarm
         [field: SerializeField] public List<GameObject> EditModeButtons { get; private set; }
         [field: SerializeField] public List<GameObject> ChooseModeButtons { get; private set; }
 
-        private void Start()
-        {
-            var e = Contexts.sharedInstance.player
+        private void Start() =>
+            Contexts.sharedInstance.player
                 .GetEntities(EditMode)
-                .First();
-            e.AddEditModeListener(this);
-        }
+                .First()
+                .AddEditModeListener(this);
 
         public void OnEditMode(PlayerEntity entity, bool value)
         {

@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace EcoFarm
 {
-    public class ToggleActivityButtonSystem : ReactiveSystem<GameEntity>
+    public class ToggleWindowActivityButtonSystem : ReactiveSystem<GameEntity>
     {
-        public ToggleActivityButtonSystem(Contexts contexts) : base(contexts.game){}
+        public ToggleWindowActivityButtonSystem(Contexts contexts) : base(contexts.game)
+        {
+        }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
             => context.CreateCollector(AllOf(Window, Toggled, Prepared));
@@ -17,11 +21,18 @@ namespace EcoFarm
         private static void Toggle(GameEntity window)
         {
             window.Do((e) => e.isRequirePreparation = true);
-             //   .Do((e) => e.isPrepared = false);
-            
+
             var windowView = window.view.Value;
             windowView.SetActive(!windowView.activeSelf);
             window.isToggled = false;
+
+            TurnOffEditMode();
+        }
+        
+        private static void TurnOffEditMode()
+        {
+            var modeEntity = Contexts.sharedInstance.player.GetEntities(PlayerMatcher.EditMode).First();
+            if (modeEntity.editMode.Value) modeEntity.ReplaceEditMode(false);
         }
     }
 }
