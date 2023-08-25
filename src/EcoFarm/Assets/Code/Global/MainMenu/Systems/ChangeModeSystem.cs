@@ -26,35 +26,22 @@ namespace EcoFarm
                 .GetEntities(GameMatcher.ModeButtons)
                 .ToList();
 
-            EnabledReceivers enabled;
-            ColorBlock selectedColor;
+            var enabled = new EnabledReceivers();
+            var selectedColor = new ColorBlock();
 
-            if (entity.editMode.Value)
-            {
-                enabled.PlayerToChoose = false;
-                enabled.PlayerToEdit = true;
-                selectedColor = new ModeButtonColorBlocks(Color.red).ModeButtonColorBlock;
-                modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
-            }
-            else
-            {
-                enabled.PlayerToChoose = true;
-                enabled.PlayerToEdit = false;
-                selectedColor = new ModeButtonColorBlocks(Color.white).ModeButtonColorBlock;
-                modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
-            }
+            SetMode(entity.editMode.Value, enabled, selectedColor, modeButtonEntity);
+        }
 
-            //    modeButtonEntity.ForEach(UpdateModeButtonView);
+        private static void SetMode(bool editMode, EnabledReceivers enabled, 
+            ColorBlock selectedColor, List<GameEntity> modeButtonEntity)
+        {
+            enabled.PlayerToChoose = !editMode;
+            enabled.PlayerToEdit = editMode;
+            selectedColor = new ModeButtonColorBlocks(editMode ? Color.red : Color.white).ModeButtonColorBlock;
+            modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
         }
 
         private static void TurnModeOn(GameEntity e, EnabledReceivers enabled, ColorBlock color)
             => e.ReplaceModeButtons(enabled, color);
-
-        private static void UpdateModeButtonView(GameEntity e)
-        {
-            e.viewPrefab.Value.gameObject
-                .GetComponent<IModeButtonsListener>()
-                .OnModeButtons(e, e.modeButtons.Enabled, e.modeButtons.Color);
-        }
     }
 }

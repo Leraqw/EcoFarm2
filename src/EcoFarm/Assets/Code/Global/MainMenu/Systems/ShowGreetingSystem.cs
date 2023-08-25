@@ -12,9 +12,9 @@ namespace EcoFarm
         }
 
         protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-            => context.CreateCollector(AllOf(CurrentPlayer, Nickname));
+            => context.CreateCollector(Nickname);
 
-        protected override bool Filter(PlayerEntity entity) => entity.isCurrentPlayer;
+        protected override bool Filter(PlayerEntity entity) => entity.hasNickname;
 
         protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(ReplaceGreetingNickname);
 

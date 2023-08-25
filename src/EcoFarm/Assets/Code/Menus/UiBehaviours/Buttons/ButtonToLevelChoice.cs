@@ -1,14 +1,15 @@
 ﻿namespace EcoFarm
 {
-	public class ButtonToLevelChoice : ButtonToScene
-	{
-		
-		protected override void OnButtonClick()
-		{
-			var gameEntities = Contexts.sharedInstance.game.GetEntities();
-			gameEntities.ForEach((e) => e.isDestroy = true);
-			
-			SceneTransfer.ToLevelChoice();
-		}
-	}
+    public class ButtonToLevelChoice : ButtonToScene
+    {
+        private readonly Contexts _contexts = Contexts.sharedInstance;
+        
+        protected override void OnButtonClick()
+        {
+            var gameEntities = _contexts.game.GetEntities();
+            gameEntities.ForEach((e) => e.isDestroy = true);
+            
+            SceneTransfer.ToLevelChoice();
+        }
+    }
 }

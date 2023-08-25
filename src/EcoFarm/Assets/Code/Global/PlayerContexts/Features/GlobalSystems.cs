@@ -16,8 +16,6 @@
             Add(new ToMainSceneSystem(contexts));
 
             // Main Menu Systems
-            Add(new DisableIfNoCurrentPlayerSystem(contexts));
-
             Add(new PreparePlayerChoiceWindowSystem(contexts));
             Add(new ToggleWindowActivityButtonSystem(contexts));
             
@@ -26,6 +24,8 @@
             Add(new DeletePlayerSystem(contexts));
             Add(new ChangePlayerDataSystem(contexts));
             Add(new ChangeModeSystem(contexts));
+            
+            Add(new PlayerListChangedSystem(contexts));
           
             Add(new BindViewsSystem(contexts));
 
