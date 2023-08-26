@@ -1,19 +1,22 @@
-﻿
-
-using Entitas;
+﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class SpawnDroughtTimerSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public SpawnDroughtTimerSystem(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public SpawnDroughtTimerSystem(GameEntity.Factory gameEntityFactory)
+			=> _gameEntityFactory = gameEntityFactory;
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("DroughtTimer"))
-			            .Do((e) => e.isDroughtTimer = true)
-			            .ResetDroughtTimer();
+		{
+			var e = _gameEntityFactory.Create();
+			e.AddDebugName("DroughtTimer");
+			e.isDroughtTimer = true;
+			e.ResetDroughtTimer();
+		}
 	}
 }

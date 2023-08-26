@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
-
 using Entitas;
+using Zenject;
 using static GameMatcher;
 
 namespace EcoFarm
 {
 	public sealed class ResetDroughtTimerSystem : ReactiveSystem<GameEntity>
 	{
+		[Inject]
 		public ResetDroughtTimerSystem(Contexts contexts)
 			: base(contexts.game) { }
 

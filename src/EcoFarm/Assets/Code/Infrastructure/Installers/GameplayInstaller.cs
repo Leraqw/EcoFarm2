@@ -17,9 +17,7 @@ namespace EcoFarm
 			Container.Bind<GameContextSystems>().AsSingle();
 
 			BindServices();
-
-			Container.Bind<ServicesSingleton>().AsSingle().NonLazy();
-		}
+        }
 
 		private void BindAdapter()
 			=> Container.Bind<GameplayEntitasAdapter>()
@@ -30,7 +28,6 @@ namespace EcoFarm
 		private void BindServices()
 		{
 			Container.BindInstance<ISpawnPointsService>(_dependencies.SpawnPoints).AsSingle();
-			Container.BindInstance<IConfigurationService>(_dependencies.UnityConfiguration).AsSingle();
 			Container.BindInstance<IUiService>(_dependencies.UiService).AsSingle();
 		}
 	}

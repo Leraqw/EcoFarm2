@@ -5,6 +5,8 @@ namespace EcoFarm
 {
 	public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 	{
+		[SerializeField] private UnityConfiguration _configuration;
+
 		public override void InstallBindings()
 		{
 			BindAdapter();
@@ -14,6 +16,9 @@ namespace EcoFarm
 			Container.Bind<SystemsFactory>().AsSingle();
 
 			BindServices();
+			BindFactories();
+
+			BindTools();
 		}
 
 		private void BindAdapter()
@@ -35,11 +40,25 @@ namespace EcoFarm
 
 		private void BindServices()
 		{
-			Container.BindInstance<IDataProviderService>(new SerializableObjectDataProvider()).AsSingle();
-			Container.BindInstance<IResourcesService>(new UnityResourceService()).AsSingle();
-			Container.BindInstance<ICameraService>(new UnityCameraService()).AsSingle();
-			Container.BindInstance<IInputService>(new UnityInputService()).AsSingle();
-			Container.BindInstance<ISceneTransferService>(new UnitySceneTransferService()).AsSingle();
+			Container.Bind<IDataProviderService>().To<SerializableObjectDataProvider>().AsSingle();
+			Container.Bind<IResourcesService>().To<UnityResourceService>().AsSingle();
+			Container.Bind<ICameraService>().To<UnityCameraService>().AsSingle();
+			Container.Bind<IInputService>().To<UnityInputService>().AsSingle();
+			Container.Bind<ISceneTransferService>().To<UnitySceneTransferService>().AsSingle();
+
+			Container.BindInstance<IConfigurationService>(_configuration).AsSingle();
+		}
+
+		private void BindFactories()
+		{
+			Container.BindFactory<GameEntity, GameEntity.Factory>().AsSingle();
+			Container.BindFactory<WateringView, WateringView.Factory>().AsSingle();
+		}
+
+		private void BindTools()
+		{
+			Container.Bind<ServicesMediator>().ToSelf().AsSingle();
+			Container.Bind<Injector>().ToSelf().AsSingle();
 		}
 	}
 }

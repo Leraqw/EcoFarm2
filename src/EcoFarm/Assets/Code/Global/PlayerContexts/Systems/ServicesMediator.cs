@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -7,6 +8,7 @@ namespace EcoFarm
 		private readonly ICameraService _cameraService;
 		private readonly IInputService _inputService;
 
+		[Inject]
 		public ServicesMediator(ICameraService cameraService, IInputService inputService)
 		{
 			_inputService = inputService;
