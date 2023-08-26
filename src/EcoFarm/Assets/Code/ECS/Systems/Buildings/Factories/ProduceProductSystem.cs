@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entitas;
+using Zenject;
 using static EcoFarm.Constants;
 using static GameMatcher;
 
@@ -8,14 +9,22 @@ namespace EcoFarm
 {
 	public sealed class ProduceProductSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly GameContext _context;
 		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public ProduceProductSystem(Contexts contexts, IConfigurationService configurationService)
-			: base(contexts.game)
+		[Inject]
+		public ProduceProductSystem
+		(
+			GameContext context,
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
+		)
+			: base(context)
 		{
+			_context = context;
 			_configurationService = configurationService;
-			_contexts = contexts;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IPrefabConfig Prefab => _configurationService.Resource.Prefab;
@@ -32,14 +41,15 @@ namespace EcoFarm
 			e.isWorking = false;
 			e.isUsed = true;
 			e.isBusy = false;
+
 			SpawnProduct(e);
-			e.AddPollution(_contexts.game.waterResourceEntity.resource.Value);
+			e.AddPollution(_context.waterResourceEntity.resource.Value);
 			e.AddPollutionCoefficient(FactoryPollution);
 		}
 
 		private void SpawnProduct(GameEntity factory)
 		{
-			var e = _contexts.game.CreateEntity();
+			var e = _gameEntityFactory.Create();
 			e.AddDebugName("Product");
 			e.AddProduct(factory.factory.Value.OutputProducts.First());
 			e.AttachTo(factory);

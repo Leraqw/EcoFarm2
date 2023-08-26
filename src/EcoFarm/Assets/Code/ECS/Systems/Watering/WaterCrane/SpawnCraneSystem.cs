@@ -1,32 +1,36 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class SpawnCraneSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly ISpawnPointsService _spawnPointsService;
 		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
+		[Inject]
 		public SpawnCraneSystem
 		(
-			Contexts contexts,
 			ISpawnPointsService spawnPointsService,
-			IConfigurationService configurationService
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
 		)
 		{
 			_configurationService = configurationService;
 			_spawnPointsService = spawnPointsService;
-			_contexts = contexts;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IResourceConfig Resource => _configurationService.Resource;
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.AddDebugName("Crane"))
-			            .Do((e) => e.isCrane = true)
-			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Crane))
-			            .Do((e) => e.AddPosition(_spawnPointsService.Crane));
+		{
+			var e = _gameEntityFactory.Create();
+			e.AddDebugName("Crane");
+			e.isCrane = true;
+			e.AddViewPrefab(Resource.Prefab.Crane);
+			e.AddPosition(_spawnPointsService.Crane);
+		}
 	}
 }

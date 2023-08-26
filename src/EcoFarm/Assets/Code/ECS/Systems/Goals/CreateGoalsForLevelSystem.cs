@@ -7,12 +7,19 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
 		[Inject]
-		public CreateGoalsForLevelSystem(Contexts contexts, IUiService uiService)
+		public CreateGoalsForLevelSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
 			_contexts = contexts;
 			_uiService = uiService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private Storage Storage => _contexts.game.storage.Value;
@@ -23,7 +30,7 @@ namespace EcoFarm
 
 		private void Create(Goal goal)
 		{
-			var e = _contexts.game.CreateEntity();
+			var e = _gameEntityFactory.Create();
 			e.AddGoal(goal);
 			e.isUiElement = true;
 			e.MarkGoal();

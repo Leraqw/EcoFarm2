@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -9,17 +10,21 @@ namespace EcoFarm
 		private readonly Contexts _contexts;
 		private readonly ISpawnPointsService _spawnPointsService;
 		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
+		[Inject]
 		public SpawnBedsPlugsSystem
 		(
 			Contexts contexts,
 			ISpawnPointsService spawnPointsService,
-			IConfigurationService configurationService
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
 		)
 		{
 			_contexts = contexts;
 			_spawnPointsService = spawnPointsService;
 			_configurationService = configurationService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IResourceConfig Resource => _configurationService.Resource;
@@ -33,7 +38,7 @@ namespace EcoFarm
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.BedPlug))
 			            .Do((e) => e.AddSpawnPosition(position))
 			            .Do((e) => e.AddDebugName("BedPlug"));

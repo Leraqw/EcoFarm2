@@ -8,14 +8,19 @@ namespace EcoFarm
 {
 	public sealed class PreparePlayerChoiceWindowSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _context;
 		private readonly IDataProviderService _dataProvider;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public PreparePlayerChoiceWindowSystem(Contexts contexts, IDataProviderService dataProvider)
+		public PreparePlayerChoiceWindowSystem
+		(
+			Contexts contexts,
+			IDataProviderService dataProvider,
+			GameEntity.Factory gameEntityFactory
+		)
 			: base(contexts.game)
 		{
+			_gameEntityFactory = gameEntityFactory;
 			_dataProvider = dataProvider;
-			_context = contexts;
 		}
 
 		private IEnumerable<Player> Players => _dataProvider.Players;
@@ -44,7 +49,7 @@ namespace EcoFarm
 
 		private void BindPlayerChoiceView(Player player, BaseViewListener prefab, GameEntity window)
 		{
-			var e = _context.game.CreateEntity();
+			var e = _gameEntityFactory.Create();
 
 			e.AddPlayerToChoose(player);
 			prefab.Register(e);

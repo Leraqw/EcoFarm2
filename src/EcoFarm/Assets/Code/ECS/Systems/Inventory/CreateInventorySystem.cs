@@ -4,17 +4,17 @@ namespace EcoFarm
 {
 	public sealed class CreateInventorySystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public CreateInventorySystem(Contexts contexts, IUiService uiService)
+		public CreateInventorySystem(IUiService uiService, GameEntity.Factory gameEntityFactory)
 		{
 			_uiService = uiService;
-			_contexts = contexts;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("Inventory"))
 			            .Do((e) => e.MakeAttachable())
 			            .Do((e) => e.isInventory = true)

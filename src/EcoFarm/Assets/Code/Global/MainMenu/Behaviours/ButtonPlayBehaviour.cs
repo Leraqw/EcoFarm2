@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -6,13 +7,19 @@ namespace EcoFarm
 	{
 		[SerializeField] private InteractableView _interactableView;
 
+		private PlayerEntity.Factory _playerEntityFactory;
+
+		[Inject]
+		public void Construct(PlayerEntity.Factory playerEntityFactory)
+			=> _playerEntityFactory = playerEntityFactory;
+
 		protected override void Initialize()
 		{
-			var e = Contexts.player.CreateEntity();
+			var e = _playerEntityFactory.Create();
 			e.AddView(gameObject);
 			e.AddInteractable(false);
-			e.isForPlayerButton = true;
 			_interactableView.Register(e);
+			e.isForPlayerButton = true;
 		}
 	}
 }

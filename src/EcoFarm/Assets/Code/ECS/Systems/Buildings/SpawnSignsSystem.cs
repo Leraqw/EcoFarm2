@@ -1,24 +1,27 @@
 ﻿using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class SpawnSignsSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IConfigurationService _configurationService;
 		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
+		[Inject]
 		public SpawnSignsSystem
 		(
 			Contexts contexts,
 			IConfigurationService configurationService,
-			ISpawnPointsService spawnPointsService
+			ISpawnPointsService spawnPointsService,
+			GameEntity.Factory gameEntityFactory
 		)
 		{
-			_contexts = contexts;
 			_configurationService = configurationService;
 			_spawnPointsService = spawnPointsService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IResourceConfig Resource => _configurationService.Resource;
@@ -26,7 +29,7 @@ namespace EcoFarm
 		public void Initialize() => _spawnPointsService.Buildings.ForEach(Spawn);
 
 		private void Spawn(Vector2 position)
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("Sign"))
 			            .Do((e) => e.AddPosition(position))
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.Sign))

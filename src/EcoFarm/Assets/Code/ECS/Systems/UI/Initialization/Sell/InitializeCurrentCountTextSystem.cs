@@ -1,20 +1,27 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class InitializeCurrentCountTextSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public InitializeCurrentCountTextSystem(Contexts contexts, IUiService uiService)
+		[Inject]
+		public InitializeCurrentCountTextSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
 			_uiService = uiService;
-			_contexts = contexts;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("Products Count"))
 			            .Do((e) => e.AddView(_uiService.Windows.Sell.ProductsCount.gameObject))
 			            .Do((e) => e.AddText(0.ToString()))

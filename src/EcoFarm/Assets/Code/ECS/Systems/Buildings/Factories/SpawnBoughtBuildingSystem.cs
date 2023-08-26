@@ -12,23 +12,24 @@ namespace EcoFarm
 {
 	public sealed class SpawnBoughtBuildingSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
 		private readonly IConfigurationService _configurationService;
 		private readonly IGroup<GameEntity> _signs;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
 		[Inject]
 		public SpawnBoughtBuildingSystem
 		(
 			Contexts contexts,
 			IConfigurationService configurationService,
-			IUiService uiService
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
 		)
 			: base(contexts.game)
 		{
-			_contexts = contexts;
 			_configurationService = configurationService;
 			_uiService = uiService;
+			_gameEntityFactory = gameEntityFactory;
 
 			_signs = contexts.game.GetGroup(Sign);
 		}
@@ -48,10 +49,9 @@ namespace EcoFarm
 		{
 			entites.ForEach(Spawn);
 
-			_contexts.game.CreateEntity()
-			         .Do((e) => e.AttachTo(Window.Listener.Entity))
-			         .Do((e) => e.AddTargetActivity(false))
-				;
+			var e = _gameEntityFactory.Create();
+			e.AttachTo(Window.Listener.Entity);
+			e.AddTargetActivity(false);
 		}
 
 		private void Spawn(GameEntity button)

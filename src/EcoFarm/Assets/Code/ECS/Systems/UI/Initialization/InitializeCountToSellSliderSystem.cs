@@ -1,8 +1,6 @@
 ﻿using System.Linq;
-
-
-
 using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -10,17 +8,25 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public InitializeCountToSellSliderSystem(Contexts contexts, IUiService uiService)
+		[Inject]
+		public InitializeCountToSellSliderSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
 			_uiService = uiService;
 			_contexts = contexts;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private GameEntity SellWindow => _contexts.game.GetEntities(GameMatcher.SellWindow).First();
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("Slider"))
 			            .Do((e) => e.AddView(_uiService.Windows.Sell.CountToSellSlider.gameObject))
 			            .AttachTo(SellWindow)

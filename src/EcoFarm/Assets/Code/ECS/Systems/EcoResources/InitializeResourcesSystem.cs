@@ -7,17 +7,20 @@ namespace EcoFarm
 		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
 		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
 		public InitializeResourcesSystem
 		(
 			Contexts contexts,
 			IUiService uiService,
-			IConfigurationService configurationService
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
 		)
 		{
 			_contexts = contexts;
 			_uiService = uiService;
 			_configurationService = configurationService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private WindowResources WindowsResources => _uiService.Windows.Resources;
@@ -27,7 +30,7 @@ namespace EcoFarm
 		public void Initialize() => _contexts.game.storage.Value.Resources.ForEach(Create);
 
 		private void Create(Resource resource)
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName($"Resource – {resource.Title}"))
 			            .Do((e) => e.AddResource(resource))
 			            .Do(InitializeEnergy, @if: resource.Title == Constants.ElectricityName)

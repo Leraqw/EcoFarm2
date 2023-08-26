@@ -52,6 +52,7 @@ namespace EcoFarm
 		private void BindFactories()
 		{
 			Container.BindFactory<GameEntity, GameEntity.Factory>().AsSingle();
+			Container.BindFactory<PlayerEntity, PlayerEntity.Factory>().AsSingle();
 			Container.BindFactory<WateringView, WateringView.Factory>().AsSingle();
 		}
 

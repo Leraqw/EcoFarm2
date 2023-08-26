@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -8,11 +9,19 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public EmitPositionsForTreeSpawnSystem(Contexts contexts, ISpawnPointsService spawnPointsService)
+		[Inject]
+		public EmitPositionsForTreeSpawnSystem
+		(
+			Contexts contexts,
+			ISpawnPointsService spawnPointsService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
 			_contexts = contexts;
 			_spawnPointsService = spawnPointsService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private Level[] Levels => _contexts.game.storage.Value.Levels;
@@ -26,7 +35,6 @@ namespace EcoFarm
 			   .ForEach(RequireTreeOn);
 
 		private void RequireTreeOn(Vector2 position)
-			=> _contexts.game.CreateEntity()
-			            .AddRequireTreeOnPosition(position);
+			=> _gameEntityFactory.Create().AddRequireTreeOnPosition(position);
 	}
 }

@@ -13,7 +13,7 @@ public class InitializationTest
 	{
 		_contexts = new Contexts();
 		Setup.Services(_contexts);
-		_contexts.game.CreateEntity();
+		// _contexts.game.CreateEntity();
 		// TODO: fix testes
 		// _system = Create.SpawnBucketSystem();
 	}

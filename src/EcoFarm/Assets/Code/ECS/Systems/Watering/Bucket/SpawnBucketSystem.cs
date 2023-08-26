@@ -5,21 +5,21 @@ namespace EcoFarm
 {
 	public sealed class SpawnBucketSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IConfigurationService _configurationService;
 		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
 		[Inject]
 		public SpawnBucketSystem
 		(
-			Contexts contexts,
 			IConfigurationService configurationService,
-			ISpawnPointsService spawnPointsService
+			ISpawnPointsService spawnPointsService,
+			GameEntity.Factory gameEntityFactory
 		)
 		{
-			_contexts = contexts;
 			_configurationService = configurationService;
 			_spawnPointsService = spawnPointsService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IBalanceConfig Balance => _configurationService.Balance;
@@ -28,7 +28,7 @@ namespace EcoFarm
 
 		public void Initialize()
 		{
-			var e = _contexts.game.CreateEntity();
+			var e = _gameEntityFactory.Create();
 			e.AddDebugName("Bucket");
 			e.isBucket = true;
 			e.AddViewPrefab(Resource.Prefab.Bucket);

@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
@@ -6,15 +7,23 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public InitializeCoinsReceiveCountTextSystem(Contexts contexts, IUiService uiService)
+		[Inject]
+		public InitializeCoinsReceiveCountTextSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
 			_contexts = contexts;
 			_uiService = uiService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("Coins Receive Count"))
 			            .Do((e) => e.AddView(_uiService.Windows.Sell.CoinsReceiveCount.gameObject))
 			            .Do((e) => e.AddText(0.ToString()))

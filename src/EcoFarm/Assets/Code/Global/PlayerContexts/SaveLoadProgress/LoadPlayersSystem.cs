@@ -4,13 +4,14 @@ namespace EcoFarm
 {
 	public sealed class LoadPlayersSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
+		private readonly PlayerEntity.Factory _playerEntityFactory;
 
-		public LoadPlayersSystem(Contexts contexts) => _contexts = contexts;
+		public LoadPlayersSystem(PlayerEntity.Factory playerEntityFactory)
+			=> _playerEntityFactory = playerEntityFactory;
 
 		public void Initialize()
 		{
-			var e = _contexts.player.CreateEntity();
+			var e = _playerEntityFactory.Create();
 			e.isPlayer = true;
 			e.AddSessionResult(SessionResult.None);
 		}

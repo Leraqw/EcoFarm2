@@ -11,12 +11,14 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public PrepareBuildWindowSystem(Contexts contexts, IUiService uiService)
+		public PrepareBuildWindowSystem(Contexts contexts, IUiService uiService, GameEntity.Factory gameEntityFactory)
 			: base(contexts.game)
 		{
 			_contexts = contexts;
 			_uiService = uiService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		private IEnumerable<Building> Buildings => _contexts.game.storage.Value.Buildings;
@@ -45,13 +47,13 @@ namespace EcoFarm
 			=> Buildings.ForEach((b) => BindBuildingButtonView(b, BuildViewPrefab, window));
 
 		private void BindBuildingButtonView(Building building, Component prefab, GameEntity window)
-			=> _contexts.game.CreateEntity()
-			            .Do((e) => e.isUiElement = true)
-			            .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
-			            .Do((e) => e.AddBuilding(building))
-			            .Do((e) => e.AddViewPrefab(prefab.gameObject))
-			            .Do((e) => e.AddPosition(window.position.Value))
-			            .AttachTo(window);
+			=> _gameEntityFactory.Create()
+			                     .Do((e) => e.isUiElement = true)
+			                     .Do((e) => e.AddUiParent(window.buildWindow.Value.ContentView))
+			                     .Do((e) => e.AddBuilding(building))
+			                     .Do((e) => e.AddViewPrefab(prefab.gameObject))
+			                     .Do((e) => e.AddPosition(window.position.Value))
+			                     .AttachTo(window);
 
 		private static void EndPreparations(GameEntity window)
 			=> window.Do((e) => e.isPreparationInProcess = false)

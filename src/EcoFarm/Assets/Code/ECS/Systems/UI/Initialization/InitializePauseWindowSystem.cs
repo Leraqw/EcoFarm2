@@ -1,20 +1,27 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class InitializePauseWindowSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IUiService _uiService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public InitializePauseWindowSystem(Contexts contexts, IUiService uiService)
+		[Inject]
+		public InitializePauseWindowSystem
+		(
+			Contexts contexts,
+			IUiService uiService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
-			_contexts = contexts;
 			_uiService = uiService;
+			_gameEntityFactory = gameEntityFactory;
 		}
 
 		public void Initialize()
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName("PauseWindow"))
 			            .Do((e) => e.AddActivate(false))
 			            .Do((e) => e.AddView(_uiService.Windows.Pause))

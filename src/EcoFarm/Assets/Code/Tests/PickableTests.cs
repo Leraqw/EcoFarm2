@@ -14,7 +14,7 @@ public class PickableTests // TODO: fix (or remove) testes
     {
         var contexts = new Contexts();
         Setup.Services(contexts);
-        _entity = contexts.game.CreateEntity();
+        // _entity = contexts.game.CreateEntity();
         // _system = Create.PickedToWarehouseSystem();
     }
     
