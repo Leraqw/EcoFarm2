@@ -9,6 +9,7 @@ namespace EcoFarm
 	public class ButtonPlayerToChooseReceiver : BaseButtonClickReceiver
 	{
 		[SerializeField] private PlayerView _playerView;
+
 		private IDataProviderService _dataProvider;
 		private Contexts _contexts;
 

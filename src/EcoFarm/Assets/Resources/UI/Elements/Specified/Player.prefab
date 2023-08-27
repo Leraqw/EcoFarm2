@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 1343498409546176822}
-  _playerViewPrefab: {fileID: 572332236841881317}
+  _playerView: {fileID: 572332236841881317}
 --- !u!114 &3300765976854267738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 1343498409546176822}
-  _playerViewPrefab: {fileID: 572332236841881317}
+  _playerView: {fileID: 572332236841881317}
 --- !u!1 &6990952128768807887
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +207,6 @@ MonoBehaviour:
   <Player>k__BackingField:
     <Nickname>k__BackingField: 
     <CompletedLevelsCount>k__BackingField: 0
-  <ModeButtons>k__BackingField: {fileID: 6458297009379502945}
 --- !u!114 &6458297009379502945
 MonoBehaviour:
   m_ObjectHideFlags: 0
