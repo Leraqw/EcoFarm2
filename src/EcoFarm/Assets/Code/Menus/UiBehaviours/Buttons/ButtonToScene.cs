@@ -1,10 +1,14 @@
-﻿
+﻿using Zenject;
 
 namespace EcoFarm
 {
 	public abstract class ButtonToScene : UnityEventAdapter
 	{
-		protected static ISceneTransferService SceneTransfer
-			=> Contexts.sharedInstance.services.sceneTransferService.Value;
+		protected ISceneTransferService SceneTransfer { get; private set; }
+
+
+		[Inject] // TODO: check will it inject
+		public void Construct(ISceneTransferService sceneTransferService)
+			=> SceneTransfer = sceneTransferService;
 	}
 }

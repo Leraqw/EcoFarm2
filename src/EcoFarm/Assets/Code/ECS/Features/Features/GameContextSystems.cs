@@ -1,20 +1,20 @@
-﻿namespace EcoFarm
+﻿using Zenject;
+
+namespace EcoFarm
 {
-	public sealed class GameContextSystems : Feature
+	public sealed class GameContextSystems : FeatureBase
 	{
-		public GameContextSystems(UnityDependencies dependencies)
-			: base(nameof(GameContextSystems))
+		[Inject]
+		public GameContextSystems(SystemsFactory factory)
+			: base(nameof(GameContextSystems), factory)
 		{
-			var contexts = Contexts.sharedInstance;
-			Add(new GameplayServicesRegistrationSystem(contexts, dependencies));
+			Add<GameplayServicesRegistrationSystem>();
 
-			Add(new InitializeSceneBehavioursSystems(contexts, dependencies.EntityBehaviours));
-			Add(new GameplaySystems(contexts));
+			Add<InitializeSceneBehavioursSystems>();
+			Add<GameplaySystems>();
 
-			Add(new GameEventSystems(contexts));
-			Add(new GameCleanupSystems(contexts));
+			Add<GameEventSystems>();
+			Add<GameCleanupSystems>();
 		}
-
-		public void OnUpdate() => this.ExecuteAnd().Cleanup();
 	}
 }

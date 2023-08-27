@@ -1,33 +1,37 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using Entitas.VisualDebugging.Unity;
+using Zenject;
 using static PlayerMatcher;
 
 namespace EcoFarm
 {
-    public class DeletePlayerSystem : ReactiveSystem<PlayerEntity>
-    {
-        public DeletePlayerSystem(Contexts contexts) : base(contexts.player)
-        {
-        }
+	public class DeletePlayerSystem : ReactiveSystem<PlayerEntity>
+	{
+		private readonly IDataProviderService _dataProvider;
 
-        private static PlayersList PlayersList => ServicesMediator.DataProvider.PlayersList;
+		[Inject]
+		public DeletePlayerSystem(Contexts contexts, IDataProviderService dataProvider)
+			: base(contexts.player)
+			=> _dataProvider = dataProvider;
 
-        protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-            => context.CreateCollector(AllOf(PlayerToEdit, ToDelete));
+		private PlayersList PlayersList => _dataProvider.PlayersList;
 
-        protected override bool Filter(PlayerEntity entity) => entity.hasPlayerToEdit && entity.isToDelete;
+		protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
+			=> context.CreateCollector(AllOf(PlayerToEdit, ToDelete));
 
-        protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Delete);
+		protected override bool Filter(PlayerEntity entity) => entity.hasPlayerToEdit && entity.isToDelete;
 
-        private static void Delete(PlayerEntity entity)
-        {
-            var playerView = entity.playerToEdit.Value;
+		protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Delete);
 
-            PlayersList.RemovePlayer(playerView.Player);
-            
-            playerView.gameObject.DestroyGameObject();
-            entity.isToDelete = false;
-        }
-    }
+		private void Delete(PlayerEntity entity)
+		{
+			var playerView = entity.playerToEdit.Value;
+
+			PlayersList.RemovePlayer(playerView.Player);
+
+			playerView.gameObject.DestroyGameObject();
+			entity.isToDelete = false;
+		}
+	}
 }

@@ -1,29 +1,40 @@
 ﻿using System.Linq;
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class EmitPositionsForTreeSpawnSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public EmitPositionsForTreeSpawnSystem(Contexts contexts) => _contexts = contexts;
-
-		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
+		[Inject]
+		public EmitPositionsForTreeSpawnSystem
+		(
+			Contexts contexts,
+			ISpawnPointsService spawnPointsService,
+			GameEntity.Factory gameEntityFactory
+		)
+		{
+			_contexts = contexts;
+			_spawnPointsService = spawnPointsService;
+			_gameEntityFactory = gameEntityFactory;
+		}
 
 		private Level[] Levels => _contexts.game.storage.Value.Levels;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
-			=> SpawnPointsService
+			=> _spawnPointsService
 			   .Trees
 			   .Take(Levels[SelectedLevel].TreesCount)
 			   .ForEach(RequireTreeOn);
 
 		private void RequireTreeOn(Vector2 position)
-			=> _contexts.game.CreateEntity()
-			            .AddRequireTreeOnPosition(position);
+			=> _gameEntityFactory.Create().AddRequireTreeOnPosition(position);
 	}
 }

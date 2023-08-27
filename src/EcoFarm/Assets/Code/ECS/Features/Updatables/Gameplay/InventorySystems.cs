@@ -1,23 +1,19 @@
-﻿
-
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class InventorySystems : Feature
+	public sealed class InventorySystems : FeatureBase
 	{
-		public InventorySystems(Contexts contexts)
-			: base(nameof(InventorySystems))
+		public InventorySystems(SystemsFactory factory)
+			: base(nameof(InventorySystems), factory)
 		{
-			Add(new MakeSellDealSystem(contexts));
-			Add(new SyncCoinItemCountSystem(contexts));
-			Add(new SubtractSoldApplesSystem(contexts));
-			Add(new DeactivateDealSystem(contexts));
-			Add(new ActualizeCountToSellSliderMaxValueSystem(contexts));
-			
+			Add<MakeSellDealSystem>();
+			Add<SyncCoinItemCountSystem>();
+			Add<SubtractSoldApplesSystem>();
+			Add<DeactivateDealSystem>();
+			Add<ActualizeCountToSellSliderMaxValueSystem>();
+
 			// TODO: GoalsSystems
-			Add(new CheckGoalsByProductSystem(contexts));
-			Add(new UpdateProductGoalsProgressSystem(contexts));
+			Add<CheckGoalsByProductSystem>();
+			Add<UpdateProductGoalsProgressSystem>();
 		}
 	}
 }

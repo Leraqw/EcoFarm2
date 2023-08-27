@@ -7,12 +7,12 @@ namespace EcoFarm
 {
     public class ButtonEditPlayerReceiver : BaseButtonClickReceiver
     {
-        [SerializeField] private PlayerView _playerViewPrefab;
+        [SerializeField] private PlayerView _playerView;
 
         protected override void OnButtonClick() =>
             Contexts.sharedInstance.player
                 .GetEntities(EditMode)
                 .First()
-                .ReplacePlayerToEdit(_playerViewPrefab);
+                .ReplacePlayerToEdit(_playerView);
     }
 }

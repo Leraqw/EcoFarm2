@@ -1,41 +1,46 @@
 ﻿using System.Linq;
-
-
-
-
 using Entitas;
+using Zenject;
 using static GameMatcher;
 
 namespace EcoFarm
 {
 	public sealed class SpawnFruitSystem : IExecuteSystem
 	{
-		private readonly GameContext _context;
-		private readonly IGroup<GameEntity> _entities;
-		private readonly Contexts _contexts;
+		private readonly IGroup<GameEntity> _fruits;
+		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public SpawnFruitSystem(Contexts contexts)
+		[Inject]
+		public SpawnFruitSystem
+		(
+			GameContext context,
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
+		)
 		{
-			_contexts = contexts;
-			_context = contexts.game;
-			_entities = _context.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
+			_configurationService = configurationService;
+			_gameEntityFactory = gameEntityFactory;
+
+			_fruits = context.GetGroup(AllOf(Fruitful).AnyOf(SpawnPosition, Position));
 		}
 
-		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
+		private IFruitConfig FruitConfig => _configurationService.Balance.Fruit;
 
-		public void Execute() => _entities.ForEach(SpawnFruitFor, @if: IsHasNotFruits);
+		public void Execute() => _fruits.ForEach(SpawnFruitFor, @if: IsHasNoFruits);
 
-		private static bool IsHasNotFruits(GameEntity entity) => entity.GetAttachedEntities().Any() == false;
+		private static bool IsHasNoFruits(GameEntity entity) => entity.GetAttachedEntities().Any() == false;
 
 		private void SpawnFruitFor(GameEntity tree)
-			=> _context.CreateEntity()
-			           .Do((e) => e.AddDebugName("Fruit"))
-			           .Do((e) => e.AddProduct(tree.tree.Value.Product))
-			           .AttachTo(tree)
-			           .Do((e) => e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnOffset))
-			           .Do((e) => e.AddProportionalScale(FruitConfig.InitialScale))
-			           .Do((e) => e.isFruitRequire = true)
-			           .Do((e) => e.AddDuration(FruitConfig.BeforeGrowingTime))
-		/**/;
+		{
+			var e = _gameEntityFactory.Create();
+			e.AddDebugName("Fruit");
+			e.AddProduct(tree.tree.Value.Product);
+			e.AttachTo(tree);
+			e.AddPosition(tree.GetActualPosition() + FruitConfig.SpawnOffset);
+			e.AddProportionalScale(FruitConfig.InitialScale);
+			e.isFruitRequire = true;
+			e.AddDuration(FruitConfig.BeforeGrowingTime);
+		}
 	}
 }

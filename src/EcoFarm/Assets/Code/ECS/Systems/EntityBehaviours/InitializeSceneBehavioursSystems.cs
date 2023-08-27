@@ -17,7 +17,7 @@ namespace EcoFarm
 		{
 			foreach (var behaviour in _entityBehaviours)
 			{
-				behaviour.Initialize(_contexts);
+				behaviour.Initialize();
 			}
 		}
 	}

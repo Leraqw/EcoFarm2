@@ -1,36 +1,40 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using static EcoFarm.PlayerExtensions;
 using static PlayerMatcher;
 
 namespace EcoFarm
 {
-    public class ChangePlayerDataSystem : ReactiveSystem<PlayerEntity>
-    {
-        public ChangePlayerDataSystem(Contexts contexts) : base(contexts.player)
-        {
-        }
+	public class ChangePlayerDataSystem : ReactiveSystem<PlayerEntity>
+	{
+		private readonly IDataProviderService _dataProvider;
 
-        private static PlayersList PlayersList => ServicesMediator.DataProvider.PlayersList;
-        private static List<Player> Players => ServicesMediator.DataProvider.PlayersList.Players;
+		public ChangePlayerDataSystem(Contexts contexts, IDataProviderService dataProvider)
+			: base(contexts.player)
+			=> _dataProvider = dataProvider;
 
-        protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-            => context.CreateCollector(AllOf(PlayerToEdit, EditedPlayerData));
+		private PlayersList  PlayersList => _dataProvider.PlayersList;
+		private List<Player> Players     => _dataProvider.PlayersList.Players;
 
-        protected override bool Filter(PlayerEntity entity) => entity.hasPlayerToEdit && entity.hasEditedPlayerData;
+		protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
+			=> context.CreateCollector(AllOf(PlayerToEdit, EditedPlayerData));
 
-        protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Edit);
+		protected override bool Filter(PlayerEntity entity) => entity.hasPlayerToEdit && entity.hasEditedPlayerData;
 
-        private static void Edit(PlayerEntity entity)
-        {
-            var player = entity.playerToEdit.Value.Player;
+		protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(Edit);
 
-            var index = FindPlayerIndex(player);
-            if (index != -1) Players[index] = entity.editedPlayerData.Value;
+		private void Edit(PlayerEntity entity)
+		{
+			var player = entity.playerToEdit.Value.Player;
 
-            PlayersList.SaveChanges();
+			var index = FindPlayerIndex(player);
+			if (index != -1) 
+				Players[index] = entity.editedPlayerData.Value;
 
-            entity.RemoveEditedPlayerData();
-        }
-    }
+			PlayersList.SaveChanges();
+			entity.RemoveEditedPlayerData();
+		}
+
+		private int FindPlayerIndex(Player player)
+			=> _dataProvider.PlayersList.Players.IndexOf(player);
+	}
 }

@@ -5,10 +5,13 @@ namespace EcoFarm
 	public sealed class CreateInventoryItemsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly IUiService _uiService;
 
-		public CreateInventoryItemsSystem(Contexts contexts) => _contexts = contexts;
-
-		private IUiService UIService => _contexts.services.uiService.Value;
+		public CreateInventoryItemsSystem(Contexts contexts, IUiService uiService)
+		{
+			_uiService = uiService;
+			_contexts = contexts;
+		}
 
 		private Storage Storage => _contexts.game.storage.Value;
 
@@ -16,6 +19,6 @@ namespace EcoFarm
 
 		private void Create(Product product)
 			=> _contexts.game.CreateInventoryItem(product)
-			            .Do((e) => e.AddView(UIService.AppleView));
+			            .Do((e) => e.AddView(_uiService.AppleView));
 	}
 }

@@ -1,21 +1,33 @@
 ﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
-    public sealed class SpawnWarehouseSystem : IInitializeSystem
-    {
-        private readonly Contexts _contexts;
+	public sealed class SpawnWarehouseSystem : IInitializeSystem
+	{
+		private readonly IConfigurationService _configurationService;
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-        public SpawnWarehouseSystem(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public SpawnWarehouseSystem
+		(
+			IConfigurationService configurationService,
+			ISpawnPointsService spawnPointsService,
+			GameEntity.Factory gameEntityFactory
+		)
+		{
+			_configurationService = configurationService;
+			_spawnPointsService = spawnPointsService;
+			_gameEntityFactory = gameEntityFactory;
+		}
 
-        private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
-
-        private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
-
-        public void Initialize()
-            => _contexts.game.CreateEntity()
-                .Do((e) => e.AddDebugName("Warehouse"))
-                .Do((e) => e.AddViewPrefab(Resource.Prefab.Warehouse))
-                .Do((e) => e.AddSpawnPosition(SpawnPointsService.Warehouse));
-    }
+		public void Initialize()
+		{
+			var e = _gameEntityFactory.Create();
+			e.AddDebugName("Warehouse");
+			e.AddViewPrefab(_configurationService.Resource.Prefab.Warehouse);
+			e.AddSpawnPosition(_spawnPointsService.Warehouse);
+		}
+	}
 }

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-
-
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
@@ -9,15 +7,24 @@ namespace EcoFarm
 {
 	public sealed class PickedToWarehouseSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly IConfigurationService _configurationService;
 
-		public PickedToWarehouseSystem(Contexts contexts)
+		public PickedToWarehouseSystem
+		(
+			Contexts contexts,
+			ISpawnPointsService spawnPointsService,
+			IConfigurationService configurationService
+		)
 			: base(contexts.game)
-			=> _contexts = contexts;
+		{
+			_configurationService = configurationService;
+			_spawnPointsService = spawnPointsService;
+		}
 
-		private Vector2 WarehousePosition => _contexts.services.sceneObjectsService.Value.Warehouse;
+		private Vector2 WarehousePosition => _spawnPointsService.Warehouse;
 
-		private IBalanceConfig Balance => _contexts.GetConfiguration().Balance;
+		private IBalanceConfig Balance => _configurationService.Balance;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Picked, Position));

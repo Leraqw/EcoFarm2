@@ -1,8 +1,4 @@
 ﻿using System.Collections.Generic;
-
-
-
-
 using Entitas;
 using UnityEngine;
 using static GameMatcher;
@@ -11,13 +7,13 @@ namespace EcoFarm
 {
 	public sealed class MarkFallingSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 
-		public MarkFallingSystem(Contexts contexts)
+		public MarkFallingSystem(Contexts contexts, IConfigurationService configurationService)
 			: base(contexts.game)
-			=> _contexts = contexts;
+			=> _configurationService = configurationService;
 
-		private IFruitConfig FruitConfig => _contexts.GetConfiguration().Balance.Fruit;
+		private IFruitConfig FruitConfig => _configurationService.Balance.Fruit;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(WillFall, DurationUp));

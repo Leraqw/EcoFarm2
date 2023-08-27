@@ -10,11 +10,11 @@ namespace EcoFarm
 
 	[Player] public sealed class PlayerComponent : IComponent { }
 
-[Player] public sealed class SessionResultComponent : IComponent { public SessionResult Value; }
+	[Player] public sealed class SessionResultComponent : IComponent { public SessionResult Value; }
 
-[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : IComponent { }
+	[Game, Player] [Cleanup(DestroyEntity)] public sealed class DestroyComponent : IComponent { }
 
-[Player] public sealed class SelectedLevelComponent : IComponent { public int Value; }
+	[Player] public sealed class SelectedLevelComponent : IComponent { public int Value; }
 
-[Player] public sealed class CompletedLevelsCountComponent : IComponent { public int Value; }
+	[Player] public sealed class CompletedLevelsCountComponent : IComponent { public int Value; }
 }

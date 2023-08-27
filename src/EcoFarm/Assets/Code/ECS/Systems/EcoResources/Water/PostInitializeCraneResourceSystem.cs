@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-
-
 using Entitas;
+using Zenject;
 using static GameMatcher;
 
 namespace EcoFarm
@@ -9,9 +8,17 @@ namespace EcoFarm
 	public sealed class PostInitializeCraneResourceSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
-		public PostInitializeCraneResourceSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+		private readonly IConfigurationService _configurationService;
 
-		private IBucketConfig BalanceBucket => _contexts.services.configurationService.Value.Balance.Bucket;
+		[Inject]
+		public PostInitializeCraneResourceSystem(Contexts contexts, IConfigurationService configurationService)
+			: base(contexts.game)
+		{
+			_contexts = contexts;
+			_configurationService = configurationService;
+		}
+
+		private IBucketConfig BalanceBucket => _configurationService.Balance.Bucket;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(Crane);

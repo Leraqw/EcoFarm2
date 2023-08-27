@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
@@ -11,16 +6,16 @@ namespace EcoFarm
 {
 	public sealed class CheckFellUpSystem : IExecuteSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _entities;
+		private readonly IConfigurationService _configurationService;
 
-		public CheckFellUpSystem(Contexts contexts)
+		public CheckFellUpSystem(GameContext context, IConfigurationService configurationService)
 		{
-			_contexts = contexts;
-			_entities = contexts.game.GetGroup(AllOf(TargetPosition, Position));
+			_configurationService = configurationService;
+			_entities = context.GetGroup(AllOf(TargetPosition, Position));
 		}
 
-		private ICommonConfig Constants => _contexts.GetConfiguration().Common;
+		private ICommonConfig Constants => _configurationService.Common;
 
 		public void Execute() => _entities.ForEach(Check);
 

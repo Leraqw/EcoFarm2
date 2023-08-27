@@ -1,13 +1,21 @@
 ﻿using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
-    public class ButtonSaveNewPlayerReceiver : BaseButtonClickReceiver
-    {
-        [SerializeField] private TMP_InputField _inputField;
-        private static PlayersList PlayersList => ServicesMediator.DataProvider.PlayersList;
+	public class ButtonSaveNewPlayerReceiver : BaseButtonClickReceiver
+	{
+		[SerializeField] private TMP_InputField _inputField;
 
-        protected override void OnButtonClick() => PlayersList.AddPlayer(_inputField.text);
-    }
+		private IDataProviderService _dataProvider;
+
+		[Inject]
+		public void Construct(IDataProviderService dataProvider) 
+			=> _dataProvider = dataProvider;
+
+		private PlayersList PlayersList => _dataProvider.PlayersList;
+
+		protected override void OnButtonClick() => PlayersList.AddPlayer(_inputField.text);
+	}
 }

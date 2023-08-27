@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
 	public class RegistrableEntityBehaviour : MonoBehaviour
 	{
 		[SerializeField] private AuthoringBase[] _registrars;
+
+		private GameEntity.Factory _gameEntityFactory;
+
+		[Inject]
+		public void Construct(GameEntity.Factory gameEntityFactory)
+			=> _gameEntityFactory = gameEntityFactory;
 
 		private void OnEnable()
 		{
@@ -19,9 +26,9 @@ namespace EcoFarm
 #endif
 		}
 
-		public void Initialize(Contexts contexts)
+		public void Initialize()
 		{
-			var entity = contexts.game.CreateEntity();
+			var entity = _gameEntityFactory.Create();
 
 			foreach (var registrar in _registrars)
 			{

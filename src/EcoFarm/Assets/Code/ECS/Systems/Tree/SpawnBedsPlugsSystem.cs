@@ -1,33 +1,44 @@
 ﻿using System.Linq;
-
-
-
-
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace EcoFarm
 {
 	public sealed class SpawnBedsPlugsSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly ISpawnPointsService _spawnPointsService;
+		private readonly IConfigurationService _configurationService;
+		private readonly GameEntity.Factory _gameEntityFactory;
 
-		public SpawnBedsPlugsSystem(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public SpawnBedsPlugsSystem
+		(
+			Contexts contexts,
+			ISpawnPointsService spawnPointsService,
+			IConfigurationService configurationService,
+			GameEntity.Factory gameEntityFactory
+		)
+		{
+			_contexts = contexts;
+			_spawnPointsService = spawnPointsService;
+			_configurationService = configurationService;
+			_gameEntityFactory = gameEntityFactory;
+		}
 
-		private ISpawnPointsService SpawnPointsService => _contexts.services.sceneObjectsService.Value;
-
-		private IResourceConfig Resource => _contexts.GetConfiguration().Resource;
+		private IResourceConfig Resource => _configurationService.Resource;
 
 		private int SelectedLevel => _contexts.player.currentPlayerEntity.selectedLevel.Value;
 
 		public void Initialize()
-			=> SpawnPointsService
+			=> _spawnPointsService
 			   .Trees
 			   .Skip(_contexts.game.storage.Value.Levels[SelectedLevel].TreesCount)
 			   .ForEach(SpawnPlug);
 
 		private void SpawnPlug(Vector2 position)
-			=> _contexts.game.CreateEntity()
+			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddViewPrefab(Resource.Prefab.BedPlug))
 			            .Do((e) => e.AddSpawnPosition(position))
 			            .Do((e) => e.AddDebugName("BedPlug"));

@@ -19,7 +19,7 @@ public static class PlayerComponentsLookup {
     public const int Nickname = 8;
     public const int PlayerChoiceButton = 9;
     public const int Player = 10;
-    public const int PlayerListLengthChanged = 11;
+    public const int PlayerListLength = 11;
     public const int PlayerToEdit = 12;
     public const int SelectedLevel = 13;
     public const int SessionResult = 14;
@@ -30,7 +30,7 @@ public static class PlayerComponentsLookup {
     public const int View = 19;
     public const int EditModeListener = 20;
     public const int InteractableListener = 21;
-    public const int PlayerListLengthChangedListener = 22;
+    public const int PlayerListLengthListener = 22;
     public const int PlayerTextListener = 23;
     public const int PlayerToEditListener = 24;
     public const int UnlockedLevelsCountListener = 25;
@@ -49,7 +49,7 @@ public static class PlayerComponentsLookup {
         "Nickname",
         "PlayerChoiceButton",
         "Player",
-        "PlayerListLengthChanged",
+        "PlayerListLength",
         "PlayerToEdit",
         "SelectedLevel",
         "SessionResult",
@@ -60,7 +60,7 @@ public static class PlayerComponentsLookup {
         "View",
         "EditModeListener",
         "InteractableListener",
-        "PlayerListLengthChangedListener",
+        "PlayerListLengthListener",
         "PlayerTextListener",
         "PlayerToEditListener",
         "UnlockedLevelsCountListener"
@@ -78,7 +78,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.NicknameComponent),
         typeof(EcoFarm.PlayerChoiceButtonComponent),
         typeof(EcoFarm.PlayerComponent),
-        typeof(EcoFarm.PlayerListLengthChangedComponent),
+        typeof(EcoFarm.PlayerListLengthComponent),
         typeof(EcoFarm.PlayerToEditComponent),
         typeof(EcoFarm.SelectedLevelComponent),
         typeof(EcoFarm.SessionResultComponent),
@@ -89,7 +89,7 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.ViewComponent),
         typeof(EditModeListenerComponent),
         typeof(InteractableListenerComponent),
-        typeof(PlayerListLengthChangedListenerComponent),
+        typeof(PlayerListLengthListenerComponent),
         typeof(PlayerTextListenerComponent),
         typeof(PlayerToEditListenerComponent),
         typeof(UnlockedLevelsCountListenerComponent)

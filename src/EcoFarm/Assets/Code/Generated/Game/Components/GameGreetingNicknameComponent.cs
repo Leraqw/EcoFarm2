@@ -6,9 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Entitas;
-
 public partial class GameEntity {
 
     public EcoFarm.GreetingNicknameComponent greetingNickname { get { return (EcoFarm.GreetingNicknameComponent)GetComponent(GameComponentsLookup.GreetingNickname); } }
@@ -45,7 +42,7 @@ public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherGreetingNickname;
 
-    public static IMatcher<GameEntity> GreetingNickname {
+    public static Entitas.IMatcher<GameEntity> GreetingNickname {
         get {
             if (_matcherGreetingNickname == null) {
                 var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GreetingNickname);

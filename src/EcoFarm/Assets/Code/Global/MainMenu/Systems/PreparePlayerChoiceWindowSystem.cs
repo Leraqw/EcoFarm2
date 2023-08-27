@@ -2,64 +2,89 @@
 using Entitas;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
+using UnityEngine.UI;
 using static GameMatcher;
 
 namespace EcoFarm
 {
-    public sealed class PreparePlayerChoiceWindowSystem : ReactiveSystem<GameEntity>
-    {
-        private readonly Contexts _context;
+	public sealed class PreparePlayerChoiceWindowSystem : ReactiveSystem<GameEntity>
+	{
+		private readonly IDataProviderService _dataProvider;
+		private readonly GameEntity.Factory _gameEntityFactory;
+		private readonly Injector _injector;
 
-        public PreparePlayerChoiceWindowSystem(Contexts contexts) : base(contexts.game) => _context = contexts;
-        private static IEnumerable<Player> Players => ServicesMediator.DataProvider.PlayersList.Players;
+		public PreparePlayerChoiceWindowSystem
+		(
+			Contexts contexts,
+			IDataProviderService dataProvider,
+			GameEntity.Factory gameEntityFactory,
+			Injector injector
+		)
+			: base(contexts.game)
+		{
+			_dataProvider = dataProvider;
+			_gameEntityFactory = gameEntityFactory;
+			_injector = injector;
+		}
 
-        private static PlayerView PlayerViewPrefab => ServicesMediator.DataProvider.PlayerView;
+		private IEnumerable<Player> Players => _dataProvider.PlayersList.Players;
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-            => context.CreateCollector(AllOf(PlayerChoiceWindow, Toggled, RequirePreparation));
+		private PlayerView PlayerViewPrefab => _dataProvider.PlayerView;
 
-        protected override bool Filter(GameEntity entity) => entity.isToggled && entity.isRequirePreparation;
+		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+			=> context.CreateCollector(AllOf(PlayerChoiceWindow, Toggled, RequirePreparation));
 
-        protected override void Execute(List<GameEntity> entities) => entities.ForEach(Prepare);
+		protected override bool Filter(GameEntity entity) => entity.isToggled && entity.isRequirePreparation;
 
-        private void Prepare(GameEntity window)
-            => window.Do(CleanPlayerList)
-                .Do(FillPlayerList)
-                .Do(EndPreparations);
+		protected override void Execute(List<GameEntity> entities) => entities.ForEach(Prepare);
 
-        private static void CleanPlayerList(GameEntity window) =>
-            window.GetAttachedEntities()
-                .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
-                .Do((entities) => entities.ForEach((e) => e.viewPrefab.Value.DestroyGameObject()));
+		private void Prepare(GameEntity window)
+			=> window.Do(CleanPlayerList)
+			         .Do(FillPlayerList)
+			         .Do(EndPreparations);
 
-        private void FillPlayerList(GameEntity window)
-            => Players.ForEach((player) => BindPlayerChoiceView(player, PlayerViewPrefab, window));
+		private static void CleanPlayerList(GameEntity window)
+			=> window.GetAttachedEntities()
+			         .Do((entities) => entities.ForEach((e) => e.isDestroy = true))
+			         .Do((entities) => entities.ForEach((e) => e.viewPrefab.Value.DestroyGameObject()));
 
-        private void BindPlayerChoiceView(Player player, BaseViewListener prefab, GameEntity window)
-        {
-            var e = _context.game.CreateEntity();
+		private void FillPlayerList(GameEntity window)
+			=> Players.ForEach((player) => BindPlayerChoiceView(player, PlayerViewPrefab, window));
 
-            e.AddPlayerToChoose(player);
-            prefab.Register(e);
-            e.AttachTo(window);
-            e.AddDebugName($"playerItem_{player.Nickname}");
+		private void BindPlayerChoiceView(Player player, BaseViewListener prefab, GameEntity window)
+		{
+			var e = _gameEntityFactory.Create();
+			var viewPrefab = Object.Instantiate(prefab, window.playerWindowContent.Value);
+			_injector.InjectGameObject(viewPrefab.gameObject);
 
-            var viewPrefab = Object.Instantiate(prefab.gameObject, window.playerWindowContent.Value);
-            e.AddViewPrefab(viewPrefab);
+			e.AddPlayerToChoose(player);
+			viewPrefab.Register(e);
+			e.AttachTo(window);
+			e.AddDebugName($"playerItem_{player.Nickname}");
+			e.AddViewPrefab(viewPrefab.gameObject);
 
-            ReplaceModeButtons(e);
-        }
+			ReplaceModeButtons(e);
+		}
 
-        private static void ReplaceModeButtons(GameEntity e)
-        {
-            EnabledReceivers enabled;
-            var color = new ModeButtonColorBlocks();
+		private static void ReplaceModeButtons(GameEntity e)
+		{
+			var enabled = new EnabledReceivers
+			{
+				PlayerToChoose = true,
+				PlayerToEdit = false
+			};
 
-            enabled.PlayerToChoose = true;
-            enabled.PlayerToEdit = false;
-            e.ReplaceModeButtons(enabled, color.ModeButtonColorBlock);
-        }
+			var colorBlock = new ColorBlock
+			{
+				normalColor = Color.white,
+				highlightedColor = Color.white,
+				pressedColor = Color.white,
+				colorMultiplier = 1
+			};
 
-        private static void EndPreparations(GameEntity window) => window.Do((e) => e.isPrepared = true);
-    }
+			e.ReplaceModeButtons(enabled, colorBlock);
+		}
+
+		private static void EndPreparations(GameEntity window) => window.Do((e) => e.isPrepared = true);
+	}
 }

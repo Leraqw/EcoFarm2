@@ -1,5 +1,6 @@
-﻿
-using Entitas;
+﻿using Entitas;
+using Zenject;
+using static PlayerMatcher;
 
 namespace EcoFarm
 {
@@ -7,9 +8,8 @@ namespace EcoFarm
 	{
 		private readonly Contexts _contexts;
 
-		public TearDownLevelsSystems(Contexts contexts) => _contexts = contexts;
+		[Inject] public TearDownLevelsSystems(Contexts contexts) => _contexts = contexts;
 
-		public void TearDown()
-			=> _contexts.player.GetEntities(PlayerMatcher.LevelRelatedEntity).ForEach((e) => e.Destroy());
+		public void TearDown() => _contexts.player.GetEntities(LevelRelatedEntity).DestroyAll();
 	}
 }

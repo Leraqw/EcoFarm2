@@ -1,16 +1,13 @@
-﻿
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class DraggingSystems : Feature
+	public sealed class DraggingSystems : FeatureBase
 	{
-		public DraggingSystems(Contexts contexts)
-			: base(nameof(DraggingSystems))
+		public DraggingSystems(SystemsFactory factory)
+			: base(nameof(DraggingSystems), factory)
 		{
-			Add(new DraggingSystem(contexts));
-			Add(new ReleaseAtDraggableSystem(contexts));
-			Add(new ReturnDraggableToInitialSystem(contexts));
+			Add<DraggingSystem>();
+			Add<ReleaseAtDraggableSystem>();
+			Add<ReturnDraggableToInitialSystem>();
 		}
 	}
 }

@@ -1,40 +1,40 @@
-﻿namespace EcoFarm
+﻿using Zenject;
+
+namespace EcoFarm
 {
-    public sealed class GlobalSystems : Feature
-    {
-        public GlobalSystems()
-        {
-            var contexts = Contexts.sharedInstance;
+	public sealed class GlobalSystems : FeatureBase
+	{
+		[Inject]
+		public GlobalSystems(SystemsFactory factory)
+			: base(nameof(GlobalSystems), factory)
+		{
+			Add<GlobalServicesRegistrationSystem>();
 
-            Add(new GlobalServicesRegistrationSystem(contexts));
+			Add<LoadCurrentPlayerSystem>();
 
-            Add(new LoadPlayerSystem(contexts));
-            //  Add(new SetFirstPlayerAsCurrentSystem(contexts));
+			Add<OnSessionEndSystem>();
+			Add<SaveProgressSystem>();
+			Add<ToMainSceneSystem>();
 
-            Add(new OnSessionEndSystem(contexts));
-            Add(new SaveProgressSystem(contexts));
-            Add(new ToMainSceneSystem(contexts));
+			// Main Menu Systems
+			Add<PreparePlayerChoiceWindowSystem>();
+			Add<ToggleWindowActivityButtonSystem>();
 
-            // Main Menu Systems
-            Add(new PreparePlayerChoiceWindowSystem(contexts));
-            Add(new ToggleWindowActivityButtonSystem(contexts));
-            
-            Add(new ShowGreetingSystem(contexts));
-            
-            Add(new DeletePlayerSystem(contexts));
-            Add(new ChangePlayerDataSystem(contexts));
-            Add(new ChangeModeSystem(contexts));
-            
-            Add(new PlayerListChangedSystem(contexts));
-          
-            Add(new BindViewsSystem(contexts));
+			Add<ShowGreetingSystem>();
 
-            Add(new PlayerEventSystems(contexts));
-            Add(new GameEventSystems(contexts));
-            Add(new PlayerCleanupSystems(contexts));
-            Add(new DestroyDestroyGameSystem(contexts));
-        }
+			Add<DeletePlayerSystem>();
+			Add<ChangePlayerDataSystem>();
+			Add<ChangeModeSystem>();
 
-        public void OnUpdate() => this.ExecuteAnd().Cleanup();
-    }
+			Add<TogglePlayerButtonsSystem>();
+			Add<PlayerListChangedSystem>();
+
+			Add<BindViewsSystem>();
+
+			Add<PlayerEventSystems>();
+			Add<GameEventSystems>();
+			Add<PlayerCleanupSystems>();
+			Add<DestroyDestroyGameSystem>();
+		}
+	}
 }

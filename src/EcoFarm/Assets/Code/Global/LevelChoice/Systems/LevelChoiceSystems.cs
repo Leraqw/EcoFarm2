@@ -1,12 +1,11 @@
 ﻿namespace EcoFarm
 {
-	public sealed class LevelChoiceSystems : Feature
+	public sealed class LevelChoiceSystems : FeatureBase
 	{
-		public LevelChoiceSystems()
+		public LevelChoiceSystems(SystemsFactory factory)
+			: base(nameof(LevelChoiceSystems), factory)
 		{
-			var contexts = Contexts.sharedInstance;
-
-			Add(new TearDownLevelsSystems(contexts));
+			Add<TearDownLevelsSystems>();
 		}
 	}
 }

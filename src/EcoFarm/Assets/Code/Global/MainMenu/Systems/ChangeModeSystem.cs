@@ -1,47 +1,49 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Entitas;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace EcoFarm
 {
-    public class ChangeModeSystem : ReactiveSystem<PlayerEntity>
-    {
-        private static GameContext _context;
+	public class ChangeModeSystem : ReactiveSystem<PlayerEntity>
+	{
+		private static IGroup<GameEntity> _modeButtons;
 
-        public ChangeModeSystem(Contexts contexts) : base(contexts.player)
-            => _context = Contexts.sharedInstance.game;
+		public ChangeModeSystem(Contexts contexts)
+			: base(contexts.player)
+			=> _modeButtons = contexts.game.GetGroup(GameMatcher.ModeButtons);
 
-        protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-            => context.CreateCollector(PlayerMatcher.EditMode);
+		protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
+			=> context.CreateCollector(PlayerMatcher.EditMode);
 
-        protected override bool Filter(PlayerEntity entity) => entity.hasEditMode;
+		protected override bool Filter(PlayerEntity entity) => entity.hasEditMode;
 
-        protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(ChangeMode);
+		protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(ChangeMode);
 
-        private static void ChangeMode(PlayerEntity entity)
-        {
-            var modeButtonEntity = _context
-                .GetEntities(GameMatcher.ModeButtons)
-                .ToList();
+		private static void ChangeMode(PlayerEntity entity)
+		{
+			var modeButtonEntity = _modeButtons;
+			var enabled = new EnabledReceivers();
 
-            var enabled = new EnabledReceivers();
-            var selectedColor = new ColorBlock();
+			SetMode(entity.editMode.Value, enabled, modeButtonEntity);
+		}
 
-            SetMode(entity.editMode.Value, enabled, selectedColor, modeButtonEntity);
-        }
+		private static void SetMode(bool editMode, EnabledReceivers enabled, IGroup<GameEntity> modeButtonEntity)
+		{
+			enabled.PlayerToChoose = !editMode;
+			enabled.PlayerToEdit = editMode;
+			var selectedColor = CreateColorBlock(editMode ? Color.red : Color.white);
+			modeButtonEntity.ForEach(e => e.ReplaceModeButtons(enabled, selectedColor));
+		}
 
-        private static void SetMode(bool editMode, EnabledReceivers enabled, 
-            ColorBlock selectedColor, List<GameEntity> modeButtonEntity)
-        {
-            enabled.PlayerToChoose = !editMode;
-            enabled.PlayerToEdit = editMode;
-            selectedColor = new ModeButtonColorBlocks(editMode ? Color.red : Color.white).ModeButtonColorBlock;
-            modeButtonEntity.ForEach(e => TurnModeOn(e, enabled, selectedColor));
-        }
-
-        private static void TurnModeOn(GameEntity e, EnabledReceivers enabled, ColorBlock color)
-            => e.ReplaceModeButtons(enabled, color);
-    }
+		private static ColorBlock CreateColorBlock(Color selectedColor)
+		{
+			return new ColorBlock
+			{
+				normalColor = Color.white, highlightedColor = Color.white, pressedColor = Color.white,
+				selectedColor = selectedColor,
+				colorMultiplier = 1
+			};
+		}
+	}
 }

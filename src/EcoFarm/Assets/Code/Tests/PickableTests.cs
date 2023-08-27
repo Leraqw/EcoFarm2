@@ -4,7 +4,7 @@ using NUnit.Framework;
 using FluentAssertions;
 using UnityEngine;
 
-public class PickableTests
+public class PickableTests // TODO: fix (or remove) testes
 {
     private GameEntity _entity;
     private PickedToWarehouseSystem _system;
@@ -14,8 +14,8 @@ public class PickableTests
     {
         var contexts = new Contexts();
         Setup.Services(contexts);
-        _entity = contexts.game.CreateEntity();
-        _system = Create.PickedToWarehouseSystem(contexts);
+        // _entity = contexts.game.CreateEntity();
+        // _system = Create.PickedToWarehouseSystem();
     }
     
     [Test]

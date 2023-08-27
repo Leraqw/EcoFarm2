@@ -1,8 +1,4 @@
-﻿
-
-
-
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 using static GameMatcher;
 
@@ -11,15 +7,15 @@ namespace EcoFarm
 	public sealed class CheckGrowthUpSystem : IExecuteSystem
 	{
 		private readonly IGroup<GameEntity> _entities;
-		private readonly Contexts _contexts;
+		private readonly IConfigurationService _configurationService;
 
-		public CheckGrowthUpSystem(Contexts contexts)
+		public CheckGrowthUpSystem(Contexts contexts, IConfigurationService configurationService)
 		{
-			_contexts = contexts;
+			_configurationService = configurationService;
 			_entities = contexts.game.GetGroup(AllOf(ProportionalScale, TargetScale));
 		}
 
-		private ICommonConfig Constants => _contexts.GetConfiguration().Common;
+		private ICommonConfig Constants => _configurationService.Common;
 
 		public void Execute() => _entities.ForEach(Check);
 

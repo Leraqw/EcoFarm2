@@ -1,15 +1,13 @@
-﻿
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class ViewSystems : Feature
+	public sealed class ViewSystems : FeatureBase
 	{
-		public ViewSystems(Contexts contexts)
-			: base(nameof(ViewSystems))
+		public ViewSystems(SystemsFactory factory)
+			: base(nameof(ViewSystems), factory)
 		{
-			Add(new LoadViewForEntitySystem(contexts));
-			Add(new BindViewsSystem(contexts));
-			Add(new LoadRequiredSpriteSystem(contexts));
+			Add<LoadViewForEntitySystem>();
+			Add<BindViewsSystem>();
+			Add<LoadRequiredSpriteSystem>();
 		}
 	}
 }

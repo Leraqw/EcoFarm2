@@ -6,12 +6,13 @@ namespace EcoFarm
 {
 	public sealed class PerformProductsRequestSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _products;
+		private readonly IConfigurationService _configurationService;
 
-		public PerformProductsRequestSystem(Contexts contexts) : base(contexts.game)
+		public PerformProductsRequestSystem(Contexts contexts,IConfigurationService configurationService)
+			: base(contexts.game)
 		{
-			_contexts = contexts;
+			_configurationService = configurationService;
 			_products = contexts.game.GetGroup(AllOf(GameMatcher.Product, Collected).NoneOf(InFactory));
 		}
 
@@ -19,7 +20,7 @@ namespace EcoFarm
 
 		private float SendProductToFactoryDelay => Balance.SendProductToFactoryDelay;
 
-		private IFactoryConfig Balance => _contexts.GetConfiguration().Balance.Factory;
+		private IFactoryConfig Balance => _configurationService.Balance.Factory;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(RequireProduct, Count).NoneOf(Duration));

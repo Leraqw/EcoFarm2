@@ -1,18 +1,15 @@
-﻿
-
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
-	public sealed class FallingSystems : Feature
+	public sealed class FallingSystems : FeatureBase
 	{
-		public FallingSystems(Contexts contexts)
-			: base(nameof(FallingSystems))
+		public FallingSystems(SystemsFactory factory)
+			: base(nameof(FallingSystems), factory)
 		{
-			Add(new MarkFallingSystem(contexts));
-			Add(new FallingSystem(contexts));
-			Add(new CheckFellUpSystem(contexts));
-			Add(new DetachFromTreeSystem(contexts));
-			Add(new MarkFellFruitAsPickableSystem(contexts));
+			Add<MarkFallingSystem>();
+			Add<FallingSystem>();
+			Add<CheckFellUpSystem>();
+			Add<DetachFromTreeSystem>();
+			Add<MarkFellFruitAsPickableSystem>();
 		}
 	}
 }
