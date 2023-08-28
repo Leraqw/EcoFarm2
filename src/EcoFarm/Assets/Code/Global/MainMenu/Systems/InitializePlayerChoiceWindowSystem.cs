@@ -74,6 +74,11 @@ namespace EcoFarm
             e.AddDebugName($"playerItem_{player.Nickname}");
             e.AddViewPrefab(viewPrefab.gameObject);
 
+            CretePlayerModeButtonsEnabledEntity(viewPrefab);
+        }
+
+        private void CretePlayerModeButtonsEnabledEntity(PlayerView viewPrefab)
+        {
             var playerEntity = _playerEntityFactory.Create();
             playerEntity.AddPlayerModeButtonsEnabled(false);
             viewPrefab.PlayerModeButtons.Register(playerEntity);

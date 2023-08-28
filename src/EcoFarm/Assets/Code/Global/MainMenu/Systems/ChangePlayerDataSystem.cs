@@ -32,6 +32,7 @@ namespace EcoFarm
                 Players[index] = entity.editedPlayerData.Value;
 
                 PlayersList.SaveChanges();
+
                 entity.RemoveEditedPlayerData();
             }
         }

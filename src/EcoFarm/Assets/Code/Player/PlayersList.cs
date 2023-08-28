@@ -26,7 +26,7 @@ namespace EcoFarm
                 return;
             }
 
-            Players.Add(new Player(nickname, 0));
+            Players.Insert(0, new Player(nickname, 0));
             SaveChanges();
         }
 
@@ -38,7 +38,6 @@ namespace EcoFarm
 
         public void RemovePlayer(Player player)
         {
-            Players.ForEach(e => Debug.Log($"{e}"));
             var index = Players.IndexOf(player);
             if (index != -1)
             {

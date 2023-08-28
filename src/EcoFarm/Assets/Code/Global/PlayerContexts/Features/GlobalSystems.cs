@@ -11,6 +11,7 @@ namespace EcoFarm
 			Add<GlobalServicesRegistrationSystem>();
 
 			Add<LoadCurrentPlayerSystem>();
+			Add<UpdateCurrentPlayerSystem>();
 
 			Add<OnSessionEndSystem>();
 			Add<SaveProgressSystem>();

@@ -6,45 +6,39 @@ using Zenject;
 
 namespace EcoFarm
 {
-	public class ButtonPlayerToChooseReceiver : BaseButtonClickReceiver
-	{
-		[SerializeField] private PlayerView _playerView;
+    public class ButtonPlayerToChooseReceiver : BaseButtonClickReceiver
+    {
+        [SerializeField] private PlayerView _playerView;
 
-		private IDataProviderService _dataProvider;
-		private Contexts _contexts;
+        private IDataProviderService _dataProvider;
+        private Contexts _contexts;
 
-		[Inject]
-		public void Construct(IDataProviderService dataProvider, Contexts contexts)
-		{
-			_contexts = contexts;
-			_dataProvider = dataProvider;
-		}
+        [Inject]
+        public void Construct(IDataProviderService dataProvider, Contexts contexts)
+        {
+            _contexts = contexts;
+            _dataProvider = dataProvider;
+        }
+        
+        private GameEntity Window => _contexts.game.playerChoiceWindowEntity;
 
-		private PlayerEntity PlayerEntity => _contexts.player.currentPlayerEntity;
+        private List<Player> PlayerList => _dataProvider.PlayersList.Players;
 
-		private GameEntity Window => _contexts.game.playerChoiceWindowEntity;
+        protected override void OnButtonClick()
+        {
+            MovePlayerToTop(PlayerList, _playerView.Player);
 
-		private List<Player> PlayerList => _dataProvider.PlayersList.Players;
+            Window.isToggled = true;
+        }
 
-		protected override void OnButtonClick()
-		{
-			var player = _playerView.Player;
-
-			PlayerEntity.ReplaceNickname(player.Nickname);
-			PlayerEntity.ReplaceCompletedLevelsCount(player.CompletedLevelsCount);
-			MovePlayerToTop(PlayerList, player);
-
-			Window.isToggled = true;
-		}
-
-		private void MovePlayerToTop(IList<Player> playerList, Player player)
-		{
-			var index = _dataProvider.PlayersList.Players.FindIndex(p => p.Equals(player));
-			if (index != -1)
-			{
-				playerList.RemoveAt(index);
-				playerList.Insert(0, player);
-			}
-		}
-	}
+        private void MovePlayerToTop(IList<Player> playerList, Player player)
+        {
+            var index = _dataProvider.PlayersList.Players.FindIndex(p => p.Equals(player));
+            if (index != -1)
+            {
+                playerList.RemoveAt(index);
+                playerList.Insert(0, player);
+            }
+        }
+    }
 }

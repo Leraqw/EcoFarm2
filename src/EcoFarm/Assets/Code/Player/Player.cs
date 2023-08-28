@@ -7,7 +7,7 @@ namespace EcoFarm
     public class Player
     {
         [field: SerializeField] public string Nickname { get; private set; }
-        [field: SerializeField] public int CompletedLevelsCount { get; private set; }
+        [field: SerializeField] public int CompletedLevelsCount { get; set; }
 
         public Player(string nickname, int completedLevelsCount)
         {
