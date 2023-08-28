@@ -17,17 +17,18 @@ namespace EcoFarm
 			Add<ToMainSceneSystem>();
 
 			// Main Menu Systems
-			Add<PreparePlayerChoiceWindowSystem>();
+			Add<InitializePlayerChoiceWindowSystem>();
 			Add<ToggleWindowActivityButtonSystem>();
 
 			Add<ShowGreetingSystem>();
 
 			Add<DeletePlayerSystem>();
 			Add<ChangePlayerDataSystem>();
-			Add<ChangeModeSystem>();
 
 			Add<TogglePlayerButtonsSystem>();
 			Add<PlayerListChangedSystem>();
+			
+			Add<TogglePlayerModeButtons>();
 
 			Add<BindViewsSystem>();
 

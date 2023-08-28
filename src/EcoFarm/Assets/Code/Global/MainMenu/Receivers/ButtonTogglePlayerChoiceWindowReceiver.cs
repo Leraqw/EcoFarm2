@@ -1,12 +1,8 @@
-﻿using System.Linq;
-using Entitas;
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
     public class ButtonTogglePlayerChoiceWindowReceiver : BaseButtonClickReceiver
     {
-        private static GameEntity Window 
-            => Contexts.sharedInstance.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
+        private static GameEntity Window => Contexts.sharedInstance.game.playerChoiceWindowEntity;
 
         protected override void OnButtonClick() => Window.isToggled = true;
     }

@@ -22,7 +22,7 @@ namespace EcoFarm
 
 		private PlayerEntity PlayerEntity => _contexts.player.currentPlayerEntity;
 
-		private GameEntity Window => _contexts.game.GetEntities(GameMatcher.PlayerChoiceWindow).First();
+		private GameEntity Window => _contexts.game.playerChoiceWindowEntity;
 
 		private List<Player> PlayerList => _dataProvider.PlayersList.Players;
 
@@ -39,15 +39,12 @@ namespace EcoFarm
 
 		private void MovePlayerToTop(IList<Player> playerList, Player player)
 		{
-			var index = FindPlayerIndex(player);
+			var index = _dataProvider.PlayersList.Players.FindIndex(p => p.Equals(player));
 			if (index != -1)
 			{
 				playerList.RemoveAt(index);
 				playerList.Insert(0, player);
 			}
 		}
-
-		private int FindPlayerIndex(Player player)
-			=> _dataProvider.PlayersList.Players.FindIndex(p => p.Equals(player));
 	}
 }

@@ -7,36 +7,33 @@ namespace EcoFarm
 {
 	public sealed class PlayerListLengthChangedView : MonoBehaviour, IPlayerListLengthListener
 	{
-		[SerializeField] private GameObject _greeting;
-
 		private PlayerContext _context;
 		private IDataProviderService _dataProvider;
+		private PlayerEntity _entity;
 
 		[Inject]
 		public void Construct(PlayerContext context, IDataProviderService dataProvider)
 		{
 			_dataProvider = dataProvider;
 			_context = context;
+			_entity = context.playerListLengthEntity;
 		}
 
 		private PlayerEntity CurrentPlayer => _context.currentPlayerEntity;
 
 		private IEnumerable<Player> Players => _dataProvider.PlayersList.Players;
 
-		public void Register(PlayerEntity entity)
+		public void Start()
 		{
-			entity.AddPlayerListLengthListener(this);
+			_entity.AddPlayerListLengthListener(this);
 
-			if (entity.hasPlayerListLength)
-				OnPlayerListLength(entity, entity.playerListLength.Value);
+			if (_entity.hasPlayerListLength)
+				OnPlayerListLength(_entity, _entity.playerListLength.Value);
 		}
 
 		public void OnPlayerListLength(PlayerEntity entity, int value)
 		{
-			var hasPlayers = value > 0;
-			_greeting.SetActive(hasPlayers);
-
-			if (hasPlayers)
+			if (value > 0)
 			{
 				CurrentPlayer.ReplaceNickname(Players.First().Nickname);
 				CurrentPlayer.ReplaceCompletedLevelsCount(Players.First().CompletedLevelsCount);

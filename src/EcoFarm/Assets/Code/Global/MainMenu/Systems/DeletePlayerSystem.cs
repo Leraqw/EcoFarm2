@@ -31,6 +31,7 @@ namespace EcoFarm
 			PlayersList.RemovePlayer(playerView.Player);
 
 			playerView.gameObject.DestroyGameObject();
+
 			entity.isToDelete = false;
 		}
 	}

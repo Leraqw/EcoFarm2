@@ -12,6 +12,7 @@ public sealed class PlayerEventSystems : Feature {
         Add(new EditModeEventSystem(contexts)); // priority: 0
         Add(new InteractableEventSystem(contexts)); // priority: 0
         Add(new PlayerListLengthEventSystem(contexts)); // priority: 0
+        Add(new PlayerModeButtonsEnabledEventSystem(contexts)); // priority: 0
         Add(new PlayerToEditEventSystem(contexts)); // priority: 0
         Add(new PlayerTextEventSystem(contexts)); // priority: 0
         Add(new UnlockedLevelsCountEventSystem(contexts)); // priority: 0
