@@ -14,7 +14,6 @@ namespace EcoFarm
 
 			Add<OnSessionEndSystem>();
 			Add<SaveProgressSystem>();
-			Add<ToMainSceneSystem>();
 
 			// Main Menu Systems
 			Add<PreparePlayerChoiceWindowSystem>();

@@ -22,5 +22,14 @@ namespace EcoFarm
 			public const float DeltaMax = 0.25f;
 			public const float Normal = 1f;
 		}
+
+		public static class SceneName
+		{
+			public const string BootstrapScene = "BootstrapScene";
+			public const string MainMenuScene = "MainMenuScene";
+			public const string GameplayScene = "GameplayScene";
+			public const string GameResultScene = "GameResultScene";
+			public const string LevelChoiseScene = "LevelChoiseScene";
+		}
 	}
 }
