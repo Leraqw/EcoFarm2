@@ -21,6 +21,8 @@ public sealed class GameEventSystems : Feature {
         Add(new GreetingNicknameEventSystem(contexts)); // priority: 0
         Add(new InventoryItemEventSystem(contexts)); // priority: 0
         Add(new MaterialEventSystem(contexts)); // priority: 0
+        Add(new ModalWindowEventSystem(contexts)); // priority: 0
+        Add(new ModalWindowDataEventSystem(contexts)); // priority: 0
         Add(new PlayerToChooseEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
         Add(new ProgressBarEventSystem(contexts)); // priority: 0

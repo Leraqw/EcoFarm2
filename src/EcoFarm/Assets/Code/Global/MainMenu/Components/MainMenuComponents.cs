@@ -21,4 +21,10 @@ namespace EcoFarm
 	[Game] [Event(Self)] public sealed class PlayerToChooseComponent : IComponent { public Player Value; }
 	[Player] public sealed class EditedPlayerDataComponent : IComponent { public Player Value; }
 	[Unique] [Game] [Event(Self)] public sealed class GreetingNicknameComponent : IComponent { public string Value;}
+	[Unique] [Game] [Event(Self)] public sealed class ModalWindowComponent : IComponent { }
+	[Unique] [Game] [Event(Self)] public sealed class ModalWindowDataComponent : IComponent
+	{
+		public string Title;
+		public string Message;
+	}
 }

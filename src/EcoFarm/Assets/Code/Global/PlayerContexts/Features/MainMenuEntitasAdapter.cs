@@ -8,15 +8,9 @@ namespace EcoFarm
         private MainMenuContextSystems _contextSystems;
 
         [Inject]
-        public void Construct(MainMenuContextSystems contextSystems)
-        {
-            _contextSystems = contextSystems;
-        }
+        public void Construct(MainMenuContextSystems contextSystems) => _contextSystems = contextSystems;
 
-        private void Start()
-        {
-            _contextSystems.Initialize();
-        }
+        private void Start() => _contextSystems.Initialize();
 
         private void Update()
         {

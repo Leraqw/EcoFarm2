@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Entitas;
 using UnityEditor;
 using UnityEngine;
 using Zenject;
+using static GameMatcher;
 
 namespace EcoFarm
 {
@@ -20,20 +23,23 @@ namespace EcoFarm
 
         public void AddPlayer(string nickname)
         {
-            if (IsNicknameInPlayerList(nickname) == false)
-            {
-                Debug.LogWarning($"player with {nickname} nickname already exists");
-                return;
-            }
+            if (!IsNicknameUnique(nickname)) return;
 
             Players.Insert(0, new Player(nickname, 0));
             SaveChanges();
         }
 
-        private bool IsNicknameInPlayerList(string nickname)
+        public void ChangePlayer(Player player, string newNickname)
         {
-            var index = Players.FindIndex(p => p.Nickname.Equals(nickname));
-            return index == -1;
+            if (!IsNicknameUnique(newNickname)) return;
+
+            var index = Players.IndexOf(player);
+
+            if (index != -1)
+            {
+                Players[index].Nickname = newNickname;
+                SaveChanges();
+            }
         }
 
         public void RemovePlayer(Player player)
@@ -44,6 +50,23 @@ namespace EcoFarm
                 Players.Remove(Players[index]);
                 SaveChanges();
             }
+        }
+
+        private bool IsNicknameUnique(string nickname)
+        {
+            var index = Players.FindIndex(p => p.Nickname.Equals(nickname));
+            var isUnique = index == -1;
+
+            if (!isUnique)
+            {
+                Contexts.sharedInstance.game
+                    .modalWindowEntity
+                    .ReplaceModalWindowData(
+                        "Это имя уже занято",
+                        "Пожалуйста, введите другое имя");
+            }
+
+            return isUnique;
         }
     }
 }

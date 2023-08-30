@@ -17,8 +17,6 @@ namespace EcoFarm
             Add<ChangePlayerDataSystem>();
 
             Add<TogglePlayerButtonsSystem>();
-          //  Add<PlayerListChangedSystem>();
-
             Add<TogglePlayerModeButtons>();
 
             Add<BindViewsSystem>();
