@@ -15,6 +15,8 @@ namespace EcoFarm
 
 			Add<GameEventSystems>();
 			Add<GameCleanupSystems>();
+			
+			Add<DestroyAllGameEntitiesSystem>();
 		}
 	}
 }

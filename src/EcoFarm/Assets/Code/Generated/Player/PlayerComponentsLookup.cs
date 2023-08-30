@@ -17,9 +17,9 @@ public static class PlayerComponentsLookup {
     public const int Interactable = 6;
     public const int LevelRelatedEntity = 7;
     public const int Nickname = 8;
-    public const int PlayerChoiceButton = 9;
-    public const int Player = 10;
-    public const int PlayerListLength = 11;
+    public const int NotDestroy = 9;
+    public const int PlayerChoiceButton = 10;
+    public const int Player = 11;
     public const int PlayerModeButtonsEnabled = 12;
     public const int PlayerToEdit = 13;
     public const int SelectedLevel = 14;
@@ -30,13 +30,12 @@ public static class PlayerComponentsLookup {
     public const int View = 19;
     public const int EditModeListener = 20;
     public const int InteractableListener = 21;
-    public const int PlayerListLengthListener = 22;
-    public const int PlayerModeButtonsEnabledListener = 23;
-    public const int PlayerTextListener = 24;
-    public const int PlayerToEditListener = 25;
-    public const int UnlockedLevelsCountListener = 26;
+    public const int PlayerModeButtonsEnabledListener = 22;
+    public const int PlayerTextListener = 23;
+    public const int PlayerToEditListener = 24;
+    public const int UnlockedLevelsCountListener = 25;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "CompletedLevelsCount",
@@ -48,9 +47,9 @@ public static class PlayerComponentsLookup {
         "Interactable",
         "LevelRelatedEntity",
         "Nickname",
+        "NotDestroy",
         "PlayerChoiceButton",
         "Player",
-        "PlayerListLength",
         "PlayerModeButtonsEnabled",
         "PlayerToEdit",
         "SelectedLevel",
@@ -61,7 +60,6 @@ public static class PlayerComponentsLookup {
         "View",
         "EditModeListener",
         "InteractableListener",
-        "PlayerListLengthListener",
         "PlayerModeButtonsEnabledListener",
         "PlayerTextListener",
         "PlayerToEditListener",
@@ -78,9 +76,9 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.InteractableComponent),
         typeof(EcoFarm.LevelRelatedEntityComponent),
         typeof(EcoFarm.NicknameComponent),
+        typeof(EcoFarm.NotDestroyComponent),
         typeof(EcoFarm.PlayerChoiceButtonComponent),
         typeof(EcoFarm.PlayerComponent),
-        typeof(EcoFarm.PlayerListLengthComponent),
         typeof(EcoFarm.PlayerModeButtonsEnabledComponent),
         typeof(EcoFarm.PlayerToEditComponent),
         typeof(EcoFarm.SelectedLevelComponent),
@@ -91,7 +89,6 @@ public static class PlayerComponentsLookup {
         typeof(EcoFarm.ViewComponent),
         typeof(EditModeListenerComponent),
         typeof(InteractableListenerComponent),
-        typeof(PlayerListLengthListenerComponent),
         typeof(PlayerModeButtonsEnabledListenerComponent),
         typeof(PlayerTextListenerComponent),
         typeof(PlayerToEditListenerComponent),
