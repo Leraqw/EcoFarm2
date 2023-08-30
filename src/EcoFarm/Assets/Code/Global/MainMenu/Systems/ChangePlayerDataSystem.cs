@@ -6,11 +6,15 @@ namespace EcoFarm
 {
     public class ChangePlayerDataSystem : ReactiveSystem<PlayerEntity>
     {
+        private readonly Contexts _contexts;
         private readonly IDataProviderService _dataProvider;
 
         public ChangePlayerDataSystem(Contexts contexts, IDataProviderService dataProvider)
             : base(contexts.player)
-            => _dataProvider = dataProvider;
+        {
+            _contexts = contexts;
+            _dataProvider = dataProvider;
+        }
 
         private PlayersList PlayersList => _dataProvider.PlayersList;
         private List<Player> Players => _dataProvider.PlayersList.Players;
@@ -25,16 +29,11 @@ namespace EcoFarm
         private void Edit(PlayerEntity entity)
         {
             var player = entity.playerToEdit.Value.Player;
-            var index = _dataProvider.PlayersList.Players.IndexOf(player);
+            var newNickname = entity.editedPlayerData.Value.Nickname;
 
-            if (index != -1)
-            {
-                Players[index] = entity.editedPlayerData.Value;
+            PlayersList.ChangePlayer(player, newNickname);
 
-                PlayersList.SaveChanges();
-
-                entity.RemoveEditedPlayerData();
-            }
+            entity.RemoveEditedPlayerData();
         }
     }
 }
