@@ -11,11 +11,8 @@ namespace EcoFarm
 		private IDataProviderService _dataProvider;
 
 		[Inject]
-		public void Construct(IDataProviderService dataProvider) 
-			=> _dataProvider = dataProvider;
-
-		private PlayersList PlayersList => _dataProvider.PlayersList;
-
-		protected override void OnButtonClick() => PlayersList.AddPlayer(_inputField.text);
+		public void Construct(IDataProviderService dataProvider) => _dataProvider = dataProvider;
+        
+		protected override void OnButtonClick() => _dataProvider.PlayersList.AddPlayer(_inputField.text);
 	}
 }

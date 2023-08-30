@@ -8,31 +8,18 @@ namespace EcoFarm
 		public GlobalSystems(SystemsFactory factory)
 			: base(nameof(GlobalSystems), factory)
 		{
-			Add<GlobalServicesRegistrationSystem>();
+			//Add<GlobalServicesRegistrationSystem>();
 
 			Add<LoadCurrentPlayerSystem>();
+			Add<UpdateCurrentPlayerSystem>();
 
 			Add<OnSessionEndSystem>();
 			Add<SaveProgressSystem>();
 			Add<ToMainSceneSystem>();
 
-			// Main Menu Systems
-			Add<PreparePlayerChoiceWindowSystem>();
-			Add<ToggleWindowActivityButtonSystem>();
-
-			Add<ShowGreetingSystem>();
-
-			Add<DeletePlayerSystem>();
-			Add<ChangePlayerDataSystem>();
-			Add<ChangeModeSystem>();
-
-			Add<TogglePlayerButtonsSystem>();
-			Add<PlayerListChangedSystem>();
-
-			Add<BindViewsSystem>();
-
 			Add<PlayerEventSystems>();
 			Add<GameEventSystems>();
+			
 			Add<PlayerCleanupSystems>();
 			Add<DestroyDestroyGameSystem>();
 		}

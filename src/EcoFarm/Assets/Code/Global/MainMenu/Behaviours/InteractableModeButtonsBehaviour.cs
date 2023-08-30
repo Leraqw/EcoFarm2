@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Entitas;
 using UnityEngine;
 using static PlayerMatcher;
@@ -12,15 +11,16 @@ namespace EcoFarm
 
         private void Start()
         {
-            var entity = Contexts.sharedInstance.player
-                .GetEntities(EditMode)
-                .First();
-            entity.AddPlayerToEditListener(this);
-           // entity.AddInteractable(false);
-            _interactableView.ForEach(e => e.Register(entity));
+            var entities = Contexts.sharedInstance.player.GetEntities(EditMode);
+            
+            foreach (var entity in entities)
+            {
+                entity.AddPlayerToEditListener(this);
+                _interactableView.ForEach(e => e.Register(entity));
+            }
         }
 
-        public void OnPlayerToEdit(PlayerEntity entity, PlayerView value) 
+        public void OnPlayerToEdit(PlayerEntity entity, PlayerView value)
             => entity.ReplaceInteractable(true);
     }
 }

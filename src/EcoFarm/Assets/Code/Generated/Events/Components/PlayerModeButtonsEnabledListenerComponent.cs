@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class PlayerListLengthListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<IPlayerListLengthListener> value;
+public sealed class PlayerModeButtonsEnabledListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<IPlayerModeButtonsEnabledListener> value;
 }

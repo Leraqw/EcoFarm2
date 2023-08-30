@@ -1,16 +1,10 @@
-﻿using System.Linq;
-using Entitas;
-using static PlayerMatcher;
-
-namespace EcoFarm
+﻿namespace EcoFarm
 {
     public class ButtonEditReceiver : BaseButtonClickReceiver
     {
         protected override void OnButtonClick()
         {
-            var entity = Contexts.sharedInstance.player
-                .GetEntities(EditMode)
-                .First();
+            var entity = Contexts.sharedInstance.player.editModeEntity;
             entity.ReplaceEditMode(true);
             entity.ReplaceInteractable(false);
         }

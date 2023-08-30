@@ -1,32 +1,38 @@
-﻿using Entitas;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace EcoFarm
 {
-	public class PlayerModeButtons : MonoBehaviour, IModeButtonsListener
-	{
-		[field: SerializeField] public BaseButtonClickReceiver PlayerToChooseReceiver { get; set; }
-		[field: SerializeField] public BaseButtonClickReceiver PlayerToEditReceiver   { get; set; }
+    [Serializable]
+    public class PlayerModeButtons : IPlayerModeButtonsEnabledListener
+    {
+        [field: SerializeField] public BaseButtonClickReceiver PlayerToChooseReceiver { get; private set; }
+        [field: SerializeField] public BaseButtonClickReceiver PlayerToEditReceiver { get; private set; }
+        [SerializeField] private Color _editModeSelectedButtonColor;
 
-		private void Start()
-			=> Contexts.sharedInstance.game
-			           .GetEntities(GameMatcher.ModeButtons)
-			           .ForEach(e => e.AddModeButtonsListener(this));
+        public void Register(PlayerEntity entity)
+        {
+            entity.AddPlayerModeButtonsEnabledListener(this);
 
-		public void OnModeButtons(GameEntity entity, EnabledReceivers enabled, ColorBlock value)
-		{
-			SetButtonReceiverData(PlayerToChooseReceiver, enabled.PlayerToChoose, value);
-			SetButtonReceiverData(PlayerToEditReceiver, enabled.PlayerToEdit, value);
-		}
+            if (entity.hasEditMode)
+                OnPlayerModeButtonsEnabled(entity, entity.editMode.Value);
+        }
 
-		private static void SetButtonReceiverData(BaseButtonClickReceiver receiver, bool enabled, ColorBlock colors)
-		{
-			if (receiver != null)
-			{
-				receiver.enabled = enabled;
-				receiver.Button.colors = colors;
-			}
-		}
-	}
+        public void OnPlayerModeButtonsEnabled(PlayerEntity entity, bool value)
+        {
+            SetButtonReceiverData(PlayerToChooseReceiver, !value);
+            SetButtonReceiverData(PlayerToEditReceiver, value);
+        }
+
+        private void SetButtonReceiverData(BaseButtonClickReceiver receiver, bool enabled)
+        {
+            receiver.enabled = enabled;
+
+            var colors = receiver.Button.colors;
+            var selectedColor = enabled ? _editModeSelectedButtonColor : colors.selectedColor;
+
+            colors.selectedColor = selectedColor;
+            receiver.Button.colors = colors;
+        }
+    }
 }

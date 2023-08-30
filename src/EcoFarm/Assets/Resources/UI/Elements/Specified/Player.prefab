@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 6990952128768807873}
   - component: {fileID: 1343498409546176822}
   - component: {fileID: 572332236841881317}
-  - component: {fileID: 6458297009379502945}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -204,23 +203,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 4053838945677730353}
   _nickname: {fileID: 2359793845834655781}
+  <PlayerModeButtons>k__BackingField:
+    <PlayerToChooseReceiver>k__BackingField: {fileID: 5466659192538460048}
+    <PlayerToEditReceiver>k__BackingField: {fileID: 3300765976854267738}
+    _editModeSelectedButtonColor: {r: 0.7169812, g: 0.10416517, b: 0.180117, a: 0.79607844}
   <Player>k__BackingField:
     <Nickname>k__BackingField: 
     <CompletedLevelsCount>k__BackingField: 0
---- !u!114 &6458297009379502945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990952128768807887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde27db1426a4e1b95c6c849c1394c46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PlayerToChooseReceiver>k__BackingField: {fileID: 5466659192538460048}
-  <PlayerToEditReceiver>k__BackingField: {fileID: 3300765976854267738}
 --- !u!1001 &960267124030077711
 PrefabInstance:
   m_ObjectHideFlags: 0

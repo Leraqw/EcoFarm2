@@ -13,13 +13,7 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   <Players>k__BackingField:
-  - <Nickname>k__BackingField: "\u041B\u0451\u043B\u0435\u043A"
+  - <Nickname>k__BackingField: lala
     <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: Katya
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: Lera
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: Kola
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: "\u0411\u043E\u043B\u0435\u043A"
-    <CompletedLevelsCount>k__BackingField: 0
+  - <Nickname>k__BackingField: lslsls
+    <CompletedLevelsCount>k__BackingField: 2

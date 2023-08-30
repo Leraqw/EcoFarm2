@@ -1,30 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Entitas;
-using static PlayerMatcher;
+﻿using Entitas;
+using Zenject;
 
 namespace EcoFarm
 {
-    public class ShowGreetingSystem : ReactiveSystem<PlayerEntity>
+    public class ShowGreetingSystem : IExecuteSystem
     {
-        public ShowGreetingSystem(Contexts contexts) : base(contexts.player)
+        private static GameEntity Greeting => Contexts.sharedInstance.game.greetingNicknameEntity;
+
+        public void Execute()
         {
-        }
+            var player = Contexts.sharedInstance.player.currentPlayerEntity;
 
-        protected override ICollector<PlayerEntity> GetTrigger(IContext<PlayerEntity> context)
-            => context.CreateCollector(Nickname);
-
-        protected override bool Filter(PlayerEntity entity) => entity.hasNickname;
-
-        protected override void Execute(List<PlayerEntity> entities) => entities.ForEach(ReplaceGreetingNickname);
-
-        private static void ReplaceGreetingNickname(PlayerEntity player)
-        {
-            var greeting = Contexts.sharedInstance.game.GetEntities(GameMatcher.GreetingNickname).First();
-
-            greeting.ReplaceGreetingNickname("Привет, " + player.nickname.Value);
-
-            greeting.view.Value.SetActive(true);
+            if (player.hasNickname)
+            {
+                Greeting.ReplaceGreetingNickname("Привет, " + player.nickname.Value);
+                Greeting.view.Value.SetActive(true);
+            }
+            else
+            {
+                Greeting.view.Value.SetActive(false);
+            }
         }
     }
 }

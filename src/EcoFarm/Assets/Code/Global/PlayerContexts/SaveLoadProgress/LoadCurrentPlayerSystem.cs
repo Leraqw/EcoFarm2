@@ -17,6 +17,7 @@ namespace EcoFarm
 			e.isPlayer = true;
 			e.isCurrentPlayer = true;
 			e.AddSessionResult(SessionResult.None);
+			e.isNotDestroy = true;
 		}
 	}
 }

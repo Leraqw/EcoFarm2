@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class PlayerListLengthEventSystem : Entitas.ReactiveSystem<PlayerEntity> {
+public sealed class PlayerModeButtonsEnabledEventSystem : Entitas.ReactiveSystem<PlayerEntity> {
 
-    readonly System.Collections.Generic.List<IPlayerListLengthListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IPlayerModeButtonsEnabledListener> _listenerBuffer;
 
-    public PlayerListLengthEventSystem(Contexts contexts) : base(contexts.player) {
-        _listenerBuffer = new System.Collections.Generic.List<IPlayerListLengthListener>();
+    public PlayerModeButtonsEnabledEventSystem(Contexts contexts) : base(contexts.player) {
+        _listenerBuffer = new System.Collections.Generic.List<IPlayerModeButtonsEnabledListener>();
     }
 
     protected override Entitas.ICollector<PlayerEntity> GetTrigger(Entitas.IContext<PlayerEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(PlayerMatcher.PlayerListLength)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(PlayerMatcher.PlayerModeButtonsEnabled)
         );
     }
 
     protected override bool Filter(PlayerEntity entity) {
-        return entity.hasPlayerListLength && entity.hasPlayerListLengthListener;
+        return entity.hasPlayerModeButtonsEnabled && entity.hasPlayerModeButtonsEnabledListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<PlayerEntity> entities) {
         foreach (var e in entities) {
-            var component = e.playerListLength;
+            var component = e.playerModeButtonsEnabled;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.playerListLengthListener.value);
+            _listenerBuffer.AddRange(e.playerModeButtonsEnabledListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnPlayerListLength(e, component.Value);
+                listener.OnPlayerModeButtonsEnabled(e, component.Value);
             }
         }
     }

@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class PlayerEntity {
 
-    static readonly EcoFarm.ToChangeDataComponent toChangeDataComponent = new EcoFarm.ToChangeDataComponent();
+    static readonly EcoFarm.NotDestroyComponent notDestroyComponent = new EcoFarm.NotDestroyComponent();
 
-    public bool isToChangeData {
-        get { return HasComponent(PlayerComponentsLookup.ToChangeData); }
+    public bool isNotDestroy {
+        get { return HasComponent(PlayerComponentsLookup.NotDestroy); }
         set {
-            if (value != isToChangeData) {
-                var index = PlayerComponentsLookup.ToChangeData;
+            if (value != isNotDestroy) {
+                var index = PlayerComponentsLookup.NotDestroy;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : toChangeDataComponent;
+                            : notDestroyComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class PlayerEntity {
 //------------------------------------------------------------------------------
 public sealed partial class PlayerMatcher {
 
-    static Entitas.IMatcher<PlayerEntity> _matcherToChangeData;
+    static Entitas.IMatcher<PlayerEntity> _matcherNotDestroy;
 
-    public static Entitas.IMatcher<PlayerEntity> ToChangeData {
+    public static Entitas.IMatcher<PlayerEntity> NotDestroy {
         get {
-            if (_matcherToChangeData == null) {
-                var matcher = (Entitas.Matcher<PlayerEntity>)Entitas.Matcher<PlayerEntity>.AllOf(PlayerComponentsLookup.ToChangeData);
+            if (_matcherNotDestroy == null) {
+                var matcher = (Entitas.Matcher<PlayerEntity>)Entitas.Matcher<PlayerEntity>.AllOf(PlayerComponentsLookup.NotDestroy);
                 matcher.componentNames = PlayerComponentsLookup.componentNames;
-                _matcherToChangeData = matcher;
+                _matcherNotDestroy = matcher;
             }
 
-            return _matcherToChangeData;
+            return _matcherNotDestroy;
         }
     }
 }

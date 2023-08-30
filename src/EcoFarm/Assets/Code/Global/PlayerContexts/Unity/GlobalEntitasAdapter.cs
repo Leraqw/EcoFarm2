@@ -8,10 +8,7 @@ namespace EcoFarm
 		private GlobalSystems _systems;
 
 		[Inject]
-		public void Construct(GlobalSystems systems)
-		{
-			_systems = systems;
-		}
+		public void Construct(GlobalSystems systems) => _systems = systems;
 
 		private void Start()
 		{
