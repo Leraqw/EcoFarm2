@@ -29,6 +29,7 @@ namespace EcoFarm
         private void Save(PlayerEntity entity)
         {
             var currentLevel = Player.selectedLevel.Value + 1;
+            
             if (currentLevel > Player.completedLevelsCount.Value)
             {
                 Player.ReplaceCompletedLevelsCount(currentLevel);

@@ -20,11 +20,7 @@ namespace EcoFarm
 
         private IEnumerable<Player> Players => _dataProvider.PlayersList.Players;
 
-        public void Initialize()
-        {
-            _entity = _context.currentPlayerEntity;
-            _entity.ReplaceCompletedLevelsCount(Players.First().CompletedLevelsCount);
-        }
+        public void Initialize() => _entity = _context.currentPlayerEntity;
 
         public void Execute()
         {
@@ -37,6 +33,7 @@ namespace EcoFarm
             }
 
             _entity.ReplaceNickname(Players.First().Nickname);
+            _entity.ReplaceCompletedLevelsCount(Players.First().CompletedLevelsCount);
         }
     }
 }
