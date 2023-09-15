@@ -79,8 +79,8 @@ namespace EcoFarm
 
 		private void RelativeGeneratorView(GameEntity generator)
 			=> generator
-			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(WindmillName))
-			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(WaterCleanerName));
+			   .Do(SetPrefab(Resource.Prefab.Windmill), @if: generator.GeneratorIs(ItemName.Windmill))
+			   .Do(SetPrefab(Resource.Prefab.WaterCleaner), @if: generator.GeneratorIs(ItemName.WaterCleaner));
 
 		private static Action<GameEntity> SetPrefab(GameObject prefab) => (e) => e.ReplaceViewPrefab(prefab);
 
@@ -88,8 +88,8 @@ namespace EcoFarm
 			=> entity
 			   .Do((e) => e.AddProduceResource(e.GetGeneratorResource().consumable.Value))
 			   .Do((e) => e.AddEfficiencyCoefficient(e.generator.Value.EfficiencyCoefficient))
-			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(WindmillName))
-			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(WaterCleanerName));
+			   .Do(InitializeAsWindmill, @if: (e) => e.GeneratorIs(ItemName.Windmill))
+			   .Do(InitializeAsWaterCleaner, @if: (e) => e.GeneratorIs(ItemName.WaterCleaner));
 
 		private void InitializeAsWaterCleaner(GameEntity e)
 		{

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160089dc69d4a3b87fce0c35b517161, type: 3}
   m_Name: Widmill
   m_EditorClassIdentifier: 
-  <Title>k__BackingField: "\u0412\u0435\u0442\u0440\u043E\u0433\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440"
+  <Title>k__BackingField: 1
   <Description>k__BackingField: "\u0412\u044B\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442
     \u044D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u0442\u0432\u043E"
   <Price>k__BackingField: 25

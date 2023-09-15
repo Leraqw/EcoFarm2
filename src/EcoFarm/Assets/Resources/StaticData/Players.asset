@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   <Players>k__BackingField:
-  - <Nickname>k__BackingField: blabla
-    <CompletedLevelsCount>k__BackingField: 0
-  - <Nickname>k__BackingField: lalala
-    <CompletedLevelsCount>k__BackingField: 0
   - <Nickname>k__BackingField: lera
-    <CompletedLevelsCount>k__BackingField: 0
+    <CompletedLevelsCount>k__BackingField: 1
+  - <Nickname>k__BackingField: lalala
+    <CompletedLevelsCount>k__BackingField: 1
+  - <Nickname>k__BackingField: blabla
+    <CompletedLevelsCount>k__BackingField: 3

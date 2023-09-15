@@ -13,7 +13,7 @@ namespace EcoFarm
 			=> context.CreateCollector(GameMatcher.InventoryItem);
 
 		protected override bool Filter(GameEntity entity)
-			=> entity.inventoryItem.Value.Name == Constants.CoinItemName;
+			=> entity.inventoryItem.Value.Name == ItemName.CoinItem;
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(e => e.isCoin = true);
 	}

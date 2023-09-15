@@ -34,6 +34,7 @@ namespace EcoFarm
         private void MovePlayerToTop(IList<Player> playerList, Player player)
         {
             var index = _dataProvider.PlayersList.Players.FindIndex(p => p.Equals(player));
+            
             if (index != -1)
             {
                 playerList.RemoveAt(index);
