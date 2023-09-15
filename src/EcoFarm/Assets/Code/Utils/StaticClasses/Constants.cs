@@ -10,12 +10,6 @@ namespace EcoFarm
 		public static Vector2 ProductsOffset => new(-0.1f, -0.1f);
 		public const int FactoryPollution = 25;
 
-		public const string CoinItemName = "Монета";
-		public const string WindmillName = "Ветрогенератор";
-		public const string WaterCleanerName = "Водоочистная станция";
-		public const string ElectricityName = "Электричество";
-		public const string WaterName = "Вода";
-
 		public static class SpriteHigh
 		{
 			public const float DeltaStep = 0.05f;

@@ -6,10 +6,10 @@ namespace EcoFarm
 	[Serializable]
 	public class Item
 	{
-		[field: SerializeField] public string Name  { get; private set; }
+		[field: SerializeField] public ItemName Name  { get; private set; }
 		[field: SerializeField] public int    Count { get; set; }
 
-		public Item(string name)
+		public Item(ItemName name)
 		{
 			Name = name;
 			Count = 0;

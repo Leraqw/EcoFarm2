@@ -33,8 +33,8 @@ namespace EcoFarm
 			=> _gameEntityFactory.Create()
 			            .Do((e) => e.AddDebugName($"Resource – {resource.Title}"))
 			            .Do((e) => e.AddResource(resource))
-			            .Do(InitializeEnergy, @if: resource.Title == Constants.ElectricityName)
-			            .Do(InitializeWater, @if: resource.Title == Constants.WaterName);
+			            .Do(InitializeEnergy, @if: resource.Title == ItemName.Electricity)
+			            .Do(InitializeWater, @if: resource.Title == ItemName.Water);
 
 		private void InitializeEnergy(GameEntity entity)
 			=> entity

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02541463e4b84e0baf56922c231774e2, type: 3}
   m_Name: AppleJuice
   m_EditorClassIdentifier: 
-  <Title>k__BackingField: "\u042F\u0431\u043B\u043E\u0447\u043D\u044B\u0439 \u0441\u043E\u043A"
+  <Title>k__BackingField: 7
   <Description>k__BackingField: "\u0421\u0434\u0435\u043B\u0430\u043D \u0438\u0437
     \u044F\u0431\u043B\u043E\u043A"
   <Price>k__BackingField: 15
