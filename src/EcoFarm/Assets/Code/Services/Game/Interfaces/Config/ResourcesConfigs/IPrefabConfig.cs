@@ -5,7 +5,9 @@ namespace EcoFarm
 	public interface IPrefabConfig
 	{
 		GameObject Apple        { get; }
-		GameObject Tree         { get; }
+		GameObject Pear        { get; }
+		GameObject AppleTree    { get; }
+		GameObject PearTree    { get; }
 		GameObject BedPlug      { get; }
 		GameObject Warehouse    { get; }
 		GameObject Crane        { get; }

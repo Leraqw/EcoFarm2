@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace EcoFarm
@@ -14,7 +15,7 @@ namespace EcoFarm
 			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(SellDeal, Count));
+			=> context.CreateCollector(AllOf(SellDeal, Count, GameMatcher.Product));
         
 		private GameEntity Inventory => _contexts.game.inventoryEntity;
 
@@ -22,7 +23,7 @@ namespace EcoFarm
 
 		protected override void Execute(List<GameEntity> entites) => entites.ForEach(IncreaseCoinsCount);
 
-		private void IncreaseCoinsCount(GameEntity deal)
+		private void IncreaseCoinsCount(GameEntity deal) 
 			=> Inventory.IncreaseCoinsCount(deal.count.Value * deal.product.Value.Price);
 	}
 }

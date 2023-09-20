@@ -16,8 +16,7 @@ namespace EcoFarm
 
 		private static void Grow(GameEntity entity) => entity.IncreaseProportionalScale(GetNextScale(entity));
 
-		private static float GetNextScale(GameEntity entity)
-			=> CalculateStep(entity) * Time.deltaTime;
+		private static float GetNextScale(GameEntity entity) => CalculateStep(entity) * Time.deltaTime;
 
 		private static float CalculateStep(GameEntity entity) => ScalesDifference(entity) / entity.duration.Value;
 

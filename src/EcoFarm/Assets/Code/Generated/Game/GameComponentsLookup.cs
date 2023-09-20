@@ -80,71 +80,72 @@ public static class GameComponentsLookup {
     public const int Prepared = 69;
     public const int ProduceResource = 70;
     public const int Product = 71;
-    public const int ProgressBar = 72;
-    public const int ProportionalScale = 73;
-    public const int Radius = 74;
-    public const int Ready = 75;
-    public const int Renew = 76;
-    public const int RenewPrice = 77;
-    public const int RequirePreparation = 78;
-    public const int RequireProduct = 79;
-    public const int RequireSprite = 80;
-    public const int RequireTreeOnPosition = 81;
-    public const int RequireView = 82;
-    public const int Resource = 83;
-    public const int Rotation = 84;
-    public const int RotationSpeed = 85;
-    public const int SellCoefficient = 86;
-    public const int SellDeal = 87;
-    public const int SellWindow = 88;
-    public const int Sign = 89;
-    public const int SliderMaxValue = 90;
-    public const int SliderValue = 91;
-    public const int SpawnPosition = 92;
-    public const int Spinner = 93;
-    public const int Sprite = 94;
-    public const int SpriteHigh = 95;
-    public const int SpriteToLoad = 96;
-    public const int Storage = 97;
-    public const int TargetActivity = 98;
-    public const int TargetPosition = 99;
-    public const int TargetScale = 100;
-    public const int Text = 101;
-    public const int Toggled = 102;
-    public const int Tree = 103;
-    public const int UiElement = 104;
-    public const int UiParent = 105;
-    public const int Used = 106;
-    public const int View = 107;
-    public const int ViewPrefab = 108;
-    public const int Watered = 109;
-    public const int Watering = 110;
-    public const int WaterResource = 111;
-    public const int WillFall = 112;
-    public const int Window = 113;
-    public const int Working = 114;
-    public const int FactoryListener = 115;
-    public const int GameTextListener = 116;
-    public const int GeneratorListener = 117;
-    public const int GoalCompletedListener = 118;
-    public const int GoalListener = 119;
-    public const int GreetingNicknameListener = 120;
-    public const int InventoryItemListener = 121;
-    public const int MaterialListener = 122;
-    public const int ModalWindowDataListener = 123;
-    public const int ModalWindowListener = 124;
-    public const int PlayerToChooseListener = 125;
-    public const int PositionListener = 126;
-    public const int ProgressBarListener = 127;
-    public const int ProportionalScaleListener = 128;
-    public const int RotationListener = 129;
-    public const int SliderMaxValueListener = 130;
-    public const int SliderValueListener = 131;
-    public const int SpriteHighListener = 132;
-    public const int SpriteListener = 133;
-    public const int WateringListener = 134;
+    public const int ProductType = 72;
+    public const int ProgressBar = 73;
+    public const int ProportionalScale = 74;
+    public const int Radius = 75;
+    public const int Ready = 76;
+    public const int Renew = 77;
+    public const int RenewPrice = 78;
+    public const int RequirePreparation = 79;
+    public const int RequireProduct = 80;
+    public const int RequireSprite = 81;
+    public const int RequireTreeOnPosition = 82;
+    public const int RequireView = 83;
+    public const int Resource = 84;
+    public const int Rotation = 85;
+    public const int RotationSpeed = 86;
+    public const int SellCoefficient = 87;
+    public const int SellDeal = 88;
+    public const int SellWindow = 89;
+    public const int Sign = 90;
+    public const int SliderMaxValue = 91;
+    public const int SliderValue = 92;
+    public const int SpawnPosition = 93;
+    public const int Spinner = 94;
+    public const int Sprite = 95;
+    public const int SpriteHigh = 96;
+    public const int SpriteToLoad = 97;
+    public const int Storage = 98;
+    public const int TargetActivity = 99;
+    public const int TargetPosition = 100;
+    public const int TargetScale = 101;
+    public const int Text = 102;
+    public const int Toggled = 103;
+    public const int Tree = 104;
+    public const int UiElement = 105;
+    public const int UiParent = 106;
+    public const int Used = 107;
+    public const int View = 108;
+    public const int ViewPrefab = 109;
+    public const int Watered = 110;
+    public const int Watering = 111;
+    public const int WaterResource = 112;
+    public const int WillFall = 113;
+    public const int Window = 114;
+    public const int Working = 115;
+    public const int FactoryListener = 116;
+    public const int GameTextListener = 117;
+    public const int GeneratorListener = 118;
+    public const int GoalCompletedListener = 119;
+    public const int GoalListener = 120;
+    public const int GreetingNicknameListener = 121;
+    public const int InventoryItemListener = 122;
+    public const int MaterialListener = 123;
+    public const int ModalWindowDataListener = 124;
+    public const int ModalWindowListener = 125;
+    public const int PlayerToChooseListener = 126;
+    public const int PositionListener = 127;
+    public const int ProgressBarListener = 128;
+    public const int ProportionalScaleListener = 129;
+    public const int RotationListener = 130;
+    public const int SliderMaxValueListener = 131;
+    public const int SliderValueListener = 132;
+    public const int SpriteHighListener = 133;
+    public const int SpriteListener = 134;
+    public const int WateringListener = 135;
 
-    public const int TotalComponents = 135;
+    public const int TotalComponents = 136;
 
     public static readonly string[] componentNames = {
         "ActivateListener",
@@ -219,6 +220,7 @@ public static class GameComponentsLookup {
         "Prepared",
         "ProduceResource",
         "Product",
+        "ProductType",
         "ProgressBar",
         "ProportionalScale",
         "Radius",
@@ -357,6 +359,7 @@ public static class GameComponentsLookup {
         typeof(EcoFarm.PreparedComponent),
         typeof(EcoFarm.ProduceResourceComponent),
         typeof(EcoFarm.ProductComponent),
+        typeof(EcoFarm.ProductTypeComponent),
         typeof(EcoFarm.ProgressBarComponent),
         typeof(EcoFarm.ProportionalScaleComponent),
         typeof(EcoFarm.RadiusComponent),

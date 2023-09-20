@@ -8,7 +8,8 @@
         Electricity,
         Water,
         Apple,
-        AppleJuiceFactory,
-        AppleJuice,
+       // AppleJuiceFactory,
+       // AppleJuice,
+        Pear
     }
 }
