@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbf6a870bade4b5b8df87e5c4859369d, type: 3}
-  m_Name: AppleTree
+  m_Name: PearTree
   m_EditorClassIdentifier: 
-  <Title>k__BackingField: 5
+  <Title>k__BackingField: 6
   <Description>k__BackingField: "\u041D\u0430 \u043D\u0435\u0439 \u0440\u0430\u0441\u0442\u0443\u0442
-    \u044F\u0431\u043B\u043E\u043A\u0438"
+    \u0433\u0440\u0443\u0448\u0438"
   <Price>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8fe4770d1652af84d9565a26411a841f, type: 3}
-  <Product>k__BackingField: {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b459d9db9057c6a4fa474d7589da52cc, type: 3}
+  <Product>k__BackingField: {fileID: 11400000, guid: e4a007302d266ec49a89150dd25c3af6, type: 2}

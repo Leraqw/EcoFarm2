@@ -8,7 +8,9 @@ namespace EcoFarm
 	public class PrefabConfig : IPrefabConfig
 	{
 		[field: SerializeField] public GameObject Apple        { get; private set; }
-		[field: SerializeField] public GameObject Tree         { get; private set; }
+		[field: SerializeField] public GameObject Pear        { get; private set; }
+		[field: SerializeField] public GameObject AppleTree         { get; private set; }
+		[field: SerializeField] public GameObject PearTree         { get; private set; }
 		[field: SerializeField] public GameObject BedPlug      { get; private set; }
 		[field: SerializeField] public GameObject Warehouse    { get; private set; }
 		[field: SerializeField] public GameObject Crane        { get; private set; }

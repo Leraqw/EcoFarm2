@@ -6,6 +6,7 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace EcoFarm
 {
+	[Game] public sealed class ProductTypeComponent : IComponent { public ItemName Value; }
 	[Game] public sealed class RequireTreeOnPositionComponent : IComponent { public Vector2 Value; }
 
 	[Game] public sealed class FruitfulComponent : IComponent { }
