@@ -19,46 +19,55 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52ec3837401f2061c9f628e3a5580919, type: 2}
   - {fileID: 11400000, guid: fdd5d159037cedb12b038b8d4a8c578e, type: 2}
   - {fileID: 11400000, guid: 740cbd6fe2b1f7643883c1bcd72dab13, type: 2}
+  - {fileID: 11400000, guid: e4a007302d266ec49a89150dd25c3af6, type: 2}
   <Levels>k__BackingField:
   - <Order>k__BackingField: 1
-    <TreesCount>k__BackingField: 9
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 120
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: bd34f5c235081d4098d236ca394d3680, type: 2}
   - <Order>k__BackingField: 2
-    <TreesCount>k__BackingField: 6
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 120
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: a791f75a4092a6da89d37702355c4630, type: 2}
   - <Order>k__BackingField: 3
-    <TreesCount>k__BackingField: 6
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 500
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: 6b2521040a029e3fdb2d0540a68d580d, type: 2}
     - {fileID: 11400000, guid: 9d1c1a1081026d7d08ae23751fbac189, type: 2}
   - <Order>k__BackingField: 4
-    <TreesCount>k__BackingField: 5
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 270
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: dc01181e85cfe9528bc212f2b80d3cd9, type: 2}
   - <Order>k__BackingField: 5
-    <TreesCount>k__BackingField: 7
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 220
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: 4b2ab809172c439999a6c1ba0e197b53, type: 2}
   - <Order>k__BackingField: 6
-    <TreesCount>k__BackingField: 7
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 220
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: d41c0b28861cff7979dc68368a5512cc, type: 2}
     - {fileID: 11400000, guid: d96183891d9824f73abe1867c6857d5f, type: 2}
   - <Order>k__BackingField: 7
-    <TreesCount>k__BackingField: 7
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 220
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: 054fd9922078fa695b3b317198d6d0b8, type: 2}
   - <Order>k__BackingField: 8
-    <TreesCount>k__BackingField: 5
+    <AppleTreesCount>k__BackingField: 6
+    <PearTreesCount>k__BackingField: 3
     <SecondsForLevel>k__BackingField: 360
     <Goals>k__BackingField:
     - {fileID: 11400000, guid: 6b2521040a029e3fdb2d0540a68d580d, type: 2}
@@ -66,6 +75,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a76ef0b472bccdaa4a501ba93a95dd8a, type: 2}
   <Trees>k__BackingField:
   - {fileID: 11400000, guid: bbb93dcca732c23cd9a5707f398e2a38, type: 2}
+  - {fileID: 11400000, guid: aa62bd52d99d47a48bedf97c038fe799, type: 2}
   <Buildings>k__BackingField:
   - {fileID: 11400000, guid: 3f46996a9ba221066ba056aef222d2e6, type: 2}
   - {fileID: 11400000, guid: 34920e06b3e8eaa78b1ae549fc083d51, type: 2}

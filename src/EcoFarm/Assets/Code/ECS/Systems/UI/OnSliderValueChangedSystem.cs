@@ -1,33 +1,25 @@
 ﻿using System.Collections.Generic;
-
 using Entitas;
+using UnityEngine;
 using static System.Globalization.CultureInfo;
 using static GameMatcher;
 
 namespace EcoFarm
 {
-	public sealed class OnSliderValueChangedSystem : ReactiveSystem<GameEntity>
-	{
-		private readonly IGroup<GameEntity> _sliderValueViews;
+    public sealed class OnSliderValueChangedSystem : IExecuteSystem
+    {
+        private readonly IGroup<GameEntity> _sliderValueViews;
 
-		public OnSliderValueChangedSystem(Contexts contexts)
-			: base(contexts.game)
-			=> _sliderValueViews = contexts.game.GetGroup(AllOf(Text, SellCoefficient));
+        public OnSliderValueChangedSystem(Contexts contexts)
+            => _sliderValueViews = contexts.game.GetGroup(AllOf(Text, SellCoefficient));
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(SliderValue);
+        public void Execute() => Contexts.sharedInstance.game.GetEntities(SliderValue).ForEach(Sync);
 
-		protected override bool Filter(GameEntity entity) => true;
+        private void Sync(GameEntity slider)
+            => _sliderValueViews.ForEach((view) => view.ReplaceText(Format(view, slider.sliderValue.Value)));
 
-		protected override void Execute(List<GameEntity> entites) => entites.ForEach(Sync);
+        private static string Format(GameEntity e, float value) => Scale(e, value).ToString(InvariantCulture);
 
-		private void Sync(GameEntity slider)
-			=> _sliderValueViews.ForEach((view) => Update(view, slider.sliderValue.Value));
-
-		private void Update(GameEntity textMesh, float value) => textMesh.ReplaceText(Format(textMesh, value));
-
-		private static string Format(GameEntity view, float value) => Scale(view, value).ToString(InvariantCulture);
-
-		private static float Scale(GameEntity view, float value) => value * view.sellCoefficient.Value;
-	}
+        private static float Scale(GameEntity e, float value) => value * e.sellCoefficient.Value;
+    }
 }

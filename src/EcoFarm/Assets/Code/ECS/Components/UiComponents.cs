@@ -12,7 +12,7 @@ namespace EcoFarm
 	[Game] public sealed class BuildWindowComponent : IComponent { public WindowScroll Value; }
 	[Game] public sealed class TargetActivityComponent : IComponent { public bool Value; }
 	[Game] [Event(Self)] public sealed class SliderMaxValueComponent : IComponent { public float Value; }
-	[Game] [Event(Self)] public sealed class SliderValueComponent : IComponent { public float Value; }
+	[Game] [Unique] [Event(Self)] public sealed class SliderValueComponent : IComponent { public float Value; }
 	[Game] public sealed class RequirePreparationComponent : IComponent { }
 	[Game] public sealed class PreparationInProcessComponent : IComponent { }
 	[Game] public sealed class PreparedComponent : IComponent { }

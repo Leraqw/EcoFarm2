@@ -9,7 +9,6 @@
 			Add<SyncCoinItemCountSystem>();
 			Add<SubtractSoldApplesSystem>();
 			Add<DeactivateDealSystem>();
-			Add<ActualizeCountToSellSliderMaxValueSystem>();
 
 			// TODO: GoalsSystems
 			Add<CheckGoalsByProductSystem>();
